@@ -1,0 +1,376 @@
+/**
+ * Styling for indexes of articles/jobs/other
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+
+/**
+ * Layout
+ */
+
+.listing {
+	margin: @line 0;
+}
+
+
+/**
+ * Lists of articles
+ */
+
+/* The icons */
+
+.listing article,
+.mini-listing li {
+
+	/* Icon font */
+
+	&.text,
+	&.quote,
+	&.link,
+	&.course,
+	&.job,
+	&.award,
+	&.project,
+	&.website,
+	&.page,
+	&.tip {
+
+		&:before {
+			font-family: @font-family-icons;
+		}
+
+	}
+
+	/* The icons chosen per post-format */
+
+	&.text:before    { content: "✎"; }
+	&.quote:before   { content: "❞"; }
+	&.link:before    { content: "🔗"; }
+	&.course:before  { content: "🎓"; }
+	&.job:before     { content: "💼"; }
+	&.award:before   { content: "🏆"; }
+	&.project:before { content: "⚒"; }
+	&.website:before { content: ""; }
+	&.page:before    { content: "📰"; }
+	&.tip:before    { content: "💡"; }
+
+	/* Hide icons for illustrated articles */
+
+	&.illustrated:before {
+		display: none;
+	}
+
+}
+
+
+/**
+ * Full-size lists of articles (eg blog index)
+ */
+
+.listing article {
+	margin-bottom: (@line * 2);
+
+	/* Icons - all formats */
+
+	&.text,
+	&.quote,
+	&.link,
+	&.course,
+	&.job,
+	&.award,
+	&.project,
+	&.tip {
+		.circle-box(@background-color);
+
+		&:before {
+			color: @background-color;
+		}
+
+	}
+
+	/* Quote post styling */
+	&.quote {
+
+		figure.quote {
+			margin-bottom: 0;
+			padding: 0;
+			background-color: transparent;
+		}
+
+	}
+
+	/* Link post styling */
+	&.link {
+
+		/* Make direct link box flush with footer top */
+		.content {
+			padding-bottom: 0;
+		}
+
+	}
+
+}
+
+
+/**
+ * Smaller listings in footer
+ */
+
+footer .listing {
+
+	/* Column heading */
+
+	> h2 {
+		margin-top: 0;
+		padding-bottom: (@line-large / 2);
+	}
+
+	/* The main article */
+
+	> article {
+		display: none; // hidden at narrow screen sizes
+		margin-bottom: @line;
+		background-color: transparent;
+
+		/* Icon */
+
+		&:before {
+			color: @background-color-page-footer !important;
+			border-color: @background-color-page-footer !important;
+		}
+
+		/* Header area */
+
+		.title {
+			padding: @line 0;
+		}
+
+		h1 {
+			font-size: @font-size-large;
+			line-height: @line-height-large;
+			padding: 0;
+		}
+
+		/* Footer area */
+
+		footer {
+			text-align: center;
+			min-height: @line; // override min-height
+			padding: (@line / 2);
+			background-color: @background-color-content;
+
+			.permalink {
+
+				position: static;
+				display: inline;
+				margin: 0;
+
+			}
+
+		}
+
+	}
+
+	/* Larger first article for wider screens */
+
+	.breakpoint2({
+
+		// Featured article
+
+		> article {
+			display: block;
+		}
+
+		// Hide first entry in mini articles list
+
+		li:first-child {
+			display: none;
+		}
+
+	});
+
+}
+
+
+/**
+ * Mini lists of articles (e.g. in page footers)
+ */
+
+.mini-listing {
+
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	/* Article containers */
+
+	li {
+
+		margin: (@line-small / 2) 0;
+		font-size: @font-size-small;
+		line-height: @line-height-small;
+
+		/* Icons */
+
+		&.text,
+		&.quote,
+		&.link,
+		&.course,
+		&.job,
+		&.award,
+		&.project,
+		&.website,
+		&.page,
+		&.tip {
+			&:before {
+				padding-right: 0.5em;
+			}
+		}
+
+		/* Colours */
+
+		&.text span,
+		&.text:before {
+			color: @color-article;
+		}
+		&.tip span,
+		&.tip:before {
+			color: @color-tip;
+		}
+		&.quote span,
+		&.quote:before {
+			color: @color-quote;
+		}
+		&.link span,
+		&.link:before {
+			color: @color-link;
+		}
+		&.course span,
+		&.course:before {
+			color: @color-course;
+		}
+		&.job span,
+		&.job:before {
+			color: @color-job;
+		}
+		&.award span,
+		&.award:before {
+			color: @color-award;
+		}
+		&.project span,
+		&.project:before {
+			color: @color-project;
+		}
+		&.website span,
+		&.website:before {
+			color: @color-website;
+		}
+		&.page span,
+		&.page:before {
+			color: @color-page;
+		}
+
+	}
+
+	a {
+
+	}
+
+}
+
+
+/**
+ * Portfolio listing
+ */
+
+/* Individual entries in the portfolio */
+
+.portfolio .website {
+
+	/* Get rid of icons */
+
+	&:before {
+		display: none;
+	}
+
+	/* Screenshots */
+
+	.content {
+		position: relative;
+		width: 100%;
+		padding: (@line * 2) 0 0;
+	}
+
+	/* The 'browser window' graphic */
+
+	.screenshot.large {
+		display: none;
+		position: relative;
+		width: 750px;
+		height: 552px;
+		left: 50%;
+		margin-left: -375px;
+		padding-top: 48px;
+		background: url("/img/browser.png") center top no-repeat;
+		text-align: center;
+
+		/* Only show large screenshot on wider browsers */
+
+		@media (min-width: 800px) {
+			display: block;
+		}
+	}
+
+	/* The mobile 'browser window' */
+
+	.screenshot.small {
+		position: relative;
+		left: 50%;
+		margin-left: -160px;
+		width: 320px;
+		height: 451px;
+		padding-top: 50px;
+		background: url("/img/browser-mobile.png") center top no-repeat;
+		text-align: center;
+
+	}
+
+	/* Layout for two screenshots side-by-side */
+
+	@media (min-width: 800px) {
+
+		.content {
+			padding-bottom: (@line * 2);
+		}
+
+		.screenshot.large {
+			display: block;
+		}
+
+		.screenshot.small {
+			position: absolute;
+			bottom: 0;
+			left: auto;
+			right: @line;
+			margin-left: 0;
+		}
+
+	}
+
+
+	/* Site title */
+
+	h3 {
+
+		margin: 0;
+		position: absolute;
+		top: @line;
+		width: 100%;
+		color: @text-color;
+		text-align: center;
+
+	}
+
+}

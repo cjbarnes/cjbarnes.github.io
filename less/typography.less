@@ -1,0 +1,597 @@
+/**
+ * Basic typography
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+/**
+ * Base
+ */
+
+html {
+	font-size: 100.01%;
+}
+
+body {
+	color: @text-color;
+	font: @font-weight @body-text/@line-height @font-family-brand;
+	word-wrap: break-word;
+
+	/* Type aliasing */
+	text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+/* Remove all *bold* formatting */
+
+b,
+strong,
+h1, h2, h3, h4, h5, h6,
+th,
+button {
+	font-weight: @font-weight;
+}
+
+
+/**
+ * Standard text
+ */
+
+.content,
+.wide-content {
+	font-family: @font-family-content;
+}
+
+p,
+address {
+	margin: @line 0 0;
+}
+
+.lead {
+	margin-top: @line-large;
+	font-size: @font-size-large;
+	line-height: @line-height-large;
+}
+
+
+/**
+ * Links
+ */
+
+a {
+	padding: @link-padding;
+	border-bottom: 1px solid;
+	color: @link-color-secondary;
+	text-decoration: none;
+	transition: all @link-transition-duration ease-in-out;
+
+	/* External links */
+
+	&[href^="http:"],
+	&[href^="https:"],
+	&[href^="mailto:"],
+	&[href^="tel:"],
+	&[href^="skype:"] {
+		color: @link-color;
+
+		&:hover,
+		&:focus {
+			color: @text-color-reversed;
+			background-color: @link-color;
+			border-color: @link-color;
+		}
+
+	}
+
+	/* Internal and visited links */
+
+	&:hover,
+	&:focus {
+		color: @text-color-reversed;
+		background-color: @link-color-secondary;
+		border-color: @link-color-secondary;
+	}
+
+	&:visited {
+		color: @link-color-secondary;
+
+		&:hover,
+		&:focus {
+			color: @text-color-reversed;
+			background-color: @link-color-secondary;
+			border-color: @link-color-secondary;
+		}
+	}
+
+	/* Clicked links */
+
+	&:active,
+	&[href]:active { // the [href] is a specificity hack
+		color: @text-color-reversed;
+		background-color: @link-color-active;
+		border-color: @link-color-active;
+		transition: none;
+	}
+}
+
+
+/**
+ * Headings
+ */
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: @font-family-headings;
+	color: @text-color-headings;
+}
+
+/* Page title */
+
+h1 {
+	margin: (@line-enormous * 2) 0;
+	font-size: @font-size-enormous;
+	line-height: (@line-height-enormous * 2);
+}
+
+/* Subheadings */
+
+h2 {
+	margin: (@line-huge * 2) 0 @line-huge;
+	font-size: @font-size-huge;
+	line-height: (@line-height-huge * 1.5);
+}
+
+h3 {
+	margin: (@line-larger * 2) 0 @line-larger;
+	font-size: @font-size-larger;
+	line-height: @line-height-larger;
+}
+
+h4 {
+	margin: (@line-large * 1.5) 0 (@line-large / 2);
+	font-size: @font-size-large;
+	line-height: @line-height-large;
+}
+
+/* Remove top margin when heading is at top of content */
+
+.content,
+.wide-content {
+	> h1:first-child,
+	> h2:first-child,
+	> h3:first-child {
+		margin-top: 0;
+	}
+}
+
+/**
+ * Lists
+ */
+
+ol,
+ul,
+dl {
+
+	li,
+	dd {
+		margin: (@line / 2) 0;
+	}
+
+	dd {
+		margin-left: @line;
+	}
+
+	& & {
+		margin: (@line / 2) 0 (@line / 2) (@line / 2);
+	}
+
+}
+
+/* Nested lists */
+
+li ol {
+	list-style-type: lower-alpha;
+
+	li & {
+		list-style-type: lower-roman;
+	}
+}
+
+li li li {
+	margin: (@line-small / 2) 0 (@line-small / 2) (@line-small / 2);
+	font-size: @font-size-small;
+	line-height: @line-height-small;
+}
+
+
+/**
+ * Emphasis
+ */
+
+b,
+strong,
+mark {
+	padding: @link-padding;
+	color: @text-color; // Redeclare explicitly to avoid illegible combinations
+	background-color: @text-color-emphasis;
+}
+
+
+/**
+ * Figures
+ */
+
+figure {
+	margin: @line 0;
+	padding: (@line / 2) 0;
+	background-color: @background-color-figure;
+
+	/* Get rid of bottom spacing when this is the last element in the content */
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+figcaption {
+	margin-top: @line;
+}
+
+/* Link figure */
+
+figure.link {
+	padding: 0 !important;
+	background-color: @background-color-link;
+
+	a {
+		display: block;
+		padding: @line-larger;
+		color: @link-color;
+		font-size: @font-size-larger;
+		line-height: (@line-height-larger * 1.5);
+		text-align: center;
+
+		&:hover,
+		&:focus {
+			color: @text-color-reversed;
+			background-color: @link-color;
+			border-color: @link-color;
+		}
+
+		&:active {
+			color: @text-color-reversed;
+			background-color: @link-color-active;
+			border-color: @link-color-active;
+		}
+	}
+}
+
+
+/* Blockquotes */
+
+blockquote {
+	margin-top: @line-large;
+	margin-bottom: @line-large;
+	color: @text-color-quote;
+	font-size: @font-size-large;
+	line-height: @line-height-large;
+
+	figure & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	p {
+		margin: 0
+	}
+
+	p + p {
+		margin-top: @line-large;
+	}
+
+	/* Short quotations */
+	&.short {
+		margin-top: @line-larger;
+		margin-bottom: @line-larger;
+		font-size: @font-size-larger;
+		line-height: (@line-height-larger * 1.5);
+
+		p + p {
+			margin-top: @line-larger;
+		}
+	}
+
+}
+
+figure.quote {
+	background-color: @background-color-quote;
+
+	/* Citation */
+	figcaption:before {
+		content: "—";
+	}
+
+}
+
+/* Codeblocks */
+
+code,
+var,
+kbd {
+	font-size: @font-size-small;
+	line-height: (@line-height-small / 2);
+	font-family: @font-family-monospace;
+}
+
+figure.code {
+	padding-left: (@line-small / 2);
+	padding-right: (@line-small / 2);
+	color: @text-color-reversed;
+	background-color: @background-color-code;
+
+	pre {
+		margin: 0;
+	}
+}
+
+/* Addresses */
+
+address {
+	font-style: normal;
+}
+
+
+/**
+ * Tables
+ */
+
+/* Basic table design */
+
+table {
+	width: 100%;
+	margin: @line 0;
+	border-collapse: collapse;
+}
+
+caption {
+	padding: (@line / 2);
+	color: @background-color-table-head;
+	text-align: left;
+}
+
+/* Common styles - all cells */
+td,
+th {
+	border: 1px solid @background-color-content;
+	border-width: 1px 0;
+	text-align: left;
+	vertical-align: top;
+
+	/* Cell contents margins */
+
+	ol,
+	ul,
+	dl {
+		margin: 0;
+	}
+
+	p,
+	li,
+	blockquote,
+	pre,
+	dt,
+	dd,
+	address {
+		margin: 0;
+
+		+ p,
+		+ li,
+		+ blockquote,
+		+ pre,
+		+ dt,
+		+ dd,
+		+ address {
+			margin-top: (@line-small / 2);
+		}
+	}
+}
+
+/* Table contents */
+
+tbody {
+	background-color: @background-color-table;
+
+	td,
+	th {
+		padding: (@line-small / 2);
+		font-size: @font-size-small;
+		line-height: @line-height-small;
+	}
+
+}
+
+/* Header */
+
+thead {
+	font-family: @font-family-headings;
+
+	td,
+	th {
+		padding: (@line-small / 2);
+		font-size: @font-size-small;
+		line-height: @line-height-small;
+		vertical-align: bottom;
+	}
+
+	/* Background colour only appears for th cells in table header */
+	th {
+		color: @text-color-reversed;
+		background-color: @background-color-table-head;
+	}
+
+}
+
+/* Footer */
+
+tfoot {
+	color: @background-color-table-head;
+
+	td,
+	th {
+		padding: (@line-smaller / 2);
+		font-size: @font-size-smaller;
+		line-height: @line-height-smaller;
+
+		p + p {
+			margin-top: (@line-small / 2);
+		}
+	}
+
+}
+
+/* Tables with hidden borders */
+
+.invisible {
+
+	/* No backgrounds */
+	tbody,
+	tfoot,
+	thead th {
+		color: @text-color;
+		background-color: transparent;
+	}
+
+	/* Dimensions. No borders, flush left */
+	td,
+	th {
+		padding-left: 0;
+		border: 0;
+	}
+
+}
+
+/* 'Don'ts list' tables */
+
+.donts {
+
+	/* Header/Footer */
+
+	thead,
+	tfoot {
+
+		th {
+			padding: (@line-large / 2) 0;
+			color: @patina;
+			font-family: @font-family-content;
+			font-size: @font-size-large;
+			line-height: @line-height-large;
+			font-style: italic;
+		}
+
+		/* Left column head */
+		th:first-child {
+			color: @ironstone;
+		}
+
+	}
+
+	/* Main content area */
+
+	tbody {
+
+		/* Right column */
+		td,
+		th {
+			font-size: @font-size;
+			line-height: @line-height;
+			padding: (@line / 2) (@line / 2) (@line * 2) (@line / 2);
+		}
+
+		/* Left column */
+		.complaint {
+			padding: (@line-large / 2) @line-large (@line-large * 2);
+			color: @text-color-quote;
+			font-size: @font-size-large;
+			line-height: @line-height-large;
+			font-style: italic;
+		}
+
+	}
+
+}
+
+
+/**
+ * Horizontal rule
+ */
+
+hr {
+	margin: (@line * 2) 0;
+	border: 0;
+	border-top: 1px solid @text-color-headings;
+}
+
+
+/**
+ * Footnotes
+ */
+
+/* Links: to-footnote and back-to-text */
+
+.footnote,
+.reversefootnote {
+	display: inline-block;
+	width: 1.5em;
+	height: 1.5em;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	line-height: 1.5;
+	text-align: center;
+}
+
+/* In-text to-footnote links */
+
+.footnote {
+	position: relative;
+	top: -0.5em;
+	margin-top: -1em;
+	font-size: @font-size-small;
+}
+
+/* Footnotes content area */
+
+.footnotes {
+
+	hr {
+		margin-bottom: @line;
+	}
+
+	ol {
+		margin: 0; // override grid column styles
+		padding-left: 0;
+	}
+
+	li {
+		margin: (@line-small / 2) 0;
+		padding: (@line-small / 2) 0;
+		list-style-position: inside;
+		font-size: @font-size-small;
+		line-height: @line-height-small;
+		transition: background-color @link-transition-duration ease-in-out;
+
+		/* Selected footnote */
+		&:target {
+			background-color: @background-color-page-footer;
+		}
+
+		p:first-child {
+			margin-top: 0;
+		}
+
+	}
+
+}

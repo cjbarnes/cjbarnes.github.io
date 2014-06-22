@@ -1,0 +1,374 @@
+/**
+ * Reusable blocks of styling
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+/**
+ * Logo
+ */
+
+/* cJ logo */
+
+.logo {
+	.circle((@vertical-rhythm * 2));
+	padding: 0;
+	border-width: 1px;
+	font-family: @font-family-logo;
+	font-size: @font-size-navbar-logo;
+	line-height: (@vertical-rhythm * 2.2);
+	font-weight: bold;
+}
+
+
+/**
+ * Toolbars and dates
+ */
+
+/* Toolbars */
+
+.button-bar {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	list-style: none;
+	font-size: @font-size-huge;
+	text-align: center;
+
+	li {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+	}
+
+	a,
+	abbr,
+	b {
+		.circle-2x(@circle-diameter);
+		display: inline-block;
+		padding: 0; // remove default link padding
+	}
+
+	a {
+		color: @white;
+	}
+}
+
+
+/* Button colours */
+
+.button-bar {
+
+	.twitter a {
+		background-color: @color-twitter;
+	}
+
+	.feed a {
+		background-color: @color-rss;
+	}
+
+	.twitter a,
+	.feed a {
+		padding-top: 0.1em;
+		font-family: @font-family-icons;
+
+		&:hover,
+		&:focus {
+			background-color: @link-color;
+		}
+
+		&:active {
+			background-color: @link-color-active;
+		}
+	}
+
+}
+
+/* Dates */
+
+.date {
+	.button-bar();
+
+	.separator {
+		display: none;
+	}
+}
+
+
+/**
+ * Contact details list
+ */
+
+table.circle-list {
+	.invisible();
+
+	/* Font sizes */
+
+	td,
+	th {
+		padding: (@line-large / 2);
+		padding-left: 0;
+		font-size: @font-size-large;
+		line-height: @line-height-large;
+		vertical-align: middle;
+	}
+
+	/* Icons */
+
+	tbody th {
+		width: (@circle-diameter + @border-width-circle + 1);
+		padding-right: @line-large;
+	}
+
+	.label {
+		.circle();
+		font-style: normal;
+		font-family: @font-family-icons;
+		font-size: (@font-size-huge / @font-size-large);
+
+		/* Icon colours */
+		&.email    { color: @color-email; }
+		&.phone    { color: @color-phone; }
+		&.linkedin { color: @color-linkedin; }
+		&.twitter  { color: @color-twitter; }
+		&.address  { color: @color-address; }
+		&.feed     { color: @color-rss; }
+
+	}
+
+
+	/* Addresses row */
+
+	.addresses {
+
+		th,
+		td {
+			vertical-align: top;
+		}
+
+	}
+
+	/* Margins for non-mobile devices */
+
+	.breakpoint1({
+
+		.push(1);
+		.pull(1);
+
+	});
+
+}
+
+
+/**
+ * 'Timeline' of sections
+ */
+
+/* Keyframes */
+
+@keyframes rotateup {
+	from { transform: rotate3d(-1, 0, 0, 90deg); }
+	to   { transform: rotate3d( 0, 0, 0, 90deg); }
+}
+
+@keyframes writing {
+	  0% { transform: translate3d(-150px, 0, 0) rotate(  0   ); }
+	 15% { transform: translate3d(-130px, 0, 0) rotate(-60deg); }
+	 25% { transform: translate3d( -95px, 0, 0) rotate(  5deg); }
+	 40% { transform: translate3d( -80px, 0, 0) rotate(-40deg); }
+	 55% { transform: translate3d( -50px, 0, 0) rotate(  0   ); }
+	 70% { transform: translate3d( -40px, 0, 0) rotate(-30deg); }
+	 85% { transform: translate3d( -25px, 0, 0) rotate( 10deg); }
+	100% { transform: translate3d(   0  , 0, 0) rotate(  0   ); }
+}
+
+@keyframes hammer {
+	  0% { transform: translate3d(0, 0, 0) rotate(  0   ); }
+	 10% { transform: translate3d(0, 0, 0) rotate( 30deg); }
+	 15% { transform: translate3d(0, 0, 0) rotate(-50deg); }
+	100% { transform: translate3d(0, 0, 0) rotate(  0deg); }
+}
+
+@keyframes rocket {
+	from { transform: translate3d(-300px, 300px, 0); }
+	to   { transform: translate3d(   0  ,   0  , 0); }
+}
+
+@keyframes iconflip {
+	.make-alpha-color(@black, 0.2);
+	0% {
+	  	transform: rotate3d(0, 0, 0, 0);
+	  	text-shadow: @cararra 4px 4px 0px, @alpha-color 7px 7px 0px;
+	}
+	50% {
+		transform: rotate3d(0, 1, 0, 180deg);
+		text-shadow: @cararra -4px 4px 0px, @alpha-color -7px 7px 0px;
+	}
+	100% {
+		transform: rotate3d(0, 1, 0, 360deg);
+		text-shadow: @cararra 4px 4px 0px, @alpha-color 7px 7px 0px;
+	}
+}
+
+@keyframes zoom {
+	from { transform: scale3d(0, 0, 0); }
+	to   { transform: scale3d(1, 1, 1); }
+}
+
+.timeline {
+
+	/* Blocks of content */
+
+	section {
+		.column(12);
+		position: relative; // for icon and header positioning
+		overflow: hidden; // for icons flying in from offscreen
+		min-height: (@line * 10);
+		min-height: 50vh;
+		padding-top: @line;
+		padding-bottom: @line;
+		background-color: @background-color;
+
+		/* Content area dimensions */
+		.content {
+			.column(7, @gutter-width, 12);
+			.push(4);
+		}
+
+		/* Alternating row colors */
+		&:nth-child(2n) {
+			background-color: @background-color-page-footer;
+		}
+
+	}
+
+	/* Headings */
+
+	h3 {
+		position: absolute;
+		left: (@line-larger * 2);
+		top: (@line-larger);
+		margin: 0;
+		color: @toast;
+	}
+
+	h4 {
+		color: @toast;
+	}
+
+	/* Content */
+
+	p,
+	ul,
+	ol {
+		margin: 0;
+	}
+
+	p {
+		font-family: @font-family-content;
+		font-size: @font-size-large;
+		line-height: (@line-height-large * 1.5);
+	}
+
+	/* Timeline icon-graphics */
+
+	.icon {
+
+		.make-alpha-color(@black, 0.2);
+		visibility: hidden; // Only shown by js, once in viewport
+		opacity: 0;
+		position: absolute;
+		left: (@line-leviathan * 2);
+		bottom: 50%;
+		margin-bottom: -0.5em;
+		color: @toast;
+		font-size: @font-size-leviathan;
+		line-height: 1;
+		font-family: @font-family-icons;
+		text-shadow: @cararra 4px 4px 0px, @alpha-color 7px 7px 0px;
+
+	}
+
+	.icon.in-view {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 0.5s linear;
+	}
+
+	/* Specific icons */
+
+	#beginning .icon.in-view {
+		color: @patina;
+		animation: iconflip 1.5s 1 ease-out;
+	}
+
+	#spec .icon.in-view {
+		color: @black;
+		animation: rotateup 1.5s 1 ease-in-out;
+		transform-origin: bottom center;
+	}
+
+	#design .icon.in-view {
+		color: @santa-fe;
+		animation: writing 1.5s 1 ease-out;
+		transform-origin: bottom left;
+	}
+
+	#development .icon.in-view {
+		color: @oslo-grey;
+		animation: hammer 1.5s 1 ease-in;
+	}
+
+	#testing .icon.in-view {
+		color: @black;
+
+		/* Tick */
+		&:after {
+			content: '\2713';
+			color: @patina;
+			position: absolute;
+			bottom: 0;
+			right: 25%;
+			animation: zoom 1s 1 ease-in-out;
+		}
+
+	}
+
+	#launch .icon.in-view {
+		color: @patina;
+		animation: rocket 0.5s 1 linear;
+	}
+
+	#handover .icon.in-view {
+		color: @ironstone;
+		animation: zoom 1s 1 ease-in-out;
+	}
+
+	#support .icon.in-view {
+		color: @oslo-grey;
+		animation: iconflip 1.5s 1 ease-out;
+	}
+
+
+	/* Custom block of content: 'launch' */
+
+	#launch {
+		background-color: @cocoa-brown;
+
+		h3,
+		h4 {
+			color: @background-color;
+		}
+
+		p,
+		ul,
+		ol {
+			color: @text-color-reversed;
+		}
+
+	}
+
+}

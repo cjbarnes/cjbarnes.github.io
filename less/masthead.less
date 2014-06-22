@@ -1,0 +1,61 @@
+/**
+ * Page header area
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+
+/**
+ * Masthead area
+ */
+
+main > header,
+.single header {
+	position: relative; // for date positioning
+	background-color: @background-color-masthead;
+
+	/* Title and teaser */
+
+	.title {
+		padding-top: (@line * 3);
+		padding-bottom: (@line * 2.5);
+
+		/* Stack above illustration and gradient */
+		z-index: 2;
+		position: relative;
+
+		h1 {
+			margin: 0;
+			padding: (@line-gigantic * 1.5) 0 0;
+			color: @text-color-reversed;
+			font-size: @font-size-gigantic;
+			line-height: @line-height-gigantic * 2.5;
+		}
+
+		h2 {
+			margin: 0;
+			padding-top: (@line-larger * 1.5);
+			color: @text-color-reversed;
+			font-size: @font-size-larger;
+			line-height: @line-height-larger;
+		}
+
+		/* 'Featured article' label */
+		.label {
+			display: block;
+			color: @text-color-reversed;
+			font-style: normal;
+			font-size: @font-size-larger;
+			line-height: @line-height-larger;
+		}
+
+	}
+
+	/* Published date */
+
+	.date {
+		font-size: @font-size-huge;
+	}
+
+}

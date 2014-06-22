@@ -1,0 +1,226 @@
+/**
+ * Parallax effect on images/illustrations
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+
+/**
+ * Plain background for illustrated mastheads
+ */
+
+.illustrated,
+main.illustrated,
+article.illustrated,
+.single.illustrated,
+header .illustrated {
+
+	> header,
+	header .date abbr,
+	.listing &,
+	.listing & > footer {
+		background-color: @background-color-illustrated;
+	}
+
+	.listing & > footer {
+		.date a,
+		.date abbr,
+		.date b,
+		.permalink,
+		.share,
+		.go-to-site {
+			color: @text-color-reversed;
+		}
+
+	}
+
+}
+
+
+/**
+ * Parallax illustrations (including homepage)
+ */
+
+main.illustrated > header,
+article.illustrated > header,
+header .illustrated,
+.homepage {
+
+	/* Extra space and styling for text overlayed on photo */
+
+	.title {
+		padding-top: (@line * 7);
+
+		h1,
+		.label {
+			text-shadow: 0 0 10px @black;
+
+			a:hover,
+			a:focus,
+			a:active {
+				text-shadow: none;
+			}
+
+		}
+
+	}
+
+	/* The parallax image and its container */
+
+	.illustration {
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+
+		/* The image itself */
+
+		img {
+			display: block;
+			position: absolute;
+			left: 50%;
+			transform: translate3d(0, 0, 0);
+		}
+
+	}
+
+}
+
+
+/**
+ * All except homepage
+ */
+
+main.illustrated > header,
+article.illustrated > header,
+header .illustrated {
+
+	/* Gradient overlay */
+
+	.gradient {
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 325px;
+		background-image: linear-gradient(to bottom, transparent 40%, @background-color-illustrated 100%);
+	}
+
+	/* The parallax image and its container */
+
+	.illustration {
+		top: 0;
+		height: 325px;
+
+		/* The image itself */
+
+		img {
+			top: -450px;
+			left: 50%;
+			margin-left: -600px;
+		}
+
+	}
+
+}
+
+
+/**
+ * Masthead parallax styling
+ */
+
+main.illustrated > header,
+.single.illustrated > header,
+header .illustrated {
+
+	/* Extra space and styling for text overlayed on photo */
+	.title {
+		padding-top: (@line * 10);
+	}
+
+	/* Gradient overlay */
+	.gradient {
+		height: 500px;
+		background-image: linear-gradient(to bottom, transparent 55%, @background-color-illustrated 100%);
+	}
+
+	/* The parallax image and its container */
+	.illustration {
+		height: 500px;
+
+		/* The image itself */
+		img {
+			top: -100px;
+			margin-left: -700px;
+
+			/**
+			 * Prevents 'skip' on page load caused by javascript. Y value is
+			 * calculated from `top` / 4
+			 *
+			 * NEEDS MORE TESTING
+			 */
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+}
+
+
+/**
+ * Homepage parallax
+ */
+
+.homepage {
+
+	.illustration {
+		height: 100%;
+	}
+
+	/* Right-aligned illustration */
+
+	.illustration.right img {
+		margin-left: -10%;
+	}
+
+	.gradient.right {
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 850px;
+		height: 100%;
+		margin-left: -10%;
+		background-image: linear-gradient(to left, transparent 40%, @toast 100%);
+	}
+
+}
+
+/* Homepage first illustration only */
+
+.homepage > header {
+
+	.illustration {
+
+		img {
+			margin-left: -700px;
+			bottom: @line;
+		}
+	}
+
+	/* Title container doubles as gradient */
+
+	.title {
+
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		margin: 0;
+		padding: (@line * 3) 0 (@line * 2) !important;
+		background-image: linear-gradient(to bottom, transparent 0, @gradient-color-homepage 90%);
+
+		/* Continuation of the gradient solid colour */
+		border-bottom: @line solid @gradient-color-homepage;
+
+	}
+
+}

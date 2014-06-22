@@ -1,0 +1,80 @@
+/**
+ * Single-article page styling
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+
+/**
+ * 'Page' type
+ */
+
+.page.single {
+
+	background-color: @background-color-content;
+
+}
+
+.page {
+
+	.title h2 {
+		font-family: @font-family-content;
+	}
+}
+
+
+/**
+ * Typography changes
+ */
+
+.single .content {
+
+	/* Figures */
+
+	figure {
+		margin: (@line * 2) 0 @line;
+		padding-top: (@line * 1.5);
+		padding-bottom: (@line * 1.5);
+
+		&.quote,
+		&.code,
+		&.link {
+			.circle-box();
+
+			&:before {
+				font-family: @font-family-icons;
+			}
+		}
+	}
+
+	figure.quote {
+
+		/* Icon */
+		&:before {
+			content: "❞";
+			background-color: @color-quote;
+		}
+
+	}
+
+	figure.code {
+
+		/* Icon */
+		&:before {
+			content: "";
+			background-color: @background-color-code;
+		}
+	}
+
+	figure.link {
+
+		/* Icon */
+		&:before {
+			content: "🔗";
+			background-color: @color-link;
+		}
+	}
+
+}
+

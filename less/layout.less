@@ -1,0 +1,335 @@
+/**
+ * Site layout, structure, and responsiveness
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+/**
+ * Basic structure
+ */
+
+/* Border box styling */
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Whole page */
+
+body {
+
+	/* Smaller sizes all round for mobile phone version */
+	font-size: @body-text-smaller;
+
+	background-color: @background-color;
+}
+
+/* Width limit */
+
+main,
+.single {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+/* Header clearing */
+
+main,
+.single,
+.featured {
+	.clearfix();
+
+	> header {
+		.clearfix();
+	}
+
+}
+
+/* Content area */
+
+#primary,
+#secondary {
+	.clearfix();
+	padding-top: (@line * 1.5);
+	padding-bottom: (@line * 2.5);
+}
+
+.homepage > header .title h1,
+.homepage #secondary section {
+	.column(12);
+}
+
+.homepage #secondary .illustration,
+.homepage #secondary .gradient {
+	display: none;
+}
+
+
+/**
+ * Breakpoint 0: mobile
+ */
+
+/* Main content area */
+
+.single .content,
+.sidebar,
+.listing,
+.single .wide-content {
+	.column(12);
+}
+
+/* Text alignment */
+
+.title,
+p,
+ol,
+ul,
+dl,
+figcaption,
+blockquote {
+	margin-left: @gutter;
+	margin-right: @gutter;
+}
+
+.permalink,
+#site-footer .contact {
+	margin-left: @gutter;
+}
+
+.share,
+.go-to-site,
+#site-footer .smallprint {
+	margin-right: @gutter;
+}
+
+/* Page footer */
+
+	// Upper footer
+
+main,
+.single {
+	> footer {
+
+		section {
+			.column(12);
+			padding-top: @line;
+
+			+ section {
+				padding-bottom: (@line * 2);
+			}
+		}
+
+	}
+}
+
+
+/**
+ * Breakpoint 1: 720p in portrait
+ */
+
+.breakpoint1({
+
+	// Increase text size
+
+	body {
+		font-size: @body-text-small;
+	}
+
+	// Article alignment
+
+	article {
+
+		.title {
+			// Used for all articles, not just masthead ones
+			.push(1);
+			.pull(1);
+		}
+
+		footer {
+
+			.permalink {
+				.push(1);
+				left: 0;
+			}
+
+			.share,
+			.go-to-site {
+				.pull(1);
+				right: 0;
+			}
+
+		}
+
+		&.featured footer {
+			.column(8);
+			.push(2);
+			.pull(2);
+		}
+
+	}
+
+	main,
+	.single,
+	.featured {
+
+		// Masthead: title and teaser container
+
+		> header .title {
+			.column(8);
+			.push(2);
+			.pull(2);
+		}
+
+	}
+
+	// Main content area
+
+	.single .content,
+	.index .sidebar,
+	.index .listing,
+	.cv .listing {
+		.column(10);
+		.push(1);
+		.pull(1);
+	}
+
+	// Text alignment
+
+	p,
+	ol,
+	ul,
+	dl,
+	figcaption,
+	blockquote {
+		.push(1);
+		.pull(1);
+	}
+
+	.lead,
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin-left: @gutter;
+		margin-right: @gutter;
+	}
+
+	.single .wide-content h2,
+	.timeline h2 {
+		text-align: center;
+	}
+
+	// Upper footer
+
+	main,
+	.single {
+		> footer {
+
+			section {
+				.column(5);
+				padding-top: @line;
+				padding-bottom: @line;
+			}
+
+			.blog-recent {
+				.push(2);
+			}
+
+			.portfolio-featured,
+			.endorsement-featured {
+				&,
+				h2 {
+					text-align: right;
+				}
+			}
+
+		}
+	}
+
+	footer .listing {
+		.column(4);
+	}
+
+	// Lower footer
+
+	#site-footer {
+
+		.contact,
+		.smallprint {
+			.column(12);
+		}
+
+	}
+
+	// Homepage
+
+	.homepage #secondary section {
+		.column(10);
+		.push(1);
+	}
+
+	.homepage #secondary .illustration,
+	.homepage #secondary .gradient {
+		display: block;
+	}
+
+});
+
+
+/**
+ * Breakpoint 2: 960ish width
+ */
+
+.breakpoint2({
+
+	// 100% text size
+
+	body {
+		font-size: @body-text;
+	}
+
+	// Main content area
+
+	.single .content {
+		.column(8);
+		.push(2);
+		.pull(2);
+	}
+
+	// Listing page columns
+
+	.index .sidebar {
+		.column(3);
+		.push(0);
+		.pull(0);
+	}
+
+	.listing {
+
+		.index & {
+			.column(8);
+			.push(1);
+			.pull(0);
+		}
+
+		.portfolio & {
+			.column(10);
+			.push(1);
+			.pull(1);
+		}
+
+		.cv & {
+			.column(8);
+			.push(2);
+			.pull(2);
+		}
+
+	}
+
+});
+

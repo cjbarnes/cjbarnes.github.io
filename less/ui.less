@@ -1,0 +1,43 @@
+/**
+ * Browser UI tweaks
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+
+/* Disable text selection of UI elements */
+
+#navbar,
+.illustration,
+.date,
+.sidebar,
+.button-bar,
+article footer,
+main > footer,
+.smallprint,
+.label {
+	-webkit-touch-callout: none;
+	user-select: none;
+}
+
+/* Change cursor for non-selectable elements */
+
+.logo,
+.label,
+.copyright,
+.date {
+	cursor: default;
+}
+
+/* Selection styling */
+/*::selection{
+	background: @select;
+	color: @select_color;
+}*/
+img::selection{
+	background: transparent;
+}
+/*body{
+	-webkit-tap-highlight-color: @select;
+}*/

@@ -1,0 +1,287 @@
+/**
+ * Articles/blog specific styling
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+
+/**
+ * Article header
+ */
+
+article {
+
+	/* Title */
+
+	.title {
+		// Stay on top of illustration and gradient
+		position: relative;
+		z-index: 3;
+
+		h1 {
+			margin: 0;
+			padding: @line-enormous 0;
+			color: @text-color-reversed;
+
+			/* Links in titles */
+
+			a {
+				padding: 0 0 (@link-padding / 2);
+				color: inherit;
+			}
+		}
+
+		/* Intro */
+
+		h2 {
+			margin: 0 0 @line;
+			color: @text-color-reversed;
+			font-size: @font-size;
+			line-height: @line-height;
+			font-family: @font-family-content;
+		}
+
+	}
+
+	/* Date */
+
+	.date {
+		bottom: ((-1 * (@circle-diameter / 2)) - 1);
+
+		/* The individual elements of the date */
+		a,
+		abbr {
+			color: @text-color-reversed;
+			background-color: @background-color-masthead;
+		}
+	}
+
+}
+
+
+/**
+ * Post format header backgrounds
+ */
+
+article {
+
+	/* Article posts */
+	&.text {
+		> header,
+		header .date abbr,
+		.listing &:before {
+			background-color: @color-article;
+		}
+	}
+
+	/* Tip posts */
+	&.tip {
+		> header,
+		header .date abbr,
+		.listing &:before {
+			background-color: @color-tip;
+		}
+	}
+
+	/* Quote posts */
+	&.quote {
+		> header,
+		header .date abbr,
+		.listing &:before  {
+			background-color: @color-quote;
+		}
+	}
+
+	/* Link posts */
+	&.link,
+	&.project {
+
+		> header,
+		header .date abbr,
+		.listing &:before  {
+			background-color: @color-link;
+		}
+
+		/* Make links visible in header area */
+
+		> header a {
+
+			&:hover,
+			&:focus {
+				color: @link-color;
+				background-color: @text-color-reversed;
+				border-color: @text-color-reversed;
+			}
+
+			&:active {
+				color: @text-color-reversed;
+				background-color: @link-color-active;
+				border-color: @link-color-active;
+			}
+
+		}
+	}
+
+	/* Course CV posts */
+	&.course {
+		> header,
+		header .date abbr,
+		.listing &:before  {
+			background-color: @color-course;
+		}
+	}
+
+	/* Employment CV posts */
+	&.job {
+		> header,
+		header .date abbr,
+		.listing &:before  {
+			background-color: @color-job;
+		}
+	}
+
+	/* Award CV posts */
+	&.award {
+		> header,
+		header .date abbr,
+		.listing &:before  {
+			background-color: @color-award;
+		}
+	}
+
+	/* Web project CV posts */
+	&.project {
+		> header,
+		header .date abbr,
+		.listing &:before  {
+			background-color: @color-project;
+		}
+	}
+
+}
+
+
+/**
+ * Article main content area
+ */
+
+article {
+	background-color: @background-color-content;
+}
+
+.content {
+	padding: (@line * 0.5) 0 (@line * 1.5);
+}
+
+
+/**
+ * Article footer
+ */
+
+article footer {
+	position: relative; // for meta positioning
+	z-index: 3;
+	min-height: (@line * 3);
+	background-color: @background-color-page-footer;
+	text-align: center;
+	padding-bottom: (@line-larger / 2);
+
+	.date {
+		position: static;
+		font-size: @font-size-larger;
+		line-height: @line-height-larger;
+		padding: (@line-larger / 2) 0;
+
+		a,
+		abbr,
+		b {
+			.circle((@circle-diameter * 0.9));
+			display: inline-block;
+			color: @link-color-secondary;
+			background-color: transparent;
+		}
+	}
+
+	.breakpoint1({
+		padding-bottom: 0;
+
+		.date {
+			position: absolute;
+			padding: 0;
+			bottom: (@line - ((@circle-diameter / 2) / @vertical-rhythm));
+		}
+
+		.permalink,
+		.share,
+		.go-to-site {
+			display: block;
+			position: absolute;
+			bottom: (@line * 0.8);
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.permalink {
+			left: 0;
+		}
+
+		.share,
+		.go-to-site {
+			right: 0;
+		}
+
+	});
+
+}
+
+
+/**
+ * Featured article overrides
+ */
+
+article.featured {
+
+	/* Use header background when it's a featured article */
+	background-color: @background-color-illustrated;
+
+	/* Metadata */
+	footer {
+		min-height: 0;
+		height: @line;
+		background-color: transparent;
+
+		.date {
+			font-size: @font-size-huge;
+			line-height: @line-height-huge;
+
+			a,
+			abbr,
+			b {
+				.circle();
+				display: inline-block;
+				color: @text-color-reversed;
+				background-color: transparent;
+			}
+		}
+
+		.permalink,
+		.share {
+			color: @text-color-reversed;
+			font-size: @font-size-large;
+			line-height: @line-height-large;
+		}
+
+		.permalink {
+			margin-left: 0;
+			left: @gutter;
+		}
+
+		.share {
+			margin-right: 0;
+			right: @gutter;
+		}
+
+	}
+
+}

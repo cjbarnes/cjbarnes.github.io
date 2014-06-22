@@ -1,0 +1,249 @@
+/**
+ * Page footers
+ *
+ * @author Chris Barnes http://www.cjbarnes.co.uk
+ * @version 1.0.0
+ */
+
+
+/**
+ * Common styles
+ */
+
+main > footer,
+.single footer,
+#site-footer {
+	.clearfix();
+	clear: both;
+	position: relative; // for button bars
+	min-height: (@line * 4);
+
+	/* Toolbars */
+	.button-bar {
+		top: ((-1 * (@circle-diameter / 2)) - 2);
+	}
+}
+
+
+/**
+ * Upper footer
+ */
+
+main > footer,
+.single footer {
+	background-color: @background-color-page-footer;
+
+	/* Toolbar / Pagination */
+
+	.button-bar {
+
+		a,
+		b {
+			border-color: @background-color;
+		}
+
+		/* Current page */
+
+		b {
+			color: @link-color-active;
+			background-color: @background-color;
+		}
+
+		/* Linked pages */
+
+		a {
+			color: @link-color-secondary;
+			background-color: @background-color-page-footer;
+
+			&:hover,
+			&:focus {
+				color: @text-color-reversed;
+				background-color: @link-color-secondary;
+			}
+
+			&:active {
+				color: @text-color-reversed;
+				background-color: @link-color-active;
+				border-color: @background-color; // for specificity
+			}
+
+		}
+
+	}
+
+
+	/**
+	 * Content columns
+	 */
+
+	/* Hide on smaller screens */
+
+	.portfolio-featured,
+	.blog-recent,
+	.endorsement-featured {
+		display: none;
+
+		.breakpoint1({
+			display: block;
+		});
+	}
+
+	/* Headers */
+
+	h2 {
+		margin: @line-large 0 (@line-large / 2);
+		font-size: @font-size-large;
+		line-height: @line-height-large;
+		color: @text-color;
+	}
+
+	/* Website screenshot */
+
+	.portfolio-featured {
+
+		figure {
+			margin-top: 0;
+			padding: 0;
+		}
+
+		figure img {
+			border: 1px solid @white;
+		}
+
+		figcaption {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+	}
+
+	/* Endorsement */
+
+// 	.endorsement-featured {
+
+// 		figure {
+// 			padding: 0;
+// 		}
+
+// 		blockquote {
+// 			margin: 0;
+// 			color: @toast;
+// 			font-family: @font-family-content;
+// 			font-style: italic;
+// 		}
+
+// 		figcaption {
+// 			margin: (@line-small / 2) 0 0;
+// 			font-size: @font-size-small;
+// 			line-height: @line-height-small;
+
+// 			&:before {
+// 				display: none;
+// 			}
+// 		}
+
+// 	}
+
+ }
+
+
+/**
+ * Lower footer
+ */
+
+#site-footer {
+	z-index: 3;
+	padding-bottom: @line;
+	color: @text-color-reversed;
+	background-color: @background-color-site-footer;
+
+	/* Toolbar */
+
+	.button-bar a {
+		color: @background-color-page-footer;
+		border-color: @background-color-page-footer;
+	}
+
+	/* Footer logo */
+
+	.logo {
+		display: none;
+		position: absolute;
+		left: 50%;
+		margin: 0;
+		margin-left: (-1 * @vertical-rhythm);
+		bottom: (@vertical-rhythm * 2);
+		border: 0;
+		border-radius: 0;
+		color: @background-color-site-footer;
+		text-shadow: 0 0 5px lighten(@background-color-site-footer, 15%);
+		font-size: @font-size-gigantic;
+		line-height: 1;
+
+		/* Hidden on mobiles */
+		.breakpoint1({
+			display: block;
+		});
+
+	}
+
+	/* Contact details and Smallprint columns */
+
+	.contact,
+	.smallprint {
+
+		a {
+			color: @text-color-reversed;
+			font-size: @font-size-small;
+			line-height: @line-height-small;
+			border: 0;
+		}
+
+		.label {
+			font-style: normal;
+			font-family: @font-family-icons;
+		}
+
+	}
+
+	.contact {
+		margin-top: (@line * 2);
+	}
+
+	.smallprint {
+		margin-top: 0;
+		text-align: right;
+
+		/* copyright */
+		span {
+			color: @vanilla;
+			font-size: @font-size-small;
+			line-height: @line-height-small;
+		}
+
+	}
+
+	/* Two-column layout for wider than mobile */
+
+	.breakpoint1({
+
+		.contact,
+		.smallprint {
+			.column(6);
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: @line;
+		}
+
+		.contact {
+			padding-left: @line;
+		}
+
+		.smallprint {
+			padding-right: @line;
+		}
+
+	});
+
+}
+
