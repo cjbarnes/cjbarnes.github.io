@@ -6,46 +6,34 @@
 
 	<!-- Main nav -->
 	<ul id="site-navigation">
-		<li>
-			<a href="/">home</a>
-		</li>
-		<li class="parent">
-			<a href="/whatido/">what I do</a>
-			<ul class="subnav">
-				<li>
-					<a href="/whatido/approach/">my approach</a>
-				</li>
-				<li>
-					<a href="/whatido/expertise/">expertise</a>
-				</li>
-				<li>
-					<a href="/whatido/results/">results</a>
-				</li>
-				<li>
-					<a href="/whatido/idont/">I don’t...</a>
-				</li>
-			</ul>
-		</li>
-		<li class="parent">
-			<a href="/whativedone/">what I’ve done</a>
-			<ul class="subnav">
-				<li>
-					<a href="/whativedone/portfolio/">portfolio</a>
-				</li>
-				<li>
-					<a href="/whativedone/cv/">c.v.</a>
-				</li>
-				<li>
-					<a href="/whativedone/kindwords/">kind words</a>
-				</li>
-			</ul>
-		</li>
-		<li>
-			<a href="/blog/">blog</a>
-		</li>
-		<li>
-			<a href="/contact/">contact me</a>
-		</li>
+
+		{% for item in site.data.nav %}
+			{% assign item_url = item.slug | prepend: '/' | append: '/' %}
+			{% assign item_active = false %}
+			{% if page.date %}
+				{% if page.slug == 'blog' %}
+					{% assign item_active = true %}
+				{% endif %}
+			{% elsif page.url == item_url %}
+				{% assign item_active = true %}
+			{% endif %}
+			<li class="nav-{{ item.slug }}{% if item.children %} parent{% endif %}{% if item_active %} active{% endif %}">
+					<a href="{{ item_url }}">{{ item.title }}</a>
+					{% if item.children %}
+						<ul class="subnav">
+							{% for subitem in item.children %}
+								{% assign subitem_url = subitem.slug | prepend: item.slug | append: '/' %}
+								{% assign subitem_active = false %}
+								{% if page.url == subitem_url %}
+								<li class="nav-{{ subitem.slug }}{% if subitem_active %} active{% endif %}">
+									<a href="{{ subitem_url }}">{{ subitem.title }}</a>
+								</li>
+								{% endfor %}
+						</ul>
+					{% endif %}
+			</li>
+		{% endfor %}
+
 	</ul>
 
 </nav><!-- #navbar -->
