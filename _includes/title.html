@@ -1,0 +1,23 @@
+<!-- Title and teaser -->
+<div class="title">
+
+  {% if include.featured %}
+    <i class="label">featured article:</i>
+  {% endif %}
+
+  <h1>
+    {% if include.link_href %}
+      link:
+      <a href="{{ include.link_href }}">{{ include.title }}</a>
+    {% elsif include.url %}
+      <a href="{{ include.url }}">{{ include.title }}</a>
+    {% else %}
+      {{ include.title }}
+    {% endif %}
+  </h1>
+
+  {% if include.summary %}
+    <h2>{{ include.summary }}</h2>
+  {% endif %}
+
+</div>

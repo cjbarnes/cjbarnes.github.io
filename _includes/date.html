@@ -1,0 +1,14 @@
+<!-- Article date -->
+<div class="date published-date">
+  <abbr title="{{ include.date | date: '%-d' }}" class="day">
+    {{ include.date | date: '%d' }}
+  </abbr>
+  <span class="separator">/</span>
+  <abbr title="{{ include.date | date: '%B' }}" class="month">
+    {{ include.date | date: '%m' }}
+  </abbr>
+  <span class="separator">/</span>
+  <abbr title="{{ include.date | date: '%Y' }}" class="year">
+    {{ include.date | date: '%y' }}
+  </abbr>
+</div>

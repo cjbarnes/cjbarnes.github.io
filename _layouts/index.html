@@ -1,0 +1,100 @@
+{% include head.html %}
+
+  <main class="index">
+
+    <!-- Article title area -->
+    <header>
+
+      {% for post in site.categories.featured limit:1 %}
+        {% assign featured_post = post.id %}
+
+        <article class="featured {{ post.format }}{% if post.illustration %} illustrated{% endif %}">
+
+          {% include nav.html %}
+
+          {% if post.illustration %}
+            {% include illustration.html image=post.illustration %}
+          {% endif %}
+
+          {% include title.html title=post.title url=post.url featured=true %}
+
+          <!-- Metadata -->
+          <footer>
+            {% include date.html date=post.date %}
+            {% include permalinks.html url=post.url %}
+          </footer>
+
+        </article>
+
+      {% endfor %}
+
+    </header>
+
+    <!-- Main content area -->
+    <section id="primary">
+
+      {{ content }}
+
+      <!-- Articles list -->
+      <div class="listing">
+
+        {% for post in paginator.posts %}
+          {% if featured_post != post.id %}
+
+            <article class="{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
+
+              {% if post.title %}
+                <header>
+
+                  {% if post.illustration %}
+                    {% assign illustration = post.illustration | append: '_listing' %}
+                    {% include illustration.html image=illustration %}
+                  {% endif %}
+
+                  {% include title.html title=post.title link_href=post.link_href url=post.url summary=post.summary %}
+
+                </header>
+              {% endif %}
+
+              {% unless post.illustration %}
+                <div class="content">
+
+                  {{ post.content }}
+
+                  {% if post.link_href %}
+                    <figure class="link">
+                      <a href="{{ post.link_href }}">
+                        <em>link:</em> {{ post.title }}
+                      </a>
+                    </figure>
+                  {% endif %}
+
+                </div>
+              {% endunless %}
+
+              <footer>
+                {% include date.html date=post.date %}
+                {% include permalinks.html url=post.url %}
+              </footer>
+
+            </article>
+
+          {% endif %}
+        {% endfor %}
+
+      </div><!-- .listing -->
+
+    </section>
+
+    <!-- Upper footer area -->
+    <footer>
+
+      {% include pagination.html %}
+
+    </footer>
+
+  </main>
+
+  {% include site-footer.html %}
+
+{% include foot.html %}

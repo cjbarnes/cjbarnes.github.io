@@ -1,0 +1,14 @@
+<!-- Pagination -->
+<ul class="button-bar pagination">
+{% for pagenum in (1..paginator.total_pages) %}
+  {% if pagenum == paginator.page %}
+    <li class="active">
+      <b title="current page">{{ pagenum }}</b>
+    </li>
+  {% else %}
+    <li>
+      <a href="/blog/{% unless 1 == pagenum %}page{{ pagenum }}/{% endunless %}">{{ pagenum }}</a>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>

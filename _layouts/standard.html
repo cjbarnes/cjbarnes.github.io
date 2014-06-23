@@ -1,0 +1,55 @@
+{% if page.date %}
+  {% assign main_tag = 'article' %}
+  {% assign format = page.format %}
+{% else %}
+  {% assign main_tag = 'main' %}
+  {% assign format = 'page' %}
+{% endif %}
+
+{% include head.html %}
+
+  <{{ main_tag }} class="single {{ format }} {{ page.class }}{% if page.illustration %} illustrated{% endif %}{% if page.masthead == 'light' %} light-masthead{% endif %}">
+
+    <!-- Article title area -->
+    <header>
+
+      {% include nav.html %}
+
+      {% if page.illustration %}
+        {% include illustration.html image=page.illustration %}
+      {% endif %}
+
+      {% if page.title %}
+        {% include title.html title=page.title link_href=page.link_href %}
+      {% else %}
+        <div class="title"></div>
+      {% endif %}
+
+      {% if page.date %}
+        {% include date.html date=page.date %}
+      {% endif %}
+
+    </header>
+
+    <!-- Main content area -->
+    <section id="primary" class="content">
+
+      {{ content }}
+
+      {% if page.link_href %}
+        <figure class="link">
+          <a href="{{ page.link_href }}">
+            <em>link:</em> {{ page.title }}
+          </a>
+        </figure>
+      {% endif %}
+
+    </section>
+
+    {% include page-footer.html %}
+
+  </{{ main_tag }}>
+
+  {% include site-footer.html %}
+
+{% include foot.html %}

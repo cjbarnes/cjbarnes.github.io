@@ -1,0 +1,46 @@
+{% include head.html %}
+
+  <main class="homepage light-masthead">
+
+    <!-- Article title area -->
+    <header>
+
+      {% include nav.html %}
+
+      {% if page.illustration %}
+        {% include illustration.html image=page.illustration %}
+      {% endif %}
+
+      <!-- Your website goes here label/arrow -->
+      <div class="your-website-goes-here">
+        <img
+          sizes="(-webkit-min-device-pixel-ratio: 1.5) 616px, (min-resolution: 1.5dppx) 616px, (min-resolution: 144dpi) 616px, (min-width: 700px) 308px, 216px"
+          srcset="/img/your-website-goes-here-616w.png 616w, /img/your-website-goes-here-308w.png 308w, /img/your-website-goes-here-216w.png 216w"
+          src="/img/your-website-goes-here-616w.png"
+        >
+      </div>
+
+      <!-- Title and teaser -->
+      <div class="title">
+        <h1>
+          <strong class="brag"><span class="current">education</span><span>small&nbsp;business</span><span>wordpress</span></strong><br />
+          <span class="suffix">web design by cJ&nbsp;barnes</span>
+        </h1>
+      </div>
+
+    </header>
+
+    <!-- Main content area -->
+    <section id="primary" class="content">
+
+      {{ content }}
+
+    </section>
+
+    {% include page-footer.html %}
+
+  </main>
+
+  {% include site-footer.html %}
+
+{% include foot.html %}
