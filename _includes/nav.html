@@ -6,44 +6,44 @@
 
 	<!-- Main nav -->
 	<ul id="site-navigation">
-		<li>
+		<li{% if '/index.html' == page.url %} class="active"{% endif %}>
 			<a href="/">home</a>
 		</li>
-		<li class="parent">
+		<li class="parent{% if '/whatido/' == page.url %} active{% endif %}">
 			<a href="/whatido/">what I do</a>
 			<ul class="subnav">
-				<li>
+				<li{% if '/whatido/approach/' == page.url %} class="active"{% endif %}>
 					<a href="/whatido/approach/">my approach</a>
 				</li>
-				<li>
+				<li{% if '/whatido/expertise/' == page.url %} class="active"{% endif %}>
 					<a href="/whatido/expertise/">expertise</a>
 				</li>
-				<li>
+				<li{% if '/whatido/results/' == page.url %} class="active"{% endif %}>
 					<a href="/whatido/results/">results</a>
 				</li>
-				<li>
+				<li{% if '/whatido/idont/' == page.url %} class="active"{% endif %}>
 					<a href="/whatido/idont/">I don’t...</a>
 				</li>
 			</ul>
 		</li>
-		<li class="parent">
+		<li class="parent{% if '/whativedone/' == page.url %} active{% endif %}">
 			<a href="/whativedone/">what I’ve done</a>
 			<ul class="subnav">
-				<li>
+				<li{% if '/whativedone/portfolio/' == page.url %} class="active"{% endif %}>
 					<a href="/whativedone/portfolio/">portfolio</a>
 				</li>
-				<li>
+				<li{% if '/whativedone/cv/' == page.url %} class="active"{% endif %}>
 					<a href="/whativedone/cv/">c.v.</a>
 				</li>
-				<li>
+				<li{% if '/whativedone/kindwords/' == page.url %} class="active"{% endif %}>
 					<a href="/whativedone/kindwords/">kind words</a>
 				</li>
 			</ul>
 		</li>
-		<li>
+		<li{% if '/blog/index.html' == page.url %} class="active"{% elsif page.date %} class="active"{% endif %}>
 			<a href="/blog/">blog</a>
 		</li>
-		<li>
+		<li{% if '/contact/' == page.url %} class="active"{% endif %}>
 			<a href="/contact/">contact me</a>
 		</li>
 	</ul>
