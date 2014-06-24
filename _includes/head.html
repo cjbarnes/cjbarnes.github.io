@@ -12,10 +12,10 @@
     <!-- Metadata -->
     <title>
       {% if page.browser_title %}
-        {{ page.browser_title }}
+        {{ page.browser_title | strip_html }}
       {% else %}
         {% if page.title %}
-          {{ page.title }}
+          {{ page.title | strip_html }}
         {% elsif page.format %}
           {{ page.format }}
         {% endif %}
