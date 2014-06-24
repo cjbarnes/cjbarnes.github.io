@@ -1,0 +1,55 @@
+{% include head.html %}
+
+  <main class="portfolio">
+
+    <!-- Title area -->
+    <header>
+
+      {% include nav.html %}
+      {% include title.html title=page.title %}
+
+    </header>
+
+    <!-- Main content area -->
+    <section id="primary">
+
+      {{ content }}
+
+      <!-- Websites list -->
+      <div class="listing">
+
+        {% for item in site.data.portfolio %}
+
+          <article class="website portfolio-{{ item.slug }}">
+
+            <!-- Screenshots -->
+            <div class="content">
+              <div class="screenshot large">
+                <img src="/img/{{ item.slug }}.png" title="Desktop version">
+              </div>
+              <div class="screenshot small">
+                <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+              <h3>{{ item.name }}</h3>
+              <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
+            </footer>
+
+          </article>
+
+        {% endfor %}
+
+      </div><!-- .listing -->
+
+    </section>
+
+    {% include page-footer.html %}
+
+  </main>
+
+  {% include site-footer.html %}
+
+{% include foot.html %}
