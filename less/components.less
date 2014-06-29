@@ -414,6 +414,7 @@ table.circle-list {
 
 		a,
 		span {
+			position: relative; // for the icons
 			display: block;
 			float: left;
 			width: 8.5em;
@@ -422,6 +423,20 @@ table.circle-list {
 			border: 1px solid @background-color;
 			line-height: 1em;
 			background-color: @cararra;
+
+			/* Icon positioning */
+			&:before {
+				display: block;
+				position: absolute;
+				top: 0.5em;
+				width: 100%;
+				left: 0;
+				font-size: @font-size-gigantic;
+				font-family: @font-family-icons;
+				line-height: (3em / @font-size-gigantic);
+				color: @toast;
+			}
+
 		}
 		a:hover,
 		a:focus,
@@ -435,16 +450,17 @@ table.circle-list {
 
 	}
 
-	/* Larger boxes */
-	&.large li {
-
-		a,
-		span {
-			width: 8.5em;
-			height: 9em;
-			padding-top: 0.5em;
-		}
-
-	}
+	/* Icons */
+	.rwd span:before               { content: "📱" }
+	.system-design span:before     { content: "" }
+	.copywriting span:before       { content: "⌨" }
+	.training span:before          { content: "" }
+	.lesson-planning span:before   { content: "🎓" }
+	.technical-writing span:before { content: "" }
+	.technical-support span:before { content: "📞" }
+	.reporting span:before         { content: "📰" }
+	.graphics span:before          { content: "" }
+	.seo span:before               { content: "📈" }
+	.social-media span:before      { content: "👍" }
 
 }
