@@ -39,6 +39,18 @@ First things first: all web design and writing on this website is by Chris Barne
 [expertise](/whatido/expertise/) photos:
 :  ['Fashion Glasses on MacBook Pro'](http://picjumbo.com/fashion-glasses-on-macbook-pro/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
 :  ['Programmeren'](https://www.flickr.com/photos/waagsociety/8536919558/) by Waag Society on [Flickr](https://www.flickr.com/photos/waagsociety/)
+
+[expertise](/whatido/expertise/) icons:
+:  ['Responsive Design'](http://thenounproject.com/term/responsive-design/18986/) designed by Nithin Viswanathan from [the Noun Project](http://thenounproject.com)
+:  ['Design'](http://thenounproject.com/term/design/26890/) designed by Mateo Zlatar from [the Noun Project](http://thenounproject.com)
+:  ['Lecturer'](http://thenounproject.com/term/lecturer/1499/) designed by Zbigniew Flakus from [the Noun Project](http://thenounproject.com)
+:  ['Projection Screen'](http://thenounproject.com/term/projection-screen/41444/) designed by SuperAtic LABS from [the Noun Project](http://thenounproject.com)
+:  ['Manual'](http://thenounproject.com/term/manual/18449/) designed by Felipe Almeida from [the Noun Project](http://thenounproject.com)
+:  ['Headset'](http://thenounproject.com/term/headset/1503/) designed by Marwa Boukarim from [the Noun Project](http://thenounproject.com)
+:  ['Report'](http://thenounproject.com/term/report/44582/) designed by João Marcelo Ribeiro from [the Noun Project](http://thenounproject.com)
+:  ['Ruler'](http://thenounproject.com/term/drafting/1472/) designed by Garrett Knoll from [the Noun Project](http://thenounproject.com)
+:  ['Seo'](http://thenounproject.com/term/seo/8453/) designed by Oriol Carbonell from [the Noun Project](http://thenounproject.com)
+:  ['Social Media'](http://thenounproject.com/term/social-media/2324/) designed by Joris Hoogendoorn from [the Noun Project](http://thenounproject.com)
    
 [i don’t](/whatido/idont) photo:
 :  'Kelly Cycling in Seattle Pack 9' by [Death to the Stock Photo](http://deathtothestockphoto.com)
