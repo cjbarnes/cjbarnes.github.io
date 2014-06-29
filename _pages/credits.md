@@ -34,7 +34,11 @@ First things first: all web design and writing on this website is by Chris Barne
 :	['Detail of Girl’s Hands typing on MacBook'](http://picjumbo.com/detail-of-girls-hands-typing-on-macbook/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
    
 [my  approach](/whatido/approach/) photo:
-:  ['iPhone 4S with Brown Diary'](http://picjumbo.com/iphone-4s-with-brown-diary/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
+:  ['Internet Tea Time'](http://picjumbo.com/internet-tea-time/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
+   
+[expertise](/whatido/expertise/) photos:
+:  ['Fashion Glasses on MacBook Pro'](http://picjumbo.com/fashion-glasses-on-macbook-pro/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
+:  ['Programmeren'](https://www.flickr.com/photos/waagsociety/8536919558/) by Waag Society on [Flickr](https://www.flickr.com/photos/waagsociety/)
    
 [i don’t](/whatido/idont) photo:
 :  'Kelly Cycling in Seattle Pack 9' by [Death to the Stock Photo](http://deathtothestockphoto.com)

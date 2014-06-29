@@ -129,45 +129,22 @@
 
 /* The USPs content band */
 
-.homepage #secondary {
-	position: relative; // for parallax images
-	padding: 0;
-	overflow: hidden;
-	color: @text-color-reversed;
+.homepage .content.illustrated,
+.homepage #secondary.illustrated {
+
+	/* Different colours */
+
 	background-color: @toast;
 
-	/* The individual content blocks */
-
-	section {
-		position: relative; // for overlapping the parallax image/gradient
-		z-index: 5;
-		padding-bottom: @line;
+	.gradient.right {
+		background-image: linear-gradient(to left, transparent 40%, @toast 100%);
 	}
 
-	h2 {
-		color: @white;
-		margin: @line-huger 0;
-	}
-
+	/* Remove list styling */
 	ul {
 		margin: 0;
-		padding: 0;
 		line-height: (@line-height-large * 1.5);
 		list-style: none;
-	}
-
-	p {
-		margin: 0;
-
-		a {
-			color: @text-color-emphasis;
-
-			&:hover,
-			&:focus,
-			&:active {
-				color: @text-color-reversed;
-			}
-		}
 	}
 
 	/* Different emphasis style for dark background */

@@ -45,6 +45,7 @@ header .illustrated {
 main.illustrated > header,
 article.illustrated > header,
 header .illustrated,
+.content.illustrated,
 .homepage {
 
 	/* Extra space and styling for text overlayed on photo */
@@ -167,39 +168,93 @@ header .illustrated {
 
 
 /**
- * Homepage parallax
+ * Parallax illustrations in content
  */
 
-.homepage {
+.content.illustrated,
+#secondary.illustrated {
 
+	position: relative; // for parallax images
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+	font-size: @font-size-large;
+	line-height: @line-height-large;
+	color: @text-color-reversed;
+	background-color: @oslo-grey;
+
+	/* The picture */
 	.illustration {
 		height: 100%;
 	}
-
-	/* Right-aligned illustration */
-
 	.illustration.right img {
 		margin-left: -10%;
 	}
 
-	.gradient.right {
+	/* The gradient */
+	.gradient {
 		z-index: 2;
 		position: absolute;
 		top: 0;
-		left: 50%;
 		width: 850px;
 		height: 100%;
+	}
+	.gradient.right {
+		left: 50%;
 		margin-left: -10%;
-		background-image: linear-gradient(to left, transparent 40%, @toast 100%);
+		background-image: linear-gradient(to left, transparent 40%, @oslo-grey 100%);
+	}
+
+	/* The individual content blocks */
+
+	section {
+		position: relative; // for overlapping the parallax image/gradient
+		z-index: 5;
+		padding-bottom: @line;
+	}
+
+	h2 {
+		color: @white;
+		margin: @line-huger 0;
+	}
+
+	ul {
+		padding: 0;
+		list-style-type: circle;
+	}
+
+	p {
+		margin: 0;
+
+		a {
+			color: @text-color-emphasis;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: @text-color-reversed;
+			}
+		}
+	}
+
+	/* Different emphasis style for dark background */
+	strong {
+		color: @text-color-reversed;
+		background-color: @ironstone;
 	}
 
 }
 
-/* Homepage first illustration only */
+
+/**
+ * Homepage header parallax
+ */
 
 .homepage > header {
 
 	.illustration {
+		height: 100%;
 
 		img {
 			margin-left: -700px;
