@@ -375,51 +375,22 @@ table.circle-list {
 
 
 /**
- * Skills area on expertise page
+ * Skills/technologies row of icons
  */
 
-#skills {
+.skills {
 
-	/* Background */
-
-	width: 100%;
-	margin: 0;
-	background-color: @background-color;
-
-	/* Skill entries */
-
-	dt {
-		float: left;
-		margin-left: @line-large;
-		padding: (@line-large / 4) (@line-large / 2);
-		border-radius: (@line-large / 2) (@line-large / 2) 0 0;
-		font-size: @font-size-large;
-		line-height: @line-height-large;
-		color: @text-color-reversed;
-		background-color: @santa-fe;
+	&.wide-content {
+		padding-top: @line; // increased specificity to override padding
+		padding-bottom: @line; // as above
+		background-color: @background-color;
 	}
-
-	dd {
-		clear: left;
-		margin: 0 0 @line;
-		padding: @line @line @line (@line * 1.5);
-		border-radius: @line;
-		background-color: @background-color-content;
-	}
-
-}
-
-
-/**
- * Technologies row of icons
- */
 
 /* Headings */
 
-.technologies {
-
 	h2,
 	h3 {
+		color: @toast;
 		text-align: center;
 	}
 
@@ -427,7 +398,7 @@ table.circle-list {
 
 /* Icons */
 
-.tech {
+.skill-list {
 	.clearfix();
 	display: block;
 	list-style: none;
@@ -441,15 +412,21 @@ table.circle-list {
 		margin: 0;
 		text-align: center;
 
-		a {
+		a,
+		span {
 			display: block;
 			float: left;
 			width: 8.5em;
 			height: 8.5em;
 			padding: 6em 0.5em 0.5em;
-			border: 1px solid @background-color-content;
+			border: 1px solid @background-color;
 			line-height: 1em;
 			background-color: @cararra;
+		}
+		a:hover,
+		a:focus,
+		a:active {
+			border-color: @background-color;
 		}
 
 	}
