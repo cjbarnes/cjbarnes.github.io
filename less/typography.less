@@ -176,13 +176,14 @@ ol,
 ul,
 dl {
 
-	li,
-	dd {
+	li {
 		margin: (@line / 2) 0;
 	}
 
 	dd {
-		margin-left: @line;
+		margin: (@line-small / 2) 0 (@line-small / 2) @line-small;
+		font-size: @font-size-small;
+		line-height: @line-height-small;
 	}
 
 	& & {
