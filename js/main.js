@@ -198,3 +198,53 @@
   }
 
 })();
+
+
+/**
+ * Adds ids to content subheadings, so they can be linked to
+ */
+(function linkifySubheadings() {
+
+  /* Get the subheading elements */
+  var subheads = document.querySelectorAll('.single .content h2');
+
+  /* Add ID and link to each subheading in turn */
+  var i, l;
+  for (i = 0, l = subheads.length; i < l; i++) {
+
+    var subheadID;
+
+    if (! subheads[i].id) {
+
+      /* Get content */
+      subheadID = subheads[i].textContent;
+
+      /* Prepare a HTML4-compatible, jQuery-compatible ID and apply to element */
+      subheadID = subheadID.toLowerCase().replace(/[^\w-]/g, '_');
+      subheads[i].id = subheadID;
+
+    } else {
+
+      subheadID = subheads[i].id;
+
+    }
+
+
+    /* Build link for this subhead ID */
+    var href = '//' + location.host;
+    href += (location.pathname ? location.pathname : '');
+    href += '#' + subheadID;
+
+    console.log('href');
+
+    /* Create permalink to this subheading and append to element */
+    var link = document.createElement('a');
+    link.appendChild(document.createTextNode('#'));
+    link.href = href;
+    link.title = 'permalink to this subheading';
+    link.classList.add('hashlink');
+    subheads[i].appendChild(link);
+
+  }
+
+})();

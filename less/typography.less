@@ -116,6 +116,24 @@ a {
 	}
 }
 
+/* Subheading permalinks */
+.hashlink {
+	position: absolute;
+	display: block;
+	opacity: 0;
+	right: 100%;
+	bottom: (@vertical-rhythm / 4);
+	width: @vertical-rhythm;
+	height: @vertical-rhythm;
+	padding: 0;
+	line-height: @vertical-rhythm;
+
+	:hover > &,
+	:focus > & {
+		opacity: 1;
+	}
+}
+
 
 /**
  * Headings
@@ -140,6 +158,7 @@ h1 {
 /* Subheadings */
 
 h2 {
+	position: relative; // for hashlinks
 	margin: (@line-huge * 2) 0 @line-huge;
 	font-size: @font-size-huge;
 	line-height: (@line-height-huge * 1.5);
