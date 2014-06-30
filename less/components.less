@@ -167,208 +167,167 @@ table.circle-list {
  * 'Timeline' of sections
  */
 
-/* Keyframes */
-
-@keyframes rotateup {
-	from { transform: rotate3d(-1, 0, 0, 90deg); }
-	to   { transform: rotate3d( 0, 0, 0, 90deg); }
-}
-
-@keyframes writing {
-	  0% { transform: translate3d(-150px, 0, 0) rotate(  0   ); }
-	 15% { transform: translate3d(-130px, 0, 0) rotate(-60deg); }
-	 25% { transform: translate3d( -95px, 0, 0) rotate(  5deg); }
-	 40% { transform: translate3d( -80px, 0, 0) rotate(-40deg); }
-	 55% { transform: translate3d( -50px, 0, 0) rotate(  0   ); }
-	 70% { transform: translate3d( -40px, 0, 0) rotate(-30deg); }
-	 85% { transform: translate3d( -25px, 0, 0) rotate( 10deg); }
-	100% { transform: translate3d(   0  , 0, 0) rotate(  0   ); }
-}
-
-@keyframes hammer {
-	  0% { transform: translate3d(0, 0, 0) rotate(  0   ); }
-	 10% { transform: translate3d(0, 0, 0) rotate( 30deg); }
-	 15% { transform: translate3d(0, 0, 0) rotate(-50deg); }
-	100% { transform: translate3d(0, 0, 0) rotate(  0deg); }
-}
-
-@keyframes rocket {
-	from { transform: translate3d(-300px, 300px, 0); }
-	to   { transform: translate3d(   0  ,   0  , 0); }
-}
-
-@keyframes iconflip {
-	.make-alpha-color(@black, 0.2);
-	0% {
-	  	transform: rotate3d(0, 0, 0, 0);
-	  	text-shadow: @cararra 4px 4px 0px, @alpha-color 7px 7px 0px;
-	}
-	50% {
-		transform: rotate3d(0, 1, 0, 180deg);
-		text-shadow: @cararra -4px 4px 0px, @alpha-color -7px 7px 0px;
-	}
-	100% {
-		transform: rotate3d(0, 1, 0, 360deg);
-		text-shadow: @cararra 4px 4px 0px, @alpha-color 7px 7px 0px;
-	}
-}
-
-@keyframes zoom {
-	from { transform: scale3d(0, 0, 0); }
-	to   { transform: scale3d(1, 1, 1); }
-}
-
 .timeline {
 
-	/* Blocks of content */
+	/* Counter for 'step' numbering */
+	counter-reset: timeline;
+
+	/* Remove spacing between sections */
+	h3 {
+		margin-top: 0;
+		padding-left: @line-larger;
+		color: @toast;
+	}
+
+	/* Remove columns layout */
+
+	.content {
+		display: block;
+		float: none;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	/* Icons */
 
 	section {
-		.column(12);
-		position: relative; // for icon and header positioning
-		overflow: hidden; // for icons flying in from offscreen
-		min-height: (@line * 10);
-		min-height: 50vh;
-		padding-top: @line;
+		counter-increment: timeline;
+		.circle-box(@background-color-content);
+		margin-bottom: @line;
 		padding-bottom: @line;
-		background-color: @background-color;
+		border-left: (@line / 2) solid @toast;
 
-		/* Content area dimensions */
-		.content {
-			.column(7, @gutter-width, 12);
-			.push(4);
+		&:before {
+			top: 0;
+			left: (-1 * (@line-huge / 4));
+			margin-top: (-1 * (@line-huge / 4));
+			border: 0;
+			//font-family: @font-family-icons;
 		}
 
-		/* Alternating row colors */
-		&:nth-child(2n) {
-			background-color: @background-color-page-footer;
-		}
+		/* Triangles */
 
-	}
-
-	/* Headings */
-
-	h3 {
-		position: absolute;
-		left: (@line-larger * 2);
-		top: (@line-larger);
-		margin: 0;
-		color: @toast;
-	}
-
-	h4 {
-		color: @toast;
-	}
-
-	/* Content */
-
-	p,
-	ul,
-	ol {
-		margin: 0;
-	}
-
-	p {
-		font-family: @font-family-content;
-		font-size: @font-size-large;
-		line-height: (@line-height-large * 1.5);
-	}
-
-	/* Timeline icon-graphics */
-
-	.icon {
-
-		.make-alpha-color(@black, 0.2);
-		visibility: hidden; // Only shown by js, once in viewport
-		opacity: 0;
-		position: absolute;
-		left: (@line-leviathan * 2);
-		bottom: 50%;
-		margin-bottom: -0.5em;
-		color: @toast;
-		font-size: @font-size-leviathan;
-		line-height: 1;
-		font-family: @font-family-icons;
-		text-shadow: @cararra 4px 4px 0px, @alpha-color 7px 7px 0px;
-
-	}
-
-	.icon.in-view {
-		visibility: visible;
-		opacity: 1;
-		transition: opacity 0.5s linear;
-	}
-
-	/* Specific icons */
-
-	#beginning .icon.in-view {
-		color: @patina;
-		animation: iconflip 1.5s 1 ease-out;
-	}
-
-	#spec .icon.in-view {
-		color: @black;
-		animation: rotateup 1.5s 1 ease-in-out;
-		transform-origin: bottom center;
-	}
-
-	#design .icon.in-view {
-		color: @santa-fe;
-		animation: writing 1.5s 1 ease-out;
-		transform-origin: bottom left;
-	}
-
-	#development .icon.in-view {
-		color: @oslo-grey;
-		animation: hammer 1.5s 1 ease-in;
-	}
-
-	#testing .icon.in-view {
-		color: @black;
-
-		/* Tick */
 		&:after {
-			content: '\2713';
-			color: @patina;
+			@arrow-height: (@line * 0.75);
+			content: '';
+			display: block;
 			position: absolute;
-			bottom: 0;
-			right: 25%;
-			animation: zoom 1s 1 ease-in-out;
+			left: ((-1 * @arrow-height) - (@line / 4));
+			top: 100%;
+			width: 0;
+			height: 0;
+			border-left: @arrow-height solid transparent;
+			border-right: @arrow-height solid transparent;
+			border-top: @arrow-height solid @toast;
+		}
+	}
+
+	/* Individual sections' colours and icons */
+
+	#spec {
+		@section-color: lighten(@toast, 30%);
+		border-color: @section-color;
+
+		&:before {
+			content: counter(timeline);
+			// content: '📰';
+			background-color: @section-color;
 		}
 
+		&:after {
+			border-top-color: @section-color;
+		}
 	}
 
-	#launch .icon.in-view {
-		color: @patina;
-		animation: rocket 0.5s 1 linear;
+	#design {
+		@section-color: lighten(@toast, 20%);
+		border-color: @section-color;
+
+		&:before {
+			content: counter(timeline);
+			// content: '✎';
+			background-color: @section-color;
+		}
+
+		&:after {
+			border-top-color: @section-color;
+		}
 	}
 
-	#handover .icon.in-view {
-		color: @ironstone;
-		animation: zoom 1s 1 ease-in-out;
+	#development {
+		@section-color: lighten(@toast, 10%);
+		border-color: @section-color;
+
+		&:before {
+			content: counter(timeline);
+			// content: '⚒';
+			background-color: @section-color;
+		}
+
+		&:after {
+			border-top-color: @section-color;
+		}
 	}
 
-	#support .icon.in-view {
-		color: @oslo-grey;
-		animation: iconflip 1.5s 1 ease-out;
+	#testing {
+		@section-color: @toast;
+		border-color: @section-color;
+
+		&:before {
+			content: counter(timeline);
+			// content: '💻';
+			background-color: @section-color;
+		}
+
+		&:after {
+			border-top-color: @section-color;
+		}
 	}
-
-
-	/* Custom block of content: 'launch' */
 
 	#launch {
-		background-color: @cocoa-brown;
+		@section-color: darken(@toast, 10%);
+		border-color: @section-color;
 
-		h3,
-		h4 {
-			color: @background-color;
+		&:before {
+			content: counter(timeline);
+			// content: '🚀';
+			background-color: @section-color;
 		}
 
-		p,
-		ul,
-		ol {
-			color: @text-color-reversed;
+		&:after {
+			border-top-color: @section-color;
+		}
+	}
+
+	#handover {
+		@section-color: lighten(@toast, 10%);
+		border-color: @section-color;
+
+		&:before {
+			content: counter(timeline);
+			// content: '';
+			background-color: @section-color;
 		}
 
+		&:after {
+			border-top-color: @section-color;
+		}
+	}
+
+	#support {
+		@section-color: lighten(@toast, 30%);
+		border-color: @section-color;
+
+		&:before {
+			content: counter(timeline);
+			// content: '';
+			background-color: @section-color;
+		}
+
+		&:after {
+			display: none; // hide last arrow
+		}
 	}
 
 }
