@@ -1,13 +1,11 @@
 # Version (for cache busting)
 version: 0.0.1
 
+# Development or production?
+is_local: false
+
 # Site url (for use in pages)
 url: http://www.cjbarnes.co.uk
-
-# GitHub defaults
-pygments: true
-safe: true
-lsi: false
 
 # Permalinks
 permalink: /blog/:title-:year-:month-:day/

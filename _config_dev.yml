@@ -1,0 +1,11 @@
+#
+# Local configuration values (overrides _config.yml)
+#
+
+# Dev environment flag
+is_local: true
+
+# GitHub defaults
+pygments: true
+safe: true
+lsi: false
