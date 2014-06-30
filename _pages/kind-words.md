@@ -2,6 +2,7 @@
 title: kind words
 permalink: whativedone/kindwords/
 layout: standard
+illustration: kind-words
 ---
 
 Thanks to my awesome clients who allowed me to publish their kind words here…
