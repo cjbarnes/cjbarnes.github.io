@@ -42,7 +42,7 @@ First things first: all web design and writing on this website is by Chris Barne
 :  ['Programmeren'](https://www.flickr.com/photos/waagsociety/8536919558/) by Waag Society on [Flickr](https://www.flickr.com/photos/waagsociety/)
    
 [i don’t](/whatido/idont) photo:
-:  'Kelly Cycling in Seattle Pack 9' by [Death to the Stock Photo](http://deathtothestockphoto.com)
+:  photo by Vee-O at [Unsplash](http://unsplash.com)
    
 [contact me](/contact/) photo:
 :  ['An iPhone 5S in a Car'](http://picjumbo.com/an-iphone-5s-in-a-car/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
