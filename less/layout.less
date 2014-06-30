@@ -71,6 +71,10 @@ main,
 	display: none;
 }
 
+.approach #primary {
+	background-color: @background-color-content;
+}
+
 
 /**
  * Breakpoint 0: mobile
@@ -79,6 +83,7 @@ main,
 /* Main content area */
 
 .single .content,
+.approach #primary .content,
 .sidebar,
 .listing,
 .single .wide-content,
@@ -198,6 +203,8 @@ main,
 	.index .sidebar,
 	.index .listing,
 	.cv .listing,
+	.approach #primary .content,
+	.approach .listing,
 	.timeline {
 		.column(10);
 		.push(1);
@@ -211,7 +218,8 @@ main,
 	ul,
 	dl,
 	figcaption,
-	blockquote {
+	blockquote,
+	.approach .listing .step footer h3 {
 		.push(1);
 		.pull(1);
 	}
@@ -301,7 +309,8 @@ main,
 
 	// Main content area
 
-	.single .content {
+	.single .content,
+	.approach #primary .content {
 		.column(8);
 		.push(2);
 		.pull(2);
@@ -323,7 +332,8 @@ main,
 			.pull(0);
 		}
 
-		.portfolio & {
+		.portfolio &,
+		.approach & {
 			.column(10);
 			.push(1);
 			.pull(1);

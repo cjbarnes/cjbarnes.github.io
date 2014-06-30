@@ -12,6 +12,13 @@
 
 .listing {
 	margin: @line 0;
+
+	/* Heading */
+	> h2 {
+		margin: 0 0 (@line-huge * 2);
+		color: @toast;
+		text-align: center;
+	}
 }
 
 
@@ -54,7 +61,7 @@
 	&.project:before { content: "⚒"; }
 	&.website:before { content: ""; }
 	&.page:before    { content: "📰"; }
-	&.tip:before    { content: "💡"; }
+	&.tip:before     { content: "💡"; }
 
 	/* Hide icons for illustrated articles */
 
@@ -81,7 +88,8 @@
 	&.job,
 	&.award,
 	&.project,
-	&.tip {
+	&.tip,
+	&.step {
 		.circle-box(@background-color);
 
 		&:before {
@@ -377,6 +385,139 @@ footer .listing {
 		color: @text-color;
 		text-align: center;
 
+	}
+
+}
+
+
+/**
+ * My Approach listing (timeline of steps)
+ */
+
+
+.approach .listing {
+
+	/* Step count circles */
+
+	counter-reset: steps;
+
+	.step {
+		counter-increment: steps;
+
+		&:before {
+			content: counter(steps);
+			font-size: @font-size-huger;
+			color: @background-color-content;
+		}
+	}
+
+	.step {
+
+		padding-bottom: (@line / 2);
+
+	}
+
+	/* Icons */
+
+	.title .icon {
+		display: inline-block;
+		font-family: @font-family-icons;
+		font-size: @font-size-huge;
+		line-height: 1;
+		transform: rotate(-5deg);
+	}
+
+	/* Arrows */
+
+	/* Arrowhead */
+	.step:after {
+		@arrow-size: 3em;
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-top: 0.5em;
+		margin-left: (-1 * @arrow-size);
+		display: block;
+		width: 0;
+		height: 0;
+		border-top: (@arrow-size * 0.75) solid @background-color-content;
+		border-left:  @arrow-size solid transparent;
+		border-right: @arrow-size solid transparent;
+	}
+
+	/* Arrow shaft */
+	footer:after {
+		@shaft-size: 4em;
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-top: (@line / 2);
+		margin-left: (-1 * (@shaft-size / 2));
+		display: block;
+		width: @shaft-size;
+		height: 0.5em;
+		background-color: @background-color-content;
+	}
+
+	/* Hide arrow for last step */
+
+	.support:after,
+	.support footer:after {
+		display: none;
+	}
+
+	/* 'What you get' footer */
+
+	footer {
+		margin: (@line / 2) (@line / 2) 0;
+		padding: (@line / 2) 0;
+		min-height: @line;
+		font-family: @font-family-content;
+		text-align: left;
+
+		/* Subheading */
+
+		h3 {
+			position: absolute;
+			bottom: 100%;
+			left: (-1 * (@line-large / 2));
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: @font-size-large;
+			line-height: @line-height-large;
+
+			&:after {
+				content: ':';
+			}
+		}
+
+		/* List */
+
+		ul {
+			margin: 0 (@line * 2);
+		}
+
+		li {
+			margin-top: (@line-small / 4);
+			margin-bottom: 0;
+			font-size: @font-size-small;
+			line-height: @line-height-small;
+			list-style: circle;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+	}
+
+	/* Different styling for launch box */
+
+	.launch:before,
+	.launch header {
+		background-color: @santa-fe;
 	}
 
 }
