@@ -17,6 +17,7 @@ First things first: all web design and writing on this website is by Chris Barne
 * [Picturefill](http://scottjehl.github.io/picturefill) by Scott Jehl *(a polyfill for HTML5 responsive images)*
 * [Respond.js](https://github.com/scottjehl/Respond) by Scott Jehl *(a polyfill for CSS3 media queries)*
 * [Responsable](http://responsablecss.com) by Abban Dunne and James Wilson *(a Less-based grid system)*
+* [Smashing Magazine webfont script](https://gist.github.com/hdragomir/8f00ce2581795fd7b1b7) by Horia Dragomir
 * [test for CSS3 translate3d support](http://stackoverflow.com/a/11870053) by Jeff Falter
 
 *See the [colophon](/colophon/) for a list of hardware, software, and services used in the making of this website.*

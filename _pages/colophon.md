@@ -24,6 +24,7 @@ layout: standard
 * [GitHub Pages](https://pages.github.com) for hosting
 * [Google Fonts](http://www.google.com/fonts/) for font CDN
 * [We Love Icon Fonts](http://weloveiconfonts.com) for another font CDN
+* [Font Squirrel](http://www.fontsquirrel.com) for webfont packaging of Aleo font
 * [Color Thief](http://lokeshdhakar.com/projects/color-thief/) by Lokesh Dhakar helped me choose a colour palette
 * [Name that Color](http://chir.ag/projects/name-that-color/) by Chirag Mehta, for better Less colour names
 * [Google Analytics](http://www.google.com/analytics/) for stats tracking and reporting
