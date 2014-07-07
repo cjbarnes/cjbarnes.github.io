@@ -18,6 +18,9 @@ paginate_path: /blog/page:num
 # Process _pages folder
 include: ['_pages']
 
+# Don't process working copies of images
+exclude: ['.psd','.ai','.eps']
+
 # Don't process posts with future dates
 future: false
 
