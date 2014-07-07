@@ -216,15 +216,22 @@ table.circle-list {
 
 			/* Icon positioning */
 			&:before {
+				@icon-size: 70px;
+
+				content: ' '; // overriden if there's an icon
 				display: block;
 				position: absolute;
-				top: 0.5em;
-				width: 100%;
-				left: 0;
+				top: 0.4em;
+				width: @icon-size;
+				height: @icon-size;
+				left: 50%;
+				margin-left: ((-1 * @icon-size) / 2);
 				font-size: @font-size-gigantic;
 				font-family: @font-family-icons;
 				line-height: (3em / @font-size-gigantic);
 				color: @toast;
+				background: transparent url('/img/skill-images.png') left top no-repeat;
+				background-size: auto 70px;
 			}
 
 		}
@@ -240,7 +247,8 @@ table.circle-list {
 
 	}
 
-	/* Icons */
+	/* Vector icons */
+
 	.rwd span:before               { content: "📱" }
 	.system-design span:before     { content: "" }
 	.copywriting span:before       { content: "⌨" }
@@ -252,5 +260,28 @@ table.circle-list {
 	.graphics span:before          { content: "" }
 	.seo span:before               { content: "📈" }
 	.social-media span:before      { content: "👍" }
+
+	/* Remove bitmap image background */
+	&.basics li span:before,
+	&.basics li a:before {
+		background-image: none;
+	}
+
+	/* Bitmap icons */
+	@bitmaps: html5, css3, javascript, jquery, sql, php, nodejs, less, regex, bootstrap, jqueryui, wordpress, blackboard, t4, netcommunity, commonspot, jekyll, git, svn, analytics, photoshop, illustrator, indesign, office, visio, crystal, omnigraffle, widgit;
+
+	// LESS equivalent of a for loop
+	.bitmaps-loop(@l, @i: 1) when (@i <= @l) {
+		@class: extract(@bitmaps, @i);
+		.@{class} {
+			a:before,
+			span:before {
+				background-position-x: ((@i - 1) * -70px);
+			}
+		}
+
+		.bitmaps-loop(@l, (@i + 1));
+	}
+	.bitmaps-loop(length(@bitmaps));
 
 }
