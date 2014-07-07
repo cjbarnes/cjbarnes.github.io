@@ -493,56 +493,6 @@ tfoot {
 
 }
 
-/* 'Don'ts list' tables */
-
-.donts {
-
-	/* Header/Footer */
-
-	thead,
-	tfoot {
-
-		th {
-			padding: (@line-large / 2) 0;
-			color: @patina;
-			font-family: @font-family-content;
-			font-size: @font-size-large;
-			line-height: @line-height-large;
-			font-style: italic;
-		}
-
-		/* Left column head */
-		th:first-child {
-			color: @ironstone;
-		}
-
-	}
-
-	/* Main content area */
-
-	tbody {
-
-		/* Right column */
-		td,
-		th {
-			font-size: @font-size;
-			line-height: @line-height;
-			padding: (@line / 2) (@line / 2) (@line * 2) (@line / 2);
-		}
-
-		/* Left column */
-		.complaint {
-			padding: (@line-large / 2) @line-large (@line-large * 2);
-			color: @text-color-quote;
-			font-size: @font-size-large;
-			line-height: @line-height-large;
-			font-style: italic;
-		}
-
-	}
-
-}
-
 
 /**
  * Horizontal rule
