@@ -28,7 +28,8 @@
  * Typography changes
  */
 
-.single .content {
+.single .content,
+.donts {
 
 	/* Figures */
 
@@ -76,5 +77,92 @@
 		}
 	}
 
+	figure.yes {
+
+		/* Colours */
+		blockquote {
+			color: @color-yes;
+		}
+
+		/* Icon */
+		&:before {
+			content: "👍";
+			background-color: @color-yes;
+		}
+	}
+
+	figure.no {
+
+		/* Colours */
+		blockquote {
+			color: @color-no;
+		}
+
+		/* Icon */
+		&:before {
+			content: "👎";
+			background-color: @color-no;
+		}
+	}
+
 }
 
+/* Figure changes for 'I don't' page */
+
+.donts {
+
+	/* For rows of don't-box pairs */
+
+	.donts-row {
+		.clearfix();
+	}
+
+	figure {
+
+		background-color: @background-color-content;
+
+		/* Match icon borders to the main background colour */
+
+		&.quote,
+		&.code,
+		&.link,
+		&.yes,
+		&.no {
+			&:before {
+				border-color: @background-color;
+			}
+		}
+	}
+
+	/* 'Do' boxes */
+	figure.yes {
+		.column(5);
+		.push(1);
+		padding-top: (@line * 1.5);
+		padding-bottom: (@line * 1.5);
+
+		/* Smaller text */
+
+		blockquote {
+			font-size: @font-size;
+			line-height: @line-height;
+
+			p + p {
+				margin-top: @line;
+			}
+		}
+	}
+
+	/* 'Don't' boxes */
+	figure.no {
+		.column(4);
+		.push(1);
+		padding-top: (@line * 1.5);
+		padding-bottom: (@line * 1.5);
+
+		blockquote {
+			font-style: italic;
+		}
+	}
+
+}

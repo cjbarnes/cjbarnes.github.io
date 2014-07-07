@@ -71,7 +71,8 @@ main,
 	display: none;
 }
 
-.approach #primary {
+.approach #primary,
+.i-dont #primary {
 	background-color: @background-color-content;
 }
 
@@ -84,6 +85,7 @@ main,
 
 .single .content,
 .approach #primary .content,
+.i-dont #primary .content,
 .sidebar,
 .listing,
 .single .wide-content,
@@ -205,6 +207,7 @@ main,
 	.cv .listing,
 	.approach #primary .content,
 	.approach .listing,
+	.i-dont #primary .content,
 	.timeline {
 		.column(10);
 		.push(1);
@@ -310,7 +313,8 @@ main,
 	// Main content area
 
 	.single .content,
-	.approach #primary .content {
+	.approach #primary .content,
+	.i-dont #primary .content {
 		.column(8);
 		.push(2);
 		.pull(2);
