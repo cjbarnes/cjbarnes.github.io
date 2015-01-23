@@ -1,6 +1,5 @@
 *.sublime-project
 *.sublime-workspace
-*.codekit
 *.lock
 .codekit-cache/
 _site/
