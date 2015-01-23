@@ -1,16 +1,8 @@
-
 *.sublime-project
-
 *.sublime-workspace
-
 *.codekit
-
 *.lock
-
-Gemfile
-
 .codekit-cache/
-
-
 _site/
+.sass-cache
 *-TEST*
