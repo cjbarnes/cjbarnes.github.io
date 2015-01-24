@@ -1,5 +1,3 @@
----
----
 /**
  * All site-wide styles
  *
@@ -11,7 +9,7 @@
  */
 
 // Vendor: normalize.
-@import "vendor/normalize";
+//@import "vendor/normalize";
 
 // Variables come first, so that they can alter the baseline and grid partials.
 @import "utils/colours";
