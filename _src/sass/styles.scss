@@ -9,16 +9,10 @@
  */
 
 // Vendor: normalize.
-//@import "vendor/normalize";
+@import "vendor/normalize";
 
-// Variables come first, so that they can alter the baseline and grid partials.
+// Variables, mixins, functions.
 @import "variables/all";
-
-// Vendor: Responsable grid system.
-@import "vendor/baseline";
-@import "vendor/grid";
-
-// Mixins and functions.
 @import "functions/all";
 @import "mixins/all";
 
