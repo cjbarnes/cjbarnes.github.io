@@ -35,3 +35,7 @@ gems:
   - jemoji
   - jekyll-redirect-from
   - jekyll-sitemap
+
+# Sass compilation
+sass:
+  style: :compressed

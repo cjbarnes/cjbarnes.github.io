@@ -9,3 +9,7 @@ is_local: true
 pygments: true
 safe: true
 lsi: false
+
+# Sass compilation
+sass:
+  style: :expanded
