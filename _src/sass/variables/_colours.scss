@@ -62,21 +62,19 @@ $background-color-page-footer:   $cararra;
 $background-color-site-footer:   $black;
 $background-color-navbar-mobile: $black;
 
-// Post formats.
-$color-article: $ironstone;
-$color-link:    $patina;
-$color-page:    $toast;
-$color-quote:   $santa-fe;
-$color-tip:     $indian-khaki;
-
-// Portfolio entries.
-$color-website: $color-page;
-
-// CV entries.
-$color-award:   $indian-khaki;
-$color-course:  $oslo-grey;
-$color-job:     $ironstone;
-$color-project: $patina;
+// Post formats and CV/portfolio entry formats.
+$format-colors: (
+  "article": $ironstone,
+  "link":    $patina,
+  "page":    $toast,
+  "quote":   $santa-fe,
+  "tip":     $indian-khaki,
+  "website": $toast,
+  "award":   $indian-khaki,
+  "course":  $oslo-grey,
+  "job":     $ironstone,
+  "project": $patina
+);
 
 // Homepage.
 $gradient-color-homepage: $oslo-grey;
@@ -90,7 +88,7 @@ $color-address: $ironstone;
 $color-step: $oslo-grey;
 $color-yes:  $eucalyptus;
 $color-no:   $burnt-umber;
-$background-color-link: lighten($color-link, 40%);
+$background-color-link: lighten($link-color, 40%);
 $background-color-figure:     $cararra;
 $background-color-code:       $black;
 $background-color-quote:      $background-color-figure;
