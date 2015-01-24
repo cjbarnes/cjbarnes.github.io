@@ -8,3 +8,125 @@
  * @package cjbarnes.github.io
  */
 
+/**
+ * Font sizes and line heights.
+ */
+
+// The basic text and leading pixel sizes (unitless for use in maths later).
+$base-font-size:  18;
+$vertical-rhythm: 30;
+$base-line: ($vertical-rhythm / $base-font-size);
+
+/*
+ * Base text size, applied to body element.
+ * 1. For smaller screen sizes.
+ */
+$body-text: (1px * $base-font-size);
+$body-text-small: $body-text;
+$body-text-smaller: ($body-text * (15 / $base-font-size)); // 1
+
+/*
+ * Font size relationships. For use in the font-size, line-height and line maps.
+ */
+$font-size-multipliers: (
+  smaller:   ( 14 / $base-font-size),
+  small:     ( 16 / $base-font-size),
+  normal: 1,
+  large:     ( 21 / $base-font-size),
+  larger:    ( 24 / $base-font-size),
+  huge:      ( 28 / $base-font-size),
+  huger:     ( 32 / $base-font-size),
+  enormous:  ( 40 / $base-font-size),
+  gigantic:  ( 54 / $base-font-size),
+  leviathan: (144 / $base-font-size),
+);
+
+/*
+ * Assemble font size and line height maps:
+ * - $font-size   - Font size in `em`s relative to the default
+ *                  (`$base-font-size`).
+ * - $line-height - Unitless line height that works out to one line/unit of
+ *                  vertical rhythm when the `font-size` is set to the
+ *                  corresponding value in the `$font-size` map.
+ * - $line        - As $line-height, but in `em`s (for use in margins, padding,
+ *                  etc).
+ *
+ * Note that we have to use maps here because Sass (stupidly) intentionally
+ * does not allow interpolation within variable names. Also note the `1em * x`
+ * logic is used to append the `em` unit, since Sass (also stupidly) does not
+ * allow swapping/assignment/deassignment of units, nor calculations involving
+ * non-matching units. My kingdom for an equivalent to `unit()` in LESS...
+ */
+$font-sizes:   ();
+$line-heights: ();
+$lines:        ();
+@each ( $size, $val in $font-size-multipliers ) {
+  // Prepare map values for this size.
+  $font-size: (1em * $val);
+  $line-height: ($base-line / $val);
+  $line: (1em * $line-height);
+
+  // Add new key-value pairs to maps.
+  $font-sizes:   map-merge($font-sizes,   ($size: $font-size));
+  $line-heights: map-merge($line-heights, ($size: $line-height));
+  $lines:        map-merge($lines,        ($size: $line));
+}
+
+
+/**
+ * Font styles and weights.
+ */
+
+// Font families
+$font-family-serif: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+$font-family-sans-serif: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
+$font-family-icons: "entypo";
+$font-family-logo: "cJ Logo";
+
+// Font family assignments
+$font-family-brand:     $font-family-sans-serif;
+$font-family-headings:  $font-family-sans-serif;
+$font-family-content:   $font-family-serif;
+$font-family-monospace: $font-family-brand;
+
+// Same font weight is used throughout.
+$font-weight: 300;
+
+
+/**
+ * Fonts and font sizes for includes.
+ */
+
+// Logo.
+$font-size-navbar-logo: 40px;
+$line-navbar-logo: (1em * ((1px * $vertical-rhythm) / $font-size-navbar-logo));
+
+
+/**
+ * Dimensions.
+ */
+
+// Standard columns.
+$columns: 12;
+$gutter-width: (1px * $vertical-rhythm);
+$gutter = ($gutter-width / 2);
+$body-width-maximum: 1140px;
+
+// Variables used by Responsable (`vendor/_grid.scss`).
+$gutter_width: $gutter-width;
+$max_width: $body-width-maximum;
+
+// Links.
+$link-padding: 0.2em;
+
+
+/**
+ * Miscellaneous variables.
+ */
+
+// Circle elements.
+$border-width-circle: 1;
+$circle-diameter: (1px * ($vertical-rhythm * 1.5));
+
+// Animation.
+$link-transition-duration: 0.3s;

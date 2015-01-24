@@ -7,3 +7,103 @@
  * @package cjbarnes.github.io
  */
 
+/**
+ * Colour palette.
+ */
+
+// Key colours.
+$white: #f5f5f5; // cj_white
+$black: #222;    // cj_black
+
+// Palette.
+$pearl-bush:   #e0d7cb; // cj0
+$cocoa-brown:  #30211f; // cj1
+$cararra:      #e9e6df; // cj2
+$ironstone:    #7c4938; // cj3
+$oslo-grey:    #808e90; // cj4
+$indian-khaki: #c5a184; // cj5
+$santa-fe:     #b1784f; // cj6
+$vanilla:      #d0bda9; // cj7
+$patina:       #5e8c88; // cj8
+$martini:      #b09c9c; // cj9
+$toast:        #a17167; // cj10
+$eucalyptus:   #2b9759; // cj11
+$burnt-umber:  #8f2823; // cj12
+
+
+/**
+ * Functional colour assignments.
+ *
+ * Ideally, the 'named' colour palette variables above should never be used
+ * outside of this file. Instead, a semantic name for the colour's function as
+ * it is being used should be declared here.
+ */
+
+// Text.
+$text-color:          $black;
+$text-color-reversed: $white;
+$text-color-headings: $oslo-grey;
+$text-color-navbar:   $white;
+$text-color-quote:    $santa-fe;
+$text-color-emphasis: $vanilla;
+
+// Links.
+$link-color:           $patina;
+$link-color-secondary: $oslo-grey;
+$link-color-visited:   $link-color-secondary;
+$link-color-active:    $indian-khaki;
+
+// Includes.
+$background-color:               $pearl-bush;
+$background-color-content:       $white;
+$background-color-masthead:      $toast;
+$background-color-illustrated:   $black;
+$background-color-page-footer:   $cararra;
+$background-color-site-footer:   $black;
+$background-color-navbar-mobile: $black;
+
+// Post formats.
+$color-article: $ironstone;
+$color-link:    $patina;
+$color-page:    $toast;
+$color-quote:   $santa-fe;
+$color-tip:     $indian-khaki;
+
+// Portfolio entries.
+$color-website: $color-page;
+
+// CV entries.
+$color-award:   $indian-khaki;
+$color-course:  $oslo-grey;
+$color-job:     $ironstone;
+$color-project: $patina;
+
+// Homepage.
+$gradient-color-homepage: $oslo-grey;
+
+// Contact page.
+$color-email:   $patina;
+$color-phone:   $santa-fe;
+$color-address: $ironstone;
+
+// Content components.
+$color-step: $oslo-grey;
+$color-yes:  $eucalyptus;
+$color-no:   $burnt-umber;
+$background-color-link: lighten($color-link, 40%);
+$background-color-figure:     $cararra;
+$background-color-code:       $black;
+$background-color-quote:      $background-color-figure;
+$background-color-table:      $background-color-page-footer;
+$background-color-table-head: $ironstone;
+
+
+/**
+ * Brands
+ *
+ * Externally chosen colours, e.g. Twitter.
+ */
+
+$color-linkedin: #0976b4;
+$color-twitter:  #00acf2;
+$color-rss:      #d78637;
