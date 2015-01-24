@@ -19,6 +19,12 @@
 // Base typography and structure.
 // 1. `_ui.scss` contains browser UI tweaks, e.g. text selection styling.
 @import "base/typography";
+@import "base/links";
+@import "base/headings";
+@import "base/lists";
+@import "base/tables";
+@import "base/footnotes";
+@import "base/figures";
 @import "base/layout";
 @import "base/ui"; // 1
 

@@ -13,15 +13,14 @@ $base-font-size:  18;
 $vertical-rhythm: 30;
 $base-line: ($vertical-rhythm / $base-font-size);
 
-/*
- * Base text size, applied to body element.
- * 1. For smaller screen sizes.
- */
-$body-text: (1px * $base-font-size);
-$body-text-small: $body-text;
-$body-text-smaller: ($body-text * (15 / $base-font-size)); // 1
+// Line size in rem (for use in margins etc)
+$font-size-px: (1px * $base-font-size);
+$line: (1rem * $base-line);
 
-// Font size relationships. For use in the font-size, line-height and line maps.
+/*
+ * Font size relationships. For use in the font-size, line-height and line maps.
+ * Values convert 1:1 into pixel sizes.
+ */
 $font-size-multipliers: (
   smaller:   ( 14 / $base-font-size),
   small:     ( 16 / $base-font-size),
@@ -53,17 +52,14 @@ $font-size-multipliers: (
  */
 $font-sizes:   ();
 $line-heights: ();
-$lines:        ();
 @each $size, $val in $font-size-multipliers {
   // Prepare map values for this size.
-  $font-size: (1em * $val);
+  $font-size: (1rem * $val);
   $line-height: ($base-line / $val);
-  $line: (1em * $line-height);
 
   // Add new key-value pairs to maps.
   $font-sizes:   map-merge($font-sizes,   ($size: $font-size));
   $line-heights: map-merge($line-heights, ($size: $line-height));
-  $lines:        map-merge($lines,        ($size: $line));
 }
 
 // Logo font sizes and line heights.

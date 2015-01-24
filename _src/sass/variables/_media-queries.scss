@@ -11,7 +11,7 @@
  * Map of min-width-based breakpoints. Always use semantic keys that describe
  * how the site adapts at that breakpoint, to make code reading easier.
  */
-@breakpoints: (
+$breakpoints: (
   "normal-size": 718px,
   "two-columns": 940px,
   "nav-horizontal"      :  800px,

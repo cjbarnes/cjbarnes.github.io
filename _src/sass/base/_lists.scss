@@ -1,0 +1,42 @@
+/**
+ * Bulleted and numbered lists, and definition lists
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+ol,
+ul,
+dl {
+
+  li {
+    @include rem("margin", ($line / 2), 0);
+  }
+
+  dd {
+    @include rem("margin", ($line / 2), 0, ($line / 2), $line);
+    @include font-size-leading("small");
+  }
+
+  /* Nested list margins */
+  & & {
+    @include rem("margin-left", ($line / 2));
+  }
+
+}
+
+/* Nested list styles */
+li ol {
+  list-style-type: lower-alpha;
+
+  li & {
+    list-style-type: lower-roman;
+  }
+
+}
+
+/* Double-nested list sizes and margins */
+li li li {
+  @include rem("margin-left", ($line / 2));
+  @include font-size-leading("small");
+}

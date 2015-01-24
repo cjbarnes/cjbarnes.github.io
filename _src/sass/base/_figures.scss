@@ -1,0 +1,90 @@
+/**
+ * Figure styles
+ *
+ * Includes special block-level tags e.g. blockquote, pre, address
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/* Basic figure. */
+figure {
+  @include rem("margin", $line, 0);
+  @include rem("padding", ($line / 2), 0);
+  background-color: $background-color-figure;
+
+  /* Get rid of bottom spacing when this is the last element in the content */
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+/* Captions. */
+figcaption {
+  @include rem("margin-top", $line);
+}
+
+
+/**
+ * Figure types.
+ */
+
+/* Link figures. */
+figure.link {
+  padding: 0 !important;
+  background-color: $background-color-link;
+
+  /* The actual link inside the figure. */
+  a {
+    @include rem("padding", $line);
+    @include font-size-leading("larger", 1.5);
+    display: block;
+    text-align: center;
+    color: $link-color;
+
+    &:hover,
+    &:focus {
+      color: $text-color-reversed;
+      background-color: $link-color;
+      border-color: $link-color;
+    }
+
+    &:active {
+      color: $text-color-reversed;
+      background-color: $link-color-active;
+      border-color: $link-color-active;
+    }
+
+  }
+
+}
+
+/* Quote figures. */
+figure.quote {
+  background-color: $background-color-quote;
+
+  blockquote {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Citation marker. */
+  figcaption:before {
+    content: "—";
+  }
+
+}
+
+/* Codeblocks. */
+figure.code {
+  @include rem("padding-left", ($line / 2));
+  @include rem("padding-right", ($line / 2));
+  color: $text-color-reversed;
+  background-color: $background-color-code;
+
+  pre {
+    margin: 0;
+  }
+
+}

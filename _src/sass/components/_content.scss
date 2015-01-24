@@ -1,0 +1,28 @@
+/**
+ * Content area of articles, single pages, and portfolio and CV items.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Typography
+ */
+
+.content,
+.wide-content {
+  font-family: $font-family-content;
+
+  /* Remove top margin for headings at top of content area. */
+  > h1:first-child,
+  > h2:first-child,
+  > h3:first-child {
+    margin-top: 0;
+  }
+
+}
+
+// Lead paragraphs.
+.lead {
+  @include font-size-leading("large");
+}

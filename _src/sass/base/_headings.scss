@@ -1,0 +1,45 @@
+/**
+ * Heading styles.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/*
+ * All headings.
+ * 1. Default heading margins (overridden at the extremes).
+ * 2. For hashlinks.
+ */
+h1,
+h2,
+h3,
+h4 {
+  @include rem("margin", ($line * 2), 0, $line); /* 1 */
+  position: relative; /* 2 */
+  font-family: $font-family-headings;
+  color: $text-color-headings;
+}
+
+/* Page title. */
+h1 {
+  @include rem("margin-bottom", ($line * 2));
+  @include font-size-leading("enormous", 2);
+}
+
+
+/**
+ * Subheadings.
+ */
+
+h2 {
+  @include font-size-leading("huge", 1.5);
+}
+
+h3 {
+  @include font-size-leading("larger");
+}
+
+h4 {
+  @include rem("margin", ($line * 1.5), 0, ($line / 2));
+  @include font-size-leading("large");
+}

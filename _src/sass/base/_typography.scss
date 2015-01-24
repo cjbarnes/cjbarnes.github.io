@@ -1,0 +1,100 @@
+/**
+ * Basic typography styles
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/*
+ * 1. = 18px, assuming the user's browser font setting is 16px (the default).
+ */
+html {
+  font-size: (100% * ($base-font-size / 16)); /* 1 */
+}
+
+/*
+ * 1. Set default font-size and line-height.
+ * 2. Type aliasing settings.
+ */
+body {
+  @include font-size-leading("normal"); /* 1 */
+  font-family: $font-family-brand;
+  text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01); /* 2 */
+  word-wrap: break-word;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased; /* 2 */
+  text-rendering: optimizeLegibility; /* 2 */
+}
+
+/*
+ * Prevent use of bold font weights throughout (since the webfonts for bold
+ * weights aren't loaded.)
+ */
+* {
+  font-weight: $font-weight !important;
+}
+
+
+/**
+ * Standard paragraphs of text.
+ */
+
+p,
+address {
+  @include rem("margin", $line, 0, 0);
+}
+
+address {
+  font-style: normal;
+}
+
+
+/*
+ * Emphasis.
+ * 1. Redeclare explicitly to avoid illegible combinations.
+ */
+b,
+strong,
+mark {
+  padding: $link-padding;
+  color: $text-color; /* 1 */
+  background-color: $text-color-emphasis;
+}
+
+
+/* Blockquotes. */
+blockquote {
+  @include rem("margin-top", $line);
+  @include rem("margin-bottom", $line);
+  @include font-size-leading("large");
+  color: $text-color-quote;
+
+  p {
+    margin: 0
+  }
+
+  p + p {
+    @include rem("margin-top", $line);
+  }
+
+  /* Short quotations (which are given larger text). */
+  &.short {
+    @include font-size-leading("larger");
+  }
+
+}
+
+/* Code. */
+code,
+var,
+kbd {
+  @include font-size-leading("small", 0.5);
+  font-family: $font-family-monospace;
+}
+
+/* Horizontal rules. */
+hr {
+  @include rem("margin", ($line * 2), 0);
+  border: 0;
+  border-top: 1px solid $text-color-headings;
+}

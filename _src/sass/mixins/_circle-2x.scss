@@ -21,5 +21,6 @@
     @error "$diameter must be in px, was #{$diameter}";
   }
 
+  // Output.
   @include circle($diameter, 2);
 }
