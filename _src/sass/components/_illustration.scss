@@ -1,0 +1,54 @@
+/**
+ * Parallax illustration styling
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Mini illustrated content sections (e.g. further down the homepage).
+ */
+
+#secondary.illustrated {
+
+  section {
+    @include column($columns);
+  }
+
+  /* Hide illustration and gradient overlay for mobile devices. */
+  .illustration,
+  .gradient {
+    display: none;
+  }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+  /*
+   * Mini illustrated content sections.
+   */
+
+  #secondary.illustrated {
+
+    /* Space out the content. */
+    section {
+      @include column(10);
+      @include push;
+    }
+
+    /* Display the illustration and gradient (which was hidden for mobile). */
+    .illustration,
+    .gradient {
+      display: block;
+    }
+
+  }
+
+}

@@ -43,3 +43,21 @@ h4 {
   @include rem("margin", ($line * 1.5), 0, ($line / 2));
   @include font-size-leading("large");
 }
+
+
+/**
+ * Media queries.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @include rem("margin-left",  $gutter);
+    @include rem("margin-right", $gutter);
+  }
+
+}

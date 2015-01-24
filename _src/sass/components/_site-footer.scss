@@ -1,0 +1,37 @@
+/**
+ * Layout for the 'site footer' (the lower of the two footers).
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+#site-footer {
+
+  /* Left-aligned section. */
+  .contact {
+    @include rem("margin-left", $gutter);
+  }
+
+  /* Right-aligned section. */
+  .smallprint {
+    @include rem("margin-right", $gutter);
+  }
+
+
+  /**
+   * Media query.
+   *
+   * Tablets and wider.
+   */
+  @include media-width("normal-size") {
+
+    .contact,
+    .small-print {
+      @include column($columns);
+    }
+
+  }
+
+}
+
+

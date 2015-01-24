@@ -12,9 +12,9 @@
  * how the site adapts at that breakpoint, to make code reading easier.
  */
 $breakpoints: (
-  "normal-size": 718px,
-  "two-columns": 940px,
+  "normal-size"         :  718px,
   "nav-horizontal"      :  800px,
   "nav-horizontal-wide" :  900px,
+  "two-columns"         :  940px,
   "nav-horizontal-wider": 1000px
 );

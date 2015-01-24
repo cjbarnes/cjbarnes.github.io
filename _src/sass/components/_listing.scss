@@ -1,0 +1,78 @@
+/**
+ * Lists of articles and other data structures
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+
+/**
+ * Listing dimensions.
+ */
+
+/* All content columns are full width for mobile. */
+.listing,
+.timeline {
+  @include column($columns);
+}
+
+/* Tablet layout. */
+@include media-width("normal-size") {
+
+  /* Content is still single-column, but with bigger margins. */
+  .index .listing,
+  .cv .listing,
+  .approach .listing,
+  .timeline {
+    @include column(10);
+    @include push;
+    @include pull;
+  }
+
+  /* Move across "What you get" subheading to line up with main box content. */
+  .approach .listing .step footer h3 {
+    @include push;
+    @include pull;
+  }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Wide enough for two-column layout.
+ */
+@include media-width("two-columns") {
+
+  /* Leave room for the sidebar column next to the listing column. */
+  .index .listing {
+    @include column(8);
+    @include push(1);
+    @include pull(0);
+  }
+
+  /*
+   * Change portfolio width to match other single-column listings. At the
+   * previous breakpoint, portfolio listing stayed full-width to accommodate as
+   * much website screenshot as possible.
+   */
+  .portfolio .listing {
+    @include column(10);
+    @include push;
+    @include pull;
+  }
+
+  /*
+   * Listings that still have no sidebar, but should be the same width as a
+   * listing with a sidebar.
+   */
+  .cv .listing,
+  .approach .listing {
+    @include column(8);
+    @include push(2);
+    @include pull(2);
+  }
+
+}

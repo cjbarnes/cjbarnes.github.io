@@ -1,0 +1,66 @@
+/**
+ * Layout for the 'page footer' (the upper of the two footers).
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+main > footer,
+.single > footer {
+
+  section {
+    @include column($columns);
+    @include rem("padding-top", ($line));
+
+    + section {
+      @include rem("padding-bottom", ($line * 2));
+    }
+
+  }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablets and wider.
+ */
+@include media-width("normal-size") {
+
+  main > footer,
+  .single > footer {
+
+    /* Two-column footer layout. */
+    section {
+      @include column(5);
+      @include rem("padding-top",    $line);
+      @include rem("padding-bottom", $line);
+    }
+
+
+    /**
+     * Homepage footer listing boxes
+     */
+
+    .blog-recent {
+      @include push(2);
+    }
+
+    .portfolio-featured,
+    .endorsement-featured {
+
+      &,
+      h2 {
+        text-align: right;
+      }
+
+    }
+
+  }
+
+  footer .listing {
+    @include column(4);
+  }
+
+}

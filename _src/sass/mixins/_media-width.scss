@@ -22,6 +22,9 @@
  */
 @mixin media-width($width, $widths-map: $breakpoints) {
 
+  // Declare the result variable outside of if block's scope.
+  $min-width: "";
+
   @if "number" == type-of($width) {
     @if unitless($width) {
       @error "$width must not be a unitless value, was #{$width}"

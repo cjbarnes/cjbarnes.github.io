@@ -13,7 +13,10 @@ $base-font-size:  18;
 $vertical-rhythm: 30;
 $base-line: ($vertical-rhythm / $base-font-size);
 
-// Line size in rem (for use in margins etc)
+// Smaller sizes for everything on mobile.
+$base-font-size-small: 15;
+
+// Line size in rem (for use in margins etc).
 $font-size-px: (1px * $base-font-size);
 $line: (1rem * $base-line);
 

@@ -6,7 +6,7 @@
  */
 
 /**
- * Typography
+ * Typography.
  */
 
 .content,
@@ -22,7 +22,86 @@
 
 }
 
-// Lead paragraphs.
+/* Lead paragraphs. */
 .lead {
   @include font-size-leading("large");
+}
+
+
+/**
+ * Layout.
+ */
+
+/* Content sections. */
+#primary,
+#secondary,
+#skills,
+.technologies {
+  @include clearfix;
+  @include rem("padding-top",    ($line * 1.5));
+  @include rem("padding-bottom", ($line * 2.5));
+}
+
+/* All content columns are full width for mobile. */
+.single .content,
+.single .wide-content,
+#skills,
+.technologies {
+  @include column($columns);
+}
+
+/* Primary section in multi-layered pages, e.g. My Approach. */
+.approach #primary,
+.i-dont #primary {
+  background-color: $background-color-content;
+
+  .content {
+    @include column($columns);
+  }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablets and above.
+ */
+@include media-width("normal-size") {
+
+  /* Content is still single-column, but with bigger margins, on tablets. */
+  .single .content,
+  .approach #primary .content,
+  .i-dont #primary .content,
+  .timeline {
+    @include column(10);
+    @include push;
+    @include pull;
+  }
+
+  /* Centre-align item titles in full-width listings. */
+  .single .wide-content h2,
+  .timeline h2 {
+    text-align: center;
+  }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Wide enough for two-column layout.
+ */
+@include media-width("two-columns") {
+
+  /* Extra spacing for main content area. */
+  .single .content,
+  .approach #primary .content,
+  .i-dont #primary .content {
+    @include column(8);
+    @include push(2);
+    @include pull(2);
+  }
+
 }

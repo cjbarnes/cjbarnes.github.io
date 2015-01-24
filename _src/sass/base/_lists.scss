@@ -8,6 +8,8 @@
 ol,
 ul,
 dl {
+  @include rem("margin-left",  $gutter);
+  @include rem("margin-right", $gutter);
 
   li {
     @include rem("margin", ($line / 2), 0);
@@ -39,4 +41,22 @@ li ol {
 li li li {
   @include rem("margin-left", ($line / 2));
   @include font-size-leading("small");
+}
+
+
+/**
+ * Media queries.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+  /* Leave more margin around text. */
+  ol,
+  ul,
+  dl {
+    @include push;
+    @include pull;
+  }
+
 }

@@ -1,0 +1,60 @@
+/**
+ * Article styles, used on both single article pages and article indexes
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/**
+ * Metadata section.
+ */
+
+.permalink {
+  @include rem("margin-left", $gutter);
+}
+
+.share,
+.go-to-site {
+  @include rem("margin-right", $gutter);
+}
+
+/**
+ * Media query.
+ *
+ * Tablets and wider.
+ */
+@include media-width("normal-size") {
+
+  /* Article alignment. */
+  article {
+
+    .title {
+        @include push;
+        @include pull;
+      }
+
+    /* Metadata alignment. */
+    footer {
+
+      .permalink {
+        @include push;
+        left: 0;
+      }
+
+      .share,
+      .go-to-site {
+        @include pull;
+        right: 0;
+      }
+
+    }
+
+    /* Featured article metadata alignment. */
+    &.featured footer {
+
+    }
+
+  }
+
+}

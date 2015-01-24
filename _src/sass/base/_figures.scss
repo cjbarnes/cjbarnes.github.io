@@ -22,9 +22,8 @@ figure {
 
 /* Captions. */
 figcaption {
-  @include rem("margin-top", $line);
+  @include rem("margin", $line, $gutter, 0);
 }
-
 
 /**
  * Figure types.
@@ -85,6 +84,22 @@ figure.code {
 
   pre {
     margin: 0;
+  }
+
+}
+
+
+/**
+ * Media queries.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+  /* Leave more margin around text. */
+  figcaption {
+    @include push;
+    @include pull;
   }
 
 }

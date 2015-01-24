@@ -5,8 +5,8 @@
  * @package cjbarnes.github.io
  */
 
-/*
- * Everything.
+/**
+ * Whole page.
  */
 
 html {
@@ -17,4 +17,26 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+body {
+  background-color: $background-color;
+}
+
+/* Width limit. */
+main,
+.single {
+  max-width: $body-width-maximum;
+  margin: 0 auto;
+}
+
+/**
+ * Media query.
+ *
+ * Tablets and wider.
+ */
+@include media-width("normal-size") {
+
+
+
 }

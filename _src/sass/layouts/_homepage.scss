@@ -1,0 +1,11 @@
+/**
+ * Homepage-specific styles
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/* Homepage welcome message */
+.homepage > header .title h1 {
+  @include column($columns);
+}

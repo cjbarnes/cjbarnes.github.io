@@ -1,0 +1,47 @@
+/**
+ * Layout styles for masthead and article header sections
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/* Make masthead and entire above-footer container self-clearing. */
+main,
+.single,
+.featured {
+  @include clearfix;
+
+  > header {
+    @include clearfix;
+  }
+
+}
+
+/* Title container margins. */
+.title {
+  @include rem("margin-left",  $gutter);
+  @include rem("margin-right", $gutter);
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablets and wider.
+ */
+@include media-width("normal-size") {
+
+  main,
+  .single,
+  .featured {
+
+    /* Spacing either side of the main page title, for normal screen widths. */
+    > header .title {
+      @include column(8);
+      @include push(2);
+      @include pull(2);
+    }
+
+  }
+
+}
