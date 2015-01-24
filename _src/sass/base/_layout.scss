@@ -1,0 +1,20 @@
+/**
+ * Basic layout styles
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/*
+ * Everything.
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
