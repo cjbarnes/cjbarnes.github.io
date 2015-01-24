@@ -2,15 +2,15 @@
 # Local configuration values (overrides _config.yml)
 #
 
-# Dev environment flag
+# Dev environment flag.
 is_local: true
 
-# GitHub defaults
+# GitHub defaults.
 highlighter: pygments
-# github: see https://help.github.com/articles/repository-metadata-on-github-pages/
 safe: true
 lsi: false
+# Also see https://help.github.com/articles/repository-metadata-on-github-pages/
 
-# Sass compilation
-sass:
-  style: :expanded
+# Sass compilation. Currently unused.
+# sass:
+#   style: :expanded
