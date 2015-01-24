@@ -1,15 +1,11 @@
 /**
- * Variables
+ * Typography variables
  *
- * All variables except colours (which go in `_colours.scss`) should be defined
- * here.
+ * Font sizes, styles, weights, families, and leading. Defines the vertical
+ * rhythm of the site.
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
-
-/**
- * Font sizes and line heights.
  */
 
 // The basic text and leading pixel sizes (unitless for use in maths later).
@@ -25,9 +21,7 @@ $body-text: (1px * $base-font-size);
 $body-text-small: $body-text;
 $body-text-smaller: ($body-text * (15 / $base-font-size)); // 1
 
-/*
- * Font size relationships. For use in the font-size, line-height and line maps.
- */
+// Font size relationships. For use in the font-size, line-height and line maps.
 $font-size-multipliers: (
   smaller:   ( 14 / $base-font-size),
   small:     ( 16 / $base-font-size),
@@ -72,10 +66,9 @@ $lines:        ();
   $lines:        map-merge($lines,        ($size: $line));
 }
 
-
-/**
- * Font styles and weights.
- */
+// Logo font sizes and line heights.
+$font-size-navbar-logo: 40px;
+$line-navbar-logo: (1em * ((1px * $vertical-rhythm) / $font-size-navbar-logo));
 
 // Font families
 $font-family-serif: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
@@ -91,42 +84,3 @@ $font-family-monospace: $font-family-brand;
 
 // Same font weight is used throughout.
 $font-weight: 300;
-
-
-/**
- * Fonts and font sizes for includes.
- */
-
-// Logo.
-$font-size-navbar-logo: 40px;
-$line-navbar-logo: (1em * ((1px * $vertical-rhythm) / $font-size-navbar-logo));
-
-
-/**
- * Dimensions.
- */
-
-// Standard columns.
-$columns: 12;
-$gutter-width: (1px * $vertical-rhythm);
-$gutter: ($gutter-width / 2);
-$body-width-maximum: 1140px;
-
-// Variables used by Responsable (`vendor/_grid.scss`).
-$gutter_width: $gutter-width;
-$max_width: $body-width-maximum;
-
-// Links.
-$link-padding: 0.2em;
-
-
-/**
- * Miscellaneous variables.
- */
-
-// Circle elements.
-$border-width-circle: 1;
-$circle-diameter: (1px * ($vertical-rhythm * 1.5));
-
-// Animation.
-$link-transition-duration: 0.3s;

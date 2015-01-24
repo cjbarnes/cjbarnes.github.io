@@ -12,8 +12,7 @@
 //@import "vendor/normalize";
 
 // Variables come first, so that they can alter the baseline and grid partials.
-@import "utils/colours";
-@import "utils/variables";
+@import "variables/all";
 
 // Vendor: Responsable grid system.
 @import "vendor/baseline";
