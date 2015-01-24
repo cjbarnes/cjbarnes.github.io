@@ -29,15 +29,16 @@
 @import "base/ui"; // 1
 
 // Styling for partials.
-@import "includes/date";
-@import "includes/head";
-@import "includes/nav";
-@import "includes/illustration";
-@import "includes/page-footer";
-@import "includes/pagination";
-@import "includes/permalinks";
-@import "includes/site-footer";
-@import "includes/title";
+@import "components/content";
+@import "components/date";
+@import "components/head";
+@import "components/nav";
+@import "components/illustration";
+@import "components/page-footer";
+@import "components/pagination";
+@import "components/permalinks";
+@import "components/site-footer";
+@import "components/title";
 
 // Layout-specific styles.
 @import "layouts/index";
