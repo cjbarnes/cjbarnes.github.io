@@ -60,7 +60,7 @@ $font-size-multipliers: (
 $font-sizes:   ();
 $line-heights: ();
 $lines:        ();
-@each ( $size, $val in $font-size-multipliers ) {
+@each $size, $val in $font-size-multipliers {
   // Prepare map values for this size.
   $font-size: (1em * $val);
   $line-height: ($base-line / $val);
@@ -109,7 +109,7 @@ $line-navbar-logo: (1em * ((1px * $vertical-rhythm) / $font-size-navbar-logo));
 // Standard columns.
 $columns: 12;
 $gutter-width: (1px * $vertical-rhythm);
-$gutter = ($gutter-width / 2);
+$gutter: ($gutter-width / 2);
 $body-width-maximum: 1140px;
 
 // Variables used by Responsable (`vendor/_grid.scss`).
