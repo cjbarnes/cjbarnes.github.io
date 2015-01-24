@@ -1,0 +1,26 @@
+/**
+ * Mixin to output a semi-transparent background colour with opaque fallback
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Output a semi-transparent background colour with opaque fallback for
+ * browsers that don't support `rgba()`.
+ *
+ * @param color  $color Background colour, without opacity applied yet.
+ * @param number $alpha Opacity value. Default 0.5. Range 0-1.
+ */
+@mixin background-color-alpha($color, $alpha: 0.5) {
+  @if not "color" == type-of($color) {
+    @error "$color must be a color, was #{$color}";
+  }
+  @if not unitless($alpha) {
+    @error "$alpha must be a unitless number, was #{$alpha}";
+  }
+
+  // Output.
+  background-color: $color;
+  background-color: rgba($color, $alpha);
+}

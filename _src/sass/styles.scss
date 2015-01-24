@@ -18,8 +18,9 @@
 @import "vendor/baseline";
 @import "vendor/grid";
 
-// Mixins.
-@import "utils/mixins";
+// Mixins and functions.
+@import "functions/all";
+@import "mixins/all";
 
 // Base typography and structure.
 // 1. `_ui.scss` contains browser UI tweaks, e.g. text selection styling.

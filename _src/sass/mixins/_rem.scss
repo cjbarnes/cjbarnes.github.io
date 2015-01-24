@@ -1,0 +1,28 @@
+/**
+ * Mixin to output any length property in rem, with px fallback
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Output any length property in rem, with px fallback for IE.old.
+ *
+ * @param string $property The CSS property name to output rem and px for.
+ * @param number $px       Background colour, without opacity applied yet.
+ */
+@mixin rem($property, $px) {
+  @if not function-exists(-cj-calculate-rem) {
+    @error "Mixin rem requires function -cj-calculate-rem(), which does not exist";
+  }
+  @if not "string" == type-of($property) {
+    @error "$property must be a valid CSS property, was #{$property}";
+  }
+  @if not "px" == unit($px) {
+    @error "$px must be in px, was #{$px}";
+  }
+
+  // Output.
+  #{$property}: $px;
+  #{$property}: -cj-calculate-rem($px);
+}

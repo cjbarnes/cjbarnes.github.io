@@ -1,0 +1,40 @@
+/**
+ * Mixin to add a circle to the top of the content block
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Add a circle to the top of the content block.
+ *
+ * @param color $background The page background that the circle will overlap.
+ *                          Default $background-color-content.
+ */
+@mixin circle-box($background: $background-color-content) {
+  @if not mixin-exists(circle) {
+    @error "Mixin circle-box requires mixin circle, which does not exist.";
+  }
+  @if not mixin-exists(circle-2x) {
+    @error "Mixin circle-box requires mixin circle-2x, which does not exist.";
+  }
+  @if not "color" == type-of($background) {
+    @error "$color must be a color, was #{$color}.";
+  }
+
+  // Output.
+  position: relative; // for icon placement
+
+  // Icon.
+  &:before {
+    @include circle2x;
+    position: absolute;
+    top: ((($circle-diameter / 2) * -1) - 2px);
+    left: 50%;
+    margin-left: ((($circle-diameter / 2) * -1) - 2px);
+    padding-top: 0.1em;
+    border-color: $background;
+    color: $text-color-reversed;
+    font-size: $font-size-huge;
+  }
+}
