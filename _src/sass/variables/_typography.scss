@@ -18,6 +18,7 @@ $base-font-size-small: 15;
 
 // Line size in rem (for use in margins etc).
 $font-size-px: (1px * $base-font-size);
+$line-px:      (1px * $vertical-rhythm);
 $line: (1rem * $base-line);
 
 /*
@@ -66,8 +67,7 @@ $line-heights: ();
 }
 
 // Logo font sizes and line heights.
-$font-size-navbar-logo: 40px;
-$line-navbar-logo: (1em * ((1px * $vertical-rhythm) / $font-size-navbar-logo));
+$font-size-navbar-logo: 2.22222222rem;
 
 // Font families
 $font-family-serif: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;

@@ -11,6 +11,7 @@
  * @global number $font-size-px Text size applied to the body element in pixels.
  *
  * @param number $px Size in pixels.
+ * @return number Size in rems.
  */
 @function -cj-calculate-rem($px) {
   @if ("px" != unit($font-size-px)) {

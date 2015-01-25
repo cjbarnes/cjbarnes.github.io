@@ -26,7 +26,7 @@
     @include pull;
   }
 
-}
+} //include media-width(normal-size)
 
 
 /**
@@ -43,4 +43,4 @@
     @include pull(0);
   }
 
-}
+} //include media-width(two-columns)

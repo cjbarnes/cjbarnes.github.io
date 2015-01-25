@@ -1,0 +1,22 @@
+/**
+ * Function to retrieve the colour for a named post format
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Retrieve the colour for a named post format.
+ *
+ * @global map $format-colors Associates post format names with their colours.
+ *
+ * @param string $format Post format name.
+ * @return color The color for this post format.
+ */
+@function -cj-get-format-color($format) {
+  @if (string != type-of($format)) or not map-has-key($format-colors, $format) {
+    @error "$format must be a key in map $format-colors, was #{$format}";
+  }
+
+  @return map-get($format-colors, $format);
+}

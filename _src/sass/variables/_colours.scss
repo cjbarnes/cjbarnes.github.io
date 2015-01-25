@@ -40,12 +40,13 @@ $burnt-umber:  #8f2823; // cj12
  */
 
 // Text.
-$text-color:          $black;
-$text-color-reversed: $white;
-$text-color-headings: $oslo-grey;
-$text-color-navbar:   $white;
-$text-color-quote:    $santa-fe;
-$text-color-emphasis: $vanilla;
+$text-color:             $black;
+$text-color-reversed:    $white;
+$text-color-headings:    $oslo-grey;
+$text-color-navbar:      $white;
+$text-color-quote:       $santa-fe;
+$text-color-emphasis:    $vanilla;
+$text-color-site-footer: $vanilla;
 
 // Links.
 $link-color:           $patina;
@@ -61,6 +62,10 @@ $background-color-illustrated:   $black;
 $background-color-page-footer:   $cararra;
 $background-color-site-footer:   $black;
 $background-color-navbar-mobile: $black;
+
+// Navigation.
+$logo-color-light: $white;
+$logo-color-dark:  $oslo-grey;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (

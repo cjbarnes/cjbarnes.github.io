@@ -1,0 +1,77 @@
+/**
+ * Circle 'buttons' (really links) and button toolbars
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/**
+ * Toolbars - horizontal groups of buttons.
+ */
+
+/* All footer toolbars. */
+main > footer,
+.single > footer,
+#site-footer {
+
+  /* Move up to half-overlap the main content area above the footer. */
+  .button-bar {
+    top: ((-1 * ($circle-diameter / 2)) - 2);
+  }
+
+}
+
+/* Toolbars in (upper) page footer only. */
+main > footer,
+.single > footer {
+
+  /* Pagination colours. */
+  .button-bar {
+
+    /*
+     * Current page.
+     * 1. Styled to appear 'cut out' of the footer.
+     */
+    b {
+      border-color: $background-color;
+      background: $background-color; /* 1 */
+    }
+
+    /* Other pages. */
+    a {
+      border-color: $background-color;
+      color: $link-color-secondary;
+      background: $background-color-page-footer;
+
+      &:hover,
+      &:focus {
+        color: $text-color-reversed;
+        background: $link-color-secondary;
+      }
+
+      /*
+       * 1. Override default border.
+       */
+      &:active {
+        border-color: $background-color; /* 1 */
+        color: $text-color-reversed;
+        background: $link-color-active;
+      }
+
+    }
+
+  }
+
+} //main>footer, .single>footer
+
+/* Toolbars in (lower) site footer only. */
+#site-footer {
+
+  /* Colours to match the page footer above. */
+  .button-bar a {
+    border-color: $background-color-page-footer;
+    color: $background-color-page-footer;
+  }
+
+}

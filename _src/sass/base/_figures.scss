@@ -11,7 +11,7 @@
 figure {
   @include rem("margin", $line, 0);
   @include rem("padding", ($line / 2), 0);
-  background-color: $background-color-figure;
+  background: $background-color-figure;
 
   /* Get rid of bottom spacing when this is the last element in the content */
   &:last-child {
@@ -32,7 +32,7 @@ figcaption {
 /* Link figures. */
 figure.link {
   padding: 0 !important;
-  background-color: $background-color-link;
+  background: $background-color-link;
 
   /* The actual link inside the figure. */
   a {
@@ -45,23 +45,23 @@ figure.link {
     &:hover,
     &:focus {
       color: $text-color-reversed;
-      background-color: $link-color;
+      background: $link-color;
       border-color: $link-color;
     }
 
     &:active {
       color: $text-color-reversed;
-      background-color: $link-color-active;
+      background: $link-color-active;
       border-color: $link-color-active;
     }
 
   }
 
-}
+} //figure.link
 
 /* Quote figures. */
 figure.quote {
-  background-color: $background-color-quote;
+  background: $background-color-quote;
 
   blockquote {
     margin-top: 0;
@@ -80,7 +80,7 @@ figure.code {
   @include rem("padding-left", ($line / 2));
   @include rem("padding-right", ($line / 2));
   color: $text-color-reversed;
-  background-color: $background-color-code;
+  background: $background-color-code;
 
   pre {
     margin: 0;
@@ -102,4 +102,4 @@ figure.code {
     @include pull;
   }
 
-}
+} //include media-width(normal-size)

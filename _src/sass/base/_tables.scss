@@ -60,7 +60,7 @@ th {
 
 /* Table contents. */
 tbody {
-  background-color: $background-color-table;
+  background: $background-color-table;
 
   td,
   th {
@@ -84,7 +84,7 @@ thead {
   /* Background colour only appears for th cells in table header */
   th {
     color: $text-color-reversed;
-    background-color: $background-color-table-head;
+    background: $background-color-table-head;
   }
 
 }
@@ -119,7 +119,7 @@ tfoot {
   tfoot,
   thead th {
     color: $text-color;
-    background-color: transparent;
+    background: transparent;
   }
 
   /* Dimensions. No borders, flush left. */

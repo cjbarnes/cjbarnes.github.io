@@ -20,12 +20,13 @@ html {
 }
 
 body {
-  background-color: $background-color;
+  background: $background-color;
 }
 
-/* Width limit. */
+/* Above-footer area. */
 main,
 .single {
+  @include clearfix;
   max-width: $body-width-maximum;
   margin: 0 auto;
 }
@@ -39,4 +40,4 @@ main,
 
 
 
-}
+} //include media-width(normal-size)

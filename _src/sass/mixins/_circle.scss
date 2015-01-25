@@ -27,6 +27,6 @@
   height: ($diameter + (1px * ($thickness * 2)));
   border: (1px * ($border-width-circle * $thickness)) solid;
   border-radius: 50%;
-  line-height: ceil(($diameter * (1px - (0.05px * $thickness))));
+  line-height: ceil(($diameter * ((1px - (0.05px * $thickness)) / 1px)));
   text-align: center;
 }

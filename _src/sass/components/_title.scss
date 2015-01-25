@@ -1,0 +1,12 @@
+/**
+ * Page/article title section.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/* Title container margins. */
+.title {
+  @include rem("margin-left",  $gutter);
+  @include rem("margin-right", $gutter);
+}

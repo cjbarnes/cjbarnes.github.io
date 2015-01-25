@@ -1,0 +1,92 @@
+/**
+ * Published date for articles, styled in three circles.
+ *
+ * @todo Some refactoring needed - duplication of components.less with
+ *       articles.less.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/*
+ * Post's published date.
+ * 1. Overlap the bottom of the post header.
+ */
+article .date {
+  bottom: ((($circle-diameter / 2) * -1) - 1px); /* 1 */
+
+  /* Colours. */
+  a,
+  abbr {
+    color: $text-color-reversed;
+    background: $background-color-masthead;
+  }
+
+}
+
+/* Dates in masthead. */
+main > header,
+.single > header {
+
+  .date {
+    @include font-size("huge");
+  }
+
+}
+
+/*
+ * Dates in article footer (used for listing pages).
+ */
+article footer .date {
+  @include font-size-leading("larger");
+  @include rem("padding", ($line * 0.5), 0);
+  position: static;
+
+  /* Individual date parts. */
+  a,
+  abbr,
+  b {
+    @include circle(($circle-diameter * 0.9));
+    display: inline-block;
+    background-color: transparent;
+    color: $link-color-secondary;
+  }
+
+}
+
+/* Bigger featured article dates. */
+article.featured footer .date {
+  @include font-size-leading("huge");
+
+  /*
+   * 1. Redeclare inline-block (to re-override circle mixin's display:block).
+   */
+  a,
+  abbr,
+  b {
+    @include circle;
+    display: inline-block; /* 1 */
+  }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablet or wider.
+ */
+@include media-width("normal-size") {
+
+  /*
+   * Dates in article footer.
+   * 1. Vertical centring in footer line.
+   */
+  article footer .date {
+    @include rem("bottom", ($line - (($circle-diameter * 0.5) / $line-px))); // @todo CHECK THIS MATHS (I think it's 'magic', not logical)
+    position: absolute;
+    padding: 0;
+  }
+
+}

@@ -1,0 +1,30 @@
+/**
+ * Mixin to output a semi-transparent colour property with opaque fallback
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Output a property with a semi-transparent colour value, with opaque fallback
+ * for browsers that don't support `rgba()`.
+ *
+ * @param string $property The CSS property to set the colour for.
+ * @param color  $color    Background colour, without opacity applied yet.
+ * @param number $alpha    Opacity value. Default 0.5. Range 0-1.
+ */
+@mixin alpha($property, $color, $alpha: 0.5) {
+  @if not "string" == type-of($property) {
+    @error "$property must be a CSS property, was #{$property}";
+  }
+  @if not "color" == type-of($color) {
+    @error "$color must be a color, was #{$color}";
+  }
+  @if not unitless($alpha) {
+    @error "$alpha must be a unitless number, was #{$alpha}";
+  }
+
+  // Output.
+  #{$property}: $color;
+  #{$property}: rgba($color, $alpha);
+}

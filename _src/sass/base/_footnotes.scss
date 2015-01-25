@@ -52,7 +52,7 @@
 
     /* The selected footnote. */
     &:target {
-      background-color: $background-color-page-footer;
+      background: $background-color-page-footer;
     }
 
     p:first-child {
@@ -61,4 +61,4 @@
 
   }
 
-}
+} //.footnotes

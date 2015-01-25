@@ -32,6 +32,10 @@
  * Layout.
  */
 
+.content {
+  @include rem("padding", ($line * 0.5), 0, ($line * 1.5));
+}
+
 /* Content sections. */
 #primary,
 #secondary,
@@ -53,7 +57,7 @@
 /* Primary section in multi-layered pages, e.g. My Approach. */
 .approach #primary,
 .i-dont #primary {
-  background-color: $background-color-content;
+  background: $background-color-content;
 
   .content {
     @include column($columns);
@@ -85,7 +89,7 @@
     text-align: center;
   }
 
-}
+} //include media-width(normal-size)
 
 
 /**
@@ -104,4 +108,4 @@
     @include pull(2);
   }
 
-}
+} //include media-width(two-columns)
