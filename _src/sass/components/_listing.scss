@@ -29,6 +29,11 @@
     @include rem("margin-bottom", ($line * 2));
     @include circle-box($background-color); /* 1 */
 
+    /* Content areas in articles */
+    .content {
+        background: $background-color-content;
+    }
+
     /* Icon colours and fonts.. */
     &:before {
         font-family: $font-family-icons;

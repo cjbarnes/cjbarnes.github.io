@@ -12,9 +12,9 @@
  */
 main > header,
 .single > header {
-  @include clearfix;
-  position: relative; /* 1 */
-  background: $background-color-masthead;
+    @include clearfix;
+    position: relative; /* 1 */
+    background: $background-color-masthead;
 }
 
 
@@ -31,26 +31,26 @@ main > header .title,
 
     /* Page/post title. */
     h1 {
-      @include rem("padding", ($line * 1.5) 0 0);
-      @include font-size-leading("gigantic", 2.5);
-      margin: 0;
-      color: $text-color-reversed;
+        @include rem("padding", ($line * 1.5) 0 0);
+        @include font-size-leading("gigantic", 2.5);
+        margin: 0;
+        color: $text-color-reversed;
     }
 
     /* Excerpt. */
     h2 {
-      @include rem("padding-top", ($line * 1.5));
-      @include font-size-leading("larger");
-      margin: 0;
-      color: $text-color-reversed;
+        @include rem("padding-top", ($line * 1.5));
+        @include font-size-leading("larger");
+        margin: 0;
+        color: $text-color-reversed;
     }
 
     /* 'Featured article' label. */
     .label {
-      @include font-size-leading("larger");
-      display: block;
-      font-style: normal;
-      color: $text-color-reversed;
+        @include font-size-leading("larger");
+        display: block;
+        font-style: normal;
+        color: $text-color-reversed;
     }
 
 } //main>header .title, .single>header .title
@@ -73,17 +73,22 @@ main.illustrated > header,
  */
 @include media-width("normal-size") {
 
-  /* The masthead. */
-  main > header,
-  .single > header {
+    /* The masthead. */
+    main > header,
+    .single > header {
 
-    /* Spacing either side of the main page title, for normal screen widths. */
-    .title {
-      @include column(8);
-      @include push(2);
-      @include pull(2);
+        /**
+         * Spacing either side of the main page title, for normal screen widths.
+         * 1. Reinstate the vertical margins (for footer placement).
+         */
+        .title {
+            @include column(8);
+            @include push(2);
+            @include pull(2);
+            @include rem("padding-top",    ($line *   3)); /* 1 */
+            @include rem("padding-bottom", ($line * 2.5)); /* 1 */
+        }
+
     }
-
-  }
 
 } //include media-width(normal-size)

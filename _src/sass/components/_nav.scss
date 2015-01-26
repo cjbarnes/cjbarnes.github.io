@@ -123,16 +123,22 @@
  * 2. 50% width to increase the tap target area.
  */
 #site-navigation-toggle {
-    @include rem("height", (($line-px * (($font-size-navbar-logo / 1rem) + ($logo-margin / 0.5rem))) + 2px));
     @include rem("padding", ($line / 1.5) ($line / 2));
     @include font-size-leading("larger");
     display: block;
+    height: ($navbar-logo-size + (($logo-margin * $base-font-size) / 1rem) + 2px); /* 1 */
     min-width: 50%; /* 2 */
     border: 0;
     border-radius: 0;
     text-align: left;
     background: transparent;
     color: $text-color-reversed;
+
+    /* Add colon to 'Menu' label when menu is open. */
+    &.active:after {
+        content: ":";
+    }
+
 }
 
 /* Colour changes for dark menu button on light mastheads. */
@@ -148,11 +154,6 @@
      */
     #navbar.open #site-navigation-toggle {
         color: $text-color-reversed;
-    }
-
-    /* Add colon to 'Menu' label when menu is open. */
-    &.active:after {
-        content: ":";
     }
 
 }

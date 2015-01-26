@@ -76,6 +76,7 @@ article .title {
         /* Links in titles. */
         a {
             padding: 0 0 ($link-padding / 2);
+            color: inherit;
         }
 
     }
@@ -146,7 +147,12 @@ article footer {
  * Featured articles.
  */
 
+/*
+ * 1. For article footer positioning.
+ */
 article.featured {
+    @include clearfix;
+    position: relative; /* 1 */
     background-color: $background-color-illustrated;
 }
 
@@ -217,6 +223,13 @@ article.featured footer {
             right: 0;
         }
 
+    }
+
+    /* Featured article footers. */
+    article.featured footer {
+        @include column(8);
+        @include push(2);
+        @include pull(2);
     }
 
 } //include media-width(normal-size)
