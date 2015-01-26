@@ -70,6 +70,23 @@
 
     }
 
+    /* Illustrated post custom styling. */
+    &.illustrated {
+
+        /* Dark footer - unique to illustrated posts. */
+        > footer {
+            background: $background-color-illustrated;
+
+            .permalink,
+            .share,
+            .go-to-site {
+                color: $text-color-reversed;
+            }
+
+        }
+
+    }
+
 } //.listing article
 
 

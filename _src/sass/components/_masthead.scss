@@ -14,13 +14,16 @@ main > header,
 .single > header {
   @include clearfix;
   position: relative; /* 1 */
-  background-color: $background-color-masthead;
+  background: $background-color-masthead;
+}
 
-  /*
-   * Title and teaser in masthead.
-   * 1. Stack title above the illustration and gradient.
-   */
-  .title {
+
+/*
+* Title and teaser in masthead.
+* 1. Stack title above the illustration and gradient.
+*/
+main > header .title,
+.single > header .title {
     @include rem("padding-top",    ($line *   3));
     @include rem("padding-bottom", ($line * 2.5));
     position: relative; /* 1 */
@@ -50,9 +53,17 @@ main > header,
       color: $text-color-reversed;
     }
 
-  }
+} //main>header .title, .single>header .title
 
-} //main>header, .single>header
+
+/**
+ * Illustrated mastheads.
+ */
+
+main.illustrated > header,
+.single.illustrated > header {
+    background: $background-color-illustrated;
+}
 
 
 /**

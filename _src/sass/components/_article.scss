@@ -24,6 +24,17 @@
     }
 }
 
+/* Illustrated post header colours. */
+article.illustrated {
+
+    > header,
+    .date abbr,
+    .listing &:before {
+        background: $background-color-illustrated;
+    }
+
+}
+
 /* Additional link styling for Link and Project items. */
 article.link,
 article.project {
@@ -87,20 +98,20 @@ article .title {
 /* Standard steps. */
 article.step {
 
-        > header,
-        .listing &:before {
-                background: $color-step;
-        }
+    > header,
+    .listing &:before {
+            background: $color-step;
+    }
 
 }
 
 /* Launch step. */
 article.launch {
 
-        > header,
-        .listing &:before {
-                background: $color-step-launch;
-        }
+    > header,
+    .listing &:before {
+            background: $color-step-launch;
+    }
 
 }
 
@@ -113,12 +124,12 @@ article.launch {
  * 1. For metadata elements' positioning.
  */
 article footer {
-        @include rem("min-height", ($line * 3));
-        @include rem("padding-bottom", ($line * 0.5));
-        position: relative; /* 1 */
-        z-index: 3;
-        text-align: center;
-        background: $background-color-page-footer;
+    @include rem("min-height", ($line * 3));
+    @include rem("padding-bottom", ($line * 0.5));
+    position: relative; /* 1 */
+    z-index: 3;
+    text-align: center;
+    background: $background-color-page-footer;
 }
 
 .permalink {

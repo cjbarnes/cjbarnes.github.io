@@ -78,6 +78,62 @@
 
 
 /**
+ * Homepage content areas.
+ */
+
+/* All homepage content rows. */
+.homepage .content {
+    @include rem("padding", ($line * 0.5) 0 ($line * 1.5));
+    @include font-size-leading("large");
+}
+
+/* The USPs content row. */
+.homepage #secondary {
+    background-color: $toast;
+
+    ul {
+        margin: 0;
+        line-height: (map-get($line-heights, "large") * 1.5);
+        list-style: none;
+    }
+
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
+    }
+
+}
+
+/* Featured testimonial. */
+.homepage .endorsement {
+    @include clearfix;
+    @include rem("padding", ($line * 2) 0);
+    background: $background-color-content;
+
+    /* The quote wrapper. */
+    figure {
+        @include column(10);
+        @include push;
+        background: transparent;
+    }
+
+    /* The quote itself. */
+    blockquote {
+        font-style: italic;
+    }
+
+    /*
+     * Remove the em-dash before the quote caption (since I'm using it here for
+     * a link rather than a citation).
+     */
+    figcaption:before {
+        display: none;
+    }
+
+}
+
+
+/**
  * Media query.
  *
  * Tablets and above.

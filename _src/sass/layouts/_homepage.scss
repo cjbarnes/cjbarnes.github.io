@@ -1,11 +1,114 @@
 /**
  * Homepage-specific styles
  *
+ * @todo Lots of refactoring needed here, but I'll probably just change the
+ *       whole design of this page.
+ *
  * @version 1.0.0
  * @package cjbarnes.github.io
  */
 
-/* Homepage welcome message */
-.homepage > header .title h1 {
-  @include column($columns);
+
+/*
+ * Header area.
+ * 1. For 'your website goes here' arrow.
+ * 2. Almost (but not quite) full screen height. Can use `vh` with no fallback
+ *    because I'm also declaring both min- and max-heights, which act as a
+ *    de facto fallback.
+ */
+.homepage > header {
+    position: relative; /* 1 */
+    height: 99vh; /* 2 */
+    min-height: 700px;
+    max-height: (940px + $line-px);
+
+    /* Homepage welcome message */
+    .title h1 {
+        @include column($columns);
+        @include font-size-leading("huger", 1.5);
+        text-align: center;
+        text-shadow: 0 0 10px $black;
+        color: $text-color-reversed;
+
+        a:hover,
+        a:focus,
+        a:active {
+            text-shadow: none;
+        }
+
+    }
+
+    /*
+     * The changing element in the welcome message.
+     * 1. Fixes the gradient height changing in each brag transition.
+     */
+    .brag {
+        overflow: hidden;
+        background: $martini;
+        word-wrap: normal; /* 1 */
+
+        /*
+         * Individual 'brags' - only one is displayed at once.
+         * 1. Hide unless `.current`.
+         */
+        span {
+            display: inline-block;
+            max-width: 0; /* 1 */
+            opacity: 0; /* 1 */
+            transition: all 0.5s ease-in-out;
+
+            /* The only visible 'brag'. */
+            &.current {
+                max-width: 100em;
+                opacity: 1;
+            }
+
+        }
+
+    }
+
+}
+
+/* 'Your website goes here' caption and arrow. */
+.your-website-goes-here {
+    z-index: 3;
+    position: absolute;
+    right: 50%;
+    bottom: (300px + $line-px);
+    margin-right: 120px;
+
+    /* The arrow. Is a bitmap, so the arrow can appear hand-drawn. */
+    img {
+        display: block;
+        width: 308px;
+        height: 244px;
+
+        /* Change arrow position for smaller screen widths. */
+        @media (max-width: 850px) {
+            margin-right: -80px;
+        }
+        @media (max-width: 700px) {
+            width: 216px;
+            height: 171px;
+            margin-right: -200px;
+        }
+
+    }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablet or wider.
+ */
+
+@include media-width("normal-size") {
+
+    /* Brags. No need to wrap to 2 lines at this screen size. */
+    br {
+        display: none;
+    }
+
 }

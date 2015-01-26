@@ -5,23 +5,227 @@
  * @package cjbarnes.github.io
  */
 
-/**
- * Mini illustrated content sections (e.g. further down the homepage).
- */
 
-#secondary.illustrated {
+/* Shared styles for all gradient fades overlaying the illustrations. */
+.gradient {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+}
 
-  section {
-    @include column($columns);
-  }
 
-  /* Hide illustration and gradient overlay for mobile devices. */
-  .illustration,
-  .gradient {
-    display: none;
-  }
+/* Shared styles for all illustrations, including in content rows. */
+.illustration {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+
+    /* The image itself. */
+    img {
+        position: absolute;
+        left: 50%;
+        display: block;
+        transform: translate3d(0, 0, 0);
+    }
 
 }
+
+/*
+ * Illustrated page/post headers, including the homepage.
+ * 1. Specificity hack.
+ */
+.illustrated.illustrated > header, /* 1 */
+header > .illustrated,
+.homepage {
+
+    .title {
+
+        /* Article title, and 'featured article' label. */
+        h1,
+        .label {
+            text-shadow: 0 0 10px $black;
+
+            a:hover,
+            a:focus,
+            a:active {
+                text-shadow: none;
+            }
+
+        }
+
+    }
+
+}
+
+/* Illustrated articles (both in and out of the masthead). */
+.illustrated > header,
+header > .illustrated {
+
+    /* Gradient fade between the illustration and the article footer. */
+    .gradient {
+        width: 100%;
+        height: $illustration-height;
+        background-image: linear-gradient(to bottom, transparent 40%, $background-color-illustrated 100%);
+    }
+
+    /* Parallax image wrapper. */
+    .illustration {
+        top: 0;
+        height: $illustration-height;
+
+        /* The image itself. */
+        img {
+            top: -450px;
+            margin-left: ($illustration-width * -0.5);
+        }
+
+    }
+
+}
+
+/* Illustrated mastheads. */
+main.illustrated > header,
+.single.illustrated > header,
+header > .illustrated {
+
+    /* Leave space above page title for the photo. */
+    .title {
+        @include rem("padding-top", ($line * 10));
+    }
+
+    /* Gradient fade between the illustration and the masthead bottom. */
+    .gradient {
+        height: $illustration-height-masthead;
+        background-image: linear-gradient(to bottom, transparent 55%, $background-color-illustrated 100%);
+    }
+
+    /* Parallax image wrapper */
+    .illustration {
+        height: $illustration-height-masthead;
+
+        /* The image itself. */
+        img {
+            top: -100px;
+            margin-left: ($illustration-width-masthead * -0.5);
+            /**
+             * Prevents 'skip' on page load caused by javascript. Y value is
+             * calculated from `top` / 4
+             *
+             * @todo Doesn't work yet - NEEDS MORE TESTING.
+             */
+            transform: translate3d(0, 0, 0);
+        }
+
+    }
+
+}
+
+/* Homepage header parallax. */
+.homepage > header {
+
+    /*
+     * Title.
+     * 1. Border is a continuation of the gradient's solid-colour ending.
+     * 2. Manually output border width in both rem and px, since we're using the
+     *    border-bottom shorthand (which breaks the `rem` mixin).
+     */
+    .title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        border-bottom: cj-calculate-rem-fallback($line) solid $gradient-color-homepage; /* 1, 2 */
+        border-bottom-width: $line; /* 2 */
+        background-image: linear-gradient(to bottom, transparent 0, $gradient-color-homepage 90%);
+
+        &.title { // Specificity hack: @todo CHECK THIS WORKS!
+            @include rem("padding", ($line * 3) 0 ($line * 2));
+        }
+
+    }
+
+    /* Parallax image wrapper. */
+    .illustration {
+        height: 100%;
+
+        img {
+            bottom: $line;
+            margin-left: ($illustration-width-masthead * -0.5);
+
+            /* Shift image for better framing on mobile devices. */
+            @media (max-width: 700px) {
+                margin-left: -550px;
+            }
+
+        }
+
+    }
+
+}
+
+/*
+ * Mini illustrated content sections (e.g. further down the homepage).
+ * 1. Parallax images positioning.
+ * 2. Default background colour for illustrated content sections.
+ */
+#secondary.illustrated {
+    @include font-size-leading("large");
+    position: relative; /* 1 */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: $oslo-grey; /* 2 */
+
+    /*
+     * Content blocks.
+     * 1. Overlap the gradient (which itself has a z-index).
+     */
+    section {
+        @include column($columns);
+        @include rem("padding-bottom", $line);
+        z-index: 5; /* 1 */
+        position: relative; /* 1 */
+    }
+
+    h2 {
+        @include rem("margin", $line 0);
+        color: $white;
+    }
+
+    ul {
+        padding: 0;
+        list-style-type: circle;
+    }
+
+    p {
+        margin: 0;
+
+        a {
+            color: $text-color-emphasis;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $text-color-reversed;
+            }
+
+        }
+
+    }
+
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
+    }
+
+    /* Hide illustration and gradient overlay for mobile devices. */
+    .illustration,
+    .gradient {
+        display: none;
+    }
+
+} //#secondary.illustrated
 
 
 /**
@@ -31,24 +235,52 @@
  */
 @include media-width("normal-size") {
 
-  /*
-   * Mini illustrated content sections.
-   */
+    /*
+     * Mini illustrated content sections.
+     */
+    #secondary.illustrated {
 
-  #secondary.illustrated {
+        /* Space out the content. */
+        section {
+            @include column(10);
+            @include push;
+        }
 
-    /* Space out the content. */
-    section {
-      @include column(10);
-      @include push;
+        /* The gradient overlay. (Hidden on mobile.) */
+        .gradient {
+            display: block;
+            width: 850px;
+            height: 100%;
+
+            /* Gradient over right-aligned illustration image. */
+            &.right {
+                left: 50%;
+                margin-left: -10%;
+                background-image: linear-gradient(to left, transparent 40%, $oslo-grey 100%);
+            }
+
+            /*
+             * Homepage USPs illustration gradient - match different background
+             * colour of this content area.
+             */
+            .homepage &.right {
+                background-image: linear-gradient(to left, transparent 40%, $toast 100%);
+            }
+
+        }
+
+        /* The illustration wrapper. (Hidden on mobile.) */
+        .illustration {
+            display: block;
+            height: 100%;
+
+            /* Right-aligned illustration image. */
+            &.right img {
+                margin-left: -10%;
+            }
+
+        }
+
     }
-
-    /* Display the illustration and gradient (which was hidden for mobile). */
-    .illustration,
-    .gradient {
-      display: block;
-    }
-
-  }
 
 } //include media-width(normal-size)

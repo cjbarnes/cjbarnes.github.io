@@ -64,6 +64,12 @@ article footer .date {
 
 }
 
+/* Dates in illustrated article footers. */
+article.illustrated footer .date abbr {
+    background: $background-color-illustrated;
+    color: $text-color-reversed;
+}
+
 /* Bigger featured article dates. */
 article.featured footer .date {
     @include font-size-leading("huge");

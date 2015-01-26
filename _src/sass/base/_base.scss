@@ -66,6 +66,12 @@ main,
     background: $background-color-content;
 }
 
+/* Title container margins. */
+.title {
+  @include rem("margin-left",  $gutter);
+  @include rem("margin-right", $gutter);
+}
+
 
 /**
  * Standard paragraphs of text.
