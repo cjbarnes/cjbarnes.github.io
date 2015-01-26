@@ -41,7 +41,7 @@ main > footer,
 
   /* Headings in footer. */
   h2 {
-    @include rem("margin", $line, 0, ($line / 2));
+    @include rem("margin", $line 0 ($line / 2));
     @include font-size-leading("large");
     color: $text-color;
   }

@@ -6,34 +6,273 @@
  */
 
 
-/**
- * Listing dimensions.
- */
-
 /* All content columns are full width for mobile. */
-.listing,
-.timeline {
-  @include column($columns);
+.listing {
+    @include column($columns);
+    @include rem("margin", $line 0);
+
+    /* Listing title - used for My Approach page. */
+    > h2 {
+        @include rem("margin", 0 0 ($line * 2));
+        text-align: center;
+        color: $text-color-listing-headings;
+    }
+
 }
 
-/* Tablet layout. */
+
+/*
+ * Listing items.
+ * 1. Icon placement and style.
+ */
+.listing article {
+    @include rem("margin-bottom", ($line * 2));
+    @include circle-box($background-color); /* 1 */
+
+    /* Icon colours and fonts.. */
+    &:before {
+        font-family: $font-family-icons;
+        color: $background-color;
+    }
+
+    /* Loop through icons themselves. */
+    @each $format, $icon in $format-icons {
+
+        &:#{$format}:before {
+            content: "#{$icon}";
+        }
+
+    }
+
+    /* No icon for illustrated articles in full-size listings. */
+    &.illustrated:before {
+        display: none;
+    }
+
+    /* Quote post custom styling. */
+    &.quote {
+
+        figure.quote {
+            margin-bottom: 0;
+            padding: 0;
+            background-color: transparent;
+        }
+
+    }
+
+    /* Link post custom styling. */
+    &.link {
+
+        /* Make direct link box flush with footer top. */
+        .content {
+            padding-bottom: 0;
+        }
+
+    }
+
+} //.listing article
+
+
+/**
+ * Portfolio listing
+ */
+
+/* Portfolio entries. */
+.portfolio .website {
+
+    /* No icons. */
+    &:before {
+        display: none;
+    }
+
+    /*
+     * Screenshot wrapper - shows a 'browser window' around the screenshot.
+     * 1. For horizontal centring.
+     */
+    .screenshot {
+        position: relative; /* 1 */
+        left: 50%; /* 1 */
+        text-align: center;
+        background: url("/img/browser-mobile.png") center top no-repeat;
+
+        /* Desktop screenshot. Not shown until there's room for it. */
+        &.large {
+            display: none;
+        }
+
+        /* Mobile screenshot. */
+        &.small {
+            @include rem("padding-top", ($line * 1.5));
+            $width: 320px;
+            margin-left: ($width * -0.5);
+            width: $width;
+            height: 451px;
+        }
+
+    }
+
+    /* Site title (in footer). */
+    h3 {
+        @include rem("top", $line);
+        position: absolute;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        color: $text-color;
+    }
+
+} //.portfolio .website
+
+
+/**
+ * My Approach listing (timeline of steps).
+ */
+
+/*
+ * 1. Use CSS counter for numbering of the steps in the timeline.
+ */
+.approach .listing {
+    counter-reset: steps; /* 1 */
+
+    /* Item container. */
+    .step {
+        @include rem("padding-bottom", ($line * 0.5));
+        counter-increment: steps;
+
+        /* The number (displayed like an icon). */
+        &:before {
+            @include font-size-leading("huger");
+            content: counter(steps);
+            color: $background-color-content;
+        }
+
+    }
+
+    /* Item graphics. */
+    .title .icon {
+        @include font-size("huge");
+        display: inline-block;
+        font-family: $font-family-icons;
+        line-height: 1;
+        transform: rotate(-5deg);
+    }
+
+    /* 'What you get' footer. */
+    footer {
+        @include rem("min-height", $line);
+        @include rem("margin", ($line * 0.5) ($line * 0.5) 0);
+        @include rem("padding", ($line / 2) 0);
+        font-family: $font-family-content;
+        text-align: left;
+
+        /*
+         * Footer title.
+         * 1. Get rid of standard heading margins.
+         */
+        h3 {
+            @include rem("left", (($line * 0.5) * -1));
+            @include font-size-leading("large");
+            position: absolute;
+            bottom: 100%;
+            margin-top: 0; /* 1 */
+            margin-bottom: 0; /* 1 */
+        }
+
+        /* 'What you get' list. */
+        ul {
+            @include rem("margin", 0 ($line * 2));
+        }
+
+        /* 'What you get' list container. */
+        li {
+            @include rem("margin-top", ($line * 0.25));
+            @include font-size-leading("small");
+            margin-bottom: 0;
+            list-style: circle;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+        }
+
+    }
+
+
+    /**
+     * Arrows between steps.
+     */
+
+    /*
+     * Arrowhead.
+     * 1. Horizontal centring.
+     * 2. Arrowhead base starts here.
+     * 3. CSS arrowheads trick.
+     */
+    .step:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%; /* 1 */
+        display: block;
+        width: 0;
+        height: 0;
+        margin-top: $listing-arrow-shaft-length; /* 2 */
+        margin-left: ($listing-arrowhead-size * -1); /* 1 */
+        border-top: ($listing-arrowhead-size * 0.75) solid $background-color-content; /* 3 */
+        border-left:  $listing-arrowhead-size solid transparent; /* 3 */
+        border-right: $listing-arrowhead-size solid transparent; /* 3 */
+    }
+
+    /*
+     * Arrow shaft.
+     * 1. Horizontal centring.
+     */
+    footer:after {
+        @include rem("margin-top", ($line / 2));
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%; /* 1 */
+        display: block;
+        width: $listing-arrow-shaft-thickness;
+        height: $listing-arrow-shaft-length;
+        margin-left: (($listing-arrow-shaft-thickness / 2) * -1);
+        background: $background-color-content;
+    }
+
+    /* Hide arrow for last step. */
+    .support:after,
+    .support footer:after {
+        display: none;
+    }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablets and wider.
+ */
 @include media-width("normal-size") {
 
-  /* Content is still single-column, but with bigger margins. */
-  .index .listing,
-  .cv .listing,
-  .approach .listing,
-  .timeline {
-    @include column(10);
-    @include push;
-    @include pull;
-  }
+    /* Content is still single-column, but with bigger margins. */
+    .index .listing,
+    .cv .listing,
+    .approach .listing {
+        @include column(10);
+        @include push;
+        @include pull;
+    }
 
-  /* Move across "What you get" subheading to line up with main box content. */
-  .approach .listing .step footer h3 {
-    @include push;
-    @include pull;
-  }
+    /*
+     * Move across "What you get" subheading to line up with main box content.
+     */
+    .approach .listing .step footer h3 {
+        @include push;
+        @include pull;
+    }
 
 } //include media-width(normal-size)
 
@@ -45,33 +284,77 @@
  */
 @include media-width("two-columns") {
 
-  /* Leave room for the sidebar column next to the listing column. */
-  .index .listing {
-    @include column(8);
-    @include push(1);
-    @include pull(0);
-  }
+    /* Leave room for the sidebar column next to the listing column. */
+    .index .listing {
+        @include column(8);
+        @include push(1);
+        @include pull(0);
+    }
 
-  /*
-   * Change portfolio width to match other single-column listings. At the
-   * previous breakpoint, portfolio listing stayed full-width to accommodate as
-   * much website screenshot as possible.
-   */
-  .portfolio .listing {
-    @include column(10);
-    @include push;
-    @include pull;
-  }
+    /*
+     * Change portfolio width to match other single-column listings. At the
+     * previous breakpoint, portfolio listing stayed full-width to accommodate
+     * as much website screenshot as possible.
+     */
+    .portfolio .listing {
+        @include column(10);
+        @include push;
+        @include pull;
+    }
 
-  /*
-   * Listings that still have no sidebar, but should be the same width as a
-   * listing with a sidebar.
-   */
-  .cv .listing,
-  .approach .listing {
-    @include column(8);
-    @include push(2);
-    @include pull(2);
-  }
+    /*
+     * Listings that still have no sidebar, but should be the same width as a
+     * listing with a sidebar.
+     */
+    .cv .listing,
+    .approach .listing {
+        @include column(8);
+        @include push(2);
+        @include pull(2);
+    }
 
 } //include media-width(two-columns)
+
+
+/**
+ * Media query.
+ *
+ * Full portfolio layout.
+ */
+@include media-width("portfolio-screenshots") {
+
+    /* The full-size screenshot wrapper. */
+    .portfolio .website .screenshot {
+
+        /*
+         * Desktop-scale screenshots.
+         * 1. Re-display this size of screenshot (hidden on thinner screens).
+         * 2. Horizontal centring.
+         */
+        .large {
+            $width: 750px;
+            @include rem("padding-top", ($line * 1.5));
+            display: block; /* 1 */
+            width: $width;
+            height: 552px;
+            margin-left: ($width * -0.5); /* 2 */
+            background-image: url("/img/browser.png");
+        }
+
+        /*
+         * Mobile screenshots.
+         * 1. Position mobile to the bottom-right, letting the desktop
+         *    screenshot take centre stage.
+         * 2. Cancel horizontal centring.
+         */
+        .small {
+            @include rem("right", $line); /* 1 */
+            position: absolute; /* 1 */
+            bottom: 0; /* 1 */
+            left: auto; /* 2 */
+            margin-left: 0; /* 2 */
+        }
+
+    }
+
+} //include media-width(portfolio-screenshots)

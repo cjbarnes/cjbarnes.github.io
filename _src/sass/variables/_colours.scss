@@ -40,13 +40,14 @@ $burnt-umber:  #8f2823; // cj12
  */
 
 // Text.
-$text-color:             $black;
-$text-color-reversed:    $white;
-$text-color-headings:    $oslo-grey;
-$text-color-navbar:      $white;
-$text-color-quote:       $santa-fe;
-$text-color-emphasis:    $vanilla;
-$text-color-site-footer: $vanilla;
+$text-color:                  $black;
+$text-color-reversed:         $white;
+$text-color-headings:         $oslo-grey;
+$text-color-navbar:           $white;
+$text-color-quote:            $santa-fe;
+$text-color-emphasis:         $vanilla;
+$text-color-site-footer:      $vanilla;
+$text-color-listing-headings: $toast;
 
 // Links.
 $link-color:           $patina;
@@ -69,16 +70,16 @@ $logo-color-dark:  $oslo-grey;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
-  "article": $ironstone,
-  "link":    $patina,
-  "page":    $toast,
-  "quote":   $santa-fe,
-  "tip":     $indian-khaki,
-  "website": $toast,
-  "award":   $indian-khaki,
-  "course":  $oslo-grey,
-  "job":     $ironstone,
-  "project": $patina
+    "text":    $ironstone,
+    "link":    $patina,
+    "page":    $toast,
+    "quote":   $santa-fe,
+    "tip":     $indian-khaki,
+    "website": $toast,
+    "award":   $indian-khaki,
+    "course":  $oslo-grey,
+    "job":     $ironstone,
+    "project": $patina
 );
 
 // Homepage.
@@ -90,9 +91,10 @@ $color-phone:   $santa-fe;
 $color-address: $ironstone;
 
 // Content components.
-$color-step: $oslo-grey;
-$color-yes:  $eucalyptus;
-$color-no:   $burnt-umber;
+$color-step:        $oslo-grey;
+$color-step-launch: $santa-fe;
+$color-yes:         $eucalyptus;
+$color-no:          $burnt-umber;
 $background-color-link: lighten($link-color, 40%);
 $background-color-figure:     $cararra;
 $background-color-code:       $black;

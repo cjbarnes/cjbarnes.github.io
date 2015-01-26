@@ -26,7 +26,7 @@
 
   .contact,
   .small-print {
-    @include rem("margin", ($line * 2), $gutter, 0);
+    @include rem("margin", ($line * 2) $gutter 0);
 
     a {
       @include font-size-leading("small");
@@ -84,8 +84,8 @@
     .contact,
     .small-print {
       @include column(($columns / 2));
-      @include rem("margin", $line, 0, 0);
-      @include rem("padding", 0, $line);
+      @include rem("margin", $line 0 0);
+      @include rem("padding", 0 $line);
     }
 
     /*
@@ -95,7 +95,7 @@
      */
     .logo {
       @include rem("bottom", ($line * 2));
-      @include rem("margin", 0, 0, 0, ($line * -1)); /* 1 */
+      @include rem("margin", 0 0 0 ($line * -1)); /* 1 */
       @include font-size-leading("gigantic", 2);
       position: absolute;
       left: 50%; /* 1 */

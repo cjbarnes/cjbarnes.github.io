@@ -37,7 +37,7 @@
  */
 
 #navbar .logo {
-  @include rem("margin", $logo-margin, $logo-margin, 0, 0);
+  @include rem("margin", $logo-margin $logo-margin 0 0);
   @include alpha("border-color", $logo-color-light, 0.8);
   @include alpha("color", $logo-color-light, 0.8);
   float: right;
@@ -68,7 +68,7 @@
 
 #site-navigation {
   @include clearfix;
-  @include rem("padding", 0, 0, ($line / 2));
+  @include rem("padding", 0 0 ($line / 2));
   @include font-size-leading("large");
   @include alpha("background", $background-color-illustrated, 0.9);
   margin: 0;
@@ -123,7 +123,7 @@
    * 1. Same background colour but with no transparency.
    */
   ul {
-    @include rem("margin", 0, 0, ($line / 2), ($line / 2));
+    @include rem("margin", 0 0 ($line / 2) ($line / 2));
     padding: 0;
     background: $background-color-navbar-mobile; /* 1 */
 
@@ -154,7 +154,7 @@
  */
 #site-navigation-toggle {
   @include rem("height", (($line-px * (($font-size-navbar-logo / 1rem) + ($logo-margin / 0.5rem))) + 2px));
-  @include rem("padding", ($line / 1.5), ($line / 2));
+  @include rem("padding", ($line / 1.5) ($line / 2));
   @include font-size-leading("larger");
   display: block;
   min-width: 50%; /* 2 */
@@ -232,7 +232,7 @@
       /* Standard article, or light background image. */
       .text &,
       .light-masthead & {
-        @include alpha("background", -cj-get-format-dark-color("article"), 0.8);
+        @include alpha("background", -cj-get-format-dark-color("text"),    0.8);
       }
 
       /* Quote article. */
@@ -328,7 +328,7 @@
 
     /* Links. */
     > li > a {
-      @include rem("padding", $line, ($line * 0.75));
+      @include rem("padding", $line ($line * 0.75));
     }
 
     /* Links on light backgrounds. */
@@ -420,7 +420,7 @@
 
     /* Top-level menu. */
     > li > a {
-      @include rem("padding", $line, ($line * 0.75));
+      @include rem("padding", $line ($line * 0.75));
       @include font-size-leading("large");
     }
 

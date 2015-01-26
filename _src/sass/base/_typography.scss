@@ -40,7 +40,7 @@ body {
 
 p,
 address {
-  @include rem("margin", $line, $gutter, 0);
+  @include rem("margin", $line $gutter 0);
 }
 
 address {
@@ -63,7 +63,7 @@ mark {
 
 /* Blockquotes. */
 blockquote {
-  @include rem("margin", $line, $gutter);
+  @include rem("margin", $line $gutter);
   @include font-size-leading("large");
   color: $text-color-quote;
 
@@ -92,7 +92,7 @@ kbd {
 
 /* Horizontal rules. */
 hr {
-  @include rem("margin", ($line * 2), 0);
+  @include rem("margin", ($line * 2) 0);
   border: 0;
   border-top: 1px solid $text-color-headings;
 }

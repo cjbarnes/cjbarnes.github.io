@@ -27,7 +27,8 @@
 
   // Icon.
   &:before {
-    @include circle2x;
+    @include circle-2x;
+    @include font-size-leading("huge");
     position: absolute;
     top: ((($circle-diameter / 2) * -1) - 2px);
     left: 50%;
@@ -35,6 +36,6 @@
     padding-top: 0.1em;
     border-color: $background;
     color: $text-color-reversed;
-    font-size: $font-size-huge;
   }
+
 }

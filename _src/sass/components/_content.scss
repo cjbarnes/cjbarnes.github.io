@@ -11,20 +11,20 @@
 
 .content,
 .wide-content {
-  font-family: $font-family-content;
+    font-family: $font-family-content;
 
-  /* Remove top margin for headings at top of content area. */
-  > h1:first-child,
-  > h2:first-child,
-  > h3:first-child {
-    margin-top: 0;
-  }
+    /* Remove top margin for headings at top of content area. */
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child {
+        margin-top: 0;
+    }
 
 }
 
 /* Lead paragraphs. */
 .lead {
-  @include font-size-leading("large");
+    @include font-size-leading("large");
 }
 
 
@@ -33,7 +33,18 @@
  */
 
 .content {
-  @include rem("padding", ($line * 0.5), 0, ($line * 1.5));
+    @include rem("padding", ($line * 0.5) 0 ($line * 1.5));
+
+    /*
+     * Portfolio page item content.
+     * 1. For screenshot positioning.
+     */
+    .portfolio .website & {
+        @include rem("padding", ($line * 2) 0 0);
+        position: relative; /* 1 */
+        width: 100%;
+    }
+
 }
 
 /* Content sections. */
@@ -41,9 +52,9 @@
 #secondary,
 #skills,
 .technologies {
-  @include clearfix;
-  @include rem("padding-top",    ($line * 1.5));
-  @include rem("padding-bottom", ($line * 2.5));
+    @include clearfix;
+    @include rem("padding-top",    ($line * 1.5));
+    @include rem("padding-bottom", ($line * 2.5));
 }
 
 /* All content columns are full width for mobile. */
@@ -51,17 +62,17 @@
 .single .wide-content,
 #skills,
 .technologies {
-  @include column($columns);
+    @include column($columns);
 }
 
 /* Primary section in multi-layered pages, e.g. My Approach. */
 .approach #primary,
 .i-dont #primary {
-  background: $background-color-content;
+    background: $background-color-content;
 
-  .content {
-    @include column($columns);
-  }
+    .content {
+        @include column($columns);
+    }
 
 }
 
@@ -73,21 +84,19 @@
  */
 @include media-width("normal-size") {
 
-  /* Content is still single-column, but with bigger margins, on tablets. */
-  .single .content,
-  .approach #primary .content,
-  .i-dont #primary .content,
-  .timeline {
-    @include column(10);
-    @include push;
-    @include pull;
-  }
+    /* Content is still single-column, but with bigger margins, on tablets. */
+    .single .content,
+    .approach #primary .content,
+    .i-dont #primary .content {
+        @include column(10);
+        @include push;
+        @include pull;
+    }
 
-  /* Centre-align item titles in full-width listings. */
-  .single .wide-content h2,
-  .timeline h2 {
-    text-align: center;
-  }
+    /* Centre-align item titles in full-width listings. */
+    .single .wide-content h2 {
+        text-align: center;
+    }
 
 } //include media-width(normal-size)
 
@@ -99,13 +108,31 @@
  */
 @include media-width("two-columns") {
 
-  /* Extra spacing for main content area. */
-  .single .content,
-  .approach #primary .content,
-  .i-dont #primary .content {
-    @include column(8);
-    @include push(2);
-    @include pull(2);
-  }
+    /* Extra spacing for main content area. */
+    .single .content,
+    .approach #primary .content,
+    .i-dont #primary .content {
+        @include column(8);
+        @include push(2);
+        @include pull(2);
+    }
 
 } //include media-width(two-columns)
+
+
+/**
+ * Media query.
+ *
+ * Full portfolio layout.
+ */
+@include media-width("portfolio-screenshots") {
+
+    /*
+     * Portfolio page item content area: reinsert extra spacing underneath the
+     * main screenshot.
+     */
+    .content {
+        @include rem("padding-bottom", ($line * 2));
+    }
+
+}

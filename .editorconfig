@@ -1,4 +1,4 @@
-# EditorConfig file for YorkSpace themes
+# EditorConfig file for cJ barnes website.
 #
 # This file is for unifying the coding style for different editors and IDEs
 # (see http://editorconfig.org)
@@ -17,4 +17,10 @@ trim_trailing_whitespace = true
 
 # Markdown files
 [{*.md,*.mdown,*.txt}]
+indent_size = 4
+indent_style = tab
 trim_trailing_whitespace = false
+
+# Stylesheets
+[{*.css,*.sass,*.scss}]
+indent_size = 4

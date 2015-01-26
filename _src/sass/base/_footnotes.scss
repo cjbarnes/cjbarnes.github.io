@@ -10,55 +10,55 @@
 /* Links: to-footnote and back-to-text. */
 .footnote,
 .reversefootnote {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  line-height: 1.5;
-  text-align: center;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    line-height: 1.5;
+    text-align: center;
 }
 
 /* In-text to-footnote links. */
 .footnote {
-  @include rem("font-size", map-get($font-sizes, "small"));
-  position: relative;
-  top: -0.5em;
-  margin-top: -1em;
+    @include rem("font-size", map-get($font-sizes, "small"));
+    position: relative;
+    top: -0.5em;
+    margin-top: -1em;
 }
 
 /* Footnotes content area. */
 .footnotes {
 
-  hr {
-    @include rem("margin-bottom", $line);
-  }
-
-  /*
-   * 1. Override grid column styles.
-   */
-  ol {
-    margin: 0; /* 1 */
-    padding-left: 0;
-  }
-
-  li {
-    @include rem("margin", ($line / 2), 0);
-    @include rem("padding", ($line / 2), 0);
-    @include font-size-leading("small");
-    list-style-position: inside;
-    transition: background-color $link-transition-duration ease-in-out;
-
-    /* The selected footnote. */
-    &:target {
-      background: $background-color-page-footer;
+    hr {
+        @include rem("margin-bottom", $line);
     }
 
-    p:first-child {
-      margin-top: 0;
+    /*
+     * 1. Override grid column styles.
+     */
+    ol {
+        margin: 0; /* 1 */
+        padding-left: 0;
     }
 
-  }
+    li {
+        @include rem("margin", ($line / 2) 0);
+        @include rem("padding", ($line / 2) 0);
+        @include font-size-leading("small");
+        list-style-position: inside;
+        transition: background-color $link-transition-duration ease-in-out;
+
+        /* The selected footnote. */
+        &:target {
+            background: $background-color-page-footer;
+        }
+
+        p:first-child {
+            margin-top: 0;
+        }
+
+    }
 
 } //.footnotes

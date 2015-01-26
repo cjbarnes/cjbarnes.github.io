@@ -14,15 +14,15 @@
 /* Output header colours for each post/item format. */
 @each $format, $color in $format-colors {
 
-  article.#{$format} {
+    article.#{$format} {
 
-    > header,
-    .date abbr,
-    .listing &:before {
-      background: $color;
+        > header,
+        .date abbr,
+        .listing &:before {
+            background: $color;
+        }
+
     }
-
-  }
 
 }
 
@@ -30,23 +30,23 @@
 article.link,
 article.project {
 
-  /* Make links visible when in the header area. */
-  > header a {
+    /* Make links visible when in the header area. */
+    > header a {
 
-    &:hover,
-    &:focus {
-      border-color: $text-color-reversed;
-      background: $text-color-reversed;
-      color: $link-color;
+        &:hover,
+        &:focus {
+            border-color: $text-color-reversed;
+            background: $text-color-reversed;
+            color: $link-color;
+        }
+
+        &:active {
+            border-color: $link-color-active;
+            background: $link-color-active;
+            color: $text-color-reversed;
+        }
+
     }
-
-    &:active {
-      border-color: $link-color-active;
-      background: $link-color-active;
-      color: $text-color-reversed;
-    }
-
-  }
 
 }
 
@@ -55,29 +55,54 @@ article.project {
  * 1. Stay on top of illustration and gradient.
  */
 article .title {
-  position: relative; /* 1 */
-  z-index: 2;
+    position: relative; /* 1 */
+    z-index: 2;
 
-  /* Title. */
-  h1 {
-    @include rem("padding", $line, 0);
-    margin: 0;
-    color: $text-color-reversed;
+    /* Title. */
+    h1 {
+        @include rem("padding", $line 0);
+        margin: 0;
+        color: $text-color-reversed;
 
-    /* Links in titles. */
-    a {
-      padding: 0 0 ($link-padding / 2);
+        /* Links in titles. */
+        a {
+            padding: 0 0 ($link-padding / 2);
+        }
+
     }
 
-  }
+    /* Subtitle/excerpt. */
+    h2 {
+        @include rem("margin", 0 0 $line);
+        @include font-size-leading("normal");
+        font-family: $font-family-content;
+        color: $text-color-reversed;
+    }
 
-  /* Subtitle/excerpt. */
-  h2 {
-    @include rem("margin", 0, 0, $line);
-    @include font-size-leading("normal");
-    font-family: $font-family-content;
-    color: $text-color-reversed;
-  }
+}
+
+
+/**
+ * My Approach timeline 'steps'.
+ */
+
+/* Standard steps. */
+article.step {
+
+        > header,
+        .listing &:before {
+                background: $color-step;
+        }
+
+}
+
+/* Launch step. */
+article.launch {
+
+        > header,
+        .listing &:before {
+                background: $color-step-launch;
+        }
 
 }
 
@@ -87,7 +112,7 @@ article .title {
  */
 
 article {
-  background: $background-color-content;
+    background: $background-color-content;
 }
 
 
@@ -99,21 +124,21 @@ article {
  * 1. For metadata elements' positioning.
  */
 article footer {
-    @include rem("min-height", ($line * 3));
-    @include rem("padding-bottom", ($line * 0.5));
-    position: relative; /* 1 */
-    z-index: 3;
-    text-align: center;
-    background: $background-color-page-footer;
+        @include rem("min-height", ($line * 3));
+        @include rem("padding-bottom", ($line * 0.5));
+        position: relative; /* 1 */
+        z-index: 3;
+        text-align: center;
+        background: $background-color-page-footer;
 }
 
 .permalink {
-  @include rem("margin-left", $gutter);
+    @include rem("margin-left", $gutter);
 }
 
 .share,
 .go-to-site {
-  @include rem("margin-right", $gutter);
+    @include rem("margin-right", $gutter);
 }
 
 
@@ -122,31 +147,33 @@ article footer {
  */
 
 article.featured {
-  background-color: $background-color-illustrated;
+    background-color: $background-color-illustrated;
 }
 
 /* Metadata footer */
 article.featured footer {
-  @include rem("height", $line);
-  min-height: 0;
-  background: transparent;
+    @include rem("height", $line);
+    min-height: 0;
+    background: transparent;
 
-  /* Adjust metadata colours and sizes to match the dark/full-width masthead. */
-  .permalink,
-  .share {
-    @include font-size-leading("large");
-    color: $text-color-reversed;
-  }
+    /*
+     * Adjust metadata colours and sizes to match the dark/full-width masthead.
+     */
+    .permalink,
+    .share {
+        @include font-size-leading("large");
+        color: $text-color-reversed;
+    }
 
-  .permalink {
-    @include rem("left", $gutter);
-    margin-left: 0;
-  }
+    .permalink {
+        @include rem("left", $gutter);
+        margin-left: 0;
+    }
 
-  .share {
-    @include rem("right", $gutter);
-    margin-right: 0;
-  }
+    .share {
+        @include rem("right", $gutter);
+        margin-right: 0;
+    }
 
 }
 
@@ -158,38 +185,38 @@ article.featured footer {
  */
 @include media-width("normal-size") {
 
-  /* Article alignment. */
-  article  .title {
-    @include push;
-    @include pull;
-  }
-
-  /* Metadata alignment. */
-  article footer {
-    padding-bottom: 0;
-
-    /* Left- and right-aligned metadata fields. */
-    .permalink,
-    .share,
-    .go-to-site {
-      @include rem("bottom", ($line * 0.8)); // @todo: check this maths
-      position: absolute;
-      display: block;
-      padding-left: 0;
-      padding-right: 0;
+    /* Article alignment. */
+    article  .title {
+        @include push;
+        @include pull;
     }
 
-    .permalink {
-      @include push;
-      left: 0;
-    }
+    /* Metadata alignment. */
+    article footer {
+        padding-bottom: 0;
 
-    .share,
-    .go-to-site {
-      @include pull;
-      right: 0;
-    }
+        /* Left- and right-aligned metadata fields. */
+        .permalink,
+        .share,
+        .go-to-site {
+            @include rem("bottom", ($line * 0.8)); // @todo: check this maths
+            position: absolute;
+            display: block;
+            padding-left: 0;
+            padding-right: 0;
+        }
 
-  }
+        .permalink {
+            @include push;
+            left: 0;
+        }
+
+        .share,
+        .go-to-site {
+            @include pull;
+            right: 0;
+        }
+
+    }
 
 } //include media-width(normal-size)

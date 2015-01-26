@@ -12,11 +12,11 @@ dl {
   @include rem("margin-right", $gutter);
 
   li {
-    @include rem("margin", ($line / 2), 0);
+    @include rem("margin", ($line / 2) 0);
   }
 
   dd {
-    @include rem("margin", ($line / 2), 0, ($line / 2), $line);
+    @include rem("margin", ($line / 2) 0 ($line / 2) $line);
     @include font-size-leading("small");
   }
 

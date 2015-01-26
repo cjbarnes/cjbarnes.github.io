@@ -40,7 +40,7 @@ main > header,
  */
 article footer .date {
   @include font-size-leading("larger");
-  @include rem("padding", ($line * 0.5), 0);
+  @include rem("padding", ($line * 0.5) 0);
   position: static;
 
   /* Individual date parts. */

@@ -83,3 +83,17 @@ $font-family-monospace: $font-family-brand;
 
 // Same font weight is used throughout.
 $font-weight: 300;
+
+// Post formats and CV/portfolio entry icons.
+$format-icons: (
+  "text":    "✎",
+  "link":    "🔗",
+  "page":    "📰",
+  "quote":   "❞",
+  "tip":     "💡",
+  "website": "",
+  "award":   "🏆",
+  "course":  "🎓",
+  "job":     "💼",
+  "project": "⚒"
+);

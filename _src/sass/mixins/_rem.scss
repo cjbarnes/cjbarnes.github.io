@@ -15,7 +15,7 @@
  * @param string $property The CSS property name to output rem and px for.
  * @param number $vals     The values to calculate from (either in rem or px).
  */
-@mixin rem($property, $vals...) {
+@mixin rem($property, $vals) {
   @if not function-exists(-cj-calculate-rem) {
     @error "Mixin rem requires function -cj-calculate-rem(), which does not exist";
   }
