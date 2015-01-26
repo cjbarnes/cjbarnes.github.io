@@ -1,77 +1,143 @@
 /**
  * Circle 'buttons' (really links) and button toolbars
  *
+ * Note: there is no specific class to create a single button. Instead, buttons
+ * are link elements wrapped in a `.button-bar` toolbar element.
+ *
  * @version 1.0.0
  * @package cjbarnes.github.io
  */
 
 
+/* All button wrappers. */
+.button-bar {
+    @include font-size("huge");
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+
+    li {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* The buttons (both linked and unlinked/current). */
+    a,
+    b {
+        @include circle-2x;
+        display: inline-block;
+        padding: 0;
+    }
+
+    /* Linked buttons. */
+    a {
+        color: $white;
+    }
+
+}
+
+
 /**
- * Toolbars - horizontal groups of buttons.
+ * Styling for specific buttons.
  */
 
-/* All footer toolbars. */
+.button-bar {
+
+    /*
+     * Icon buttons (e.g. social media links).
+     * 1. For icon alignment within the button.
+     */
+    .twitter a,
+    .feed a {
+        padding-top: 0.1em; /* 1 */
+        font-family: $font-family-icons;
+        border-color: $background-color-page-footer;
+        color: $background-color-page-footer;
+
+        &:hover,
+        &:focus {
+            background: $link-color;
+        }
+
+        &:active {
+            background: $link-color-active;
+        }
+
+    }
+
+    /* Twitter button. */
+    .twitter a {
+        background: $color-rss;
+    }
+
+    /* RSS button. */
+    .feed a {
+        background: $color-twitter;
+    }
+
+}
+
+
+/**
+ * Footer button areas.
+ */
+
+/* All footer buttons. */
 main > footer,
 .single > footer,
 #site-footer {
 
-  /* Move up to half-overlap the main content area above the footer. */
-  .button-bar {
-    top: ((-1 * ($circle-diameter / 2)) - 2);
-  }
+    /* Move up to half-overlap the main content area above the footer. */
+    .button-bar {
+        top: ((-1 * ($circle-diameter / 2)) - 2);
+    }
 
 }
 
-/* Toolbars in (upper) page footer only. */
+/* Buttons in (upper) page footer only. */
 main > footer,
 .single > footer {
 
-  /* Pagination colours. */
-  .button-bar {
+    /* Pagination colours. */
+    .button-bar {
 
-    /*
-     * Current page.
-     * 1. Styled to appear 'cut out' of the footer.
-     */
-    b {
-      border-color: $background-color;
-      background: $background-color; /* 1 */
+        /*
+         * Current page.
+         * 1. Styled to appear 'cut out' of the footer.
+         */
+        b {
+            border-color: $background-color;
+            background: $background-color; /* 1 */
+        }
+
+        /* Other pages. */
+        a {
+            border-color: $background-color;
+            color: $link-color-secondary;
+            background: $background-color-page-footer;
+
+            &:hover,
+            &:focus {
+                color: $text-color-reversed;
+                background: $link-color-secondary;
+            }
+
+            /*
+            * 1. Override default border.
+            */
+            &:active {
+                border-color: $background-color; /* 1 */
+                color: $text-color-reversed;
+                background: $link-color-active;
+            }
+
+        }
+
     }
-
-    /* Other pages. */
-    a {
-      border-color: $background-color;
-      color: $link-color-secondary;
-      background: $background-color-page-footer;
-
-      &:hover,
-      &:focus {
-        color: $text-color-reversed;
-        background: $link-color-secondary;
-      }
-
-      /*
-       * 1. Override default border.
-       */
-      &:active {
-        border-color: $background-color; /* 1 */
-        color: $text-color-reversed;
-        background: $link-color-active;
-      }
-
-    }
-
-  }
 
 } //main>footer, .single>footer
-
-/* Toolbars in (lower) site footer only. */
-#site-footer {
-
-  /* Colours to match the page footer above. */
-  .button-bar a {
-    border-color: $background-color-page-footer;
-    color: $background-color-page-footer;
-  }
-
-}

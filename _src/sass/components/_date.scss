@@ -10,64 +10,71 @@
 
 
 /*
- * Post's published date.
+ * Basic date styles. Very similar to `.button-bar`.
  * 1. Overlap the bottom of the post header.
  */
-article .date {
-  bottom: ((($circle-diameter / 2) * -1) - 1px); /* 1 */
-
-  /* Colours. */
-  a,
-  abbr {
-    color: $text-color-reversed;
-    background: $background-color-masthead;
-  }
-
-}
-
-/* Dates in masthead. */
-main > header,
-.single > header {
-
-  .date {
+.date {
     @include font-size("huge");
-  }
+    position: absolute;
+    right: 0;
+    bottom: ((($circle-diameter / 2) * -1) - 1px); /* 1 */
+    left: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+
+    li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Individual date units. */
+    abbr {
+        @include circle-2x;
+        display: inline-block;
+        background: $background-color-masthead;
+        color: $text-color-reversed;
+    }
+
+    /* Separators (i.e. "/") – only there for screen readers etc. */
+    .separator {
+        display: none;
+    }
 
 }
+
 
 /*
  * Dates in article footer (used for listing pages).
  */
 article footer .date {
-  @include font-size-leading("larger");
-  @include rem("padding", ($line * 0.5) 0);
-  position: static;
+    @include font-size-leading("larger");
+    @include rem("padding", ($line * 0.5) 0);
+    position: static;
 
-  /* Individual date parts. */
-  a,
-  abbr,
-  b {
-    @include circle(($circle-diameter * 0.9));
-    display: inline-block;
-    background-color: transparent;
-    color: $link-color-secondary;
-  }
+    /* Individual date parts. */
+    abbr {
+        @include circle(($circle-diameter * 0.9));
+        display: inline-block;
+        background-color: transparent;
+        color: $link-color-secondary;
+    }
 
 }
 
 /* Bigger featured article dates. */
 article.featured footer .date {
-  @include font-size-leading("huge");
+    @include font-size-leading("huge");
 
-  /*
-   * 1. Redeclare inline-block (to re-override circle mixin's display:block).
-   */
-  a,
-  abbr,
-  b {
-    @include circle;
-    display: inline-block; /* 1 */
-  }
+    /*
+     * 1. Redeclare inline-block (to re-override circle mixin's display:block).
+     */
+    abbr {
+        @include circle;
+        display: inline-block; /* 1 */
+    }
 
 }
 
@@ -79,14 +86,14 @@ article.featured footer .date {
  */
 @include media-width("normal-size") {
 
-  /*
-   * Dates in article footer.
-   * 1. Vertical centring in footer line.
-   */
-  article footer .date {
-    @include rem("bottom", ($line - (($circle-diameter * 0.5) / $line-px))); // @todo CHECK THIS MATHS (I think it's 'magic', not logical)
-    position: absolute;
-    padding: 0;
-  }
+    /*
+     * Dates in article footer.
+     * 1. Vertical centring in footer line.
+     */
+    article footer .date {
+        @include rem("bottom", ($line - (($circle-diameter * 0.5) / $line-px))); // @todo CHECK THIS MATHS (I think it's 'magic', not logical)
+        position: absolute;
+        padding: 0;
+    }
 
 }

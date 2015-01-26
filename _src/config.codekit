@@ -354,6 +354,22 @@
 		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
+	"\/sass\/components\/_logo.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/components\/_logo.scss",
+		"outputAbbreviatedPath": "\/css\/_logo.min.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 3,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
 	"\/sass\/components\/_masthead.scss": {
 		"createSourceMap": 1,
 		"debugStyle": 0,
@@ -642,6 +658,22 @@
 		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
+	"\/sass\/layouts\/_expertise.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/layouts\/_expertise.scss",
+		"outputAbbreviatedPath": "\/css\/_expertise.min.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 3,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
 	"\/sass\/layouts\/_homepage.scss": {
 		"createSourceMap": 1,
 		"debugStyle": 0,
@@ -850,6 +882,22 @@
 		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
+	"\/sass\/mixins\/_invisible-table.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/mixins\/_invisible-table.scss",
+		"outputAbbreviatedPath": "\/css\/_invisible-table.min.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 3,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
 	"\/sass\/mixins\/_media-retina.scss": {
 		"createSourceMap": 1,
 		"debugStyle": 0,
@@ -939,6 +987,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/sass\/variables\/_colours.scss",
 		"outputAbbreviatedPath": "\/css\/_colours.min.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 3,
+		"shouldRunAutoprefixer": 1,
+		"shouldRunBless": 1,
+		"useLibsass": 0
+		},
+	"\/sass\/variables\/_icons.scss": {
+		"createSourceMap": 1,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/variables\/_icons.scss",
+		"outputAbbreviatedPath": "\/css\/_icons.min.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 3,

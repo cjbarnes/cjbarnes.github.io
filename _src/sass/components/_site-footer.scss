@@ -10,59 +10,54 @@
  * 1. For alignment of button toolbars and pagination links.
  */
 #site-footer {
-  @include clearfix;
-  @include rem("min-height", ($line * 4));
-  @include rem("padding-bottom", $line);
-  clear: both;
-  z-index: 3;
-  position: relative; /* 1 */
-  background: $background-color-site-footer;
-  color: $text-color-site-footer;
+    @include clearfix;
+    @include rem("min-height", ($line * 4));
+    @include rem("padding-bottom", $line);
+    clear: both;
+    z-index: 3;
+    position: relative; /* 1 */
+    background: $background-color-site-footer;
+    color: $text-color-site-footer;
 
-
-  /*
-   * Footer columns.
-   */
-
-  .contact,
-  .small-print {
-    @include rem("margin", ($line * 2) $gutter 0);
-
-    a {
-      @include font-size-leading("small");
-      border: 0;
-      color: $text-color-reversed;
-    }
 
     /*
-     * Contact details icons.
-     * 1. Override i element styling.
+     * Footer columns.
      */
-    .label {
-      font-family: $font-family-icons;
-      font-style: normal; /* 1 */
-      color: $text-color-site-footer; // @todo try deleting this
+
+    .contact,
+    .small-print {
+        @include rem("margin", ($line * 2) $gutter 0);
+
+        a {
+            @include font-size-leading("small");
+            border: 0;
+            color: $text-color-reversed;
+        }
+
+        /*
+         * Contact details icons.
+         * 1. Override i element styling.
+         */
+        .label {
+            font-family: $font-family-icons;
+            font-style: normal; /* 1 */
+            color: $text-color-site-footer; // @todo try deleting this
+        }
+
     }
 
-  }
+    /* Utility links and terms of use section. */
+    .smallprint {
+        margin-top: 0;
+        text-align: right;
 
-  /* Utility links and terms of use section. */
-  .smallprint {
-    margin-top: 0;
-    text-align: right;
+        /* Copyright. */
+        span {
+            @include font-size-leading("small");
+            color: $text-color-site-footer; // @todo try deleting this
+        }
 
-    /* Copyright. */
-    span {
-      @include font-size-leading("small");
-      color: $text-color-site-footer; // @todo try deleting this
-    }
-
-  } //.contact, .small-print
-
-  /* Ornamental cJ logo - hidden for mobile. */
-  .logo {
-    display: none;
-  }
+    } //.contact, .small-print
 
 } //#site-footer
 
@@ -74,38 +69,23 @@
  */
 @include media-width("normal-size") {
 
-  #site-footer {
+    #site-footer {
 
-    /**
-     * The two site footer sections.
-     */
+        /**
+         * The two site footer sections.
+         */
 
-    /* Half the footer width. Less vertical spacing, more horizontal spacing. */
-    .contact,
-    .small-print {
-      @include column(($columns / 2));
-      @include rem("margin", $line 0 0);
-      @include rem("padding", 0 $line);
+        /*
+         * Half the footer width. Less vertical spacing, more horizontal
+         * spacing.
+         */
+        .contact,
+        .small-print {
+            @include column(($columns / 2));
+            @include rem("margin", $line 0 0);
+            @include rem("padding", 0 $line);
+        }
+
     }
-
-    /*
-     * Ornamental cJ logo.
-     * 1. Horizontal centring for abs-pos element.
-     * 2. Hidden for mobiles.
-     */
-    .logo {
-      @include rem("bottom", ($line * 2));
-      @include rem("margin", 0 0 0 ($line * -1)); /* 1 */
-      @include font-size-leading("gigantic", 2);
-      position: absolute;
-      left: 50%; /* 1 */
-      display: block; /* 2 */
-      border: 0;
-      border-radius: 0;
-      text-shadow: 0 0 5px lighten($background-color-site-footer, 15%);
-      color: $background-color-site-footer;
-    }
-
-  } //#site-footer
 
 } //include media-width(normal-size)

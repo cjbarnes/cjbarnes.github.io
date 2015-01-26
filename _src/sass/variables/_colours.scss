@@ -32,6 +32,17 @@ $burnt-umber:  #8f2823; // cj12
 
 
 /**
+ * Brands
+ *
+ * Externally chosen colours, e.g. Twitter.
+ */
+
+$color-linkedin: #0976b4;
+$color-twitter:  #00acf2;
+$color-rss:      #d78637;
+
+
+/**
  * Functional colour assignments.
  *
  * Ideally, the 'named' colour palette variables above should never be used
@@ -82,11 +93,14 @@ $color-step-launch: $santa-fe;
 $color-yes:         $eucalyptus;
 $color-no:          $burnt-umber;
 $background-color-link: lighten($link-color, 40%);
-$background-color-figure:     $cararra;
-$background-color-code:       $black;
-$background-color-quote:      $background-color-figure;
-$background-color-table:      $background-color-page-footer;
-$background-color-table-head: $ironstone;
+$background-color-figure:      $cararra;
+$background-color-code:        $black;
+$background-color-quote:       $background-color-figure;
+$background-color-table:       $background-color-page-footer;
+$background-color-table-head:  $ironstone;
+
+$color-skills-list-icon:       $toast;
+$background-color-skills-list: $cararra;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
@@ -109,13 +123,12 @@ $figure-colors: (
     "quote": map-get($format-colors, "quote")
 );
 
-
-/**
- * Brands
- *
- * Externally chosen colours, e.g. Twitter.
- */
-
-$color-linkedin: #0976b4;
-$color-twitter:  #00acf2;
-$color-rss:      #d78637;
+// Contact detail colours.
+$circle-list-colors: (
+    "email":    $color-email,
+    "phone":    $color-phone,
+    "linkedin": $color-linkedin,
+    "twitter":  $color-twitter,
+    "address":  $color-address,
+    "feed":     $color-rss,
+);

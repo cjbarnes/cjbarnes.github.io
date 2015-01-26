@@ -33,36 +33,6 @@
 
 
 /**
- * Main site logo.
- */
-
-#navbar .logo {
-    @include rem("margin", $logo-margin $logo-margin 0 0);
-    @include alpha("border-color", $logo-color-light, 0.8);
-    @include alpha("color", $logo-color-light, 0.8);
-    float: right;
-    transition: all 0.5s ease-in-out;
-}
-
-/* Colour changes for navbar logo on light backgrounds. */
-.light-masthead #navbar {
-
-    /* Darker logo for more contrast with light pictures. */
-    .logo {
-        border-color: $logo-color-dark;
-        color: $logo-color-dark;
-    }
-
-    /* Menu open: go to logo hover colour for open-menu dark background. */
-    &.open .logo {
-        border-color: $text-color-reversed;
-        color: $text-color-reversed;
-    }
-
-}
-
-
-/**
  * The navigation menu.
  */
 
@@ -196,7 +166,7 @@
 @include media-width("nav-horizontal") {
 
     /*
-     * Nav container and logo.
+     * Nav container.
      * 1. Remove max-height set for menu overflowing on mobile layout.
      */
     #navbar {
@@ -211,15 +181,6 @@
 
     /* On hover, darken the navbar background. */
     #navbar:hover {
-
-        /*
-         * Logo hover borderless style. (Background colour is set later.)
-         * 1. Redeclare color to override .light-masthead logo colour.
-         */
-        .logo {
-            border-color: transparent;
-            color: $text-color-reversed; /* 1 */
-        }
 
         /*
          * Navbar, logo, and submenu backgrounds (to match post formats'
