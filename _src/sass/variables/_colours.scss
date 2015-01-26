@@ -68,20 +68,6 @@ $background-color-navbar-mobile: $black;
 $logo-color-light: $white;
 $logo-color-dark:  $oslo-grey;
 
-// Post formats and CV/portfolio entry formats.
-$format-colors: (
-    "text":    $ironstone,
-    "link":    $patina,
-    "page":    $toast,
-    "quote":   $santa-fe,
-    "tip":     $indian-khaki,
-    "website": $toast,
-    "award":   $indian-khaki,
-    "course":  $oslo-grey,
-    "job":     $ironstone,
-    "project": $patina
-);
-
 // Homepage.
 $gradient-color-homepage: $oslo-grey;
 
@@ -101,6 +87,27 @@ $background-color-code:       $black;
 $background-color-quote:      $background-color-figure;
 $background-color-table:      $background-color-page-footer;
 $background-color-table-head: $ironstone;
+
+// Post formats and CV/portfolio entry formats.
+$format-colors: (
+    "text":    $ironstone,
+    "link":    $patina,
+    "page":    $toast,
+    "quote":   $santa-fe,
+    "tip":     $indian-khaki,
+    "website": $toast,
+    "award":   $indian-khaki,
+    "course":  $oslo-grey,
+    "job":     $ironstone,
+    "project": $patina
+);
+
+// Icon colours for figures within content.
+$figure-colors: (
+    "code":  $background-color-code,
+    "link":  map-get($format-colors, "link"),
+    "quote": map-get($format-colors, "quote")
+);
 
 
 /**

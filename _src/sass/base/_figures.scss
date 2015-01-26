@@ -75,15 +75,53 @@ figure.quote {
 
 }
 
-/* Codeblocks. */
+/*
+ * Codeblocks.
+ * 1. Same padding all around.
+ */
 figure.code {
-    @include rem("padding-left", ($line / 2));
-    @include rem("padding-right", ($line / 2));
+    @include rem("padding-left", ($line / 2)); /* 1 */
+    @include rem("padding-right", ($line / 2)); /* 1 */
     color: $text-color-reversed;
     background: $background-color-code;
 
     pre {
         margin: 0;
+    }
+
+}
+
+
+/**
+ * Figures on single-article pages.
+ */
+.single {
+
+    /* Spacing. */
+    figure {
+        @include rem("margin", ($line * 2) 0 $line);
+        @include rem("padding-top",    ($line * 1.5));
+        @include rem("padding-bottom", ($line * 1.5));
+    }
+
+    /* Icon layout. */
+    &.code,
+    &.link,
+    &.quote {
+        @include circle-box;
+
+        &:before {
+            font-family: $font-family-icons;
+        }
+
+    }
+
+    /* Icon content and colours. */
+    @each $figure, $color in $figure-colors {
+        figure.#{$figure}:before {
+            content: map-get($figure-icons, $figure);
+            background-color: $color;
+        }
     }
 
 }

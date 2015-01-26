@@ -48,12 +48,22 @@ body {
     text-rendering: optimizeLegibility; /* 2 */
 }
 
+
+/**
+ * Main page wrappers.
+ */
+
 /* Wrapper for everything above the footer. */
 main,
 .single {
     @include clearfix;
     max-width: $body-width-maximum;
     margin: 0 auto;
+}
+
+/* White background for single-item content area. */
+.single {
+    background: $background-color-content;
 }
 
 

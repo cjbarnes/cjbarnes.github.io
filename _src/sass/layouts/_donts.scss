@@ -1,0 +1,81 @@
+/**
+ * Custom styling for the "I don't" page
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+.donts {
+
+    /* Rows of Dos/Don'ts. */
+    .donts-row {
+        @include clearfix;
+    }
+
+    /**
+     * Dos/Don'ts figure elements.
+     */
+
+    figure.yes,
+    figure.no {
+        @include circle-box;
+        @include rem("margin", ($line * 2) 0 $line);
+        @include rem("padding-top",    ($line * 1.5));
+        @include rem("padding-bottom", ($line * 1.5));
+        background-color: $background-color-content;
+
+        /*
+         * 1. Match the background the figures sit on.
+         */
+        &:before {
+            font-family: $font-family-icons;
+            border-color: $background-color; /* 1 */
+        }
+
+    }
+
+    /* Dos box and icon. */
+    figure.yes {
+        @include column(5);
+        @include push;
+
+        /* Icon. */
+        &:before {
+            content: "👍";
+            background-color: $color-yes;
+        }
+
+        /* The quote itself. Smaller text, as there's more of it. */
+        blockquote {
+            @include font-size-leading("normal");
+            color: $color-yes;
+
+            p + p {
+                margin-top: $line;
+            }
+
+        }
+
+    }
+
+    /* Don'ts box and icon. */
+    figure.no {
+        @include column(4);
+        @include push;
+
+        /* Icon. */
+        &:before {
+            content: "👎";
+            background-color: $color-no;
+        }
+
+        /* The quote itself. */
+        blockquote {
+            font-style: italic;
+            color: $color-no;
+        }
+
+    }
+
+}
