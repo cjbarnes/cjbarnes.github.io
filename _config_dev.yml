@@ -1,6 +1,9 @@
 #
 # Local configuration values (overrides _config.yml)
 #
+# To use these values, run:
+#   `bundle exec jekyll serve --config _config.yml, _config_dev.yml -w`.
+#
 
 # Dev environment flag.
 is_local: true
