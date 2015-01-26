@@ -10,99 +10,99 @@
  */
 
 table {
-  @include rem("margin", $line 0);
-  width: 100%;
-  border-collapse: collapse;
+    @include rem("margin", $line 0);
+    width: 100%;
+    border-collapse: collapse;
 }
 
 caption {
-  @include rem("padding", ($line / 2));
-  text-align: left;
-  color: $background-color-table-head;
+    @include rem("padding", ($line / 2));
+    text-align: left;
+    color: $background-color-table-head;
 }
 
 /* Common styles - all cells. */
 td,
 th {
-  border: 1px solid $background-color-content;
-  border-width: 1px 0;
-  text-align: left;
-  vertical-align: top;
+    border: 1px solid $background-color-content;
+    border-width: 1px 0;
+    text-align: left;
+    vertical-align: top;
 
-  ol,
-  ul,
-  dl {
-    margin: 0;
-  }
-
-  p,
-  li,
-  blockquote,
-  pre,
-  dt,
-  dd,
-  address {
-    margin: 0;
-
-    + p,
-    + li,
-    + blockquote,
-    + pre,
-    + dt,
-    + dd,
-    + address {
-      @include rem("margin-top", ($line / 2));
+    ol,
+    ul,
+    dl {
+        margin: 0;
     }
 
-  }
+    p,
+    li,
+    blockquote,
+    pre,
+    dt,
+    dd,
+    address {
+        margin: 0;
+
+        + p,
+        + li,
+        + blockquote,
+        + pre,
+        + dt,
+        + dd,
+        + address {
+            @include rem("margin-top", ($line / 2));
+        }
+
+    }
 
 }
 
 /* Table contents. */
 tbody {
-  background: $background-color-table;
+    background: $background-color-table;
 
-  td,
-  th {
-    @include rem("padding", ($line / 2));
-    @include font-size-leading("small");
-  }
+    td,
+    th {
+        @include rem("padding", ($line / 2));
+        @include font-size-leading("small");
+    }
 
 }
 
 /* Header. */
 thead {
-  font-family: $font-family-headings;
+    font-family: $font-family-headings;
 
-  td,
-  th {
-    @include rem("padding", ($line / 2));
-    @include font-size-leading("small");
-    vertical-align: bottom;
-  }
+    td,
+    th {
+        @include rem("padding", ($line / 2));
+        @include font-size-leading("small");
+        vertical-align: bottom;
+    }
 
-  /* Background colour only appears for th cells in table header */
-  th {
-    color: $text-color-reversed;
-    background: $background-color-table-head;
-  }
+    /* Background colour only appears for th cells in table header */
+    th {
+        color: $text-color-reversed;
+        background: $background-color-table-head;
+    }
 
 }
 
 /* Footer. */
 tfoot {
-  color: $background-color-table-head;
+    color: $background-color-table-head;
 
-  td,
-  th {
-    @include rem("padding", ($line / 2));
-    @include font-size-leading("smaller");
+    td,
+    th {
+        @include rem("padding", ($line / 2));
+        @include font-size-leading("smaller");
 
-    p + p {
-      @include rem("margin-top", ($line / 2));
+        p + p {
+            @include rem("margin-top", ($line / 2));
+        }
+
     }
-
-  }
 
 }
 
@@ -114,19 +114,19 @@ tfoot {
 /* Tables with hidden borders. */
 .invisible {
 
-  /* No backgrounds. */
-  tbody,
-  tfoot,
-  thead th {
-    color: $text-color;
-    background: transparent;
-  }
+    /* No backgrounds. */
+    tbody,
+    tfoot,
+    thead th {
+        color: $text-color;
+        background: transparent;
+    }
 
-  /* Dimensions. No borders, flush left. */
-  td,
-  th {
-    padding-left: 0;
-    border: 0;
-  }
+    /* Dimensions. No borders, flush left. */
+    td,
+    th {
+        padding-left: 0;
+        border: 0;
+    }
 
 }

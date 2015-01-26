@@ -16,8 +16,11 @@
  * @param number $vals     The values to calculate from (either in rem or px).
  */
 @mixin rem($property, $vals) {
-  @if not function-exists(-cj-calculate-rem) {
-    @error "Mixin rem requires function -cj-calculate-rem(), which does not exist";
+  @if not function-exists(cj-calculate-rem) {
+    @error "Mixin rem requires function cj-calculate-rem(), which does not exist";
+  }
+  @if not function-exists(cj-calculate-rem-fallback) {
+    @error "Mixin rem requires function cj-calculate-rem-fallback(), which does not exist";
   }
   @if not ("string" == type-of($property)) {
     @error "$property must be a valid CSS property, was #{$property}";
@@ -32,11 +35,11 @@
      @if ("px" == unit($val)) {
 
       $px: append($px, $val, space);
-      $rem: append($rem, -cj-calculate-rem($val), space);
+      $rem: append($rem, cj-calculate-rem($val), space);
 
     } @else if ("rem" == unit($val)) {
 
-      $px: append($px, -cj-calculate-rem-fallback($val), space);
+      $px: append($px, cj-calculate-rem-fallback($val), space);
       $rem: append($rem, $val, space);
 
     } @else {

@@ -16,44 +16,15 @@
 @import "functions/all";
 @import "mixins/all";
 
-// Base typography and structure.
-// 1. `_ui.scss` contains browser UI tweaks, e.g. text selection styling.
-@import "base/typography";
-@import "base/links";
-@import "base/headings";
-@import "base/lists";
-@import "base/tables";
-@import "base/footnotes";
-@import "base/figures";
-@import "base/layout";
-@import "base/ui"; // 1
+// Actual site styling.
+@import "base/all";
+@import "components/all";
+@import "layouts/all";
 
-// Styling for partials.
-@import "components/article";
-@import "components/button";
-@import "components/content";
-@import "components/date";
-@import "components/illustration";
-@import "components/listing";
-@import "components/nav";
-@import "components/masthead";
-@import "components/page-footer";
-@import "components/pagination";
-@import "components/permalinks";
-@import "components/sidebar";
-@import "components/site-footer";
-@import "components/title";
-
-// Layout-specific styles.
-@import "layouts/pages";
-@import "layouts/index";
-@import "layouts/single";
-@import "layouts/portfolio";
-@import "layouts/homepage";
-
-// Webfonts. Only those that are both hosted on this server (instead of Google
-// Docs) and required for the top of the page are imported here. The rest are
-// included at the bottom of the page in `aleo-font.scss`.
+// Load webfonts. Only those that are both hosted on this server (instead of
+// Google Fonts) and required for the top of the page are imported here. The
+// rest are included at the bottom of the page in `aleo-font.scss`, or linked to
+// directly on the Google servers.
 @import "fonts/logo-font";
 
 // Temporary fixes.

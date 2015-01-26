@@ -13,7 +13,6 @@
 
 /* Output header colours for each post/item format. */
 @each $format, $color in $format-colors {
-
     article.#{$format} {
 
         > header,
@@ -23,7 +22,6 @@
         }
 
     }
-
 }
 
 /* Additional link styling for Link and Project items. */

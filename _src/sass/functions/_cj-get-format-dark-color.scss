@@ -9,15 +9,15 @@
  * Retrieve the auto-darkened colour for a named post format.
  *
  * No need to type-check the $format argument, since the function we call later
- * (-cj-get-format-color) does that for us.
+ * (cj-get-format-color) does that for us.
  *
  * @param string $format Post format name.
  * @param number $amount The percentage to darken the colour by. Default 20%.
  * @return color The darkened color for this post format.
  */
-@function -cj-get-format-dark-color($format, $amount: 20%) {
-  @if not function-exists(-cj-get-format-color) {
-    @error "Function -cj-get-format-dark-color() requires function -cj-get-format-color(), which does not exist";
+@function cj-get-format-dark-color($format, $amount: 20%) {
+  @if not function-exists(cj-get-format-color) {
+    @error "Function cj-get-format-dark-color() requires function cj-get-format-color(), which does not exist";
   }
   @if ("number" != type-of($amount)) {
     @error "$amount must be a percentage between 0 and 100%, was #{$format}";
@@ -35,5 +35,5 @@
     }
   }
 
-  @return darken(-cj-get-format-color($format), $amount);
+  @return darken(cj-get-format-color($format), $amount);
 }

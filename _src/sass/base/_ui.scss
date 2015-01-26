@@ -19,8 +19,8 @@ article footer,
 main > footer,
 .smallprint,
 .label {
-  -webkit-touch-callout: none;
-  user-select: none;
+    -webkit-touch-callout: none;
+    user-select: none;
 }
 
 /* Change cursor for non-selectable elements. */
@@ -28,12 +28,12 @@ main > footer,
 .label,
 .copyright,
 .date {
-  cursor: default;
+    cursor: default;
 }
 
 /* Selection styling. */
 img::selection{
-  background: transparent;
+    background: transparent;
 }
 
 
@@ -43,19 +43,19 @@ img::selection{
 
 /* Subheading permalinks */
 .hashlink {
-  @include rem("bottom", ($line / 4));
-  @include rem("width", $line);
-  @include rem("height", $line);
-  @include rem("line-height", $line); // @todo: Why is this here?
-  position: absolute;
-  right: 100%;
-  display: block;
-  padding: 0;
-  opacity: 0;
+    @include rem("bottom", ($line / 4));
+    @include rem("width", $line);
+    @include rem("height", $line);
+    @include rem("line-height", $line); // @todo: Why is this here?
+    position: absolute;
+    right: 100%;
+    display: block;
+    padding: 0;
+    opacity: 0;
 
-  :hover > &,
-  :focus > & {
-    opacity: 1;
-  }
+    :hover > &,
+    :focus > & {
+        opacity: 1;
+    }
 
 }

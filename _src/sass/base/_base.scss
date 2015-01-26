@@ -1,0 +1,152 @@
+/**
+ * Basic site-wide styles - mostly typography
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/**
+ * Universal styles.
+ */
+
+/*
+ * Set up the starting point.
+ * 1. Box sizing part 1.
+ * 2. = 15px, assuming the user's browser font setting is 16px (the default).
+ */
+html {
+    box-sizing: border-box; /* 1 */
+    font-size: (100% * ($base-font-size-small / 16)); /* 2 */
+}
+
+/*
+ * Every element and pseudoelement.
+ * 1. Box sizing part 2.
+ * 2. Bold versions of the site's webfonts are not loaded, so we disable bold
+ *    font-weights throughout the site.
+ */
+*,
+*:before,
+*:after {
+    box-sizing: inherit; /* 1 */
+    font-weight: $font-weight !important; /* 2 */
+}
+
+/*
+ * 1. Set default font-size and line-height.
+ * 2. Type aliasing settings.
+ */
+body {
+    @include font-size-leading("normal"); /* 1 */
+    font-family: $font-family-brand;
+    text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01); /* 2 */
+    word-wrap: break-word;
+    background: $background-color;
+    color: $text-color;
+    -webkit-font-smoothing: antialiased; /* 2 */
+    text-rendering: optimizeLegibility; /* 2 */
+}
+
+/* Wrapper for everything above the footer. */
+main,
+.single {
+    @include clearfix;
+    max-width: $body-width-maximum;
+    margin: 0 auto;
+}
+
+
+/**
+ * Standard paragraphs of text.
+ */
+
+p,
+address {
+    @include rem("margin", $line $gutter 0);
+}
+
+address {
+    font-style: normal;
+}
+
+
+/*
+ * Emphasis.
+ * 1. Redeclare explicitly to avoid illegible combinations.
+ */
+b,
+strong,
+mark {
+    padding: $link-padding;
+    color: $text-color; /* 1 */
+    background-color: $text-color-emphasis;
+}
+
+
+/* Blockquotes. */
+blockquote {
+    @include rem("margin", $line $gutter);
+    @include font-size-leading("large");
+    color: $text-color-quote;
+
+    p {
+        margin: 0
+    }
+
+    p + p {
+        @include rem("margin-top", $line);
+    }
+
+    /* Short quotations (which are given larger text). */
+    &.short {
+        @include font-size-leading("larger");
+    }
+
+}
+
+/* Code. */
+code,
+var,
+kbd {
+    @include font-size-leading("small", 0.5);
+    font-family: $font-family-monospace;
+}
+
+/* Horizontal rules. */
+hr {
+    @include rem("margin", ($line * 2) 0);
+    border: 0;
+    border-top: 1px solid $text-color-headings;
+}
+
+
+/**
+ * Media queries.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+/*
+ * Increase all sizing so base font size is 18px, assuming the browser font
+ * setting is the default 16px.
+ */
+    html {
+        font-size: (100% * ($base-font-size / 16));
+    }
+
+    /* Leave more margin around text. */
+    p,
+    blockquote {
+        @include push;
+        @include pull;
+    }
+
+    /* Align lead outside the normal text margins. */
+    .lead {
+        @include rem("margin-left",  $gutter);
+        @include rem("margin-right", $gutter);
+    }
+
+} //include media-width(normal-size)

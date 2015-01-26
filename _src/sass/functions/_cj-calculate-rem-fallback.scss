@@ -13,7 +13,7 @@
  * @param number $rem Size in rem.
  * @return number Size in px.
  */
-@function -cj-calculate-rem-fallback($rem) {
+@function cj-calculate-rem-fallback($rem) {
   @if ("px" != unit($font-size-px)) {
     @error "$font-size-px must be in px, was #{$font-size-px}";
   }

@@ -13,7 +13,7 @@
  * @param string $format Post format name.
  * @return color The color for this post format.
  */
-@function -cj-get-format-color($format) {
+@function cj-get-format-color($format) {
   @if (string != type-of($format)) or not map-has-key($format-colors, $format) {
     @error "$format must be a key in map $format-colors, was #{$format}";
   }

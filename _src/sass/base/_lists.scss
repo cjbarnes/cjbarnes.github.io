@@ -8,39 +8,39 @@
 ol,
 ul,
 dl {
-  @include rem("margin-left",  $gutter);
-  @include rem("margin-right", $gutter);
+    @include rem("margin-left",  $gutter);
+    @include rem("margin-right", $gutter);
 
-  li {
-    @include rem("margin", ($line / 2) 0);
-  }
+    li {
+        @include rem("margin", ($line / 2) 0);
+    }
 
-  dd {
-    @include rem("margin", ($line / 2) 0 ($line / 2) $line);
-    @include font-size-leading("small");
-  }
+    dd {
+        @include rem("margin", ($line / 2) 0 ($line / 2) $line);
+        @include font-size-leading("small");
+    }
 
-  /* Nested list margins */
-  & & {
-    @include rem("margin-left", ($line / 2));
-  }
+    /* Nested list margins */
+    & & {
+        @include rem("margin-left", ($line / 2));
+    }
 
 }
 
 /* Nested list styles */
 li ol {
-  list-style-type: lower-alpha;
+    list-style-type: lower-alpha;
 
-  li & {
-    list-style-type: lower-roman;
-  }
+    li & {
+        list-style-type: lower-roman;
+    }
 
 }
 
 /* Double-nested list sizes and margins */
 li li li {
-  @include rem("margin-left", ($line / 2));
-  @include font-size-leading("small");
+    @include rem("margin-left", ($line / 2));
+    @include font-size-leading("small");
 }
 
 
@@ -51,12 +51,12 @@ li li li {
  */
 @include media-width("normal-size") {
 
-  /* Leave more margin around text. */
-  ol,
-  ul,
-  dl {
-    @include push;
-    @include pull;
-  }
+    /* Leave more margin around text. */
+    ol,
+    ul,
+    dl {
+        @include push;
+        @include pull;
+    }
 
 } //include media-width(normal-size)
