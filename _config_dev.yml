@@ -10,7 +10,7 @@ is_local: true
 
 # GitHub defaults.
 safe: true
-lsi: false
+lsi: false # better indexing for related posts
 # Also see https://help.github.com/articles/repository-metadata-on-github-pages/
 
 # Sass compilation. Currently unused.
