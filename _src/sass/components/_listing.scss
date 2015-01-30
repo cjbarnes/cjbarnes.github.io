@@ -43,7 +43,7 @@
     /* Loop through icons themselves. */
     @each $format, $icon in $format-icons {
 
-        &:#{$format}:before {
+        &.#{$format}:before {
             content: "#{$icon}";
         }
 
@@ -78,9 +78,13 @@
     /* Illustrated post custom styling. */
     &.illustrated {
 
+        &,
+        & > footer {
+            background: $background-color-illustrated;
+        }
+
         /* Dark footer - unique to illustrated posts. */
         > footer {
-            background: $background-color-illustrated;
 
             .permalink,
             .share,

@@ -83,6 +83,15 @@ header > .illustrated {
 
 }
 
+/* Illustrated articles - just in the blog listing. */
+.illustrated > header {
+
+    .title {
+        @include rem("padding-top", ($line * 7));
+    }
+
+}
+
 /* Illustrated mastheads. */
 main.illustrated > header,
 .single.illustrated > header,

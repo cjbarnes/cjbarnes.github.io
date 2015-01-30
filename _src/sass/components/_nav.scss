@@ -193,7 +193,7 @@
 
             @each $format, $color in $format-colors {
                 .#{$format} & {
-                    @include alpha("background", cj-get-format-dark-color($format, 0.8));
+                    @include alpha("background", cj-get-format-dark-color($format), 0.8);
                 }
             }
 

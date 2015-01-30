@@ -17,6 +17,11 @@ main > header,
     background: $background-color-masthead;
 }
 
+/* Illustrated masthead on blog index page. */
+.index .masthead {
+    background: $background-color-illustrated;
+}
+
 
 /*
 * Title and teaser in masthead.
