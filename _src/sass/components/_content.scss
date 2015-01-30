@@ -88,7 +88,7 @@
 }
 
 /* The USPs content row. */
-.homepage #secondary {
+.homepage #secondary.illustrated {
     background-color: $toast;
 
     ul {
@@ -119,6 +119,7 @@
 
     /* The quote itself. */
     blockquote {
+        @include font-size-leading("larger", 1.5);
         font-style: italic;
     }
 

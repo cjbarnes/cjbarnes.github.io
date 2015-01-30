@@ -88,6 +88,11 @@
  */
 @include media-width("nav-horizontal") {
 
+    /* Bigger margins for logo. */
+    #navbar .logo {
+        @include rem("margin", ($line / 2) $line 0 0);
+    }
+
     /*
      * Logo hover borderless style. (Background colour is set later.)
      * 1. Redeclare color to override .light-masthead logo colour.

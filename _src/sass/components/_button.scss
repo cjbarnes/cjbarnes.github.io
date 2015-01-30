@@ -50,11 +50,9 @@
 
     /*
      * Icon buttons (e.g. social media links).
-     * 1. For icon alignment within the button.
      */
     .twitter a,
     .feed a {
-        padding-top: 0.1em; /* 1 */
         font-family: $font-family-icons;
         border-color: $background-color-page-footer;
         color: $background-color-page-footer;
@@ -72,12 +70,12 @@
 
     /* Twitter button. */
     .twitter a {
-        background: $color-rss;
+        background: $color-twitter;
     }
 
     /* RSS button. */
     .feed a {
-        background: $color-twitter;
+        background: $color-rss;
     }
 
 }

@@ -66,7 +66,7 @@
          * 3. CSS sprite of non-webfont icons.
          */
         &:before {
-            @include rem("top", 0.4rem);
+            @include rem("top", 1.2rem);
             @include font-size("gigantic");
             content: ''; /* 1 */
             position: absolute;
@@ -75,9 +75,11 @@
             width: $skills-list-icon-size;
             height: $skills-list-icon-size;
             margin-left: (($skills-list-icon-size * -1) / 2);
+            font-family: $font-family-icons;
             line-height: 3rem;
             background: transparent url('/img/skill-images.png') left top no-repeat; /* 3 */
-            background-size: $skills-list-icon-size $skills-list-icon-size;
+            background-size: auto $skills-list-icon-size;
+            color: $color-skills-list-icon;
         }
 
     }

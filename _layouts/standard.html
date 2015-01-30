@@ -6,12 +6,18 @@
   {% assign format = 'page' %}
 {% endif %}
 
+{% comment %}
+ % Assemble classes for the main element.
+{% endcomment %}
+{% capture main_classes %}{{ format }} {{ page.class }}{% unless page.complex %} single{% endunless %}{% if page.illustration %} illustrated{% endif %}{% if page.masthead == 'light' %} light-masthead{% endif %}{% endcapture %}
+
+
 {% include head.html %}
 
-  <{{ main_tag }} class="{{ format }} {{ page.class }}{% unless page.complex %} single{% endunless %}{% if page.illustration %} illustrated{% endif %}{% if page.masthead == 'light' %} light-masthead{% endif %}">
+  <{{ main_tag }} class="{{ main_classes }}">
 
     <!-- Article title area -->
-    <header>
+    <header class="masthead ">
 
       {% include nav.html %}
 
@@ -32,12 +38,12 @@
     </header>
 
     <!-- Main content area -->
-    <section id="primary" {% unless page.complex %}class="content"{% endunless %}>
+    <section id="primary" {% unless page.complex %}class="content primary-content"{% endunless %}>
 
       {{ content }}
 
       {% if page.link_href %}
-        <figure class="link">
+        <figure class="link link-article-link">
           <a href="{{ page.link_href }}">
             <em>link:</em> {{ page.title }}
           </a>

@@ -1,14 +1,14 @@
 {% include head.html %}
 
+{% for post in site.categories.featured limit:1 %}
+  {% assign featured_post = post.id %}
+
   <main class="index">
 
     <!-- Article title area -->
-    <header>
+    <header class="masthead index-masthead">
 
-      {% for post in site.categories.featured limit:1 %}
-        {% assign featured_post = post.id %}
-
-        <article class="featured {{ post.format }}{% if post.illustration %} illustrated{% endif %}">
+        <article class="article featured-article {{ post.format }} featured-{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
 
           {% include nav.html %}
 
@@ -26,30 +26,30 @@
 
         </article>
 
-      {% endfor %}
-
     </header>
 
+{% endfor %}
+
     <!-- Main content area -->
-    <section id="primary">
+    <section id="primary" class="index-content">
 
       <!-- Sidebar -->
-      <aside class="sidebar">
+      <aside class="sidebar index-sidebar">
 
         {{ content }}
 
       </aside>
 
       <!-- Articles list -->
-      <div class="listing">
+      <div class="listing index-listing">
 
         {% for post in paginator.posts %}
           {% if featured_post != post.id %}
 
-            <article class="{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
+            <article class="article index-article {{ post.format }} index-{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
 
               {% if post.title %}
-                <header>
+                <header class="article-header index-article-header">
 
                   {% if post.illustration %}
                     {% assign illustration = post.illustration | append: '_listing' %}
@@ -62,12 +62,12 @@
               {% endif %}
 
               {% unless post.illustration %}
-                <div class="content">
+                <div class="content article-content index-article-content">
 
                   {{ post.content }}
 
                   {% if post.link_href %}
-                    <figure class="link">
+                    <figure class="link link-article-link">
                       <a href="{{ post.link_href }}">
                         <em>link:</em> {{ post.title }}
                       </a>
@@ -92,7 +92,7 @@
     </section>
 
     <!-- Upper footer area -->
-    <footer>
+    <footer id="page-footer" class="footer page-footer">
 
       {% include pagination.html %}
 

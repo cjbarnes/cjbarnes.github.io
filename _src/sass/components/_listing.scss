@@ -107,6 +107,10 @@
         display: none;
     }
 
+    .content {
+        background: $background-color-portfolio-entry;
+    }
+
     /*
      * Screenshot wrapper - shows a 'browser window' around the screenshot.
      * 1. For horizontal centring.
@@ -128,7 +132,7 @@
             $width: 320px;
             margin-left: ($width * -0.5);
             width: $width;
-            height: 451px;
+            height: 446px;
         }
 
     }
@@ -159,12 +163,15 @@
     /* Item container. */
     .step {
         @include rem("padding-bottom", ($line * 0.5));
+        background: $background-color-content;
         counter-increment: steps;
 
         /* The number (displayed like an icon). */
         &:before {
             @include font-size-leading("huger");
             content: counter(steps);
+            font-family: $font-family-brand;
+            line-height: 1.2;
             color: $background-color-content;
         }
 
@@ -172,7 +179,7 @@
 
     /* Item graphics. */
     .title .icon {
-        @include font-size("huge");
+        @include rem("font-size", ($line-px * 2));
         display: inline-block;
         font-family: $font-family-icons;
         line-height: 1;
@@ -353,12 +360,12 @@
          * 1. Re-display this size of screenshot (hidden on thinner screens).
          * 2. Horizontal centring.
          */
-        .large {
+        &.large {
             $width: 750px;
             @include rem("padding-top", ($line * 1.5));
             display: block; /* 1 */
             width: $width;
-            height: 552px;
+            height: 545px;
             margin-left: ($width * -0.5); /* 2 */
             background-image: url("/img/browser.png");
         }
@@ -369,7 +376,7 @@
          *    screenshot take centre stage.
          * 2. Cancel horizontal centring.
          */
-        .small {
+        &.small {
             @include rem("right", $line); /* 1 */
             position: absolute; /* 1 */
             bottom: 0; /* 1 */

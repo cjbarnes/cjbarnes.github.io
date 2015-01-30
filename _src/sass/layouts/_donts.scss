@@ -17,24 +17,6 @@
      * Dos/Don'ts figure elements.
      */
 
-    figure.yes,
-    figure.no {
-        @include circle-box;
-        @include rem("margin", ($line * 2) 0 $line);
-        @include rem("padding-top",    ($line * 1.5));
-        @include rem("padding-bottom", ($line * 1.5));
-        background-color: $background-color-content;
-
-        /*
-         * 1. Match the background the figures sit on.
-         */
-        &:before {
-            font-family: $font-family-icons;
-            border-color: $background-color; /* 1 */
-        }
-
-    }
-
     /* Dos box and icon. */
     figure.yes {
         @include column(5);
@@ -74,6 +56,26 @@
         blockquote {
             font-style: italic;
             color: $color-no;
+        }
+
+    }
+
+    /* Both Dos and Don'ts. Placed here so the padding overrides `column()`. */
+    figure.yes,
+    figure.no {
+        @include circle-box;
+        @include rem("margin-top", ($line * 2));
+        @include rem("margin-bottom", $line);
+        @include rem("padding-top",    ($line * 1.5));
+        @include rem("padding-bottom", ($line * 1.5));
+        background-color: $background-color-content;
+
+        /*
+         * 1. Match the background the figures sit on.
+         */
+        &:before {
+            font-family: $font-family-icons;
+            border-color: $background-color; /* 1 */
         }
 
     }

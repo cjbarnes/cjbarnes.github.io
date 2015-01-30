@@ -12,10 +12,11 @@
  * how the site adapts at that breakpoint, to make code reading easier.
  */
 $breakpoints: (
-  "normal-size"           :  718px,
-  "nav-horizontal"        :  800px,
-  "portfolio-screenshots" :  800px,
-  "nav-horizontal-wide"   :  900px,
-  "two-columns"           :  940px,
-  "nav-horizontal-wider"  : 1000px
+    "footer-two-columns"    :  480px,
+    "normal-size"           :  718px,
+    "nav-horizontal"        :  800px,
+    "portfolio-screenshots" :  800px,
+    "nav-horizontal-wide"   :  900px,
+    "two-columns"           :  940px,
+    "nav-horizontal-wider"  : 1000px
 );

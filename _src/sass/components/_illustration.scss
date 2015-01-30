@@ -176,6 +176,7 @@ header > .illustrated {
     padding: 0;
     overflow: hidden;
     background: $oslo-grey; /* 2 */
+    color: $white;
 
     /*
      * Content blocks.
@@ -240,10 +241,14 @@ header > .illustrated {
      */
     #secondary.illustrated {
 
-        /* Space out the content. */
+        /*
+         * Space out the content.
+         * 1. Reinstate the bottom spacing.
+         */
         section {
             @include column(10);
             @include push;
+            @include rem("padding-bottom", $line); /* 1 */
         }
 
         /* The gradient overlay. (Hidden on mobile.) */

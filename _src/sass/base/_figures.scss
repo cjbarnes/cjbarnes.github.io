@@ -102,16 +102,17 @@ figure.code {
         @include rem("margin", ($line * 2) 0 $line);
         @include rem("padding-top",    ($line * 1.5));
         @include rem("padding-bottom", ($line * 1.5));
-    }
 
-    /* Icon layout. */
-    &.code,
-    &.link,
-    &.quote {
-        @include circle-box;
+        /* Icon layout. */
+        &.code,
+        &.link,
+        &.quote {
+            @include circle-box;
 
-        &:before {
-            font-family: $font-family-icons;
+            &:before {
+                font-family: $font-family-icons;
+            }
+
         }
 
     }

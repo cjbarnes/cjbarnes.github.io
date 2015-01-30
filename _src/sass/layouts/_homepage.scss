@@ -23,7 +23,7 @@
     max-height: (940px + $line-px);
 
     /* Homepage welcome message */
-    .title h1 {
+    .homepage-title h1 {
         @include column($columns);
         @include font-size-leading("huger", 1.5);
         text-align: center;
@@ -107,7 +107,7 @@
 @include media-width("normal-size") {
 
     /* Brags. No need to wrap to 2 lines at this screen size. */
-    br {
+    .homepage-title br {
         display: none;
     }
 

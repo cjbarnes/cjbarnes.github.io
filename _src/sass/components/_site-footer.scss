@@ -25,7 +25,7 @@
      */
 
     .contact,
-    .small-print {
+    .smallprint {
         @include rem("margin", ($line * 2) $gutter 0);
 
         a {
@@ -57,7 +57,7 @@
             color: $text-color-site-footer; // @todo try deleting this
         }
 
-    } //.contact, .small-print
+    } //.contact, .smallprint
 
 } //#site-footer
 
@@ -67,7 +67,7 @@
  *
  * Tablets and wider.
  */
-@include media-width("normal-size") {
+@include media-width("footer-two-columns") {
 
     #site-footer {
 
@@ -80,7 +80,7 @@
          * spacing.
          */
         .contact,
-        .small-print {
+        .smallprint {
             @include column(($columns / 2));
             @include rem("margin", $line 0 0);
             @include rem("padding", 0 $line);

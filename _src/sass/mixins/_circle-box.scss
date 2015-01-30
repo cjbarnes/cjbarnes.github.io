@@ -28,12 +28,11 @@
   // Icon.
   &:before {
     @include circle-2x;
-    @include font-size-leading("huge");
+    @include font-size("huge");
     position: absolute;
     top: ((($circle-diameter / 2) * -1) - 2px);
     left: 50%;
     margin-left: ((($circle-diameter / 2) * -1) - 2px);
-    padding-top: 0.1em;
     border-color: $background;
     color: $text-color-reversed;
   }

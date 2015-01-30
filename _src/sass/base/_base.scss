@@ -116,7 +116,7 @@ blockquote {
 
     /* Short quotations (which are given larger text). */
     &.short {
-        @include font-size-leading("larger");
+        @include font-size-leading("larger", 1.5);
     }
 
 }

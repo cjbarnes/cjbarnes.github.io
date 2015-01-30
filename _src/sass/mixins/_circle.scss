@@ -20,13 +20,15 @@
         @error "$thickness must be a unitless number, was #{$thickness}";
     }
 
+    $size: ($diameter + (1px * ($thickness * 2)));
+
     // Output.
     display: block;
     overflow: hidden;
-    width: ($diameter + (1px * ($thickness * 2)));
-    height: ($diameter + (1px * ($thickness * 2)));
+    width: $size;
+    height: $size;
     border: (1px * ($border-width-circle * $thickness)) solid;
     border-radius: 50%;
-    line-height: ceil(($diameter * ((1px - (0.05px * $thickness)) / 1px)));
+    line-height: $diameter;
     text-align: center;
 }
