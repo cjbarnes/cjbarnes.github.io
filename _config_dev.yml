@@ -9,7 +9,6 @@
 is_local: true
 
 # GitHub defaults.
-highlighter: pygments
 safe: true
 lsi: false
 # Also see https://help.github.com/articles/repository-metadata-on-github-pages/

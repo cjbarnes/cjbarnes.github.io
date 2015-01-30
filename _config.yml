@@ -30,10 +30,12 @@ exclude: ['.psd','.ai','.eps', '.js', '_src']
 # Don't process posts with future dates.
 future: false
 
-# Markdown parser.
+# Markdown parser and code highlighter.
+highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM # support GitHub-Flavored Markdown.
+  syntax_highlighter: rouge # see Jekyll #3371
 
 # Enabled plugins.
 gems:
