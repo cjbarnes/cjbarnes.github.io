@@ -1,0 +1,107 @@
+/**
+ * Grid mixins
+ *
+ * All mixins for the responsive grid system.
+ *
+ * This is heavily influenced by the Semantic Grid http://semantic.gs
+ *
+ * (Adapted into Sass for this project. Original authors listed below.)
+ *
+ * @author Abban Dunne http://abandon.ie
+ * @author James Wilson http://jimmynotjim.com
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+// Utility variable — you should never need to modify this.
+$gridsystem_width: (1px * $columns);
+$padding: ($gutter_width * 0.5);
+
+/**
+ * Make this element a row (i.e. a horizontally-centred container for columns).
+ *
+ * @param number $padding Horizontal padding to apply to the row (i.e. half the
+ *                        gutter width). Default 0.
+ */
+@mixin row($padding: 0) {
+  @if (0 != $padding) and unitless($padding) {
+    @error "$padding must not be unitless, was #{$padding}";
+  }
+
+  // Output
+  @include clearfix;
+  display: block;
+  max-width: $max_width;
+  margin: 0 auto;
+  padding: 0 $padding;
+}
+
+/**
+ * Make this element a specified number of columns wide.
+ *
+ * @param number $x       Number of columns this element should span.
+ * @param number $padding Horizontal padding to apply to this column (i.e. half
+ *                        the gutter width). Default $padding.
+ * @param number $columns Total number of columns the container row spans.
+ *                        Default $columns.
+ */
+@mixin column($x, $padding: $padding, $columns: $columns) {
+  @if not unitless($x) or (abs($x) != $x) {
+    @error "$x must be a unitless whole number, was #{$x}";
+  }
+  @if (0 != $padding) and unitless($padding) {
+    @error "$padding must not be unitless, was #{$padding}";
+  }
+  @if not unitless($columns) or (abs($columns) != $columns) {
+    @error "$columns must be a unitless whole number, was #{$columns}";
+  }
+
+  // Output
+  float: left;
+  display: inline;
+  width: (100% * ($x / $columns));
+  padding: 0 $padding;
+}
+
+/**
+ * Add left margin to push this column a specified number of columns to the
+ * right.
+ *
+ * @param number $offset  Number of empty columns to the left of this column.
+ *                        Default 1.
+ * @param number $columns Total number of columns the container row spans.
+ *                        Default $columns.
+ */
+@mixin push($offset: 1, $columns: $columns) {
+  @if not unitless($offset) or (abs($offset) != $offset) {
+    @error "$offset must be a unitless whole number, was #{$offset}";
+  }
+  @if not unitless($columns) or (abs($columns) != $columns) {
+    @error "$columns must be a unitless whole number, was #{$columns}";
+  }
+
+  // Output
+  margin-left: (100% * ($offset / $columns));
+}
+
+/**
+ * Add right margin to push the next column a specified number of columns to the
+ * left.
+ *
+ * @param number $offset  Number of empty columns to the right of this column.
+ *                        Default 1.
+ * @param number $columns Total number of columns the container row spans.
+ *                        Default $columns.
+ */
+@mixin pull($offset: 1, $columns: $columns) {
+  @if not unitless($offset) or (abs($offset) != $offset) {
+    @error "$offset must be a unitless whole number, was #{$offset}";
+  }
+  @if not unitless($columns) or (abs($columns) != $columns) {
+    @error "$columns must be a unitless whole number, was #{$columns}";
+  }
+
+  // Output
+  margin-right: (100% * ($offset / $columns));
+}

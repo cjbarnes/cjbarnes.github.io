@@ -1,0 +1,22 @@
+/**
+ * Mixin to output an em font size
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Output an em font size without the corresponding line height.
+ *
+ * @global map $font-sizes   Standard font-size values (in rem).
+ *
+ * @param string $size    The font-size/line-height keyword.
+ */
+@mixin font-size($size) {
+  @if not map-has-key($font-sizes, $size) {
+    @error "$size must be a predefined size name in map $font-sizes, was #{$size}";
+  }
+
+  // Output.
+  @include rem("font-size", map-get($font-sizes, $size));
+}

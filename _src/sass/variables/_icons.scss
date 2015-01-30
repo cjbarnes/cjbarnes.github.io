@@ -1,0 +1,75 @@
+/**
+ * Maps of icon content and CSS sprites
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+// Post formats and CV/portfolio entry icons.
+$format-icons: (
+  "text":    "✎",
+  "link":    "🔗",
+  "page":    "📰",
+  "quote":   "❞",
+  "tip":     "💡",
+  "website": "",
+  "award":   "🏆",
+  "course":  "🎓",
+  "job":     "💼",
+  "project": "⚒"
+);
+
+// Icon for figures within content.
+$figure-icons: (
+    "code":  "",
+    "link":  "🔗",
+    "quote": "❞"
+);
+
+// Icons for skills.
+$skills-list-icons: (
+    "rwd":               "📱",
+    "system-design":     "",
+    "copywriting":       "⌨",
+    "training":          "",
+    "lesson-planning":   "🎓",
+    "technical-writing": "",
+    "technical-support": "📞",
+    "reporting":         "📰",
+    "graphics":          "",
+    "seo":               "📈",
+    "social-media":      "👍"
+);
+
+// CSS Sprite entries for skills (in sequence).
+$skills-list-bitmaps: (
+    "html5",
+    "css3",
+    "javascript",
+    "jquery",
+    "sql",
+    "php",
+    "nodejs",
+    "less",
+    "regex",
+    "bootstrap",
+    "jqueryui",
+    "wordpress",
+    "blackboard",
+    "t4",
+    "netcommunity",
+    "commonspot",
+    "jekyll",
+    "git",
+    "svn",
+    "analytics",
+    "photoshop",
+    "illustrator",
+    "indesign",
+    "office",
+    "visio",
+    "crystal",
+    "omnigraffle",
+    "widgit"
+);

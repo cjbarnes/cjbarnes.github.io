@@ -1,0 +1,17 @@
+<!-- Next/Previous Posts -->
+<ul class="button-bar pager footer-toolbar page-footer-toolbar">
+  <li class="newer">
+  {% if page.next %}
+    <a href="{{ page.next.url }}" title="newer post">&#9194;</a>
+  {% else %}
+    <b>&nbsp;</b>
+  {% endif %}
+  </li>
+  <li class="older">
+  {% if page.previous %}
+    <a href="{{ page.previous.url }}" title="older post">&#9193;</a>
+  {% else %}
+    <b>&nbsp;</b>
+  {% endif %}
+  </li>
+</ul>

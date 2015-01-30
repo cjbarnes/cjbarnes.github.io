@@ -1,0 +1,175 @@
+/**
+ * Circle 'buttons' (really links) and button toolbars
+ *
+ * Note: there is no specific class to create a single button. Instead, buttons
+ * are link elements wrapped in a `.button-bar` toolbar element.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/* All button wrappers. */
+.button-bar {
+    @include font-size("huge");
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+
+    li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* The buttons (both linked and unlinked/current). */
+    a,
+    b {
+        @include circle-2x;
+        display: inline-block;
+        padding: 0;
+    }
+
+    /* Linked buttons. */
+    a {
+        color: $white;
+    }
+
+}
+
+
+/**
+ * Styling for specific buttons.
+ */
+
+.button-bar {
+
+    /*
+     * Icon buttons (e.g. social media links).
+     */
+    .twitter a,
+    .feed a {
+        font-family: $font-family-icons;
+        border-color: $background-color-page-footer;
+        color: $background-color-page-footer;
+
+        &:hover,
+        &:focus {
+            background: $link-color;
+        }
+
+        &:active {
+            background: $link-color-active;
+        }
+
+    }
+
+    /* Twitter button. */
+    .twitter a {
+        background: $color-twitter;
+    }
+
+    /* RSS button. */
+    .feed a {
+        background: $color-rss;
+    }
+
+}
+
+
+/**
+ * Footer button areas.
+ */
+
+/* All footer buttons. */
+main > footer,
+.single > footer,
+#site-footer {
+
+    /* Move up to half-overlap the main content area above the footer. */
+    .button-bar {
+        top: ((-1 * ($circle-diameter / 2)) - 2);
+    }
+
+}
+
+/* Buttons in (upper) page footer only. */
+main > footer,
+.single > footer {
+
+    /* Pagination and pager colours. */
+    .button-bar {
+
+        /*
+         * Current page.
+         * 1. Styled to appear 'cut out' of the footer.
+         */
+        b {
+            border-color: $background-color;
+            background: $background-color; /* 1 */
+            color: $link-color-active;
+        }
+
+        /* Other pages. */
+        a {
+            border-color: $background-color;
+            color: $link-color-secondary;
+            background: $background-color-page-footer;
+
+            &:hover,
+            &:focus {
+                color: $text-color-reversed;
+                background: $link-color-secondary;
+            }
+
+            /*
+            * 1. Override default border.
+            */
+            &:active {
+                border-color: $background-color; /* 1 */
+                color: $text-color-reversed;
+                background: $link-color-active;
+            }
+
+        }
+
+        /* Next/Previous links. */
+        .older,
+        .newer {
+            font-family: $font-family-icons;
+
+            /*
+             * Make older/newer links that don't lead anywhere invisible, but
+             * don't display:none them (so the alignment of the other links
+             * doesn't change).
+             */
+            b {
+                border-color: transparent;
+                background: transparent;
+            }
+
+        }
+
+        /* Post-page pager only - adjust for white background. */
+        &.pager {
+
+            a {
+                border-color: $background-color-content;
+
+                &:active {
+                    border-color: $background-color-content;
+                }
+
+            }
+
+        }
+
+
+
+    }
+
+} //main>footer, .single>footer

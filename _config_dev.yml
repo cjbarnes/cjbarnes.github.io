@@ -1,11 +1,18 @@
 #
 # Local configuration values (overrides _config.yml)
 #
+# To use these values, run:
+#   `bundle exec jekyll serve --config _config.yml, _config_dev.yml -w`.
+#
 
-# Dev environment flag
+# Dev environment flag.
 is_local: true
 
-# GitHub defaults
-pygments: true
+# GitHub defaults.
 safe: true
-lsi: false
+lsi: false # better indexing for related posts
+# Also see https://help.github.com/articles/repository-metadata-on-github-pages/
+
+# Sass compilation. Currently unused.
+# sass:
+#   style: :expanded

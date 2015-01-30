@@ -1,0 +1,39 @@
+/**
+ * Layout variables
+ *
+ * Grid variables, margins, and other basic dimensions.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+// Standard columns.
+$columns: 12;
+$gutter-width: (1px * $vertical-rhythm);
+$gutter: ($gutter-width / 2);
+$body-width-maximum: 1400px;
+
+// Variables used by Responsable (`vendor/_grid.scss`).
+$gutter_width: $gutter-width;
+$max_width: $body-width-maximum;
+
+// Links.
+$link-padding: 0.2em;
+
+// Navigation.
+$logo-margin: ($line / 6);
+
+// Listings.
+$listing-arrowhead-size: 3em;
+$listing-arrow-shaft-thickness: 4em;
+$listing-arrow-shaft-length: 0.5em;
+
+// Skills lists.
+$skills-list-item-size: 8.5rem;
+$skills-list-icon-size: 70px;
+
+// Illustrations.
+$illustration-width:          1200px;
+$illustration-width-masthead: 1400px;
+$illustration-height:          325px;
+$illustration-height-masthead: 500px;

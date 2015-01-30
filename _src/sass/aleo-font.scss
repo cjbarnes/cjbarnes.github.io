@@ -1,0 +1,13 @@
+/**
+ * Non-essential webfonts
+ *
+ * Loads webfonts that should not delay page rendering (and therefore are
+ * declared at the bottom of the page).
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+// Aleo font-face declarations
+@import "fonts/aleo-light";
+@import "fonts/aleo-light-italic";

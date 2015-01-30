@@ -1,5 +1,14 @@
 # Portfolio entries
 
+- name: YuCycle
+  slug: yucycle
+  url : http://www.yorkspace.net/yucycle
+- name: YorkSpace
+  slug: yorkspace
+  url : http://www.yorkspace.net
+- name: WEA Norwich
+  slug: wea-norwich
+  url : http://www.wea-norwich.org.uk
 - name: Locke Studies
   slug: locke-studies
   url : http://www.lockestudies.org

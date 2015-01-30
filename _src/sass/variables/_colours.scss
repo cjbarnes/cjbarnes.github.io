@@ -1,0 +1,135 @@
+/**
+ * Colour palette and assignments
+ *
+ * All colours used throughout the site should be defined here.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Colour palette.
+ */
+
+// Key colours.
+$white: #f5f5f5; // cj_white
+$black: #222;    // cj_black
+
+// Palette.
+$pearl-bush:   #e0d7cb; // cj0
+$cocoa-brown:  #30211f; // cj1
+$cararra:      #e9e6df; // cj2
+$ironstone:    #7c4938; // cj3
+$oslo-grey:    #808e90; // cj4
+$indian-khaki: #c5a184; // cj5
+$santa-fe:     #b1784f; // cj6
+$vanilla:      #d0bda9; // cj7
+$patina:       #5e8c88; // cj8
+$martini:      #b09c9c; // cj9
+$toast:        #a17167; // cj10
+$eucalyptus:   #2b9759; // cj11
+$burnt-umber:  #8f2823; // cj12
+
+
+/**
+ * Brands
+ *
+ * Externally chosen colours, e.g. Twitter.
+ */
+
+$color-linkedin: #0976b4;
+$color-twitter:  #00acf2;
+$color-rss:      #d78637;
+
+
+/**
+ * Functional colour assignments.
+ *
+ * Ideally, the 'named' colour palette variables above should never be used
+ * outside of this file. Instead, a semantic name for the colour's function as
+ * it is being used should be declared here.
+ */
+
+// Text.
+$text-color:                  $black;
+$text-color-reversed:         $white;
+$text-color-headings:         $oslo-grey;
+$text-color-navbar:           $white;
+$text-color-quote:            $santa-fe;
+$text-color-emphasis:         $vanilla;
+$text-color-site-footer:      $vanilla;
+$text-color-listing-headings: $toast;
+
+// Links.
+$link-color:           $patina;
+$link-color-secondary: $oslo-grey;
+$link-color-visited:   $link-color-secondary;
+$link-color-active:    $indian-khaki;
+
+// Includes.
+$background-color:               $pearl-bush;
+$background-color-content:       $white;
+$background-color-masthead:      $toast;
+$background-color-illustrated:   $black;
+$background-color-page-footer:   $cararra;
+$background-color-site-footer:   $black;
+$background-color-navbar-mobile: $black;
+
+// Navigation.
+$logo-color-light: $white;
+$logo-color-dark:  $oslo-grey;
+
+// Homepage.
+$gradient-color-homepage: $oslo-grey;
+
+// Contact page.
+$color-email:   $patina;
+$color-phone:   $santa-fe;
+$color-address: $ironstone;
+
+// Content components.
+$color-step:        $oslo-grey;
+$color-step-launch: $santa-fe;
+$color-yes:         $eucalyptus;
+$color-no:          $burnt-umber;
+$background-color-link: lighten($link-color, 40%);
+$background-color-figure:          $cararra;
+$background-color-code:            $black;
+$background-color-quote:           $background-color-figure;
+$background-color-table:           $background-color-page-footer;
+$background-color-table-head:      $ironstone;
+$background-color-portfolio-entry: $black;
+
+$color-skills-list-icon:       $toast;
+$background-color-skills-list: $cararra;
+
+// Post formats and CV/portfolio entry formats.
+$format-colors: (
+    "text":    $ironstone,
+    "link":    $patina,
+    "page":    $toast,
+    "quote":   $santa-fe,
+    "tip":     $indian-khaki,
+    "website": $toast,
+    "award":   $indian-khaki,
+    "course":  $oslo-grey,
+    "job":     $ironstone,
+    "project": $patina
+);
+
+// Icon colours for figures within content.
+$figure-colors: (
+    "code":  $background-color-code,
+    "link":  map-get($format-colors, "link"),
+    "quote": map-get($format-colors, "quote")
+);
+
+// Contact detail colours.
+$circle-list-colors: (
+    "email":    $color-email,
+    "phone":    $color-phone,
+    "linkedin": $color-linkedin,
+    "twitter":  $color-twitter,
+    "address":  $color-address,
+    "feed":     $color-rss,
+);

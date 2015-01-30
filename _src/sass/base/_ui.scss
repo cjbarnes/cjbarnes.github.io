@@ -1,0 +1,62 @@
+/**
+ * Browser UI tweaks
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Text selection.
+ */
+
+/* Disable text selection of UI elements. */
+#navbar,
+.illustration,
+.date,
+.sidebar,
+.button-bar,
+article footer,
+main > footer,
+.smallprint,
+.label,
+.logo {
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+/* Change cursor for non-selectable elements. */
+.logo,
+.label,
+.copyright,
+.date {
+    cursor: default;
+}
+
+/* Selection styling. */
+img::selection{
+    background: transparent;
+}
+
+
+/**
+ * Hover-only elements.
+ */
+
+/* Subheading permalinks */
+.hashlink {
+    @include rem("bottom", ($line / 4));
+    @include rem("width", $line);
+    @include rem("height", $line);
+    @include rem("line-height", $line); // @todo: Why is this here?
+    position: absolute;
+    right: 100%;
+    display: block;
+    padding: 0;
+    opacity: 0;
+
+    :hover > &,
+    :focus > & {
+        opacity: 1;
+    }
+
+}

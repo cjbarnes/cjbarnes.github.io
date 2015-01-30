@@ -1,0 +1,144 @@
+/**
+ * Figure styles
+ *
+ * Includes special block-level tags e.g. blockquote, pre, address
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/* Basic figure. */
+figure {
+    @include rem("margin", $line 0);
+    @include rem("padding", ($line / 2) 0);
+    background: $background-color-figure;
+
+    /* Get rid of bottom spacing when this is the last element in the content */
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+/* Captions. */
+figcaption {
+    @include rem("margin", $line $gutter 0);
+}
+
+/**
+ * Figure types.
+ */
+
+/* Link figures. */
+figure.link {
+    padding: 0 !important;
+    background: $background-color-link;
+
+    /* The actual link inside the figure. */
+    a {
+        @include rem("padding", $line);
+        @include font-size-leading("larger", 1.5);
+        display: block;
+        text-align: center;
+        color: $link-color;
+
+        &:hover,
+        &:focus {
+            color: $text-color-reversed;
+            background: $link-color;
+            border-color: $link-color;
+        }
+
+        &:active {
+            color: $text-color-reversed;
+            background: $link-color-active;
+            border-color: $link-color-active;
+        }
+
+    }
+
+} //figure.link
+
+/* Quote figures. */
+figure.quote {
+    background: $background-color-quote;
+
+    blockquote {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Citation marker. */
+    figcaption:before {
+        content: "—";
+    }
+
+}
+
+/*
+ * Codeblocks.
+ * 1. Same padding all around.
+ */
+figure.code {
+    @include rem("padding-left", ($line / 2)); /* 1 */
+    @include rem("padding-right", ($line / 2)); /* 1 */
+    color: $text-color-reversed;
+    background: $background-color-code;
+
+    pre {
+        margin: 0;
+    }
+
+}
+
+
+/**
+ * Figures on single-article pages.
+ */
+.single {
+
+    /* Spacing. */
+    figure {
+        @include rem("margin", ($line * 2) 0 $line);
+        @include rem("padding-top",    ($line * 1.5));
+        @include rem("padding-bottom", ($line * 1.5));
+
+        /* Icon layout. */
+        &.code,
+        &.link,
+        &.quote {
+            @include circle-box;
+
+            &:before {
+                font-family: $font-family-icons;
+            }
+
+        }
+
+    }
+
+    /* Icon content and colours. */
+    @each $figure, $color in $figure-colors {
+        figure.#{$figure}:before {
+            content: map-get($figure-icons, $figure);
+            background-color: $color;
+        }
+    }
+
+}
+
+
+/**
+ * Media queries.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+    /* Leave more margin around text. */
+    figcaption {
+        @include push;
+        @include pull;
+    }
+
+} //include media-width(normal-size)

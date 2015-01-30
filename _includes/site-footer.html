@@ -1,8 +1,8 @@
 <!-- Lower footer area -->
-<footer id="site-footer">
+<footer id="site-footer" class="footer site-footer">
 
   <!-- Subscribe toolbar -->
-  <ul class="button-bar">
+  <ul class="button-bar footer-toolbar site-footer-toolbar">
     <li class="twitter">
       <a href="https://twitter.com/intent/user?screen_name=cJbarnesUK&amp;original_referer={{ site.url }}" title="Follow on Twitter"></a>
     </li>
@@ -40,13 +40,13 @@
   </p>
 
   <p class="smallprint">
-    <span class="copyright">© 2014 cJ barnes</span>
+    <span class="copyright">© 2014–{{ site.time | date: "%Y" }} cJ barnes</span>
     <br>
     <a href="/credits/">credits &amp; thank yous</a>
     <br>
     <a href="/colophon/">colophon</a>
     <br>
-    <a href="//github.com/cjbarnes/cjbarnes.github.io/{{ page.path }}">view my code</a>
+    <a href="//github.com/cjbarnes/cjbarnes.github.io/tree/master/{{ page.path }}">view my code</a>
     <br>
     <a href="/terms/">terms of use</a>
     <br>

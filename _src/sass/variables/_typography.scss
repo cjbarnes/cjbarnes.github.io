@@ -1,0 +1,86 @@
+/**
+ * Typography variables
+ *
+ * Font sizes, styles, weights, families, and leading. Defines the vertical
+ * rhythm of the site.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+// The basic text and leading pixel sizes (unitless for use in maths later).
+$base-font-size:  18;
+$vertical-rhythm: 30;
+$base-line: ($vertical-rhythm / $base-font-size);
+
+// Smaller sizes for everything on mobile.
+$base-font-size-small: 15;
+
+// Line size in rem (for use in margins etc).
+$font-size-px: (1px * $base-font-size);
+$line-px:      (1px * $vertical-rhythm);
+$line: (1rem * $base-line);
+
+/*
+ * Font size relationships. For use in the font-size, line-height and line maps.
+ * Values convert 1:1 into pixel sizes.
+ */
+$font-size-multipliers: (
+  smaller:   ( 14 / $base-font-size),
+  small:     ( 16 / $base-font-size),
+  normal: 1,
+  large:     ( 21 / $base-font-size),
+  larger:    ( 24 / $base-font-size),
+  huge:      ( 28 / $base-font-size),
+  huger:     ( 32 / $base-font-size),
+  enormous:  ( 40 / $base-font-size),
+  gigantic:  ( 54 / $base-font-size),
+  leviathan: (144 / $base-font-size),
+);
+
+/*
+ * Assemble font size and line height maps:
+ * - $font-size   - Font size in `em`s relative to the default
+ *                  (`$base-font-size`).
+ * - $line-height - Unitless line height that works out to one line/unit of
+ *                  vertical rhythm when the `font-size` is set to the
+ *                  corresponding value in the `$font-size` map.
+ * - $line        - As $line-height, but in `em`s (for use in margins, padding,
+ *                  etc).
+ *
+ * Note that we have to use maps here because Sass (stupidly) intentionally
+ * does not allow interpolation within variable names. Also note the `1em * x`
+ * logic is used to append the `em` unit, since Sass (also stupidly) does not
+ * allow swapping/assignment/deassignment of units, nor calculations involving
+ * non-matching units. My kingdom for an equivalent to `unit()` in LESS...
+ */
+$font-sizes:   ();
+$line-heights: ();
+@each $size, $val in $font-size-multipliers {
+  // Prepare map values for this size.
+  $font-size: (1rem * $val);
+  $line-height: ($base-line / $val);
+
+  // Add new key-value pairs to maps.
+  $font-sizes:   map-merge($font-sizes,   ($size: $font-size));
+  $line-heights: map-merge($line-heights, ($size: $line-height));
+}
+
+// Logo font sizes and line heights.
+$font-size-navbar-logo: 40px;
+$navbar-logo-size: 62px;
+
+// Font families
+$font-family-serif: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+$font-family-sans-serif: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
+$font-family-icons: "entypo";
+$font-family-logo: "cJ Logo";
+
+// Font family assignments
+$font-family-brand:     $font-family-sans-serif;
+$font-family-headings:  $font-family-sans-serif;
+$font-family-content:   $font-family-serif;
+$font-family-monospace: $font-family-brand;
+
+// Same font weight is used throughout.
+$font-weight: 300;
