@@ -52,7 +52,14 @@
 
     </section>
 
-    {% include page-footer.html %}
+    <!-- Upper footer area -->
+    <footer id="page-footer" class="footer page-footer">
+
+      {% if page.date %}
+        {% include pager.html %}
+      {% endif %}
+
+    </footer>
 
   </{{ main_tag }}>
 

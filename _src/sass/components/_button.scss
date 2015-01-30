@@ -101,7 +101,7 @@ main > footer,
 main > footer,
 .single > footer {
 
-    /* Pagination colours. */
+    /* Pagination and pager colours. */
     .button-bar {
 
         /*
@@ -111,6 +111,7 @@ main > footer,
         b {
             border-color: $background-color;
             background: $background-color; /* 1 */
+            color: $link-color-active;
         }
 
         /* Other pages. */
@@ -135,6 +136,39 @@ main > footer,
             }
 
         }
+
+        /* Next/Previous links. */
+        .older,
+        .newer {
+            font-family: $font-family-icons;
+
+            /*
+             * Make older/newer links that don't lead anywhere invisible, but
+             * don't display:none them (so the alignment of the other links
+             * doesn't change).
+             */
+            b {
+                border-color: transparent;
+                background: transparent;
+            }
+
+        }
+
+        /* Post-page pager only - adjust for white background. */
+        &.pager {
+
+            a {
+                border-color: $background-color-content;
+
+                &:active {
+                    border-color: $background-color-content;
+                }
+
+            }
+
+        }
+
+
 
     }
 

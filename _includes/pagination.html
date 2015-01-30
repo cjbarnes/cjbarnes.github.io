@@ -1,5 +1,12 @@
 <!-- Pagination -->
 <ul class="button-bar pagination footer-toolbar page-footer-toolbar">
+  <li class="newer">
+  {% if 1 != paginator.page %}
+    <a href="/blog/{% unless 1 == paginator.previous_page %}page{{ paginator.previous_page }}/{% endunless %}" title="newer posts">&#9194;</a>
+  {% else %}
+    <b>&nbsp;</b>
+  {% endif %}
+  </li>
 {% for pagenum in (1..paginator.total_pages) %}
   {% if pagenum == paginator.page %}
     <li class="active">
@@ -11,4 +18,11 @@
     </li>
   {% endif %}
 {% endfor %}
+  <li class="older">
+    {% if paginator.page != paginator.total_pages %}
+      <a href="/blog/page{{ paginator.next_page }}/" title="older posts">&#9193;</a>
+    {% else %}
+      <b>&nbsp;</b>
+    {% endif %}
+  </li>
 </ul>
