@@ -38,19 +38,18 @@
 header > .illustrated,
 .homepage {
 
-    .title {
+    /* Article title, and 'featured article' label. */
+    .title-main,
+    .title-label {
+        text-shadow: 0 0 10px $black;
+    }
 
-        /* Article title, and 'featured article' label. */
-        h1,
-        .label {
-            text-shadow: 0 0 10px $black;
+    .title-main a {
 
-            a:hover,
-            a:focus,
-            a:active {
-                text-shadow: none;
-            }
-
+        &:hover,
+        &:focus,
+        &:active {
+            text-shadow: none;
         }
 
     }

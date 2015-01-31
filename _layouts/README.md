@@ -36,8 +36,8 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 <!-- END illustration.html -->
 <!-- INCLUDE title.html -->
 			<div class="title">
-				<h1>page title</h1>
-				<h2>page summary</h2>
+				<h1 class="title-main">page title</h1>
+				<h2 class="title-summary">page summary</h2>
 			</div>
 <!-- END title.html -->
 <!-- INCLUDE date.html -->
@@ -55,28 +55,28 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 			  CONTENT GOES HERE.
 			  -->
 		</section>
-		<footer class="footer page-footer" id="page-footer">
-<!-- INCLUDE pager.html OR pagination.html -->
-			<ul class="button-bar pagination footer-button-bar page-footer-button-bar">
-				<li class="pagination-item pagination-item-adjacent pagination-item-newer">
-					<a href="/blog/page2" title="newer posts">&#9194;</a>
-				</li>
-				<li class="pagination-item pagination-item-page">
-					<a href="/blog/">1</a>
-				</li>
-				<li class="pagination-item pagination-item-page">
-					<a href="/blog/page2/">2</a>
-				</li>
-				<li class="pagination-item pagination-item-page active">
-					<b title="current page">3</b>
-				</li>
-				<li class="pagination-item pagination-item-adjacent pagination-item-older disabled">
-					<b>&nbsp;</b>
-				</li>
-			</ul>
-<!-- END pager.html OR pagination.html -->
-		</footer>
 	</article>
+	<footer class="footer page-footer" id="page-footer">
+<!-- INCLUDE pager.html OR pagination.html -->
+		<ul class="button-bar pagination footer-button-bar page-footer-button-bar">
+			<li class="pagination-item pagination-item-adjacent pagination-item-newer">
+				<a href="/blog/page2" title="newer posts">&#9194;</a>
+			</li>
+			<li class="pagination-item pagination-item-page">
+				<a href="/blog/">1</a>
+			</li>
+			<li class="pagination-item pagination-item-page">
+				<a href="/blog/page2/">2</a>
+			</li>
+			<li class="pagination-item pagination-item-page active">
+				<b title="current page">3</b>
+			</li>
+			<li class="pagination-item pagination-item-adjacent pagination-item-older disabled">
+				<b>&nbsp;</b>
+			</li>
+		</ul>
+<!-- END pager.html OR pagination.html -->
+	</footer>
 </main>
 <!-- INCLUDE site-footer.html -->
 <footer class="footer site-footer" id="site-footer">

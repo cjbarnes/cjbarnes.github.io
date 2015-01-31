@@ -59,16 +59,20 @@ article.project {
 
 }
 
-/*
- * Page/post title.
- * 1. Stay on top of illustration and gradient.
- */
-article .title {
-    position: relative; /* 1 */
-    z-index: 2;
+/* Page/post title. */
+article {
+
+    /*
+     * Page/post title wrapper.
+     * 1. Stay on top of illustration and gradient.
+     */
+    .title {
+        position: relative; /* 1 */
+        z-index: 2;
+    }
 
     /* Title. */
-    h1 {
+    .title-main {
         @include rem("padding", $line 0);
         margin: 0;
         color: $text-color-reversed;
@@ -82,7 +86,7 @@ article .title {
     }
 
     /* Subtitle/excerpt. */
-    h2 {
+    .title-summary {
         @include rem("margin", 0 0 $line);
         @include font-size-leading("normal");
         font-family: $font-family-content;
@@ -192,7 +196,7 @@ article.featured footer {
 @include media-width("normal-size") {
 
     /* Article alignment. */
-    article  .title {
+    article .title {
         @include push;
         @include pull;
     }
