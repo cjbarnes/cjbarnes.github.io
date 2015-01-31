@@ -10,6 +10,10 @@
 
         <article class="article featured featured-article {{ post.format }} featured-{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
 
+        {% comment %}
+        Variable `blog` is used to signal that this is a blog index page (since
+        there isn't a reliable way to determine that automatically.)
+        {% endcomment %}
           {% include nav.html blog='yes' %}
 
           {% if post.illustration %}
