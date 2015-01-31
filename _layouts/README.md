@@ -41,13 +41,13 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 			</div>
 <!-- END title.html -->
 <!-- INCLUDE date.html -->
-			<div class="date published-date">
-				<abbr class="day" title="1">01</abbr>
-				<span class="separator">/</span>
-				<abbr class="month" title="February">02</abbr>
-				<span class="separator">/</span>
-				<abbr class="year" title="2015">15</abbr>
-			</div>
+			<time class="date published-date" datetime="2015-02-01" title="1 February 2015">
+				<span class="date-unit date-day" title="1">01</span>
+				<span class="date-separator">/</span>
+				<span class="date-unit date-month" title="February">02</span>
+				<span class="date-separator">/</span>
+				<span class="date-unit date-year" title="2015">15</span>
+			</time>
 <!-- END date.html -->
 		</header>
 		<section class="content primary-content" id="primary">

@@ -19,43 +19,40 @@
     right: 0;
     bottom: ((($circle-diameter / 2) * -1) - 1px); /* 1 */
     left: 0;
+    display: block;
     margin: 0;
     padding: 0;
     text-align: center;
-    list-style: none;
+}
 
-    li {
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-    }
 
-    /* Individual date units. */
-    abbr {
-        @include circle-2x;
-        display: inline-block;
-        background: $background-color-masthead;
-        color: $text-color-reversed;
-    }
+/* Individual date units. */
+.date-unit {
+    @include circle-2x;
+    display: inline-block;
+    background: $background-color-masthead;
+    color: $text-color-reversed;
+}
 
-    /* Separators (i.e. "/") – only there for screen readers etc. */
-    .separator {
-        display: none;
-    }
-
+/* Separators (i.e. "/") – only there for screen readers etc. */
+.date-separator {
+    display: none;
 }
 
 
 /*
  * Dates in article footer (used for listing pages).
  */
-article footer .date {
-    @include font-size-leading("larger");
-    @include rem("padding", ($line * 0.5) 0);
-    position: static;
+article footer {
+
+    .date {
+        @include font-size-leading("larger");
+        @include rem("padding", ($line * 0.5) 0);
+        position: static;
+    }
 
     /* Individual date parts. */
-    abbr {
+    .date-unit {
         @include circle(($circle-diameter * 0.9));
         display: inline-block;
         background-color: transparent;
@@ -65,19 +62,22 @@ article footer .date {
 }
 
 /* Dates in illustrated article footers. */
-article.illustrated footer .date abbr {
+article.illustrated footer .date-unit {
     background: $background-color-illustrated;
     color: $text-color-reversed;
 }
 
 /* Bigger featured article dates. */
-article.featured footer .date {
-    @include font-size-leading("huge");
+article.featured footer {
+
+    .date {
+        @include font-size-leading("huge");
+    }
 
     /*
      * 1. Redeclare inline-block (to re-override circle mixin's display:block).
      */
-    abbr {
+    .date-unit {
         @include circle;
         display: inline-block; /* 1 */
     }

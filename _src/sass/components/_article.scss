@@ -16,7 +16,7 @@
     article.#{$format} {
 
         > header,
-        header .date abbr,
+        header .date-unit,
         .listing &:before {
             background: $color;
         }
@@ -28,7 +28,7 @@
 article.illustrated {
 
     > header,
-    .date abbr,
+    .date .date-unit,
     .listing &:before {
         background: $background-color-illustrated;
     }
