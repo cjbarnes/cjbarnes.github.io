@@ -172,10 +172,9 @@
 
         /* The number (displayed like an icon). */
         &:before {
-            @include font-size-leading("huger");
+            @include font-size("huger");
             content: counter(steps);
             font-family: $font-family-brand;
-            line-height: 1.2;
             color: $background-color-content;
         }
 
