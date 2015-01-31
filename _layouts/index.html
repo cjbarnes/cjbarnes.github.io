@@ -10,7 +10,7 @@
 
         <article class="article featured featured-article {{ post.format }} featured-{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
 
-          {% include nav.html %}
+          {% include nav.html blog='yes' %}
 
           {% if post.illustration %}
             {% include illustration.html image=post.illustration %}

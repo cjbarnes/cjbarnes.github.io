@@ -1,0 +1,43 @@
+# Site navigation
+#
+# The `path` is the string to compare the current URL against for active-link
+# highlighting purposes.
+#
+# The `href` is the address the link should point to. (If not specified, the
+# `path` is used.)
+#
+# `special` is used to flag up special pages that need bespoke logic to
+# correctly check if they are the active-link.
+
+- name: home
+  path: /
+  special: homepage
+
+- name: what i do
+  path: /whatido/
+  children:
+  - name: my approach
+    path: /whatido/approach/
+  - name: expertise
+    path: /whatido/expertise/
+  - name: I don’t...
+    path: /whatido/idont/
+
+- name: what I’ve done
+  path: /whativedone/
+  children:
+  - name: portfolio
+    path: /whativedone/portfolio/
+  - name: projects
+    path: /whativedone/projects/
+  - name: kind words
+    path: /whativedone/kindwords/
+  - name: c.v. (linkedin)
+    path: http://uk.linkedin.com/in/cjbarnesuk/
+
+- name: blog
+  path: /blog/
+  special: blog
+
+- name: contact me
+  path: /contact/
