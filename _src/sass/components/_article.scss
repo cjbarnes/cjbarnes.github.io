@@ -93,6 +93,21 @@ article {
         color: $text-color-reversed;
     }
 
+    /* 'Link' label. */
+    .title-label {
+        @include rem("padding", $line 0 ($line * 0.5));
+        @include font-size-leading("large");
+        display: block;
+        font-style: normal;
+        color: $text-color-reversed;
+
+        /* Reduce padding of succeeding title. */
+        + .title-main {
+            padding-top: 0;
+        }
+
+    }
+
 }
 
 

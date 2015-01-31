@@ -32,7 +32,7 @@ main > header,
      * 1. Stack title above the illustration and gradient.
      */
     .title {
-        @include rem("padding-top",    ($line *   3));
+        @include rem("padding-top",    ($line * 4.5));
         @include rem("padding-bottom", ($line * 2.5));
         position: relative; /* 1 */
         z-index: 2; /* 1 */
@@ -40,7 +40,7 @@ main > header,
 
     /* Page/post title. */
     .title-main {
-        @include rem("padding", ($line * 1.5) 0 0);
+        @include rem("padding", 0);
         @include font-size-leading("gigantic", 2.5);
         margin: 0;
         color: $text-color-reversed;
@@ -56,6 +56,7 @@ main > header,
 
     /* 'Featured article' or 'link' label. */
     .title-label {
+        @include rem("padding-bottom", $line);
         @include font-size-leading("larger");
         display: block;
         font-style: normal;
@@ -94,7 +95,7 @@ main.illustrated > header,
             @include column(8);
             @include push(2);
             @include pull(2);
-            @include rem("padding-top",    ($line *   3)); /* 1 */
+            @include rem("padding-top",    ($line * 4.5)); /* 1 */
             @include rem("padding-bottom", ($line * 2.5)); /* 1 */
         }
 
