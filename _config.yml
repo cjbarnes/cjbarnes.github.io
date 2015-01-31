@@ -31,11 +31,11 @@ exclude: ['.psd','.ai','.eps', '.js', '_src']
 future: false
 
 # Markdown parser and code highlighter.
-highlighter: rouge
+# highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM # support GitHub-Flavored Markdown.
-  syntax_highlighter: rouge # see Jekyll #3371
+# syntax_highlighter: rouge # see Jekyll #3371
 
 # Enabled plugins.
 gems:
