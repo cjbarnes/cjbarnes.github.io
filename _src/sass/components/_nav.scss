@@ -16,7 +16,7 @@
 /*
  * 1. Overflow:visible prevents menu overlapping header when closed. (RE-CHECK.)
  */
-#navbar {
+.nav {
     z-index: 10;
     position: absolute;
     width: 100%;
@@ -35,8 +35,7 @@
 /**
  * The navigation menu.
  */
-
-#site-navigation {
+.nav-level-1 {
     @include clearfix;
     @include rem("padding", 0 0 ($line / 2));
     @include font-size-leading("large");
@@ -59,15 +58,16 @@
         transform: translate3d(0, 0, 0);
     }
 
-    /*
-     * Nav item wrappers.
-     * 1. For submenu positioning.
-     */
-    li {
-        position: relative; /* 1 */
-        margin: 0;
-        list-style: none;
-    }
+}
+
+/*
+ * Nav item wrappers.
+ * 1. For submenu positioning.
+ */
+.nav-item {
+    position: relative; /* 1 */
+    margin: 0;
+    list-style: none;
 
     /* Nav item links and menu toggle button. */
     a {
@@ -82,36 +82,35 @@
 
     }
 
-    /* Nav item links: top level. */
-    > li > a {
-        @include rem("padding", ($line / 2));
-        display: block;
+}
+
+/* Nav item links: top level. */
+.nav-item-level-1 > a {
+    @include rem("padding", ($line / 2));
+    display: block;
+}
+
+/*
+ * Submenus.
+ * 1. Same background colour but with no transparency.
+ */
+.nav-level-2 {
+    @include rem("margin", 0 0 ($line / 2) ($line / 2));
+    padding: 0;
+    background: $background-color-navbar-mobile; /* 1 */
+}
+
+/* Submenu item links. */
+.nav-item-level-2 a {
+    @include rem("padding", ($line / 4));
+    @include font-size-leading("small");
+
+    /* Add a dash to separate subnav items from main nav. */
+    &:before {
+        content: '– ';
     }
 
-    /*
-     * Submenus.
-     * 1. Same background colour but with no transparency.
-     */
-    ul {
-        @include rem("margin", 0 0 ($line / 2) ($line / 2));
-        padding: 0;
-        background: $background-color-navbar-mobile; /* 1 */
-
-        /* Submenu item links. */
-        a {
-            @include rem("padding", ($line / 4));
-            @include font-size-leading("small");
-
-            /* Add a dash to separate subnav items from main nav. */
-            &:before {
-                content: '– ';
-            }
-
-        }
-
-    }
-
-} //#site-navigation
+}
 
 
 /**
@@ -122,7 +121,7 @@
  * 1. Height to match the navbar logo: diameter + margin + 2px. @todo REVISIT.
  * 2. 50% width to increase the tap target area.
  */
-#site-navigation-toggle {
+.nav-menu-toggle {
     @include rem("padding", ($line / 1.5) ($line / 2));
     @include font-size-leading("larger");
     display: block;
@@ -134,26 +133,27 @@
     background: transparent;
     color: $text-color-reversed;
 
-    /* Add colon to 'Menu' label when menu is open. */
-    &.active:after {
-        content: ":";
-    }
-
-}
-
-/* Colour changes for dark menu button on light mastheads. */
-.light-masthead {
-
-    #site-navigation-toggle {
+    /* Colour changes for dark menu button on light mastheads. */
+    .light-masthead & {
         color: $logo-color-dark;
     }
 
-    /*
-     * Menu open: return to light toggle colour to match dark open-menu
-     * background.
-     */
-    #navbar.open #site-navigation-toggle {
-        color: $text-color-reversed;
+    /* Menu open states. */
+    .open & {
+
+        /* Add colon to 'Menu' label when menu is open. */
+        &:after {
+            content: ":";
+        }
+
+        /*
+         * Menu open: return to light toggle colour to match dark open-menu
+         * background.
+         */
+        .light-masthead & {
+            color: $text-color-reversed;
+        }
+
     }
 
 }
@@ -170,7 +170,7 @@
      * Nav container.
      * 1. Remove max-height set for menu overflowing on mobile layout.
      */
-    #navbar {
+    .nav {
         max-height: 10000em; /* 1 */
 
         /* Remove open/closed styling difference (which is mobile only). */
@@ -181,15 +181,15 @@
     }
 
     /* On hover, darken the navbar background. */
-    #navbar:hover {
+    .nav:hover {
 
         /*
          * Navbar, logo, and submenu backgrounds (to match post formats'
          * masthead colours).
          */
         &,
-        .logo,
-        .parent > ul {
+        .nav-logo,
+        .nav-level-2 {
 
             @each $format, $color in $format-colors {
                 .#{$format} & {
@@ -209,11 +209,11 @@
 
         }
 
-    } //#navbar:hover
+    } //.nav:hover
 
 
     /* Nav menu styling for navbar/dropdown layout. */
-    #site-navigation {
+    .nav-level-1 {
 
         /*
          * Remove mobile menu sizes and animations.
@@ -229,16 +229,16 @@
             transform: none; /* 1 */
         }
 
-        /* Nav item wrapper positioning. */
-        li {
-            float: left;
-        }
+    }
+
+    /* Nav item wrapper positioning. */
+    .nav-item {
+        float: left;
 
         /* Nav item link label centring. */
         a {
             text-align: center;
         }
-
 
         /**
          * Reverse item colours on hover/active.
@@ -252,94 +252,95 @@
 
         /* Current item. */
         a:active,
-        .active > a,
-        .active > button {
+        &.active > a,
+        &.active > button {
             @include alpha("background", $white, 0.6);
             color: $text-color;
         }
 
+    }
 
-        /**
-         * Top level menu.
-         */
 
-        /* Links. */
-        > li > a {
-            @include rem("padding", $line ($line * 0.75));
-        }
+    /**
+     * Top level menu.
+     */
 
-        /* Links on light backgrounds. */
-        .light-masthead & > li > a {
+    /* Links. */
+    .nav-item-level-1 > a {
+        @include rem("padding", $line ($line * 0.75));
+
+        .light-masthead & {
             color: $text-color;
         }
 
-        /* Light backgrounds - hover. */
-        .light-masthead #navbar:hover & > li {
+    }
 
-            > a {
-                color: $text-color-reversed;
-            }
+    /* Light backgrounds - hover. Override previous styles block. */
+    .light-masthead .nav:hover .nav-item-level-1 {
 
-            > a:hover,
-            > a:focus,
-            > a:active,
-            &.active a {
-                color: $text-color;
-            }
-
+        > a {
+            color: $text-color-reversed;
         }
 
-
-        /**
-         * Submenus.
-         */
-
-        /*
-         * The submenu container.
-         * 1. Leave room at top of submenu for the overlapping navbar (main
-         *    menu).
-         * 2. Submenus start offscreen, and fly in-out on navbar hover.
-         */
-        ul {
-            @include rem("padding-top", ($line * 3)); /* 1 */
-            z-index: -1;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            margin: 0 2px;
-            opacity: 0; /* 2 */
-            transition: all $navbar-horizontal-transition-duration ease-in-out;
-            transform: translate3d(0, -105%, 0); /* 2 */
-
-            /* Animate submenus in on navbar hover */
-            #navbar:hover & {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-
-            /*
-             * Nav link wrappers.
-             * 1. Lay out vertically, as mobile layout.
-             */
-            li {
-                float: none; /* 1 */
-                overflow: hidden;
-            }
-
-            /* Remove dashes from submenu items, added in on mobile. */
-            a:before {
-                content: "";
-                display: none;
-            }
-
+        > a:hover,
+        > a:focus,
+        > a:active,
+        &.active a {
+            color: $text-color;
         }
 
-    } //#site-navigation
+    }
+
+
+    /**
+     * Submenus.
+     */
+
+    /*
+     * The submenu container.
+     * 1. Leave room at top of submenu for the overlapping navbar (main
+     *    menu).
+     * 2. Submenus start offscreen, and fly in-out on navbar hover.
+     */
+    .nav-level-2 {
+        @include rem("padding-top", ($line * 3)); /* 1 */
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 2px;
+        opacity: 0; /* 2 */
+        transition: all $navbar-horizontal-transition-duration ease-in-out;
+        transform: translate3d(0, -105%, 0); /* 2 */
+
+        /* Animate submenus in on navbar hover */
+        .nav:hover & {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+    }
+
+    /*
+     * Nav link wrappers.
+     * 1. Lay out vertically, as mobile layout.
+     */
+    .nav-item-level-2 {
+        float: none; /* 1 */
+        overflow: hidden;
+
+        /* Remove dashes from submenu items, added in on mobile. */
+        a:before {
+            content: "";
+            display: none;
+        }
+
+    }
 
 
     // Hide mobile-only menu toggle button.
-    #site-navigation-toggle {
+    .nav-menu-toggle {
         display: none;
     }
 
@@ -353,21 +354,16 @@
  */
 @include media-width("nav-horizontal-wide") {
 
-    /* Nav menu. */
-    #site-navigation {
+    /* Top-level menu. */
+    .nav-item-level-1 > a {
+        @include rem("padding", $line ($line * 0.75));
+        @include font-size-leading("large");
+    }
 
-        /* Top-level menu. */
-        > li > a {
-            @include rem("padding", $line ($line * 0.75));
-            @include font-size-leading("large");
-        }
-
-        /* Submenus. */
-        ul a {
-            @include rem("padding", ($line / 2));
-            @include font-size-leading("normal");
-        }
-
+    /* Submenus. */
+    .nav-item-level-2 a {
+        @include rem("padding", ($line / 2));
+        @include font-size-leading("normal");
     }
 
 } //include media-width(nav-horizontal-wide)
@@ -381,7 +377,7 @@
 @include media-width("nav-horizontal-wider") {
 
     /* Space out top-level menu items more. */
-    #site-navigation > li > a {
+    .nav-item-level-1 > a {
         @include rem("padding", $line);
     }
 

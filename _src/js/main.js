@@ -25,6 +25,7 @@
   /* Create navigation toggle */
   siteNavigationToggle = document.createElement('button');
   siteNavigationToggle.appendChild(document.createTextNode('menu'));
+  siteNavigationToggle.classList.add('nav-menu-toggle');
   siteNavigationToggle.id = 'site-navigation-toggle';
   siteNavigationToggle.onclick = navToggle.bind(siteNavigationToggle);
 
