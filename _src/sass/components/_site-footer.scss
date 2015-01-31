@@ -9,7 +9,7 @@
 /*
  * 1. For alignment of button toolbars and pagination links.
  */
-#site-footer {
+.site-footer {
     @include clearfix;
     @include rem("min-height", ($line * 4));
     @include rem("padding-bottom", $line);
@@ -18,48 +18,50 @@
     position: relative; /* 1 */
     background: $background-color-site-footer;
     color: $text-color-site-footer;
+}
 
 
-    /*
-     * Footer columns.
-     */
+/* Footer columns - contact details and smallprint. */
+.site-footer-section {
+    @include rem("margin", ($line * 2) $gutter 0);
+    list-style: none;
+}
 
-    .contact,
-    .smallprint {
-        @include rem("margin", ($line * 2) $gutter 0);
+.site-footer-item {
+    margin: 0;
 
-        a {
-            @include font-size-leading("small");
-            border: 0;
-            color: $text-color-reversed;
-        }
-
-        /*
-         * Contact details icons.
-         * 1. Override i element styling.
-         */
-        .label {
-            font-family: $font-family-icons;
-            font-style: normal; /* 1 */
-            color: $text-color-site-footer; // @todo try deleting this
-        }
-
+    a {
+        @include font-size-leading("small");
+        border: 0;
+        color: $text-color-reversed;
     }
 
-    /* Utility links and terms of use section. */
-    .smallprint {
-        margin-top: 0;
-        text-align: right;
+}
 
-        /* Copyright. */
-        span {
-            @include font-size-leading("small");
-            color: $text-color-site-footer; // @todo try deleting this
-        }
+/*
+ * Contact details icons.
+ * 1. Override i element styling.
+ */
+.contact-label {
+    font-family: $font-family-icons;
+    font-style: normal; /* 1 */
+    color: $text-color-site-footer; // @todo try deleting this
+}
 
-    } //.contact, .smallprint
 
-} //#site-footer
+
+/* Utility links and terms of use section. */
+.smallprint {
+    margin-top: 0;
+    text-align: right;
+}
+
+
+/* Copyright. */
+.smallprint-item-copyright {
+    @include font-size-leading("small");
+    color: $text-color-site-footer; // @todo try deleting this
+}
 
 
 /**
@@ -69,23 +71,16 @@
  */
 @include media-width("footer-two-columns") {
 
-    #site-footer {
-
-        /**
-         * The two site footer sections.
-         */
-
-        /*
-         * Half the footer width. Less vertical spacing, more horizontal
-         * spacing.
-         */
-        .contact,
-        .smallprint {
-            @include column(($columns / 2));
-            @include rem("margin", $line 0 0);
-            @include rem("padding", 0 $line);
-        }
-
+    /*
+     * The two site footer sections.
+     *
+     * Half the footer width. Less vertical spacing, more horizontal
+     * spacing.
+     */
+    .site-footer-section {
+        @include column(($columns / 2));
+        @include rem("margin", $line 0 0);
+        @include rem("padding", 0 $line);
     }
 
 } //include media-width(normal-size)

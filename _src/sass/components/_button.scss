@@ -43,45 +43,6 @@
 
 
 /**
- * Styling for specific buttons.
- */
-
-.button-bar {
-
-    /*
-     * Icon buttons (e.g. social media links).
-     */
-    .twitter a,
-    .feed a {
-        font-family: $font-family-icons;
-        border-color: $background-color-page-footer;
-        color: $background-color-page-footer;
-
-        &:hover,
-        &:focus {
-            background: $link-color;
-        }
-
-        &:active {
-            background: $link-color-active;
-        }
-
-    }
-
-    /* Twitter button. */
-    .twitter a {
-        background: $color-twitter;
-    }
-
-    /* RSS button. */
-    .feed a {
-        background: $color-rss;
-    }
-
-}
-
-
-/**
  * Footer button areas.
  */
 
@@ -93,7 +54,11 @@
     top: ((-1 * ($circle-diameter / 2)) - 2); /* 1 */
 }
 
-/* Pagination. */
+
+/**
+ * Pagination.
+ */
+
 .pagination {
 
     /*
@@ -158,4 +123,37 @@
         border-color: $background-color-content;
     }
 
+}
+
+
+/**
+ * Subscribe icon buttons (e.g. Twitter, RSS).
+ */
+
+.subscribe-item a {
+    font-family: $font-family-icons;
+    border-color: $background-color-page-footer;
+    color: $background-color-page-footer;
+
+    &:hover,
+    &:focus {
+        border-color: $background-color-page-footer;
+        background: $link-color;
+    }
+
+    &:active {
+        border-color: $background-color-page-footer;
+        background: $link-color-active;
+    }
+
+}
+
+/* Twitter button. */
+.subscribe-twitter a {
+    background: $color-twitter;
+}
+
+/* RSS button. */
+.subscribe-feed a {
+    background: $color-rss;
 }

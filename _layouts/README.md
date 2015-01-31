@@ -80,44 +80,54 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 </main>
 <!-- INCLUDE site-footer.html -->
 <footer class="footer site-footer" id="site-footer">
-	<ul class="button-bar footer-button-bar site-footer-button-bar">
-		<li class="twitter">
+	<ul class="subscribe button-bar footer-button-bar site-footer-button-bar">
+		<li class="subscribe-item subscribe-twitter">
 			<a href="#" title="Follow on Twitter">&#xF309;</a>
 		</li>
-		<li class="feed">
+		<li class="subscribe-item subscribe-feed">
 	      <a href="/rss/" title="Subscribe to RSS">&#xE73A;</a>
 	    </li>
 	</ul>
-	<h1 class="logo" title="cJ barnes">&#xE600;</h1>
-	<p class="contact">
-		<i class="label" title="email">&#x2709;</i>
-		<a href="mailto:mail@cjbarnes.co.uk" title="Email me">mail@cjbarnes.co.uk</a>
-		<br>
-		<i class="label" title="phone">&#x1F4DE;</i>
-		<a href="tel:+447894880298" title="Phone me">07894 880298</a>hgroup
-		<br>
-		<i class="label" title="linkedin">&#xF318;</i>
-		<a href="http://uk.linkedin.com/in/cjbarnesuk/" title="Find me on LinkedIn">cjbarnesuk</a>
-		<br>
-		<i class="label" title="twitter">&#xF309;</i>
-		<a href="#" title="Follow me on Twitter">cjbarnesuk</a>
-		<br>
-		<i class="label" title="github">&#xF300;</i>
-		<a href="https://github.com/cjbarnes/" title="Find me on GitHub">cjbarnes</a>
-		<br>
-	</p>
-	<p class="smallprint">
-		<span class="copyright">© 2014–2015 cJ barnes</span>
-		<br>
-		<a href="/credits/">credits &amp; thank yous</a>
-		<br>
-		<a href="/colophon/">colophon</a>
-		<br>
-		<a href="#">view my code</a>
-		<br>
-		<a href="/terms/">terms of use</a>
-		<br>
-	</p>
+	<h1 class="logo footer-logo" title="cJ barnes">&#xE600;</h1>
+	<ul class="contact footer-section site-footer-section">
+		<li class="contact-item contact-item-email site-footer-item">
+			<i class="contact-label" title="email">&#x2709;</i>
+			<a href="mailto:mail@cjbarnes.co.uk" title="Email me">mail@cjbarnes.co.uk</a>
+		</li>
+		<li class="contact-item contact-item-phone site-footer-item">
+			<i class="contact-label" title="phone">&#x1F4DE;</i>
+			<a href="tel:+447894880298" title="Phone me">07894 880298</a>
+		</li>
+		<li class="contact-item contact-item-linkedin site-footer-item">
+			<i class="contact-label" title="linkedin">&#xF318;</i>
+			<a href="http://uk.linkedin.com/in/cjbarnesuk/" title="Find me on LinkedIn">cjbarnesuk</a>
+		</li>
+		<li class="contact-item contact-item-twitter site-footer-item">
+			<i class="contact-label" title="twitter">&#xF309;</i>
+			<a href="#" title="Follow me on Twitter">cjbarnesuk</a>
+		</li>
+		<li class="contact-item contact-item-github site-footer-item">
+			<i class="contact-label" title="github">&#xF300;</i>
+			<a href="https://github.com/cjbarnes/" title="Find me on GitHub">cjbarnes</a>
+		</li>
+	</ul>
+	<ul class="smallprint footer-section site-footer-section">
+		<li class="smallprint-item smallprint-item-copyright site-footer-item">
+			© 2014–2015 cJ barnes
+		</li>
+		<li class="smallprint-item site-footer-item">
+			<a href="/credits/">credits &amp; thank yous</a>
+		</li>
+		<li class="smallprint-item site-footer-item">
+			<a href="/colophon/">colophon</a>
+		</li>
+		<li class="smallprint-item site-footer-item">
+			<a href="#">view my code</a>
+		</li>
+		<li class="smallprint-item site-footer-item">
+			<a href="/terms/">terms of use</a>
+		</li>
+  </ul>
 </footer>
 <!-- END site-footer.html -->
 <!-- INCLUDE foot.html -->

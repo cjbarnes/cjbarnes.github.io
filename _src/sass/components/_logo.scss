@@ -46,11 +46,13 @@
 }
 
 
-/* Footer logo - hidden for mobile. */
-#site-footer .logo {
+/**
+ * Footer logo - hidden for mobile.
+ */
+
+.footer-logo {
     display: none;
 }
-
 
 
 /**
@@ -65,7 +67,7 @@
      * 1. Horizontal centring for abs-pos element.
      * 2. Hidden for mobiles.
      */
-    #site-footer .logo {
+    .footer-logo {
         @include rem("bottom", ($line * 2));
         @include rem("margin", 0 0 0 ($line * -1)); /* 1 */
         @include font-size-leading("gigantic", 2);
