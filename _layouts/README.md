@@ -57,20 +57,20 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 		</section>
 		<footer class="footer page-footer" id="page-footer">
 <!-- INCLUDE pager.html OR pagination.html -->
-			<ul class="button-bar pagination footer-toolbar page-footer-toolbar">
-				<li class="newer">
+			<ul class="button-bar pagination footer-button-bar page-footer-button-bar">
+				<li class="pagination-item pagination-item-adjacent pagination-item-newer">
 					<a href="/blog/page2" title="newer posts">&#9194;</a>
 				</li>
-				<li>
+				<li class="pagination-item pagination-item-page">
 					<a href="/blog/">1</a>
 				</li>
-				<li>
+				<li class="pagination-item pagination-item-page">
 					<a href="/blog/page2/">2</a>
 				</li>
-				<li class="active">
+				<li class="pagination-item pagination-item-page active">
 					<b title="current page">3</b>
 				</li>
-				<li class="older">
+				<li class="pagination-item pagination-item-adjacent pagination-item-older disabled">
 					<b>&nbsp;</b>
 				</li>
 			</ul>
@@ -80,7 +80,7 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 </main>
 <!-- INCLUDE site-footer.html -->
 <footer class="footer site-footer" id="site-footer">
-	<ul class="button-bar footer-toolbar site-footer-toolbar">
+	<ul class="button-bar footer-button-bar site-footer-button-bar">
 		<li class="twitter">
 			<a href="#" title="Follow on Twitter">&#xF309;</a>
 		</li>

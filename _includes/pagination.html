@@ -1,28 +1,39 @@
 <!-- Pagination -->
-<ul class="button-bar pagination footer-toolbar page-footer-toolbar">
-  <li class="newer">
-  {% if 1 != paginator.page %}
+<ul class="button-bar pagination footer-button-bar page-footer-button-bar">
+
+  <!-- Previous page -->
+{% if 1 != paginator.page %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-newer">
     <a href="/blog/{% unless 1 == paginator.previous_page %}page{{ paginator.previous_page }}/{% endunless %}" title="newer posts">&#9194;</a>
-  {% else %}
-    <b>&nbsp;</b>
-  {% endif %}
   </li>
+{% else %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-newer disabled">
+    <b>&nbsp;</b>
+  </li>
+{% endif %}
+
+  <!-- Page numbers -->
 {% for pagenum in (1..paginator.total_pages) %}
   {% if pagenum == paginator.page %}
-    <li class="active">
+    <li class="pagination-item pagination-item-page active">
       <b title="current page">{{ pagenum }}</b>
     </li>
   {% else %}
-    <li>
+    <li class="pagination-item pagination-item-page">
       <a href="/blog/{% unless 1 == pagenum %}page{{ pagenum }}/{% endunless %}">{{ pagenum }}</a>
     </li>
   {% endif %}
 {% endfor %}
-  <li class="older">
-    {% if paginator.page != paginator.total_pages %}
+
+  <!-- Next page -->
+{% if paginator.page != paginator.total_pages %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-older">
       <a href="/blog/page{{ paginator.next_page }}/" title="older posts">&#9193;</a>
-    {% else %}
-      <b>&nbsp;</b>
-    {% endif %}
   </li>
+{% else %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-older disabled">
+    <b>&nbsp;</b>
+  </li>
+{% endif %}
+
 </ul>

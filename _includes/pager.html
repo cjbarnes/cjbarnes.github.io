@@ -1,17 +1,26 @@
 <!-- Next/Previous Posts -->
-<ul class="button-bar pager footer-toolbar page-footer-toolbar">
-  <li class="newer">
-  {% if page.next %}
+<ul class="button-bar pagination pagination-pager footer-button-bar page-footer-button-bar">
+
+  <!-- Previous page -->
+{% if page.next %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-newer">
     <a href="{{ page.next.url }}" title="newer post">&#9194;</a>
-  {% else %}
-    <b>&nbsp;</b>
-  {% endif %}
   </li>
-  <li class="older">
-  {% if page.previous %}
+{% else %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-newer disabled">
+    <b>&nbsp;</b>
+  </li>
+{% endif %}
+
+  <!-- Next page -->
+{% if page.previous %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-older">
     <a href="{{ page.previous.url }}" title="older post">&#9193;</a>
-  {% else %}
-    <b>&nbsp;</b>
-  {% endif %}
   </li>
+{% else %}
+  <li class="pagination-item pagination-item-adjacent pagination-item-older disabled">
+    <b>&nbsp;</b>
+  </li>
+{% endif %}
+
 </ul>
