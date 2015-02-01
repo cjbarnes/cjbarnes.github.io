@@ -14,10 +14,13 @@
  * Set up the starting point.
  * 1. Box sizing part 1.
  * 2. = 15px, assuming the user's browser font setting is 16px (the default).
+ * 3. Extend the site footer background colour to the bottom of the window when
+ *    it is taller than the page body.
  */
 html {
     box-sizing: border-box; /* 1 */
     font-size: (100% * ($base-font-size-small / 16)); /* 2 */
+    background: $background-color-site-footer; /* 3 */
 }
 
 /*
