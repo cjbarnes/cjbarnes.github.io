@@ -35,60 +35,58 @@
 {% endfor %}
 
     <!-- Main content area -->
-    <section id="primary" class="index-content">
+    <section id="primary" class="blog-content">
 
       <!-- Sidebar -->
-      <aside class="sidebar index-sidebar">
+      <aside class="sidebar blog-sidebar">
 
         {{ content }}
 
       </aside>
 
       <!-- Articles list -->
-      <div class="listing index-listing">
+      <div class="listing blog-listing">
 
         {% for post in paginator.posts %}
-          {% if featured_post != post.id %}
 
-            <article class="article index-article {{ post.format }} index-{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
+          <article class="article index-article {{ post.format }} index-{{ post.format }}{% if post.illustration %} illustrated{% endif %}">
 
-              {% if post.title %}
-                <header class="article-header index-article-header">
+            {% if post.title %}
+              <header class="article-header index-article-header">
 
-                  {% if post.illustration %}
-                    {% assign illustration = post.illustration | append: '_listing' %}
-                    {% include illustration.html image=illustration %}
-                  {% endif %}
+                {% if post.illustration %}
+                  {% assign illustration = post.illustration | append: '_listing' %}
+                  {% include illustration.html image=illustration %}
+                {% endif %}
 
-                  {% include title.html title=post.title link_href=post.link_href url=post.url summary=post.summary %}
+                {% include title.html title=post.title link_href=post.link_href url=post.url summary=post.summary %}
 
-                </header>
-              {% endif %}
+              </header>
+            {% endif %}
 
-              {% unless post.illustration %}
-                <div class="content article-content index-article-content">
+            {% unless post.illustration %}
+              <div class="content article-content index-article-content">
 
-                  {{ post.content }}
+                {{ post.content }}
 
-                  {% if post.link_href %}
-                    <figure class="link link-article-link">
-                      <a href="{{ post.link_href }}">
-                        <em>link:</em> {{ post.title }}
-                      </a>
-                    </figure>
-                  {% endif %}
+                {% if post.link_href %}
+                  <figure class="link link-article-link">
+                    <a href="{{ post.link_href }}">
+                      <em>link:</em> {{ post.title }}
+                    </a>
+                  </figure>
+                {% endif %}
 
-                </div>
-              {% endunless %}
+              </div>
+            {% endunless %}
 
-              <footer>
-                {% include date.html date=post.date %}
-                {% include permalinks.html url=post.url %}
-              </footer>
+            <footer>
+              {% include date.html date=post.date %}
+              {% include permalinks.html url=post.url %}
+            </footer>
 
-            </article>
+          </article>
 
-          {% endif %}
         {% endfor %}
 
       </div><!-- .listing -->
