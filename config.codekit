@@ -1003,15 +1003,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/blog\/index.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/blog\/index.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/css\/aleo-font.min.css": {
 		"fileType": 16,
 		"ignore": 1,
@@ -1254,7 +1245,7 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 0,
+		"initialSize": 390299,
 		"inputAbbreviatedPath": "\/img\/wea-norwich.png",
 		"outputAbbreviatedPath": "\/img\/wea-norwich.png",
 		"outputPathIsOutsideProject": 0,
