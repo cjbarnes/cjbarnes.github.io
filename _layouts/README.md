@@ -36,7 +36,10 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 <!-- END illustration.html -->
 <!-- INCLUDE title.html -->
 			<div class="title">
-				<h1 class="title-main">page title</h1>
+				<i class="title-label">link:</i>
+				<h1 class="title-main">
+					<a class="title-link" href="#">page title</a>
+				</h1>
 				<h2 class="title-summary">page summary</h2>
 			</div>
 <!-- END title.html -->
