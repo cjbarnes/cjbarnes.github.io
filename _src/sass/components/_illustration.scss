@@ -30,35 +30,8 @@
 
 }
 
-/*
- * Illustrated page/post headers, including the homepage.
- * 1. Specificity hack.
- */
-.illustrated.illustrated > header, /* 1 */
-header > .illustrated,
-.homepage {
-
-    /* Article title, and 'featured article' label. */
-    .title-main,
-    .title-label {
-        text-shadow: 0 0 10px $black;
-    }
-
-    .title-main a {
-
-        &:hover,
-        &:focus,
-        &:active {
-            text-shadow: none;
-        }
-
-    }
-
-}
-
 /* Illustrated articles (both in and out of the masthead). */
-.illustrated > header,
-header > .illustrated {
+.header-illustrated {
 
     /* Gradient fade between the illustration and the article footer. */
     .gradient {
@@ -83,7 +56,7 @@ header > .illustrated {
 }
 
 /* Illustrated articles - just in the blog listing. */
-.illustrated > header {
+.blog-listing .header-illustrated {
 
     .title {
         @include rem("padding-top", ($line * 7));
@@ -92,9 +65,7 @@ header > .illustrated {
 }
 
 /* Illustrated mastheads. */
-main.illustrated > header,
-.single.illustrated > header,
-header > .illustrated {
+.masthead-illustrated {
 
     /* Leave space above page title for the photo. */
     .title {
@@ -129,7 +100,7 @@ header > .illustrated {
 }
 
 /* Homepage header parallax. */
-.homepage > header {
+.homepage-masthead {
 
     /*
      * Title.
@@ -176,6 +147,7 @@ header > .illustrated {
  * 1. Parallax images positioning.
  * 2. Default background colour for illustrated content sections.
  */
+// @todo fix all these #secondary uses.
 #secondary.illustrated {
     @include font-size-leading("large");
     position: relative; /* 1 */

@@ -57,15 +57,14 @@ body {
  */
 
 /* Wrapper for everything above the footer. */
-main,
-.single {
+.above-footer {
     @include clearfix;
     max-width: $body-width-maximum;
     margin: 0 auto;
 }
 
-/* White background for single-item content area. */
-.single {
+/* White background for single-item content. */
+.layout-simple-article {
     background: $background-color-content;
 }
 

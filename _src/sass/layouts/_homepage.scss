@@ -16,26 +16,25 @@
  *    because I'm also declaring both min- and max-heights, which act as a
  *    de facto fallback.
  */
-.homepage > header {
+.homepage-masthead {
     position: relative; /* 1 */
     height: 99vh; /* 2 */
     min-height: 700px;
     max-height: (940px + $line-px);
+}
 
-    /* Homepage welcome message */
-    .homepage-title h1 {
-        @include column($columns);
-        @include font-size-leading("huger", 1.5);
-        text-align: center;
-        text-shadow: 0 0 10px $black;
-        color: $text-color-reversed;
+/* Homepage welcome message */
+.homepage-title-main {
+    @include column($columns);
+    @include font-size-leading("huger", 1.5);
+    text-align: center;
+    text-shadow: 0 0 10px $black;
+    color: $text-color-reversed;
 
-        a:hover,
-        a:focus,
-        a:active {
-            text-shadow: none;
-        }
-
+    a:hover,
+    a:focus,
+    a:active {
+        text-shadow: none;
     }
 
     /*

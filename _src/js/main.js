@@ -207,7 +207,7 @@
 (function linkifySubheadings() {
 
   /* Get the subheading elements */
-  var subheads = document.querySelectorAll('.single .content h2');
+  var subheads = document.querySelectorAll('.layout-simple-content h2');
 
   /* Add ID and link to each subheading in turn */
   var i, l;

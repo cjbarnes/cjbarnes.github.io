@@ -10,22 +10,10 @@
  * The masthead.
  * 1. For date positioning.
  */
-main > header,
-.single > header {
+.masthead {
     @include clearfix;
     position: relative; /* 1 */
     background: $background-color-masthead;
-}
-
-/* Illustrated masthead on blog index page. */
-.index .masthead {
-    background: $background-color-illustrated;
-}
-
-
-/* Title and teaser in masthead. */
-main > header,
-.single > header {
 
     /*
      * The title-and-teaser wrapper.
@@ -63,15 +51,15 @@ main > header,
         color: $text-color-reversed;
     }
 
-} //main>header, .single>header
+} //.masthead
 
 
-/**
+/*
  * Illustrated mastheads.
+ * 1. To make sure the full parallax image is contained within.
  */
-
-main.illustrated > header,
-.single.illustrated > header {
+.masthead-illustrated {
+    min-height: 500px; /* 1 */
     background: $background-color-illustrated;
 }
 
@@ -84,8 +72,7 @@ main.illustrated > header,
 @include media-width("normal-size") {
 
     /* The masthead. */
-    main > header,
-    .single > header {
+    .masthead {
 
         /**
          * Spacing either side of the main page title, for normal screen widths.

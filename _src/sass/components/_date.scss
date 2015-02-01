@@ -43,7 +43,7 @@
 /*
  * Dates in article footer (used for listing pages).
  */
-article footer {
+.listing-footer {
 
     .date {
         @include font-size-leading("larger");
@@ -68,7 +68,7 @@ article.illustrated footer .date-unit {
 }
 
 /* Bigger featured article dates. */
-article.featured footer {
+.post-featured-footer {
 
     .date {
         @include font-size-leading("huge");
@@ -96,7 +96,7 @@ article.featured footer {
      * Dates in article footer.
      * 1. Vertical centring in footer line.
      */
-    article footer .date {
+    .post-footer .date {
         @include rem("bottom", ($line - (($circle-diameter * 0.5) / $line-px))); // @todo CHECK THIS MATHS (I think it's 'magic', not logical)
         position: absolute;
         padding: 0;

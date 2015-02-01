@@ -1,6 +1,7 @@
 /**
  * Article header/footer and container styles, used on both single posts/pages
- * and for post indexes. (Content area styles are in `_content.scss`.)
+ * and for post indexes. (See also `_content.scss` and `_title.scss`, among
+ * others.)
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
@@ -13,99 +14,38 @@
 
 /* Output header colours for each post/item format. */
 @each $format, $color in $format-colors {
-    article.#{$format} {
-
-        > header,
-        header .date-unit,
-        .listing &:before {
-            background: $color;
-        }
-
+    .header-#{$format},
+    .masthead-#{$format} .date-unit,
+    .listing .post-#{$format}:before {
+        background: $color;
     }
 }
 
 /* Illustrated post header colours. */
-article.illustrated {
-
-    > header,
-    .date .date-unit,
-    .listing &:before {
-        background: $background-color-illustrated;
-    }
-
+.header-illustrated,
+.masthead-illustrated .date-unit,
+.listing .post-illustrated:before {
+    background: $background-color-illustrated;
 }
 
-/* Additional link styling for Link and Project items. */
-article.link,
-article.project {
+/*
+ * Additional link styling for Link and Project items. Make links visible when
+ * in the header area.
+ */
+.header-link a,
+.header-project a {
 
-    /* Make links visible when in the header area. */
-    > header a {
-
-        &:hover,
-        &:focus {
-            border-color: $text-color-reversed;
-            background: $text-color-reversed;
-            color: $link-color;
-        }
-
-        &:active {
-            border-color: $link-color-active;
-            background: $link-color-active;
-            color: $text-color-reversed;
-        }
-
+    &:hover,
+    &:focus {
+        border-color: $text-color-reversed;
+        background: $text-color-reversed;
+        color: $link-color;
     }
 
-}
-
-/* Page/post title. */
-article {
-
-    /*
-     * Page/post title wrapper.
-     * 1. Stay on top of illustration and gradient.
-     */
-    .title {
-        position: relative; /* 1 */
-        z-index: 2;
-    }
-
-    /* Title. */
-    .title-main {
-        @include rem("padding", $line 0);
-        margin: 0;
+    &:active {
+        border-color: $link-color-active;
+        background: $link-color-active;
         color: $text-color-reversed;
-
-        /* Links in titles. */
-        a {
-            padding: 0 0 ($link-padding / 2);
-            color: inherit;
-        }
-
-    }
-
-    /* Subtitle/excerpt. */
-    .title-summary {
-        @include rem("margin", 0 0 $line);
-        @include font-size-leading("normal");
-        font-family: $font-family-content;
-        color: $text-color-reversed;
-    }
-
-    /* 'Link' label. */
-    .title-label {
-        @include rem("padding", $line 0 0);
-        @include font-size-leading("large");
-        display: block;
-        font-style: normal;
-        color: $text-color-reversed;
-
-        /* Reduce padding of succeeding title. */
-        + .title-main {
-            padding-top: 0;
-        }
-
     }
 
 }
@@ -116,21 +56,17 @@ article {
  */
 
 /* Standard steps. */
-article.step {
-
-    > header,
-    .listing &:before {
-            background: $color-step;
-    }
-
+.step:before,
+.step-header {
+    background: $color-step;
 }
 
 /* Launch step. */
-article.launch {
+.step-launch {
 
-    > header,
-    .listing &:before {
-            background: $color-step-launch;
+    &:before,
+    .step-header {
+        background: $color-step-launch;
     }
 
 }
@@ -143,7 +79,8 @@ article.launch {
 /*
  * 1. For metadata elements' positioning.
  */
-article footer {
+.listing-footer,
+.post-featured-footer {
     @include rem("min-height", ($line * 3));
     @include rem("padding-bottom", ($line * 0.5));
     position: relative; /* 1 */
@@ -162,21 +99,18 @@ article footer {
 }
 
 
-/**
- * Featured articles.
- */
-
 /*
+ * Featured articles.
  * 1. For article footer positioning.
  */
-article.featured {
+.post-featured {
     @include clearfix;
     position: relative; /* 1 */
     background-color: $background-color-illustrated;
 }
 
-/* Metadata footer */
-article.featured footer {
+/* Metadata footer for featured articles. */
+.post-footer.post-featured-footer {
     @include rem("height", $line);
     min-height: 0;
     background: transparent;
@@ -210,14 +144,9 @@ article.featured footer {
  */
 @include media-width("normal-size") {
 
-    /* Article alignment. */
-    article .title {
-        @include push;
-        @include pull;
-    }
-
     /* Metadata alignment. */
-    article footer {
+    .listing-footer,
+    .post-featured-footer {
         padding-bottom: 0;
 
         /* Left- and right-aligned metadata fields. */
@@ -245,7 +174,7 @@ article.featured footer {
     }
 
     /* Featured article footers. */
-    article.featured footer {
+    .post-featured-footer {
         @include column(8);
         @include push(2);
         @include pull(2);

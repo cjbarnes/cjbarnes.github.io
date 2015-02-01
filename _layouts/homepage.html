@@ -1,9 +1,13 @@
 {% include head.html %}
 
-  <main class="homepage">
+<main class="above-footer">
+
+  {% include articleclass.html page=page %}
+  <article class="homepage {{ articleclass | strip_newlines }}">
 
     <!-- Article title area -->
-    <header class="masthead homepage-masthead light-masthead">
+    {% include headerclass.html page=page masthead=true %}
+    <header class="homepage-masthead {{ headerclass | strip_newlines }}">
 
       {% include nav.html %}
 
@@ -21,26 +25,28 @@
       </div>
 
       <!-- Title and teaser -->
-      <div class="title homepage-title light-masthead-title">
-        <h1>
+      <div class="title homepage-title">
+        <h1 class="homepage-title-main">
           <strong class="brag"><span class="current">education</span><span>small&nbsp;business</span><span>wordpress</span></strong><br />
           <span class="suffix">web design by cJ&nbsp;barnes</span>
         </h1>
       </div>
 
-    </header>
+    </header><!-- /.masthead -->
 
     <!-- Main content area -->
-    <section id="primary" class="content primary-content">
+    <section id="primary" class="content primary-content homepage-content">
 
       {{ content }}
 
     </section>
 
-    {% include page-footer.html %}
+  </article>
 
-  </main>
+  {% include page-footer.html %}
 
-  {% include site-footer.html %}
+</main><!-- /.above-footer -->
+
+{% include site-footer.html %}
 
 {% include foot.html %}

@@ -20,7 +20,7 @@
 @include media-width("normal-size") {
 
   /* Content is still single-column, but with bigger margins, on tablets. */
-  .index .sidebar {
+  .blog-sidebar {
     @include column(10);
     @include push;
     @include pull;
@@ -37,7 +37,7 @@
 @include media-width("two-columns") {
 
   /* Lay out sidebar as a sidebar (only happens for widest layouts). */
-  .index .sidebar {
+  .blog-sidebar {
     @include column(3);
     @include push(0);
     @include pull(0);

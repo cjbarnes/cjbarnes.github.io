@@ -6,11 +6,11 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 ```html
 <!-- INCLUDE head.html -->
 <html lang="en-GB" class="js">
-<body class="layout-standard layout-simple blog post post-link post-blog-page-title">
+<body class="layout-standard layout-simple">
 <!-- END head.html -->
 <main class="above-footer">
-	<article class="post post-single post-text post-illustrated">
-		<header class="masthead" id="masthead">
+	<article class="blog post post-link post-blog-my-title layout-simple-post">
+		<header class="header header-link header-illustrated masthead masthead-link masthead-illustrated reversed" id="masthead">
 <!-- INCLUDE nav.html -->
 			<nav class="nav open" id="navbar">
 				<h1 class="logo nav-logo" title="cJ barnes">&#xE600;</h1>
@@ -31,16 +31,16 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 <!-- INCLUDE illustration.html -->
 			<div class="illustration">
 				<img src="/img/illustration.jpg">
-				<div class="gradient"></div>
+				<div class="illustration-gradient"></div>
 			</div>
 <!-- END illustration.html -->
 <!-- INCLUDE title.html -->
 			<div class="title">
 				<i class="title-label">link:</i>
 				<h1 class="title-main">
-					<a class="title-link" href="#">page title</a>
+					<a class="title-link" href="#">my title</a>
 				</h1>
-				<h2 class="title-summary">page summary</h2>
+				<h2 class="title-summary">my summary</h2>
 			</div>
 <!-- END title.html -->
 <!-- INCLUDE date.html -->
@@ -53,7 +53,7 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 			</time>
 <!-- END date.html -->
 		</header>
-		<section class="content primary-content" id="primary">
+		<section class="content layout-simple-content primary-content" id="primary">
 			<!--
 			  CONTENT GOES HERE.
 			  -->

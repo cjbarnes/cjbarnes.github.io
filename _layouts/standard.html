@@ -1,22 +1,25 @@
-{% if page.date %}
-  {% assign main_tag = 'article' %}
-  {% assign format = page.format %}
-{% else %}
-  {% assign main_tag = 'main' %}
-  {% assign format = 'page' %}
-{% endif %}
-
 {% include head.html %}
 
-  {% comment %}
-   % Assemble classes for the main element.
-  {% endcomment %}
-  {% capture main_classes %}{{ format }} {{ page.class }}{% unless page.complex %} single{% endunless %}{% if page.illustration %} illustrated{% endif %}{% if page.masthead == 'light' %} light-masthead{% endif %}{% endcapture %}
+<main class="above-footer">
 
-  <{{ main_tag }} class="{{ main_classes }}">
+  {% comment %} Assemble all article classes. {% endcomment %}
+  {% include articleclass.html page=page %}
+  {% capture articlelayoutclass %}
+  {% unless (page.complex or ('homepage' == page.layout) or ('portfolio' == page.layout) or ('index' == page.layout) %}
+    layout-simple-article
+    {% if page.date %}
+      layout-simple-post
+    {% else %}
+      layout-simple-page
+    {% endif %}
+  {% endunless %}
+  {% endcapture %}
+
+  <article class="{{ articleclass | strip_newlines }} {{ articlelayoutclass | strip_newlines }}">
 
     <!-- Article title area -->
-    <header class="masthead ">
+    {% include headerclass.html page=page masthead=true %}
+    <header class="{{ headerclass | strip_newlines }}">
 
       {% include nav.html %}
 
@@ -37,7 +40,7 @@
     </header>
 
     <!-- Main content area -->
-    <section id="primary" {% unless page.complex %}class="content primary-content"{% endunless %}>
+    <section id="primary" {% unless page.complex %}class="content layout-simple-content primary-content"{% endunless %}>
 
       {{ content }}
 
@@ -51,17 +54,19 @@
 
     </section>
 
-    <!-- Upper footer area -->
-    <footer class="footer page-footer" id="page-footer">
+  </article>
 
-      {% if page.date %}
-        {% include pager.html %}
-      {% endif %}
+  <!-- Upper footer area -->
+  <footer class="footer page-footer" id="page-footer">
 
-    </footer>
+    {% if page.date %}
+      {% include pager.html %}
+    {% endif %}
 
-  </{{ main_tag }}>
+  </footer><!-- /.page-footer -->
 
-  {% include site-footer.html %}
+</main><!-- /.above-footer -->
+
+{% include site-footer.html %}
 
 {% include foot.html %}

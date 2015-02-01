@@ -20,19 +20,13 @@
 
 }
 
-
 /*
  * Listing items.
  * 1. Icon placement and style.
  */
-.listing article {
+.listing-item {
     @include rem("margin-bottom", ($line * 2));
     @include circle-box($background-color); /* 1 */
-
-    /* Content areas in articles */
-    .content {
-        background: $background-color-content;
-    }
 
     /* Icon colours and fonts.. */
     &:before {
@@ -42,20 +36,22 @@
 
     /* Loop through icons themselves. */
     @each $format, $icon in $format-icons {
-
-        &.#{$format}:before {
+        &.post-#{$format}:before {
             content: "#{$icon}";
         }
-
     }
 
     /* No icon for illustrated articles in full-size listings. */
-    &.illustrated:before {
+    &.post-illustrated:before {
         display: none;
     }
 
+    .content {
+        background: $background-color-content;
+    }
+
     /* Quote post custom styling. */
-    &.quote {
+    &.post-quote {
 
         figure.quote {
             margin-bottom: 0;
@@ -66,7 +62,7 @@
     }
 
     /* Link post custom styling. */
-    &.link {
+    &.post-link {
 
         /* Make direct link box flush with footer top. */
         .content {
@@ -76,15 +72,15 @@
     }
 
     /* Illustrated post custom styling. */
-    &.illustrated {
+    &.post-illustrated {
 
         &,
-        & > footer {
+        .post-footer {
             background: $background-color-illustrated;
         }
 
         /* Dark footer - unique to illustrated posts. */
-        > footer {
+        .post-footer {
 
             .permalink,
             .share,
@@ -96,7 +92,7 @@
 
     }
 
-} //.listing article
+} //.listing-item
 
 
 /**
@@ -104,10 +100,10 @@
  */
 
 /* Portfolio entries. */
-.portfolio .website {
+.portfolio-listing {
 
     /* No icons. */
-    &:before {
+    .portfolio-listing-item:before {
         display: none;
     }
 
@@ -151,17 +147,14 @@
         color: $text-color;
     }
 
-} //.portfolio .website
+} //.portfolio-listing
 
-
-/**
- * My Approach listing (timeline of steps).
- */
 
 /*
+ * My Approach listing (timeline of steps).
  * 1. Use CSS counter for numbering of the steps in the timeline.
  */
-.approach .listing {
+.page-my-approach {
     counter-reset: steps; /* 1 */
 
     /* Item container. */
@@ -181,7 +174,7 @@
     }
 
     /* Item graphics. */
-    .title .icon {
+    .step-icon {
         @include rem("font-size", ($line-px * 2));
         display: inline-block;
         font-family: $font-family-icons;
@@ -190,7 +183,7 @@
     }
 
     /* 'What you get' footer. */
-    footer {
+    .step-footer {
         @include rem("min-height", $line);
         @include rem("margin", ($line * 0.5) ($line * 0.5) 0);
         @include rem("padding", ($line / 2) 0);
@@ -260,7 +253,7 @@
      * Arrow shaft.
      * 1. Horizontal centring.
      */
-    footer:after {
+    .step-footer:after {
         @include rem("margin-top", ($line / 2));
         content: '';
         position: absolute;
@@ -274,12 +267,12 @@
     }
 
     /* Hide arrow for last step. */
-    .support:after,
-    .support footer:after {
+    .step-support:after,
+    .step-support .step-footer:after {
         display: none;
     }
 
-}
+} //.page-my-approach
 
 
 /**
@@ -290,9 +283,7 @@
 @include media-width("normal-size") {
 
     /* Content is still single-column, but with bigger margins. */
-    .index .listing,
-    .cv .listing,
-    .approach .listing {
+    .listing {
         @include column(10);
         @include push;
         @include pull;
@@ -301,7 +292,7 @@
     /*
      * Move across "What you get" subheading to line up with main box content.
      */
-    .approach .listing .step footer h3 {
+    .page-my-approach .step-footer h3 {
         @include push;
         @include pull;
     }
@@ -317,7 +308,7 @@
 @include media-width("two-columns") {
 
     /* Leave room for the sidebar column next to the listing column. */
-    .index .listing {
+    .blog-listing {
         @include column(8);
         @include push(1);
         @include pull(0);
@@ -328,7 +319,7 @@
      * previous breakpoint, portfolio listing stayed full-width to accommodate
      * as much website screenshot as possible.
      */
-    .portfolio .listing {
+    .portfolio-listing {
         @include column(10);
         @include push;
         @include pull;
@@ -338,8 +329,8 @@
      * Listings that still have no sidebar, but should be the same width as a
      * listing with a sidebar.
      */
-    .cv .listing,
-    .approach .listing {
+    .page-c-v- .listing,
+    .page-my-approach .listing {
         @include column(8);
         @include push(2);
         @include pull(2);
@@ -356,7 +347,7 @@
 @include media-width("portfolio-screenshots") {
 
     /* The full-size screenshot wrapper. */
-    .portfolio .website .screenshot {
+    .portfolio-listing .screenshot {
 
         /*
          * Desktop-scale screenshots.

@@ -92,34 +92,27 @@ figure.code {
 }
 
 
-/**
- * Figures on single-article pages.
- */
-.single {
+/* Figures on single-article pages. */
+.layout-simple-content figure {
+    @include rem("margin", ($line * 2) 0 $line);
+    @include rem("padding-top",    ($line * 1.5));
+    @include rem("padding-bottom", ($line * 1.5));
 
-    /* Spacing. */
-    figure {
-        @include rem("margin", ($line * 2) 0 $line);
-        @include rem("padding-top",    ($line * 1.5));
-        @include rem("padding-bottom", ($line * 1.5));
+    /* Icon layout. */
+    &.code,
+    &.link,
+    &.quote {
+        @include circle-box;
 
-        /* Icon layout. */
-        &.code,
-        &.link,
-        &.quote {
-            @include circle-box;
-
-            &:before {
-                font-family: $font-family-icons;
-            }
-
+        &:before {
+            font-family: $font-family-icons;
         }
 
     }
 
     /* Icon content and colours. */
     @each $figure, $color in $figure-colors {
-        figure.#{$figure}:before {
+        &.#{$figure}:before {
             content: map-get($figure-icons, $figure);
             background-color: $color;
         }

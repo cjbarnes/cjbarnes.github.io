@@ -1,9 +1,13 @@
 {% include head.html %}
 
-  <main class="portfolio {{ page.class }}{% if page.illustration %} illustrated{% endif %}{% if page.masthead == 'light' %} light-masthead{% endif %}">
+<main class="above-footer">
+
+  {% include articleclass.html page=page %}
+  <article class="{{ articleclass | strip_newlines }}">
 
     <!-- Title area -->
-    <header>
+    {% include headerclass.html page=page masthead=true %}
+    <header class="{{ headerclass | strip_newlines }}">
 
       {% include nav.html %}
 
@@ -13,7 +17,7 @@
 
       {% include title.html title=page.title %}
 
-    </header>
+    </header><!-- /.masthead -->
 
     <!-- Main content area -->
     <section id="primary">
@@ -21,14 +25,14 @@
       {{ content }}
 
       <!-- Websites list -->
-      <div class="listing">
+      <div class="listing portfolio-listing">
 
         {% for item in site.data.portfolio %}
 
-          <article class="website portfolio-{{ item.slug }}">
+          <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
 
             <!-- Screenshots -->
-            <div class="content">
+            <div class="content listing-content portfolio-item-content">
               <div class="screenshot large">
                 <img src="/img/{{ item.slug }}.png" title="Desktop version">
               </div>
@@ -38,7 +42,7 @@
             </div>
 
             <!-- Footer -->
-            <footer>
+            <footer class="footer listing-footer portfolio-item-footer">
               <h3>{{ item.name }}</h3>
               <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
             </footer>
@@ -51,10 +55,12 @@
 
     </section>
 
-    {% include page-footer.html %}
+  </article>
 
-  </main>
+  {% include page-footer.html %}
 
-  {% include site-footer.html %}
+</main><!-- /.above-footer -->
+
+{% include site-footer.html %}
 
 {% include foot.html %}

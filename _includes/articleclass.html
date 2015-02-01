@@ -1,0 +1,22 @@
+{% comment %}
+Assemble article-element classes used to ID this post or page.
+
+Must pass in argument 'page', which should be the post or page object for
+this article.
+
+Classes added:
+  - post          Marker for blog posts.
+  - page          Marker for pages.
+  - post-[format] This post's format (e.g. 'tip').
+  - post-[id]     Unique class for this specific post.
+  - page-[title]  Unique class for this specific page.
+{% endcomment %}
+{% capture articleclass %}
+{% if include.page.date %}
+  blog post post-{{ include.page.format }} post-{{ include.page.id | slugify }}
+  {% if include.page.illustration %} post-illustrated {% endif %}
+{% else %}
+  page page-{{ include.page.title | slugify }}
+  {% if include.page.illustration %} page-illustrated {% endif %}
+{% endif %}
+{% endcapture %}

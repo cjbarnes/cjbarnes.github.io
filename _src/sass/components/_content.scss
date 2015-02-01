@@ -58,16 +58,16 @@
 }
 
 /* All content columns are full width for mobile. */
-.single .content,
-.single .wide-content,
+.layout-simple-content,
 #skills,
 .technologies {
     @include column($columns);
 }
 
 /* Primary section in multi-layered pages, e.g. My Approach. */
-.approach #primary,
-.i-dont #primary {
+// @todo revisit this
+.page-my-approach #primary,
+.page-i-don-t #primary {
     background: $background-color-content;
 
     .content {
@@ -82,7 +82,7 @@
  */
 
 /* All homepage content rows. */
-.homepage .content {
+.homepage-content {
     @include rem("padding", ($line * 0.5) 0 ($line * 1.5));
     @include font-size-leading("large");
 }
@@ -142,9 +142,10 @@
 @include media-width("normal-size") {
 
     /* Content is still single-column, but with bigger margins, on tablets. */
-    .single .content,
-    .approach #primary .content,
-    .i-dont #primary .content {
+    .layout-simple-content,
+    // @todo revisit this
+    .page-my-approach #primary .content,
+    .page-i-don-t #primary .content {
         @include column(10);
         @include push;
         @include pull;
@@ -166,9 +167,9 @@
 @include media-width("two-columns") {
 
     /* Extra spacing for main content area. */
-    .single .content,
-    .approach #primary .content,
-    .i-dont #primary .content {
+    .layout-simple-content,
+    .page-my-approach #primary .content,
+    .page-i-don-t #primary .content {
         @include column(8);
         @include push(2);
         @include pull(2);
@@ -188,7 +189,7 @@
      * Portfolio page item content area: reinsert extra spacing underneath the
      * main screenshot.
      */
-    .content {
+    .portfolio-item-content {
         @include rem("padding-bottom", ($line * 2));
     }
 

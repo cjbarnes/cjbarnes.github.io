@@ -134,7 +134,7 @@
     color: $text-color-reversed;
 
     /* Colour changes for dark menu button on light mastheads. */
-    .light-masthead & {
+    .masthead-reversed & {
         color: $logo-color-dark;
     }
 
@@ -198,12 +198,12 @@
             }
 
             /* Light background image. */
-            .light-masthead & {
+            .masthead-reversed & {
                 @include alpha("background", cj-get-format-dark-color("text"),    0.8);
             }
 
             /* Illustrated article/page. */
-            .illustrated & {
+            .masthead-illustrated & {
                 @include alpha("background", $background-color-illustrated,        0.6);
             }
 
@@ -269,14 +269,14 @@
     .nav-item-level-1 > a {
         @include rem("padding", $line ($line * 0.75));
 
-        .light-masthead & {
+        .masthead-reversed & {
             color: $text-color;
         }
 
     }
 
     /* Light backgrounds - hover. Override previous styles block. */
-    .light-masthead .nav:hover .nav-item-level-1 {
+    .masthead-reversed .nav:hover .nav-item-level-1 {
 
         > a {
             color: $text-color-reversed;

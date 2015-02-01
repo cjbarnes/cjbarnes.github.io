@@ -2,40 +2,17 @@
 Assemble base classes used to ID this page.
 
 Classes added:
-  - [page classes]   Manually defined in the page's YAML.
-  - layout-[slug]    The Jekyll layout.
-  - layout-complex   Layout with many content sections and/or a listing area.
-  - layout-simple    Layout showing a single post/page with one content section.
-  - blog             Marker for blog posts and the blog index.
-  - blog-page        Market for the blog index.
-  - blog-page-[n]    Current page number in the blog pagination.
-  - post             Marker for blog posts.
-  - page             Marker for all non-blog pages.
-  - post-[format]    This post's format (e.g. 'tip').
-  - post-[id]        Unique class for this specific post.
-  - page-[title]     Unique class for this specific page (assuming all page
-                     titles are unique).
+  - [page classes] Manually defined in the page's YAML.
+  - layout-[slug]  The Jekyll layout.
+  - layout-complex Layout with many content sections and/or a listing area.
+  - layout-simple  Layout showing a single post/page with one content section.
 {% endcomment %}
 {% capture bodyclass %}
-  {{ page.class }}
-  layout-{{ page.layout | slugify }}
-  {% if page.complex or ('homepage' == page.layout) or ('portfolio' == page.layout) or ('index' == page.layout) %}
+  {{ include.page.class }}
+  layout-{{ include.page.layout | slugify }}
+  {% if include.page.complex or ('homepage' == include.page.layout) or ('portfolio' == include.page.layout) or ('index' == include.page.layout) %}
     layout-complex
   {% else %}
     layout-simple
-  {% endif %}
-  {% comment %} Branch between posts and pages. {% endcomment %}
-  {% if page.date %}
-    blog
-    {% comment %} Include post classes as well. {% endcomment %}
-    {% include postclass.html post=page %}
-    {{ postclass }}
-  {% else %}
-    {% comment %} Branch between blog index pages and others. {% endcomment %}
-    {% if 'blog' == page.title %}
-      blog blog-page blog-page-{{ paginator.page }}
-    {% else %}
-      page page-{{ page.title | slugify }}
-    {% endif %}
   {% endif %}
 {% endcapture %}
