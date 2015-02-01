@@ -13,7 +13,7 @@
   path: /
   special: homepage
 
-- name: what i do
+- name: what I do
   path: /whatido/
   children:
   - name: my approach
