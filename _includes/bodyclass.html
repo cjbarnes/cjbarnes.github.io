@@ -27,6 +27,7 @@ Classes added:
   {% comment %} Branch between posts and pages. {% endcomment %}
   {% if page.date %}
     blog
+    {% comment %} Include post classes as well. {% endcomment %}
     {% include postclass.html post=page %}
     {{ postclass }}
   {% else %}
