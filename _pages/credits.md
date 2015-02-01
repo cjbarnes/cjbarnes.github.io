@@ -1,7 +1,6 @@
 ---
 title: credits &amp; thank yous
 permalink: credits/
-layout: standard
 ---
 
 This website would not be possible without the awesome projects, images, and fonts made freely available by the lovely people mentioned on this page. If your name’s on the list, **thank you!** If it isn’t and should be, my apologies—please [contact me](mailto:mail@cjbarnes.co.uk) so I can correct my mistake.

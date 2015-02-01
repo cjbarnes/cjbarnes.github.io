@@ -1,7 +1,6 @@
 ---
 title: kind words
 permalink: whativedone/kindwords/
-layout: standard
 illustration: kind-words
 ---
 

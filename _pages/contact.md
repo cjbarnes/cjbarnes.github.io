@@ -1,7 +1,6 @@
 ---
 title: contact me
 permalink: contact/
-layout: standard
 illustration: iphone-in-car
 ---
 

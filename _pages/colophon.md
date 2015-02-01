@@ -1,7 +1,6 @@
 ---
 title: colophon
 permalink: colophon/
-layout: standard
 ---
 
 <figure class="quote">
