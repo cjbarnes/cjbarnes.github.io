@@ -6,7 +6,7 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 ```html
 <!-- INCLUDE head.html -->
 <html lang="en-GB" class="js">
-<body>
+<body class="layout-standard layout-simple blog post post-link post-blog-page-title">
 <!-- END head.html -->
 <main class="above-footer">
 	<article class="post post-single post-text post-illustrated">
