@@ -95,7 +95,7 @@ article {
 
     /* 'Link' label. */
     .title-label {
-        @include rem("padding", $line 0 ($line * 0.5));
+        @include rem("padding", $line 0 0);
         @include font-size-leading("large");
         display: block;
         font-style: normal;
