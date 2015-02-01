@@ -9,7 +9,11 @@ Classes added:
 {% endcomment %}
 {% capture bodyclass %}
   {{ include.page.class }}
-  layout-{{ include.page.layout | slugify }}
+  {% if include.page.layout %}
+    layout-{{ include.page.layout | slugify }}
+  {% else %}
+    layout-standard
+  {% endif %}
   {% if include.page.complex or ('homepage' == include.page.layout) or ('portfolio' == include.page.layout) or ('index' == include.page.layout) %}
     layout-complex
   {% else %}
