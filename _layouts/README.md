@@ -53,11 +53,13 @@ Assuming a generic browser with JavaScript turned on. Invisible elements are lef
 			</time>
 <!-- END date.html -->
 		</header>
-		<section class="content layout-simple-content primary-content" id="primary">
+		<div class="content page-content" id="content">
+			<section class="content-section">
 			<!--
 			  CONTENT GOES HERE.
 			  -->
-		</section>
+			</section>
+		</div>
 	</article>
 	<footer class="footer page-footer" id="page-footer">
 <!-- INCLUDE pager.html OR pagination.html -->

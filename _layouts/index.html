@@ -33,18 +33,18 @@
 
       </header>
 
-    </article>
+    </article><!-- /.post-featured -->
   {% endfor %}
 
     <!-- Main content area -->
-    <section id="primary" class="blog-content">
+    <div class="content blog-content" id="content">
 
       <!-- Sidebar -->
       <aside class="sidebar blog-sidebar">
 
         {{ content }}
 
-      </aside>
+      </aside><!-- /.blog-sidebar -->
 
       <!-- Articles list -->
       <div class="listing blog-listing">
@@ -65,11 +65,12 @@
 
             {% include title.html title=post.title link_href=post.link_href url=post.url summary=post.summary %}
 
-          </header>
+          </header><!-- .listing-header -->
         {% endif %}
 
         {% unless post.illustration %}
           <div class="content listing-content post-content">
+            <section class="content-section listing-content-section">
 
             {{ post.content }}
 
@@ -81,20 +82,21 @@
               </figure>
             {% endif %}
 
-          </div>
+            </section><!-- /.listing-content-section -->
+          </div><!-- /.listing-content -->
         {% endunless %}
 
           <footer class="footer listing-footer post-footer">
             {% include date.html date=post.date %}
             {% include permalinks.html url=post.url %}
-          </footer>
+          </footer><!-- /.listing-footer -->
 
-        </article>
+        </article><!-- /.listing-item -->
       {% endfor %}
 
       </div><!-- /.blog-listing -->
 
-    </section><!-- /.blog-content -->
+    </div><!-- /.blog-content -->
 
     <!-- Upper footer area -->
     <footer class="footer page-footer" id="page-footer">

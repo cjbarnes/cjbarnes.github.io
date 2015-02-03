@@ -8,6 +8,14 @@
  */
 
 
+/* White background for article contents. */
+.post,
+.page {
+    @include clearfix;
+    background: $background-color-content;
+}
+
+
 /**
  * Article header.
  */

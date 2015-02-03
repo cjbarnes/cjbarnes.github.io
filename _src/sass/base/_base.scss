@@ -63,11 +63,6 @@ body {
     margin: 0 auto;
 }
 
-/* White background for single-item content. */
-.layout-simple-article {
-    background: $background-color-content;
-}
-
 /* Title container margins. */
 .title {
   @include rem("margin-left",  $gutter);
@@ -86,6 +81,11 @@ address {
 
 address {
     font-style: normal;
+}
+
+/* Lead paragraphs. */
+.lead {
+    @include font-size-leading("large");
 }
 
 
@@ -155,16 +155,16 @@ hr {
     }
 
     /* Leave more margin around text. */
-    p,
-    blockquote {
-        @include push;
-        @include pull;
+    .content-section p,
+    .content-section blockquote {
+        @include push-interior;
+        @include pull-interior;
     }
 
     /* Align lead outside the normal text margins. */
-    .lead {
-        @include rem("margin-left",  $gutter);
-        @include rem("margin-right", $gutter);
+    .content-section .lead {
+        @include rem("padding-left",  $gutter);
+        @include rem("padding-right", $gutter);
     }
 
 } //include media-width(normal-size)

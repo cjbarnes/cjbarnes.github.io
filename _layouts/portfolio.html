@@ -3,11 +3,11 @@
 <main class="above-footer">
 
   {% include articleclass.html page=page %}
-  <article class="{{ articleclass | strip_newlines }}">
+  <article class="portfolio {{ articleclass | strip_newlines }}">
 
     <!-- Title area -->
     {% include headerclass.html page=page masthead=true %}
-    <header class="{{ headerclass | strip_newlines }}">
+    <header class="portfolio-masthead {{ headerclass | strip_newlines }}">
 
       {% include nav.html %}
 
@@ -17,45 +17,50 @@
 
       {% include title.html title=page.title %}
 
-    </header><!-- /.masthead -->
+    </header><!-- /.portfolio-masthead -->
 
     <!-- Main content area -->
-    <section id="primary">
+    <div class="content portfolio-content" id="content">
+
+      <!-- Initial content -->
+      <section class="content-section portfolio-content-section content-section-complex">
 
       {{ content }}
 
+      </section><!-- /.portfolio-content-section -->
+
       <!-- Websites list -->
-      <div class="listing portfolio-listing">
+      <section class="listing portfolio-listing">
 
-        {% for item in site.data.portfolio %}
+      {% for item in site.data.portfolio %}
 
-          <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
+        <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
 
-            <!-- Screenshots -->
-            <div class="content listing-content portfolio-item-content">
-              <div class="screenshot large">
-                <img src="/img/{{ item.slug }}.png" title="Desktop version">
-              </div>
-              <div class="screenshot small">
-                <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
-              </div>
+          <!-- Screenshots -->
+          <div class="content listing-content portfolio-item-content">
+            <div class="screenshot large">
+              <img src="/img/{{ item.slug }}.png" title="Desktop version">
             </div>
+            <div class="screenshot small">
+              <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
+            </div>
+          </div>
 
-            <!-- Footer -->
-            <footer class="footer listing-footer portfolio-item-footer">
-              <h3>{{ item.name }}</h3>
-              <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
-            </footer>
+          <!-- Footer -->
+          <footer class="footer listing-footer portfolio-item-footer">
+            <h3>{{ item.name }}</h3>
+            <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
+          </footer>
 
-          </article>
+        </article><!-- /.portfolio-item -->
 
-        {% endfor %}
+      {% endfor %}
 
-      </div><!-- .listing -->
+      </section><!-- /.portfolio-listing -->
 
-    </section>
+    </div><!-- /.portfolio-content -->
 
-  </article>
+  </article><!-- /.portfolio -->
 
   {% include page-footer.html %}
 

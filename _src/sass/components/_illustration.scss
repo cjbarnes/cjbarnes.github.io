@@ -148,7 +148,7 @@
  * 2. Default background colour for illustrated content sections.
  */
 // @todo fix all these #secondary uses.
-#secondary.illustrated {
+.content-section-illustrated {
     @include font-size-leading("large");
     position: relative; /* 1 */
     width: 100%;
@@ -157,17 +157,6 @@
     overflow: hidden;
     background: $oslo-grey; /* 2 */
     color: $white;
-
-    /*
-     * Content blocks.
-     * 1. Overlap the gradient (which itself has a z-index).
-     */
-    section {
-        @include column($columns);
-        @include rem("padding-bottom", $line);
-        z-index: 5; /* 1 */
-        position: relative; /* 1 */
-    }
 
     h2 {
         @include rem("margin", $line 0);
@@ -206,7 +195,18 @@
         display: none;
     }
 
-} //#secondary.illustrated
+} //.content-section-illustrated
+
+/*
+ * Content blocks within illustrated sections.
+ * 1. Overlap the gradient (which itself has a z-index).
+ */
+.content-section-illustrated-content {
+    @include column($columns);
+    @include rem("padding-bottom", $line);
+    z-index: 5; /* 1 */
+    position: relative; /* 1 */
+}
 
 
 /**
@@ -219,17 +219,7 @@
     /*
      * Mini illustrated content sections.
      */
-    #secondary.illustrated {
-
-        /*
-         * Space out the content.
-         * 1. Reinstate the bottom spacing.
-         */
-        section {
-            @include column(10);
-            @include push;
-            @include rem("padding-bottom", $line); /* 1 */
-        }
+    .content-section-illustrated {
 
         /* The gradient overlay. (Hidden on mobile.) */
         .gradient {
@@ -266,6 +256,16 @@
 
         }
 
+    }
+
+    /*
+     * Space out the content.
+     * 1. Reinstate the bottom spacing.
+     */
+    .content-section-illustrated-content {
+        @include column(10);
+        @include push;
+        @include rem("padding-bottom", $line); /* 1 */
     }
 
 } //include media-width(normal-size)

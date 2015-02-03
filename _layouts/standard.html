@@ -2,20 +2,8 @@
 
 <main class="above-footer">
 
-  {% comment %} Assemble all article classes. {% endcomment %}
   {% include articleclass.html page=page %}
-  {% capture articlelayoutclass %}
-  {% unless (page.complex or ('homepage' == page.layout) or ('portfolio' == page.layout) or ('index' == page.layout) %}
-    layout-simple-article
-    {% if page.date %}
-      layout-simple-post
-    {% else %}
-      layout-simple-page
-    {% endif %}
-  {% endunless %}
-  {% endcapture %}
-
-  <article class="{{ articleclass | strip_newlines }} {{ articlelayoutclass | strip_newlines }}">
+  <article class="{{ articleclass | strip_newlines }}">
 
     <!-- Article title area -->
     {% include headerclass.html page=page masthead=true %}
@@ -37,10 +25,11 @@
         {% include date.html date=page.date %}
       {% endif %}
 
-    </header>
+    </header><!-- /.masthead -->
 
     <!-- Main content area -->
-    <section id="primary" {% unless page.complex %}class="content layout-simple-content primary-content"{% endunless %}>
+    <div class="content {% if page.date %}post{% else %}page{% endif %}-content" id="content">
+      <section class="content-section">
 
       {{ content }}
 
@@ -52,9 +41,10 @@
         </figure>
       {% endif %}
 
-    </section>
+      </section>
+    </div><!-- /.content -->
 
-  </article>
+  </article><!--{% if page.date %} /.post {% else %} /.page {% endif %}-->
 
   <!-- Upper footer area -->
   <footer class="footer page-footer" id="page-footer">

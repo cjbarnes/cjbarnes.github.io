@@ -93,7 +93,7 @@ figure.code {
 
 
 /* Figures on single-article pages. */
-.layout-simple-content figure {
+.content-section figure {
     @include rem("margin", ($line * 2) 0 $line);
     @include rem("padding-top",    ($line * 1.5));
     @include rem("padding-bottom", ($line * 1.5));

@@ -12,13 +12,9 @@
 
 /* The skills list heading and subheadings. */
 .skills {
+    @include rem("padding-top",    $line);
+    @include rem("padding-bottom", $line);
     background: $background-color;
-
-    /* Override default `.wide-content` padding with specificity hack. */
-    &.skills {
-        @include rem("padding-top",    $line);
-        @include rem("padding-bottom", $line);
-    }
 
     h2,
     h3 {

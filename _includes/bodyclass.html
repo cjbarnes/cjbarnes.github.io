@@ -4,8 +4,6 @@ Assemble base classes used to ID this page.
 Classes added:
   - [page classes] Manually defined in the page's YAML.
   - layout-[slug]  The Jekyll layout.
-  - layout-complex Layout with many content sections and/or a listing area.
-  - layout-simple  Layout showing a single post/page with one content section.
 {% endcomment %}
 {% capture bodyclass %}
   {{ include.page.class }}
@@ -13,10 +11,5 @@ Classes added:
     layout-{{ include.page.layout | slugify }}
   {% else %}
     layout-standard
-  {% endif %}
-  {% if include.page.complex or ('homepage' == include.page.layout) or ('portfolio' == include.page.layout) or ('index' == include.page.layout) %}
-    layout-complex
-  {% else %}
-    layout-simple
   {% endif %}
 {% endcapture %}

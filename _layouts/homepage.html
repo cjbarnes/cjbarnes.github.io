@@ -32,16 +32,20 @@
         </h1>
       </div>
 
-    </header><!-- /.masthead -->
+    </header><!-- /.homepage-masthead -->
 
     <!-- Main content area -->
-    <section id="primary" class="content primary-content homepage-content">
+    <div class="content homepage-content" id="content">
+
+      <section class="content-section homepage-content-section">
 
       {{ content }}
 
-    </section>
+      </section>
 
-  </article>
+    </div><!-- /.homepage-content -->
+
+  </article><!-- /.homepage -->
 
   {% include page-footer.html %}
 
