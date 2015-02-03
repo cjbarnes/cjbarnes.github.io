@@ -32,8 +32,8 @@
     path: /whativedone/projects/
   - name: kind words
     path: /whativedone/kindwords/
-  - name: c.v. (linkedin)
-    path: http://uk.linkedin.com/in/cjbarnesuk/
+  - name: bio
+    path: /whativedone/bio/
 
 - name: blog
   path: /blog/
