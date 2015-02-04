@@ -208,6 +208,23 @@
     position: relative; /* 1 */
 }
 
+/* The homepage content row for USPs. */
+.homepage-content-section-illustrated {
+    background-color: $toast;
+
+    ul {
+        margin: 0;
+        line-height: (map-get($line-heights, "large") * 1.5);
+        list-style: none;
+    }
+
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
+    }
+
+}
+
 
 /**
  * Media query.
