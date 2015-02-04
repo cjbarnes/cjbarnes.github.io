@@ -236,8 +236,6 @@
     href += (location.pathname ? location.pathname : '');
     href += '#' + subheadID;
 
-    console.log('href');
-
     /* Create permalink to this subheading and append to element */
     var link = document.createElement('a');
     link.appendChild(document.createTextNode('#'));
