@@ -15,12 +15,13 @@
  * 2. Almost (but not quite) full screen height. Can use `vh` with no fallback
  *    because I'm also declaring both min- and max-heights, which act as a
  *    de facto fallback.
+ * 3. Don't exceed the height of the image.
  */
 .homepage-masthead {
     position: relative; /* 1 */
     height: 99vh; /* 2 */
     min-height: 700px;
-    max-height: (940px + $line-px);
+    max-height: (840px + $line-px); /* 3 */
 }
 
 /* Homepage welcome message */

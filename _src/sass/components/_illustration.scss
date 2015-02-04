@@ -79,7 +79,7 @@
     }
 
     /* Parallax image wrapper */
-    .illustration {
+    .illustration { /* @todo needs a fix for IE8? */
         height: $illustration-height-masthead;
 
         /* The image itself. */
@@ -99,13 +99,17 @@
 
 }
 
-/* Homepage header parallax. */
+/*
+ * Homepage header parallax.
+ * 1. To avoid going taller than the masthead image.
+ */
 .homepage-masthead {
 
     /*
      * Title.
-     * 1. Border is a continuation of the gradient's solid-colour ending.
-     * 2. Manually output border width in both rem and px, since we're using the
+     * 1. Prevent bottom-padding from causing height issues.
+     * 2. Border is a continuation of the gradient's solid-colour ending.
+     * 3. Manually output border width in both rem and px, since we're using the
      *    border-bottom shorthand (which breaks the `rem` mixin).
      */
     .title {
@@ -113,14 +117,14 @@
         bottom: 0;
         width: 100%;
         margin: 0;
-        border-bottom: cj-calculate-rem-fallback($line) solid $gradient-color-homepage; /* 1, 2 */
-        border-bottom-width: $line; /* 2 */
+        padding-bottom: 0; /* 1 */
+        border-bottom: cj-calculate-rem-fallback($line) solid $gradient-color-homepage; /* 2, 3 */
+        border-bottom-width: $line; /* 3 */
         background-image: linear-gradient(to bottom, transparent 0, $gradient-color-homepage 90%);
+    }
 
-        &.title { // Specificity hack: @todo CHECK THIS WORKS!
-            @include rem("padding", ($line * 3) 0 ($line * 2));
-        }
-
+    .gradient {
+        height: 100%;
     }
 
     /* Parallax image wrapper. */
@@ -128,7 +132,7 @@
         height: 100%;
 
         img {
-            bottom: $line;
+            bottom: 0;
             margin-left: ($illustration-width-masthead * -0.5);
 
             /* Shift image for better framing on mobile devices. */
