@@ -23,40 +23,40 @@
     <div class="content portfolio-content" id="content">
 
       <!-- Initial content -->
-      <section class="content-section portfolio-content-section content-section-complex">
+      <section class="content-section portfolio-content-section content-section-special">
 
       {{ content }}
 
       </section><!-- /.portfolio-content-section -->
 
       <!-- Websites list -->
-      <section class="listing portfolio-listing">
+      <section class="content-section portfolio-content-section content-section-special content-section-wide">
+        <div class="listing portfolio-listing">
 
-      {% for item in site.data.portfolio %}
+        {% for item in site.data.portfolio %}
+          <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
 
-        <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
-
-          <!-- Screenshots -->
-          <div class="content listing-content portfolio-item-content">
-            <div class="screenshot large">
-              <img src="/img/{{ item.slug }}.png" title="Desktop version">
+            <!-- Screenshots -->
+            <div class="content listing-content portfolio-item-content">
+              <div class="screenshot large">
+                <img src="/img/{{ item.slug }}.png" title="Desktop version">
+              </div>
+              <div class="screenshot small">
+                <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
+              </div>
             </div>
-            <div class="screenshot small">
-              <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
-            </div>
-          </div>
 
-          <!-- Footer -->
-          <footer class="footer listing-footer portfolio-item-footer">
-            <h3>{{ item.name }}</h3>
-            <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
-          </footer>
+            <!-- Footer -->
+            <footer class="footer listing-footer portfolio-item-footer">
+              <h3>{{ item.name }}</h3>
+              <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
+            </footer>
 
-        </article><!-- /.portfolio-item -->
+          </article><!-- /.portfolio-item -->
+        {% endfor %}
 
-      {% endfor %}
-
-      </section><!-- /.portfolio-listing -->
+        </div><!-- /.portfolio-listing -->
+      </section><!-- /.portfolio-content-section -->
 
     </div><!-- /.portfolio-content -->
 

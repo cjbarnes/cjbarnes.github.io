@@ -35,7 +35,7 @@
 }
 
 /* Complex content areas with darker backgrounds. */
-.content-section-complex {
+.content-section-special {
     background: $background-color;
 }
 
@@ -53,12 +53,6 @@
 /**
  * Homepage content areas.
  */
-
-// /* All homepage content rows. */
-// .homepage-content {
-//     @include rem("padding", ($line * 0.5) 0 ($line * 1.5));
-//     @include font-size-leading("large");
-// }
 
 /* Intro. */
 .homepage-content-section-first {
@@ -88,6 +82,11 @@
         @include pull-interior;
     }
 
+    /* Override for wider content sections, e.g. portfolio listing. */
+    .content-section-wide {
+        @include column($columns);
+    }
+
     /* Centre-align item titles in full-width listings. */
     .content-section-special h2 {
         text-align: center;
@@ -108,6 +107,12 @@
         @include push-interior(2);
         @include pull-interior(2);
     }
+
+    /* Override for wider content sections, e.g. portfolio listing. */
+    .content-section-wide {
+        @include column($columns);
+    }
+
 
 } //include media-width(two-columns)
 

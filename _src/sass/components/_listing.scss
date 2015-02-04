@@ -9,7 +9,7 @@
 /* All content columns are full width for mobile. */
 .listing {
     @include column($columns);
-    @include rem("margin", $line 0);
+    @include rem("margin", 0 0 $line);
 
     /* Listing title - used for My Approach page. */
     > h2 {
@@ -99,11 +99,15 @@
  * Portfolio listing
  */
 
-/* Portfolio entries. */
-.portfolio-listing {
+/*
+ * Portfolio entries.
+ * 1. Prevent large-screenshot overlapping the right edge.
+ */
+.portfolio-item {
+    overflow: hidden; /* 1 */
 
     /* No icons. */
-    .portfolio-listing-item:before {
+    &:before {
         display: none;
     }
 
@@ -117,7 +121,6 @@
      */
     .screenshot {
         position: relative; /* 1 */
-        left: 50%; /* 1 */
         text-align: center;
         background: url("/img/browser-mobile.png") center top no-repeat;
 
@@ -129,6 +132,7 @@
         /* Mobile screenshot. */
         &.small {
             @include rem("padding-top", ($line * 1.5));
+            left: 50%;
             $width: 320px;
             margin-left: ($width * -0.5);
             width: $width;
@@ -278,31 +282,6 @@
 /**
  * Media query.
  *
- * Tablets and wider.
- */
-@include media-width("normal-size") {
-
-    /* Content is still single-column, but with bigger margins. */
-    .listing {
-        @include column(10);
-        @include push;
-        @include pull;
-    }
-
-    /*
-     * Move across "What you get" subheading to line up with main box content.
-     */
-    .page-my-approach .step-footer h3 {
-        @include push;
-        @include pull;
-    }
-
-} //include media-width(normal-size)
-
-
-/**
- * Media query.
- *
  * Wide enough for two-column layout.
  */
 @include media-width("two-columns") {
@@ -312,28 +291,6 @@
         @include column(8);
         @include push(1);
         @include pull(0);
-    }
-
-    /*
-     * Change portfolio width to match other single-column listings. At the
-     * previous breakpoint, portfolio listing stayed full-width to accommodate
-     * as much website screenshot as possible.
-     */
-    .portfolio-listing {
-        @include column(10);
-        @include push;
-        @include pull;
-    }
-
-    /*
-     * Listings that still have no sidebar, but should be the same width as a
-     * listing with a sidebar.
-     */
-    .page-c-v- .listing,
-    .page-my-approach .listing {
-        @include column(8);
-        @include push(2);
-        @include pull(2);
     }
 
 } //include media-width(two-columns)
@@ -352,15 +309,14 @@
         /*
          * Desktop-scale screenshots.
          * 1. Re-display this size of screenshot (hidden on thinner screens).
-         * 2. Horizontal centring.
          */
         &.large {
             $width: 750px;
+            @include rem("margin-left", $line);
             @include rem("padding-top", ($line * 1.5));
             display: block; /* 1 */
             width: $width;
             height: 545px;
-            margin-left: ($width * -0.5); /* 2 */
             background-image: url("/img/browser.png");
         }
 
