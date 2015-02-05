@@ -162,7 +162,6 @@
 
     /* Item container. */
     .step {
-        @include rem("padding-bottom", ($line * 0.5));
         background: $background-color-content;
         counter-increment: steps;
 
@@ -185,25 +184,34 @@
         transform: rotate(-5deg);
     }
 
+    /* Main text. */
+    .step-content {
+        @include rem("padding-bottom", ($line * 2));
+    }
+
     /* 'What you get' footer. */
     .step-footer {
         @include rem("min-height", $line);
-        @include rem("margin", ($line * 0.5) ($line * 0.5) 0);
-        @include rem("padding", ($line / 2) 0);
+        @include rem("padding-top", ($line / 2));
+        @include rem("padding-bottom", ($line / 2));
         font-family: $font-family-content;
         text-align: left;
 
         /*
          * Footer title.
-         * 1. Get rid of standard heading margins.
+         * 1. Fallback for IE8 positioning (no `calc` support).
+         * 2. Get rid of standard heading margins.
          */
         h3 {
-            @include rem("left", (($line * 0.5) * -1));
+            @include rem("left", 0);
+            @include push;
+            @include pull;
             @include font-size-leading("large");
             position: absolute;
-            bottom: 100%;
-            margin-top: 0; /* 1 */
-            margin-bottom: 0; /* 1 */
+            bottom: 100%; /* 1 */
+            bottom: calc(100% + (#{$line} / 4)); /* 1 */
+            margin-top: 0; /* 2 */
+            margin-bottom: 0; /* 2 */
         }
 
         /* 'What you get' list. */
@@ -257,7 +265,6 @@
      * 1. Horizontal centring.
      */
     .step-footer:after {
-        @include rem("margin-top", ($line / 2));
         content: '';
         position: absolute;
         top: 100%;
