@@ -50,6 +50,17 @@
 }
 
 
+/*
+ * Blog content area.
+ * We space out the container instead of the interior content, since we're using
+ * a two-column layout and also not using `content-section` elements.
+ */
+.blog-content {
+    @include rem("padding-top",    ($line * 1.5));
+    @include rem("padding-bottom", ($line * 2.5));
+}
+
+
 /**
  * Homepage content areas.
  */
@@ -78,8 +89,8 @@
 
     /* Content is still single-column, but with bigger margins, on tablets. */
     .content-section {
-        @include push-interior;
-        @include pull-interior;
+        @include push-interior(1, $columns, true);
+        @include pull-interior(1, $columns, true);
     }
 
     /* Override for wider content sections, e.g. portfolio listing. */
@@ -104,8 +115,8 @@
 
     /* Extra spacing for main content area. */
     .content-section {
-        @include push-interior(2);
-        @include pull-interior(2);
+        @include push-interior(2, $columns, true);
+        @include pull-interior(2, $columns, true);
     }
 
     /* Override for wider content sections, e.g. portfolio listing. */

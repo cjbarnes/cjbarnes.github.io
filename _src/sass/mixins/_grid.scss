@@ -115,12 +115,13 @@ $padding: ($gutter_width * 0.5);
  * `padding` gutter width. Falls back in IE.old to the column width without the
  * gutter applied.
  *
- * @param number $offset  Number of empty columns to the left of the contents.
- *                        Default 1.
- * @param number $columns Total number of columns the container row spans.
- *                        Default $columns.
+ * @param number $offset     Number of empty columns to the left of the
+ *                           contents. Default 1.
+ * @param number $columns    Total number of columns the container row spans.
+ *                           Default $columns.
+ * @param bool   $add_gutter Whether to add an extra half-gutter to the left.
  */
-@mixin push-interior($offset: 1, $columns: $columns) {
+@mixin push-interior($offset: 1, $columns: $columns, $add_gutter: false) {
   @if not unitless($offset) or (abs($offset) != $offset) {
     @error "$offset must be a unitless whole number, was #{$offset}";
   }
@@ -131,7 +132,9 @@ $padding: ($gutter_width * 0.5);
   // Output
   $base-width: (100% * ($offset / $columns));
   padding-left: $base-width;
-  padding-left: calc(#{$base-width} + #{$padding});
+  @if $add_gutter {
+      padding-left: calc(#{$base-width} + #{$padding});
+  }
 }
 
 /**
@@ -142,12 +145,13 @@ $padding: ($gutter_width * 0.5);
  * `padding` gutter width. Falls back in IE.old to the column width without the
  * gutter applied.
  *
- * @param number $offset  Number of empty columns to the right of the contents.
- *                        Default 1.
- * @param number $columns Total number of columns the container row spans.
- *                        Default $columns.
+ * @param number $offset     Number of empty columns to the right of the
+ *                           contents. Default 1.
+ * @param number $columns    Total number of columns the container row spans.
+ *                           Default $columns.
+ * @param bool   $add_gutter Whether to add an extra half-gutter to the right.
  */
-@mixin pull-interior($offset: 1, $columns: $columns) {
+@mixin pull-interior($offset: 1, $columns: $columns, $add_gutter: false) {
   @if not unitless($offset) or (abs($offset) != $offset) {
     @error "$offset must be a unitless whole number, was #{$offset}";
   }
@@ -158,5 +162,7 @@ $padding: ($gutter_width * 0.5);
   // Output
   $base-width: (100% * ($offset / $columns));
   padding-right: $base-width;
-  padding-right: calc(#{$base-width} + #{$padding});
+  @if $add_gutter {
+      padding-right: calc(#{$base-width} + #{$padding});
+  }
 }

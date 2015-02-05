@@ -52,7 +52,7 @@
       {% comment %} Begin listing of all posts. {% endcomment %}
       {% for post in paginator.posts %}
         {% include articleclass.html page=post %}
-        <article class="listing-item {{ articleclass | strip_newlines }}">
+        <article class="listing-item blog-listing-item {{ articleclass | strip_newlines }}">
 
         {% if post.title %}
           {% include headerclass.html page=post %}
@@ -69,8 +69,7 @@
         {% endif %}
 
         {% unless post.illustration %}
-          <div class="content listing-content post-content">
-            <section class="content-section listing-content-section">
+          <div class="content listing-content blog-listing-content post-content">
 
             {{ post.content }}
 
@@ -81,8 +80,6 @@
                 </a>
               </figure>
             {% endif %}
-
-            </section><!-- /.listing-content-section -->
           </div><!-- /.listing-content -->
         {% endunless %}
 

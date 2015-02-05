@@ -93,6 +93,31 @@
 
 } //.listing-item
 
+/*
+ * Blog listing.
+ */
+.blog-listing-content {
+    @include rem("padding-bottom", $line);
+    font-family: $font-family-content;
+
+    // More top spacing when there is no header area for this post.
+    &:first-child {
+        @include rem("padding-top", $line);
+    }
+
+    // Remove excess heading margins.
+    h1,
+    h2,
+    h3,
+    h4 {
+        @include rem("margin-top", $line);
+    }
+
+    h1 {
+        @include rem("margin-bottom", $line);
+    }
+
+}
 
 /**
  * Portfolio listing
@@ -302,6 +327,28 @@
         @include column(8);
         @include push(1);
         @include pull(0);
+    }
+
+
+    /* Post contents in blog listing. Space out and align with title/footer. */
+    .blog-listing-content {
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4 {
+            @include push;
+            @include pull;
+        }
+
+        /*
+         * Matching margins for the main blockquote of a quote post.
+         */
+        .post-quote & blockquote {
+            @include rem("margin", $line 0);
+        }
+
     }
 
 } //include media-width(two-columns)
