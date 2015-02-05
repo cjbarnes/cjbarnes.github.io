@@ -276,10 +276,15 @@
         background: $background-color-content;
     }
 
-    /* Hide arrow for last step. */
-    .step-support:after,
-    .step-support .step-footer:after {
-        display: none;
+    /* Hide arrow for last step, and don't leave space for it. */
+    .step-support {
+        margin-bottom: 0;
+
+        &:after,
+        .step-footer:after {
+            display: none;
+        }
+
     }
 
 } //.page-my-approach
