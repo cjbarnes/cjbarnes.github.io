@@ -1083,6 +1083,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/heart-chair.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 109432,
+		"inputAbbreviatedPath": "\/img\/heart-chair.jpg",
+		"outputAbbreviatedPath": "\/img\/heart-chair.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/homepage-2.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1222,6 +1233,17 @@
 		"initialSize": 78075,
 		"inputAbbreviatedPath": "\/img\/my-approach.jpg",
 		"outputAbbreviatedPath": "\/img\/my-approach.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/phone-benches.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 84659,
+		"inputAbbreviatedPath": "\/img\/phone-benches.jpg",
+		"outputAbbreviatedPath": "\/img\/phone-benches.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
