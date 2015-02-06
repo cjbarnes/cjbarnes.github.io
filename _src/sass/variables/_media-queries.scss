@@ -18,5 +18,6 @@ $breakpoints: (
     "portfolio-screenshots" :  800px,
     "nav-horizontal-wide"   :  900px,
     "two-columns"           :  940px,
-    "nav-horizontal-wider"  : 1000px
+    "nav-horizontal-wider"  : 1000px,
+    "beyond-max-width"      : $body-width-maximum
 );
