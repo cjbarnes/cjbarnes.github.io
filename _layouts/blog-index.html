@@ -1,0 +1,111 @@
+{% include head.html %}
+
+<main class="above-footer">
+
+  <div class="blog blog-page blog-page-{{ paginator.page }}">
+
+  {% comment %} Begin featured post. {% endcomment %}
+  {% for post in site.categories.featured limit:1 %}
+    {% include articleclass.html page=post %}
+    <article class="post-featured {{ articleclass | strip_newlines }}">
+
+      <!-- Article title area -->
+      {% include headerclass.html page=post masthead=true %}
+      <header class="{{ headerclass | strip_newlines }}">
+
+        {% comment %}
+        Variable `blog` is used to signal that this is a blog index page (since
+        there isn't a reliable way to determine that automatically.)
+        {% endcomment %}
+        {% include nav.html blog='yes' %}
+
+        {% if post.illustration %}
+          {% include illustration.html image=post.illustration %}
+        {% endif %}
+
+        {% include title.html title=post.title url=post.url featured=true %}
+
+        <!-- Metadata -->
+        <footer class="footer post-footer post-featured-footer">
+          {% include date.html date=post.date %}
+          {% include permalinks.html url=post.url %}
+        </footer>
+
+      </header>
+
+    </article><!-- /.post-featured -->
+  {% endfor %}
+
+    <!-- Main content area -->
+    <div class="content blog-content" id="content">
+
+      <!-- Sidebar -->
+      <aside class="sidebar blog-sidebar">
+
+        {{ content }}
+
+      </aside><!-- /.blog-sidebar -->
+
+      <!-- Articles list -->
+      <div class="listing blog-listing">
+
+      {% comment %} Begin listing of all posts. {% endcomment %}
+      {% for post in paginator.posts %}
+        {% include articleclass.html page=post %}
+        <article class="listing-item blog-listing-item {{ articleclass | strip_newlines }}">
+
+        {% if post.title %}
+          {% include headerclass.html page=post %}
+          <header class="listing-header {{ headerclass | strip_newlines }}">
+
+            {% if post.illustration %}
+              {% assign illustration = post.illustration | append: '_listing' %}
+              {% include illustration.html image=illustration %}
+            {% endif %}
+
+            {% include title.html title=post.title link_href=post.link_href url=post.url summary=post.summary %}
+
+          </header><!-- .listing-header -->
+        {% endif %}
+
+        {% unless post.illustration %}
+          <div class="content listing-content blog-listing-content post-content">
+
+            {{ post.content }}
+
+            {% if post.link_href %}
+              <figure class="link link-article-link">
+                <a href="{{ post.link_href }}">
+                  <em>link:</em> {{ post.title }}
+                </a>
+              </figure>
+            {% endif %}
+          </div><!-- /.listing-content -->
+        {% endunless %}
+
+          <footer class="footer listing-footer post-footer">
+            {% include date.html date=post.date %}
+            {% include permalinks.html url=post.url %}
+          </footer><!-- /.listing-footer -->
+
+        </article><!-- /.listing-item -->
+      {% endfor %}
+
+      </div><!-- /.blog-listing -->
+
+    </div><!-- /.blog-content -->
+
+    <!-- Upper footer area -->
+    <footer class="footer page-footer" id="page-footer">
+
+      {% include pagination.html %}
+
+    </footer><!-- /.page-footer -->
+
+  </div><!-- /.blog-page -->
+
+</main><!-- /.above-footer -->
+
+{% include site-footer.html %}
+
+{% include foot.html %}
