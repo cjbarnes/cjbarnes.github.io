@@ -25,10 +25,14 @@
 }
 
 /* Homepage welcome message */
-.homepage-title-main {
-    @include column($columns);
-    @include font-size-leading("huger", 1.5);
+.homepage-title {
+    @include rem("padding-bottom", $line);
     text-align: center;
+}
+
+
+.homepage-title-main {
+    @include font-size-leading("huger", 1.5);
     text-shadow: 0 0 10px $black;
     color: $text-color-reversed;
 
