@@ -2,7 +2,7 @@
 
 <main class="above-footer">
 
-  <div class="blog blog-page blog-page-{{ paginator.page }}">
+  <div class="index blog blog-page blog-page-{{ paginator.page }}">
 
   {% comment %} Begin featured post. {% endcomment %}
   {% for post in site.categories.featured limit:1 %}
@@ -37,7 +37,7 @@
   {% endfor %}
 
     <!-- Main content area -->
-    <div class="content blog-content" id="content">
+    <div class="content index-content blog-content" id="content">
 
       <!-- Sidebar -->
       <aside class="sidebar blog-sidebar">
@@ -47,16 +47,16 @@
       </aside><!-- /.blog-sidebar -->
 
       <!-- Articles list -->
-      <div class="listing blog-listing">
+      <div class="listing index-listing blog-listing">
 
       {% comment %} Begin listing of all posts. {% endcomment %}
       {% for post in paginator.posts %}
         {% include articleclass.html page=post %}
-        <article class="listing-item blog-listing-item {{ articleclass | strip_newlines }}">
+        <article class="listing-item index-listing-item blog-listing-item {{ articleclass | strip_newlines }}">
 
         {% if post.title %}
           {% include headerclass.html page=post %}
-          <header class="listing-header {{ headerclass | strip_newlines }}">
+          <header class="listing-header index-listing-header blog-listing-header {{ headerclass | strip_newlines }}">
 
             {% if post.illustration %}
               {% assign illustration = post.illustration | append: '_listing' %}
@@ -65,11 +65,11 @@
 
             {% include title.html title=post.title link_href=post.link_href url=post.url summary=post.summary %}
 
-          </header><!-- .listing-header -->
+          </header><!-- /.listing-header -->
         {% endif %}
 
         {% unless post.illustration %}
-          <div class="content listing-content blog-listing-content post-content">
+          <div class="content listing-content index-listing-content blog-listing-content post-content">
 
             {{ post.content }}
 
@@ -83,7 +83,7 @@
           </div><!-- /.listing-content -->
         {% endunless %}
 
-          <footer class="footer listing-footer post-footer">
+          <footer class="footer listing-footer index-listing-footer blog-listing-footer post-footer">
             {% include date.html date=post.date %}
             {% include permalinks.html url=post.url %}
           </footer><!-- /.listing-footer -->
