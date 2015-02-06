@@ -94,9 +94,9 @@
 } //.listing-item
 
 /*
- * Blog listing.
+ * Blog/index listing.
  */
-.blog-listing-content {
+.index-listing-content {
     @include rem("padding-bottom", $line);
     font-family: $font-family-content;
 
@@ -330,8 +330,11 @@
     }
 
 
-    /* Post contents in blog listing. Space out and align with title/footer. */
-    .blog-listing-content {
+    /**
+     * Post contents in blog and index listings. Space out and align with
+     * title/footer.
+     */
+    .index-listing-content {
 
         p,
         h1,
