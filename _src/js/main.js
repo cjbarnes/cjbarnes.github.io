@@ -159,7 +159,7 @@
  */
 (function doHomepageBrags() {
 
-  var brags = document.querySelectorAll('.homepage .brag span');
+  var brags = document.querySelectorAll('.homepage .js-brag');
 
   /* End if this isn't the homepage or there aren't multiple brags to switch
      between */
@@ -207,7 +207,7 @@
 (function linkifySubheadings() {
 
   /* Get the subheading elements */
-  var subheads = document.querySelectorAll('.content-section h2');
+  var subheads = document.querySelectorAll('.js-linkify-subheadings h2');
 
   /* Add ID and link to each subheading in turn */
   var i, l;
