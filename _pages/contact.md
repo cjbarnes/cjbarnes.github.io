@@ -1,7 +1,8 @@
 ---
 title: contact me
 permalink: contact/
-illustration: iphone-in-car
+illustration: phone-benches
+masthead: light
 ---
 
 ## contact details
