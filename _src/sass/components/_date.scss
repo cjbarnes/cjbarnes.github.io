@@ -57,6 +57,12 @@
         display: inline-block;
         background-color: transparent;
         color: $link-color-secondary;
+
+        /* White dates in footers of illustrated posts in blog index. */
+        .post-illustrated & {
+            color: $text-color-reversed;
+        }
+
     }
 
 }
