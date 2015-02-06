@@ -2,7 +2,7 @@
 
 <main class="above-footer">
 
-  <div class="index">
+  <div class="page index">
 
     <!-- Article title area -->
     {% include headerclass.html page=page masthead=true %}
@@ -14,7 +14,7 @@
         {% include illustration.html image=page.illustration %}
       {% endif %}
 
-      {% include title.html title=page.title url=page.url featured=true %}
+      {% include title.html title=page.title url=page.url %}
 
     </header>
 
@@ -25,51 +25,45 @@
 
         {{ content }}
 
-      </section>
+      </section><!-- /.index-content-section -->
 
-      <!-- Articles list -->
-      <div class="listing index-listing">
+      <section class="content-section index-content-section content-section-special">
 
-      {% comment %} Begin listing of all child pages. {% endcomment %}
-      {% assign alphapages = site.pages | sort: 'title' | sort: 'sortorder' %}
-      {% for subpage in alphapages %}
-      {% if (subpage.url contains page.url) and (subpage.url != page.url) %}
+        <h2>in this section</h2>
 
-        {% include articleclass.html page=subpage %}
-        <article class="listing-item index-listing-item {{ articleclass | strip_newlines }}">
+        <!-- Articles list -->
+        <div class="listing index-listing">
 
-        {% if subpage.title %}
-          {% include headerclass.html page=subpage %}
-          <header class="listing-header index-listing-header {{ headerclass | strip_newlines }}">
+        {% comment %} Begin listing of all child pages. {% endcomment %}
+        {% assign alphapages = site.pages | sort: 'title' | sort: 'sortorder' %}
+        {% for subpage in alphapages %}
+        {% if (subpage.url contains page.url) and (subpage.url != page.url) %}
 
-            {% if subpage.illustration %}
-              {% assign illustration = subpage.illustration | append: '_listing' %}
-              {% include illustration.html image=illustration %}
-            {% endif %}
+          {% include articleclass.html page=subpage %}
+          <article class="listing-item index-listing-item {{ articleclass | strip_newlines }}">
 
-            {% include title.html title=subpage.title link_href=subpage.link_href url=subpage.url summary=subpage.summary %}
+          {% if subpage.title %}
+            {% include headerclass.html page=subpage %}
+            <header class="listing-header index-listing-header {{ headerclass | strip_newlines }}">
 
-          </header><!-- /.listing-header -->
+              {% if subpage.illustration %}
+                {% assign illustration = subpage.illustration | append: '_listing' %}
+                {% include illustration.html image=illustration %}
+              {% endif %}
+
+              {% include title.html title=subpage.title link_href=subpage.link_href url=subpage.url summary=subpage.summary %}
+
+            </header><!-- /.listing-header -->
+          {% endif %}
+
+          </article><!-- /.listing-item -->
+
         {% endif %}
+        {% endfor %}
 
-        {% unless subpage.illustration %}
-          <div class="content listing-content index-listing-content page-content">
+        </div><!-- /.index-listing -->
 
-            {{ subpage.content }}
-
-          </div><!-- /.listing-content -->
-        {% endunless %}
-
-          <footer class="footer listing-footer index-listing-footer page-footer">
-            {% include permalinks.html url=subpage.url %}
-          </footer><!-- /.listing-footer -->
-
-        </article><!-- /.listing-item -->
-
-      {% endif %}
-      {% endfor %}
-
-      </div><!-- /.index-listing -->
+      </section><!-- /.index-content-section -->
 
     </div><!-- /.index-content -->
 
