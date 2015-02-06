@@ -280,7 +280,7 @@
         height: 0;
         margin-top: $listing-arrow-shaft-length; /* 2 */
         margin-left: ($listing-arrowhead-size * -1); /* 1 */
-        border-top: ($listing-arrowhead-size * 0.75) solid $background-color-content; /* 3 */
+        border-top: ($listing-arrowhead-size * 0.75) solid $color-step; /* 3 */
         border-left:  $listing-arrowhead-size solid transparent; /* 3 */
         border-right: $listing-arrowhead-size solid transparent; /* 3 */
     }
@@ -298,7 +298,7 @@
         width: $listing-arrow-shaft-thickness;
         height: $listing-arrow-shaft-length;
         margin-left: (($listing-arrow-shaft-thickness / 2) * -1);
-        background: $background-color-content;
+        background: $color-step;
     }
 
     /* Hide arrow for last step, and don't leave space for it. */
