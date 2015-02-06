@@ -20,7 +20,7 @@
  * Main site logo in navbar.
  */
 
-#navbar .logo {
+.nav-logo {
     @include rem("margin", $logo-margin $logo-margin 0 0);
     @include alpha("border-color", $logo-color-light, 0.8);
     @include alpha("color", $logo-color-light, 0.8);
@@ -29,16 +29,16 @@
 }
 
 /* Colour changes for navbar logo on light backgrounds. */
-.light-masthead #navbar {
+.masthead-reversed {
 
     /* Darker logo for more contrast with light pictures. */
-    .logo {
+    .nav-logo {
         border-color: $logo-color-dark;
         color: $logo-color-dark;
     }
 
     /* Menu open: go to logo hover colour for open-menu dark background. */
-    &.open .logo {
+    &.open .nav-logo {
         border-color: $text-color-reversed;
         color: $text-color-reversed;
     }
@@ -46,11 +46,13 @@
 }
 
 
-/* Footer logo - hidden for mobile. */
-#site-footer .logo {
+/**
+ * Footer logo - hidden for mobile.
+ */
+
+.footer-logo {
     display: none;
 }
-
 
 
 /**
@@ -65,7 +67,7 @@
      * 1. Horizontal centring for abs-pos element.
      * 2. Hidden for mobiles.
      */
-    #site-footer .logo {
+    .footer-logo {
         @include rem("bottom", ($line * 2));
         @include rem("margin", 0 0 0 ($line * -1)); /* 1 */
         @include font-size-leading("gigantic", 2);
@@ -89,7 +91,7 @@
 @include media-width("nav-horizontal") {
 
     /* Bigger margins for logo. */
-    #navbar .logo {
+    .nav-logo {
         @include rem("margin", ($line / 2) $line 0 0);
     }
 
@@ -97,7 +99,7 @@
      * Logo hover borderless style. (Background colour is set later.)
      * 1. Redeclare color to override .light-masthead logo colour.
      */
-    #navbar:hover .logo {
+    .nav:hover .nav-logo {
         border-color: transparent;
         color: $text-color-reversed; /* 1 */
     }

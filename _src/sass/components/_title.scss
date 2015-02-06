@@ -1,0 +1,92 @@
+/**
+ * Article title areas, used on both single posts/pages and for post indexes.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/*
+ * Page/post title wrapper.
+ * 1. Stay on top of illustration and gradient.
+ */
+.title {
+    position: relative; /* 1 */
+    z-index: 2;
+}
+
+/* Title. */
+.title-main {
+    @include rem("padding", $line 0);
+    margin: 0;
+    color: $text-color-reversed;
+
+    /* Links in titles. */
+    a {
+        padding: 0 0 ($link-padding / 2);
+        color: inherit;
+    }
+
+}
+
+/* Subtitle/excerpt. */
+.title-summary {
+    @include rem("margin", 0 0 $line);
+    @include font-size-leading("normal");
+    font-family: $font-family-content;
+    color: $text-color-reversed;
+}
+
+/* 'Link' label. */
+.title-label {
+    @include rem("padding", $line 0 0);
+    @include font-size-leading("large");
+    display: block;
+    font-style: normal;
+    color: $text-color-reversed;
+
+    /* Reduce padding of succeeding title. */
+    + .title-main {
+        padding-top: 0;
+    }
+
+}
+
+/*
+ * Text styles for illustrated page/post headers, including the homepage.
+ */
+.header-illustrated {
+
+    /* Article title, and 'featured article' label. */
+    .title-main,
+    .title-label {
+        text-shadow: 0 0 10px $black;
+    }
+
+    .title-main a {
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-shadow: none;
+        }
+
+    }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablets and wider.
+ */
+@include media-width("normal-size") {
+
+    /* Article alignment. */
+    .title {
+        @include push;
+        @include pull;
+    }
+
+}

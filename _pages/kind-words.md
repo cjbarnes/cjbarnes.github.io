@@ -1,11 +1,11 @@
 ---
 title: kind words
 permalink: whativedone/kindwords/
-layout: standard
 illustration: kind-words
 ---
 
 Thanks to my awesome clients who allowed me to publish their kind words here…
+{: .lead}
 
 <figure class="quote">
 	<blockquote>Chris is an incredibly fast learner and talented web application developer. His approach to user interface design, and ability to create reusable and accessible educational resources are impressive.</blockquote>

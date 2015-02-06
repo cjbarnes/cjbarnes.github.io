@@ -14,10 +14,13 @@
  * Set up the starting point.
  * 1. Box sizing part 1.
  * 2. = 15px, assuming the user's browser font setting is 16px (the default).
+ * 3. Extend the site footer background colour to the bottom of the window when
+ *    it is taller than the page body.
  */
 html {
     box-sizing: border-box; /* 1 */
     font-size: (100% * ($base-font-size-small / 16)); /* 2 */
+    background: $background-color-site-footer; /* 3 */
 }
 
 /*
@@ -54,16 +57,10 @@ body {
  */
 
 /* Wrapper for everything above the footer. */
-main,
-.single {
+.above-footer {
     @include clearfix;
     max-width: $body-width-maximum;
     margin: 0 auto;
-}
-
-/* White background for single-item content area. */
-.single {
-    background: $background-color-content;
 }
 
 /* Title container margins. */
@@ -86,6 +83,11 @@ address {
     font-style: normal;
 }
 
+/* Lead paragraphs. */
+.lead {
+    @include font-size-leading("large");
+}
+
 
 /*
  * Emphasis.
@@ -102,7 +104,7 @@ mark {
 
 /* Blockquotes. */
 blockquote {
-    @include rem("margin", $line $gutter);
+    @include rem("margin", $line);
     @include font-size-leading("large");
     color: $text-color-quote;
 
@@ -153,16 +155,21 @@ hr {
     }
 
     /* Leave more margin around text. */
-    p,
-    blockquote {
+    .content-section p,
+    .content-section blockquote {
         @include push;
         @include pull;
     }
 
+    .content-section blockquote p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     /* Align lead outside the normal text margins. */
-    .lead {
-        @include rem("margin-left",  $gutter);
-        @include rem("margin-right", $gutter);
+    .content-section .lead {
+        margin-left: 0;
+        margin-right: 0;
     }
 
 } //include media-width(normal-size)

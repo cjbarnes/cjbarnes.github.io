@@ -6,11 +6,18 @@
  */
 
 /**
- * Typography.
+ * Basics
  */
 
-.content,
-.wide-content {
+.content {
+    @include clearfix;
+}
+
+.content-section {
+    @include clearfix;
+    @include column($columns);
+    @include rem("padding-top",    ($line * 1.5));
+    @include rem("padding-bottom", ($line * 2.5));
     font-family: $font-family-content;
 
     /* Remove top margin for headings at top of content area. */
@@ -22,58 +29,35 @@
 
 }
 
-/* Lead paragraphs. */
-.lead {
-    @include font-size-leading("large");
+/* Don't apply grid layout to content for articles within a listing  */
+.listing-content-section {
+    // @todo
 }
 
+/* Complex content areas with darker backgrounds. */
+.content-section-special {
+    background: $background-color;
+}
 
-/**
- * Layout.
+/*
+ * Portfolio page item content.
+ * 1. For screenshot positioning.
  */
-
-.content {
-    @include rem("padding", ($line * 0.5) 0 ($line * 1.5));
-
-    /*
-     * Portfolio page item content.
-     * 1. For screenshot positioning.
-     */
-    .portfolio .website & {
-        @include rem("padding", ($line * 2) 0 0);
-        position: relative; /* 1 */
-        width: 100%;
-    }
-
+.portfolio .website .content {
+    @include rem("padding", ($line * 2) 0 0);
+    position: relative; /* 1 */
+    width: 100%;
 }
 
-/* Content sections. */
-#primary,
-#secondary,
-#skills,
-.technologies {
-    @include clearfix;
+
+/*
+ * Blog content area.
+ * We space out the container instead of the interior content, since we're using
+ * a two-column layout and also not using `content-section` elements.
+ */
+.blog-content {
     @include rem("padding-top",    ($line * 1.5));
     @include rem("padding-bottom", ($line * 2.5));
-}
-
-/* All content columns are full width for mobile. */
-.single .content,
-.single .wide-content,
-#skills,
-.technologies {
-    @include column($columns);
-}
-
-/* Primary section in multi-layered pages, e.g. My Approach. */
-.approach #primary,
-.i-dont #primary {
-    background: $background-color-content;
-
-    .content {
-        @include column($columns);
-    }
-
 }
 
 
@@ -81,54 +65,16 @@
  * Homepage content areas.
  */
 
-/* All homepage content rows. */
-.homepage .content {
-    @include rem("padding", ($line * 0.5) 0 ($line * 1.5));
-    @include font-size-leading("large");
-}
-
-/* The USPs content row. */
-.homepage #secondary.illustrated {
-    background-color: $toast;
-
-    ul {
-        margin: 0;
-        line-height: (map-get($line-heights, "large") * 1.5);
-        list-style: none;
-    }
-
-    strong {
-        background: $ironstone;
-        color: $text-color-reversed;
-    }
-
+/* Intro. */
+.homepage-content-section-first {
+    background: $background-color;
 }
 
 /* Featured testimonial. */
-.homepage .endorsement {
-    @include clearfix;
-    @include rem("padding", ($line * 2) 0);
-    background: $background-color-content;
+.content-section-endorsement {
 
-    /* The quote wrapper. */
-    figure {
-        @include column(10);
-        @include push;
-        background: transparent;
-    }
-
-    /* The quote itself. */
     blockquote {
         @include font-size-leading("larger", 1.5);
-        font-style: italic;
-    }
-
-    /*
-     * Remove the em-dash before the quote caption (since I'm using it here for
-     * a link rather than a citation).
-     */
-    figcaption:before {
-        display: none;
     }
 
 }
@@ -142,16 +88,18 @@
 @include media-width("normal-size") {
 
     /* Content is still single-column, but with bigger margins, on tablets. */
-    .single .content,
-    .approach #primary .content,
-    .i-dont #primary .content {
-        @include column(10);
-        @include push;
-        @include pull;
+    .content-section {
+        @include push-interior(1, $columns, true);
+        @include pull-interior(1, $columns, true);
+    }
+
+    /* Override for wider content sections, e.g. portfolio listing. */
+    .content-section-wide {
+        @include column($columns);
     }
 
     /* Centre-align item titles in full-width listings. */
-    .single .wide-content h2 {
+    .content-section-special h2 {
         text-align: center;
     }
 
@@ -166,13 +114,16 @@
 @include media-width("two-columns") {
 
     /* Extra spacing for main content area. */
-    .single .content,
-    .approach #primary .content,
-    .i-dont #primary .content {
-        @include column(8);
-        @include push(2);
-        @include pull(2);
+    .content-section {
+        @include push-interior(2, $columns, true);
+        @include pull-interior(2, $columns, true);
     }
+
+    /* Override for wider content sections, e.g. portfolio listing. */
+    .content-section-wide {
+        @include column($columns);
+    }
+
 
 } //include media-width(two-columns)
 
@@ -188,7 +139,7 @@
      * Portfolio page item content area: reinsert extra spacing underneath the
      * main screenshot.
      */
-    .content {
+    .portfolio-item-content {
         @include rem("padding-bottom", ($line * 2));
     }
 

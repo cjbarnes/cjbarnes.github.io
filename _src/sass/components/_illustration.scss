@@ -30,36 +30,8 @@
 
 }
 
-/*
- * Illustrated page/post headers, including the homepage.
- * 1. Specificity hack.
- */
-.illustrated.illustrated > header, /* 1 */
-header > .illustrated,
-.homepage {
-
-    .title {
-
-        /* Article title, and 'featured article' label. */
-        h1,
-        .label {
-            text-shadow: 0 0 10px $black;
-
-            a:hover,
-            a:focus,
-            a:active {
-                text-shadow: none;
-            }
-
-        }
-
-    }
-
-}
-
 /* Illustrated articles (both in and out of the masthead). */
-.illustrated > header,
-header > .illustrated {
+.header-illustrated {
 
     /* Gradient fade between the illustration and the article footer. */
     .gradient {
@@ -84,7 +56,7 @@ header > .illustrated {
 }
 
 /* Illustrated articles - just in the blog listing. */
-.illustrated > header {
+.blog-listing .header-illustrated {
 
     .title {
         @include rem("padding-top", ($line * 7));
@@ -93,9 +65,7 @@ header > .illustrated {
 }
 
 /* Illustrated mastheads. */
-main.illustrated > header,
-.single.illustrated > header,
-header > .illustrated {
+.masthead-illustrated {
 
     /* Leave space above page title for the photo. */
     .title {
@@ -109,7 +79,7 @@ header > .illustrated {
     }
 
     /* Parallax image wrapper */
-    .illustration {
+    .illustration { /* @todo needs a fix for IE8? */
         height: $illustration-height-masthead;
 
         /* The image itself. */
@@ -129,13 +99,17 @@ header > .illustrated {
 
 }
 
-/* Homepage header parallax. */
-.homepage > header {
+/*
+ * Homepage header parallax.
+ * 1. To avoid going taller than the masthead image.
+ */
+.homepage-masthead {
 
     /*
      * Title.
-     * 1. Border is a continuation of the gradient's solid-colour ending.
-     * 2. Manually output border width in both rem and px, since we're using the
+     * 1. Prevent bottom-padding from causing height issues.
+     * 2. Border is a continuation of the gradient's solid-colour ending.
+     * 3. Manually output border width in both rem and px, since we're using the
      *    border-bottom shorthand (which breaks the `rem` mixin).
      */
     .title {
@@ -143,14 +117,14 @@ header > .illustrated {
         bottom: 0;
         width: 100%;
         margin: 0;
-        border-bottom: cj-calculate-rem-fallback($line) solid $gradient-color-homepage; /* 1, 2 */
-        border-bottom-width: $line; /* 2 */
+        padding-bottom: 0; /* 1 */
+        border-bottom: cj-calculate-rem-fallback($line) solid $gradient-color-homepage; /* 2, 3 */
+        border-bottom-width: $line; /* 3 */
         background-image: linear-gradient(to bottom, transparent 0, $gradient-color-homepage 90%);
+    }
 
-        &.title { // Specificity hack: @todo CHECK THIS WORKS!
-            @include rem("padding", ($line * 3) 0 ($line * 2));
-        }
-
+    .gradient {
+        height: 100%;
     }
 
     /* Parallax image wrapper. */
@@ -158,7 +132,7 @@ header > .illustrated {
         height: 100%;
 
         img {
-            bottom: $line;
+            bottom: 0;
             margin-left: ($illustration-width-masthead * -0.5);
 
             /* Shift image for better framing on mobile devices. */
@@ -177,7 +151,8 @@ header > .illustrated {
  * 1. Parallax images positioning.
  * 2. Default background colour for illustrated content sections.
  */
-#secondary.illustrated {
+// @todo fix all these #secondary uses.
+.content-section-illustrated {
     @include font-size-leading("large");
     position: relative; /* 1 */
     width: 100%;
@@ -186,17 +161,6 @@ header > .illustrated {
     overflow: hidden;
     background: $oslo-grey; /* 2 */
     color: $white;
-
-    /*
-     * Content blocks.
-     * 1. Overlap the gradient (which itself has a z-index).
-     */
-    section {
-        @include column($columns);
-        @include rem("padding-bottom", $line);
-        z-index: 5; /* 1 */
-        position: relative; /* 1 */
-    }
 
     h2 {
         @include rem("margin", $line 0);
@@ -235,7 +199,35 @@ header > .illustrated {
         display: none;
     }
 
-} //#secondary.illustrated
+} //.content-section-illustrated
+
+/*
+ * Content blocks within illustrated sections.
+ * 1. Overlap the gradient (which itself has a z-index).
+ */
+.content-section-illustrated-content {
+    @include column($columns);
+    @include rem("padding-bottom", $line);
+    z-index: 5; /* 1 */
+    position: relative; /* 1 */
+}
+
+/* The homepage content row for USPs. */
+.homepage-content-section-illustrated {
+    background-color: $toast;
+
+    ul {
+        margin: 0;
+        line-height: (map-get($line-heights, "large") * 1.5);
+        list-style: none;
+    }
+
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
+    }
+
+}
 
 
 /**
@@ -248,17 +240,7 @@ header > .illustrated {
     /*
      * Mini illustrated content sections.
      */
-    #secondary.illustrated {
-
-        /*
-         * Space out the content.
-         * 1. Reinstate the bottom spacing.
-         */
-        section {
-            @include column(10);
-            @include push;
-            @include rem("padding-bottom", $line); /* 1 */
-        }
+    .content-section-illustrated {
 
         /* The gradient overlay. (Hidden on mobile.) */
         .gradient {
@@ -295,6 +277,16 @@ header > .illustrated {
 
         }
 
+    }
+
+    /*
+     * Space out the content.
+     * 1. Reinstate the bottom spacing.
+     */
+    .content-section-illustrated-content {
+        @include column(10);
+        @include push;
+        @include rem("padding-bottom", $line); /* 1 */
     }
 
 } //include media-width(normal-size)

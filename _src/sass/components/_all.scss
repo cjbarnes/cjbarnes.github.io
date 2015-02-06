@@ -5,15 +5,19 @@
  * @package cjbarnes.github.io
  */
 
-@import "article";
+/* Generic components. */
+@import "logo";
 @import "button";
-@import "content";
+@import "title";
 @import "date";
+@import "nav";
+@import "content";
+
+/* Components that override generic components. */
+@import "masthead";
+@import "article";
 @import "illustration";
 @import "listing";
-@import "logo";
-@import "masthead";
-@import "nav";
-@import "page-footer";
 @import "sidebar";
+@import "page-footer";
 @import "site-footer";

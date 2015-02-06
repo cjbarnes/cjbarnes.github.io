@@ -1,23 +1,24 @@
 <!-- Title and teaser -->
 <div class="title">
 
-  {% if include.featured %}
-    <i class="label">featured article:</i>
-  {% endif %}
+{% if include.featured %}
+  <i class="title-label title-label-featured">featured article:</i>
+{% elsif include.link_href %}
+  <i class="title-label title-label-link">link:</i>
+{% endif %}
 
-  <h1>
-    {% if include.link_href %}
-      link:
-      <a href="{{ include.link_href }}">{{ include.title }}</a>
-    {% elsif include.url %}
-      <a href="{{ include.url }}">{{ include.title }}</a>
-    {% else %}
-      {{ include.title }}
-    {% endif %}
+  <h1 class="title-main">
+  {% if include.link_href %}
+    <a class="title-link" href="{{ include.link_href }}">{{ include.title }}</a>
+  {% elsif include.url %}
+    <a class="title-permalink" href="{{ include.url }}">{{ include.title }}</a>
+  {% else %}
+    {{ include.title }}
+  {% endif %}
   </h1>
 
-  {% if include.summary %}
-    <h2>{{ include.summary }}</h2>
-  {% endif %}
+{% if include.summary %}
+  <h2 class="title-summary">{{ include.summary }}</h2>
+{% endif %}
 
 </div>

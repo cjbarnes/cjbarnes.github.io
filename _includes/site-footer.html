@@ -1,55 +1,60 @@
 <!-- Lower footer area -->
-<footer id="site-footer" class="footer site-footer">
+<footer class="footer site-footer" id="site-footer">
 
   <!-- Subscribe toolbar -->
-  <ul class="button-bar footer-toolbar site-footer-toolbar">
-    <li class="twitter">
+  <ul class="subscribe button-bar footer-button-bar site-footer-button-bar">
+    <li class="subscribe-item subscribe-twitter">
       <a href="https://twitter.com/intent/user?screen_name=cJbarnesUK&amp;original_referer={{ site.url }}" title="Follow on Twitter"></a>
     </li>
-    <li class="feed">
-      <a href="/rss/" title="Subscribe to RSS"></a>
+    <li class="subscribe-item subscribe-feed">
+      <a href="/rss/" title="Subscribe to RSS">&#xE73A;</a>
     </li>
   </ul>
 
   <!-- cJ logo -->
-  <h1 class="logo" title="cJ barnes"></h1>
+  <h1 class="logo footer-logo" title="cJ barnes">&#xE600;</h1>
 
   <!-- Columns of contact details and other content -->
 
-  <p class="contact">
-    <i class="label" title="email">✉</i>
-    <a href="mailto:mail@cjbarnes.co.uk"
-      title="Email me">mail@cjbarnes.co.uk</a>
-    <br>
-    <i class="label" title="phone">📞</i>
-    <a href="tel:+447894880298"
-      title="Phone me">07894 880298</a>
-    <br>
-    <i class="label" title="linkedin"></i>
-    <a href="http://uk.linkedin.com/in/cjbarnesuk/"
-      title="Find me on LinkedIn">cjbarnesuk</a>
-    <br>
-    <i class="label" title="twitter"></i>
-    <a href="https://twitter.com/intent/user?screen_name=cJbarnesUK&amp;original_referer={{ site.url }}"
-      title="Follow me on Twitter">cjbarnesuk</a>
-    <br>
-    <i class="label" title="github"></i>
-    <a href="https://github.com/cjbarnes/"
-      title="Find me on GitHub">cjbarnes</a>
-    <br>
-  </p>
+  <ul class="contact footer-section site-footer-section">
+    <li class="contact-item contact-item-email site-footer-item">
+      <i class="contact-label" title="email">&#x2709;</i>
+      <a href="mailto:mail@cjbarnes.co.uk" title="Email me">mail@cjbarnes.co.uk</a>
+    </li>
+    <li class="contact-item contact-item-phone site-footer-item">
+      <i class="contact-label" title="phone">&#x1F4DE;</i>
+      <a href="tel:+447894880298" title="Phone me">07894 880298</a>
+    </li>
+    <li class="contact-item contact-item-linkedin site-footer-item">
+      <i class="contact-label" title="linkedin">&#xF318;</i>
+      <a href="http://uk.linkedin.com/in/cjbarnesuk/" title="Find me on LinkedIn">cjbarnesuk</a>
+    </li>
+    <li class="contact-item contact-item-twitter site-footer-item">
+      <i class="contact-label" title="twitter">&#xF309;</i>
+      <a href="https://twitter.com/intent/user?screen_name=cJbarnesUK&amp;original_referer={{ site.url }}" title="Follow me on Twitter">cjbarnesuk</a>
+    </li>
+    <li class="contact-item contact-item-github site-footer-item">
+      <i class="contact-label" title="github">&#xF300;</i>
+      <a href="https://github.com/cjbarnes/" title="Find me on GitHub">cjbarnes</a>
+    </li>
+  </ul>
 
-  <p class="smallprint">
-    <span class="copyright">© 2014–{{ site.time | date: "%Y" }} cJ barnes</span>
-    <br>
-    <a href="/credits/">credits &amp; thank yous</a>
-    <br>
-    <a href="/colophon/">colophon</a>
-    <br>
-    <a href="//github.com/cjbarnes/cjbarnes.github.io/tree/master/{{ page.path }}">view my code</a>
-    <br>
-    <a href="/terms/">terms of use</a>
-    <br>
-  </p>
+  <ul class="smallprint footer-section site-footer-section">
+    <li class="smallprint-item smallprint-item-copyright site-footer-item">
+      © 2014–{{ site.time | date: "%Y" }} cJ barnes
+    </li>
+    <li class="smallprint-item site-footer-item">
+      <a href="/credits/">credits &amp; thank yous</a>
+    </li>
+    <li class="smallprint-item site-footer-item">
+      <a href="/colophon/">colophon</a>
+    </li>
+    <li class="smallprint-item site-footer-item">
+      <a href="//github.com/cjbarnes/cjbarnes.github.io/tree/master/{{ page.path }}">view my code</a>
+    </li>
+    <li class="smallprint-item site-footer-item">
+      <a href="/terms/">terms of use</a>
+    </li>
+  </ul>
 
-</footer><!-- #site-footer -->
+</footer><!-- /.site-footer -->

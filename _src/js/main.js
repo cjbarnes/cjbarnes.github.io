@@ -25,6 +25,7 @@
   /* Create navigation toggle */
   siteNavigationToggle = document.createElement('button');
   siteNavigationToggle.appendChild(document.createTextNode('menu'));
+  siteNavigationToggle.classList.add('nav-menu-toggle');
   siteNavigationToggle.id = 'site-navigation-toggle';
   siteNavigationToggle.onclick = navToggle.bind(siteNavigationToggle);
 
@@ -206,7 +207,7 @@
 (function linkifySubheadings() {
 
   /* Get the subheading elements */
-  var subheads = document.querySelectorAll('.single .content h2');
+  var subheads = document.querySelectorAll('.content-section h2');
 
   /* Add ID and link to each subheading in turn */
   var i, l;
@@ -234,8 +235,6 @@
     var href = '//' + location.host;
     href += (location.pathname ? location.pathname : '');
     href += '#' + subheadID;
-
-    console.log('href');
 
     /* Create permalink to this subheading and append to element */
     var link = document.createElement('a');

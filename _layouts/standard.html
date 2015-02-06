@@ -1,23 +1,13 @@
-{% if page.date %}
-  {% assign main_tag = 'article' %}
-  {% assign format = page.format %}
-{% else %}
-  {% assign main_tag = 'main' %}
-  {% assign format = 'page' %}
-{% endif %}
-
-{% comment %}
- % Assemble classes for the main element.
-{% endcomment %}
-{% capture main_classes %}{{ format }} {{ page.class }}{% unless page.complex %} single{% endunless %}{% if page.illustration %} illustrated{% endif %}{% if page.masthead == 'light' %} light-masthead{% endif %}{% endcapture %}
-
-
 {% include head.html %}
 
-  <{{ main_tag }} class="{{ main_classes }}">
+<main class="above-footer">
+
+  {% include articleclass.html page=page %}
+  <article class="{{ articleclass | strip_newlines }}">
 
     <!-- Article title area -->
-    <header class="masthead ">
+    {% include headerclass.html page=page masthead=true %}
+    <header class="{{ headerclass | strip_newlines }}">
 
       {% include nav.html %}
 
@@ -35,10 +25,11 @@
         {% include date.html date=page.date %}
       {% endif %}
 
-    </header>
+    </header><!-- /.masthead -->
 
     <!-- Main content area -->
-    <section id="primary" {% unless page.complex %}class="content primary-content"{% endunless %}>
+    <div class="content {% if page.date %}post{% else %}page{% endif %}-content" id="content">
+      <section class="content-section">
 
       {{ content }}
 
@@ -50,19 +41,22 @@
         </figure>
       {% endif %}
 
-    </section>
+      </section>
+    </div><!-- /.content -->
 
-    <!-- Upper footer area -->
-    <footer id="page-footer" class="footer page-footer">
+  </article><!--{% if page.date %} /.post {% else %} /.page {% endif %}-->
 
-      {% if page.date %}
-        {% include pager.html %}
-      {% endif %}
+  <!-- Upper footer area -->
+  <footer class="footer page-footer" id="page-footer">
 
-    </footer>
+    {% if page.date %}
+      {% include pager.html %}
+    {% endif %}
 
-  </{{ main_tag }}>
+  </footer><!-- /.page-footer -->
 
-  {% include site-footer.html %}
+</main><!-- /.above-footer -->
+
+{% include site-footer.html %}
 
 {% include foot.html %}

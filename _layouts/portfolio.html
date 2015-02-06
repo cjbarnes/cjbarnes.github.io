@@ -1,9 +1,13 @@
 {% include head.html %}
 
-  <main class="portfolio {{ page.class }}{% if page.illustration %} illustrated{% endif %}{% if page.masthead == 'light' %} light-masthead{% endif %}">
+<main class="above-footer">
+
+  {% include articleclass.html page=page %}
+  <article class="portfolio {{ articleclass | strip_newlines }}">
 
     <!-- Title area -->
-    <header>
+    {% include headerclass.html page=page masthead=true %}
+    <header class="portfolio-masthead {{ headerclass | strip_newlines }}">
 
       {% include nav.html %}
 
@@ -13,22 +17,27 @@
 
       {% include title.html title=page.title %}
 
-    </header>
+    </header><!-- /.portfolio-masthead -->
 
     <!-- Main content area -->
-    <section id="primary">
+    <div class="content portfolio-content" id="content">
+
+      <!-- Initial content -->
+      <section class="content-section portfolio-content-section content-section-special">
 
       {{ content }}
 
+      </section><!-- /.portfolio-content-section -->
+
       <!-- Websites list -->
-      <div class="listing">
+      <section class="content-section portfolio-content-section content-section-special content-section-wide">
+        <div class="listing portfolio-listing">
 
         {% for item in site.data.portfolio %}
-
-          <article class="website portfolio-{{ item.slug }}">
+          <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
 
             <!-- Screenshots -->
-            <div class="content">
+            <div class="content listing-content portfolio-item-content">
               <div class="screenshot large">
                 <img src="/img/{{ item.slug }}.png" title="Desktop version">
               </div>
@@ -38,23 +47,25 @@
             </div>
 
             <!-- Footer -->
-            <footer>
+            <footer class="footer listing-footer portfolio-item-footer">
               <h3>{{ item.name }}</h3>
               <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
             </footer>
 
-          </article>
-
+          </article><!-- /.portfolio-item -->
         {% endfor %}
 
-      </div><!-- .listing -->
+        </div><!-- /.portfolio-listing -->
+      </section><!-- /.portfolio-content-section -->
 
-    </section>
+    </div><!-- /.portfolio-content -->
 
-    {% include page-footer.html %}
+  </article><!-- /.portfolio -->
 
-  </main>
+  {% include page-footer.html %}
 
-  {% include site-footer.html %}
+</main><!-- /.above-footer -->
+
+{% include site-footer.html %}
 
 {% include foot.html %}

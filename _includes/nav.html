@@ -1,48 +1,43 @@
 <!-- Navigation bar -->
-<nav id="navbar" class="open">
+<nav class="nav open" id="navbar">
 
 	<!-- cJ logo -->
-	<h1 class="logo" title="cJ barnes"></h1>
+	<h1 class="logo nav-logo" title="cJ barnes">&#xE600;</h1>
 
 	<!-- Main nav -->
-	<ul id="site-navigation">
-		<li{% if '/index.html' == page.url %} class="active"{% endif %}>
-			<a href="/">home</a>
-		</li>
-		<li class="parent{% if '/whatido/' == page.url %} active{% endif %}">
-			<a href="/whatido/">what I do</a>
-			<ul class="subnav">
-				<li{% if '/whatido/approach/' == page.url %} class="active"{% endif %}>
-					<a href="/whatido/approach/">my approach</a>
-				</li>
-				<li{% if '/whatido/expertise/' == page.url %} class="active"{% endif %}>
-					<a href="/whatido/expertise/">expertise</a>
-				</li>
-				<li{% if '/whatido/idont/' == page.url %} class="active"{% endif %}>
-					<a href="/whatido/idont/">I don’t...</a>
-				</li>
-			</ul>
-		</li>
-		<li class="parent{% if '/whativedone/' == page.url %} active{% endif %}">
-			<a href="/whativedone/">what I’ve done</a>
-			<ul class="subnav">
-				<li{% if '/whativedone/portfolio/' == page.url %} class="active"{% endif %}>
-					<a href="/whativedone/portfolio/">portfolio</a>
-				</li>
-				<li{% if '/whativedone/kindwords/' == page.url %} class="active"{% endif %}>
-					<a href="/whativedone/kindwords/">kind words</a>
-				</li>
-				<li>
-					<a href="http://uk.linkedin.com/in/cjbarnesuk/">c.v. (linkedin)</a>
-				</li>
-			</ul>
-		</li>
-		<li{% if '/blog/index.html' == page.url %} class="active"{% elsif page.date %} class="active"{% endif %}>
-			<a href="/blog/">blog</a>
-		</li>
-		<li{% if '/contact/' == page.url %} class="active"{% endif %}>
-			<a href="/contact/">contact me</a>
-		</li>
-	</ul>
+	<ul class="nav-list nav-level-1" id="site-navigation">
+  {% for nav in site.data.nav %}
 
-</nav><!-- #navbar -->
+    {% comment %} Check whether this is the current nav item. {% endcomment %}
+    {% assign active = '' %}
+    {% if nav.path == page.url %}
+      {% assign active = ' active' %}
+    {% elsif 'homepage' == nav.special and '/index.html' == page.url %}
+      {% assign active = ' active' %}
+    {% elsif 'blog' == nav.special and (include.blog or page.date) %}
+      {% assign active = ' active' %}
+    {% endif %}
+
+    {% comment %} Check whether this nav item has a subnav. {% endcomment %}
+    {% assign has-subnav = '' %}
+    {% if nav.children %}
+      {% assign has-subnav = ' nav-item-has-subnav' %}
+    {% endif %}
+
+    <li class="nav-item nav-item-level-1{{ active }}{{ has-subnav }}">
+      <a href="{{ nav.path }}">{{ nav.name }}</a>
+    {% comment %} Output the second-level nav. {% endcomment %}
+    {% if nav.children %}
+      <ul class="nav-list nav-level-2">
+      {% for subnav in nav.children %}
+        <li class="nav-item nav-item-level-2{% if subnav.path == page.url %} active{% endif %}">
+          <a href="{{ subnav.path }}">{{ subnav.name }}</a>
+        </li>
+      {% endfor %}
+      </ul><!-- /.nav-level-2 -->
+    {% endif %}
+    </li>
+  {% endfor %}
+  </ul><!-- /.nav-level-1 -->
+
+</nav><!-- /.nav -->

@@ -11,6 +11,11 @@ is_local: false
 # Site url (for use in pages).
 url: http://www.cjbarnes.co.uk
 
+# Atom feed metadata.
+name: cJ barnes
+description: Blogging about stuff
+feed_limit: 20
+
 # Permalinks.
 permalink: /blog/:title-:year-:month-:day/
 relative_permalinks: false
@@ -25,17 +30,17 @@ include: ['_pages']
 # Don't process working copies of images, and don't process _src folder (which
 # contains anything that has a separate build process, e.g. Sass and
 # JavaScript).
-exclude: ['.psd','.ai','.eps', '.js', '_src']
+exclude: ['.psd','.ai','.eps','.js','_src']
 
 # Don't process posts with future dates.
 future: false
 
 # Markdown parser and code highlighter.
-highlighter: rouge
+# highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM # support GitHub-Flavored Markdown.
-  syntax_highlighter: rouge # see Jekyll #3371
+# syntax_highlighter: rouge # see Jekyll #3371
 
 # Enabled plugins.
 gems:
@@ -43,6 +48,27 @@ gems:
   - jemoji
   - jekyll-redirect-from
   - jekyll-sitemap
+
+# Frontmatter defaults for posts and pages.
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "standard"
+      author: chris barnes
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      format: "text"
+  -
+    scope:
+      path: ""
+      type: "drafts"
+    values:
+      format: "text"
 
 # Sass compilation. Currently unused.
 # sass:

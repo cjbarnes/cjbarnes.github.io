@@ -14,12 +14,6 @@
 .skills {
     background: $background-color;
 
-    /* Override default `.wide-content` padding with specificity hack. */
-    &.skills {
-        @include rem("padding-top",    $line);
-        @include rem("padding-bottom", $line);
-    }
-
     h2,
     h3 {
         text-align: center;
@@ -28,17 +22,22 @@
 
 }
 
-/* The icons containers. */
+/*
+ * The icons containers.
+ * 1. Override default list padding.
+ */
 .skill-list {
     @include clearfix;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0; /* 1 */
     list-style: none;
+    text-align: center;
 
     li {
-        float: left;
-        display: block;
+        display: inline-block;
         margin: 0;
-        text-align: center;
     }
 
     /*

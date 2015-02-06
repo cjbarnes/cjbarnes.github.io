@@ -1,0 +1,15 @@
+{% comment %}
+Assemble base classes used to ID this page.
+
+Classes added:
+  - [page classes] Manually defined in the page's YAML.
+  - layout-[slug]  The Jekyll layout.
+{% endcomment %}
+{% capture bodyclass %}
+  {{ include.page.class }}
+  {% if include.page.layout %}
+    layout-{{ include.page.layout | slugify }}
+  {% else %}
+    layout-standard
+  {% endif %}
+{% endcapture %}

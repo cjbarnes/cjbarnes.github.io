@@ -10,15 +10,15 @@
  */
 
 /* Disable text selection of UI elements. */
-#navbar,
+.nav,
 .illustration,
+.title-label,
 .date,
 .sidebar,
 .button-bar,
-article footer,
-main > footer,
+.page-footer,
 .smallprint,
-.label,
+.contact-label,
 .logo {
     -webkit-touch-callout: none;
     user-select: none;
@@ -26,8 +26,9 @@ main > footer,
 
 /* Change cursor for non-selectable elements. */
 .logo,
-.label,
-.copyright,
+.title-label,
+.contact-label,
+.smallprint-item-copyright,
 .date {
     cursor: default;
 }
