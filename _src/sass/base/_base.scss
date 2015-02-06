@@ -140,7 +140,7 @@ hr {
 
 
 /**
- * Media queries.
+ * Media query.
  *
  * Tablets or wider.
  */
@@ -173,3 +173,21 @@ hr {
     }
 
 } //include media-width(normal-size)
+
+
+/**
+ * Media query.
+ *
+ * Wide enough that the background texture should be showing.
+ */
+@include media-width("beyond-max-width") {
+
+    /*
+     * Only load the background pattern when the screen's wide enough for it to
+     * show.
+     */
+    body {
+        background: $background-color url("/img/halftone.png") center top;
+    }
+
+}
