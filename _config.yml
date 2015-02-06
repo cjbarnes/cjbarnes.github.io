@@ -24,13 +24,12 @@ relative_permalinks: false
 paginate: 2
 paginate_path: /blog/page:num
 
-# Process _pages folder.
-include: ['_pages']
+# Process _pages folder, and output the Sass and JS source for use in sourcemaps
+# (and for non-GitHub users).
+include: ['_pages','*.scss','_src']
 
-# Don't process working copies of images, and don't process _src folder (which
-# contains anything that has a separate build process, e.g. Sass and
-# JavaScript).
-exclude: ['.psd','.ai','.eps','.js','_src']
+# Don't process working copies of images, config files, or readmes.
+exclude: ['*.psd','*.ai','*.eps','*.codekit','*.lock','Gemfile','README.md']
 
 # Don't process posts with future dates.
 future: false
@@ -73,3 +72,4 @@ defaults:
 # Sass compilation. Currently unused.
 # sass:
 #   style: :compressed
+#   sass_dir: css/sass_dir
