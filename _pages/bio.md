@@ -1,6 +1,7 @@
 ---
 title: bio
 permalink: whativedone/bio/
+sortorder: 4
 ---
 
 TODO bio text.
