@@ -1,5 +1,6 @@
 ---
 title: kind words
+summary: Read what my clients have to say about working with me.
 permalink: whativedone/kindwords/
 illustration: heart-chair
 sortorder: 3
