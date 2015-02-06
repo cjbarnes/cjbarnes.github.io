@@ -52,12 +52,14 @@
 
 /*
  * Blog content area.
- * We space out the container instead of the interior content, since we're using
- * a two-column layout and also not using `content-section` elements.
+ * 1. We space out the container instead of the interior content, since we're
+ *    using a two-column layout and also not using `content-section` elements.
+ * 2. Background colour to avoid beyond-max-width pattern showing through.
  */
 .blog-content {
     @include rem("padding-top",    ($line * 1.5));
     @include rem("padding-bottom", ($line * 2.5));
+    background: $background-color;
 }
 
 

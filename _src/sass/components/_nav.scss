@@ -269,8 +269,19 @@
     .nav-item-level-1 > a {
         @include rem("padding", $line ($line * 0.75));
 
+        /* Shadow for overlay of illustrations. */
+        .masthead-illustrated & {
+            text-shadow: 0 0 10px $black;
+        }
+
         .masthead-reversed & {
             color: $text-color;
+            text-shadow: 0 0 10px $white;
+        }
+
+        /* Remove shadow on hover. */
+        .masthead-illustrated .nav:hover & {
+            text-shadow: none;
         }
 
     }
