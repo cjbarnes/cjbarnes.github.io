@@ -41,7 +41,8 @@
     }
 
     /* No icon for illustrated articles in full-size listings. */
-    &.post-illustrated:before {
+    &.post-illustrated:before,
+    &.page:before {
         display: none;
     }
 
@@ -96,6 +97,18 @@
 /*
  * Blog/index listing.
  */
+
+/* Bottom spacing for footer-less illustrated items. */
+.page-illustrated .index-listing-header {
+    padding-bottom: $line;
+
+    .title-summary {
+        margin-bottom: 0;
+    }
+
+}
+
+/* Content area. */
 .index-listing-content {
     @include rem("padding-bottom", $line);
     font-family: $font-family-content;
