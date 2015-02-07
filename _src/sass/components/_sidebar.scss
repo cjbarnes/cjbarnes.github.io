@@ -11,6 +11,44 @@
   @include column($columns);
 }
 
+/* Formats and tags lists. */
+.sidebar-listing {
+    list-style: none;
+    padding-left: 0;
+}
+
+/*
+ * Formats and tags list items.
+ * 1. For icon positioning.
+ */
+.sidebar-listing-item {
+    position: relative; /* 1 */
+    padding-left: 1.75em;
+
+    /* Icon colours and fonts.. */
+    &:before {
+        @include font-size-leading("larger");
+        position: absolute;
+        left: 0;
+        font-family: $font-family-icons;
+    }
+
+    /* Loop through icons themselves. */
+    @each $format, $icon in $format-icons {
+        &.format-#{$format}:before {
+            content: "#{$icon}";
+            color: map-get($format-colors, $format);
+        }
+    }
+
+    /* Tags icon. */
+    &.tag:before {
+        content: "\e70c";
+        color: $color-tags;
+    }
+
+}
+
 
 /**
  * Media query.

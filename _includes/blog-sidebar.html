@@ -4,10 +4,10 @@
 
   <!-- Tags. -->
   <section class="sidebar-section sidebar-tags">
-    <h2 class="sidebar-section-title">tags</h2>
+    <h2 class="sidebar-section-title screen-reader-only">tags</h2>
     <ul class="sidebar-listing tags-listing">
     {% for tag in site.tags %}
-      <li class="sidebar-listing-item tags-listing-item tag-{{ tag.first | handleize }}">
+      <li class="sidebar-listing-item tags-listing-item tag tag-{{ tag.first | handleize }}">
         <a data-tag="{{ tag.first | xml_escape }}">{{ tag.first }}</a>
       </li>
     {% endfor %}
@@ -16,20 +16,20 @@
 
   <!-- Formats. -->
   <section class="sidebar-section sidebar-formats">
-    <h2 class="sidebar-section-title">types</h2>
+    <h2 class="sidebar-section-title screen-reader-only">types</h2>
     <ul class="sidebar-listing formats-listing">
     {% assign formats = "text|link|quote|tip" | split: "|" %}
     {% for format in formats %}
       <li class="sidebar-listing-item formats-listing-item format-{{ format }}">
-        <a data-format="{{ format }}">{{ format }}</a>
+        <a data-format="{{ format }}">{{ format }} posts</a>
       </li>
     {% endfor %}
     </ul><!-- /.formats-listing -->
   </section><!-- /.sidebar-formats -->
 
   <!-- Search. -->
-  <section class="sidebar-section sidebar-search">
-    <h2 class="sidebar-section-title">search</h2>
+  <section class="sidebar-section sidebar-search screen-reader-only">
+    <h2 class="sidebar-section-title screen-reader-only">search</h2>
     <form class="search-form sidebar-search-form">
       <label for="sidebar-search">search</label>
       <input type="search" class="search-input sidebar-search-input" id="sidebar-search" placeholder="search">

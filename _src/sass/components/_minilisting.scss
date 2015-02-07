@@ -7,7 +7,7 @@
 
 
 /* ul */.minilisting {
-    margin: 0;
+    @include rem("margin", 0 0 0 $gutter);
     padding: 0;
     list-style: none;
 }
