@@ -280,8 +280,61 @@
     request.send();
     request = null;
 
-    /* Hook up the filtering/searching logic. */
+    /* Prep style element for use in searching and filtering. */
+    var style = document.createElement('style');
+    document.body.appendChild(style);
 
+    /* Handle tag clicks. */
+    var tagcloud = document.querySelector('.tagcloud');
+    tagcloud.addEventListener('click', function applyTagFilter(e) {
+
+      /* Find the a element that has our data attribute. */
+      var el = e.target;
+      while (('A' !== el.tagName) && ('BODY' !== el.tagName)) {
+        el = el.parentNode;
+      }
+
+      /* Use CSS to filter down the list of posts. Ignore non-link clicks. */
+      var tag = el.getAttribute('data-tag');
+      if (tag) {
+        style.innerHTML = '.minilisting-item[data-tags*="|' + tag + '|"] { display: block; }';
+
+        /* Highlight the active filter only. */
+        var wasActiveList = document.querySelectorAll('.sidebar-filter-active');
+        var wasActive = Array.prototype.slice.call(wasActiveList);
+        wasActive.forEach(function removeFilterActiveClass(current) {
+          current.classList.remove('sidebar-filter-active');
+        });
+        el.classList.add('sidebar-filter-active');
+      }
+
+    });
+
+    /* Handle format link clicks. */
+    var formatsList = document.querySelector('.formats-listing');
+    formatsList.addEventListener('click', function applyFormatFilter(e) {
+
+      /* Find the a element that has our data attribute. */
+      var el = e.target;
+      while (('A' !== el.tagName) && ('BODY' !== el.tagName)) {
+        el = el.parentNode;
+      }
+
+      /* Use CSS to filter down the list of posts. Ignore non-link clicks. */
+      var format = el.getAttribute('data-format');
+      if (format) {
+        style.innerHTML = '.minilisting-item[data-format="' + format + '"] { display: block; }';
+
+        /* Highlight the active filter only. */
+        var wasActiveList = document.querySelectorAll('.sidebar-filter-active');
+        var wasActive = Array.prototype.slice.call(wasActiveList);
+        wasActive.forEach(function removeFilterActiveClass(current) {
+          current.classList.remove('sidebar-filter-active');
+        });
+        el.classList.add('sidebar-filter-active');
+      }
+
+    });
 
   }
 

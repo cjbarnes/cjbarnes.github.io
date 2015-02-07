@@ -12,14 +12,16 @@
     list-style: none;
 }
 
-
 /*
+ * The individual post.
  * 1. For icon positioning.
+ * 2. Hide results until displayed by a filtering/searching item.
  */
 .minilisting-item {
     @include circle-box-mini($background-color); /* 1 */
     @include rem("margin", ($line / 2) 0 ($line / 2) ($circle-diameter / 4));
     position: relative;
+    display: none; /* 2 */
 
     /* Icon colours and fonts.. */
     &:before {

@@ -15,7 +15,7 @@ Simple, descending-order list of posts used for searching and filtering.
   data-title="{{ post.title | strip_html | strip_newlines | xml_escape }}"
   data-format="{{ post.format }}"
   data-date="{{ post.date | date: '%F' }}"
-  data-tags="{{ post.tags | join: '|' | xml_escape }}"
+  data-tags="|{{ post.tags | join: '|' | xml_escape }}|"
   data-fulltext="{{ fulltext | strip_html | strip_newlines | xml_escape }}"
 >
   <a href="{{ post.url }}" title="Published on {{ post.date | date: '%-d %B %Y' }}">

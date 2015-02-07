@@ -87,6 +87,21 @@
 
 }
 
+/* Highlight the current sidebar filter. */
+.sidebar-filter-active {
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        border: 0;
+        background: transparent;
+        color: $link-color-active;
+        cursor: default;
+    }
+
+}
+
 
 /**
  * Media query.
