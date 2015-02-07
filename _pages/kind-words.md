@@ -3,7 +3,7 @@ title: kind words
 summary: Read what my clients have to say about working with me.
 permalink: whativedone/kindwords/
 illustration: heart-chair
-sortorder: 3
+sortorder: 2
 ---
 
 Thanks to my awesome clients who allowed me to publish their kind words here…
