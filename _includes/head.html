@@ -17,7 +17,7 @@
   {% if page.date %}
     | {{ page.date | date: '%d/%m/%y' }}
   {% endif %}
-| web design by cJ barnes
+ | web design by cJ barnes
 {% endif %}
 {% endcapture %}
 
@@ -50,7 +50,6 @@
 
 {% comment %} Work out the body's classlist for this page/post. {% endcomment %}
 {% include bodyclass.html %}
-
 <body class="{{ bodyclass | strip_newlines }}" id="cjbarnes-co-uk">
 <!--[if lt IE 8]>
     <p class="browsehappy">
