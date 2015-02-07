@@ -41,7 +41,8 @@
     }
 
     /* No icon for illustrated articles in full-size listings. */
-    &.post-illustrated:before {
+    &.post-illustrated:before,
+    &.page:before {
         display: none;
     }
 
@@ -94,9 +95,21 @@
 } //.listing-item
 
 /*
- * Blog listing.
+ * Blog/index listing.
  */
-.blog-listing-content {
+
+/* Bottom spacing for footer-less illustrated items. */
+.page-illustrated .index-listing-header {
+    padding-bottom: $line;
+
+    .title-summary {
+        margin-bottom: 0;
+    }
+
+}
+
+/* Content area. */
+.index-listing-content {
     @include rem("padding-bottom", $line);
     font-family: $font-family-content;
 
@@ -330,8 +343,11 @@
     }
 
 
-    /* Post contents in blog listing. Space out and align with title/footer. */
-    .blog-listing-content {
+    /**
+     * Post contents in blog and index listings. Space out and align with
+     * title/footer.
+     */
+    .index-listing-content {
 
         p,
         h1,

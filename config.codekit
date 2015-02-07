@@ -1028,6 +1028,28 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/img\/barbed-wire.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 67980,
+		"inputAbbreviatedPath": "\/img\/barbed-wire.jpg",
+		"outputAbbreviatedPath": "\/img\/barbed-wire.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/barbed-wire_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 53104,
+		"inputAbbreviatedPath": "\/img\/barbed-wire_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/barbed-wire_listing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/browser-mobile.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1046,6 +1068,28 @@
 		"initialSize": 227688,
 		"inputAbbreviatedPath": "\/img\/browser.png",
 		"outputAbbreviatedPath": "\/img\/browser.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/coffee-cups.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 118624,
+		"inputAbbreviatedPath": "\/img\/coffee-cups.jpg",
+		"outputAbbreviatedPath": "\/img\/coffee-cups.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/coffee-cups_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 110155,
+		"inputAbbreviatedPath": "\/img\/coffee-cups_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/coffee-cups_listing.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1072,11 +1116,33 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/feet.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 116218,
+		"inputAbbreviatedPath": "\/img\/feet.jpg",
+		"outputAbbreviatedPath": "\/img\/feet.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/feet_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 85514,
+		"inputAbbreviatedPath": "\/img\/feet_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/feet_listing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/halftone.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 11412,
+		"initialSize": 14231,
 		"inputAbbreviatedPath": "\/img\/halftone.png",
 		"outputAbbreviatedPath": "\/img\/halftone.png",
 		"outputPathIsOutsideProject": 0,
@@ -1087,9 +1153,20 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 109432,
+		"initialSize": 105808,
 		"inputAbbreviatedPath": "\/img\/heart-chair.jpg",
 		"outputAbbreviatedPath": "\/img\/heart-chair.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/heart-chair_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 96088,
+		"inputAbbreviatedPath": "\/img\/heart-chair_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/heart-chair_listing.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1160,6 +1237,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/imac-ipad.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 153317,
+		"inputAbbreviatedPath": "\/img\/imac-ipad.jpg",
+		"outputAbbreviatedPath": "\/img\/imac-ipad.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/imac-ipad_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 155584,
+		"inputAbbreviatedPath": "\/img\/imac-ipad_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/imac-ipad_listing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/iphone-in-car.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1193,6 +1292,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/leaves.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 139847,
+		"inputAbbreviatedPath": "\/img\/leaves.jpg",
+		"outputAbbreviatedPath": "\/img\/leaves.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/locke-studies-small.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -1215,6 +1325,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/macbook-side.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 78151,
+		"inputAbbreviatedPath": "\/img\/macbook-side.jpg",
+		"outputAbbreviatedPath": "\/img\/macbook-side.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/macbook-side_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 62536,
+		"inputAbbreviatedPath": "\/img\/macbook-side_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/macbook-side_listing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/my-approach-2.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1233,6 +1365,17 @@
 		"initialSize": 78075,
 		"inputAbbreviatedPath": "\/img\/my-approach.jpg",
 		"outputAbbreviatedPath": "\/img\/my-approach.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/my-approach_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 72041,
+		"inputAbbreviatedPath": "\/img\/my-approach_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/my-approach_listing.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1266,6 +1409,72 @@
 		"initialSize": 317818,
 		"inputAbbreviatedPath": "\/img\/skill-images.png",
 		"outputAbbreviatedPath": "\/img\/skill-images.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/sunglasses-macbook.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 69253,
+		"inputAbbreviatedPath": "\/img\/sunglasses-macbook.jpg",
+		"outputAbbreviatedPath": "\/img\/sunglasses-macbook.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/sunglasses-macbook_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 54495,
+		"inputAbbreviatedPath": "\/img\/sunglasses-macbook_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/sunglasses-macbook_listing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/thunderbolt-display-angled.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 108685,
+		"inputAbbreviatedPath": "\/img\/thunderbolt-display-angled.jpg",
+		"outputAbbreviatedPath": "\/img\/thunderbolt-display-angled.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/thunderbolt-display-angled_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 96333,
+		"inputAbbreviatedPath": "\/img\/thunderbolt-display-angled_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/thunderbolt-display-angled_listing.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/two-screens-blown-out.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 72912,
+		"inputAbbreviatedPath": "\/img\/two-screens-blown-out.jpg",
+		"outputAbbreviatedPath": "\/img\/two-screens-blown-out.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/two-screens-blown-out_listing.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 64824,
+		"inputAbbreviatedPath": "\/img\/two-screens-blown-out_listing.jpg",
+		"outputAbbreviatedPath": "\/img\/two-screens-blown-out_listing.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

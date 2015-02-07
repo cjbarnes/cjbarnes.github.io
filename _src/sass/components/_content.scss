@@ -19,6 +19,7 @@
     @include rem("padding-top",    ($line * 1.5));
     @include rem("padding-bottom", ($line * 2.5));
     font-family: $font-family-content;
+    background: $background-color-content;
 
     /* Remove top margin for headings at top of content area. */
     > h1:first-child,
@@ -101,7 +102,7 @@
     }
 
     /* Centre-align item titles in full-width listings. */
-    .content-section-special h2 {
+    .content-section-special > h2 {
         text-align: center;
     }
 

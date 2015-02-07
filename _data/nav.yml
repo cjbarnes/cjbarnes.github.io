@@ -18,7 +18,7 @@
   children:
   - name: my approach
     path: /whatido/approach/
-  - name: expertise
+  - name: my expertise
     path: /whatido/expertise/
   - name: I don’t...
     path: /whatido/idont/

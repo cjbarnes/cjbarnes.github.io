@@ -47,7 +47,7 @@
 
         /* The image itself. */
         img {
-            top: -450px;
+            top: -120px;
             margin-left: ($illustration-width * -0.5);
         }
 
@@ -55,8 +55,8 @@
 
 }
 
-/* Illustrated articles - just in the blog listing. */
-.blog-listing .header-illustrated {
+/* Illustrated articles - just in the blog/index listings. */
+.index-listing .header-illustrated {
 
     .title {
         @include rem("padding-top", ($line * 7));
