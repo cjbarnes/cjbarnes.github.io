@@ -1,0 +1,23 @@
+{% comment %}
+Simple, descending-order list of posts used for searching and filtering.
+{% endcomment %}
+<ul class="minilisting">
+{% for post in site.posts %}
+{% capture fulltext %}{{ post.format | strip_html }}
+|{{ post.tags | join: '|' }}
+|{{ post.title }}
+|{{ post.summary }}
+|{{ post.content }}
+{% endcapture %}
+<li
+  class="minilisting-item {{ articleclass | strip_newlines }}"
+  data-title="{{ post.title | strip_html | strip_newlines | xml_escape }}"
+  data-format="{{ post.format }}"
+  data-date="{{ post.date | date: '%F' }}"
+  data-tags="{{ post.tags | join: '|' }}"
+  data-fulltext="{{ fulltext | strip_html | strip_newlines | xml_escape }}"
+>
+  <a href="{{ post.url }}" title="Published on {{ include.date | date: '%-d %B %Y' }}">{% if post.link_href %}<i class="minilisting-title-label">link:</i> {% endif %}{% if post.title %}{{ post.title }}{% else %}(untitled {{ post.format }}){% endif %}</a>
+</li>
+{% endfor %}
+</ul>
