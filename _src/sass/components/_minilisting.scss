@@ -1,0 +1,71 @@
+/**
+ * Small, bulleted-list-style listings of articles and other data structures
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/* ul */.minilisting {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/*
+ * 1. For icon positioning.
+ */
+.minilisting-item {
+    @include circle-box-mini($background-color); /* 1 */
+    @include rem("margin", ($line / 2) 0 ($line / 2) ($circle-diameter / 4));
+    position: relative;
+
+    /* Icon colours and fonts.. */
+    &:before {
+        font-family: $font-family-icons;
+        color: $background-color;
+    }
+
+    /* Loop through icons themselves. */
+    @each $format, $icon in $format-icons {
+        &.post-#{$format}:before {
+            content: "#{$icon}";
+        }
+    }
+
+    /* No icon for illustrated articles in full-size listings. */
+    &.post-illustrated:before {
+        content: "\2605";
+        background: $background-color-illustrated;
+    }
+
+    /*
+     * The link.
+     * 1. Override the faux underlining (it will be reapplied to the child
+     *    element).
+     */
+    a {
+        @include rem("padding", ($line / 4) ($line / 2) ($line / 4) $line);
+        display: block;
+        border-bottom: 0; /* 1 */
+        color: $text-color-reversed;
+
+        /* Footer-mimicking right border 'stripe'. */
+        &,
+        &:hover,
+        &:focus {
+            @include rem("border-right-width", $line);
+            border-right-style: solid;
+            border-right-color: $background-color-page-footer;
+        }
+
+    }
+
+}
+
+/* The actual title (styled like a link). */
+.minilisting-title-main {
+    padding: $link-padding 0;
+    border-bottom: 1px solid;
+}

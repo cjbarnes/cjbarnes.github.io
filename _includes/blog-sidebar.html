@@ -1,0 +1,47 @@
+<aside class="sidebar blog-sidebar">
+
+  {{ content }}
+
+  <!-- Tags. -->
+  <section class="sidebar-section sidebar-tags">
+    <h2 class="sidebar-section-title">tags</h2>
+    <ul class="sidebar-listing tags-listing">
+    {% for tag in site.tags %}
+      <li class="sidebar-listing-item tags-listing-item tag-{{ tag.first | handleize }}">
+        <a data-tag="{{ tag.first | xml_escape }}">{{ tag.first }}</a>
+      </li>
+    {% endfor %}
+    </ul><!-- /.tags-listing -->
+  </section><!-- /.sidebar-tags -->
+
+  <!-- Formats. -->
+  <section class="sidebar-section sidebar-formats">
+    <h2 class="sidebar-section-title">types</h2>
+    <ul class="sidebar-listing formats-listing">
+    {% assign formats = "text|link|quote|tip" | split: "|" %}
+    {% for format in formats %}
+      <li class="sidebar-listing-item formats-listing-item format-{{ format }}">
+        <a data-format="{{ format }}">{{ format }}</a>
+      </li>
+    {% endfor %}
+    </ul><!-- /.formats-listing -->
+  </section><!-- /.sidebar-formats -->
+
+  <!-- Search. -->
+  <section class="sidebar-section sidebar-search">
+    <h2 class="sidebar-section-title">search</h2>
+    <form class="search-form sidebar-search-form">
+      <label for="sidebar-search">search</label>
+      <input type="search" class="search-input sidebar-search-input" id="sidebar-search" placeholder="search">
+      <button class="search-submit sidebar-search-submit">go</button>
+    </form><!-- /.sidebar-search-form -->
+  </section><!-- /.sidebar-search -->
+
+  <!-- Results of filter/search. -->
+  <section class="sidebar-section sidebar-results">
+    <h2 class="sidebar-section-title">results</h2>
+    <!-- Placeholder for the minilisting of all posts. -->
+    <div class="js-posts-minilist">loading…</div>
+  </section><!-- /.sidebar-results -->
+
+</aside><!-- /.blog-sidebar -->

@@ -10,14 +10,18 @@ Simple, descending-order list of posts used for searching and filtering.
 |{{ post.content }}
 {% endcapture %}
 <li
+  {% include articleclass.html page=post %}
   class="minilisting-item {{ articleclass | strip_newlines }}"
   data-title="{{ post.title | strip_html | strip_newlines | xml_escape }}"
   data-format="{{ post.format }}"
   data-date="{{ post.date | date: '%F' }}"
-  data-tags="{{ post.tags | join: '|' }}"
+  data-tags="{{ post.tags | join: '|' | xml_escape }}"
   data-fulltext="{{ fulltext | strip_html | strip_newlines | xml_escape }}"
 >
-  <a href="{{ post.url }}" title="Published on {{ include.date | date: '%-d %B %Y' }}">{% if post.link_href %}<i class="minilisting-title-label">link:</i> {% endif %}{% if post.title %}{{ post.title }}{% else %}(untitled {{ post.format }}){% endif %}</a>
+  <a href="{{ post.url }}" title="Published on {{ post.date | date: '%-d %B %Y' }}">
+    {% if post.link_href %}<i class="minilisting-title-label">link:</i> {% endif %}
+    <span class="minilisting-title-main">{% if post.title %}{{ post.title }}{% else %}(untitled {{ post.format }}){% endif %}</span>
+  </a>
 </li>
 {% endfor %}
-</ul>
+</ul><!-- /.minilisting -->

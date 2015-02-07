@@ -5,12 +5,16 @@
  * @package cjbarnes.github.io
  */
 
+/*
+ * 1. Declare cursor explicitly for JS-added links with no href.
+ */
 a {
     padding: $link-padding;
     border-bottom: 1px solid;
     color: $link-color-secondary;
     text-decoration: none;
     transition: all $link-transition-duration ease-in-out;
+    cursor: pointer; /* 1 */
 
     /* Internal links */
     &:hover,

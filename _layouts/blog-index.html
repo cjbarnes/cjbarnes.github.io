@@ -39,16 +39,8 @@
     <!-- Main content area -->
     <div class="content index-content blog-content" id="content">
 
-      <!-- Sidebar -->
-      <aside class="sidebar blog-sidebar">
-
-        {{ content }}
-
-        <div class="js-posts-minilist">
-
-        </div>
-
-      </aside><!-- /.blog-sidebar -->
+      <!-- Sidebar. -->
+      {% include blog-sidebar.html %}
 
       <!-- Articles list -->
       <div class="listing index-listing blog-listing">
