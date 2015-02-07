@@ -2,16 +2,20 @@
 
   {{ content }}
 
+  {% comment %} Prepare an A-Z tags list. {% endcomment %}
+  {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+  {% assign tag_words = site_tags | split:',' | sort %}
   <!-- Tags. -->
   <section class="sidebar-section sidebar-tags">
     <h2 class="sidebar-section-title screen-reader-only">tags</h2>
-    <ul class="sidebar-listing tags-listing">
-    {% for tag in site.tags %}
-      <li class="sidebar-listing-item tags-listing-item tag tag-{{ tag.first | handleize }}">
-        <a data-tag="{{ tag.first | xml_escape }}">{{ tag.first }}</a>
-      </li>
+    <p class="tagcloud">
+    {% for tag in tag_words %}
+      {% comment %} Get number of posts with this tag. {% endcomment %}
+      {% assign count = site.tags[tag] | size %}
+      <a class="tagcloud-item tag tag-{{ tag | handleize }}" data-tag="{{ tag | xml_escape }}">{% for i in (2..count) %}<b>{% endfor %}{{ tag }}{% for i in (2..count) %}</b>{% endfor %}</a>
+      <span class="screen-reader-only">,</span>
     {% endfor %}
-    </ul><!-- /.tags-listing -->
+    </p><!-- /.tagcloud -->
   </section><!-- /.sidebar-tags -->
 
   <!-- Formats. -->

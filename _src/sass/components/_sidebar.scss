@@ -11,14 +11,14 @@
   @include column($columns);
 }
 
-/* Formats and tags lists. */
+/* Formats lists. */
 .sidebar-listing {
     list-style: none;
     padding-left: 0;
 }
 
 /*
- * Formats and tags list items.
+ * Formats list items.
  * 1. For icon positioning.
  */
 .sidebar-listing-item {
@@ -45,6 +45,44 @@
     &.tag:before {
         content: "\e70c";
         color: $color-tags;
+    }
+
+}
+
+/*
+ * Tag cloud.
+ */
+.tagcloud {
+
+}
+
+.tagcloud-item {
+    @include font-size-leading("smaller", 1.5);
+    padding-left: 0;
+    padding-right: 0;
+    font-family: $font-family-content;
+
+    /* Tagcloud size increases. */
+    b {
+        @include font-size-leading("small", 1.5);
+        padding: 0;
+        background: none;
+        color: inherit;
+
+        b {
+            @include font-size-leading("normal", 1.5);
+
+            b {
+                @include font-size-leading("large", 1.5);
+
+                b {
+                    @include font-size-leading("larger", 1.5);
+                }
+
+            }
+
+        }
+
     }
 
 }
