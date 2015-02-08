@@ -2,11 +2,36 @@
 
   {{ content }}
 
+  <!-- Switcher. -->
+  <div class="sidebar-header">
+    <ul class="filter-switcher button-bar sidebar-button-bar js-filter-switcher">
+      <li class="filter-switcher-item filter-switcher-search">
+        <a class="js-search-filter" data-filter-section="js-search-section" title="search">&#x1f50d;</a>
+      </li>
+      <li class="filter-switcher-item filter-switcher-tags">
+        <b class="js-tags-filter" data-filter-section="js-tags-section" title="filter by tag">&#xe70c;</b>
+      </li>
+      <li class="filter-switcher-item filter-switcher-formats">
+        <a class="js-formats-filter" data-filter-section="js-formats-section" title="filter by post type">&#xe005;</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Search. -->
+  <section class="sidebar-section sidebar-filter-section sidebar-search js-search-section">
+    <h2 class="sidebar-section-title screen-reader-only">search</h2>
+    <form class="search-form sidebar-search-form">
+      <label for="sidebar-search" class="screen-reader-only">search</label>
+      <input type="search" class="search-input sidebar-search-input" id="sidebar-search" placeholder="search">
+      <button class="search-submit sidebar-search-submit">go</button>
+    </form><!-- /.sidebar-search-form -->
+  </section><!-- /.sidebar-search -->
+
   {% comment %} Prepare an A-Z tags list. {% endcomment %}
   {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
   {% assign tag_words = site_tags | split:',' | sort %}
   <!-- Tags. -->
-  <section class="sidebar-section sidebar-tags">
+  <section class="sidebar-section sidebar-filter-section sidebar-tags js-tags-section open">
     <h2 class="sidebar-section-title screen-reader-only">tags</h2>
     <p class="tagcloud">
     {% for tag in tag_words %}
@@ -19,7 +44,7 @@
   </section><!-- /.sidebar-tags -->
 
   <!-- Formats. -->
-  <section class="sidebar-section sidebar-formats">
+  <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section">
     <h2 class="sidebar-section-title screen-reader-only">types</h2>
     <ul class="sidebar-listing formats-listing">
     {% assign formats = "text|link|quote|tip" | split: "|" %}
@@ -31,19 +56,9 @@
     </ul><!-- /.formats-listing -->
   </section><!-- /.sidebar-formats -->
 
-  <!-- Search. -->
-  <section class="sidebar-section sidebar-search screen-reader-only">
-    <h2 class="sidebar-section-title screen-reader-only">search</h2>
-    <form class="search-form sidebar-search-form">
-      <label for="sidebar-search">search</label>
-      <input type="search" class="search-input sidebar-search-input" id="sidebar-search" placeholder="search">
-      <button class="search-submit sidebar-search-submit">go</button>
-    </form><!-- /.sidebar-search-form -->
-  </section><!-- /.sidebar-search -->
-
   <!-- Results of filter/search. -->
   <section class="sidebar-section sidebar-results">
-    <h2 class="sidebar-section-title">results</h2>
+    <h2 class="sidebar-section-title screen-reader-only">results</h2>
     <!-- Placeholder for the minilisting of all posts. -->
     <div class="js-posts-minilist">loading…</div>
   </section><!-- /.sidebar-results -->

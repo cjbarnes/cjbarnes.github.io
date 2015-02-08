@@ -284,6 +284,39 @@
     var style = document.createElement('style');
     document.body.appendChild(style);
 
+    /* Handle changing of filter type. */
+    var filterButtonBar = document.querySelector('.js-filter-switcher');
+    filterButtonBar.addEventListener('click', function changeFilterBox(e) {
+
+      /* Find the a element that was clicked. */
+      var el = e.target;
+      while (('A' !== el.tagName) && ('BODY' !== el.tagName)) {
+        el = el.parentNode;
+      }
+
+      /* Change which section is shown. */
+      var sectionClass = el.getAttribute('data-filter-section');
+      if (sectionClass) {
+        var wasOpenList = document.querySelectorAll('.sidebar-filter-section.open');
+        var wasOpen = Array.prototype.slice.call(wasOpenList);
+        wasOpen.forEach(function removeFilterSectionOpenClass(current) {
+          current.classList.remove('open');
+        });
+        document.querySelector('.' + sectionClass).classList.add('open');
+
+        /* Change which filter button is active. */
+        var wasActiveList = filterButtonBar.querySelectorAll('b');
+        var wasActive = Array.prototype.slice.call(wasActiveList);
+        wasActive.forEach(function replaceActiveButtonWithLink(current) {
+          var html = current.outerHTML;
+          current.outerHTML = html.replace(/<b/, '<a').replace(/<\/b/, '</a');
+        });
+        var html = el.outerHTML;
+        el.outerHTML = html.replace(/<a/, '<b').replace(/<\/a/, '</b');
+      }
+
+    });
+
     /* Handle tag clicks. */
     var tagcloud = document.querySelector('.tagcloud');
     tagcloud.addEventListener('click', function applyTagFilter(e) {

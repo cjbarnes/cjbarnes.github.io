@@ -11,10 +11,28 @@
   @include column($columns);
 }
 
+/*
+ * Section boundaries.
+ * 1. These are all JS-based, so hide unless scripts are turned on.
+ */
+.sidebar-filter-section {
+    @include rem("margin-bottom", ($line / 2));
+    @include rem("padding", (($circle-diameter * 0.5) + ($line-px * 0.5)) $gutter ($line * 0.5));
+    display: none; /* 1 */
+    background: $background-color-page-footer;
+
+    .js &.open {
+        display: block;
+    }
+
+}
+
 /* Formats lists. */
 .sidebar-listing {
-    list-style: none;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 0;
+    list-style: none;
 }
 
 /*
@@ -53,7 +71,7 @@
  * Tag cloud.
  */
 .tagcloud {
-
+    margin: 0;
 }
 
 .tagcloud-item {
@@ -110,12 +128,12 @@
  */
 @include media-width("normal-size") {
 
-  /* Content is still single-column, but with bigger margins, on tablets. */
-  .blog-sidebar {
-    @include column(10);
-    @include push;
-    @include pull;
-  }
+    /* Content is still single-column, but with bigger margins, on tablets. */
+    .sidebar {
+        @include column(10);
+        @include push;
+        @include pull;
+    }
 
 } //include media-width(normal-size)
 
@@ -127,11 +145,34 @@
  */
 @include media-width("two-columns") {
 
-  /* Lay out sidebar as a sidebar (only happens for widest layouts). */
-  .blog-sidebar {
-    @include column(3);
-    @include push(0);
-    @include pull(0);
-  }
+    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+    .sidebar {
+        @include column(4);
+        @include push(0);
+        @include pull(0);
+    }
 
 } //include media-width(two-columns)
+
+
+/**
+ * Media query.
+ *
+ * Greater white space between the main content and sidebar.
+ */
+@include media-width("more-column-spacing") {
+
+    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+    .sidebar {
+        @include column(3);
+        @include push(0);
+        @include pull(0);
+    }
+
+    /* Reinstate gutters. */
+    .sidebar-listing {
+        margin-left: $gutter;
+        margin-right: $gutter;
+    }
+
+} //include media-width(more-column-spacing)

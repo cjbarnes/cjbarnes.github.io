@@ -338,7 +338,7 @@
     /* Leave room for the sidebar column next to the listing column. */
     .blog-listing {
         @include column(8);
-        @include push(1);
+        @include push(0);
         @include pull(0);
     }
 
@@ -411,3 +411,18 @@
     }
 
 } //include media-width(portfolio-screenshots)
+
+
+/**
+ * Media query.
+ *
+ * Greater white space between the main content and sidebar.
+ */
+@include media-width("more-column-spacing") {
+
+    /* The sidebar is now one less column, so we leave an extra space. */
+    .blog-listing {
+        @include push(1);
+    }
+
+} //include media-width(more-column-spacing)
