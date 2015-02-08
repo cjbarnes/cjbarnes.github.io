@@ -252,6 +252,18 @@
 (function doPostsFiltering() {
 
   /**
+   * Reusable function that uses document.querySelectorAll() but returns an
+   * Array (which allows use of forEach() etc) instead of a NodeList.
+   *
+   * @param {String} selector Valid DOM selector for querySelectorAll().
+   * @return {Array} Array of elements matching the selector.
+   */
+  function elementsArray(selector) {
+    var nodeList = document.querySelectorAll(selector);
+    return Array.prototype.slice.call(nodeList);
+  }
+
+  /**
    * Replace an element's HTML with the minilisting Ajax response.
    * @this {XMLHttpRequest}
    * @param {Element} current Current element being processed in the array.
@@ -261,9 +273,7 @@
   }
 
   /* Get the empty containers for the minilisting to be loaded into. */
-  var minilistingWrapperList = document.querySelectorAll('.js-posts-minilist');
-  var minilistingWrappers = Array.prototype.slice.call(minilistingWrapperList);
-
+  var minilistingWrappers = elementsArray('.js-posts-minilist');
   if (minilistingWrappers.length) {
 
     /* Ajax-get the HTML for the list of posts. */
@@ -297,22 +307,16 @@
       /* Change which section is shown. */
       var sectionClass = el.getAttribute('data-filter-section');
       if (sectionClass) {
-        var wasOpenList = document.querySelectorAll('.sidebar-filter-section.open');
-        var wasOpen = Array.prototype.slice.call(wasOpenList);
+        var wasOpen = elementsArray('.sidebar-filter-section.open');
         wasOpen.forEach(function removeFilterSectionOpenClass(current) {
           current.classList.remove('open');
         });
         document.querySelector('.' + sectionClass).classList.add('open');
 
         /* Change which filter button is active. */
-        var wasActiveList = filterButtonBar.querySelectorAll('b');
-        var wasActive = Array.prototype.slice.call(wasActiveList);
-        wasActive.forEach(function replaceActiveButtonWithLink(current) {
-          var html = current.outerHTML;
-          current.outerHTML = html.replace(/<b/, '<a').replace(/<\/b/, '</a');
-        });
-        var html = el.outerHTML;
-        el.outerHTML = html.replace(/<a/, '<b').replace(/<\/a/, '</b');
+        var wasActive = filterButtonBar.querySelector('b');
+        wasActive.outerHTML = wasActive.outerHTML.replace(/<b/, '<a').replace(/<\/b/, '</a');
+        el.outerHTML = el.outerHTML.replace(/<a/, '<b').replace(/<\/a/, '</b');
       }
 
     });
@@ -333,8 +337,7 @@
         style.innerHTML = '.minilisting-item[data-tags*="|' + tag + '|"] { display: block; }';
 
         /* Highlight the active filter only. */
-        var wasActiveList = document.querySelectorAll('.sidebar-filter-active');
-        var wasActive = Array.prototype.slice.call(wasActiveList);
+        var wasActive = elementsArray('.sidebar-filter-active');
         wasActive.forEach(function removeFilterActiveClass(current) {
           current.classList.remove('sidebar-filter-active');
         });
@@ -359,8 +362,7 @@
         style.innerHTML = '.minilisting-item[data-format="' + format + '"] { display: block; }';
 
         /* Highlight the active filter only. */
-        var wasActiveList = document.querySelectorAll('.sidebar-filter-active');
-        var wasActive = Array.prototype.slice.call(wasActiveList);
+        var wasActive = elementsArray('.sidebar-filter-active');
         wasActive.forEach(function removeFilterActiveClass(current) {
           current.classList.remove('sidebar-filter-active');
         });
@@ -368,6 +370,8 @@
       }
 
     });
+
+
 
   }
 
