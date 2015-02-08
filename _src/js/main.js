@@ -272,6 +272,36 @@
     current.innerHTML = this.response;
   }
 
+  /**
+   * Run a search.
+   */
+  function doSearch(e) {
+    e.preventDefault();
+
+    var searchbox = document.querySelector('#sidebar-search');
+
+    if ('value' in searchbox) {
+      var str = searchbox.value.trim().toLowerCase();
+
+      /* Split the search term into quoted phrases and unquoted words. */
+      var attrSelectors = str.match(/(".*?"|[\w']*)/g).map(function getSearchTermAttribute(term) {
+
+        term = term.replace(/"/g, '');
+
+        /* Search term must be 3 or more characters. */
+        if (2 < term.length) {
+          return '[data-fulltext*="' + term + '"]';
+        } else {
+          return '';
+        }
+      });
+
+
+      style.innerHTML = '.minilisting-item' + attrSelectors.join('') + ' { display: block; }';
+
+    }
+  }
+
   /* Get the empty containers for the minilisting to be loaded into. */
   var minilistingWrappers = elementsArray('.js-posts-minilist');
   if (minilistingWrappers.length) {
@@ -371,7 +401,11 @@
 
     });
 
-
+    /* Handle search form. */
+    var searchForms = elementsArray('.search-form');
+    searchForms.forEach(function(current) {
+      current.addEventListener('submit', doSearch);
+    });
 
   }
 

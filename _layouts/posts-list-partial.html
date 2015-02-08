@@ -16,7 +16,7 @@ Simple, descending-order list of posts used for searching and filtering.
   data-format="{{ post.format }}"
   data-date="{{ post.date | date: '%F' }}"
   data-tags="|{{ post.tags | join: '|' | xml_escape }}|"
-  data-fulltext="{{ fulltext | strip_html | strip_newlines | xml_escape }}"
+  data-fulltext="{{ fulltext | strip_html | strip_newlines | downcase | xml_escape }}"
 >
   <a href="{{ post.url }}" title="Published on {{ post.date | date: '%-d %B %Y' }}">
     {% if post.link_href %}<i class="minilisting-title-label">link:</i> {% endif %}
