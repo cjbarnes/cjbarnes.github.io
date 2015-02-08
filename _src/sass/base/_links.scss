@@ -66,3 +66,11 @@ a {
     }
 
 }
+
+/*
+ * Tag links.
+ * 1. Don't line-break within a tag (it's confusing).
+ */
+.tag {
+    white-space: nowrap; /* 1 */
+}
