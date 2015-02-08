@@ -113,14 +113,20 @@
     text-align: center;
 }
 
-/* Search field/button wrappers */
+/* Search field/button wrappers. */
 .search-form-field-wrap {
     margin: 0;
 
-    + & {
+    & + & {
         margin-top: ($line * 0.5);
     }
 
+}
+
+/* The search input. */
+.search-input {
+    @include font-size-leading("large");
+    width: 100%;
 }
 
 
