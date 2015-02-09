@@ -47,7 +47,20 @@
 
   </article><!-- /.homepage -->
 
-  {% include page-footer.html %}
+  <!-- Upper footer area -->
+  <footer class="footer page-footer" id="page-footer">
+
+    {% if page.date %}
+      {% include pager.html %}
+    {% endif %}
+
+    <!-- Blog posts -->
+    {% include footer-latest-posts.html %}
+
+    <!-- Featured websites -->
+    {% include footer-featured-website.html %}
+
+  </footer><!-- /.page-footer -->
 
 </main><!-- /.above-footer -->
 

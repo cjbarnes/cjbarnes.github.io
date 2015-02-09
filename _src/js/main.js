@@ -298,7 +298,7 @@
 
       var attrStr = attrSelectors.join('');
       if (attrStr) {
-        style.innerHTML = '.minilisting-item' + attrStr + ' { display: block; counter-increment: results; }';
+        style.innerHTML = '.filter-minilisting-item' + attrStr + ' { display: block; counter-increment: results; }';
       } else {
         style.innerHTML = '';
       }
@@ -379,7 +379,7 @@
       /* Use CSS to filter down the list of posts. Ignore non-link clicks. */
       var tag = el.getAttribute('data-tag');
       if (tag) {
-        style.innerHTML = '.minilisting-item[data-tags*="|' + tag + '|"] { display: block; counter-increment: results; }';
+        style.innerHTML = '.filter-minilisting-item[data-tags*="|' + tag + '|"] { display: block; counter-increment: results; }';
 
         /* Highlight the active filter only. */
         var wasActive = elementsArray('.sidebar-filter-active');
@@ -404,7 +404,7 @@
       /* Use CSS to filter down the list of posts. Ignore non-link clicks. */
       var language = el.getAttribute('data-language');
       if (language) {
-        style.innerHTML = '.minilisting-item[data-languages*="|' + language + '|"] { display: block; counter-increment: results; }';
+        style.innerHTML = '.filter-minilisting-item[data-languages*="|' + language + '|"] { display: block; counter-increment: results; }';
 
         /* Highlight the active filter only. */
         var wasActive = elementsArray('.sidebar-filter-active');
@@ -429,7 +429,7 @@
       /* Use CSS to filter down the list of posts. Ignore non-link clicks. */
       var format = el.getAttribute('data-format');
       if (format) {
-        style.innerHTML = '.minilisting-item[data-format="' + format + '"] { display: block; counter-increment: results; }';
+        style.innerHTML = '.filter-minilisting-item[data-format="' + format + '"] { display: block; counter-increment: results; }';
 
         /* Highlight the active filter only. */
         var wasActive = elementsArray('.sidebar-filter-active');

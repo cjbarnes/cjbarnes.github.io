@@ -22,7 +22,6 @@
     @include circle-box-mini($background-color); /* 1 */
     @include rem("margin", ($line / 2) 0 ($line / 2) ($circle-diameter / 4));
     position: relative;
-    display: none; /* 2 */
 
     /*
      * Icon colours and fonts..
@@ -31,7 +30,7 @@
     &:before {
         z-index: 2; /* 1 */
         font-family: $font-family-icons;
-        color: $background-color;
+        color: $background-color-page-footer;
     }
 
     /* Loop through icons themselves. */
@@ -59,8 +58,27 @@
         display: block;
         border-bottom: 0; /* 2 */
         color: $text-color-reversed;
+    }
 
-        /* Footer-mimicking right border 'stripe'. */
+}
+
+/* The actual title (styled like a link). */
+.minilisting-title-main {
+    padding: $link-padding 0;
+    border-bottom: 1px solid;
+}
+
+/* Hide filter/search results until displayed using javascript. */
+.filter-minilisting-item {
+    display: none; /* 2 */
+
+    /* Change icon/border colour to match the blog index background. */
+    &:before {
+        color: $background-color;
+    }
+
+    a {
+        /* Footer-mimicking right border 'stripe'. Contains search result no. */
         &,
         &:hover,
         &:focus {
@@ -86,10 +104,4 @@
 
     }
 
-}
-
-/* The actual title (styled like a link). */
-.minilisting-title-main {
-    padding: $link-padding 0;
-    border-bottom: 1px solid;
 }
