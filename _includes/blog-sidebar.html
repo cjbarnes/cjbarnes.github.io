@@ -1,0 +1,87 @@
+<aside class="sidebar blog-sidebar">
+
+  {{ content }}
+
+  <h2 class="screen-reader-only">search and filter posts</h2>
+
+  <!-- Switcher for the different filter/search types. -->
+  <div class="sidebar-header">
+    <ul class="filter-switcher button-bar sidebar-button-bar js-filter-switcher">
+      <li class="filter-switcher-item filter-switcher-search">
+        <a class="js-search-filter" data-filter-section="js-search-section" title="search">&#xe63a;</a>
+      </li>
+      <li class="filter-switcher-item filter-switcher-tags">
+        <b class="js-tags-filter" data-filter-section="js-tags-section" title="filter by tag">&#xe652;</b>
+      </li>
+      <li class="filter-switcher-item filter-switcher-languages">
+        <a class="js-languages-filter" data-filter-section="js-languages-section" title="filter by language">&#xe626;</a>
+      </li>
+      <li class="filter-switcher-item filter-switcher-formats">
+        <a class="js-formats-filter" data-filter-section="js-formats-section" title="filter by post type">&#xe63e;</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Search. -->
+  <section class="sidebar-section sidebar-filter-section sidebar-search js-search-section">
+    <h3 class="sidebar-section-title screen-reader-only">search</h3>
+    <form class="search-form sidebar-search-form">
+      <p class="field-wrap search-form-field-wrap">
+        <label for="sidebar-search" class="screen-reader-only">search</label>
+        <input type="search" class="search-input sidebar-search-input" id="sidebar-search" placeholder="search">
+      </p>
+      <p class="field-wrap search-form-field-wrap">
+        <button class="search-submit sidebar-search-submit">search blog</button>
+      </p>
+    </form><!-- /.sidebar-search-form -->
+  </section><!-- /.sidebar-search -->
+
+  {% comment %} Prepare an A-Z tags list. {% endcomment %}
+  {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+  {% assign tag_words = site_tags | split:',' | sort %}
+  <!-- Tags. -->
+  <section class="sidebar-section sidebar-filter-section sidebar-tags js-tags-section open">
+    <h3 class="sidebar-section-title screen-reader-only">tags</h3>
+    <p class="tagcloud">
+    {% for tag in tag_words %}
+      {% comment %} Get number of posts with this tag. {% endcomment %}
+      {% assign count = site.tags[tag] | size %}
+      <a class="tagcloud-item tag tag-{{ tag | handleize }}" data-tag="{{ tag | xml_escape }}">{% for i in (2..count) %}<b>{% endfor %}{{ tag }}{% for i in (2..count) %}</b>{% endfor %}</a>
+      <span class="screen-reader-only">,</span>
+    {% endfor %}
+    </p><!-- /.tagcloud -->
+  </section><!-- /.sidebar-tags -->
+
+  <!-- Languages. -->
+  <section class="sidebar-section sidebar-filter-section sidebar-languages js-languages-section">
+    <h3 class="sidebar-section-title screen-reader-only">languages</h3>
+    <ul class="sidebar-listing languages-listing">
+    {% for language in site.data.languages %}
+      <li class="sidebar-listing-item languages-listing-item language-{{ language.name }}">
+        <a data-language="{{ language.name }}">{{ language.title }} posts</a>
+      </li>
+    {% endfor %}
+    </ul><!-- /.languages-listing -->
+  </section><!-- /.sidebar-languages -->
+
+  <!-- Formats. -->
+  <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section">
+    <h3 class="sidebar-section-title screen-reader-only">types</h3>
+    <ul class="sidebar-listing formats-listing">
+    {% assign formats = "thoughts|tutorial|tip|link|quote|off-topic" | split: "|" %}
+    {% for format in formats %}
+      <li class="sidebar-listing-item formats-listing-item format-{{ format }}">
+        <a data-format="{{ format }}">{{ format }} posts</a>
+      </li>
+    {% endfor %}
+    </ul><!-- /.formats-listing -->
+  </section><!-- /.sidebar-formats -->
+
+  <!-- Results of filter/search. -->
+  <section class="sidebar-section sidebar-results">
+    <h3 class="sidebar-section-title screen-reader-only">search/filter results</h3>
+    <!-- Placeholder for the minilisting of all posts. -->
+    <div class="js-posts-minilist">loading…</div>
+  </section><!-- /.sidebar-results -->
+
+</aside><!-- /.blog-sidebar -->

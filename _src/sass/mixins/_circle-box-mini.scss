@@ -1,0 +1,41 @@
+/**
+ * Mixin to add a small circle to the left of the content block
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Add a small circle to the left of the content block.
+ *
+ * @param color $background The page background that the circle will overlap.
+ *                          Default $background-color-content.
+ */
+@mixin circle-box-mini($background: $background-color-content) {
+  @if not mixin-exists(circle) {
+    @error "Mixin circle-box-mini requires mixin circle, which does not exist.";
+  }
+  @if not mixin-exists(circle-2x) {
+    @error "Mixin circle-box-mini requires mixin circle-2x, which does not exist.";
+  }
+  @if not "color" == type-of($background) {
+    @error "$color must be a color, was #{$color}.";
+  }
+
+  // Output.
+  position: relative; // for icon placement
+
+  // Icon.
+  &:before {
+    $diameter: ($circle-diameter * 0.75);
+    @include circle($diameter);
+    @include font-size("large");
+    position: absolute;
+    top: (((($line-px * 1.5) - $diameter) / 2) - 1px);
+    left: ((($diameter / 4) * -1) - 1px);
+    margin-left: (($diameter / 4) * -1);
+    border-color: $background;
+    color: $text-color-reversed;
+  }
+
+}

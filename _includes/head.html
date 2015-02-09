@@ -17,7 +17,7 @@
   {% if page.date %}
     | {{ page.date | date: '%d/%m/%y' }}
   {% endif %}
-| web design by cJ barnes
+ | web design by cJ barnes
 {% endif %}
 {% endcapture %}
 
@@ -29,9 +29,6 @@
 <!-- Metadata -->
 <title>{{ the_title | strip_newlines }}</title>
 <meta name="description" content="{{ page.excerpt | strip_html }}">
-
-<!-- DNS prefetching for performance -->
-<link rel="dns-prefetch" href="http://weloveiconfonts.com">
 
 <!-- High-priority webfonts -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro:300">
@@ -50,7 +47,6 @@
 
 {% comment %} Work out the body's classlist for this page/post. {% endcomment %}
 {% include bodyclass.html %}
-
 <body class="{{ bodyclass | strip_newlines }}" id="cjbarnes-co-uk">
 <!--[if lt IE 8]>
     <p class="browsehappy">

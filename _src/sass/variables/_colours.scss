@@ -103,18 +103,30 @@ $background-color-portfolio-entry: $black;
 $color-skills-list-icon:       $toast;
 $background-color-skills-list: $cararra;
 
+$color-tags: $oslo-grey;
+
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
-    "text":    $ironstone,
-    "link":    $patina,
-    "page":    $toast,
-    "quote":   $santa-fe,
-    "tip":     $indian-khaki,
-    "website": $toast,
-    "award":   $indian-khaki,
-    "course":  $oslo-grey,
-    "job":     $ironstone,
-    "project": $patina
+    "tutorial":  $ironstone,
+    "thoughts":  $oslo-grey,
+    "off-topic": $eucalyptus,
+    "link":      $patina,
+    "page":      $toast,
+    "quote":     $santa-fe,
+    "tip":       $indian-khaki
+);
+
+// Programming language brand colours.
+$language-colors: (
+   "wordpress":  #21759b,
+   "jekyll":     #cc0814,
+   "jquery":     #136aab,
+   "less":       #1e375c,
+   "sass":       #cd669a,
+   "javascript": #d8ba42,
+   "css":        #1173ba,
+   "html":       #e34f26,
+   "php":        #505c91
 );
 
 // Icon colours for figures within content.

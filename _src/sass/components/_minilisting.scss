@@ -1,0 +1,95 @@
+/**
+ * Small, bulleted-list-style listings of articles and other data structures
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/* ul */.minilisting {
+    @include rem("margin", 0 0 0 $gutter);
+    padding: 0;
+    list-style: none;
+    counter-reset: results;
+}
+
+/*
+ * The individual post.
+ * 1. For icon positioning.
+ * 2. Hide results until displayed by a filtering/searching item.
+ */
+.minilisting-item {
+    @include circle-box-mini($background-color); /* 1 */
+    @include rem("margin", ($line / 2) 0 ($line / 2) ($circle-diameter / 4));
+    position: relative;
+    display: none; /* 2 */
+
+    /*
+     * Icon colours and fonts..
+     * 1. To overlap the child link element.
+     */
+    &:before {
+        z-index: 2; /* 1 */
+        font-family: $font-family-icons;
+        color: $background-color;
+    }
+
+    /* Loop through icons themselves. */
+    @each $format, $icon in $format-icons {
+        &.post-#{$format}:before {
+            content: "#{$icon}";
+        }
+    }
+
+    /* Icon for illustrated articles in minilistings. */
+    &.post-illustrated:before {
+        content: "\e62c";
+        background: $background-color-illustrated;
+    }
+
+    /*
+     * The link.
+     * 1. For the search results count alignment.
+     * 2. Override the faux underlining (it will be reapplied to the child
+     *    element).
+     */
+    a {
+        @include rem("padding", ($line / 4) ($line / 2) ($line / 4) $line);
+        position: relative; /* 1 */
+        display: block;
+        border-bottom: 0; /* 2 */
+        color: $text-color-reversed;
+
+        /* Footer-mimicking right border 'stripe'. */
+        &,
+        &:hover,
+        &:focus {
+            @include rem("border-right-width", $line);
+            border-right-style: solid;
+            border-right-color: $background-color-page-footer;
+        }
+
+        /*
+         * Search result number.
+         * 1. As wide as the border-right (for easier alignment).
+         */
+        &:after {
+            @include rem("width", $line); /* 1 */
+            @include rem("margin-top", ($line * -0.5));
+            content: counter(results);
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            text-align: center;
+            color: $link-color-secondary;
+        }
+
+    }
+
+}
+
+/* The actual title (styled like a link). */
+.minilisting-title-main {
+    padding: $link-padding 0;
+    border-bottom: 1px solid;
+}

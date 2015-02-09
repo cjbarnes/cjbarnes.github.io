@@ -61,3 +61,11 @@ img::selection{
     }
 
 }
+
+
+/**
+ * Hide screen-reader-only elements.
+ */
+.screen-reader-only {
+    display: none;
+}

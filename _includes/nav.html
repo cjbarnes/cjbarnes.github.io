@@ -12,6 +12,8 @@
     {% assign active = '' %}
     {% if nav.path == page.url %}
       {% assign active = ' active' %}
+    {% elsif page.url contains nav.path and nav.path != "/" %}
+      {% assign active = ' active' %}
     {% elsif 'homepage' == nav.special and '/index.html' == page.url %}
       {% assign active = ' active' %}
     {% elsif 'blog' == nav.special and (include.blog or page.date) %}

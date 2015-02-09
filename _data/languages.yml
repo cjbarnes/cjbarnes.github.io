@@ -1,0 +1,31 @@
+# Programming language categories
+#
+# Used for filtering post lists.
+
+- name: wordpress
+  title: WordPress
+
+- name: jekyll
+  title: Jekyll
+
+- name: jquery
+  title: jQuery
+
+- name: less
+  title: Less
+
+- name: sass
+  title: Sass
+
+- name: javascript
+  title: JavaScript
+
+- name: css
+  title: CSS
+
+- name: html
+  title: HTML
+
+- name: php
+  title: PHP
+
