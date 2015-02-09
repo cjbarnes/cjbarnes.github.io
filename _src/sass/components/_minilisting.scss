@@ -10,6 +10,7 @@
     @include rem("margin", 0 0 0 $gutter);
     padding: 0;
     list-style: none;
+    counter-reset: results;
 }
 
 /*
@@ -23,8 +24,12 @@
     position: relative;
     display: none; /* 2 */
 
-    /* Icon colours and fonts.. */
+    /*
+     * Icon colours and fonts..
+     * 1. To overlap the child link element.
+     */
     &:before {
+        z-index: 2; /* 1 */
         font-family: $font-family-icons;
         color: $background-color;
     }
@@ -44,13 +49,15 @@
 
     /*
      * The link.
-     * 1. Override the faux underlining (it will be reapplied to the child
+     * 1. For the search results count alignment.
+     * 2. Override the faux underlining (it will be reapplied to the child
      *    element).
      */
     a {
         @include rem("padding", ($line / 4) ($line / 2) ($line / 4) $line);
+        position: relative; /* 1 */
         display: block;
-        border-bottom: 0; /* 1 */
+        border-bottom: 0; /* 2 */
         color: $text-color-reversed;
 
         /* Footer-mimicking right border 'stripe'. */
@@ -60,6 +67,21 @@
             @include rem("border-right-width", $line);
             border-right-style: solid;
             border-right-color: $background-color-page-footer;
+        }
+
+        /*
+         * Search result number.
+         * 1. As wide as the border-right (for easier alignment).
+         */
+        &:after {
+            @include rem("width", $line); /* 1 */
+            @include rem("margin-top", ($line * -0.5));
+            content: counter(results);
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            text-align: center;
+            color: $link-color-secondary;
         }
 
     }
