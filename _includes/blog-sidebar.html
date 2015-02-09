@@ -2,6 +2,8 @@
 
   {{ content }}
 
+  <h2 class="screen-reader-only">search and filter posts</h2>
+
   <!-- Switcher. -->
   <div class="sidebar-header">
     <ul class="filter-switcher button-bar sidebar-button-bar js-filter-switcher">
@@ -19,7 +21,7 @@
 
   <!-- Search. -->
   <section class="sidebar-section sidebar-filter-section sidebar-search js-search-section">
-    <h2 class="sidebar-section-title screen-reader-only">search</h2>
+    <h3 class="sidebar-section-title screen-reader-only">search</h3>
     <form class="search-form sidebar-search-form">
       <p class="field-wrap search-form-field-wrap">
         <label for="sidebar-search" class="screen-reader-only">search</label>
@@ -36,7 +38,7 @@
   {% assign tag_words = site_tags | split:',' | sort %}
   <!-- Tags. -->
   <section class="sidebar-section sidebar-filter-section sidebar-tags js-tags-section open">
-    <h2 class="sidebar-section-title screen-reader-only">tags</h2>
+    <h3 class="sidebar-section-title screen-reader-only">tags</h3>
     <p class="tagcloud">
     {% for tag in tag_words %}
       {% comment %} Get number of posts with this tag. {% endcomment %}
@@ -49,7 +51,7 @@
 
   <!-- Formats. -->
   <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section">
-    <h2 class="sidebar-section-title screen-reader-only">types</h2>
+    <h3 class="sidebar-section-title screen-reader-only">types</h3>
     <ul class="sidebar-listing formats-listing">
     {% assign formats = "thoughts|tutorial|tip|link|quote|off-topic" | split: "|" %}
     {% for format in formats %}
@@ -62,7 +64,7 @@
 
   <!-- Results of filter/search. -->
   <section class="sidebar-section sidebar-results">
-    <h2 class="sidebar-section-title screen-reader-only">results</h2>
+    <h3 class="sidebar-section-title screen-reader-only">search/filter results</h3>
     <!-- Placeholder for the minilisting of all posts. -->
     <div class="js-posts-minilist">loading…</div>
   </section><!-- /.sidebar-results -->
