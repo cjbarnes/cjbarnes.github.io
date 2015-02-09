@@ -11,13 +11,13 @@
         <a class="js-search-filter" data-filter-section="js-search-section" title="search">&#xe63a;</a>
       </li>
       <li class="filter-switcher-item filter-switcher-tags">
-        <b class="js-tags-filter" data-filter-section="js-tags-section" title="filter by tag">&#xe652;</b>
+        <a class="js-tags-filter" data-filter-section="js-tags-section" title="filter by tag">&#xe652;</a>
       </li>
       <li class="filter-switcher-item filter-switcher-languages">
         <a class="js-languages-filter" data-filter-section="js-languages-section" title="filter by language">&#xe626;</a>
       </li>
       <li class="filter-switcher-item filter-switcher-formats">
-        <a class="js-formats-filter" data-filter-section="js-formats-section" title="filter by post type">&#xe63e;</a>
+        <b class="js-formats-filter" data-filter-section="js-formats-section" title="filter by post type">&#xe63e;</b>
       </li>
     </ul>
   </div>
@@ -40,7 +40,7 @@
   {% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
   {% assign tag_words = site_tags | split:',' | sort %}
   <!-- Tags. -->
-  <section class="sidebar-section sidebar-filter-section sidebar-tags js-tags-section open">
+  <section class="sidebar-section sidebar-filter-section sidebar-tags js-tags-section">
     <h3 class="sidebar-section-title screen-reader-only">tags</h3>
     <p class="tagcloud">
     {% for tag in tag_words %}
@@ -65,7 +65,7 @@
   </section><!-- /.sidebar-languages -->
 
   <!-- Formats. -->
-  <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section">
+  <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section open">
     <h3 class="sidebar-section-title screen-reader-only">types</h3>
     <ul class="sidebar-listing formats-listing">
     {% assign formats = "thoughts|tutorial|tip|link|quote|off-topic" | split: "|" %}
