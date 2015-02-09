@@ -279,11 +279,12 @@
             text-shadow: 0 0 10px $white;
         }
 
-        /* Remove shadow on hover. */
-        .masthead-illustrated .nav:hover & {
-            text-shadow: none;
-        }
+    }
 
+    /* Remove shadow for highlighted link. */
+    .masthead-illustrated .active > a,
+    .masthead-illustrated .nav:hover a {
+        text-shadow: none;
     }
 
     /* Light backgrounds - hover. Override previous styles block. */
