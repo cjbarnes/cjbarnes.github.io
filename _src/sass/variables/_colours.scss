@@ -116,6 +116,19 @@ $format-colors: (
     "tip":       $indian-khaki
 );
 
+// Programming language brand colours.
+$language-colors: (
+   "wordpress":  #21759b,
+   "jekyll":     #cc0814,
+   "jquery":     #136aab,
+   "less":       #1e375c,
+   "sass":       #cd669a,
+   "javascript": #d8ba42,
+   "css":        #1173ba,
+   "html":       #e34f26,
+   "php":        #505c91
+);
+
 // Icon colours for figures within content.
 $figure-colors: (
     "code":  $background-color-code,

@@ -36,7 +36,7 @@
 }
 
 /*
- * Formats list items.
+ * Formats and languages list items.
  * 1. For icon positioning.
  */
 .sidebar-listing-item {
@@ -51,7 +51,7 @@
         font-family: $font-family-icons;
     }
 
-    /* Loop through icons themselves. */
+    /* Content and colours for format icons. */
     @each $format, $icon in $format-icons {
         &.format-#{$format}:before {
             content: "#{$icon}";
@@ -59,12 +59,26 @@
         }
     }
 
-    /* Tags icon. */
-    &.tag:before {
-        content: "\e652";
-        color: $color-tags;
+    /* Content and colours for language icons. */
+    @each $language, $icon in $language-icons {
+        &.language-#{$language}:before {
+            content: "#{$icon}";
+            color: map-get($language-colors, $language);
+        }
     }
 
+    /* Remove link left-right padding to fix second-line alignment. */
+    a {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+
+/* Language icons are smaller, so boost their size a little. */
+.languages-listing-item:before {
+    @include font-size-leading("huge");
+    left: -0.1em;
 }
 
 /*

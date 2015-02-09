@@ -384,6 +384,31 @@
 
     });
 
+    /* Handle language link clicks. */
+    var languagesList = document.querySelector('.languages-listing');
+    languagesList.addEventListener('click', function applyLanguageFilter(e) {
+
+      /* Find the a element that has our data attribute. */
+      var el = e.target;
+      while (('A' !== el.tagName) && ('BODY' !== el.tagName)) {
+        el = el.parentNode;
+      }
+
+      /* Use CSS to filter down the list of posts. Ignore non-link clicks. */
+      var language = el.getAttribute('data-language');
+      if (language) {
+        style.innerHTML = '.minilisting-item[data-languages*="|' + language + '|"] { display: block; counter-increment: results; }';
+
+        /* Highlight the active filter only. */
+        var wasActive = elementsArray('.sidebar-filter-active');
+        wasActive.forEach(function removeFilterActiveClass(current) {
+          current.classList.remove('sidebar-filter-active');
+        });
+        el.classList.add('sidebar-filter-active');
+      }
+
+    });
+
     /* Handle format link clicks. */
     var formatsList = document.querySelector('.formats-listing');
     formatsList.addEventListener('click', function applyFormatFilter(e) {

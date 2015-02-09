@@ -5,6 +5,7 @@ Simple, descending-order list of posts used for searching and filtering.
 {% for post in site.posts %}
 {% capture fulltext %}{{ post.format | strip_html }}
 |{{ post.tags | join: '|' }}
+|{{ post.languages | join: '|' }}
 |{{ post.title }}
 |{{ post.summary }}
 |{{ post.content }}
@@ -15,6 +16,7 @@ Simple, descending-order list of posts used for searching and filtering.
   data-title="{{ post.title | strip_html | strip_newlines | xml_escape }}"
   data-format="{{ post.format }}"
   data-date="{{ post.date | date: '%F' }}"
+  data-languages="|{{ post.languages | join: '|' | downcase | xml_escape }}|"
   data-tags="|{{ post.tags | join: '|' | xml_escape }}|"
   data-fulltext="{{ fulltext | strip_html | strip_newlines | downcase | xml_escape }}"
 >

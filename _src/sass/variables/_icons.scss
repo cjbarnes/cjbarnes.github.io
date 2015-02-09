@@ -8,13 +8,25 @@
 
 // Post formats and CV/portfolio entry icons.
 $format-icons: (
-  "tutorial":    "\e637",
-  "thoughts":    "\e61a",
-  "link":       "\e631",
-  "page":       "",
-  "quote":      "\201d",
-  "tip":        "\e630",
-  "off-topic":  "\e628"
+  "tutorial":  "\e637",
+  "thoughts":  "\e61a",
+  "link":      "\e631",
+  "page":      "",
+  "quote":     "\201d",
+  "tip":       "\e630",
+  "off-topic": "\e628"
+);
+
+$language-icons: (
+   "wordpress":  "\e60b",
+   "jekyll":     "\e60d",
+   "jquery":     "\e650",
+   "less":       "\e658",
+   "sass":       "\e64b",
+   "javascript": "\e64f",
+   "css":        "\e649",
+   "html":       "\e636",
+   "php":        "\e63d"
 );
 
 // Icon for figures within content.

@@ -4,7 +4,7 @@
 
   <h2 class="screen-reader-only">search and filter posts</h2>
 
-  <!-- Switcher. -->
+  <!-- Switcher for the different filter/search types. -->
   <div class="sidebar-header">
     <ul class="filter-switcher button-bar sidebar-button-bar js-filter-switcher">
       <li class="filter-switcher-item filter-switcher-search">
@@ -12,6 +12,9 @@
       </li>
       <li class="filter-switcher-item filter-switcher-tags">
         <b class="js-tags-filter" data-filter-section="js-tags-section" title="filter by tag">&#xe652;</b>
+      </li>
+      <li class="filter-switcher-item filter-switcher-languages">
+        <a class="js-languages-filter" data-filter-section="js-languages-section" title="filter by language">&#xe626;</a>
       </li>
       <li class="filter-switcher-item filter-switcher-formats">
         <a class="js-formats-filter" data-filter-section="js-formats-section" title="filter by post type">&#xe63e;</a>
@@ -47,8 +50,19 @@
       <span class="screen-reader-only">,</span>
     {% endfor %}
     </p><!-- /.tagcloud -->
-    <h3></h3>
   </section><!-- /.sidebar-tags -->
+
+  <!-- Languages. -->
+  <section class="sidebar-section sidebar-filter-section sidebar-languages js-languages-section">
+    <h3 class="sidebar-section-title screen-reader-only">languages</h3>
+    <ul class="sidebar-listing languages-listing">
+    {% for language in site.data.languages %}
+      <li class="sidebar-listing-item languages-listing-item language-{{ language.name }}">
+        <a data-language="{{ language.name }}">{{ language.title }} posts</a>
+      </li>
+    {% endfor %}
+    </ul><!-- /.languages-listing -->
+  </section><!-- /.sidebar-languages -->
 
   <!-- Formats. -->
   <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section">
