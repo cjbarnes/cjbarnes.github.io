@@ -24,7 +24,7 @@
 
         /* Icon. */
         &:before {
-            content: "👍";
+            content: "\e65c";
             background-color: $color-yes;
         }
 
@@ -48,7 +48,7 @@
 
         /* Icon. */
         &:before {
-            content: "👎";
+            content: "\e65b";
             background-color: $color-no;
         }
 

@@ -4,7 +4,7 @@
   <!-- Previous page -->
 {% if 1 != paginator.page %}
   <li class="pagination-item pagination-item-adjacent pagination-item-newer">
-    <a href="/blog/{% unless 1 == paginator.previous_page %}page{{ paginator.previous_page }}/{% endunless %}" title="newer posts">&#9194;</a>
+    <a href="/blog/{% unless 1 == paginator.previous_page %}page{{ paginator.previous_page }}/{% endunless %}" title="newer posts">&#xe601;</a>
   </li>
 {% else %}
   <li class="pagination-item pagination-item-adjacent pagination-item-newer disabled">
@@ -28,7 +28,7 @@
   <!-- Next page -->
 {% if paginator.page != paginator.total_pages %}
   <li class="pagination-item pagination-item-adjacent pagination-item-older">
-      <a href="/blog/page{{ paginator.next_page }}/" title="older posts">&#9193;</a>
+      <a href="/blog/page{{ paginator.next_page }}/" title="older posts">&#xe61b;</a>
   </li>
 {% else %}
   <li class="pagination-item pagination-item-adjacent pagination-item-older disabled">

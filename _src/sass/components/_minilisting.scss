@@ -36,9 +36,9 @@
         }
     }
 
-    /* No icon for illustrated articles in full-size listings. */
+    /* Icon for illustrated articles in minilistings. */
     &.post-illustrated:before {
-        content: "\2605";
+        content: "\e62c";
         background: $background-color-illustrated;
     }
 

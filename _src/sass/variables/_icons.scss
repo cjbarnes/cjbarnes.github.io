@@ -8,38 +8,34 @@
 
 // Post formats and CV/portfolio entry icons.
 $format-icons: (
-  "text":    "✎",
-  "link":    "🔗",
-  "page":    "📰",
-  "quote":   "❞",
-  "tip":     "💡",
-  "website": "",
-  "award":   "🏆",
-  "course":  "🎓",
-  "job":     "💼",
-  "project": "⚒"
+  "tutorial":    "\e637",
+  "thoughts":    "\e61a",
+  "link":       "\e631",
+  "page":       "",
+  "quote":      "\201d",
+  "tip":        "\e630",
+  "off-topic":  "\e628"
 );
 
 // Icon for figures within content.
 $figure-icons: (
-    "code":  "",
-    "link":  "🔗",
-    "quote": "❞"
+    "code":  "\e626",
+    "link":  "\e631",
+    "quote": "\201d"
 );
 
 // Icons for skills.
 $skills-list-icons: (
-    "rwd":               "📱",
+    "rwd":               "\e697",
     "system-design":     "",
     "copywriting":       "⌨",
     "training":          "",
-    "lesson-planning":   "🎓",
     "technical-writing": "",
     "technical-support": "📞",
     "reporting":         "📰",
     "graphics":          "",
     "seo":               "📈",
-    "social-media":      "👍"
+    "social-media":      "\e662"
 );
 
 // CSS Sprite entries for skills (in sequence).

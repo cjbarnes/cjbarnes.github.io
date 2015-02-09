@@ -199,7 +199,7 @@
 
             /* Light background image. */
             .masthead-reversed & {
-                @include alpha("background", cj-get-format-dark-color("text"),    0.8);
+                @include alpha("background", cj-get-format-dark-color("page"),    0.8);
             }
 
             /* Illustrated article/page. */

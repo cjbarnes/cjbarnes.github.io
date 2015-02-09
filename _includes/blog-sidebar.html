@@ -6,13 +6,13 @@
   <div class="sidebar-header">
     <ul class="filter-switcher button-bar sidebar-button-bar js-filter-switcher">
       <li class="filter-switcher-item filter-switcher-search">
-        <a class="js-search-filter" data-filter-section="js-search-section" title="search">&#x1f50d;</a>
+        <a class="js-search-filter" data-filter-section="js-search-section" title="search">&#xe63a;</a>
       </li>
       <li class="filter-switcher-item filter-switcher-tags">
-        <b class="js-tags-filter" data-filter-section="js-tags-section" title="filter by tag">&#xe70c;</b>
+        <b class="js-tags-filter" data-filter-section="js-tags-section" title="filter by tag">&#xe652;</b>
       </li>
       <li class="filter-switcher-item filter-switcher-formats">
-        <a class="js-formats-filter" data-filter-section="js-formats-section" title="filter by post type">&#xe005;</a>
+        <a class="js-formats-filter" data-filter-section="js-formats-section" title="filter by post type">&#xe63e;</a>
       </li>
     </ul>
   </div>
@@ -51,7 +51,7 @@
   <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section">
     <h2 class="sidebar-section-title screen-reader-only">types</h2>
     <ul class="sidebar-listing formats-listing">
-    {% assign formats = "text|link|quote|tip" | split: "|" %}
+    {% assign formats = "thoughts|tutorial|tip|link|quote|off-topic" | split: "|" %}
     {% for format in formats %}
       <li class="sidebar-listing-item formats-listing-item format-{{ format }}">
         <a data-format="{{ format }}">{{ format }} posts</a>
