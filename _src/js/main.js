@@ -347,6 +347,14 @@
         var wasActive = filterButtonBar.querySelector('b');
         wasActive.outerHTML = wasActive.outerHTML.replace(/<b/, '<a').replace(/<\/b/, '</a');
         el.outerHTML = el.outerHTML.replace(/<a/, '<b').replace(/<\/a/, '</b');
+
+        /* Focus on the search box if we're switching to search. */
+        if ('js-search-section' === sectionClass) {
+          document.querySelector('#sidebar-search').focus();
+        } else {
+          document.querySelector('#sidebar-search').blur();
+        }
+
       }
 
     });
