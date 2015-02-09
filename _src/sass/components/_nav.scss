@@ -296,7 +296,7 @@
         > a:hover,
         > a:focus,
         > a:active,
-        &.active a {
+        &.active > a {
             color: $text-color;
         }
 
