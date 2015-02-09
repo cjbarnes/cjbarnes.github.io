@@ -442,6 +442,7 @@
     searchForms.forEach(function(current) {
       current.addEventListener('submit', doSearch);
     });
+    document.querySelector('#sidebar-search').addEventListener('input', doSearch);
 
   }
 
