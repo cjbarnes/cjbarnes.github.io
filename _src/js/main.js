@@ -296,8 +296,12 @@
         }
       });
 
-
-      style.innerHTML = '.minilisting-item' + attrSelectors.join('') + ' { display: block; counter-increment: results; }';
+      var attrStr = attrSelectors.join('');
+      if (attrStr) {
+        style.innerHTML = '.minilisting-item' + attrStr + ' { display: block; counter-increment: results; }';
+      } else {
+        style.innerHTML = '';
+      }
 
     }
   }
