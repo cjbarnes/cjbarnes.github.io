@@ -348,6 +348,9 @@
         wasActive.outerHTML = wasActive.outerHTML.replace(/<b/, '<a').replace(/<\/b/, '</a');
         el.outerHTML = el.outerHTML.replace(/<a/, '<b').replace(/<\/a/, '</b');
 
+        /* Remove existing search/filter results. */
+        style.innerHTML = '';
+
         /* Focus on the search box if we're switching to search. */
         if ('js-search-section' === sectionClass) {
           document.querySelector('#sidebar-search').focus();
