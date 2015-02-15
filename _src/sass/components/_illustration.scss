@@ -160,7 +160,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: $oslo-grey; /* 2 */
+    background: $patina; /* 2 */
     color: $white;
 
     h2 {
@@ -253,7 +253,7 @@
             &.right {
                 left: 50%;
                 margin-left: -10%;
-                background-image: linear-gradient(to left, transparent 40%, $oslo-grey 100%);
+                background-image: linear-gradient(to left, transparent 40%, $patina 100%);
             }
 
             /*

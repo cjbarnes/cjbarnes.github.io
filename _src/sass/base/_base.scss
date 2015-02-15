@@ -91,14 +91,13 @@ address {
 
 /*
  * Emphasis.
- * 1. Redeclare explicitly to avoid illegible combinations.
  */
 b,
 strong,
 mark {
     padding: $link-padding;
-    color: $text-color; /* 1 */
-    background-color: $text-color-emphasis;
+    color: $text-color-emphasis;
+    background-color: $background-color-emphasis;
 }
 
 

@@ -108,6 +108,11 @@
 
 }
 
+/* Title of the listing area. */
+.index-listing-heading {
+    color: $text-color-listing-headings;
+}
+
 /* Content area. */
 .index-listing-content {
     @include rem("padding-bottom", $line);
