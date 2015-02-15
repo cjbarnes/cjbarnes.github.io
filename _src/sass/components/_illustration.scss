@@ -118,13 +118,13 @@
         width: 100%;
         margin: 0;
         padding-bottom: 0; /* 1 */
-        border-bottom: cj-calculate-rem-fallback($line) solid $gradient-color-homepage; /* 2, 3 */
+        border-bottom: cj-calculate-rem-fallback($line) solid $background-color-illustrated; /* 2, 3 */
         border-bottom-width: $line; /* 3 */
-        background-image: linear-gradient(to bottom, transparent 0, $gradient-color-homepage 90%);
     }
 
     .gradient {
         height: 100%;
+        background-image: linear-gradient(to bottom, transparent 0, transparent 65%, $background-color-illustrated 95%);
     }
 
     /* Parallax image wrapper. */

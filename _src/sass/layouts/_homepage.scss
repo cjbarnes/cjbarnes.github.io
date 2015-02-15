@@ -32,6 +32,7 @@
 
 
 .homepage-title-main {
+    @include rem("margin", 0 $gutter ($line * 2.5));
     @include font-size-leading("huger", 1.5);
     text-shadow: 0 0 10px $black;
     color: $text-color-reversed;
