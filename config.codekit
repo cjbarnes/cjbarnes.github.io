@@ -1220,6 +1220,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/homepage-3b.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 94562,
+		"inputAbbreviatedPath": "\/img\/homepage-3b.jpg",
+		"outputAbbreviatedPath": "\/img\/homepage-3b.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/homepage-4.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
