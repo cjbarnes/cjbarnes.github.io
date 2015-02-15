@@ -1,39 +1,46 @@
-<!-- Pagination -->
-<ul class="pagination button-bar footer-button-bar page-footer-button-bar">
+{% if 1 < paginator.total_pages %}
+  {% if include.position %}
+    {% assign pos = include.position %}
+  {% else %}
+    {% assign pos = "footer" %}
+  {% endif %}
+  <!-- Pagination -->
+  <ul class="pagination button-bar {{ pos }}-button-bar page-{{ pos }}-button-bar">
 
-  <!-- Previous page -->
-{% if 1 != paginator.page %}
-  <li class="pagination-item pagination-item-adjacent pagination-item-newer">
-    <a href="/blog/{% unless 1 == paginator.previous_page %}page{{ paginator.previous_page }}/{% endunless %}" title="newer posts">&#xe601;</a>
-  </li>
-{% else %}
-  <li class="pagination-item pagination-item-adjacent pagination-item-newer disabled">
-    <b>&nbsp;</b>
-  </li>
-{% endif %}
-
-  <!-- Page numbers -->
-{% for pagenum in (1..paginator.total_pages) %}
-  {% if pagenum == paginator.page %}
-    <li class="pagination-item pagination-item-page active">
-      <b title="current page">{{ pagenum }}</b>
+    <!-- Previous page -->
+  {% if 1 != paginator.page %}
+    <li class="pagination-item pagination-item-adjacent pagination-item-newer">
+      <a href="/blog/{% unless 1 == paginator.previous_page %}page{{ paginator.previous_page }}/{% endunless %}" title="newer posts">&#xe601;</a>
     </li>
   {% else %}
-    <li class="pagination-item pagination-item-page">
-      <a href="/blog/{% unless 1 == pagenum %}page{{ pagenum }}/{% endunless %}">{{ pagenum }}</a>
+    <li class="pagination-item pagination-item-adjacent pagination-item-newer disabled">
+      <b>&nbsp;</b>
     </li>
   {% endif %}
-{% endfor %}
 
-  <!-- Next page -->
-{% if paginator.page != paginator.total_pages %}
-  <li class="pagination-item pagination-item-adjacent pagination-item-older">
-      <a href="/blog/page{{ paginator.next_page }}/" title="older posts">&#xe61b;</a>
-  </li>
-{% else %}
-  <li class="pagination-item pagination-item-adjacent pagination-item-older disabled">
-    <b>&nbsp;</b>
-  </li>
+    <!-- Page numbers -->
+  {% for pagenum in (1..paginator.total_pages) %}
+    {% if pagenum == paginator.page %}
+      <li class="pagination-item pagination-item-page active">
+        <b title="current page">{{ pagenum }}</b>
+      </li>
+    {% else %}
+      <li class="pagination-item pagination-item-page">
+        <a href="/blog/{% unless 1 == pagenum %}page{{ pagenum }}/{% endunless %}">{{ pagenum }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+
+    <!-- Next page -->
+  {% if paginator.page != paginator.total_pages %}
+    <li class="pagination-item pagination-item-adjacent pagination-item-older">
+        <a href="/blog/page{{ paginator.next_page }}/" title="older posts">&#xe61b;</a>
+    </li>
+  {% else %}
+    <li class="pagination-item pagination-item-adjacent pagination-item-older disabled">
+      <b>&nbsp;</b>
+    </li>
+  {% endif %}
+
+  </ul>
 {% endif %}
-
-</ul>

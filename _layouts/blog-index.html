@@ -4,37 +4,21 @@
 
   <div class="index blog blog-page blog-page-{{ paginator.page }}">
 
-  {% comment %} Begin featured post. {% endcomment %}
-  {% for post in site.categories.featured limit:1 %}
-    {% include articleclass.html page=post %}
-    <article class="post-featured {{ articleclass | strip_newlines }}">
+    <!-- Article title area -->
+    {% include headerclass.html page=page masthead=true %}
+    <header class="{{ headerclass | strip_newlines }}">
 
-      <!-- Article title area -->
-      {% include headerclass.html page=post masthead=true %}
-      <header class="{{ headerclass | strip_newlines }}">
+      {% comment %}
+      Variable `blog` is used to signal that this is a blog index page (since
+      there isn't a reliable way to determine that automatically.)
+      {% endcomment %}
+      {% include nav.html blog='yes' %}
 
-        {% comment %}
-        Variable `blog` is used to signal that this is a blog index page (since
-        there isn't a reliable way to determine that automatically.)
-        {% endcomment %}
-        {% include nav.html blog='yes' %}
+      <div class="title"></div>
 
-        {% if post.illustration %}
-          {% include illustration.html image=post.illustration %}
-        {% endif %}
+      {% include pagination.html position="masthead" %}
 
-        {% include title.html title=post.title url=post.url featured=true %}
-
-        <!-- Metadata -->
-        <footer class="footer post-footer post-featured-footer">
-          {% include date.html date=post.date %}
-          {% include permalinks.html url=post.url %}
-        </footer>
-
-      </header>
-
-    </article><!-- /.post-featured -->
-  {% endfor %}
+    </header>
 
     <!-- Main content area -->
     <div class="content index-content blog-content" id="content">

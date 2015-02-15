@@ -58,7 +58,7 @@
  * 2. Background colour to avoid beyond-max-width pattern showing through.
  */
 .blog-content {
-    @include rem("padding-top",    ($line * 1.5));
+    @include rem("padding-top",    ($line * 3));
     @include rem("padding-bottom", ($line * 2.5));
     background: $background-color;
 }
