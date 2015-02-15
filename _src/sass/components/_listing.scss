@@ -213,13 +213,22 @@
 
     }
 
+    /* Header area - leave space for icon. */
+    .step-header {
+        min-height: (100px + $line-px);
+        padding-left: 100px;
+    }
+
     /* Item graphics. */
     .step-icon {
-        @include rem("font-size", ($line-px * 2));
-        display: inline-block;
-        font-family: $font-family-icons;
+        position: absolute;
+        top: $gutter;
+        left: $gutter;
+        float: left;
+        display: block;
+        width: 100px;
+        height: 100px;
         line-height: 1;
-        transform: rotate(-5deg);
     }
 
     /* Main text. */

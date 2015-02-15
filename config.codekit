@@ -1418,6 +1418,83 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/img\/my-approach-design.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5899,
+		"inputAbbreviatedPath": "\/img\/my-approach-design.png",
+		"outputAbbreviatedPath": "\/img\/my-approach-design.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/my-approach-development.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5155,
+		"inputAbbreviatedPath": "\/img\/my-approach-development.png",
+		"outputAbbreviatedPath": "\/img\/my-approach-development.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/my-approach-handover.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6035,
+		"inputAbbreviatedPath": "\/img\/my-approach-handover.png",
+		"outputAbbreviatedPath": "\/img\/my-approach-handover.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/my-approach-launch.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5382,
+		"inputAbbreviatedPath": "\/img\/my-approach-launch.png",
+		"outputAbbreviatedPath": "\/img\/my-approach-launch.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/my-approach-spec.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3956,
+		"inputAbbreviatedPath": "\/img\/my-approach-spec.png",
+		"outputAbbreviatedPath": "\/img\/my-approach-spec.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/my-approach-support.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4937,
+		"inputAbbreviatedPath": "\/img\/my-approach-support.png",
+		"outputAbbreviatedPath": "\/img\/my-approach-support.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/my-approach-testing.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 5950,
+		"inputAbbreviatedPath": "\/img\/my-approach-testing.png",
+		"outputAbbreviatedPath": "\/img\/my-approach-testing.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/img\/my-approach.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
