@@ -132,8 +132,9 @@
         height: 100%;
 
         img {
+            left: 25%;
             bottom: 0;
-            margin-left: ($illustration-width-masthead * -0.5);
+            margin-left: ($illustration-width-masthead * -0.25);
 
             /* Shift image for better framing on mobile devices. */
             @media (max-width: 700px) {
