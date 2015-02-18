@@ -1,22 +1,16 @@
-/**
- * Mixin to output an em font size and corresponding line height
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-
-/**
- * Output an em font size and corresponding line height.
- *
- * The leading argument passed in is the number of standard lines, as defined by
- * the site-wide vertical rhythm, the line-height should equal.
- *
- * @global map $font-sizes   Standard font-size values (in rem).
- * @global map $line-heights Matching line heights for each $font-sizes key.
- *
- * @param string $size    The font-size/line-height keyword.
- * @param number $leading Number of standard lines to use for the line-height.
- */
+/// Output a rem font size and corresponding line height.
+///
+/// The leading argument passed in is the number of standard lines, as defined
+/// by the site-wide vertical rhythm, which the line-height should equal.
+///
+/// @require {variable} $font-sizes   Standard font-size values (in rem).
+/// @require {variable} $line-heights Matching line heights for each
+///                                   $font-sizes key.
+///
+/// @param {String} $size    The font-size/line-height keyword.
+/// @param {Number} $leading Number of standard lines to use for the
+///                          line-height.
+/// @output font-size and line-height properties in both px and rem.
 @mixin font-size-leading($size, $leading: 1) {
   @if not map-has-key($font-sizes, $size) {
     @error "$size must be a predefined size name in maps $font-sizes and $line-heights, was #{$size}";
