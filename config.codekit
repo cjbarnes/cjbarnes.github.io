@@ -905,22 +905,6 @@
 		"shouldRunBless": 1,
 		"useLibsass": 0
 		},
-	"\/_src\/sass\/variables\/_colours.scss": {
-		"createSourceMap": 1,
-		"debugStyle": 0,
-		"decimalPrecision": 5,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/_src\/sass\/variables\/_colours.scss",
-		"outputAbbreviatedPath": "\/_src\/css\/_colours.min.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 3,
-		"shouldRunAutoprefixer": 1,
-		"shouldRunBless": 1,
-		"useLibsass": 0
-		},
 	"\/_src\/sass\/variables\/_icons.scss": {
 		"createSourceMap": 1,
 		"debugStyle": 0,
