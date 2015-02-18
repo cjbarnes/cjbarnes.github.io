@@ -2,7 +2,8 @@
 title: what I’ve done
 permalink: whativedone/
 layout: index
-illustration: leaves
+illustration: macbook-yorkspace
+masthead: light
 ---
 
 TODO
