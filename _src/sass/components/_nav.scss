@@ -240,10 +240,14 @@
             text-align: center;
         }
 
-        /**
-         * Reverse item colours on hover/active.
-         */
+        /* Current item. */
+        &.active > a,
+        &.active > button {
+            @include alpha("background", $white, 0.6);
+            color: $text-color;
+        }
 
+        /* Reverse item colours on hover/active. */
         a:hover,
         a:focus {
             @include alpha("background", $white, 0.8);
@@ -251,9 +255,7 @@
         }
 
         /* Current item. */
-        a:active,
-        &.active > a,
-        &.active > button {
+        a:active {
             @include alpha("background", $white, 0.6);
             color: $text-color;
         }
