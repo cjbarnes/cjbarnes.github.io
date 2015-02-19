@@ -90,24 +90,6 @@
         border-color: $background-color;
     }
 
-
-    /**
-     * Webfont icons.
-     */
-
-    @each $skill, $icon in $skills-list-icons {
-        .#{$skill} {
-
-            a:before,
-            span:before {
-                content: $icon;
-                background-image: none;
-            }
-
-        }
-    }
-
-
     /**
      * CSS sprite icons.
      */
@@ -120,7 +102,7 @@
 
             a:before,
             span:before {
-                background-position-x: (-70px * $i)
+                background-position-x: (-70px * $i);
             }
 
         }

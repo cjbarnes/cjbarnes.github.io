@@ -36,20 +36,6 @@ $figure-icons: (
     "quote": "\201d"
 );
 
-// Icons for skills.
-$skills-list-icons: (
-    "rwd":               "\e697",
-    "system-design":     "",
-    "copywriting":       "⌨",
-    "training":          "",
-    "technical-writing": "",
-    "technical-support": "📞",
-    "reporting":         "📰",
-    "graphics":          "",
-    "seo":               "📈",
-    "social-media":      "\e662"
-);
-
 // CSS Sprite entries for skills (in sequence).
 $skills-list-bitmaps: (
     "html5",
@@ -60,7 +46,7 @@ $skills-list-bitmaps: (
     "php",
     "nodejs",
     "less",
-    "regex",
+    "sass",
     "bootstrap",
     "jqueryui",
     "wordpress",
@@ -70,14 +56,5 @@ $skills-list-bitmaps: (
     "commonspot",
     "jekyll",
     "git",
-    "svn",
-    "analytics",
-    "photoshop",
-    "illustrator",
-    "indesign",
-    "office",
-    "visio",
-    "crystal",
-    "omnigraffle",
-    "widgit"
+    "svn"
 );
