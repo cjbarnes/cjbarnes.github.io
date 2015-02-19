@@ -173,24 +173,21 @@
         list-style-type: circle;
     }
 
+    li {
+        @include rem("margin", ($line / 4) 0);
+    }
+
     p {
-        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
 
-        a {
-            color: $text-color-emphasis;
-
-            &:hover,
-            &:focus,
-            &:active {
-                color: $text-color-reversed;
-            }
-
-        }
-
+    a {
+        color: $text-color-reversed;
     }
 
     strong {
-        background: $ironstone;
+        background: darken($patina, 20%);
         color: $text-color-reversed;
     }
 
@@ -213,15 +210,31 @@
     position: relative; /* 1 */
 }
 
-/* The homepage content row for USPs. */
+/* Red content rows (homepage USPs. */
 .homepage-content-section-illustrated {
     background-color: $toast;
 
-    ul {
-        margin: 0;
-        line-height: (map-get($line-heights, "large") * 1.5);
-        list-style: none;
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
     }
+
+}
+
+/* 'Expertise - university' content row. */
+.content-section-university {
+    background-color: $black;
+
+    strong {
+        background: $oslo-grey;
+        color: $text-color-reversed;
+    }
+
+}
+
+/* 'Expertise - small business' content row. */
+.content-section-small-business {
+    background-color: $santa-fe;
 
     strong {
         background: $ironstone;
@@ -256,14 +269,6 @@
                 background-image: linear-gradient(to left, transparent 40%, $patina 100%);
             }
 
-            /*
-             * Homepage USPs illustration gradient - match different background
-             * colour of this content area.
-             */
-            .homepage &.right {
-                background-image: linear-gradient(to left, transparent 40%, $toast 100%);
-            }
-
         }
 
         /* The illustration wrapper. (Hidden on mobile.) */
@@ -280,14 +285,90 @@
 
     }
 
+
+    /**
+     * Mini illustrated content sections with different background colour.
+     */
+
+    .homepage-content-section-illustrated {
+
+        .gradient.right {
+            background-image: linear-gradient(to left, transparent 40%, $toast 100%);
+        }
+
+    }
+
+    .content-section-university {
+
+        .gradient.right {
+            background-image: linear-gradient(to left, transparent 40%, $black 100%);
+        }
+
+    }
+
+    .content-section-small-business {
+
+        .gradient.right {
+            background-image: linear-gradient(to left, transparent 40%, $santa-fe 100%);
+        }
+
+    }
+
+
     /*
      * Space out the content.
-     * 1. Reinstate the bottom spacing.
+     * 1. Don't overlap the illustration too far.
+     * 2. Specificity hack so we don't need to keep redeclaring the padding
+     *    every time we change the column width.
+     * 3. Reinstate the bottom spacing.
      */
     .content-section-illustrated-content {
-        @include column(10);
-        @include push;
-        @include rem("padding-bottom", $line); /* 1 */
+        @include column(9); /* 1 */
+
+        &.content-section-illustrated-content { /* 2 */
+            @include rem("padding-bottom", $line); /* 3 */
+        }
+
     }
 
 } //include media-width(normal-size)
+
+
+/**
+ * Media queries.
+ *
+ * Space out the illustrated content sections a bit more.
+ */
+
+@include media-width("wide-illustrated-content") {
+
+    .content-section-illustrated-content {
+        @include column(8);
+    }
+
+} //include media-width(wide-illustrated-content)
+
+@include media-width("wider-illustrated-content") {
+
+    .content-section-illustrated-content {
+        @include column(7); /* 1 */
+        @include push;
+    }
+
+} //include media-width(wider-illustrated-content)
+
+@include media-width("wider-2-illustrated-content") {
+    .content-section-illustrated-content {
+        @include column(6);
+        @include push;
+    }
+
+} //include media-width(wider-2-illustrated-content)
+
+@include media-width("wider-3-illustrated-content") {
+    .content-section-illustrated-content {
+        @include column(5);
+        @include push;
+    }
+
+} //include media-width(wider-3-illustrated-content)

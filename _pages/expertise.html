@@ -14,23 +14,40 @@ sortorder: 2
 
 </section><!-- /.content-section -->
 
-{% comment %} Illustrated section. {% endcomment %}
+{% comment %}
+Stacked illustrated sections.
+{% endcomment %}
 {% capture illustrated_content %}
-  <h2>sectors</h2>
+## education and young people
 
-  <p>I have years of experience working on websites in these areas:</p>
+I've created successful websites for every age of young person from reception to adulthood, and for every ability level from 'gifted and talented' to those with moderate learning difficulties.
 
-  <ul>
-    <li>education (all levels, from primary to <abbr title="higher education">HE</abbr>)</li>
-    <li>small businesses and entrepreneurs</li>
-    <li>careers and <abbr title="information, advice, and guidance">IAG</abbr>
-    <li>third sector</li>
-    <li>young people’s services</li>
-  </ul>
-
-  <p>But I’m always keen to try something new…</p>
+My key strength is using the web to **attract prospective students**. My online prospectus and applications websites have been chosen as national best-practice examples, and I've delivered training and advice in these areas to website managers across the country.
 {% endcapture %}
-{% include content-section-illustrated.html illustration="expertise-kids" content=illustrated_content %}
+{% include content-section-illustrated.html illustration="expertise-kids" content=illustrated_content slug="education" %}
+
+{% capture illustrated_content %}
+## university
+
+I've worked on university websites designed to:
+
+-  attract prospective students
+-  assist with career planning
+-  build alumni communities
+-  fundraise for research and student support
+
+I have a unique perspective on university web design because I recently graduated as a mature student. So I understand the full modern-day student experience, from choosing courses through to becoming an alumnus.
+{% endcapture %}
+{% include content-section-illustrated.html illustration="section-library" content=illustrated_content slug="university" %}
+
+{% capture illustrated_content %}
+## small business
+
+I've been responsible for web design, marketing, and print design for a range of small businesses (including this one!). The clients I've worked with span the range from photographers to training providers to food businesses.
+
+Most small business website projects need **more than just a web designer**. Often, the marketing basics like the business's brand and tone of voice aren't worked out yet, and they only come together while the website is being developed. So my marketing experience brings an extra dimension to the help I can give to your business.
+{% endcapture %}
+{% include content-section-illustrated.html illustration="section-photographer" content=illustrated_content slug="small-business" %}
 
 <section class="content-section content-section-special skills">
 
