@@ -1,0 +1,24 @@
+{% capture classes %}
+content-section content-section-illustrated
+{% if include.homepage %} homepage-content-section homepage-content-section-illustrated{% endif %}
+{% if include.slug %} content-section-{{ include.slug | slugify }}{% endif %}
+{% endcapture %}
+<section class="{{ classes | strip_newlines }}">
+
+  <!-- featured image -->
+  <div class="illustration right">
+    <img src="/img/{{ include.illustration }}.jpg">
+  </div>
+  <!--
+    A dirty, lazy, horrid presentational element. There was no other
+    way. I'm very sorry...I don't know how I'll live with myself...
+  -->
+  <div class="gradient right"></div>
+
+  <div class="content-section-illustrated-content">
+
+    {{ include.content }}
+
+  </div><!-- /.content-section-illustrated-content -->
+
+</section><!-- /.content-section-illustrated -->

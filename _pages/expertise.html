@@ -14,37 +14,23 @@ sortorder: 2
 
 </section><!-- /.content-section -->
 
-<section class="content-section content-section-illustrated">
+{% comment %} Illustrated section. {% endcomment %}
+{% capture illustrated_content %}
+  <h2>sectors</h2>
 
-  <!-- featured image -->
-  <div class="illustration right">
-    <img src="/img/expertise-kids.jpg">
-  </div>
-  <!--
-    A dirty, lazy, horrid presentational element. There was no other
-    way. I'm very sorry...I don't know how I'll live with myself...
-  -->
-  <div class="gradient right"></div>
+  <p>I have years of experience working on websites in these areas:</p>
 
-  <div class="content-section-illustrated-content">
+  <ul>
+    <li>education (all levels, from primary to <abbr title="higher education">HE</abbr>)</li>
+    <li>small businesses and entrepreneurs</li>
+    <li>careers and <abbr title="information, advice, and guidance">IAG</abbr>
+    <li>third sector</li>
+    <li>young people’s services</li>
+  </ul>
 
-    <h2>sectors</h2>
-
-    <p>I have years of experience working on websites in these areas:</p>
-
-    <ul>
-      <li>education (all levels, from primary to <abbr title="higher education">HE</abbr>)</li>
-      <li>small businesses and entrepreneurs</li>
-      <li>careers and <abbr title="information, advice, and guidance">IAG</abbr>
-      <li>third sector</li>
-      <li>young people’s services</li>
-    </ul>
-
-    <p>But I’m always keen to try something new…</p>
-
-  </div><!-- /.content-section-illustrated-content -->
-
-</section><!-- /.content-section-illustrated -->
+  <p>But I’m always keen to try something new…</p>
+{% endcapture %}
+{% include content-section-illustrated.html illustration="expertise-kids" content=illustrated_content %}
 
 <section class="content-section content-section-special skills">
 

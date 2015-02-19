@@ -14,34 +14,20 @@ masthead: light
 
 </section><!-- /.homepage-content-section -->
 
-<section class="content-section homepage-content-section content-section-illustrated homepage-content-section-illustrated">
+{% comment %} Illustrated section. {% endcomment %}
+{% capture illustrated_content %}
+  <h2>your website will be...</h2>
 
-  <!-- featured image -->
-  <div class="illustration right">
-    <img src="/img/homepage-hands.jpg">
-  </div>
-  <!--
-    A dirty, lazy, horrid presentational element. There was no other
-    way. I'm very sorry...I don't know how I'll live with myself...
-  -->
-  <div class="gradient right"></div>
+  <ul>
+    <li>…<strong>editable by you</strong> (no special skills required)</li>
+    <li>…adapted to <strong>phones and iPads</strong></li>
+    <li>…<strong>accessible</strong> to users with disabilities</li>
+    <li>…optimized for <strong>Google</strong> and other search engines</li>
+  </ul>
 
-  <div class="content-section-illustrated-content">
-
-    <h2>your website will be...</h2>
-
-    <ul>
-      <li>…<strong>editable by you</strong> (no special skills required)</li>
-      <li>…adapted to <strong>phones and iPads</strong></li>
-      <li>…<strong>accessible</strong> to users with disabilities</li>
-      <li>…optimized for <strong>Google</strong> and other search engines</li>
-    </ul>
-
-    <p><a href="/whatido/">Find out more</a></p>
-
-  </section><!-- /.content-section-illustrated-content -->
-
-</section><!-- /.content-section-illustrated -->
+  <p><a href="/whatido/">Find out more</a></p>
+{% endcapture %}
+{% include content-section-illustrated.html illustration="homepage-hands" content=illustrated_content homepage="yes" %}
 
 <!-- Featured website -->
 <section class="content-section homepage-content-section content-section-endorsement">
