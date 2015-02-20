@@ -47,7 +47,3 @@
 - name: blog
   href: /blog/
   description: Read my tutorials, tips, and thoughts about web design and other things.
-
-- name: contact me
-  href: /contact/
-  description: Get in touch today.

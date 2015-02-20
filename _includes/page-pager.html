@@ -15,13 +15,13 @@
   <nav class="pager">
     <ul class="pager-list">
       <li class="pager-item pager-previous">
-        <a href="{{ prev_nav_item.href }}">
+        <a href="{{ prev_nav_item.href }}" title="{{ prev_nav_item.name | xml_encode }} | {{ prev_nav_item.description | xml_encode }}">
           <strong class="pager-item-title">{{ prev_nav_item.name }}</strong>
           <span class="pager-item-description">{{ prev_nav_item.description }}</span>
         </a>
       </li>
       <li class="pager-item pager-next">
-        <a href="{{ next_nav_item.href }}">
+        <a href="{{ next_nav_item.href }}" title="{{ next_nav_item.name | xml_encode }} | {{ next_nav_item.description | xml_encode }}">
           <strong class="pager-item-title">{{ next_nav_item.name }}</strong>
           <span class="pager-item-description">{{ next_nav_item.description }}</span>
         </a>

@@ -241,9 +241,15 @@
     color: inherit;
 }
 
+/*
+ * The summary of this pager entry.
+ * 1. Only show 2 lines of summary maximum.
+ */
 .pager-item-description {
     @include font-size-leading("small", 0.75);
     display: block;
+    max-height: (1.7em * ($line / 1rem)); /* 1 */
+    overflow: hidden; /* 1 */
     font-family: $font-family-content;
 }
 
