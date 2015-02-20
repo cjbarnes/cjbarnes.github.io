@@ -82,9 +82,7 @@
         /* Dark footer - unique to illustrated posts. */
         .post-footer {
 
-            .permalink,
-            .share,
-            .go-to-site {
+            .post-footer-permalink {
                 color: $text-color-reversed;
             }
 
