@@ -1,29 +1,63 @@
-{% comment %} Find the current page in the list of pages {% endcomment %}
-{% assign len = site.data.nav-sequence | size %}
-{% for i in (1..len) %}
-  {% if page.url == site.data.nav-sequence[i].href %}
-    {% assign this_i = i %}
-    {% assign prev_i = i | minus: 1 %}
-    {% assign next_i = i | plus: 1 %}
+{% if page.date %}
+  {% comment %} Find the previous and next post {% endcomment %}
+  {% if page.previous %}
+    {% assign prev_name = page.previous.title %}
+    {% capture prev_description %}{{ page.previous.date | date: "%-d %B %Y" }} | {{ page.previous.format }}{% endcapture %}
+    {% assign prev_url = page.previous.url %}
+    {% assign prev_title = page.previous.summary %}
+  {% else %}
+    {% assign prev_name = "blog" %}
+    {% assign prev_description = "Back to list of blog posts" %}
+    {% assign prev_url = "/blog/" %}
   {% endif %}
-{% endfor %}
+  {% if page.next %}
+    {% assign next_name = page.next.title %}
+    {% capture next_description %}{{ page.next.format }} | {{ page.next.date | date: "%-d %B %Y" }}{% endcapture %}
+    {% assign next_url = page.next.url %}
+    {% assign next_title = page.next.summary %}
+  {% else %}
+    {% assign next_name = "blog" %}
+    {% assign next_description = "Back to list of blog posts" %}
+    {% assign next_url = "/blog/" %}
+  {% endif %}
+{% else %}
+  {% comment %} Find the current page in the list of pages {% endcomment %}
+  {% assign len = site.data.nav-sequence | size %}
+  {% for i in (1..len) %}
+    {% if page.url == site.data.nav-sequence[i].href %}
+      {% comment %} Find the data items {% endcomment %}
+      {% assign prev_i = i | minus: 1 %}
+      {% assign next_i = i | plus: 1 %}
+      {% assign prev_nav_item = site.data.nav-sequence[prev_i] %}
+      {% assign next_nav_item = site.data.nav-sequence[next_i] %}
 
-{% if this_i %}
-  {% assign prev_nav_item = site.data.nav-sequence[prev_i] %}
-  {% assign next_nav_item = site.data.nav-sequence[next_i] %}
+      {% comment %} Find the individual data points {% endcomment %}
+      {% assign prev_name = prev_nav_item.name %}
+      {% assign prev_description = prev_nav_item.description %}
+      {% assign prev_url = prev_nav_item.href %}
+      {% capture prev_title %}{{ prev_name }} | {{ prev_description }}{% endcapture %}
+      {% assign next_name = next_nav_item.name %}
+      {% assign next_description = next_nav_item.description %}
+      {% assign next_url = next_nav_item.href %}
+      {% capture next_title %}{{ next_name }} | {{ next_description }}{% endcapture %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if prev_url %}
   <!-- Pager -->
   <nav class="pager">
     <ul class="pager-list">
       <li class="pager-item pager-previous">
-        <a href="{{ prev_nav_item.href }}" title="{{ prev_nav_item.name | xml_encode }} | {{ prev_nav_item.description | xml_encode }}">
-          <strong class="pager-item-title">{{ prev_nav_item.name }}</strong>
-          <span class="pager-item-description">{{ prev_nav_item.description }}</span>
+        <a href="{{ prev_url }}" title="{{ prev_title | xml_encode }}">
+          <strong class="pager-item-title">{{ prev_name }}</strong>
+          <span class="pager-item-description">{{ prev_description }}</span>
         </a>
       </li>
       <li class="pager-item pager-next">
-        <a href="{{ next_nav_item.href }}" title="{{ next_nav_item.name | xml_encode }} | {{ next_nav_item.description | xml_encode }}">
-          <strong class="pager-item-title">{{ next_nav_item.name }}</strong>
-          <span class="pager-item-description">{{ next_nav_item.description }}</span>
+        <a href="{{ next_url }}" title="{{ next_title | xml_encode }}">
+          <strong class="pager-item-title">{{ next_name }}</strong>
+          <span class="pager-item-description">{{ next_description }}</span>
         </a>
       </li>
     </ul>
