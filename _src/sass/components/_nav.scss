@@ -119,19 +119,18 @@
 
 /*
  * 1. Height to match the navbar logo: diameter + margin + 2px. @todo REVISIT.
- * 2. 50% width to increase the tap target area.
+ * 2. Increased width to increase the tap target area.
  */
 .nav-menu-toggle {
     @include rem("padding", ($line / 1.5) ($line / 2));
     @include font-size-leading("larger");
+    @include alpha("background", $white, 0.6);
     display: block;
     height: ($navbar-logo-size + (($logo-margin * $base-font-size) / 1rem) + 2px); /* 1 */
-    min-width: 50%; /* 2 */
+    min-width: 25%; /* 2 */
     border: 0;
     border-radius: 0;
-    text-align: left;
-    background: transparent;
-    color: $text-color-reversed;
+    color: $text-color;
 
     /* Colour changes for dark menu button on light mastheads. */
     .masthead-reversed & {
