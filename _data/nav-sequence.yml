@@ -11,7 +11,7 @@
 
 - name: what I do
   href: /whatido/
-  description:
+  description: Learn about how I work.
 
 - name: my approach
   href: /whatido/approach/
@@ -27,6 +27,7 @@
 
 - name: what I’ve done
   href: /whativedone/
+  description: Learn about the projects I’ve worked on.
 
 - name: portfolio
   href: /whativedone/portfolio/
