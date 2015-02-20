@@ -67,16 +67,18 @@
 
     </div><!-- /.index-content -->
 
-  <!-- Upper footer area -->
-  <footer class="footer page-footer" id="page-footer">
+    {% include page-pager.html %}
 
-    <!-- Blog posts -->
-    {% include footer-latest-posts.html %}
+    <!-- Upper footer area -->
+    <footer class="footer page-footer" id="page-footer">
 
-    <!-- Featured websites -->
-    {% include footer-featured-website.html %}
+      <!-- Blog posts -->
+      {% include footer-latest-posts.html %}
 
-  </footer><!-- /.page-footer -->
+      <!-- Featured websites -->
+      {% include footer-featured-website.html %}
+
+    </footer><!-- /.page-footer -->
 
   </div><!-- /.index -->
 

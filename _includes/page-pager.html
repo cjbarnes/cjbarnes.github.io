@@ -1,0 +1,31 @@
+{% comment %} Find the current page in the list of pages {% endcomment %}
+{% assign len = site.data.nav-sequence | size %}
+{% for i in (1..len) %}
+  {% if page.url == site.data.nav-sequence[i].href %}
+    {% assign this_i = i %}
+    {% assign prev_i = i | minus: 1 %}
+    {% assign next_i = i | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+{% if this_i %}
+  {% assign prev_nav_item = site.data.nav-sequence[prev_i] %}
+  {% assign next_nav_item = site.data.nav-sequence[next_i] %}
+  <!-- Pager -->
+  <nav class="pager">
+    <ul class="pager-list">
+      <li class="pager-item pager-previous">
+        <a href="{{ prev_nav_item.href }}">
+          <strong class="pager-item-title">{{ prev_nav_item.name }}</strong>
+          <span class="pager-item-description">{{ prev_nav_item.description }}</span>
+        </a>
+      </li>
+      <li class="pager-item pager-next">
+        <a href="{{ next_nav_item.href }}">
+          <strong class="pager-item-title">{{ next_nav_item.name }}</strong>
+          <span class="pager-item-description">{{ next_nav_item.description }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{% endif %}

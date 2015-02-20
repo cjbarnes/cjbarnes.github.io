@@ -28,10 +28,10 @@
   children:
   - name: portfolio
     path: /whativedone/portfolio/
-  - name: projects
-    path: /whativedone/projects/
   - name: kind words
     path: /whativedone/kindwords/
+  - name: projects
+    path: /whativedone/projects/
   - name: bio
     path: /whativedone/bio/
 

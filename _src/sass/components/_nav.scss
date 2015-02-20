@@ -160,6 +160,95 @@
 
 
 /**
+ * Pager (next/previous links)
+ */
+
+.pager-list {
+    @include clearfix;
+    margin: 0;
+    padding: 0;
+    background: $background-color-content;
+    list-style: none;
+}
+
+.pager-item {
+    float: left;
+    display: inline;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+
+    /*
+     * 1. For arrow icon positioning.
+     */
+    a {
+        @include rem("padding", ($line / 2) $line 0);
+        position: relative; /* 1 */
+        display: block;
+        height: ($line * 3.5);
+        border-bottom: 0;
+        background: transparent;
+
+        /* Arrow icons */
+        &:before {
+            @include font-size-leading("enormous");
+            position: absolute;
+            top: 50%;
+            display: block;
+            margin-top: (-0.5em * map_get($line-heights, "enormous"));
+            font-family: $font-family-icons;
+        }
+
+        &:hover,
+        &:focus {
+            background: $link-color-secondary;
+        }
+
+        &:active {
+            background: $link-color-active;
+        }
+
+    }
+
+}
+
+.pager-previous a {
+    @include rem("padding-left", ($line * 3));
+
+    &:before {
+        @include rem("left", $line);
+        content: "\e601";
+    }
+
+}
+
+.pager-next a {
+    @include rem("padding-right", ($line * 3));
+    text-align: right;
+
+    &:before {
+        @include rem("right", $line);
+        content: "\e61b";
+    }
+
+}
+
+.pager-item-title {
+    @include font-size-leading("large");
+    display: block;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+}
+
+.pager-item-description {
+    @include font-size-leading("small", 0.75);
+    display: block;
+    font-family: $font-family-content;
+}
+
+
+/**
  * Media query.
  *
  * Horizontal nav layout.

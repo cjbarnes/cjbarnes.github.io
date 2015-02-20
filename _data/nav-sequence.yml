@@ -1,0 +1,53 @@
+# Sequence of 'marketing' pages
+#
+# Used for the next/back pages on non-blog pages, to allow users to smoothly
+# read through the main pages of the site in sequence.
+#
+# The `href` is the address the link should point to.
+
+- name: home
+  href: /
+  description: Back to the homepage.
+
+- name: what I do
+  href: /whatido/
+  description:
+
+- name: my approach
+  href: /whatido/approach/
+  description: What it’s like to work with me and what happens at each stage of the project.
+
+- name: my expertise
+  href: /whatido/expertise/
+  description: The skills and background knowledge I can bring to your website.
+
+- name: I don’t...
+  href: /whatido/idont/
+  description: My Don’ts List—the common web designer problems I promise you won’t have with me.
+
+- name: what I’ve done
+  href: /whativedone/
+
+- name: portfolio
+  href: /whativedone/portfolio/
+  description: See the latest examples of my work.
+
+- name: kind words
+  href: /whativedone/kindwords/
+  description: Read what my clients have to say about working with me.
+
+- name: projects
+  href: /whativedone/projects/
+  description: Information and links about the side projects I’ve been working on.
+
+- name: bio
+  href: /whativedone/bio/
+  description: About me, my experience, and how I became a web designer.
+
+- name: blog
+  href: /blog/
+  description: Read my tutorials, tips, and thoughts about web design and other things.
+
+- name: contact me
+  href: /contact/
+  description: Get in touch today.

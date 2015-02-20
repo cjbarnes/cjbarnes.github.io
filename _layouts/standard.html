@@ -46,6 +46,10 @@
 
   </article><!--{% if page.date %} /.post {% else %} /.page {% endif %}-->
 
+  {% unless page.date %}
+    {% include page-pager.html %}
+  {% endunless %}
+
   <!-- Upper footer area -->
   <footer class="footer page-footer" id="page-footer">
 
