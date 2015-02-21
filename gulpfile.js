@@ -13,6 +13,7 @@ var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 var notifier     = require('node-notifier');
+var spawn        = require('child_process').spawn;
 
 // File paths.
 var JSPATH = {
@@ -135,7 +136,7 @@ function buildResult(err, tasks) {
       sound: errorSound
     });
     // Make error message more detailed and output to console.
-     msg = tasksString + ' Error ' + msg + ' in ' + err.fileName + ' at line ' + err.lineNumber;
+     msg = '\n***' + tasksString + ' Error ' + msg + ' in ' + err.fileName + ' at line ' + err.lineNumber + ' ***';
     console.error(msg);
   } else {
     notifier.notify({
@@ -144,9 +145,24 @@ function buildResult(err, tasks) {
       sound: false
     });
     tasks.forEach(function(task) {
-      console.info(task + ' compiled successfully.');
+      console.info('\n*** ' + task + ' compiled successfully. ***');
     });
   }
+}
+
+/**
+ * [afterFirstBuild description]
+ * @param {Object|Null}  err     Error object, or Null on success.
+ * @param {Array|String} results Task names passed as compilation result
+ *                               messages.
+ */
+function afterFirstBuild(err, results) {
+  // Output the usual success/error messages.
+  buildResult(err, results);
+
+  // Start running Jekyll server in development mode.
+  var args = [ 'exec', 'jekyll', 'serve', '--config', '_config_dev.yml,_config.yml', '-w' ];
+  spawn('bundle', args, { stdio: 'inherit' });
 }
 
 /**
@@ -156,7 +172,7 @@ function buildResult(err, tasks) {
 gulp.task('everything', function() {
   async.parallel(
     [buildScripts, buildStyles],
-    buildResult
+    afterFirstBuild
   );
 });
 
