@@ -79,6 +79,11 @@
             background: transparent url('/img/skill-images.png') left top no-repeat; /* 3 */
             background-size: auto $skills-list-icon-size;
             color: $color-skills-list-icon;
+
+            @include media-retina() {
+                background-image: url('/img/skill-images@2x.png');
+            }
+
         }
 
     }
