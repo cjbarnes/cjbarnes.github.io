@@ -144,8 +144,9 @@ function buildResult(err, tasks) {
       message:  tasksString + ' compiled successfully.',
       sound: false
     });
+    console.info('\n');
     tasks.forEach(function(task) {
-      console.info('\n*** ' + task + ' compiled successfully. ***');
+      console.info('*** ' + task + ' compiled successfully. ***');
     });
   }
 }
