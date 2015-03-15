@@ -708,27 +708,6 @@ th {
  * Should be applied to the table element or one of its parents.
  */
 /**
- * Mixin to wrap the contents in a breakpoint media query
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/**
- * Wrap the contents in a min-width media query.
- *
- * - For a previously defined breakpoint, pass in a key from the map
- *   $breakpoint.
- * - For a custom breakpoint, pass in a value with a unit, to be used as the
- *   min-width.
- *
- * @global map $breakpoints The standard breakpoint min-widths.
- *
- * @param string|number $width      Either the breakpoint name or custom
- *                                  min-width value to use.
- * @param map           $widths-map Map of breakpoint min-widths to select from.
- *                                  Default $breakpoints.
- */
-/**
  * Import the basic typography/scaffolding for the site
  *
  * @version 1.0.0
