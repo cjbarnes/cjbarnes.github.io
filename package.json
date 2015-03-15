@@ -5,12 +5,6 @@
   "private": true,
   "author": "chris barnes <mail@cjbarnes.co.uk>",
   "homepage": "http://www.cjbarnes.co.uk/",
-  "contributors": [
-    {
-      "name": "chris barnes",
-      "email": "mail@cjbarnes.co.uk"
-    }
-  ],
   "devDependencies": {
     "async": "^0.9.0",
     "gulp": "^3.8.11",
@@ -27,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cjbarnes/cjbarnes.github.io/"
+    "url": "https://github.com/cjbarnes/cjbarnes.github.io.git"
   },
   "preferGlobal": true
 }
