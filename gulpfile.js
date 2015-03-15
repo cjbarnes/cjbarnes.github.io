@@ -2,6 +2,7 @@
 'use strict';
 
 var async        = require('async');
+var chalk        = require('chalk');
 var gulp         = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var concat       = require('gulp-concat');
@@ -32,6 +33,8 @@ var scripts = [
   JSPATH.src + 'main.js'
 ];
 
+var consoleAddNewline = false;
+
 /**
  * Process the JavaScript files and report the results.
  * @param {Function} callback The results callback for this task.
@@ -41,7 +44,7 @@ function buildScripts(callback) {
   gulp.src(scripts)
     // Error handling: on error, pass error object to async callback.
     .pipe(plumber(function(err) {
-      callback(err, 'Scripts');
+      callback(err, 'scripts');
     }))
     .pipe(sourcemaps.init())
     // Concatenate the different JavaScript files.
@@ -63,7 +66,7 @@ function buildScripts(callback) {
     // Success.
     //.pipe(plumber.stop())
     .on('end', function() {
-      callback(null, 'Scripts');
+      callback(null, 'scripts');
     });
 
 }
@@ -77,7 +80,7 @@ function buildStyles(callback) {
   gulp.src(CSSPATH.src + '**/*.scss')
     // Error handling: on error, pass error object to async callback.
     .pipe(plumber(function(err) {
-      callback(err, 'Styles');
+      callback(err, 'styles');
     }))
     .pipe(sourcemaps.init())
     // Compile Sass.
@@ -107,7 +110,7 @@ function buildStyles(callback) {
     // Success.
     //.pipe(plumber.stop())
     .on('end', function() {
-      callback(null, 'Styles');
+      callback(null, 'styles');
     });
 }
 
@@ -136,17 +139,29 @@ function buildResult(err, tasks) {
       sound: errorSound
     });
     // Make error message more detailed and output to console.
-     msg = '\n***' + tasksString + ' Error ' + msg + ' in ' + err.fileName + ' at line ' + err.lineNumber + ' ***';
-    console.error(msg);
+    var t = new Date();
+    if (consoleAddNewline) {
+      console.log('\n');
+    }
+    msg = chalk.red('[') +
+      chalk.gray(t.toISOString().match(/\d\d:\d\d:\d\d/)[0]) +
+      chalk.red('] Error ') +
+      msg + ' in ' + err.fileName + ' at line ' + err.lineNumber;
+    console.log(msg);
   } else {
     notifier.notify({
       title: msgTitle,
       message:  tasksString + ' compiled successfully.',
       sound: false
     });
-    console.info('\n');
+    var t = new Date();
+    var time = t.toISOString().match(/\d\d:\d\d:\d\d/)[0];
+    if (consoleAddNewline) {
+      console.log('\n');
+    }
     tasks.forEach(function(task) {
-      console.info('*** ' + task + ' compiled successfully. ***');
+      var msg = '[' + chalk.gray(time) + '] Compiled \'' + chalk.cyan(task) + '\' successfully';
+      console.log(msg);
     });
   }
 }
@@ -160,6 +175,9 @@ function buildResult(err, tasks) {
 function afterFirstBuild(err, results) {
   // Output the usual success/error messages.
   buildResult(err, results);
+
+  // Start adding newlines between console messages.
+  consoleAddNewline = true;
 
   // Start running Jekyll server in development mode.
   var args = [ 'exec', 'jekyll', 'serve', '--config', '_config_dev.yml,_config.yml', '-w' ];
