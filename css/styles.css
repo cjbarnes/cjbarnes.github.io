@@ -1360,6 +1360,110 @@ li li li {
 }
 
 /**
+ * Contact details lists.
+ */
+.contact-details-list {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
+}
+.contact-details-list:before,
+.contact-details-list:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+.contact-details-list:after {
+    clear: both;
+}
+
+/* Icon labels. */
+.contact-details-label {
+    clear: left;
+    float: left;
+    display: block;
+    overflow: hidden;
+    width: 47px;
+    height: 47px;
+    margin-top: 30px;
+    margin-top: 1.66667rem;
+    font-style: normal;
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 45px;
+    font-family: "cj-icons";
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid;
+    /* Colours. */
+}
+.contact-details-label:before {
+    content: "";
+    display: block;
+}
+.contact-details-label.email {
+    color: #5e8c88;
+}
+.contact-details-label.phone {
+    color: #b1784f;
+}
+.contact-details-label.linkedin {
+    color: #0976b4;
+}
+.contact-details-label.twitter {
+    color: #00acf2;
+}
+.contact-details-label.address {
+    color: #7c4938;
+}
+.contact-details-label.feed {
+    color: #d78637;
+}
+
+/* All contact details text. */
+.contact-details-data {
+    float: left;
+    margin-top: 30px;
+    margin-top: 1.66667rem;
+    padding-left: 0;
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 2.14286;
+    vertical-align: middle;
+}
+.contact-details-data address {
+    margin: 0; 
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 1.66667;
+}
+
+/**
+ * Media queries.
+ *
+ * Wide enough for properly spaced side-by-side-addresses.
+ */
+@media (min-width: 480px) {
+    .contact-details-data address {
+        margin-right: 60px;
+        margin-right: 3.33333rem;
+    }
+}
+
+/**
  * Media queries.
  *
  * Tablets or wider.
@@ -1599,77 +1703,6 @@ table.invisible td,
 table.invisible th {
     padding-left: 0;
     border: 0;
-}
-
-/* Table where row headings are icons in circles, e.g. contact details. */
-table.circle-list {
-    /* No backgrounds. */
-    /* Dimensions. No borders, flush left. */
-    /* Font sizes. */
-    /* Icon cells. */
-    /* Icons. */
-    /* Addresses row. */
-}
-table.circle-list tbody,
-table.circle-list tfoot,
-table.circle-list thead th {
-    background: transparent;
-    color: #222;
-}
-table.circle-list td,
-table.circle-list th {
-    padding-left: 0;
-    border: 0;
-}
-table.circle-list td,
-table.circle-list th {
-    padding: 15px;
-    padding: 0.83333rem;
-    padding-left: 0;
-    font-size: 21px;
-    font-size: 1.16667rem;
-    line-height: 1.42857;
-    vertical-align: middle;
-}
-table.circle-list tbody th {
-    width: 47px;
-}
-table.circle-list .label {
-    display: block;
-    overflow: hidden;
-    width: 47px;
-    height: 47px;
-    font-style: normal;
-    font-size: 28px;
-    font-size: 1.55556rem;
-    line-height: 45px;
-    font-family: "cj-icons";
-    text-align: center;
-    border-radius: 50%;
-    border: 1px solid;
-    /* Colours. */
-}
-table.circle-list .label.email {
-    color: #5e8c88;
-}
-table.circle-list .label.phone {
-    color: #b1784f;
-}
-table.circle-list .label.linkedin {
-    color: #0976b4;
-}
-table.circle-list .label.twitter {
-    color: #00acf2;
-}
-table.circle-list .label.address {
-    color: #7c4938;
-}
-table.circle-list .label.feed {
-    color: #d78637;
-}
-table.circle-list .addresses th,
-table.circle-list .addresses tr {
-    vertical-align: top;
 }
 
 /**
