@@ -14,7 +14,7 @@
         {% include illustration.html image=page.illustration %}
       {% endif %}
 
-      {% include title.html title=page.title url=page.url %}
+      {% include title.html title=page.title %}
 
     </header>
 
@@ -29,7 +29,7 @@
 
       <section class="content-section index-content-section content-section-special">
 
-        <h2>in this section</h2>
+        <h2 class="listing-heading index-listing-heading">in this section</h2>
 
         <!-- Articles list -->
         <div class="listing index-listing">
@@ -67,7 +67,18 @@
 
     </div><!-- /.index-content -->
 
-    {% include page-footer.html %}
+    {% include page-pager.html %}
+
+    <!-- Upper footer area -->
+    <footer class="footer page-footer" id="page-footer">
+
+      <!-- Blog posts -->
+      {% include footer-latest-posts.html %}
+
+      <!-- Featured websites -->
+      {% include footer-featured-website.html %}
+
+    </footer><!-- /.page-footer -->
 
   </div><!-- /.index -->
 

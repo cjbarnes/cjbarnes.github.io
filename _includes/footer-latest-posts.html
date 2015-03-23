@@ -1,0 +1,13 @@
+<section class="footer-section page-footer-section latest-posts">
+  <h3 class="footer-section-title">
+    <a href="/blog/" title="blog">latest posts</a>
+  </h3>
+  <ul class="minilisting footer-minilisting">
+  {% for post in site.posts limit:6 %}
+    {% include articleclass.html page=post %}
+    <li class="minilisting-item {{ articleclass | strip_newlines }}">
+      {% include posts-list-item.html post=post %}
+    </li>
+  {% endfor %}
+  </ul>
+</section>

@@ -28,7 +28,7 @@
     </header><!-- /.masthead -->
 
     <!-- Main content area -->
-    <div class="content {% if page.date %}post{% else %}page{% endif %}-content js-linkify-subheadings" id="content">
+    <div class="content {% if page.date %}js-linkify-subheadings post{% else %}page{% endif %}-content" id="content">
       <section class="content-section">
 
       {{ content }}
@@ -41,17 +41,21 @@
         </figure>
       {% endif %}
 
-      </section>
+      </section><!-- /.content-section -->
     </div><!-- /.content -->
 
   </article><!--{% if page.date %} /.post {% else %} /.page {% endif %}-->
 
+  {% include page-pager.html %}
+
   <!-- Upper footer area -->
   <footer class="footer page-footer" id="page-footer">
 
-    {% if page.date %}
-      {% include pager.html %}
-    {% endif %}
+    <!-- Blog posts -->
+    {% include footer-latest-posts.html %}
+
+    <!-- Featured websites -->
+    {% include footer-featured-website.html %}
 
   </footer><!-- /.page-footer -->
 

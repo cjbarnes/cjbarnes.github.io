@@ -12,13 +12,18 @@
  * how the site adapts at that breakpoint, to make code reading easier.
  */
 $breakpoints: (
-    "footer-two-columns"    :  480px,
-    "normal-size"           :  718px,
-    "nav-horizontal"        :  800px,
-    "portfolio-screenshots" :  800px,
-    "nav-horizontal-wide"   :  900px,
-    "two-columns"           :  940px,
-    "nav-horizontal-wider"  : 1000px,
-    "more-column-spacing"   : 1100px,
-    "beyond-max-width"      : $body-width-maximum
+    "footer-two-columns"         :  480px,
+    "address-two-columns"        :  480px,
+    "normal-size"                :  718px,
+    "nav-horizontal"             :  800px,
+    "portfolio-screenshots"      :  800px,
+    "nav-horizontal-wide"        :  900px,
+    "wide-illustrated-content"   :  900px,
+    "two-columns"                :  940px,
+    "nav-horizontal-wider"       : 1000px,
+    "wider-illustrated-content"  : 1050px,
+    "more-column-spacing"        : 1100px,
+    "wider-2-illustrated-content": 1150px,
+    "wider-3-illustrated-content": 1300px,
+    "beyond-max-width"           : $body-width-maximum
 );

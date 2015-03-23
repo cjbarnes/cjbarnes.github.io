@@ -8,77 +8,55 @@ sortorder: 2
 
 <p class="lead">Of course you want a web developer with great technical skills. That’s the easy part.</p>
 
-<p class="lead">But you also need someone who can <strong>design and write</strong> in a way that appeals to your audience. Someone who has the <strong>training skills</strong> to teach you how to manage your website. Someone who can give you great <strong>support</strong> if anything goes wrong. And, if possible, someone who really <strong>understands the sector</strong> you work in and how it works.</p>
+<p class="lead">But you also need someone who can <strong>design and write</strong> in a way that appeals to your audience. Someone with the <strong>training skills</strong> to teach you how to manage your website and give great support if anything goes wrong. And, if possible, someone who really <strong>understands the sector</strong> you work in so that your website can be tailored to your specific business needs.</p>
 
-<p class="lead">Read on to find out more about my skills, both technical and otherwise, and the sectors I understand best.</p>
+<p class="lead">The sectors I understand best are <a href="#section-education">education and young people</a>, <a href="#section-university">university</a>, and <a href="#section-small-business">small businesses</a>. But I’m always keen to learn about new areas and different kinds of business.</p>
+
+<p class="lead">Read on to find out more about my key areas of expertise and the technologies I work with.</p>
 
 </section><!-- /.content-section -->
 
-<section class="content-section content-section-illustrated">
+{% comment %}
+Stacked illustrated sections.
+{% endcomment %}
+{% capture illustrated_content %}
+## education and young people
+{: #section-education}
 
-  <!-- featured image -->
-  <div class="illustration right">
-    <img src="/img/expertise-kids.jpg">
-  </div>
-  <!--
-    A dirty, lazy, horrid presentational element. There was no other
-    way. I'm very sorry...I don't know how I'll live with myself...
-  -->
-  <div class="gradient right"></div>
+I've created successful websites for every age of young person from reception to adulthood, and for every ability level from 'gifted and talented' to those with moderate learning difficulties.
 
-  <div class="content-section-illustrated-content">
+My key strength is using the web to **recruit new students**. My online prospectus and applications websites have been chosen as national best-practice examples, and I've delivered training and advice in these areas to website managers across the country.
+{% endcapture %}
+{% include content-section-illustrated.html illustration="expertise-kids" content=illustrated_content slug="education" %}
 
-    <h2>sectors</h2>
+{% capture illustrated_content %}
+## university
+{: #section-university}
 
-    <p>I have years of experience working on websites in these areas:</p>
+I've worked on university websites designed to:
 
-    <ul>
-      <li>education (all levels, from primary to <abbr title="higher education">HE</abbr>)</li>
-      <li>small businesses and entrepreneurs</li>
-      <li>careers and <abbr title="information, advice, and guidance">IAG</abbr>
-      <li>third sector</li>
-      <li>young people’s services</li>
-    </ul>
+-  attract prospective students
+-  assist with career planning
+-  build alumni communities
+-  fundraise for research and student support
 
-    <p>But I’m always keen to try something new…</p>
+I have a unique perspective on university web design because I recently graduated as a mature student. So I understand the full modern-day student experience, from choosing courses through to becoming an alumnus.
+{% endcapture %}
+{% include content-section-illustrated.html illustration="section-library" content=illustrated_content slug="university" %}
 
-  </div><!-- /.content-section-illustrated-content -->
+{% capture illustrated_content %}
+## small business
+{: #section-small-business}
 
-</section><!-- /.content-section-illustrated -->
+I've been responsible for web design, marketing, and print design for a range of small businesses (including this one!). The clients I've worked with span the range from photographers to training providers to food businesses.
+
+Most small business website projects need **more than just a web designer**. Often, the marketing basics like the business's brand and tone of voice aren't worked out yet, and they only come together while the website is being developed. So my marketing experience brings an extra dimension to the help I can give to your business.
+{% endcapture %}
+{% include content-section-illustrated.html illustration="section-photographer" content=illustrated_content slug="small-business" %}
 
 <section class="content-section content-section-special skills">
 
-  <h2>skills</h2>
-
-  <ul class="skill-list basics">
-    <li class="rwd">
-      <span>responsive web design</span>
-    </li>
-    <li class="project-management">
-      <span>project management</span>
-    </li>
-    <li class="system-design">
-      <span>system design</span>
-    </li>
-    <li class="copywriting">
-      <span>copywriting</span>
-    </li>
-    <li class="training">
-      <span>training</span>
-    </li>
-    <li class="technical-writing">
-      <span>technical writing</span>
-    </li>
-    <li class="technical-support">
-      <span>technical support</span>
-    </li>
-    <li class="graphics">
-      <span>graphics</span>
-    </li>
-    <li class="seo">
-      <span>search engine optimization</span>
-    </li>
-  </ul>
+  <h2>technologies I work with</h2>
 
   <h3>systems</h3>
 
@@ -107,6 +85,9 @@ sortorder: 2
     <li class="svn">
       <a href="http://subversion.apache.org">Subversion</a>
     </li>
+    <li class="gulp">
+      <a href="http://gulpjs.com">Gulp</a>
+    </li>
   </ul>
 
 
@@ -114,13 +95,13 @@ sortorder: 2
 
   <ul class="skill-list programming">
     <li class="html5">
-      <span>HTML5</span>
+      <a href="https://developers.whatwg.org">HTML5</a>
     </li>
     <li class="css3">
-      <span>CSS3</span>
+      <a href="http://tympanus.net/codrops/css_reference/">CSS3</a>
     </li>
     <li class="javascript">
-      <span>JavaScript</span>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>
     </li>
     <li class="jquery">
       <a href="http://jquery.com">jQuery</a>
@@ -135,7 +116,7 @@ sortorder: 2
       <a href="http://lesscss.org">Less</a>
     </li>
     <li class="sql">
-      <span>SQL</span>
+      <a href="http://www.mysql.com">SQL</a>
     </li>
     <li class="jqueryui">
       <a href="http://jqueryui.com">jQuery UI</a>

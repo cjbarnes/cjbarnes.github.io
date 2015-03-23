@@ -1,9 +1,6 @@
 /**
  * Homepage-specific styles
  *
- * @todo Lots of refactoring needed here, but I'll probably just change the
- *       whole design of this page.
- *
  * @version 1.0.0
  * @package cjbarnes.github.io
  */
@@ -32,6 +29,7 @@
 
 
 .homepage-title-main {
+    @include rem("margin", 0 $gutter ($line * 2.5));
     @include font-size-leading("huger", 1.5);
     text-shadow: 0 0 10px $black;
     color: $text-color-reversed;
@@ -48,7 +46,7 @@
      */
     .brag {
         overflow: hidden;
-        background: $martini;
+        background: $patina;
         word-wrap: normal; /* 1 */
 
         /*
@@ -60,6 +58,7 @@
             max-width: 0; /* 1 */
             opacity: 0; /* 1 */
             transition: all 0.5s ease-in-out;
+            color: $text-color-reversed;
 
             /* The only visible 'brag'. */
             &.current {
@@ -73,34 +72,17 @@
 
 }
 
-/* 'Your website goes here' caption and arrow. */
-.your-website-goes-here {
-    z-index: 3;
-    position: absolute;
-    right: 50%;
-    bottom: (300px + $line-px);
-    margin-right: 120px;
+/* USPs row. */
+.homepage-content-section-illustrated {
 
-    /* The arrow. Is a bitmap, so the arrow can appear hand-drawn. */
-    img {
-        display: block;
-        width: 308px;
-        height: 244px;
-
-        /* Change arrow position for smaller screen widths. */
-        @media (max-width: 850px) {
-            margin-right: -80px;
-        }
-        @media (max-width: 700px) {
-            width: 216px;
-            height: 171px;
-            margin-right: -200px;
-        }
-
+    /* Show bulleted list as a simple sequence of sentences. */
+    ul {
+        margin: 0;
+        line-height: (map-get($line-heights, "large") * 1.5);
+        list-style: none;
     }
 
 }
-
 
 /**
  * Media query.

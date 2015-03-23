@@ -8,7 +8,7 @@
 .logo {
     @include circle($line-px * 2);
     padding: 0;
-    border-width: 1px;
+    border: 0;
     font-family: $font-family-logo;
     font-size: $font-size-navbar-logo;
     line-height: ($line-px * 2.2);
@@ -22,10 +22,31 @@
 
 .nav-logo {
     @include rem("margin", $logo-margin $logo-margin 0 0);
-    @include alpha("border-color", $logo-color-light, 0.8);
-    @include alpha("color", $logo-color-light, 0.8);
+    @include alpha("background", $logo-color-light, 0.6);
     float: right;
+    box-shadow: 0 0 10px $black;
+    color: $logo-color-dark;
     transition: all 0.5s ease-in-out;
+
+    /* Post formats */
+    @each $format, $color in $format-colors {
+        .masthead-#{$format} & {
+            color: $color;
+            box-shadow: none;
+        }
+    }
+
+    /* Illustrated article/page. */
+    .masthead-illustrated & {
+        color: $background-color-illustrated;
+        box-shadow: 0 0 10px $black;
+    }
+
+    .nav:hover & {
+        box-shadow: 0 0 10px $white;
+        color: $logo-color-light;
+    }
+
 }
 
 /* Colour changes for navbar logo on light backgrounds. */
@@ -33,14 +54,9 @@
 
     /* Darker logo for more contrast with light pictures. */
     .nav-logo {
-        border-color: $logo-color-dark;
-        color: $logo-color-dark;
-    }
-
-    /* Menu open: go to logo hover colour for open-menu dark background. */
-    &.open .nav-logo {
-        border-color: $text-color-reversed;
-        color: $text-color-reversed;
+        @include alpha("background", $logo-color-dark, 0.6);
+        box-shadow: 0 0 10px $white;
+        color: $logo-color-light;
     }
 
 }
@@ -74,8 +90,6 @@
         position: absolute;
         left: 50%; /* 1 */
         display: block; /* 2 */
-        border: 0;
-        border-radius: 0;
         text-shadow: 0 0 5px lighten($background-color-site-footer, 15%);
         color: $background-color-site-footer;
     }
@@ -93,15 +107,6 @@
     /* Bigger margins for logo. */
     .nav-logo {
         @include rem("margin", ($line / 2) $line 0 0);
-    }
-
-    /*
-     * Logo hover borderless style. (Background colour is set later.)
-     * 1. Redeclare color to override .light-masthead logo colour.
-     */
-    .nav:hover .nav-logo {
-        border-color: transparent;
-        color: $text-color-reversed; /* 1 */
     }
 
 }

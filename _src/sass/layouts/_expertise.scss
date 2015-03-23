@@ -79,6 +79,11 @@
             background: transparent url('/img/skill-images.png') left top no-repeat; /* 3 */
             background-size: auto $skills-list-icon-size;
             color: $color-skills-list-icon;
+
+            @include media-retina() {
+                background-image: url('/img/skill-images@2x.png');
+            }
+
         }
 
     }
@@ -89,24 +94,6 @@
     a:active {
         border-color: $background-color;
     }
-
-
-    /**
-     * Webfont icons.
-     */
-
-    @each $skill, $icon in $skills-list-icons {
-        .#{$skill} {
-
-            a:before,
-            span:before {
-                content: $icon;
-                background-image: none;
-            }
-
-        }
-    }
-
 
     /**
      * CSS sprite icons.
@@ -120,7 +107,7 @@
 
             a:before,
             span:before {
-                background-position-x: (-70px * $i)
+                background-position-x: (-70px * $i);
             }
 
         }

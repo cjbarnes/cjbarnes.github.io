@@ -53,10 +53,10 @@ $color-rss:      #d78637;
 // Text.
 $text-color:                  $black;
 $text-color-reversed:         $white;
-$text-color-headings:         $oslo-grey;
+$text-color-headings:         $patina;
 $text-color-navbar:           $white;
 $text-color-quote:            $santa-fe;
-$text-color-emphasis:         $vanilla;
+$text-color-emphasis:         $toast;
 $text-color-site-footer:      $vanilla;
 $text-color-listing-headings: $toast;
 
@@ -74,10 +74,11 @@ $background-color-illustrated:   $black;
 $background-color-page-footer:   $cararra;
 $background-color-site-footer:   $black;
 $background-color-navbar-mobile: $black;
+$background-color-emphasis:      $cararra;
 
 // Navigation.
 $logo-color-light: $white;
-$logo-color-dark:  $oslo-grey;
+$logo-color-dark:  $black;
 
 // Homepage.
 $gradient-color-homepage: $oslo-grey;
@@ -88,8 +89,8 @@ $color-phone:   $santa-fe;
 $color-address: $ironstone;
 
 // Content components.
-$color-step:        $oslo-grey;
-$color-step-launch: $santa-fe;
+$color-step:        $patina;
+$color-step-launch: $eucalyptus;
 $color-yes:         $eucalyptus;
 $color-no:          $burnt-umber;
 $background-color-link: lighten($link-color, 40%);

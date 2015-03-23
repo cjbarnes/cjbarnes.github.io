@@ -119,19 +119,18 @@
 
 /*
  * 1. Height to match the navbar logo: diameter + margin + 2px. @todo REVISIT.
- * 2. 50% width to increase the tap target area.
+ * 2. Increased width to increase the tap target area.
  */
 .nav-menu-toggle {
     @include rem("padding", ($line / 1.5) ($line / 2));
     @include font-size-leading("larger");
+    @include alpha("background", $white, 0.6);
     display: block;
     height: ($navbar-logo-size + (($logo-margin * $base-font-size) / 1rem) + 2px); /* 1 */
-    min-width: 50%; /* 2 */
+    min-width: 25%; /* 2 */
     border: 0;
     border-radius: 0;
-    text-align: left;
-    background: transparent;
-    color: $text-color-reversed;
+    color: $text-color;
 
     /* Colour changes for dark menu button on light mastheads. */
     .masthead-reversed & {
@@ -156,6 +155,101 @@
 
     }
 
+}
+
+
+/**
+ * Pager (next/previous links)
+ */
+
+.pager-list {
+    @include clearfix;
+    margin: 0;
+    padding: 0;
+    background: $background-color-content;
+    list-style: none;
+}
+
+.pager-item {
+    float: left;
+    display: inline;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+
+    /*
+     * 1. For arrow icon positioning.
+     */
+    a {
+        @include rem("padding", ($line / 2) $line 0);
+        position: relative; /* 1 */
+        display: block;
+        height: ($line * 3.5);
+        border-bottom: 0;
+        background: transparent;
+
+        /* Arrow icons */
+        &:before {
+            @include font-size-leading("enormous");
+            position: absolute;
+            top: 50%;
+            display: block;
+            margin-top: (-0.5em * map_get($line-heights, "enormous"));
+            font-family: $font-family-icons;
+        }
+
+        &:hover,
+        &:focus {
+            background: $link-color-secondary;
+        }
+
+        &:active {
+            background: $link-color-active;
+        }
+
+    }
+
+}
+
+.pager-previous a {
+    @include rem("padding-left", ($line * 3));
+
+    &:before {
+        @include rem("left", $line);
+        content: "\e601";
+    }
+
+}
+
+.pager-next a {
+    @include rem("padding-right", ($line * 3));
+    text-align: right;
+
+    &:before {
+        @include rem("right", $line);
+        content: "\e61b";
+    }
+
+}
+
+.pager-item-title {
+    @include font-size-leading("large");
+    display: block;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+}
+
+/*
+ * The summary of this pager entry.
+ * 1. Only show 2 lines of summary maximum.
+ */
+.pager-item-description {
+    @include font-size-leading("small", 0.75);
+    display: block;
+    max-height: (1.7em * ($line / 1rem)); /* 1 */
+    overflow: hidden; /* 1 */
+    font-family: $font-family-content;
 }
 
 
@@ -192,7 +286,7 @@
         .nav-level-2 {
 
             @each $format, $color in $format-colors {
-                .#{$format} & {
+                .masthead-#{$format} & {
                     @include alpha("background", cj-get-format-dark-color($format), 0.8);
                 }
             }
@@ -240,10 +334,14 @@
             text-align: center;
         }
 
-        /**
-         * Reverse item colours on hover/active.
-         */
+        /* Current item. */
+        &.active > a,
+        &.active > button {
+            @include alpha("background", $white, 0.6);
+            color: $text-color;
+        }
 
+        /* Reverse item colours on hover/active. */
         a:hover,
         a:focus {
             @include alpha("background", $white, 0.8);
@@ -251,9 +349,7 @@
         }
 
         /* Current item. */
-        a:active,
-        &.active > a,
-        &.active > button {
+        a:active {
             @include alpha("background", $white, 0.6);
             color: $text-color;
         }
@@ -279,11 +375,12 @@
             text-shadow: 0 0 10px $white;
         }
 
-        /* Remove shadow on hover. */
-        .masthead-illustrated .nav:hover & {
-            text-shadow: none;
-        }
+    }
 
+    /* Remove shadow for highlighted link. */
+    .masthead-illustrated .active > a,
+    .masthead-illustrated .nav:hover a {
+        text-shadow: none;
     }
 
     /* Light backgrounds - hover. Override previous styles block. */

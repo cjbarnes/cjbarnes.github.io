@@ -45,8 +45,6 @@ $font-size-multipliers: (
  * - $line-height - Unitless line height that works out to one line/unit of
  *                  vertical rhythm when the `font-size` is set to the
  *                  corresponding value in the `$font-size` map.
- * - $line        - As $line-height, but in `em`s (for use in margins, padding,
- *                  etc).
  *
  * Note that we have to use maps here because Sass (stupidly) intentionally
  * does not allow interpolation within variable names. Also note the `1em * x`

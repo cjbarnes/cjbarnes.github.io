@@ -1,25 +1,14 @@
-/**
- * Mixin to wrap the contents in a breakpoint media query
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-
-/**
- * Wrap the contents in a min-width media query.
- *
- * - For a previously defined breakpoint, pass in a key from the map
- *   $breakpoint.
- * - For a custom breakpoint, pass in a value with a unit, to be used as the
- *   min-width.
- *
- * @global map $breakpoints The standard breakpoint min-widths.
- *
- * @param string|number $width      Either the breakpoint name or custom
- *                                  min-width value to use.
- * @param map           $widths-map Map of breakpoint min-widths to select from.
- *                                  Default $breakpoints.
- */
+/// Wrap the contents in a min-width media query.
+/// - For a previously defined breakpoint, pass in a key from the map
+///   $breakpoint.
+/// - For a custom breakpoint, pass in a value with a unit, to be used as the
+///   min-width.
+///
+/// @global Map $breakpoints The standard breakpoint min-widths.
+/// @param String|Number $width      Either the breakpoint name or custom
+///                                  min-width value to use.
+/// @param Map           $widths-map Map of breakpoint min-widths to select
+///                                  from. Default $breakpoints.
 @mixin media-width($width, $widths-map: $breakpoints) {
 
   // Declare the result variable outside of if block's scope.

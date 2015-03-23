@@ -1,0 +1,18 @@
+{% if include.languages %}
+  <!-- Languages used in this post -->
+  <span class="post-footer-languages">
+    {% for language in include.languages %}
+      {% comment %} Find YAML data for the specified language. {% endcomment %}
+      {% assign language_data = false %}
+      {% for lang in site.data.languages %}
+        {% if lang.name == language or lang.title == language %}
+          {% assign language_data = lang %}
+        {% endif %}
+      {% endfor %}
+
+      {% if language_data %}
+        <span class="language-{{ language_data.name }} post-footer-language-{{ language_data.name }} post-footer-language-item js-tooltip" title="{{ language_data.title }}"></span>
+      {% endif %}
+    {% endfor %}
+  </span>
+{% endif %}

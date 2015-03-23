@@ -59,20 +59,20 @@
         }
     }
 
-    /* Content and colours for language icons. */
-    @each $language, $icon in $language-icons {
-        &.language-#{$language}:before {
-            content: "#{$icon}";
-            color: map-get($language-colors, $language);
-        }
-    }
-
     /* Remove link left-right padding to fix second-line alignment. */
     a {
         padding-left: 0;
         padding-right: 0;
     }
 
+}
+
+/* Content and colours for language icons. */
+@each $language, $icon in $language-icons {
+    .language-#{$language}:before {
+        content: "#{$icon}";
+        color: map-get($language-colors, $language);
+    }
 }
 
 /* Language icons are smaller, so boost their size a little. */

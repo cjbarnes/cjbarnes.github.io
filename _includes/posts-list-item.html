@@ -1,0 +1,4 @@
+<a href="{{ include.post.url }}" title="Published on {{ include.post.date | date: '%-d %B %Y' }}">
+  {% if include.post.link_href %}<i class="minilisting-title-label">link:</i> {% endif %}
+  <span class="minilisting-title-main">{% if include.post.title %}{{ include.post.title }}{% else %}(untitled {{ include.post.format }}){% endif %}</span>
+</a>

@@ -93,6 +93,28 @@
 
 
 /**
+ * Masthead button areas (i.e. blog pagination).
+ */
+
+/*
+ * All masthead buttons.
+ * 1. To fix the `.title` stacking overlap.
+ * 2. Move down to half-overlap the main content area below the masthead.
+ */
+.masthead-button-bar {
+    z-index: 3; /* 1 */
+    bottom: ((-1 * ($circle-diameter / 2)) - 2); /* 2 */
+
+    &.pagination a {
+        background: $background-color-illustrated;
+        color: $text-color-reversed;
+        cursor: pointer;
+    }
+
+}
+
+
+/**
  * Footer button areas.
  */
 

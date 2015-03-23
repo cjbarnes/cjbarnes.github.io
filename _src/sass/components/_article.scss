@@ -31,9 +31,10 @@
     }
 }
 
-/* Illustrated post header colours. */
+/* Illustrated post and blog index header colours. */
 .header-illustrated,
 .masthead-illustrated .date-unit,
+.blog-page .masthead,
 .listing .post-illustrated:before,
 .minilisting .post-illustrated,
 .minilisting .post-illustrated:before {
@@ -81,6 +82,11 @@
         background: $color-step-launch;
     }
 
+    /* 'what you get' subheading. */
+    .step-footer h3 {
+        color: $color-step-launch;
+    }
+
 }
 
 
@@ -101,11 +107,16 @@
     background: $background-color-page-footer;
 }
 
-.permalink {
+.post-footer-languages {
     @include rem("margin-left", $gutter);
 }
 
-.share,
+.post-footer-language-item:before {
+    @include font-size-leading("enormous");
+    font-family: $font-family-icons;
+}
+
+.post-footer-permalink,
 .go-to-site {
     @include rem("margin-right", $gutter);
 }
@@ -130,18 +141,12 @@
     /*
      * Adjust metadata colours and sizes to match the dark/full-width masthead.
      */
-    .permalink,
-    .share {
+    .post-footer-permalink {
         @include font-size-leading("large");
         color: $text-color-reversed;
     }
 
-    .permalink {
-        @include rem("left", $gutter);
-        margin-left: 0;
-    }
-
-    .share {
+    .post-footer-permalink {
         @include rem("right", $gutter);
         margin-right: 0;
     }
@@ -162,8 +167,8 @@
         padding-bottom: 0;
 
         /* Left- and right-aligned metadata fields. */
-        .permalink,
-        .share,
+        .post-footer-permalink,
+        .post-footer-languages,
         .go-to-site {
             @include rem("bottom", ($line * 0.8)); // @todo: check this maths
             position: absolute;
@@ -172,12 +177,12 @@
             padding-right: 0;
         }
 
-        .permalink {
+        .post-footer-languages {
             @include push;
             left: 0;
         }
 
-        .share,
+        .post-footer-permalink,
         .go-to-site {
             @include pull;
             right: 0;

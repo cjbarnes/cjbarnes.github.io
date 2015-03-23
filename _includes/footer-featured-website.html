@@ -1,0 +1,13 @@
+<section class="footer-section page-footer-section featured-website">
+  <h3 class="footer-section-title">
+    <a href="/whativedone/portfolio/" title="portfolio">featured website</a>
+  </h3>
+  {% for item in site.data.portfolio %}
+    {% if item.featured %}
+      <a class="screenshot featured-website-screenshot" href="{{ item.url }}" title="Go to {{ item.name }} website">
+        <img src="/img/{{ item.slug }}.png"><br>
+        <span class="featured-website-title">{{ item.name }}</span>
+      </a>
+    {% endif %}
+  {% endfor %}
+</section>
