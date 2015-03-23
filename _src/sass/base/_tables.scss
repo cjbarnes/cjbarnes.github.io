@@ -116,48 +116,6 @@ table.invisible {
     @include invisible-table;
 }
 
-/* Table where row headings are icons in circles, e.g. contact details. */
-table.circle-list {
-    @include invisible-table;
-
-    /* Font sizes. */
-    td,
-    th {
-        @include rem("padding", ($line / 2));
-        @include font-size-leading("large");
-        padding-left: 0;
-        vertical-align: middle;
-    }
-
-    /* Icon cells. */
-    tbody th {
-        width: ($circle-diameter + (2px * $border-width-circle));
-    }
-
-    /* Icons. */
-    .label {
-        @include circle;
-        @include font-size("huge");
-        font-family: $font-family-icons;
-        font-style: normal;
-
-        /* Colours. */
-        @each $field, $color in $circle-list-colors {
-            &.#{$field} {
-                color: $color;
-            }
-        }
-
-    }
-
-    /* Addresses row. */
-    .addresses th,
-    .addresses tr {
-        vertical-align: top;
-    }
-
-} //table.circle-list
-
 
 /**
  * Media query.

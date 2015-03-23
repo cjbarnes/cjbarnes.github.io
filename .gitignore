@@ -4,4 +4,5 @@
 .codekit-cache/
 _site/
 .sass-cache
+node_modules/
 *-TEST*
