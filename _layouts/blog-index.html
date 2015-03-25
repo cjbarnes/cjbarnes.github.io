@@ -14,7 +14,15 @@
       {% endcomment %}
       {% include nav.html blog='yes' %}
 
-      <div class="title"></div>
+      {% if page.illustration %}
+        {% include illustration.html image=page.illustration %}
+      {% endif %}
+
+      {% if page.title %}
+        {% include title.html title=page.title link_href=page.link_href %}
+      {% else %}
+        <div class="title"></div>
+      {% endif %}
 
       {% include pagination.html position="masthead" %}
 
