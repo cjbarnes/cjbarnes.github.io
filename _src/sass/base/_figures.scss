@@ -86,19 +86,20 @@ figure.code {
     color: $text-color-reversed;
     background: $background-color-code;
 
-    code:before {
-        display: none;
-    }
+    code {
+        color: inherit;
+        background: transparent;
 
-    pre {
-
-        &,
-        code {
-            @include font-size-leading( "smaller", 0.666667 );
-            margin: 0;
-            overflow: visible;
+        &:before {
+            display: none;
         }
 
+    }
+
+    code,
+    pre {
+        @include font-size-leading( "smaller", 0.666667 );
+        margin: 0;
     }
 
 }

@@ -875,10 +875,13 @@ blockquote.short {
 code,
 var,
 kbd {
+    padding: 0.2em;
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 0.9375;
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
+    background-color: #c4cbcb; 
+    color: #222;
 }
 
 /* Horizontal rules. */
@@ -1020,13 +1023,16 @@ figure.code {
     /* 1 */
     color: #f5f5f5;
 }
+figure.code code {
+    background: transparent; 
+    color: inherit;
+}
 figure.code code:before {
     display: none;
 }
-figure.code pre,
-figure.code pre code {
-    overflow: visible; 
-    margin: 0;
+figure.code code,
+figure.code pre {
+    margin: 0; 
     font-size: 14px;
     font-size: 0.77778rem;
     line-height: 1.42857;

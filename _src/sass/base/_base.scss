@@ -127,8 +127,10 @@ code,
 var,
 kbd {
     @include font-size-leading("small", 0.5);
+    padding: $link-padding;
     font-family: $font-family-monospace;
-
+    color: $text-color-inline-code;
+    background-color: $background-color-inline-code;
 }
 
 /* Horizontal rules. */
