@@ -30,10 +30,9 @@ For British English speakers, that date is 1st of December 2015; but for America
 Clearly `strtotime` has to have a consistent way to deal with this ambiguity. PHP's solution is reasonable, but not at all satisfactory for British English users:
 
 <figure class="quote">
-<blockquote>
-<p>Dates in the *m/d/y* or *d-m-y* formats are disambiguated by looking at the separator between the various components: if the separator is a slash (/), then the American *m/d/y* is assumed; whereas if the separator is a dash (-) or a dot (.), then the European *d-m-y* format is assumed.</p>
-</blockquote>
-<figcaption>[*PHP.net*](http://php.net/manual/en/function.strtotime.php "PHP documentation on strtotime")</figcaption>
+> Dates in the *m/d/y* or *d-m-y* formats are disambiguated by looking at the separator between the various components: if the separator is a slash (/), then the American *m/d/y* is assumed; whereas if the separator is a dash (-) or a dot (.), then the European *d-m-y* format is assumed.
+
+<cite>[*PHP.net*](http://php.net/manual/en/function.strtotime.php "PHP documentation on strtotime")</cite>
 </figure>
 
 This is a pragmatic solution, but it robs `strtotime` of its most powerful feature---interpretation of dates in natural language---for websites in countries that don't normally use the American date order. **Non-Americans use slashes in dates too.** So as a designer of websites targeted at people in the UK, I cannot simply pass user-inputted dates straight into `strtotime`. Users will be both confused and annoyed if they type `1/2/16` and the website misinterprets their input as 2nd January.

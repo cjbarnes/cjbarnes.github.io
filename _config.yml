@@ -39,6 +39,7 @@ future: false
 markdown: kramdown
 kramdown:
   input: GFM # support GitHub-Flavored Markdown.
+  parse_block_html: true
 # syntax_highlighter: rouge # see Jekyll #3371
 
 # Enabled plugins.

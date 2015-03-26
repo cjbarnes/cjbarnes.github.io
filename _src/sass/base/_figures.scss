@@ -69,7 +69,8 @@ figure.quote {
     }
 
     /* Citation marker. */
-    figcaption:before {
+    figcaption:before,
+    cite:before {
         content: "—";
     }
 

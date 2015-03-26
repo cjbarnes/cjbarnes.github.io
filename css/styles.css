@@ -1001,7 +1001,8 @@ figure.quote blockquote {
     margin-top: 0;
     margin-bottom: 0;
 }
-figure.quote figcaption:before {
+figure.quote figcaption:before,
+figure.quote cite:before {
     content: "—";
 }
 
