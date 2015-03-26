@@ -16,7 +16,7 @@
       {% endif %}
 
       {% if page.title %}
-        {% include title.html title=page.title link_href=page.link_href %}
+        {% include title.html title=page.title link_href=page.link_href format=page.format %}
       {% else %}
         <div class="title"></div>
       {% endif %}

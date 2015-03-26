@@ -1,10 +1,8 @@
 <!-- Title and teaser -->
 <div class="title">
 
-{% if include.featured %}
-  <i class="title-label title-label-featured">featured article:</i>
-{% elsif include.link_href %}
-  <i class="title-label title-label-link">link:</i>
+{% if include.format %}
+  <i class="title-label title-label-{{ include.format }}">{% if include.featured %}featured {% endif %}{{ include.format }}:</i>
 {% endif %}
 
   <h1 class="title-main">
