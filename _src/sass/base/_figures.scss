@@ -94,12 +94,42 @@ figure.code {
     color: $text-color-reversed;
     background: $background-color-code;
 
+    /*
+     * The icon is applied to the code element, not the figure, so we can use
+     * the code's language class to style the icon.
+     */
+    &:before {
+        display: none;
+    }
+
+    /*
+     * Padding-top is applied to the code element, not the figure, so that the
+     * language icon is positioned correctly.
+     */
+    .content-section & {
+        padding-top: 0;
+    }
+
     code {
+        @include circle-box;
+        @include rem("padding-top", ($line * 1.5));
+        display: block;
         color: inherit;
         background: transparent;
 
+        /* Icon colours and fonts.. */
         &:before {
-            display: none;
+            @include font-size("huger");
+            font-family: $font-family-icons;
+            color: $text-color-reversed;
+            background-color: $background-color-code;
+        }
+
+        /* Icon colours. */
+        @each $language, $color in $language-colors {
+            &.language-#{$language}:before {
+                background-color: $color;
+            }
         }
 
     }
@@ -108,6 +138,7 @@ figure.code {
     pre {
         @include font-size-leading( "smaller", 0.666667 );
         margin: 0;
+        overflow: visible;
     }
 
 }
@@ -120,7 +151,6 @@ figure.code {
     @include rem("padding-bottom", ($line * 1.5));
 
     /* Icon layout. */
-    &.code,
     &.link,
     &.quote {
         @include circle-box;

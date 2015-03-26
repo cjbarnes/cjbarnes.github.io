@@ -1026,20 +1026,90 @@ figure.code {
     padding-right: 0.83333rem;
     padding-left: 15px;
     padding-left: 0.83333rem;
-    background: #222; 
+    background: #222;
     /* 1 */
     color: #f5f5f5;
+    /*
+     * The icon is applied to the code element, not the figure, so we can use
+     * the code's language class to style the icon.
+     */
+    /*
+     * Padding-top is applied to the code element, not the figure, so that the
+     * language icon is positioned correctly.
+     */
+}
+figure.code:before {
+    display: none;
+}
+.content-section figure.code {
+    padding-top: 0;
 }
 figure.code code {
-    background: transparent; 
+    position: relative;
+    display: block;
+    padding-top: 45px;
+    padding-top: 2.5rem;
+    background: transparent;
     color: inherit;
+    /* Icon colours and fonts.. */
+    /* Icon colours. */
 }
 figure.code code:before {
-    display: none;
+    position: absolute;
+    top: -24.5px;
+    left: 50%;
+    display: block;
+    overflow: hidden;
+    width: 49px;
+    height: 49px;
+    margin-left: -24.5px;
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #f5f5f5;
+    color: #f5f5f5;
+}
+figure.code code:before {
+    font-size: 32px;
+    font-size: 1.77778rem;
+    font-family: "cj-icons";
+    background-color: #222; 
+    color: #f5f5f5;
+}
+figure.code code.language-wordpress:before {
+    background-color: #21759b;
+}
+figure.code code.language-jekyll:before {
+    background-color: #cc0814;
+}
+figure.code code.language-jquery:before {
+    background-color: #136aab;
+}
+figure.code code.language-less:before {
+    background-color: #1e375c;
+}
+figure.code code.language-sass:before {
+    background-color: #cd669a;
+}
+figure.code code.language-javascript:before {
+    background-color: #d8ba42;
+}
+figure.code code.language-css:before {
+    background-color: #1173ba;
+}
+figure.code code.language-html:before {
+    background-color: #e34f26;
+}
+figure.code code.language-php:before {
+    background-color: #505c91;
 }
 figure.code code,
 figure.code pre {
-    margin: 0; 
+    overflow: visible; 
+    margin: 0;
     font-size: 14px;
     font-size: 0.77778rem;
     line-height: 1.42857;
@@ -1056,12 +1126,10 @@ figure.code pre {
     /* Icon layout. */
     /* Icon content and colours. */
 }
-.content-section figure.code,
 .content-section figure.link,
 .content-section figure.quote {
     position: relative;
 }
-.content-section figure.code:before,
 .content-section figure.link:before,
 .content-section figure.quote:before {
     position: absolute;
@@ -1081,14 +1149,9 @@ figure.code pre {
     border-color: #f5f5f5;
     color: #f5f5f5;
 }
-.content-section figure.code:before,
 .content-section figure.link:before,
 .content-section figure.quote:before {
     font-family: "cj-icons";
-}
-.content-section figure.code:before {
-    content: "\e626";
-    background-color: #222;
 }
 .content-section figure.link:before {
     content: "\e631";

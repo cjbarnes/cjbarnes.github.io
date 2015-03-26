@@ -134,7 +134,6 @@ $language-colors: (
 
 // Icon colours for figures within content.
 $figure-colors: (
-    "code":  $background-color-code,
     "link":  map-get($format-colors, "link"),
     "quote": map-get($format-colors, "quote")
 );
