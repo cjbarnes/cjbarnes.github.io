@@ -3,7 +3,7 @@ title: bio
 summary: About me, my experience, and how I became a web designer.
 permalink: whativedone/bio/
 illustration: feet
-sortorder: 4
+sortorder: 3
 ---
 
 TODO bio text.

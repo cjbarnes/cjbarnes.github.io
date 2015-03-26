@@ -2,7 +2,7 @@
 title: projects
 summary: Information and links about the side projects I’ve been working on.
 permalink: whativedone/projects/
-illustration: imac-ipad
+illustration: code-editing
 masthead: light
-sortorder: 3
+sortorder: 4
 ---
