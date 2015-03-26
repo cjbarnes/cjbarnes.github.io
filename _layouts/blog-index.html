@@ -59,7 +59,14 @@
         {% unless post.illustration %}
           <div class="content listing-content index-listing-content blog-listing-content post-content">
 
-            {{ post.content }}
+            {% if post.length %}
+              {{ post.excerpt }}
+              <p><a class="read-more" href="{{ post.url }}" title="Permalink">
+                read more
+              </a></p>
+            {% else %}
+              {{ post.content }}
+            {% endif %}
 
             {% if post.link_href %}
               <figure class="link link-article-link">
