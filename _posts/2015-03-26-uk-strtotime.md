@@ -8,16 +8,16 @@ languages:
 - PHP
 ---
 
-PHP's `strtotime` function makes working with user-inputted dates wonderfully simple...as long as you're American. For the rest of us, here's a simple function that makes `strtotime` work even for dates in *day/month/year* date order.
+PHP's `strtotime` function makes working with user-inputted dates wonderfully simple...as long as you're American. For the rest of us, here's a simple way to make it correctly interpret dates in *day/month/year* order.
 {:.lead}
 
 ## the power of strtotime
 
 In case you're not familiar with it, [`strtotime` is a PHP function](http://php.net/manual/en/function.strtotime.php "PHP documentation on strtotime") that acts as a natural-language parser for dates and times written in English.
 
-The power of `strtotime` is its flexibility. As well as interpreting absolute dates in almost any English format, `strtotime` also works with relative dates like '+3 days 2 hours', 'now', or even 'next Wednesday'.
+The power of `strtotime` is its flexibility. As well as interpreting absolute dates in almost any English format, it also works with relative dates like '+3 days 2 hours', 'now', or even 'next Wednesday'.
 
-This flexibility makes `strtotime` brilliant for handling user input in particular. Why give complicated instructions to your users on how to type in dates, when you can let them type using the format that makes sense to them and interpret the results with `strtotime`?
+This flexibility makes `strtotime` brilliant for handling user input in particular. Why give complicated instructions to your users on how to type in dates, when you can let them type using the format that makes sense to them and interpret the results with just one line of PHP code?
 
 ## the problem with strtotime (outside the US)
 
@@ -35,15 +35,15 @@ Clearly `strtotime` has to have a consistent way to deal with this ambiguity. PH
 <cite>[*PHP.net*](http://php.net/manual/en/function.strtotime.php "PHP documentation on strtotime")</cite>
 </figure>
 
-This is a pragmatic solution, but it robs `strtotime` of its most powerful feature---interpretation of dates in natural language---for websites in countries that don't normally use the American date order. **Non-Americans use slashes in dates too.** So as a designer of websites targeted at people in the UK, I cannot simply pass user-inputted dates straight into `strtotime`. Users will be both confused and annoyed if they type `1/2/16` and the website misinterprets their input as 2nd January.
+This is a pragmatic solution, but it robs non-American users of the function's most powerful feature---the interpretation of natural-language dates in any format. **Non-Americans use slashes in dates too.** So as a designer of websites targeted at people in the UK, I cannot simply pass user-inputted dates straight into `strtotime`. Users will be both confused and annoyed if they type `1/2/16` and the website misinterprets their input as 2nd January.
 
 ## a solution
 
 There is a solution to the limitations of `strtotime`, if you want it to assume a British-English date order at all times, including when the date contains slashes.
 
-Remember, `strtotime` looks for the slash character as a marker for whether the date is American or not. So all we have to do is replace all slashes in the date string with an alternative character before passing it to `strtotime`.
+Remember, `strtotime` looks for the slash character as a marker for whether the date is American or not. So all we have to do is replace all slashes in the date string with an alternative character.
 
-The easiest way to do this is to include this helper function in your PHP project, and then always call `uk_strtotime` instead of `strtotime`:
+The easiest way to do this is to include this helper function---called `uk_strtotime`---in your PHP project, and then remember to use it everywhere you would normally use `strtotime`:
 
 <figure class="code">
 {% highlight php %}
@@ -56,9 +56,9 @@ The easiest way to do this is to include this helper function in your PHP projec
  *
  * @author cJ barnes <mail@cjbarnes.co.uk>
  * 
- * @param  string $time A date/time string.
- * @param  int    $now  Optional. The timestamp which is used as a base for the
- *                      calculation of relative dates.
+ * @param string $time A date/time string.
+ * @param int    $now  Optional. The timestamp which is used as a base for the
+ *                     calculation of relative dates.
  * @return string The strtotime() output.
  */
 function uk_strtotime($time, $now = null) {
@@ -72,6 +72,6 @@ function uk_strtotime($time, $now = null) {
 {% endhighlight %}
 </figure>
 
-This function will catch dates in *day/month/year* format and convert them to *day-month-year* before they reach the `strtotime` function.
+The `uk_strtotime` function will catch dates in *day/month/year* format and convert them to *day-month-year*, before passing them on to the standard PHP `strtotime`.
 
 With this approach, you get access to the full power of `strtotime`, but with support for British English dates in all common formats.
