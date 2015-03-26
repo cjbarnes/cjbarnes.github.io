@@ -100,11 +100,13 @@ article.illustrated footer .date-unit {
 
     /*
      * Dates in article footer.
-     * 1. Vertical centring in footer line.
+     * 1. Vertical centring in footer line. The footer min-height is 3 lines.
+     *    The date-circles height is $circle-diameter.
      */
     .post-footer .date {
-        @include rem("bottom", ($line - (($circle-diameter * 0.5) / $line-px))); // @todo CHECK THIS MATHS (I think it's 'magic', not logical)
+        @include rem("top", ((($line-px * 3) - $circle-diameter) / 2)); /* 1 */
         position: absolute;
+        bottom: auto;
         padding: 0;
     }
 

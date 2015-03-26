@@ -2340,12 +2340,15 @@ article.illustrated footer .date-unit {
 @media (min-width: 718px) {
     /*
      * Dates in article footer.
-     * 1. Vertical centring in footer line.
+     * 1. Vertical centring in footer line. The footer min-height is 3 lines.
+     *    The date-circles height is $circle-diameter.
      */
     .post-footer .date {
+        /* 1 */
         position: absolute;
-        bottom: 17px;
-        bottom: 0.91667rem;
+        top: 22.5px;
+        top: 1.25rem;
+        bottom: auto;
         padding: 0;
     }
 }
@@ -3472,7 +3475,13 @@ article.illustrated footer .date-unit {
     .listing-footer,
     .post-featured-footer {
         padding-bottom: 0;
-        /* Left- and right-aligned metadata fields. */
+        /*
+         * Left- and right-aligned metadata fields.
+         * 1. Vertical centring in footer line. The footer min-height is 3
+         *    lines, and the field height is 1 line; so there should be 1 line
+         *    above and 1 line below the metadata field. 0.2rem compensates for
+         *    the standard 0.2em padding applied to all links by default.
+         */
     }
     .listing-footer .post-footer-permalink,
     .listing-footer .post-footer-languages,
@@ -3480,9 +3489,10 @@ article.illustrated footer .date-unit {
     .post-featured-footer .post-footer-permalink,
     .post-featured-footer .post-footer-languages,
     .post-featured-footer .go-to-site {
+        /* 1 */
         position: absolute;
-        bottom: 24px;
-        bottom: 1.33333rem;
+        top: 26px;
+        top: 1.46667rem;
         display: block;
         padding-right: 0; 
         padding-left: 0;

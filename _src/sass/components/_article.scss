@@ -166,11 +166,17 @@
     .post-featured-footer {
         padding-bottom: 0;
 
-        /* Left- and right-aligned metadata fields. */
+        /*
+         * Left- and right-aligned metadata fields.
+         * 1. Vertical centring in footer line. The footer min-height is 3
+         *    lines, and the field height is 1 line; so there should be 1 line
+         *    above and 1 line below the metadata field. 0.2rem compensates for
+         *    the standard 0.2em padding applied to all links by default.
+         */
         .post-footer-permalink,
         .post-footer-languages,
         .go-to-site {
-            @include rem("bottom", ($line * 0.8)); // @todo: check this maths
+            @include rem("top", ($line - 0.2rem)); /* 1 */
             position: absolute;
             display: block;
             padding-left: 0;
