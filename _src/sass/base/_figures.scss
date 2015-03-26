@@ -85,8 +85,19 @@ figure.code {
     color: $text-color-reversed;
     background: $background-color-code;
 
+    code:before {
+        display: none;
+    }
+
     pre {
-        margin: 0;
+
+        &,
+        code {
+            @include font-size-leading( "smaller", 0.666667 );
+            margin: 0;
+            overflow: visible;
+        }
+
     }
 
 }
