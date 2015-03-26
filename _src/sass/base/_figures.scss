@@ -68,6 +68,14 @@ figure.quote {
         margin-bottom: 0;
     }
 
+    /*
+     * Make italicization of quote citations an explicit choice, so we can use
+     * italics for publications but not for people.
+     */
+    cite {
+        font-style: normal;
+    }
+
     /* Citation marker. */
     figcaption:before,
     cite:before {

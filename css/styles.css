@@ -998,11 +998,18 @@ figure.link a:active {
 /* Quote figures. */
 figure.quote {
     background: #e9e6df;
+    /*
+     * Make italicization of quote citations an explicit choice, so we can use
+     * italics for publications but not for people.
+     */
     /* Citation marker. */
 }
 figure.quote blockquote {
     margin-top: 0;
     margin-bottom: 0;
+}
+figure.quote cite {
+    font-style: normal;
 }
 figure.quote figcaption:before,
 figure.quote cite:before {
