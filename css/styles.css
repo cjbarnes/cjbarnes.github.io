@@ -1089,6 +1089,9 @@ figure.code code.language-less:before {
 figure.code code.language-sass:before {
     background-color: #cd669a;
 }
+figure.code code.language-scss:before {
+    background-color: #cd669a;
+}
 figure.code code.language-javascript:before {
     background-color: #d8ba42;
 }
@@ -4634,6 +4637,11 @@ article.illustrated footer .date-unit {
 }
 
 .language-sass:before {
+    content: "\e64b";
+    color: #cd669a;
+}
+
+.language-scss:before {
     content: "\e64b";
     color: #cd669a;
 }
