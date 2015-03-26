@@ -34,6 +34,9 @@ exclude: ['*.psd','*.ai','*.eps','*.codekit','*.lock','Gemfile','README.md','gul
 # Don't process posts with future dates.
 future: false
 
+# Mark the end of the automatically-generated excerpt.
+excerpt_separator: <!--more-->
+
 # Markdown parser and code highlighter.
 # highlighter: rouge
 markdown: kramdown

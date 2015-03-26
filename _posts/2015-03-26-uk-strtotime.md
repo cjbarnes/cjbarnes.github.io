@@ -21,7 +21,7 @@ This flexibility makes `strtotime` brilliant for handling user input in particul
 
 ## the problem with strtotime (outside the US)
 
-However, with this flexibility comes one crucial problem, caused by the difference between American and British English date order. Consider a common English abbreviated date:
+However, with this flexibility comes one crucial problem, caused by the difference between American and British English date order.<!--more--> Consider a common English abbreviated date:
 
 > **1/12/2015**
 
@@ -46,8 +46,7 @@ Remember, `strtotime` looks for the slash character as a marker for whether the 
 The easiest way to do this is to include this helper function---called `uk_strtotime`---in your PHP project, and then remember to use it everywhere you would normally use `strtotime`:
 
 <figure class="code">
-{% highlight php %}
-<?php
+{% highlight php startinline %}
 /**
  * Version of strtotime() that doesn't use American dates.
  *
@@ -68,7 +67,6 @@ function uk_strtotime($time, $now = null) {
     $str = preg_replace('/\//', '-', $time);
     return strtotime($time, $now);
 }
-?>
 {% endhighlight %}
 </figure>
 
