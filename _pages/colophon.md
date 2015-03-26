@@ -4,17 +4,19 @@ permalink: colophon/
 ---
 
 <figure class="quote">
-	<blockquote>a <strong>colophon</strong> is a description of the tools, systems and resources used to create the Web site and keep it operational.</blockquote>
-	<figcaption><a href="http://www.webopedia.com/TERM/C/colophon.html" title="full definition">Webopedia Computer Dictionary</a></figcaption>
+> a <strong>colophon</strong> is a description of the tools, systems and resources used to create the Web site and keep it operational.
+
+<cite>[*Webopedia Computer Dictionary*](http://www.webopedia.com/TERM/C/colophon.html "full definition")</cite>
 </figure>
 
 ## languages
 
-* [Markdown](http://daringfireball.net/projects/markdown/) (the [GitHub-flavoured](https://help.github.com/articles/github-flavored-markdown "GitHub Flavored Markdown") variety)
+* [Markdown](http://daringfireball.net/projects/markdown/) (the [Kramdown](http://kramdown.gettalong.org) version)
 * HTML5
 * CSS3
 * JavaScript ([vanilla](http://youmightnotneedjquery.com "You Might Not Need jQuery website"))
-* [Less](http://lesscss.org) CSS preprocessor
+* [Sass](http://sass-lang.com) CSS preprocessor
+* [gulp](http://gulpjs.com) build system
 * [Liquid](http://liquidmarkup.org) templating engine
 * [YAML](http://www.yaml.org) markup
 
@@ -25,7 +27,7 @@ permalink: colophon/
 * [We Love Icon Fonts](http://weloveiconfonts.com) for another font CDN
 * [Font Squirrel](http://www.fontsquirrel.com) for webfont packaging of Aleo font
 * [Color Thief](http://lokeshdhakar.com/projects/color-thief/) by Lokesh Dhakar helped me choose a colour palette
-* [Name that Color](http://chir.ag/projects/name-that-color/) by Chirag Mehta, for better Less colour names
+* [Name that Color](http://chir.ag/projects/name-that-color/) by Chirag Mehta, for better Sass colour names
 * [Google Analytics](http://www.google.com/analytics/) for stats tracking and reporting
 
 ## software
@@ -44,10 +46,12 @@ permalink: colophon/
 
 ## hardware
 
+* 13" MacBook Pro with Retina Display
 * 21.5" iMac
-* Apple Bluetooth Keyboard, Magic Mouse, and Magic Trackpad
+* Logitech Easy-Switch Keyboard K811
+* Logitech Wireless Rechargeable Trackpad T651
+* Apple Magic Mouse
 * iPad Air
-* Logitech Ultrathin Keyboard
 
 
 *[CDN]: content delivery network
