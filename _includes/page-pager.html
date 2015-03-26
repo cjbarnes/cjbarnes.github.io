@@ -1,24 +1,24 @@
 {% if page.date %}
   {% comment %} Find the previous and next post {% endcomment %}
   {% if page.previous %}
-    {% assign prev_name = page.previous.title %}
-    {% capture prev_description %}{{ page.previous.date | date: "%-d %B %Y" }} | {{ page.previous.format }}{% endcapture %}
-    {% assign prev_url = page.previous.url %}
-    {% assign prev_title = page.previous.summary %}
-  {% else %}
-    {% assign prev_name = "blog" %}
-    {% assign prev_description = "Back to list of blog posts" %}
-    {% assign prev_url = "/blog/" %}
-  {% endif %}
-  {% if page.next %}
-    {% assign next_name = page.next.title %}
-    {% capture next_description %}{{ page.next.format }} | {{ page.next.date | date: "%-d %B %Y" }}{% endcapture %}
-    {% assign next_url = page.next.url %}
-    {% assign next_title = page.next.summary %}
+    {% assign next_name = page.previous.title %}
+    {% capture next_description %}{{ page.previous.date | date: "%-d %B %Y" }} | {{ page.previous.format }}{% endcapture %}
+    {% assign next_url = page.previous.url %}
+    {% assign next_title = page.previous.summary %}
   {% else %}
     {% assign next_name = "blog" %}
     {% assign next_description = "Back to list of blog posts" %}
     {% assign next_url = "/blog/" %}
+  {% endif %}
+  {% if page.next %}
+    {% assign prev_name = page.next.title %}
+    {% capture prev_description %}{{ page.next.format }} | {{ page.next.date | date: "%-d %B %Y" }}{% endcapture %}
+    {% assign prev_url = page.next.url %}
+    {% assign prev_title = page.next.summary %}
+  {% else %}
+    {% assign prev_name = "blog" %}
+    {% assign prev_description = "Back to list of blog posts" %}
+    {% assign prev_url = "/blog/" %}
   {% endif %}
 {% else %}
   {% comment %} Find the current page in the list of pages {% endcomment %}
