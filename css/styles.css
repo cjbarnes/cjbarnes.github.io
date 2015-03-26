@@ -2092,6 +2092,11 @@ img::selection {
     color: #f5f5f5;
 }
 
+/* Fix layout bug where next/previous buttons were slightly above the line. */
+.pagination-item {
+    vertical-align: top;
+}
+
 /* Next/Previous links. */
 .pagination-item-adjacent {
     font-family: "cj-icons";
