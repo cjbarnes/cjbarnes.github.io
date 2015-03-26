@@ -107,18 +107,9 @@
     background: $background-color-page-footer;
 }
 
-.post-footer-languages {
-    @include rem("margin-left", $gutter);
-}
-
 .post-footer-language-item:before {
     @include font-size-leading("enormous");
     font-family: $font-family-icons;
-}
-
-.post-footer-permalink,
-.go-to-site {
-    @include rem("margin-right", $gutter);
 }
 
 
@@ -146,11 +137,6 @@
         color: $text-color-reversed;
     }
 
-    .post-footer-permalink {
-        @include rem("right", $gutter);
-        margin-right: 0;
-    }
-
 }
 
 
@@ -160,6 +146,15 @@
  * Tablets and wider.
  */
 @include media-width("normal-size") {
+
+    .post-footer-languages {
+        @include rem("margin-left", $gutter);
+    }
+
+    .post-footer-permalink,
+    .go-to-site {
+        @include rem("margin-right", $gutter);
+    }
 
     /* Metadata alignment. */
     .listing-footer,
@@ -201,6 +196,14 @@
         @include column(8);
         @include push(2);
         @include pull(2);
+
+
+
+        .post-footer-permalink {
+            @include rem("right", $gutter);
+            margin-right: 0;
+        }
+
     }
 
 } //include media-width(normal-size)

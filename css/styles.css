@@ -3390,22 +3390,11 @@ article.illustrated footer .date-unit {
     background: #e9e6df;
 }
 
-.post-footer-languages {
-    margin-left: 15px;
-    margin-left: 0.83333rem;
-}
-
 .post-footer-language-item:before {
     font-size: 40px;
     font-size: 2.22222rem;
     line-height: 0.75;
     font-family: "cj-icons";
-}
-
-.post-footer-permalink,
-.go-to-site {
-    margin-right: 15px;
-    margin-right: 0.83333rem;
 }
 
 /*
@@ -3459,11 +3448,6 @@ article.illustrated footer .date-unit {
     line-height: 1.42857;
     color: #f5f5f5;
 }
-.post-footer.post-featured-footer .post-footer-permalink {
-    right: 15px;
-    right: 0.83333rem;
-    margin-right: 0;
-}
 
 /**
  * Media query.
@@ -3471,6 +3455,15 @@ article.illustrated footer .date-unit {
  * Tablets and wider.
  */
 @media (min-width: 718px) {
+    .post-footer-languages {
+        margin-left: 15px;
+        margin-left: 0.83333rem;
+    }
+    .post-footer-permalink,
+    .go-to-site {
+        margin-right: 15px;
+        margin-right: 0.83333rem;
+    }
     /* Metadata alignment. */
     .listing-footer,
     .post-featured-footer {
@@ -3517,6 +3510,11 @@ article.illustrated footer .date-unit {
         margin-right: 16.66667%; 
         margin-left: 16.66667%;
         padding: 0 15px;
+    }
+    .post-featured-footer .post-footer-permalink {
+        right: 15px;
+        right: 0.83333rem;
+        margin-right: 0;
     }
 }
 
