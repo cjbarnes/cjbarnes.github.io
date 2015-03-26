@@ -4048,6 +4048,10 @@ article.illustrated footer .date-unit {
     color: #f5f5f5;
 }
 
+.read-more {
+    font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
+}
+
 /*
  * Blog/index listing.
  */
