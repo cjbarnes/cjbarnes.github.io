@@ -34,7 +34,7 @@
  */
 .page-footer {
     @include clearfix;
-    @include rem("min-height", ($line * 4));
+    @include rem("min-height", ($line * 3.5));
     clear: both;
     position: relative; /* 1 */
     background: $background-color-page-footer;

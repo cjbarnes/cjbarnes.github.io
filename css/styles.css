@@ -2553,8 +2553,7 @@ article.illustrated footer .date-unit {
      */
     margin: 0;
     padding: 0;
-    list-style: none; 
-    background: #f5f5f5;
+    list-style: none;
 }
 .pager-list:before,
 .pager-list:after {
@@ -2581,9 +2580,8 @@ article.illustrated footer .date-unit {
     position: relative;
     /* 1 */
     display: block;
-    height: 5.83333rem;
-    padding: 15px 30px 0;
-    padding: 0.83333rem 1.66667rem 0;
+    padding: 15px 90px 30px;
+    padding: 0.83333rem 5rem 1.66667rem;
     border-bottom: 0;
     background: transparent;
     /* Arrow icons */
@@ -2606,10 +2604,6 @@ article.illustrated footer .date-unit {
     background: #c5a184;
 }
 
-.pager-previous a {
-    padding-left: 90px;
-    padding-left: 5rem;
-}
 .pager-previous a:before {
     content: "\e601"; 
     left: 30px;
@@ -2617,8 +2611,6 @@ article.illustrated footer .date-unit {
 }
 
 .pager-next a {
-    padding-right: 90px;
-    padding-right: 5rem;
     text-align: right;
 }
 .pager-next a:before {
@@ -2645,7 +2637,7 @@ article.illustrated footer .date-unit {
     display: block;
     /* 1 */
     overflow: hidden;
-    max-height: 2.83333em;
+    height: 2.83333em;
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 1.40625;
@@ -4763,8 +4755,8 @@ article.illustrated footer .date-unit {
      *
      * See http://nicolasgallagher.com/micro-clearfix-hack/
      */
-    min-height: 120px;
-    min-height: 6.66667rem;
+    min-height: 105px;
+    min-height: 5.83333rem;
     /* 1 */
     background: #e9e6df;
 }

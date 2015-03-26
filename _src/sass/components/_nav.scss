@@ -166,7 +166,6 @@
     @include clearfix;
     margin: 0;
     padding: 0;
-    background: $background-color-content;
     list-style: none;
 }
 
@@ -181,10 +180,9 @@
      * 1. For arrow icon positioning.
      */
     a {
-        @include rem("padding", ($line / 2) $line 0);
+        @include rem("padding", ($line / 2) ($line * 3) $line);
         position: relative; /* 1 */
         display: block;
-        height: ($line * 3.5);
         border-bottom: 0;
         background: transparent;
 
@@ -212,7 +210,6 @@
 }
 
 .pager-previous a {
-    @include rem("padding-left", ($line * 3));
 
     &:before {
         @include rem("left", $line);
@@ -222,7 +219,6 @@
 }
 
 .pager-next a {
-    @include rem("padding-right", ($line * 3));
     text-align: right;
 
     &:before {
@@ -247,7 +243,7 @@
 .pager-item-description {
     @include font-size-leading("small", 0.75);
     display: block;
-    max-height: (1.7em * ($line / 1rem)); /* 1 */
+    height: (1.7em * ($line / 1rem)); /* 1 */
     overflow: hidden; /* 1 */
     font-family: $font-family-content;
 }
