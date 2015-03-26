@@ -915,11 +915,6 @@ hr {
         margin-right: 0; 
         margin-left: 0;
     }
-    /* Align lead outside the normal text margins. */
-    .content-section .lead {
-        margin-right: 0; 
-        margin-left: 0;
-    }
 }
 
 /**
