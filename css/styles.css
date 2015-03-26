@@ -5016,16 +5016,6 @@ a:active .featured-website-title {
 }
 
 /* Comment.Special */
-.highlight .ge {
-    font-style: italic;
-}
-
-/* Generic.Emph */
-.highlight .gs {
-    font-weight: bold;
-}
-
-/* Generic.Strong */
 .highlight .kc {
     color: #66d9ef;
 }
