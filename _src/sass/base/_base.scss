@@ -137,7 +137,7 @@ kbd {
 hr {
     @include rem("margin", ($line * 2) 0);
     border: 0;
-    border-top: 1px solid $text-color-emphasis;
+    border-top: 1px solid $color-hr;
 }
 
 
