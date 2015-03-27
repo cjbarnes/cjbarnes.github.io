@@ -44,15 +44,19 @@ img::selection{
 
 /* Subheading permalinks */
 .hashlink {
-    @include rem("bottom", ($line / 4));
     @include rem("width", $line);
+    @include rem("margin", ($line * -0.5) ($line / 4) 0 0);
     @include rem("height", $line);
-    @include rem("line-height", $line); // @todo: Why is this here?
+    @include rem("line-height", $line);
     position: absolute;
     right: 100%;
+    top: 50%;
     display: block;
     padding: 0;
     opacity: 0;
+    border: 0;
+    border-radius: 50% 50%;
+    text-align: center;
 
     :hover > &,
     :focus > & {

@@ -1508,17 +1508,21 @@ img::selection {
 /* Subheading permalinks */
 .hashlink {
     position: absolute;
+    top: 50%;
     right: 100%;
-    bottom: 8px;
-    bottom: 0.41667rem;
     display: block;
     width: 30px;
     width: 1.66667rem;
     height: 30px;
     height: 1.66667rem;
+    margin: -15px 8px 0 0;
+    margin: -0.83333rem 0.41667rem 0 0;
     padding: 0;
     line-height: 30px;
     line-height: 1.66667rem;
+    text-align: center; 
+    border-radius: 50% 50%;
+    border: 0;
     opacity: 0;
 }
 :hover > .hashlink,
