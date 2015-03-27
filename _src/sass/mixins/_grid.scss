@@ -1,35 +1,30 @@
-/**
- * Grid mixins
- *
- * All mixins for the responsive grid system.
- *
- * This is heavily influenced by the Semantic Grid http://semantic.gs
- *
- * (Adapted into Sass for this project. Original authors listed below.)
- *
- * @author Abban Dunne http://abandon.ie
- * @author James Wilson http://jimmynotjim.com
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+//
+// Grid mixins
+//
+// All mixins for the responsive grid system.
+//
+// This is heavily influenced by the Semantic Grid http://semantic.gs
+//
+// (Adapted into Sass for this project. Original authors listed below.)
+//
+// @author Abban Dunne http://abandon.ie
+// @author James Wilson http://jimmynotjim.com
+//
 
 // Utility variable — you should never need to modify this.
 $gridsystem_width: (1px * $columns);
 $padding: ($gutter_width * 0.5);
 
-/**
- * Make this element a row (i.e. a horizontally-centred container for columns).
- *
- * @param number $padding Horizontal padding to apply to the row (i.e. half the
- *                        gutter width). Default 0.
- */
+/// Make this element a row (i.e. a horizontally-centred container for columns).
+///
+/// @param {Number} $padding Horizontal padding to apply to the row (i.e. half
+///                          the gutter width). Default 0.
 @mixin row($padding: 0) {
   @if (0 != $padding) and unitless($padding) {
     @error "$padding must not be unitless, was #{$padding}";
   }
 
-  // Output
+  // Output.
   @include clearfix;
   display: block;
   max-width: $max_width;
@@ -37,15 +32,13 @@ $padding: ($gutter_width * 0.5);
   padding: 0 $padding;
 }
 
-/**
- * Make this element a specified number of columns wide.
- *
- * @param number $x       Number of columns this element should span.
- * @param number $padding Horizontal padding to apply to this column. Default
- *                        $padding (i.e. half the gutter width).
- * @param number $columns Total number of columns the container row spans.
- *                        Default $columns.
- */
+/// Make this element a specified number of columns wide.
+///
+/// @param {Number} $x       Number of columns this element should span.
+/// @param {Number} $padding Horizontal padding to apply to this column. Default
+///                          $padding (i.e. half the gutter width).
+/// @param {Number} $columns Total number of columns the container row spans.
+///                          Default $columns.
 @mixin column($x, $padding: $padding, $columns: $columns) {
   @if not unitless($x) or (abs($x) != $x) {
     @error "$x must be a unitless whole number, was #{$x}";
@@ -57,22 +50,20 @@ $padding: ($gutter_width * 0.5);
     @error "$columns must be a unitless whole number, was #{$columns}";
   }
 
-  // Output
+  // Output.
   float: left;
   display: inline;
   width: (100% * ($x / $columns));
   padding: 0 $padding;
 }
 
-/**
- * Add left margin to push this column a specified number of columns to the
- * right.
- *
- * @param number $offset  Number of empty columns to the left of this column.
- *                        Default 1.
- * @param number $columns Total number of columns the container row spans.
- *                        Default $columns.
- */
+/// Add left margin to push this column a specified number of columns to the
+/// right.
+///
+/// @param {Number} $offset  Number of empty columns to the left of this column.
+///                          Default 1.
+/// @param {Number} $columns Total number of columns the container row spans.
+///                          Default $columns.
 @mixin push($offset: 1, $columns: $columns) {
   @if not unitless($offset) or (abs($offset) != $offset) {
     @error "$offset must be a unitless whole number, was #{$offset}";
@@ -81,19 +72,17 @@ $padding: ($gutter_width * 0.5);
     @error "$columns must be a unitless whole number, was #{$columns}";
   }
 
-  // Output
+  // Output.
   margin-left: (100% * ($offset / $columns));
 }
 
-/**
- * Add right margin to push the next column a specified number of columns to the
- * left.
- *
- * @param number $offset  Number of empty columns to the right of this column.
- *                        Default 1.
- * @param number $columns Total number of columns the container row spans.
- *                        Default $columns.
- */
+/// Add right margin to push the next column a specified number of columns to
+/// the left.
+///
+/// @param {Number} $offset  Number of empty columns to the right of this
+///                          column. Default 1.
+/// @param {Number} $columns Total number of columns the container row spans.
+///                          Default $columns.
 @mixin pull($offset: 1, $columns: $columns) {
   @if not unitless($offset) or (abs($offset) != $offset) {
     @error "$offset must be a unitless whole number, was #{$offset}";
@@ -102,25 +91,22 @@ $padding: ($gutter_width * 0.5);
     @error "$columns must be a unitless whole number, was #{$columns}";
   }
 
-  // Output
+  // Output.
   margin-right: (100% * ($offset / $columns));
 }
 
-
-/**
- * Add left padding to push the left edge of this element's contents a
- * specified number of columns to the right.
- *
- * Uses CSS `calc()` to combine percentage column widths with the absolute
- * `padding` gutter width. Falls back in IE.old to the column width without the
- * gutter applied.
- *
- * @param number $offset     Number of empty columns to the left of the
- *                           contents. Default 1.
- * @param number $columns    Total number of columns the container row spans.
- *                           Default $columns.
- * @param bool   $add_gutter Whether to add an extra half-gutter to the left.
- */
+/// Add left padding to push the left edge of this element's contents a
+/// specified number of columns to the right.
+///
+/// Uses CSS `calc()` to combine percentage column widths with the absolute
+/// `padding` gutter width. Falls back in IE.old to the column width without the
+/// gutter applied.
+///
+/// @param {Number} $offset     Number of empty columns to the left of the
+///                             contents. Default 1.
+/// @param {Number} $columns    Total number of columns the container row spans.
+///                             Default $columns.
+/// @param {Bool}   $add_gutter Whether to add an extra half-gutter to the left.
 @mixin push-interior($offset: 1, $columns: $columns, $add_gutter: false) {
   @if not unitless($offset) or (abs($offset) != $offset) {
     @error "$offset must be a unitless whole number, was #{$offset}";
@@ -129,7 +115,7 @@ $padding: ($gutter_width * 0.5);
     @error "$columns must be a unitless whole number, was #{$columns}";
   }
 
-  // Output
+  // Output.
   $base-width: (100% * ($offset / $columns));
   padding-left: $base-width;
   @if $add_gutter {
@@ -137,20 +123,19 @@ $padding: ($gutter_width * 0.5);
   }
 }
 
-/**
- * Add right padding to push the right edge of this element's contents a
- * specified number of columns to the left.
- *
- * Uses CSS `calc()` to combine percentage column widths with the absolute
- * `padding` gutter width. Falls back in IE.old to the column width without the
- * gutter applied.
- *
- * @param number $offset     Number of empty columns to the right of the
- *                           contents. Default 1.
- * @param number $columns    Total number of columns the container row spans.
- *                           Default $columns.
- * @param bool   $add_gutter Whether to add an extra half-gutter to the right.
- */
+/// Add right padding to push the right edge of this element's contents a
+/// specified number of columns to the left.
+///
+/// Uses CSS `calc()` to combine percentage column widths with the absolute
+/// `padding` gutter width. Falls back in IE.old to the column width without the
+/// gutter applied.
+///
+/// @param {Number} $offset     Number of empty columns to the right of the
+///                             contents. Default 1.
+/// @param {Number} $columns    Total number of columns the container row spans.
+///                             Default $columns.
+/// @param {Bool}   $add_gutter Whether to add an extra half-gutter to the
+///                             right.
 @mixin pull-interior($offset: 1, $columns: $columns, $add_gutter: false) {
   @if not unitless($offset) or (abs($offset) != $offset) {
     @error "$offset must be a unitless whole number, was #{$offset}";
@@ -159,7 +144,7 @@ $padding: ($gutter_width * 0.5);
     @error "$columns must be a unitless whole number, was #{$columns}";
   }
 
-  // Output
+  // Output.
   $base-width: (100% * ($offset / $columns));
   padding-right: $base-width;
   @if $add_gutter {
