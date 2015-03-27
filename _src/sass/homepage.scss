@@ -1,0 +1,14 @@
+/**
+ * Styles specifically for the homepage.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+// Variables, mixins, functions.
+@import "variables/all";
+@import "functions/all";
+@import "mixins/all";
+
+// Custom styling.
+@import "layouts/homepage";

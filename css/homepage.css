@@ -1,0 +1,101 @@
+/**
+ * Styles specifically for the homepage.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Homepage-specific styles
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/*
+ * Header area.
+ * 1. For 'your website goes here' arrow.
+ * 2. Almost (but not quite) full screen height. Can use `vh` with no fallback
+ *    because I'm also declaring both min- and max-heights, which act as a
+ *    de facto fallback.
+ * 3. Don't exceed the height of the image.
+ */
+.homepage-masthead {
+    position: relative;
+    /* 1 */
+    height: 99vh;
+    /* 2 */
+    min-height: 700px;
+    max-height: 870px;
+    /* 3 */
+}
+
+/* Homepage welcome message */
+.homepage-title {
+    padding-bottom: 30px;
+    padding-bottom: 1.66667rem;
+    text-align: center;
+}
+
+.homepage-title-main {
+    margin: 0 15px 75px;
+    margin: 0 0.83333rem 4.16667rem;
+    font-size: 32px;
+    font-size: 1.77778rem;
+    line-height: 1.40625;
+    color: #f5f5f5;
+    text-shadow: 0 0 10px #222;
+    /*
+     * The changing element in the welcome message.
+     * 1. Fixes the gradient height changing in each brag transition.
+     */
+}
+.homepage-title-main a:hover,
+.homepage-title-main a:focus,
+.homepage-title-main a:active {
+    text-shadow: none;
+}
+.homepage-title-main .brag {
+    overflow: hidden;
+    word-wrap: normal;
+    background: #5e8c88;
+    /* 1 */
+    /*
+         * Individual 'brags' - only one is displayed at once.
+         * 1. Hide unless `.current`.
+         */
+}
+.homepage-title-main .brag span {
+    display: inline-block;
+    max-width: 0;
+    color: #f5f5f5;
+    /* 1 */
+    opacity: 0;
+    /* 1 */
+    transition: all 0.5s ease-in-out;
+    /* The only visible 'brag'. */
+}
+.homepage-title-main .brag span.current {
+    max-width: 100em;
+    opacity: 1;
+}
+
+/* USPs row. */
+.homepage-content-section-illustrated {
+    /* Show bulleted list as a simple sequence of sentences. */
+}
+.homepage-content-section-illustrated ul {
+    margin: 0;
+    list-style: none; 
+    line-height: 2.14286;
+}
+
+/**
+ * Media query.
+ *
+ * Tablet or wider.
+ */
+@media (min-width: 718px) {
+    /* Brags. No need to wrap to 2 lines at this screen size. */
+    .homepage-title br {
+        display: none;
+    }
+}
