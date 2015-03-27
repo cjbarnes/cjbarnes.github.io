@@ -473,30 +473,13 @@ body {
  */
 /* Wrapper for everything above the footer. */
 .above-footer {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     max-width: 1400px;
     margin: 0 auto;
 }
 .above-footer:before,
 .above-footer:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .above-footer:after {
     clear: both;
@@ -1138,29 +1121,10 @@ li li li {
 /**
  * Contact details lists.
  */
-.contact-details-list {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
-}
 .contact-details-list:before,
 .contact-details-list:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .contact-details-list:after {
     clear: both;
@@ -2162,21 +2126,6 @@ article.illustrated footer .date-unit {
  */
 .nav-level-1 {
     margin: 0;
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     padding: 0 0 15px;
     padding: 0 0 0.83333rem;
     font-size: 21px;
@@ -2195,9 +2144,7 @@ article.illustrated footer .date-unit {
 .nav-level-1:before,
 .nav-level-1:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .nav-level-1:after {
     clear: both;
@@ -2313,21 +2260,6 @@ article.illustrated footer .date-unit {
  * Pager (next/previous links)
  */
 .pager-list {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     margin: 0;
     padding: 0;
     list-style: none;
@@ -2335,9 +2267,7 @@ article.illustrated footer .date-unit {
 .pager-list:before,
 .pager-list:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .pager-list:after {
     clear: both;
@@ -2685,50 +2615,16 @@ article.illustrated footer .date-unit {
 /**
  * Basics
  */
-.content {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
-}
 .content:before,
 .content:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .content:after {
     clear: both;
 }
 
 .content-section {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     float: left;
     display: inline;
     width: 100%;
@@ -2744,9 +2640,7 @@ article.illustrated footer .date-unit {
 .content-section:before,
 .content-section:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .content-section:after {
     clear: both;
@@ -2879,21 +2773,6 @@ article.illustrated footer .date-unit {
  * 1. For date positioning.
  */
 .masthead {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     position: relative;
     /* 1 */
     background: #a17167;
@@ -2908,9 +2787,7 @@ article.illustrated footer .date-unit {
 .masthead:before,
 .masthead:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .masthead:after {
     clear: both;
@@ -3003,21 +2880,6 @@ article.illustrated footer .date-unit {
 /* White background for article contents. */
 .post,
 .page {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     background: #f5f5f5;
 }
 .post:before,
@@ -3025,9 +2887,7 @@ article.illustrated footer .date-unit {
 .page:before,
 .page:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .post:after,
 .page:after {
@@ -3175,21 +3035,6 @@ article.illustrated footer .date-unit {
  * 1. For article footer positioning.
  */
 .post-featured {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     position: relative;
     /* 1 */
     background-color: #222;
@@ -3197,9 +3042,7 @@ article.illustrated footer .date-unit {
 .post-featured:before,
 .post-featured:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .post-featured:after {
     clear: both;
@@ -4530,21 +4373,6 @@ article.illustrated footer .date-unit {
 .page-footer {
     position: relative;
     clear: both;
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     min-height: 105px;
     min-height: 5.83333rem;
     /* 1 */
@@ -4553,9 +4381,7 @@ article.illustrated footer .date-unit {
 .page-footer:before,
 .page-footer:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .page-footer:after {
     clear: both;
@@ -4611,21 +4437,6 @@ a:active .featured-website-title {
     position: relative;
     z-index: 3;
     clear: both;
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     min-height: 120px;
     min-height: 6.66667rem;
     padding-bottom: 30px;
@@ -4637,9 +4448,7 @@ a:active .featured-website-title {
 .site-footer:before,
 .site-footer:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .site-footer:after {
     clear: both;
@@ -5046,29 +4855,10 @@ a:active .featured-website-title {
     /* Don'ts box and icon. */
     /* Both Dos and Don'ts. Placed here so the padding overrides `column()`. */
 }
-.donts .donts-row {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
-}
 .donts .donts-row:before,
 .donts .donts-row:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .donts .donts-row:after {
     clear: both;
@@ -5178,21 +4968,6 @@ a:active .featured-website-title {
  * 1. Override default list padding.
  */
 .skill-list {
-    /*
-     * Make this element self-clearing.
-     *
-     * For modern browsers.
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     *
-     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
-     *
-     * See http://nicolasgallagher.com/micro-clearfix-hack/
-     */
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -5213,9 +4988,7 @@ a:active .featured-website-title {
 .skill-list:before,
 .skill-list:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 .skill-list:after {
     clear: both;
