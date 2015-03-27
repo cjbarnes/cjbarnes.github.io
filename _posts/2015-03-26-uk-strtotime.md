@@ -1,5 +1,5 @@
 ---
-title: using strtotime in the UK
+title: using strtotime in Europe
 tags:
 - utilities
 format: tip
@@ -21,13 +21,13 @@ This flexibility makes `strtotime` brilliant for handling user input in particul
 
 ## the problem with strtotime (outside the US)
 
-However, with this flexibility comes one crucial problem, caused by the difference between American and British English date order.<!--more--> Consider a common English abbreviated date:
+However, with this flexibility comes one crucial problem, caused by the difference between American and European date order.<!--more--> Consider a common English abbreviated date:
 
 > **1/12/2015**
 
-For British English speakers, that date is 1st of December 2015; but for American English speakers, the day and month are reversed, leading to the date January 12th 2015.
+For British, Australian, and European readers, that date is 1st of December 2015; but for Americans, the day and month are reversed, leading to the date January 12th 2015.
 
-Clearly `strtotime` has to have a consistent way to deal with this ambiguity. PHP's solution is reasonable, but not at all satisfactory for British English users:
+Clearly this type of date is ambiguous, and `strtotime` has to have a consistent way to deal with it. PHP's solution is not at all satisfactory for European users:
 
 <figure class="quote">
 > Dates in the *m/d/y* or *d-m-y* formats are disambiguated by looking at the separator between the various components: if the separator is a slash (/), then the American *m/d/y* is assumed; whereas if the separator is a dash (-) or a dot (.), then the European *d-m-y* format is assumed.
@@ -35,22 +35,22 @@ Clearly `strtotime` has to have a consistent way to deal with this ambiguity. PH
 <cite>[*PHP.net*](http://php.net/manual/en/function.strtotime.php "PHP documentation on strtotime")</cite>
 </figure>
 
-This is a pragmatic solution, but it robs non-American users of the function's most powerful feature---the interpretation of natural-language dates in any format. **Non-Americans use slashes in dates too.** So as a designer of websites targeted at people in the UK, I cannot simply pass user-inputted dates straight into `strtotime`. Users will be both confused and annoyed if they type `1/2/16` and the website misinterprets their input as 2nd January.
+This is a pragmatic solution, but it robs non-American users of the function's most powerful feature---the interpretation of natural-language dates in any format. **Europeans use slashes in dates too.** So as a designer of websites targeted at people in the UK, I cannot simply pass user-inputted dates straight into `strtotime`. Users will be both confused and annoyed if they type `1/2/16` and the website misinterprets their input as 2nd January.
 
 ## a solution
 
-There is a solution to the limitations of `strtotime`, if you want it to assume a British-English date order at all times, including when the date contains slashes.
+There is a solution to the limitations of `strtotime`, if you want it to assume a European date order at all times, including when the date contains slashes.
 
 Remember, `strtotime` looks for the slash character as a marker for whether the date is American or not. So all we have to do is replace all slashes in the date string with an alternative character.
 
-The easiest way to do this is to include this helper function---called `uk_strtotime`---in your PHP project, and then remember to use it everywhere you would normally use `strtotime`:
+The easiest way to do this is to include this helper function---called `eu_strtotime`---in your PHP project, and then remember to use it everywhere you would normally use `strtotime`:
 
 <figure class="code">
 {% highlight php startinline %}
 /**
  * Version of strtotime() that doesn't use American dates.
  *
- * `strtotime()` interprets a date with slashes as American - i.e. *m/d/y*. So we
+ * `strtotime()` interprets a date with slashes as American - i.e. m/d/y. So we
  * replace all slashes with dashes, to stop it from doing this.
  *
  * @author cJ barnes <mail@cjbarnes.co.uk>
@@ -60,7 +60,7 @@ The easiest way to do this is to include this helper function---called `uk_strto
  *                     calculation of relative dates.
  * @return string The strtotime() output.
  */
-function uk_strtotime($time, $now = null) {
+function eu_strtotime($time, $now = null) {
     if (is_null($now)) {
         $now = time();
     }
@@ -70,6 +70,6 @@ function uk_strtotime($time, $now = null) {
 {% endhighlight %}
 </figure>
 
-The `uk_strtotime` function will catch dates in *day/month/year* format and convert them to *day-month-year*, before passing them on to the standard PHP `strtotime`.
+The `eu_strtotime` function will catch dates in *day/month/year* format and convert them to *day-month-year*, before passing them on to the standard PHP `strtotime`.
 
-With this approach, you get access to the full power of `strtotime`, but with support for British English dates in all common formats.
+With this approach, you get access to the full power of `strtotime`, but with support for all date formats commonly used in the UK.

@@ -4,7 +4,6 @@ format: tip
 languages:
 - CSS
 - Sass
-- Less
 length: long
 ---
 
