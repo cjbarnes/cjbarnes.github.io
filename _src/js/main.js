@@ -1,37 +1,27 @@
+/* globals isIOS, has3dSupport */
+
 (function () {
   'use strict';
 
   /**
-   * Remove 'no-js' flag from DOM, for use in CSS.
-   */
-  (function confirmJavascriptSupport() {
-
-    var html = document.getElementsByTagName('html')[0];
-    html.classList.remove('no-js');
-    html.classList.add('js');
-
-  })();
-
-
-  /**
    * Navigation menu for mobile layout.
    */
-  (function doMobileNav() {
+  function doMobileNav() {
 
     /* Variables. */
-    var siteNavigationToggle;
-    var siteNavigation = document.getElementById('site-navigation');
+    var siteNavToggle;
+    var siteNav = document.getElementById('site-navigation');
     var navBar = document.getElementById('navbar');
 
     /* Create navigation toggle. */
-    siteNavigationToggle = document.createElement('button');
-    siteNavigationToggle.appendChild(document.createTextNode('menu'));
-    siteNavigationToggle.classList.add('nav-menu-toggle');
-    siteNavigationToggle.id = 'site-navigation-toggle';
-    siteNavigationToggle.onclick = navToggle.bind(siteNavigationToggle);
+    siteNavToggle = document.createElement('button');
+    siteNavToggle.appendChild(document.createTextNode('menu'));
+    siteNavToggle.classList.add('nav-menu-toggle');
+    siteNavToggle.id = 'site-navigation-toggle';
+    siteNavToggle.onclick = navToggle.bind(siteNavToggle);
 
     /* Update the DOM with the toggle button and the hidden-by-default menu. */
-    siteNavigation.parentNode.insertBefore(siteNavigationToggle, siteNavigation);
+    siteNav.parentNode.insertBefore(siteNavToggle, siteNav);
     navBar.classList.toggle('open');
     navBar.classList.toggle('closed');
 
@@ -42,19 +32,18 @@
     function navToggle() {
 
       /* Class changes. */
-      siteNavigationToggle.classList.toggle('active');
+      siteNavToggle.classList.toggle('active');
       navBar.classList.toggle('open');
       navBar.classList.toggle('closed');
 
     }
 
-  })();
-
+  }
 
   /**
    * Initialize and do parallax effect on illustrations.
    */
-  (function doParallax() {
+  function doParallax() {
 
     /* Variables */
     var illustrations;
@@ -108,13 +97,12 @@
       || window.webkitRequestAnimationFrame
       || window.msRequestAnimationFrame;
 
-
     /**
      * Event listeners.
      */
 
     /* Listen for frame draws after scrolling or window sizing. */
-    parallaxOnRedraw = requestAnimationFrame.bind(null, parallax);
+    var parallaxOnRedraw = requestAnimationFrame.bind(null, parallax);
     window.addEventListener('scroll', parallaxOnRedraw);
 
     /* Call `parallax()` on load, to prevent a small jump on first scroll. */
@@ -128,8 +116,8 @@
 
       var i, l;
       var illus;
-      var rect;
-      var levelOfParallax = 4; // Increased after 'featured' article
+      var rectTop;
+      var speed = 4; // Increased after 'featured' article
 
       for (i = 0, l = numberOfIllustrations; i < l; i++) {
 
@@ -140,25 +128,24 @@
         if ((rectTop > -1000) && (rectTop < 1600)) {
 
           /* Apply the transform. */
-          illus.style[transformProperty] = 'translate3d(0,'
-            + Math.round((-1 * rectTop) / levelOfParallax) + 'px,0)';
+          var style = 'translate3d(0,' + Math.round((-1 * rectTop) / speed) + 'px,0)';
+          illus.style[transformProperty] = style;
 
         }
 
         /* Sets stronger parallax effect for the remaining illustrations. */
-        levelOfParallax = 8;
+        speed = 8;
 
       }
 
     }
 
-  })();
-
+  }
 
   /**
    * Animate between 'brags' in the homepage tagline.
    */
-  (function doHomepageBrags() {
+  function doHomepageBrags() {
 
     var brags = document.querySelectorAll('.homepage .js-brag');
 
@@ -175,7 +162,7 @@
 
     /**
      * Self-calling function that animates between brags.
-     * @param {int} current The array ID of the current brag.
+     * @param {Number} current The array ID of the current brag.
      */
     function nextBrag(current) {
 
@@ -187,7 +174,10 @@
         current = 0;
       }
 
-      /* Wait for animation to end, then animate in next brag */
+      /**
+       * Wait for animation to end, then animate in next brag.
+       * @param {Number} current The array ID of the current brag.
+       */
       setTimeout(function animateInBrag(current) {
         brags[current].classList.add('current');
 
@@ -198,13 +188,12 @@
 
     }
 
-  })();
-
+  }
 
   /**
    * Adds ids to content subheadings, so they can be linked to.
    */
-  (function linkifySubheadings() {
+  function linkifySubheadings() {
 
     /* Get the subheading elements */
     var subheads = document.querySelectorAll('.js-linkify-subheadings h2');
@@ -246,24 +235,31 @@
 
     }
 
-  })();
-
+  }
 
   /**
-   * Create the post
+   * Create the post search/filter area.
    */
-  (function doPostsFiltering() {
+  function doPostsFiltering() {
 
     /**
      * Reusable function that uses document.querySelectorAll() but returns an
      * Array (which allows use of forEach() etc) instead of a NodeList.
-     *
      * @param {String} selector Valid DOM selector for querySelectorAll().
      * @return {Array} Array of elements matching the selector.
      */
     function elementsArray(selector) {
       var nodeList = document.querySelectorAll(selector);
       return Array.prototype.slice.call(nodeList);
+    }
+
+    /**
+     * Reusable function to remove the active-filter class from a sidebar
+     * section. Designed for use in `Array.prototype.forEach` loops.
+     * @param {Element} current Element to remove the class from
+     */
+    function removeFilterActiveClass(current) {
+      current.classList.remove('sidebar-filter-active');
     }
 
     /**
@@ -277,8 +273,10 @@
 
     /**
      * Run a search.
+     * @param {Event} e Event object.
      */
     function doSearch(e) {
+
       e.preventDefault();
 
       var searchbox = document.querySelector('#sidebar-search');
@@ -287,6 +285,12 @@
         var str = searchbox.value.trim().toLowerCase();
 
         /* Split the search term into quoted phrases and unquoted words. */
+        /**
+         * Convert search terms of 3+ characters into attribute selectors.
+         * @param {String} Search term.
+         * @return {String} Attribute selector, or '' if the search term is too
+         *                  short.
+         */
         var attrSelectors = str.match(/(".*?"|[\w']*)/g).map(function getSearchTermAttribute(term) {
 
           term = term.replace(/"/g, '');
@@ -307,6 +311,7 @@
         }
 
       }
+
     }
 
     /* Get the empty containers for the minilisting to be loaded into. */
@@ -316,6 +321,10 @@
       /* Ajax-get the HTML for the list of posts. */
       var request = new XMLHttpRequest();
       request.open('GET', '/posts-data.html', true);
+      /**
+       * Insert the Ajax-loaded search results listing into the DOM.
+       * @this {XMLHttpRequest} The Ajax request object.
+       */
       request.onreadystatechange = function gotMiniListingHtml() {
         if (4 === this.readyState) {
           if ((200 <= this.status) && (400 > this.status)) {
@@ -333,6 +342,10 @@
 
       /* Handle changing of filter type. */
       var filterButtonBar = document.querySelector('.js-filter-switcher');
+      /**
+       * Change which filter/search section is being shown.
+       * @param {Event} e Event object.
+       */
       filterButtonBar.addEventListener('click', function changeFilterBox(e) {
 
         /* Find the a element that was clicked. */
@@ -345,6 +358,10 @@
         var sectionClass = el.getAttribute('data-filter-section');
         if (sectionClass) {
           var wasOpen = elementsArray('.sidebar-filter-section.open');
+          /**
+           * Remove the active-filter class from sidebar sections.
+           * @param {Element} current Element to remove the class from.
+           */
           wasOpen.forEach(function removeFilterSectionOpenClass(current) {
             current.classList.remove('open');
           });
@@ -371,6 +388,10 @@
 
       /* Handle tag clicks. */
       var tagcloud = document.querySelector('.tagcloud');
+      /**
+       * Update which search/filter results are being displayed.
+       * @param {Event} e Event object.
+       */
       tagcloud.addEventListener('click', function applyTagFilter(e) {
 
         /* Find the a element that has our data attribute. */
@@ -386,9 +407,7 @@
 
           /* Highlight the active filter only. */
           var wasActive = elementsArray('.sidebar-filter-active');
-          wasActive.forEach(function removeFilterActiveClass(current) {
-            current.classList.remove('sidebar-filter-active');
-          });
+          wasActive.forEach(removeFilterActiveClass);
           el.classList.add('sidebar-filter-active');
         }
 
@@ -396,6 +415,10 @@
 
       /* Handle language link clicks. */
       var languagesList = document.querySelector('.languages-listing');
+      /**
+       * Update which search/filter results are being displayed.
+       * @param {Event} e Event object.
+       */
       languagesList.addEventListener('click', function applyLanguageFilter(e) {
 
         /* Find the a element that has our data attribute. */
@@ -411,9 +434,7 @@
 
           /* Highlight the active filter only. */
           var wasActive = elementsArray('.sidebar-filter-active');
-          wasActive.forEach(function removeFilterActiveClass(current) {
-            current.classList.remove('sidebar-filter-active');
-          });
+          wasActive.forEach(removeFilterActiveClass);
           el.classList.add('sidebar-filter-active');
         }
 
@@ -421,6 +442,10 @@
 
       /* Handle format link clicks. */
       var formatsList = document.querySelector('.formats-listing');
+      /**
+       * Update which search/filter results are being displayed.
+       * @param {Event} e Event object.
+       */
       formatsList.addEventListener('click', function applyFormatFilter(e) {
 
         /* Find the a element that has our data attribute. */
@@ -436,9 +461,7 @@
 
           /* Highlight the active filter only. */
           var wasActive = elementsArray('.sidebar-filter-active');
-          wasActive.forEach(function removeFilterActiveClass(current) {
-            current.classList.remove('sidebar-filter-active');
-          });
+          wasActive.forEach(removeFilterActiveClass);
           el.classList.add('sidebar-filter-active');
         }
 
@@ -446,6 +469,10 @@
 
       /* Handle search form. */
       var searchForms = elementsArray('.search-form');
+      /**
+       * Add submit event listener to search forms.
+       * @param {Element} current Search form element.
+       */
       searchForms.forEach(function(current) {
         current.addEventListener('submit', doSearch);
       });
@@ -453,6 +480,36 @@
 
     }
 
-  })();
+  }
+
+  /**
+   * On DOM ready, begin all DOM changes and event handler setup.
+   */
+  function initEverything() {
+
+    doMobileNav();
+    doParallax();
+    linkifySubheadings();
+    doHomepageBrags();
+    doPostsFiltering();
+
+  }
+
+  // Check for minimum level of JS support.
+  if (('addEventListener' in window) && ('querySelector' in document)) {
+
+    // Apply JS-only targeting CSS.
+    var html = document.getElementsByTagName('html')[0];
+    html.classList.remove('no-js');
+    html.classList.add('js');
+
+    // Register initializing functions with the DOM ready event.
+    if ('loading' !== document.readyState) {
+      initEverything();
+    } else {
+      document.addEventListener('DOMContentLoaded', initEverything);
+    }
+
+  }
 
 })();
