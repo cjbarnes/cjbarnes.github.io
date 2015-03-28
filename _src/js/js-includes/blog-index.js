@@ -82,6 +82,12 @@
     var minilistingWrappers = elementsArray('.js-posts-minilist');
     if (minilistingWrappers.length) {
 
+      /* Load styling for sidebar contents. */
+      var link = document.createElement('link');
+      link.setAttribute('rel', 'stylesheet');
+      link.href = '/css/blog-index-sidebar.min.css';
+      document.head.appendChild(link);
+
       /* Ajax-get the HTML for the list of posts. */
       var request = new XMLHttpRequest();
       request.open('GET', '/posts-data.html', true);

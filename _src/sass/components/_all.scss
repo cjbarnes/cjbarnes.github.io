@@ -11,6 +11,7 @@
 @import "title";
 @import "date";
 @import "nav";
+@import "pager";
 @import "content";
 
 // Components that override generic components.
@@ -19,6 +20,5 @@
 @import "illustration";
 @import "listing";
 @import "minilisting";
-@import "sidebar";
 @import "footer";
 @import "syntax-highlighting";

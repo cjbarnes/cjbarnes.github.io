@@ -1,0 +1,233 @@
+/**
+ * Blog index sidebar styling
+ *
+ * Added via JavaScript (as are DOM elements styled by this CSS).
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/*
+ * Section boundaries.
+ * 1. These are all JS-based, so hide unless scripts are turned on.
+ */
+.sidebar-filter-section {
+    display: none;
+    margin-bottom: 15px;
+    margin-bottom: 0.83333rem;
+    padding: 37.5px 15px 15px;
+    padding: 2.08333rem 0.83333rem 0.83333rem;
+    /* 1 */
+    background: #e9e6df;
+}
+.js .sidebar-filter-section.open {
+    display: block;
+}
+
+/* Formats lists. */
+.sidebar-listing {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+/*
+ * Formats and languages list items.
+ * 1. For icon positioning.
+ */
+.sidebar-listing-item {
+    position: relative;
+    /* 1 */
+    padding-left: 1.75em;
+    /* Icon colours and fonts.. */
+    /* Content and colours for format icons. */
+    /* Remove link left-right padding to fix second-line alignment. */
+}
+.sidebar-listing-item:before {
+    position: absolute;
+    left: 0;
+    font-size: 24px;
+    font-size: 1.33333rem;
+    line-height: 1.25;
+    font-family: "cj-icons";
+}
+.sidebar-listing-item.format-tutorial:before {
+    content: "\e637";
+    color: #7c4938;
+}
+.sidebar-listing-item.format-thoughts:before {
+    content: "\e61a";
+    color: #808e90;
+}
+.sidebar-listing-item.format-link:before {
+    content: "\e631";
+    color: #5e8c88;
+}
+.sidebar-listing-item.format-page:before {
+    content: "";
+    color: #a17167;
+}
+.sidebar-listing-item.format-quote:before {
+    content: "\201d";
+    color: #b1784f;
+}
+.sidebar-listing-item.format-tip:before {
+    content: "\e630";
+    color: #c5a184;
+}
+.sidebar-listing-item.format-off-topic:before {
+    content: "\e628";
+    color: #2b9759;
+}
+.sidebar-listing-item a {
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+/* Content and colours for language icons. */
+.language-wordpress:before {
+    content: "\e60b";
+    color: #21759b;
+}
+
+.language-jekyll:before {
+    content: "\e60d";
+    color: #cc0814;
+}
+
+.language-jquery:before {
+    content: "\e650";
+    color: #136aab;
+}
+
+.language-less:before {
+    content: "\e658";
+    color: #1e375c;
+}
+
+.language-sass:before {
+    content: "\e64b";
+    color: #cd669a;
+}
+
+.language-scss:before {
+    content: "\e64b";
+    color: #cd669a;
+}
+
+.language-javascript:before {
+    content: "\e64f";
+    color: #d8ba42;
+}
+
+.language-css:before {
+    content: "\e649";
+    color: #1173ba;
+}
+
+.language-html:before {
+    content: "\e636";
+    color: #e34f26;
+}
+
+.language-php:before {
+    content: "\e63d";
+    color: #505c91;
+}
+
+/* Language icons are smaller, so boost their size a little. */
+.languages-listing-item:before {
+    left: -0.1em; 
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 1.07143;
+}
+
+/*
+ * Tag cloud.
+ */
+.tagcloud {
+    margin: 0;
+}
+
+.tagcloud-item {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 14px;
+    font-size: 0.77778rem;
+    line-height: 3.21429;
+    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+    /* Tagcloud size increases. */
+}
+.tagcloud-item b {
+    padding: 0;
+    font-size: 16px;
+    font-size: 0.88889rem;
+    line-height: 2.8125;
+    background: none;
+    color: inherit;
+}
+.tagcloud-item b b {
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 2.5;
+}
+.tagcloud-item b b b {
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 2.14286;
+}
+.tagcloud-item b b b b {
+    font-size: 24px;
+    font-size: 1.33333rem;
+    line-height: 1.875;
+}
+
+/*
+ * Search area.
+ */
+.sidebar-search-form {
+    padding: 15px 0;
+    padding: 0.83333rem 0;
+    text-align: center;
+}
+
+/* Search field/button wrappers. */
+.search-form-field-wrap {
+    margin: 0;
+}
+.search-form-field-wrap + .search-form-field-wrap {
+    margin-top: 0.83333rem;
+}
+
+/* The search input. */
+.search-input {
+    width: 100%; 
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 1.42857;
+}
+
+/* Highlight the current sidebar filter. */
+.sidebar-filter-active,
+.sidebar-filter-active:hover,
+.sidebar-filter-active:focus,
+.sidebar-filter-active:active {
+    border: 0;
+    background: transparent;
+    color: #c5a184;
+    cursor: default;
+}
+
+/**
+ * Media query.
+ *
+ * Greater white space between the main content and sidebar.
+ */
+@media (min-width: 1100px) {
+    /* Reinstate gutters. */
+    .sidebar-listing {
+        margin-right: 15px; 
+        margin-left: 15px;
+    }
+}

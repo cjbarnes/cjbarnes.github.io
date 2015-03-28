@@ -114,27 +114,10 @@ abbr[title] {
 }
 
 /**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
- */
-b,
-strong {
-    font-weight: bold;
-}
-
-/**
  * Address styling not present in Safari and Chrome.
  */
 dfn {
     font-style: italic;
-}
-
-/**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari, and Chrome.
- */
-h1 {
-    margin: 0.67em 0; 
-    font-size: 2em;
 }
 
 /**
@@ -190,17 +173,9 @@ svg:not(:root) {
 /* Grouping content
    ========================================================================== */
 /**
- * Address margin not present in IE 8/9 and Safari.
- */
-figure {
-    margin: 1em 40px;
-}
-
-/**
  * Address differences between Firefox and other browsers.
  */
 hr {
-    box-sizing: content-box;
     height: 0;
 }
 
@@ -209,17 +184,6 @@ hr {
  */
 pre {
     overflow: auto;
-}
-
-/**
- * Address odd `em`-unit font size rendering in all browsers.
- */
-code,
-kbd,
-pre,
-samp {
-    font-size: 1em; 
-    font-family: monospace, monospace;
 }
 
 /* Forms
@@ -1119,91 +1083,6 @@ li li li {
 }
 
 /**
- * Contact details lists.
- */
-.contact-details-list:before,
-.contact-details-list:after {
-    content: " ";
-    display: table;
-}
-.contact-details-list:after {
-    clear: both;
-}
-
-/* Icon labels. */
-.contact-details-label {
-    clear: left;
-    float: left;
-    display: block;
-    overflow: hidden;
-    width: 47px;
-    height: 47px;
-    margin-top: 30px;
-    margin-top: 1.66667rem;
-    font-style: normal;
-    font-size: 28px;
-    font-size: 1.55556rem;
-    line-height: 45px;
-    font-family: "cj-icons";
-    text-align: center;
-    border-radius: 50%;
-    border: 1px solid;
-    /* Colours. */
-}
-.contact-details-label:before {
-    content: "";
-    display: block;
-}
-.contact-details-label.email {
-    color: #5e8c88;
-}
-.contact-details-label.phone {
-    color: #b1784f;
-}
-.contact-details-label.linkedin {
-    color: #0976b4;
-}
-.contact-details-label.twitter {
-    color: #00acf2;
-}
-.contact-details-label.address {
-    color: #7c4938;
-}
-.contact-details-label.feed {
-    color: #d78637;
-}
-
-/* All contact details text. */
-.contact-details-data {
-    float: left;
-    margin-top: 30px;
-    margin-top: 1.66667rem;
-    padding-left: 0;
-    font-size: 21px;
-    font-size: 1.16667rem;
-    line-height: 2.14286;
-    vertical-align: middle;
-}
-.contact-details-data address {
-    margin: 0; 
-    font-size: 18px;
-    font-size: 1rem;
-    line-height: 1.66667;
-}
-
-/**
- * Media queries.
- *
- * Wide enough for properly spaced side-by-side-addresses.
- */
-@media (min-width: 480px) {
-    .contact-details-data address {
-        margin-right: 60px;
-        margin-right: 3.33333rem;
-    }
-}
-
-/**
  * Media queries.
  *
  * Tablets or wider.
@@ -1228,10 +1107,9 @@ li li li {
  * Basic table design.
  */
 table {
-    width: 100%;
+    width: 100%; 
     margin: 30px 0;
     margin: 1.66667rem 0;
-    border-collapse: collapse;
 }
 
 caption {
@@ -2261,102 +2139,6 @@ article.illustrated footer .date-unit {
 }
 
 /**
- * Pager (next/previous links)
- */
-.pager-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.pager-list:before,
-.pager-list:after {
-    content: " ";
-    display: table;
-}
-.pager-list:after {
-    clear: both;
-}
-
-.pager-item {
-    float: left;
-    display: inline;
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    /*
-     * 1. For arrow icon positioning.
-     */
-}
-.pager-item a {
-    position: relative;
-    /* 1 */
-    display: block;
-    padding: 15px 90px 30px;
-    padding: 0.83333rem 5rem 1.66667rem;
-    border-bottom: 0;
-    background: transparent;
-    /* Arrow icons */
-}
-.pager-item a:before {
-    position: absolute;
-    top: 50%;
-    display: block;
-    margin-top: -0.375em;
-    font-size: 40px;
-    font-size: 2.22222rem;
-    line-height: 0.75;
-    font-family: "cj-icons";
-}
-.pager-item a:hover,
-.pager-item a:focus {
-    background: #808e90;
-}
-.pager-item a:active {
-    background: #c5a184;
-}
-
-.pager-previous a:before {
-    content: "\e601"; 
-    left: 30px;
-    left: 1.66667rem;
-}
-
-.pager-next a {
-    text-align: right;
-}
-.pager-next a:before {
-    content: "\e61b"; 
-    right: 30px;
-    right: 1.66667rem;
-}
-
-.pager-item-title {
-    display: block;
-    padding: 0;
-    font-size: 21px;
-    font-size: 1.16667rem;
-    line-height: 1.42857;
-    background: transparent;
-    color: inherit;
-}
-
-/*
- * The summary of this pager entry.
- * 1. Only show 2 lines of summary maximum.
- */
-.pager-item-description {
-    display: block;
-    /* 1 */
-    overflow: hidden;
-    height: 2.83333em;
-    font-size: 16px;
-    font-size: 0.88889rem;
-    line-height: 1.40625;
-    /* 1 */
-    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
-}
-
-/**
  * Media query.
  *
  * Horizontal nav layout.
@@ -2608,6 +2390,105 @@ article.illustrated footer .date-unit {
         padding: 30px;
         padding: 1.66667rem;
     }
+}
+
+/**
+ * Pager (next/previous links) styles.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+.pager-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.pager-list:before,
+.pager-list:after {
+    content: " ";
+    display: table;
+}
+.pager-list:after {
+    clear: both;
+}
+
+.pager-item {
+    float: left;
+    display: inline;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    /*
+     * 1. For arrow icon positioning.
+     */
+}
+.pager-item a {
+    position: relative;
+    /* 1 */
+    display: block;
+    padding: 15px 90px 30px;
+    padding: 0.83333rem 5rem 1.66667rem;
+    border-bottom: 0;
+    background: transparent;
+    /* Arrow icons */
+}
+.pager-item a:before {
+    position: absolute;
+    top: 50%;
+    display: block;
+    margin-top: -0.375em;
+    font-size: 40px;
+    font-size: 2.22222rem;
+    line-height: 0.75;
+    font-family: "cj-icons";
+}
+.pager-item a:hover,
+.pager-item a:focus {
+    background: #808e90;
+}
+.pager-item a:active {
+    background: #c5a184;
+}
+
+.pager-previous a:before {
+    content: "\e601"; 
+    left: 30px;
+    left: 1.66667rem;
+}
+
+.pager-next a {
+    text-align: right;
+}
+.pager-next a:before {
+    content: "\e61b"; 
+    right: 30px;
+    right: 1.66667rem;
+}
+
+.pager-item-title {
+    display: block;
+    padding: 0;
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 1.42857;
+    background: transparent;
+    color: inherit;
+}
+
+/*
+ * The summary of this pager entry.
+ * 1. Only show 2 lines of summary maximum.
+ */
+.pager-item-description {
+    display: block;
+    /* 1 */
+    overflow: hidden;
+    height: 2.83333em;
+    font-size: 16px;
+    font-size: 0.88889rem;
+    line-height: 1.40625;
+    /* 1 */
+    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 
 /**
@@ -4057,289 +3938,6 @@ article.illustrated footer .date-unit {
     margin-top: -0.83333rem;
     text-align: center;
     color: #808e90;
-}
-
-/**
- * Sidebar styling (for listing pages, e.g. the blog index)
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* All content columns are full width for mobile. */
-.sidebar {
-    float: left;
-    display: inline;
-    width: 100%;
-    padding: 0 15px;
-}
-
-/*
- * Section boundaries.
- * 1. These are all JS-based, so hide unless scripts are turned on.
- */
-.sidebar-filter-section {
-    display: none;
-    margin-bottom: 15px;
-    margin-bottom: 0.83333rem;
-    padding: 37.5px 15px 15px;
-    padding: 2.08333rem 0.83333rem 0.83333rem;
-    /* 1 */
-    background: #e9e6df;
-}
-.js .sidebar-filter-section.open {
-    display: block;
-}
-
-/* Formats lists. */
-.sidebar-listing {
-    margin-right: 0;
-    margin-left: 0;
-    padding-left: 0;
-    list-style: none;
-}
-
-/*
- * Formats and languages list items.
- * 1. For icon positioning.
- */
-.sidebar-listing-item {
-    position: relative;
-    /* 1 */
-    padding-left: 1.75em;
-    /* Icon colours and fonts.. */
-    /* Content and colours for format icons. */
-    /* Remove link left-right padding to fix second-line alignment. */
-}
-.sidebar-listing-item:before {
-    position: absolute;
-    left: 0;
-    font-size: 24px;
-    font-size: 1.33333rem;
-    line-height: 1.25;
-    font-family: "cj-icons";
-}
-.sidebar-listing-item.format-tutorial:before {
-    content: "\e637";
-    color: #7c4938;
-}
-.sidebar-listing-item.format-thoughts:before {
-    content: "\e61a";
-    color: #808e90;
-}
-.sidebar-listing-item.format-link:before {
-    content: "\e631";
-    color: #5e8c88;
-}
-.sidebar-listing-item.format-page:before {
-    content: "";
-    color: #a17167;
-}
-.sidebar-listing-item.format-quote:before {
-    content: "\201d";
-    color: #b1784f;
-}
-.sidebar-listing-item.format-tip:before {
-    content: "\e630";
-    color: #c5a184;
-}
-.sidebar-listing-item.format-off-topic:before {
-    content: "\e628";
-    color: #2b9759;
-}
-.sidebar-listing-item a {
-    padding-right: 0; 
-    padding-left: 0;
-}
-
-/* Content and colours for language icons. */
-.language-wordpress:before {
-    content: "\e60b";
-    color: #21759b;
-}
-
-.language-jekyll:before {
-    content: "\e60d";
-    color: #cc0814;
-}
-
-.language-jquery:before {
-    content: "\e650";
-    color: #136aab;
-}
-
-.language-less:before {
-    content: "\e658";
-    color: #1e375c;
-}
-
-.language-sass:before {
-    content: "\e64b";
-    color: #cd669a;
-}
-
-.language-scss:before {
-    content: "\e64b";
-    color: #cd669a;
-}
-
-.language-javascript:before {
-    content: "\e64f";
-    color: #d8ba42;
-}
-
-.language-css:before {
-    content: "\e649";
-    color: #1173ba;
-}
-
-.language-html:before {
-    content: "\e636";
-    color: #e34f26;
-}
-
-.language-php:before {
-    content: "\e63d";
-    color: #505c91;
-}
-
-/* Language icons are smaller, so boost their size a little. */
-.languages-listing-item:before {
-    left: -0.1em; 
-    font-size: 28px;
-    font-size: 1.55556rem;
-    line-height: 1.07143;
-}
-
-/*
- * Tag cloud.
- */
-.tagcloud {
-    margin: 0;
-}
-
-.tagcloud-item {
-    padding-right: 0;
-    padding-left: 0;
-    font-size: 14px;
-    font-size: 0.77778rem;
-    line-height: 3.21429;
-    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
-    /* Tagcloud size increases. */
-}
-.tagcloud-item b {
-    padding: 0;
-    font-size: 16px;
-    font-size: 0.88889rem;
-    line-height: 2.8125;
-    background: none;
-    color: inherit;
-}
-.tagcloud-item b b {
-    font-size: 18px;
-    font-size: 1rem;
-    line-height: 2.5;
-}
-.tagcloud-item b b b {
-    font-size: 21px;
-    font-size: 1.16667rem;
-    line-height: 2.14286;
-}
-.tagcloud-item b b b b {
-    font-size: 24px;
-    font-size: 1.33333rem;
-    line-height: 1.875;
-}
-
-/*
- * Search area.
- */
-.sidebar-search-form {
-    padding: 15px 0;
-    padding: 0.83333rem 0;
-    text-align: center;
-}
-
-/* Search field/button wrappers. */
-.search-form-field-wrap {
-    margin: 0;
-}
-.search-form-field-wrap + .search-form-field-wrap {
-    margin-top: 0.83333rem;
-}
-
-/* The search input. */
-.search-input {
-    width: 100%; 
-    font-size: 21px;
-    font-size: 1.16667rem;
-    line-height: 1.42857;
-}
-
-/* Highlight the current sidebar filter. */
-.sidebar-filter-active,
-.sidebar-filter-active:hover,
-.sidebar-filter-active:focus,
-.sidebar-filter-active:active {
-    border: 0;
-    background: transparent;
-    color: #c5a184;
-    cursor: default;
-}
-
-/**
- * Media query.
- *
- * Tablets and above.
- */
-@media (min-width: 718px) {
-    /* Content is still single-column, but with bigger margins, on tablets. */
-    .sidebar {
-        float: left;
-        display: inline;
-        width: 83.33333%;
-        margin-right: 8.33333%; 
-        margin-left: 8.33333%;
-        padding: 0 15px;
-    }
-}
-
-/**
- * Media query.
- *
- * Wide enough for two-column layout.
- */
-@media (min-width: 940px) {
-    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
-    .sidebar {
-        float: left;
-        display: inline;
-        width: 33.33333%;
-        margin-right: 0; 
-        margin-left: 0;
-        padding: 0 15px;
-    }
-}
-
-/**
- * Media query.
- *
- * Greater white space between the main content and sidebar.
- */
-@media (min-width: 1100px) {
-    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
-    .sidebar {
-        float: left;
-        display: inline;
-        width: 25%;
-        margin-right: 0; 
-        margin-left: 0;
-        padding: 0 15px;
-    }
-    /* Reinstate gutters. */
-    .sidebar-listing {
-        margin-right: 15px; 
-        margin-left: 15px;
-    }
 }
 
 /**

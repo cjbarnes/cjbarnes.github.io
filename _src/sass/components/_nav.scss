@@ -31,7 +31,6 @@
 
 }
 
-
 /**
  * The navigation menu.
  */
@@ -155,97 +154,6 @@
 
     }
 
-}
-
-
-/**
- * Pager (next/previous links)
- */
-
-.pager-list {
-    @include clearfix;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.pager-item {
-    float: left;
-    display: inline;
-    width: 50%;
-    margin: 0;
-    padding: 0;
-
-    /*
-     * 1. For arrow icon positioning.
-     */
-    a {
-        @include rem("padding", ($line / 2) ($line * 3) $line);
-        position: relative; /* 1 */
-        display: block;
-        border-bottom: 0;
-        background: transparent;
-
-        /* Arrow icons */
-        &:before {
-            @include font-size-leading("enormous");
-            position: absolute;
-            top: 50%;
-            display: block;
-            margin-top: (-0.5em * map_get($line-heights, "enormous"));
-            font-family: $font-family-icons;
-        }
-
-        &:hover,
-        &:focus {
-            background: $link-color-secondary;
-        }
-
-        &:active {
-            background: $link-color-active;
-        }
-
-    }
-
-}
-
-.pager-previous a {
-
-    &:before {
-        @include rem("left", $line);
-        content: "\e601";
-    }
-
-}
-
-.pager-next a {
-    text-align: right;
-
-    &:before {
-        @include rem("right", $line);
-        content: "\e61b";
-    }
-
-}
-
-.pager-item-title {
-    @include font-size-leading("large");
-    display: block;
-    padding: 0;
-    background: transparent;
-    color: inherit;
-}
-
-/*
- * The summary of this pager entry.
- * 1. Only show 2 lines of summary maximum.
- */
-.pager-item-description {
-    @include font-size-leading("small", 0.75);
-    display: block;
-    height: (1.7em * ($line / 1rem)); /* 1 */
-    overflow: hidden; /* 1 */
-    font-family: $font-family-content;
 }
 
 
