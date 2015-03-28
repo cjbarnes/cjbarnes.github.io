@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en-GB" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en-GB" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if lt IE 8]>      <html lang="en-GB" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en-GB" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en-GB" class="no-js"> <!--<![endif]-->
 
@@ -33,8 +32,11 @@
 <!-- High-priority webfonts -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro:300">
 
-<!-- Compiled LESS -->
+<!-- Compiled Sass -->
 <link rel="stylesheet" href="/css/styles.min.css?{{ site.version }}">
+{% if page.stylesheet %}<style>
+{% include css/{{ page.stylesheet | slugify }}.min.css %}
+</style>{% endif %}
 
 <!-- RSS feed -->
 <link rel="alternate" type="application/rss+xml" title="cJ barnes: blog feed" href="{{ site.url}}/feed.xml">

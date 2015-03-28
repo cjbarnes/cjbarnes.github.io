@@ -1,20 +1,11 @@
-/**
- * Function to retrieve the auto-darkened colour for a named post format
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-
-/**
- * Retrieve the auto-darkened colour for a named post format.
- *
- * No need to type-check the $format argument, since the function we call later
- * (cj-get-format-color) does that for us.
- *
- * @param string $format Post format name.
- * @param number $amount The percentage to darken the colour by. Default 20%.
- * @return color The darkened color for this post format.
- */
+/// Retrieve the auto-darkened colour for a named post format.
+///
+/// No need to type-check the $format argument, since the function we call later
+/// (cj-get-format-color) does that for us.
+///
+/// @param {String} $format Post format name.
+/// @param {Number} $amount The percentage to darken the colour by. Default 20%.
+/// @return {Color} The darkened color for this post format.
 @function cj-get-format-dark-color($format, $amount: 20%) {
   @if not function-exists(cj-get-format-color) {
     @error "Function cj-get-format-dark-color() requires function cj-get-format-color(), which does not exist";
