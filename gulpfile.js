@@ -1,3 +1,14 @@
+/**
+ * Build process for cjbarnes.co.uk.
+ *
+ * Tasks:
+ * - default            (calls 'all' and starts watching)
+ * - all                (calls compilers, 'build', 'start-browser-sync')
+ * - styles             (calls Sass compilers, 'build')
+ * - scripts            (calls JavaScript compilers, 'build')
+ * - build              (runs Jekyll build process)
+ * - start-browser-sync (starts BrowserSync server)
+ */
 /* jshint node: true  */
 'use strict';
 
@@ -93,7 +104,6 @@ gulp.task('_compile-scripts', function () {
       sound: errorSound
     })))
     .pipe(sourcemaps.init())
-    // Concatenate the different JavaScript files.
     .pipe(concat('scripts.js', {
       newLine: '\n\n'
     }))
@@ -194,28 +204,6 @@ gulp.task('build', function (cb) {
         cb();
       }
     });
-});
-
-/**
- * Compile sitewide stylesheets and then rebuild site.
- * Not used by default, but is available for manual triggering on the CLI.
- */
-gulp.task('stylesheets', function () {
-  runSequence(
-    '_compile-stylesheets',
-    'build'
-  );
-});
-
-/**
- * Compile single-page styles and then rebuild site.
- * Not used by default, but is available for manual triggering on the CLI.
- */
-gulp.task('style-elements', function () {
-  runSequence(
-    '_compile-style-elements',
-    'build'
-  );
 });
 
 /**
