@@ -5,7 +5,8 @@
  * - default            (calls 'all' and starts watching)
  * - all                (calls compilers, 'build', 'start-browser-sync')
  * - styles             (calls Sass compilers, 'build')
- * - scripts            (calls JavaScript compilers, 'build')
+ * - script-files       (calls sitewide JavaScript compiler, 'build')
+ * - script-elements    (calls single-page JavaScript compiler, 'build')
  * - build              (runs Jekyll build process)
  * - start-browser-sync (starts BrowserSync server)
  */
@@ -88,7 +89,8 @@ var browserConfig = {
   },
   // Watch for changes to the built site.
   files: '_site/**/*.*',
-  logFileChanges: false
+  logFileChanges: false,
+  open: false
 };
 
 /**
@@ -119,6 +121,32 @@ gulp.task('_compile-scripts', function () {
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dest.js));
+});
+
+/**
+ * Compile single-page JavaScript to be inserted into style elements.
+ * This is a shortened version of the _compile-scripts task - no sourcemaps
+ * or unminified versions required, and no concatenation - and the destination
+ * is different.
+ * @return {Stream} The gulp stream.
+ */
+gulp.task('_compile-script-elements', function () {
+  return gulp.src(paths.src.jsIncludes)
+    // Error handling: on error, pass error object to async callback.
+    .pipe(plumber(notify.onError({
+      title: 'Error compiling <%= error.fileName %>',
+      message: 'Script Error: <%= error.message %>',
+      sound: errorSound
+    })))
+    // Minify (keeping any @license comments).
+    .pipe(uglify({
+      preserveComments: 'some'
+    }))
+    // Output minified version.
+    .pipe(rename({
+      extname: '.min.js'
+    }))
+    .pipe(gulp.dest(paths.dest.jsIncludes));
 });
 
 /**
@@ -217,11 +245,21 @@ gulp.task('styles', function () {
 });
 
 /**
- * Compile JavaScript and then rebuild site.
+ * Compile sitewide JavaScript and then rebuild site.
  */
-gulp.task('scripts', function () {
+gulp.task('script-files', function () {
   runSequence(
     '_compile-scripts',
+    'build'
+  );
+});
+
+/**
+ * Compile single-file JavaScript and then rebuild site.
+ */
+gulp.task('script-elements', function () {
+  runSequence(
+    '_compile-script-elements',
     'build'
   );
 });
@@ -240,7 +278,12 @@ gulp.task('start-browser-sync', function () {
  */
 gulp.task('all', function () {
   runSequence(
-    ['_compile-stylesheets', '_compile-style-elements', '_compile-scripts'],
+    [
+      '_compile-stylesheets',
+      '_compile-style-elements',
+      '_compile-scripts',
+      '_compile-script-elements'
+    ],
     'build',
     'start-browser-sync'
   );
@@ -252,7 +295,8 @@ gulp.task('all', function () {
 gulp.task('default', ['all'], function () {
 
   // Watch for source file changes.
-  gulp.watch(paths.src.js, ['scripts']);
+  gulp.watch(paths.src.js, ['script-files']);
+  gulp.watch(paths.src.jsIncludes, ['script-elements']);
   gulp.watch(paths.src.sassAll, ['styles']);
   gulp.watch(paths.src.jekyll, ['build']);
 
