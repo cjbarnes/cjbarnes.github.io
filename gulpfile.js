@@ -169,7 +169,7 @@ gulp.task('_compile-stylesheets', function () {
     .pipe(gulp.dest(paths.dest.sass))
     // Minify.
     .pipe(minifyCSS({
-      advanced: false
+      advanced: false // prevent mangling of source order by combining selectors
     }))
     // Output minified version.
     .pipe(rename({
