@@ -63,14 +63,6 @@
 
 }
 
-/* Content and colours for language icons. */
-@each $language, $icon in $language-icons {
-    .language-#{$language}:before {
-        content: "#{$icon}";
-        color: map-get($language-colors, $language);
-    }
-}
-
 /* Language icons are smaller, so boost their size a little. */
 .languages-listing-item:before {
     @include font-size-leading("huge");

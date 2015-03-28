@@ -84,57 +84,6 @@
     padding-left: 0;
 }
 
-/* Content and colours for language icons. */
-.language-wordpress:before {
-    content: "\e60b";
-    color: #21759b;
-}
-
-.language-jekyll:before {
-    content: "\e60d";
-    color: #cc0814;
-}
-
-.language-jquery:before {
-    content: "\e650";
-    color: #136aab;
-}
-
-.language-less:before {
-    content: "\e658";
-    color: #1e375c;
-}
-
-.language-sass:before {
-    content: "\e64b";
-    color: #cd669a;
-}
-
-.language-scss:before {
-    content: "\e64b";
-    color: #cd669a;
-}
-
-.language-javascript:before {
-    content: "\e64f";
-    color: #d8ba42;
-}
-
-.language-css:before {
-    content: "\e649";
-    color: #1173ba;
-}
-
-.language-html:before {
-    content: "\e636";
-    color: #e34f26;
-}
-
-.language-php:before {
-    content: "\e63d";
-    color: #505c91;
-}
-
 /* Language icons are smaller, so boost their size a little. */
 .languages-listing-item:before {
     left: -0.1em; 
