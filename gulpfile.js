@@ -16,6 +16,9 @@ var uglify       = require('gulp-uglify');
 var runSequence  = require('run-sequence');
 var spawn        = require('child_process').spawn;
 
+// Don't output success notifications to stdout. Just make them notifications.
+notify.logLevel(1);
+
 // File paths to watch.
 var paths = {
   // File paths to watch.
@@ -26,8 +29,9 @@ var paths = {
       '_src/js/plugins.js',
       '_src/js/main.js'
     ],
-    sassAll: '_src/sass/**/*.scss',
     sassIncludes: '_src/sass/sass-includes/*.scss',
+    jsIncludes: '_src/js/js-includes/*.js',
+    sassAll: '_src/sass/**/*.scss',
     jekyll: [
       '*.html',
       '*.md',
@@ -47,12 +51,21 @@ var paths = {
     sass: 'css/',
     js: 'js/',
     sassIncludes: '_includes/css',
+    jsIncludes: '_includes/js',
     jekyll: '_site/'
   }
 };
 
-// Don't output success notifications to stdout. Just make them notifications.
-notify.logLevel(1);
+// Autoprefixer browser support options.
+var autoprefixerOptions = {
+  browsers: [
+    '> 3% in GB',
+    'last 2 versions',
+    'Firefox ESR',
+    'Opera 12.1',
+    'ie >= 8'
+  ]
+};
 
 // Notification sound to play.
 var errorSound = 'Pop';
@@ -66,46 +79,6 @@ var browserConfig = {
   files: '_site/**/*.*',
   logFileChanges: false
 };
-
-/**
- * Reusable function for compiling Sass.
- * @param {String} path Property name for the paths used in this task.
- * @return {Stream} The gulp stream.
- */
-function stylesTask(path) {
-  return gulp.src(paths.src[path])
-    // Error handling: on error, pass error object to async callback.
-    .pipe(plumber(notify.onError({
-      title: 'Error compiling <%= error.fileName %>',
-      message: 'Styles Error: <%= error.message %>',
-      sound: errorSound
-    })))
-    .pipe(sourcemaps.init())
-    // Compile Sass.
-    .pipe(sass())
-    // Automated support for old browsers.
-    .pipe(autoprefixer({
-      browsers: [
-        '> 3% in GB',
-        'last 2 versions',
-        'Firefox ESR',
-        'Opera 12.1',
-        'ie >= 8'
-      ]
-    }))
-    // Enforce the preferred CSS property order and format.
-    .pipe(csscomb())
-    // Output non-minified version.
-    .pipe(gulp.dest(paths.dest[path]))
-    // Minify.
-    .pipe(minifyCSS())
-    // Output minified version.
-    .pipe(rename({
-      extname: '.min.css'
-    }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.dest[path]));
-}
 
 /**
  * Compile sitewide scripts.
@@ -143,15 +116,53 @@ gulp.task('_compile-scripts', function () {
  * @return {Stream} The gulp stream.
  */
 gulp.task('_compile-stylesheets', function () {
-  return stylesTask('sass');
+  return gulp.src(paths.src.sass)
+    // Error handling: on error, pass error object to async callback.
+    .pipe(plumber(notify.onError({
+      title: 'Error compiling <%= error.fileName %>',
+      message: 'Styles Error: <%= error.message %>',
+      sound: errorSound
+    })))
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(csscomb())
+    // Output non-minified version.
+    .pipe(gulp.dest(paths.dest.sass))
+    // Minify.
+    .pipe(minifyCSS())
+    // Output minified version.
+    .pipe(rename({
+      extname: '.min.css'
+    }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.dest.sass));
 });
 
 /**
  * Compile single-page Sass to be inserted into style elements.
+ * This is a shortened version of the _compile-stylesheets task - no sourcemaps
+ * or unminified versions required - and the destination is different.
  * @return {Stream} The gulp stream.
  */
 gulp.task('_compile-style-elements', function () {
-  return stylesTask('sassIncludes');
+  return gulp.src(paths.src.sassIncludes)
+    // Error handling: on error, pass error object to async callback.
+    .pipe(plumber(notify.onError({
+      title: 'Error compiling <%= error.fileName %>',
+      message: 'Styles Error: <%= error.message %>',
+      sound: errorSound
+    })))
+    .pipe(sass())
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(csscomb())
+    // Minify.
+    .pipe(minifyCSS())
+    // Output minified version.
+    .pipe(rename({
+      extname: '.min.css'
+    }))
+    .pipe(gulp.dest(paths.dest.sassIncludes));
 });
 
 /**
