@@ -1,0 +1,122 @@
+/**
+ * Portfolio styling
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+
+/*
+ * Portfolio entries.
+ * 1. Prevent large-screenshot overlapping the right edge.
+ */
+.portfolio-item {
+    overflow: hidden; /* 1 */
+
+    /* No icons. */
+    &:before {
+        display: none;
+    }
+
+    .content {
+        background: $background-color-portfolio-entry;
+    }
+
+    /*
+     * Screenshot wrapper - shows a 'browser window' around the screenshot.
+     * 1. For horizontal centring.
+     */
+    .screenshot {
+        position: relative; /* 1 */
+        text-align: center;
+        background: url("/img/browser-mobile.png") center top no-repeat;
+
+        /* Desktop screenshot. Not shown until there's room for it. */
+        &.large {
+            display: none;
+        }
+
+        /* Mobile screenshot. */
+        &.small {
+            @include rem("padding-top", ($line * 1.5));
+            left: 50%;
+            $width: 320px;
+            margin-left: ($width * -0.5);
+            width: $width;
+            height: 446px;
+        }
+
+    }
+
+    /* Site title (in footer). */
+    h3 {
+        @include rem("top", $line);
+        position: absolute;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        color: $text-color;
+    }
+
+} //.portfolio-listing
+
+/*
+ * Portfolio page item content.
+ * 1. For screenshot positioning.
+ */
+.portfolio .website .content {
+    @include rem("padding", ($line * 2) 0 0);
+    position: relative; /* 1 */
+    width: 100%;
+}
+
+
+/**
+ * Media query.
+ *
+ * Full portfolio layout.
+ */
+@include media-width("portfolio-screenshots") {
+
+    /* The full-size screenshot wrapper. */
+    .portfolio-listing .screenshot {
+
+        /*
+         * Desktop-scale screenshots.
+         * 1. Re-display this size of screenshot (hidden on thinner screens).
+         */
+        &.large {
+            $width: 750px;
+            @include rem("margin-left", $line);
+            @include rem("padding-top", ($line * 1.5));
+            display: block; /* 1 */
+            width: $width;
+            height: 545px;
+            background-image: url("/img/browser.png");
+        }
+
+        /*
+         * Mobile screenshots.
+         * 1. Position mobile to the bottom-right, letting the desktop
+         *    screenshot take centre stage.
+         * 2. Cancel horizontal centring.
+         */
+        &.small {
+            @include rem("right", $line); /* 1 */
+            position: absolute; /* 1 */
+            bottom: 0; /* 1 */
+            left: auto; /* 2 */
+            margin-left: 0; /* 2 */
+        }
+
+    }
+
+    /*
+     * Portfolio page item content area: reinsert extra spacing underneath the
+     * main screenshot.
+     */
+    .portfolio-item-content {
+        @include rem("padding-bottom", ($line * 2));
+    }
+
+} //include media-width(portfolio-screenshots)

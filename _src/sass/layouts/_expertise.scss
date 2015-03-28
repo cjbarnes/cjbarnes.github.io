@@ -5,6 +5,28 @@
  * @package cjbarnes.github.io
  */
 
+/* 'Expertise - university' content row. */
+.content-section-university {
+    background-color: $black;
+
+    strong {
+        background: $oslo-grey;
+        color: $text-color-reversed;
+    }
+
+}
+
+/* 'Expertise - small business' content row. */
+.content-section-small-business {
+    background-color: $santa-fe;
+
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
+    }
+
+}
+
 
 /**
  * Skills/technologies rows of icons.
@@ -112,5 +134,31 @@
 
         }
      }
+
+}
+
+
+/**
+ * Media query.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+    .content-section-university {
+
+        .gradient.right {
+            background-image: linear-gradient(to left, transparent 40%, $black 100%);
+        }
+
+    }
+
+    .content-section-small-business {
+
+        .gradient.right {
+            background-image: linear-gradient(to left, transparent 40%, $santa-fe 100%);
+        }
+
+    }
 
 }

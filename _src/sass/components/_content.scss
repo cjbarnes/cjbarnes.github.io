@@ -40,48 +40,6 @@
     background: $background-color;
 }
 
-/*
- * Portfolio page item content.
- * 1. For screenshot positioning.
- */
-.portfolio .website .content {
-    @include rem("padding", ($line * 2) 0 0);
-    position: relative; /* 1 */
-    width: 100%;
-}
-
-
-/*
- * Blog content area.
- * 1. We space out the container instead of the interior content, since we're
- *    using a two-column layout and also not using `content-section` elements.
- * 2. Background colour to avoid beyond-max-width pattern showing through.
- */
-.blog-content {
-    @include rem("padding-top",    ($line * 3));
-    @include rem("padding-bottom", ($line * 2.5));
-    background: $background-color;
-}
-
-
-/**
- * Homepage content areas.
- */
-
-/* Intro. */
-.homepage-content-section-first {
-    background: $background-color;
-}
-
-/* Featured testimonial. */
-.content-section-endorsement {
-
-    blockquote {
-        @include font-size-leading("larger", 1.5);
-    }
-
-}
-
 
 /**
  * Media query.
@@ -129,21 +87,3 @@
 
 
 } //include media-width(two-columns)
-
-
-/**
- * Media query.
- *
- * Full portfolio layout.
- */
-@include media-width("portfolio-screenshots") {
-
-    /*
-     * Portfolio page item content area: reinsert extra spacing underneath the
-     * main screenshot.
-     */
-    .portfolio-item-content {
-        @include rem("padding-bottom", ($line * 2));
-    }
-
-}

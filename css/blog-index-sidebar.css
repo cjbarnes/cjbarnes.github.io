@@ -23,6 +23,44 @@
     display: block;
 }
 
+.sidebar-header {
+    position: relative; 
+    height: 22.5px;
+    height: 1.25rem;
+}
+
+/*
+ * Blog sidebar button area.
+ * 1. Override absolute positioning.
+ */
+.sidebar-button-bar {
+    font-family: "cj-icons";
+}
+.sidebar-button-bar a {
+    color: #e0d7cb;
+}
+
+.filter-switcher-item a {
+    border-color: #e0d7cb;
+    background: #e9e6df;
+    color: #808e90;
+}
+.filter-switcher-item a:hover,
+.filter-switcher-item a:focus {
+    background: #808e90;
+    color: #e9e6df;
+}
+.filter-switcher-item a:active {
+    background: #c5a184;
+    color: #e9e6df;
+}
+.filter-switcher-item b {
+    border-color: #e0d7cb;
+    background: #e0d7cb;
+    color: #c5a184;
+    cursor: default;
+}
+
 /* Formats lists. */
 .sidebar-listing {
     margin-right: 0;

@@ -40,52 +40,6 @@
     background: $background-color-page-footer;
 }
 
-/* Featured website section. */
-.featured-website {
-    text-align: right;
-}
-
-/* The screenshot/title wrapper link. */
-.featured-website-screenshot {
-    padding-left: 0;
-    padding-right: 0;
-    border: 0;
-    background: transparent;
-
-    /* Don't highlight the image on hover. Note specificity hack. */
-    .featured-website &:hover,
-    .featured-website &:focus,
-    .featured-website &:active {
-        background: transparent;
-    }
-
-    /* The actual screenshot. */
-    img {
-        width: 100%;
-    }
-
-}
-
-/* Mimic normal link padding, colours, and animation for the website title. */
-.featured-website-title {
-    display: inline-block;
-    padding: $link-padding;
-    color: $link-color;
-    transition: all $link-transition-duration ease-in-out;
-
-    a:hover &,
-    a:focus & {
-        background: $link-color;
-        color: $text-color-reversed;
-    }
-
-    a:active & {
-        background: $link-color-active;
-        color: $text-color-reversed;
-    }
-
-}
-
 
 /**
  * Site footer.
@@ -168,14 +122,6 @@
     .page-footer-section {
         @include rem("padding-bottom", ($line * 1.5));
         max-width: 575px;
-    }
-
-    /*
-     * Featured website section.
-     * 1. Used to align properly to the edge when this hits the max-width.
-     */
-    .featured-website {
-        float: right; /* 1 */
     }
 
 } //include media-width(normal-size)

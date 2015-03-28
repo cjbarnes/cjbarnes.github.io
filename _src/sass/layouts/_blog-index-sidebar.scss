@@ -23,6 +23,55 @@
 
 }
 
+.sidebar-header {
+    @include rem("height", ($circle-diameter / 2));
+    position: relative;
+}
+
+/*
+ * Blog sidebar button area.
+ * 1. Override absolute positioning.
+ */
+.sidebar-button-bar {
+    //@include rem("margin-bottom", ($line / 2));
+    //position: static; /* 1 */
+    font-family: $font-family-icons;
+
+    a {
+        color: $background-color;
+    }
+
+}
+
+.filter-switcher-item {
+
+    a {
+        border-color: $background-color;
+        background: $background-color-page-footer;
+        color: $link-color-secondary;
+
+        &:hover,
+        &:focus {
+            background: $link-color-secondary;
+            color: $background-color-page-footer;
+        }
+
+        &:active {
+            background: $link-color-active;
+            color: $background-color-page-footer;
+        }
+
+    }
+
+    b {
+        background: $background-color;
+        border-color: $background-color;
+        color: $link-color-active;
+        cursor: default;
+    }
+
+}
+
 /* Formats lists. */
 .sidebar-listing {
     margin-left: 0;

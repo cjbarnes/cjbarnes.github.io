@@ -100,54 +100,6 @@
 }
 
 /*
- * Homepage header parallax.
- * 1. To avoid going taller than the masthead image.
- */
-.homepage-masthead {
-
-    /*
-     * Title.
-     * 1. Prevent bottom-padding from causing height issues.
-     * 2. Border is a continuation of the gradient's solid-colour ending.
-     * 3. Manually output border width in both rem and px, since we're using the
-     *    border-bottom shorthand (which breaks the `rem` mixin).
-     */
-    .title {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        margin: 0;
-        padding-bottom: 0; /* 1 */
-        border-bottom: cj-calculate-rem-fallback($line) solid $background-color-illustrated; /* 2, 3 */
-        border-bottom-width: $line; /* 3 */
-    }
-
-    .gradient {
-        height: 100%;
-        background-image: linear-gradient(to bottom, transparent 0, transparent 65%, $background-color-illustrated 95%);
-    }
-
-    /* Parallax image wrapper. */
-    .illustration {
-        height: 100%;
-
-        img {
-            left: 25%;
-            bottom: 0;
-            margin-left: ($illustration-width-masthead * -0.25);
-
-            /* Shift image for better framing on mobile devices. */
-            @media (max-width: 700px) {
-                margin-left: -550px;
-            }
-
-        }
-
-    }
-
-}
-
-/*
  * Mini illustrated content sections (e.g. further down the homepage).
  * 1. Parallax images positioning.
  * 2. Default background colour for illustrated content sections.
@@ -210,39 +162,6 @@
     position: relative; /* 1 */
 }
 
-/* Red content rows (homepage USPs. */
-.homepage-content-section-illustrated {
-    background-color: $toast;
-
-    strong {
-        background: $ironstone;
-        color: $text-color-reversed;
-    }
-
-}
-
-/* 'Expertise - university' content row. */
-.content-section-university {
-    background-color: $black;
-
-    strong {
-        background: $oslo-grey;
-        color: $text-color-reversed;
-    }
-
-}
-
-/* 'Expertise - small business' content row. */
-.content-section-small-business {
-    background-color: $santa-fe;
-
-    strong {
-        background: $ironstone;
-        color: $text-color-reversed;
-    }
-
-}
-
 
 /**
  * Media query.
@@ -284,36 +203,6 @@
         }
 
     }
-
-
-    /**
-     * Mini illustrated content sections with different background colour.
-     */
-
-    .homepage-content-section-illustrated {
-
-        .gradient.right {
-            background-image: linear-gradient(to left, transparent 40%, $toast 100%);
-        }
-
-    }
-
-    .content-section-university {
-
-        .gradient.right {
-            background-image: linear-gradient(to left, transparent 40%, $black 100%);
-        }
-
-    }
-
-    .content-section-small-business {
-
-        .gradient.right {
-            background-image: linear-gradient(to left, transparent 40%, $santa-fe 100%);
-        }
-
-    }
-
 
     /*
      * Space out the content.

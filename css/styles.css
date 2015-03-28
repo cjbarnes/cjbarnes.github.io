@@ -1616,7 +1616,7 @@ img::selection {
 }
 
 /**
- * Circle 'buttons' (really links) and button toolbars
+ * Circle 'buttons' (really links) and button toolbars, and pagination
  *
  * Note: there is no specific class to create a single button. Instead, buttons
  * are link elements wrapped in a `.button-bar` toolbar element.
@@ -1658,44 +1658,6 @@ img::selection {
 }
 .button-bar a {
     color: #f5f5f5;
-}
-
-.sidebar-header {
-    position: relative; 
-    height: 22.5px;
-    height: 1.25rem;
-}
-
-/*
- * Blog sidebar button area.
- * 1. Override absolute positioning.
- */
-.sidebar-button-bar {
-    font-family: "cj-icons";
-}
-.sidebar-button-bar a {
-    color: #e0d7cb;
-}
-
-.filter-switcher-item a {
-    border-color: #e0d7cb;
-    background: #e9e6df;
-    color: #808e90;
-}
-.filter-switcher-item a:hover,
-.filter-switcher-item a:focus {
-    background: #808e90;
-    color: #e9e6df;
-}
-.filter-switcher-item a:active {
-    background: #c5a184;
-    color: #e9e6df;
-}
-.filter-switcher-item b {
-    border-color: #e0d7cb;
-    background: #e0d7cb;
-    color: #c5a184;
-    cursor: default;
 }
 
 /**
@@ -2606,47 +2568,6 @@ article.illustrated footer .date-unit {
     background: #e0d7cb;
 }
 
-/*
- * Portfolio page item content.
- * 1. For screenshot positioning.
- */
-.portfolio .website .content {
-    position: relative;
-    /* 1 */
-    width: 100%; 
-    padding: 60px 0 0;
-    padding: 3.33333rem 0 0;
-}
-
-/*
- * Blog content area.
- * 1. We space out the container instead of the interior content, since we're
- *    using a two-column layout and also not using `content-section` elements.
- * 2. Background colour to avoid beyond-max-width pattern showing through.
- */
-.blog-content {
-    padding-top: 90px;
-    padding-top: 5rem;
-    padding-bottom: 75px;
-    padding-bottom: 4.16667rem;
-    background: #e0d7cb;
-}
-
-/**
- * Homepage content areas.
- */
-/* Intro. */
-.homepage-content-section-first {
-    background: #e0d7cb;
-}
-
-/* Featured testimonial. */
-.content-section-endorsement blockquote {
-    font-size: 24px;
-    font-size: 1.33333rem;
-    line-height: 1.875;
-}
-
 /**
  * Media query.
  *
@@ -2692,22 +2613,6 @@ article.illustrated footer .date-unit {
         display: inline;
         width: 100%;
         padding: 0 15px;
-    }
-}
-
-/**
- * Media query.
- *
- * Full portfolio layout.
- */
-@media (min-width: 800px) {
-    /*
-     * Portfolio page item content area: reinsert extra spacing underneath the
-     * main screenshot.
-     */
-    .portfolio-item-content {
-        padding-bottom: 60px;
-        padding-bottom: 3.33333rem;
     }
 }
 
@@ -3170,51 +3075,6 @@ article.illustrated footer .date-unit {
 }
 
 /*
- * Homepage header parallax.
- * 1. To avoid going taller than the masthead image.
- */
-.homepage-masthead {
-    /*
-     * Title.
-     * 1. Prevent bottom-padding from causing height issues.
-     * 2. Border is a continuation of the gradient's solid-colour ending.
-     * 3. Manually output border width in both rem and px, since we're using the
-     *    border-bottom shorthand (which breaks the `rem` mixin).
-     */
-    /* Parallax image wrapper. */
-}
-.homepage-masthead .title {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
-    padding-bottom: 0;
-    /* 1 */
-    border-bottom: 30px solid #222;
-    /* 2, 3 */
-    border-bottom-width: 1.66667rem;
-    /* 3 */
-}
-.homepage-masthead .gradient {
-    height: 100%;
-    background-image: linear-gradient(to bottom, transparent 0, transparent 65%, #222 95%);
-}
-.homepage-masthead .illustration {
-    height: 100%;
-}
-.homepage-masthead .illustration img {
-    bottom: 0;
-    left: 25%;
-    margin-left: -350px;
-    /* Shift image for better framing on mobile devices. */
-}
-@media (max-width: 700px) {
-    .homepage-masthead .illustration img {
-        margin-left: -550px;
-    }
-}
-
-/*
  * Mini illustrated content sections (e.g. further down the homepage).
  * 1. Parallax images positioning.
  * 2. Default background colour for illustrated content sections.
@@ -3280,33 +3140,6 @@ article.illustrated footer .date-unit {
     /* 1 */
 }
 
-/* Red content rows (homepage USPs. */
-.homepage-content-section-illustrated {
-    background-color: #a17167;
-}
-.homepage-content-section-illustrated strong {
-    background: #7c4938;
-    color: #f5f5f5;
-}
-
-/* 'Expertise - university' content row. */
-.content-section-university {
-    background-color: #222;
-}
-.content-section-university strong {
-    background: #808e90;
-    color: #f5f5f5;
-}
-
-/* 'Expertise - small business' content row. */
-.content-section-small-business {
-    background-color: #b1784f;
-}
-.content-section-small-business strong {
-    background: #7c4938;
-    color: #f5f5f5;
-}
-
 /**
  * Media query.
  *
@@ -3338,18 +3171,6 @@ article.illustrated footer .date-unit {
     }
     .content-section-illustrated .illustration.right img {
         margin-left: -10%;
-    }
-    /**
-     * Mini illustrated content sections with different background colour.
-     */
-    .homepage-content-section-illustrated .gradient.right {
-        background-image: linear-gradient(to left, transparent 40%, #a17167 100%);
-    }
-    .content-section-university .gradient.right {
-        background-image: linear-gradient(to left, transparent 40%, #222 100%);
-    }
-    .content-section-small-business .gradient.right {
-        background-image: linear-gradient(to left, transparent 40%, #b1784f 100%);
     }
     /*
      * Space out the content.
@@ -3568,205 +3389,6 @@ article.illustrated footer .date-unit {
 }
 
 /**
- * Portfolio listing
- */
-/*
- * Portfolio entries.
- * 1. Prevent large-screenshot overlapping the right edge.
- */
-.portfolio-item {
-    overflow: hidden;
-    /* 1 */
-    /* No icons. */
-    /*
-     * Screenshot wrapper - shows a 'browser window' around the screenshot.
-     * 1. For horizontal centring.
-     */
-    /* Site title (in footer). */
-}
-.portfolio-item:before {
-    display: none;
-}
-.portfolio-item .content {
-    background: #222;
-}
-.portfolio-item .screenshot {
-    position: relative;
-    /* 1 */
-    text-align: center;
-    background: url("/img/browser-mobile.png") center top no-repeat;
-    /* Desktop screenshot. Not shown until there's room for it. */
-    /* Mobile screenshot. */
-}
-.portfolio-item .screenshot.large {
-    display: none;
-}
-.portfolio-item .screenshot.small {
-    left: 50%;
-    width: 320px;
-    height: 446px; 
-    margin-left: -160px;
-    padding-top: 45px;
-    padding-top: 2.5rem;
-}
-.portfolio-item h3 {
-    position: absolute;
-    top: 30px;
-    top: 1.66667rem;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    color: #222;
-}
-
-/*
- * My Approach listing (timeline of steps).
- * 1. Use CSS counter for numbering of the steps in the timeline.
- */
-.page-my-approach {
-    counter-reset: steps;
-    /* 1 */
-    /* Item container. */
-    /* Header area - leave space for icon. */
-    /* Item graphics. */
-    /* Main text. */
-    /* 'What you get' footer. */
-    /**
-     * Arrows between steps.
-     */
-    /*
-     * Arrowhead.
-     * 1. Horizontal centring.
-     * 2. Arrowhead base starts here.
-     * 3. CSS arrowheads trick.
-     */
-    /*
-     * Arrow shaft.
-     * 1. Horizontal centring.
-     */
-    /* Hide arrow for last step, and don't leave space for it. */
-}
-.page-my-approach .step {
-    counter-increment: steps;
-    background: #f5f5f5;
-    /* The number (displayed like an icon). */
-}
-.page-my-approach .step:before {
-    content: counter(steps);
-    font-size: 32px;
-    font-size: 1.77778rem;
-    font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
-    color: #f5f5f5;
-}
-.page-my-approach .step-header {
-    min-height: 130px;
-    padding-left: 100px;
-}
-.page-my-approach .step-icon {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    float: left;
-    display: block;
-    width: 100px;
-    height: 100px;
-    line-height: 1;
-}
-.page-my-approach .step-content {
-    padding-bottom: 60px;
-    padding-bottom: 3.33333rem;
-}
-.page-my-approach .step-footer {
-    min-height: 30px;
-    min-height: 1.66667rem;
-    padding-top: 15px;
-    padding-top: 0.83333rem;
-    padding-bottom: 15px;
-    padding-bottom: 0.83333rem;
-    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
-    text-align: left;
-    /*
-         * Footer title.
-         * 1. Fallback for IE8 positioning (no `calc` support).
-         * 2. Get rid of standard heading margins.
-         */
-    /* 'What you get' list. */
-    /* 'What you get' list container. */
-}
-.page-my-approach .step-footer h3 {
-    position: absolute;
-    bottom: 100%;
-    /* 1 */
-    bottom: calc(100% + (1.66667rem / 4));
-    left: 0;
-    /* 1 */
-    margin-top: 0;
-    margin-right: 8.33333%;
-    /* 2 */
-    margin-bottom: 0;
-    margin-left: 8.33333%;
-    font-size: 21px;
-    font-size: 1.16667rem;
-    line-height: 1.42857;
-    /* 2 */
-}
-.page-my-approach .step-footer ul {
-    margin: 0 60px;
-    margin: 0 3.33333rem;
-}
-.page-my-approach .step-footer li {
-    margin-top: 8px;
-    margin-top: 0.41667rem;
-    margin-bottom: 0;
-    list-style: circle; 
-    font-size: 16px;
-    font-size: 0.88889rem;
-    line-height: 1.875;
-}
-.page-my-approach .step-footer li:first-child {
-    margin-top: 0;
-}
-.page-my-approach .step:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    /* 1 */
-    display: block;
-    width: 0;
-    height: 0;
-    margin-top: 0.5em;
-    /* 2 */
-    margin-left: -3em;
-    /* 1 */
-    border-top: 2.25em solid #5e8c88;
-    /* 3 */
-    border-right: 3em solid transparent;
-    /* 3 */
-    border-left: 3em solid transparent;
-    /* 3 */
-}
-.page-my-approach .step-footer:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    /* 1 */
-    display: block;
-    width: 4em;
-    height: 0.5em;
-    margin-left: -2em;
-    background: #5e8c88;
-}
-.page-my-approach .step-support {
-    margin-bottom: 0;
-}
-.page-my-approach .step-support:after,
-.page-my-approach .step-support .step-footer:after {
-    display: none;
-}
-
-/**
  * Media query.
  *
  * Wide enough for two-column layout.
@@ -3801,51 +3423,6 @@ article.illustrated footer .date-unit {
     .post-quote .index-listing-content blockquote {
         margin: 30px 0;
         margin: 1.66667rem 0;
-    }
-}
-
-/**
- * Media query.
- *
- * Full portfolio layout.
- */
-@media (min-width: 800px) {
-    /* The full-size screenshot wrapper. */
-    .portfolio-listing .screenshot {
-        /*
-         * Desktop-scale screenshots.
-         * 1. Re-display this size of screenshot (hidden on thinner screens).
-         */
-        /*
-         * Mobile screenshots.
-         * 1. Position mobile to the bottom-right, letting the desktop
-         *    screenshot take centre stage.
-         * 2. Cancel horizontal centring.
-         */
-    }
-    .portfolio-listing .screenshot.large {
-        display: block;
-        /* 1 */
-        width: 750px;
-        height: 545px;
-        margin-left: 30px;
-        margin-left: 1.66667rem;
-        padding-top: 45px;
-        padding-top: 2.5rem;
-        background-image: url("/img/browser.png");
-    }
-    .portfolio-listing .screenshot.small {
-        /* 1 */
-        position: absolute;
-        right: 30px;
-        right: 1.66667rem;
-        /* 1 */
-        bottom: 0;
-        /* 1 */
-        left: auto;
-        /* 2 */
-        margin-left: 0;
-        /* 2 */
     }
 }
 
@@ -4053,46 +3630,6 @@ article.illustrated footer .date-unit {
     clear: both;
 }
 
-/* Featured website section. */
-.featured-website {
-    text-align: right;
-}
-
-/* The screenshot/title wrapper link. */
-.featured-website-screenshot {
-    padding-right: 0;
-    padding-left: 0;
-    border: 0;
-    background: transparent;
-    /* Don't highlight the image on hover. Note specificity hack. */
-    /* The actual screenshot. */
-}
-.featured-website .featured-website-screenshot:hover,
-.featured-website .featured-website-screenshot:focus,
-.featured-website .featured-website-screenshot:active {
-    background: transparent;
-}
-.featured-website-screenshot img {
-    width: 100%;
-}
-
-/* Mimic normal link padding, colours, and animation for the website title. */
-.featured-website-title {
-    display: inline-block;
-    padding: 0.2em;
-    color: #5e8c88;
-    transition: all 0.3s ease-in-out;
-}
-a:hover .featured-website-title,
-a:focus .featured-website-title {
-    background: #5e8c88;
-    color: #f5f5f5;
-}
-a:active .featured-website-title {
-    background: #c5a184;
-    color: #f5f5f5;
-}
-
 /**
  * Site footer.
  */
@@ -4186,14 +3723,6 @@ a:active .featured-website-title {
         max-width: 575px; 
         padding-bottom: 45px;
         padding-bottom: 2.5rem;
-    }
-    /*
-     * Featured website section.
-     * 1. Used to align properly to the edge when this hits the max-width.
-     */
-    .featured-website {
-        float: right;
-        /* 1 */
     }
 }
 
