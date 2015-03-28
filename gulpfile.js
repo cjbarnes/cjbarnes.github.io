@@ -1,87 +1,86 @@
 /* jshint node: true  */
 'use strict';
 
-var async        = require('async');
+var browserSync  = require('browser-sync');
 var chalk        = require('chalk');
 var gulp         = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var concat       = require('gulp-concat');
 var csscomb      = require('gulp-csscomb');
 var minifyCSS    = require('gulp-minify-css');
+var notify       = require('gulp-notify');
 var plumber      = require('gulp-plumber');
 var rename       = require('gulp-rename');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
-var notifier     = require('node-notifier');
+var runSequence  = require('run-sequence');
 var spawn        = require('child_process').spawn;
 
-// File paths.
-var JSPATH = {
-  src:  '_src/js/',
-  dest: 'js/'
-};
-var CSSPATH = {
-  src:  '_src/sass/',
-  dest: 'css/'
+// File paths to watch.
+var paths = {
+  // File paths to watch.
+  src: {
+    sass: '_src/sass/*.scss',
+    js: [
+      '_src/js/vendor/*.js',
+      '_src/js/plugins.js',
+      '_src/js/main.js'
+    ],
+    sassAll: '_src/sass/**/*.scss',
+    sassIncludes: '_src/sass/sass-includes/*.scss',
+    jekyll: [
+      '*.html',
+      '*.md',
+      '_data/**/*.*',
+      '_drafts/**/*.*',
+      '_includes/*.*',
+      '_layouts/**/*.*',
+      '_pages/**/*.*',
+      '_posts/**/*.*',
+      'font/**/*.*',
+      'img/**/*.*',
+      'blog/**/*.*'
+    ]
+  },
+  // File paths to output to.
+  dest: {
+    sass: 'css/',
+    js: 'js/',
+    sassIncludes: '_includes/css',
+    jekyll: '_site/'
+  }
 };
 
-// JavaScript source files (in compilation order).
-var scripts = [
-  JSPATH.src + 'vendor/*.js',
-  JSPATH.src + 'plugins.js',
-  JSPATH.src + 'main.js'
-];
+// Don't output success notifications to stdout. Just make them notifications.
+notify.logLevel(1);
 
-var consoleAddNewline = false;
+// Notification sound to play.
+var errorSound = 'Pop';
+
+// BrowserSync settings object.
+var browserConfig = {
+  server: {
+    baseDir: '_site/'
+  },
+  // Watch for changes to the built site.
+  files: '_site/**/*.*',
+  logFileChanges: false
+};
 
 /**
- * Process the JavaScript files and report the results.
- * @param {Function} callback The results callback for this task.
+ * Reusable function for compiling Sass.
+ * @param {String} path Property name for the paths used in this task.
+ * @return {Stream} The gulp stream.
  */
-function buildScripts(callback) {
-
-  gulp.src(scripts)
+function stylesTask(path) {
+  return gulp.src(paths.src[path])
     // Error handling: on error, pass error object to async callback.
-    .pipe(plumber(function(err) {
-      callback(err, 'scripts');
-    }))
-    .pipe(sourcemaps.init())
-    // Concatenate the different JavaScript files.
-    .pipe(concat('scripts.js', {
-      newLine: '\n\n'
-    }))
-    // Output concatenated version.
-    .pipe(gulp.dest(JSPATH.dest))
-    // Minify (keeping any @license comments).
-    .pipe(uglify({
-      preserveComments: 'some'
-    }))
-    // Output minified version.
-    .pipe(rename({
-      extname: '.min.js'
-    }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(JSPATH.dest))
-    // Success.
-    //.pipe(plumber.stop())
-    .on('end', function() {
-      callback(null, 'scripts');
-    });
-
-}
-
-/**
- * Process the Sass files and report the results.
- * @param {Function} callback The results callback for this task.
- */
-function buildStyles(callback) {
-
-  gulp.src(CSSPATH.src + '**/*.scss')
-    // Error handling: on error, pass error object to async callback.
-    .pipe(plumber(function(err) {
-      callback(err, 'styles');
-    }))
+    .pipe(plumber(notify.onError({
+      title: 'Error compiling <%= error.fileName %>',
+      message: 'Styles Error: <%= error.message %>',
+      sound: errorSound
+    })))
     .pipe(sourcemaps.init())
     // Compile Sass.
     .pipe(sass())
@@ -98,7 +97,7 @@ function buildStyles(callback) {
     // Enforce the preferred CSS property order and format.
     .pipe(csscomb())
     // Output non-minified version.
-    .pipe(gulp.dest(CSSPATH.dest))
+    .pipe(gulp.dest(paths.dest[path]))
     // Minify.
     .pipe(minifyCSS())
     // Output minified version.
@@ -106,123 +105,157 @@ function buildStyles(callback) {
       extname: '.min.css'
     }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(CSSPATH.dest))
-    // Success.
-    //.pipe(plumber.stop())
-    .on('end', function() {
-      callback(null, 'styles');
-    });
+    .pipe(gulp.dest(paths.dest[path]));
 }
 
 /**
- * Results callback for scripts and styles compilation. Notifies the user of
- * success/failure using node-notifier module.
- * @param {Object|Null}  err   Error object, or Null on success.
- * @param {Array|String} tasks Task names passed as compilation result messages.
+ * Compile sitewide scripts.
+ * @return {Stream} The gulp stream.
  */
-function buildResult(err, tasks) {
-  var msgTitle = 'cjbarnes.github.io';
-  var errorSound = 'Tink';
-  var tasksString = tasks;
-  if (Array.isArray(tasks)) {
-    // Remove empty array items and convert to string.
-    tasksString = tasks.filter(function(el) { return el; }).join(', ');
-  } else {
-    tasks = [tasks];
-  }
-
-  if (err) {
-    var msg = '[' + err.plugin + ']: ' + err.message;
-    notifier.notify({
-      title: 'Error compiling ' + msgTitle,
-      message: tasksString + ' ' + msg,
+gulp.task('_compile-scripts', function () {
+  return gulp.src(paths.src.js)
+    // Error handling: on error, pass error object to async callback.
+    .pipe(plumber(notify.onError({
+      title: 'Error compiling <%= error.fileName %>',
+      message: 'Script Error: <%= error.message %>',
       sound: errorSound
-    });
-    // Make error message more detailed and output to console.
-    var t = new Date();
-    if (consoleAddNewline) {
-      console.log('\n');
-    }
-    msg = chalk.red('[') +
-      chalk.gray(t.toISOString().match(/\d\d:\d\d:\d\d/)[0]) +
-      chalk.red('] Error ') +
-      msg + ' in ' + err.fileName + ' at line ' + err.lineNumber;
-    console.log(msg);
-  } else {
-    notifier.notify({
-      title: msgTitle,
-      message:  tasksString + ' compiled successfully.',
-      sound: false
-    });
-    var t = new Date();
-    var time = t.toISOString().match(/\d\d:\d\d:\d\d/)[0];
-    if (consoleAddNewline) {
-      console.log('\n');
-    }
-    tasks.forEach(function(task) {
-      var msg = '[' + chalk.gray(time) + '] Compiled \'' + chalk.cyan(task) + '\' successfully';
-      console.log(msg);
-    });
-  }
-}
+    })))
+    .pipe(sourcemaps.init())
+    // Concatenate the different JavaScript files.
+    .pipe(concat('scripts.js', {
+      newLine: '\n\n'
+    }))
+    // Output concatenated version.
+    .pipe(gulp.dest(paths.dest.js))
+    // Minify (keeping any @license comments).
+    .pipe(uglify({
+      preserveComments: 'some'
+    }))
+    // Output minified version.
+    .pipe(rename({
+      extname: '.min.js'
+    }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(paths.dest.js));
+});
 
 /**
- * [afterFirstBuild description]
- * @param {Object|Null}  err     Error object, or Null on success.
- * @param {Array|String} results Task names passed as compilation result
- *                               messages.
+ * Compile sitewide Sass.
+ * @return {Stream} The gulp stream.
  */
-function afterFirstBuild(err, results) {
-  // Output the usual success/error messages.
-  buildResult(err, results);
-
-  // Start adding newlines between console messages.
-  consoleAddNewline = true;
-
-  // Start running Jekyll server in development mode.
-  var args = [ 'exec', 'jekyll', 'serve', '--config', '_config_dev.yml,_config.yml', '-w' ];
-  spawn('bundle', args, { stdio: 'inherit' });
-}
+gulp.task('_compile-stylesheets', function () {
+  return stylesTask('sass');
+});
 
 /**
- * Process both JavaScript and Sass, and report the results together.
- * Called on initial run of gulp default task.
+ * Compile single-page Sass to be inserted into style elements.
+ * @return {Stream} The gulp stream.
  */
-gulp.task('everything', function() {
-  async.parallel(
-    [buildScripts, buildStyles],
-    afterFirstBuild
+gulp.task('_compile-style-elements', function () {
+  return stylesTask('sassIncludes');
+});
+
+/**
+ * Run a Jekyll build process.
+ * @param {Function} cb Callback function.
+ */
+gulp.task('build', function (cb) {
+  var args = [
+    'exec',
+    'jekyll',
+    'build',
+    '-q',
+    '--config',
+    '_config_dev.yml,_config.yml'
+  ];
+
+  spawn('bundle', args, { stdio: 'inherit' })
+    .on('error', notify.onError({
+      title: 'Error building site',
+      message: 'Build Error: <%= error.message %>',
+      sound: errorSound
+    }))
+    .on('close', function (code) {
+      // 0 = success, 1+ = failure.
+      if (0 === code) {
+        cb();
+      } else {
+        this.emit('error', new Error('Jekyll build failed with code ' + code));
+        cb();
+      }
+    });
+});
+
+/**
+ * Compile sitewide stylesheets and then rebuild site.
+ * Not used by default, but is available for manual triggering on the CLI.
+ */
+gulp.task('stylesheets', function () {
+  runSequence(
+    '_compile-stylesheets',
+    'build'
   );
 });
 
 /**
- * Process just the JavaScript files.
- * Called by `gulp.watch()`.
+ * Compile single-page styles and then rebuild site.
+ * Not used by default, but is available for manual triggering on the CLI.
  */
-gulp.task('scripts', function() {
-  // One task at a time, so no need to use `async.parallel()`.
-  buildScripts(buildResult);
+gulp.task('style-elements', function () {
+  runSequence(
+    '_compile-style-elements',
+    'build'
+  );
 });
 
 /**
- * Process just the Sass files.
- * Called by `gulp.watch()`.
+ * Compile all styles and then rebuild site.
  */
-gulp.task('styles', function() {
-  // One task at a time, so no need to use `async.parallel()`.
-  buildStyles(buildResult);
+gulp.task('styles', function () {
+  runSequence(
+    ['_compile-stylesheets', '_compile-style-elements'],
+    'build'
+  );
 });
 
 /**
- * Compile both scripts and styles, then watch for any changes and recompile as
- * necessary.
+ * Compile JavaScript and then rebuild site.
  */
-gulp.task('default', ['everything'], function() {
+gulp.task('scripts', function () {
+  runSequence(
+    '_compile-scripts',
+    'build'
+  );
+});
 
-  // Watch JavaScript files.
-  gulp.watch(JSPATH.src + '**/*.js', ['scripts']);
+/**
+ * Initialize the BrowserSync server and file watching.
+ */
+gulp.task('start-browser-sync', function () {
+  if (!browserSync.active) {
+    browserSync(browserConfig);
+  }
+});
 
-  // Watch Less files.
-  gulp.watch(CSSPATH.src + '**/*.scss', ['styles']);
+/**
+ * Build everything.
+ */
+gulp.task('all', function () {
+  runSequence(
+    ['_compile-stylesheets', '_compile-style-elements', '_compile-scripts'],
+    'build',
+    'start-browser-sync'
+  );
+});
+
+/**
+ * Build everything and then watch for changes.
+ */
+gulp.task('default', ['all'], function () {
+
+  // Watch for source file changes.
+  gulp.watch(paths.src.js, ['scripts']);
+  gulp.watch(paths.src.sassAll, ['styles']);
+  gulp.watch(paths.src.jekyll, ['build']);
 
 });

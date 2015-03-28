@@ -34,7 +34,9 @@
 
 <!-- Compiled Sass -->
 <link rel="stylesheet" href="/css/styles.min.css?{{ site.version }}">
-{% if page.stylesheet %}<link rel="stylesheet" href="/css/{{ page.stylesheet | slugify }}.min.css?{{ site.version }}">{% endif %}
+{% if page.stylesheet %}<style>
+{% include css/{{ page.stylesheet | slugify }}.min.css %}
+</style>{% endif %}
 
 <!-- RSS feed -->
 <link rel="alternate" type="application/rss+xml" title="cJ barnes: blog feed" href="{{ site.url}}/feed.xml">
