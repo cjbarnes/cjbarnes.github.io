@@ -214,7 +214,7 @@ gulp.task('build', function (cb) {
     'build',
     '-q',
     '--config',
-    '_config_dev.yml,_config.yml'
+    '_config.yml,_config_dev.yml'
   ];
 
   spawn('bundle', args, { stdio: 'inherit' })
