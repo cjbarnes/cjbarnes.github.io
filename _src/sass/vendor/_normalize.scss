@@ -193,6 +193,18 @@ pre {
   overflow: auto;
 }
 
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ * DO NOT DELETE.
+ */
+code,
+kbd,
+pre,
+samp {
+    font-size: 1em;
+    font-family: monospace, monospace;
+}
+
 /* Forms
    ========================================================================== */
 

@@ -168,7 +168,9 @@ gulp.task('_compile-stylesheets', function () {
     // Output non-minified version.
     .pipe(gulp.dest(paths.dest.sass))
     // Minify.
-    .pipe(minifyCSS())
+    .pipe(minifyCSS({
+      advanced: false
+    }))
     // Output minified version.
     .pipe(rename({
       extname: '.min.css'

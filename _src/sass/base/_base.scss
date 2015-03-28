@@ -126,7 +126,8 @@ blockquote {
 /* Code. */
 code,
 var,
-kbd {
+kbd,
+samp {
     @include font-size-leading("small", 0.5);
     padding: $link-padding;
     font-family: $font-family-monospace;

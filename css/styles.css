@@ -186,6 +186,18 @@ pre {
     overflow: auto;
 }
 
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ * DO NOT DELETE.
+ */
+code,
+kbd,
+pre,
+samp {
+    font-size: 1em;
+    font-family: monospace, monospace;
+}
+
 /* Forms
    ========================================================================== */
 /**
@@ -514,7 +526,8 @@ blockquote.short {
 /* Code. */
 code,
 var,
-kbd {
+kbd,
+samp {
     padding: 0.2em;
     font-size: 16px;
     font-size: 0.88889rem;
