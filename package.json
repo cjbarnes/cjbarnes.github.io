@@ -7,7 +7,6 @@
   "homepage": "http://www.cjbarnes.co.uk/",
   "devDependencies": {
     "browser-sync": "^2.4.0",
-    "chalk": "^1.0.0",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-concat": "^2.5.2",

@@ -2,7 +2,6 @@
 'use strict';
 
 var browserSync  = require('browser-sync');
-var chalk        = require('chalk');
 var gulp         = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var concat       = require('gulp-concat');
