@@ -111,11 +111,30 @@ abbr[title] {
 }
 
 /**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
  * Address styling not present in Safari and Chrome.
  */
 
 dfn {
   font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
 }
 
 /**
@@ -178,10 +197,20 @@ svg:not(:root) {
    ========================================================================== */
 
 /**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
  * Address differences between Firefox and other browsers.
  */
 
 hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
 }
 
@@ -191,6 +220,18 @@ hr {
 
 pre {
   overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 /* Forms

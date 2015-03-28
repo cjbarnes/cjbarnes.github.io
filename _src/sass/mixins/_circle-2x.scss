@@ -1,9 +1,18 @@
-/// Circle-ize, but with a double-width border.
-///
-/// Used for background cutaway effect.
-///
-/// @param {Number} $diameter Diameter of the circle in px. Default
-///                           $circle-diameter.
+/**
+ * Mixin to circle-ize but with a double-width border
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Circle-ize, but with a double-width border.
+ *
+ * Used for background cutaway effect.
+ *
+ * @param number $diameter Diameter of the circle in px. Default
+ *                         $circle-diameter.
+ */
 @mixin circle-2x($diameter: $circle-diameter) {
   @if not mixin-exists(circle) {
     @error "Mixin circle2x requires mixin circle, which does not exist.";

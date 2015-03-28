@@ -41,8 +41,7 @@ html {
  * 2. Type aliasing settings.
  */
 body {
-    font-size: 1em; /* 1 */
-    line-height: $base-line; /* 1 */
+    @include font-size-leading("normal"); /* 1 */
     font-family: $font-family-brand;
     text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01); /* 2 */
     word-wrap: break-word;
@@ -139,14 +138,6 @@ hr {
     @include rem("margin", ($line * 2) 0);
     border: 0;
     border-top: 1px solid $color-hr;
-}
-
-/* Content and colours for language icons. */
-@each $language, $icon in $language-icons {
-    .language-#{$language}:before {
-        content: "#{$icon}";
-        color: map-get($language-colors, $language);
-    }
 }
 
 

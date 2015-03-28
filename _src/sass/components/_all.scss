@@ -1,24 +1,24 @@
-//
-// Import all styling for individual components/partials.
-//
-// @version 1.0.0
-// @package cjbarnes.github.io
-//
+/**
+ * Import all styling for individual components/partials.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
 
-// Generic components.
+/* Generic components. */
 @import "logo";
 @import "button";
 @import "title";
 @import "date";
 @import "nav";
-@import "pager";
 @import "content";
 
-// Components that override generic components.
+/* Components that override generic components. */
 @import "masthead";
 @import "article";
 @import "illustration";
 @import "listing";
 @import "minilisting";
+@import "sidebar";
 @import "footer";
 @import "syntax-highlighting";

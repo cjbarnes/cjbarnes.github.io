@@ -114,10 +114,27 @@ abbr[title] {
 }
 
 /**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+    font-weight: bold;
+}
+
+/**
  * Address styling not present in Safari and Chrome.
  */
 dfn {
     font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+    margin: 0.67em 0; 
+    font-size: 2em;
 }
 
 /**
@@ -173,9 +190,17 @@ svg:not(:root) {
 /* Grouping content
    ========================================================================== */
 /**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+    margin: 1em 40px;
+}
+
+/**
  * Address differences between Firefox and other browsers.
  */
 hr {
+    box-sizing: content-box;
     height: 0;
 }
 
@@ -184,6 +209,17 @@ hr {
  */
 pre {
     overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+    font-size: 1em; 
+    font-family: monospace, monospace;
 }
 
 /* Forms
@@ -371,6 +407,313 @@ th {
 }
 
 /**
+ * Import all variables
+ *
+ * Variables are grouped into separate files for easier findability.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Colour palette and assignments
+ *
+ * All colours used throughout the site should be defined here.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Colour palette.
+ */
+/**
+ * Brands
+ *
+ * Externally chosen colours, e.g. Twitter.
+ */
+/**
+ * Functional colour assignments.
+ *
+ * Ideally, the 'named' colour palette variables above should never be used
+ * outside of this file. Instead, a semantic name for the colour's function as
+ * it is being used should be declared here.
+ */
+/**
+ * Maps of icon content and CSS sprites
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Typography variables
+ *
+ * Font sizes, styles, weights, families, and leading. Defines the vertical
+ * rhythm of the site.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/*
+ * Font size relationships. For use in the font-size, line-height and line maps.
+ * Values convert 1:1 into pixel sizes.
+ */
+/*
+ * Assemble font size and line height maps:
+ * - $font-size   - Font size in `em`s relative to the default
+ *                  (`$base-font-size`).
+ * - $line-height - Unitless line height that works out to one line/unit of
+ *                  vertical rhythm when the `font-size` is set to the
+ *                  corresponding value in the `$font-size` map.
+ *
+ * Note that we have to use maps here because Sass (stupidly) intentionally
+ * does not allow interpolation within variable names. Also note the `1em * x`
+ * logic is used to append the `em` unit, since Sass (also stupidly) does not
+ * allow swapping/assignment/deassignment of units, nor calculations involving
+ * non-matching units. My kingdom for an equivalent to `unit()` in LESS...
+ */
+/**
+ * Layout variables
+ *
+ * Grid variables, margins, and other basic dimensions.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Miscellaneous variables
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Media query variables
+ *
+ * Used for defining breakpoints, retina/Hi-DPI, and other media queries.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/*
+ * Map of min-width-based breakpoints. Always use semantic keys that describe
+ * how the site adapts at that breakpoint, to make code reading easier.
+ */
+/**
+ * Import all functions
+ *
+ * Each function is kept in a separate file for easier findability.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Function to retrieve the colour for a named post format
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Retrieve the colour for a named post format.
+ *
+ * @global map $format-colors Associates post format names with their colours.
+ *
+ * @param string $format Post format name.
+ * @return color The color for this post format.
+ */
+/**
+ * Function to retrieve the auto-darkened colour for a named post format
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Retrieve the auto-darkened colour for a named post format.
+ *
+ * No need to type-check the $format argument, since the function we call later
+ * (cj-get-format-color) does that for us.
+ *
+ * @param string $format Post format name.
+ * @param number $amount The percentage to darken the colour by. Default 20%.
+ * @return color The darkened color for this post format.
+ */
+/**
+ * Import all mixins
+ *
+ * Each mixin is kept in a separate file for easier findability.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Mixin to output a semi-transparent colour property with opaque fallback
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Output a property with a semi-transparent colour value, with opaque fallback
+ * for browsers that don't support `rgba()`.
+ *
+ * @param string $property The CSS property to set the colour for.
+ * @param color  $color    Background colour, without opacity applied yet.
+ * @param number $alpha    Opacity value. Default 0.5. Range 0-1.
+ */
+/**
+ * Mixin to circle-ize an element
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Turn this element into a circle.
+ *
+ * @param number $diameter  Diameter of the circle in px. Default
+ *                          $circle-diameter.
+ * @param number $thickness Unitless circle border width multiplier. Default 1.
+ */
+/**
+ * Mixin to circle-ize but with a double-width border
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Circle-ize, but with a double-width border.
+ *
+ * Used for background cutaway effect.
+ *
+ * @param number $diameter Diameter of the circle in px. Default
+ *                         $circle-diameter.
+ */
+/**
+ * Mixin to add a circle to the top of the content block
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Add a circle to the top of the content block.
+ *
+ * @param color $background The page background that the circle will overlap.
+ *                          Default $background-color-content.
+ */
+/**
+ * Mixin to add a small circle to the left of the content block
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Add a small circle to the left of the content block.
+ *
+ * @param color $background The page background that the circle will overlap.
+ *                          Default $background-color-content.
+ */
+/**
+ * Mixin to output an em font size
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Output an em font size without the corresponding line height.
+ *
+ * @global map $font-sizes   Standard font-size values (in rem).
+ *
+ * @param string $size    The font-size/line-height keyword.
+ */
+/**
+ * Grid mixins
+ *
+ * All mixins for the responsive grid system.
+ *
+ * This is heavily influenced by the Semantic Grid http://semantic.gs
+ *
+ * (Adapted into Sass for this project. Original authors listed below.)
+ *
+ * @author Abban Dunne http://abandon.ie
+ * @author James Wilson http://jimmynotjim.com
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Make this element a row (i.e. a horizontally-centred container for columns).
+ *
+ * @param number $padding Horizontal padding to apply to the row (i.e. half the
+ *                        gutter width). Default 0.
+ */
+/**
+ * Make this element a specified number of columns wide.
+ *
+ * @param number $x       Number of columns this element should span.
+ * @param number $padding Horizontal padding to apply to this column. Default
+ *                        $padding (i.e. half the gutter width).
+ * @param number $columns Total number of columns the container row spans.
+ *                        Default $columns.
+ */
+/**
+ * Add left margin to push this column a specified number of columns to the
+ * right.
+ *
+ * @param number $offset  Number of empty columns to the left of this column.
+ *                        Default 1.
+ * @param number $columns Total number of columns the container row spans.
+ *                        Default $columns.
+ */
+/**
+ * Add right margin to push the next column a specified number of columns to the
+ * left.
+ *
+ * @param number $offset  Number of empty columns to the right of this column.
+ *                        Default 1.
+ * @param number $columns Total number of columns the container row spans.
+ *                        Default $columns.
+ */
+/**
+ * Add left padding to push the left edge of this element's contents a
+ * specified number of columns to the right.
+ *
+ * Uses CSS `calc()` to combine percentage column widths with the absolute
+ * `padding` gutter width. Falls back in IE.old to the column width without the
+ * gutter applied.
+ *
+ * @param number $offset     Number of empty columns to the left of the
+ *                           contents. Default 1.
+ * @param number $columns    Total number of columns the container row spans.
+ *                           Default $columns.
+ * @param bool   $add_gutter Whether to add an extra half-gutter to the left.
+ */
+/**
+ * Add right padding to push the right edge of this element's contents a
+ * specified number of columns to the left.
+ *
+ * Uses CSS `calc()` to combine percentage column widths with the absolute
+ * `padding` gutter width. Falls back in IE.old to the column width without the
+ * gutter applied.
+ *
+ * @param number $offset     Number of empty columns to the right of the
+ *                           contents. Default 1.
+ * @param number $columns    Total number of columns the container row spans.
+ *                           Default $columns.
+ * @param bool   $add_gutter Whether to add an extra half-gutter to the right.
+ */
+/**
+ * Mixin to remove the visible structure of an HTML table
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Remove the visible structure of an HTML table.
+ *
+ * Should be applied to the table element or one of its parents.
+ */
+/**
+ * Import the basic typography/scaffolding for the site
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
  * Basic site-wide styles - mostly typography
  *
  * @version 1.0.0
@@ -415,8 +758,8 @@ html {
  * 2. Type aliasing settings.
  */
 body {
-    font-size: 1em;
-    /* 1 */
+    font-size: 18px;
+    font-size: 1rem;
     line-height: 1.66667;
     /* 1 */
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
@@ -437,13 +780,30 @@ body {
  */
 /* Wrapper for everything above the footer. */
 .above-footer {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     max-width: 1400px;
     margin: 0 auto;
 }
 .above-footer:before,
 .above-footer:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .above-footer:after {
     clear: both;
@@ -530,57 +890,6 @@ hr {
     margin: 3.33333rem 0;
     border: 0;
     border-top: 1px solid #d0bda9;
-}
-
-/* Content and colours for language icons. */
-.language-wordpress:before {
-    content: "\e60b";
-    color: #21759b;
-}
-
-.language-jekyll:before {
-    content: "\e60d";
-    color: #cc0814;
-}
-
-.language-jquery:before {
-    content: "\e650";
-    color: #136aab;
-}
-
-.language-less:before {
-    content: "\e658";
-    color: #1e375c;
-}
-
-.language-sass:before {
-    content: "\e64b";
-    color: #cd669a;
-}
-
-.language-scss:before {
-    content: "\e64b";
-    color: #cd669a;
-}
-
-.language-javascript:before {
-    content: "\e64f";
-    color: #d8ba42;
-}
-
-.language-css:before {
-    content: "\e649";
-    color: #1173ba;
-}
-
-.language-html:before {
-    content: "\e636";
-    color: #e34f26;
-}
-
-.language-php:before {
-    content: "\e63d";
-    color: #505c91;
 }
 
 /**
@@ -1134,6 +1443,110 @@ li li li {
 }
 
 /**
+ * Contact details lists.
+ */
+.contact-details-list {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
+}
+.contact-details-list:before,
+.contact-details-list:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+.contact-details-list:after {
+    clear: both;
+}
+
+/* Icon labels. */
+.contact-details-label {
+    clear: left;
+    float: left;
+    display: block;
+    overflow: hidden;
+    width: 47px;
+    height: 47px;
+    margin-top: 30px;
+    margin-top: 1.66667rem;
+    font-style: normal;
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 45px;
+    font-family: "cj-icons";
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid;
+    /* Colours. */
+}
+.contact-details-label:before {
+    content: "";
+    display: block;
+}
+.contact-details-label.email {
+    color: #5e8c88;
+}
+.contact-details-label.phone {
+    color: #b1784f;
+}
+.contact-details-label.linkedin {
+    color: #0976b4;
+}
+.contact-details-label.twitter {
+    color: #00acf2;
+}
+.contact-details-label.address {
+    color: #7c4938;
+}
+.contact-details-label.feed {
+    color: #d78637;
+}
+
+/* All contact details text. */
+.contact-details-data {
+    float: left;
+    margin-top: 30px;
+    margin-top: 1.66667rem;
+    padding-left: 0;
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 2.14286;
+    vertical-align: middle;
+}
+.contact-details-data address {
+    margin: 0; 
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 1.66667;
+}
+
+/**
+ * Media queries.
+ *
+ * Wide enough for properly spaced side-by-side-addresses.
+ */
+@media (min-width: 480px) {
+    .contact-details-data address {
+        margin-right: 60px;
+        margin-right: 3.33333rem;
+    }
+}
+
+/**
  * Media queries.
  *
  * Tablets or wider.
@@ -1158,9 +1571,10 @@ li li li {
  * Basic table design.
  */
 table {
-    width: 100%; 
+    width: 100%;
     margin: 30px 0;
     margin: 1.66667rem 0;
+    border-collapse: collapse;
 }
 
 caption {
@@ -1437,21 +1851,17 @@ img::selection {
 /* Subheading permalinks */
 .hashlink {
     position: absolute;
-    top: 50%;
     right: 100%;
+    bottom: 8px;
+    bottom: 0.41667rem;
     display: block;
     width: 30px;
     width: 1.66667rem;
     height: 30px;
     height: 1.66667rem;
-    margin: -15px 8px 0 0;
-    margin: -0.83333rem 0.41667rem 0 0;
     padding: 0;
     line-height: 30px;
     line-height: 1.66667rem;
-    text-align: center; 
-    border-radius: 50% 50%;
-    border: 0;
     opacity: 0;
 }
 :hover > .hashlink,
@@ -1466,6 +1876,13 @@ img::selection {
     display: none;
 }
 
+/**
+ * Import all styling for individual components/partials.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/* Generic components. */
 /**
  * Reusable component for the cJ logo, usually with the containing circle
  *
@@ -2059,6 +2476,21 @@ article.illustrated footer .date-unit {
  */
 .nav-level-1 {
     margin: 0;
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     padding: 0 0 15px;
     padding: 0 0 0.83333rem;
     font-size: 21px;
@@ -2077,7 +2509,9 @@ article.illustrated footer .date-unit {
 .nav-level-1:before,
 .nav-level-1:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .nav-level-1:after {
     clear: both;
@@ -2187,6 +2621,119 @@ article.illustrated footer .date-unit {
 }
 .light-masthead .open .nav-menu-toggle {
     color: #f5f5f5;
+}
+
+/**
+ * Pager (next/previous links)
+ */
+.pager-list {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.pager-list:before,
+.pager-list:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+.pager-list:after {
+    clear: both;
+}
+
+.pager-item {
+    float: left;
+    display: inline;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    /*
+     * 1. For arrow icon positioning.
+     */
+}
+.pager-item a {
+    position: relative;
+    /* 1 */
+    display: block;
+    padding: 15px 90px 30px;
+    padding: 0.83333rem 5rem 1.66667rem;
+    border-bottom: 0;
+    background: transparent;
+    /* Arrow icons */
+}
+.pager-item a:before {
+    position: absolute;
+    top: 50%;
+    display: block;
+    margin-top: -0.375em;
+    font-size: 40px;
+    font-size: 2.22222rem;
+    line-height: 0.75;
+    font-family: "cj-icons";
+}
+.pager-item a:hover,
+.pager-item a:focus {
+    background: #808e90;
+}
+.pager-item a:active {
+    background: #c5a184;
+}
+
+.pager-previous a:before {
+    content: "\e601"; 
+    left: 30px;
+    left: 1.66667rem;
+}
+
+.pager-next a {
+    text-align: right;
+}
+.pager-next a:before {
+    content: "\e61b"; 
+    right: 30px;
+    right: 1.66667rem;
+}
+
+.pager-item-title {
+    display: block;
+    padding: 0;
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 1.42857;
+    background: transparent;
+    color: inherit;
+}
+
+/*
+ * The summary of this pager entry.
+ * 1. Only show 2 lines of summary maximum.
+ */
+.pager-item-description {
+    display: block;
+    /* 1 */
+    overflow: hidden;
+    height: 2.83333em;
+    font-size: 16px;
+    font-size: 0.88889rem;
+    line-height: 1.40625;
+    /* 1 */
+    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 
 /**
@@ -2444,105 +2991,6 @@ article.illustrated footer .date-unit {
 }
 
 /**
- * Pager (next/previous links) styles.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-.pager-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.pager-list:before,
-.pager-list:after {
-    content: " ";
-    display: table;
-}
-.pager-list:after {
-    clear: both;
-}
-
-.pager-item {
-    float: left;
-    display: inline;
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    /*
-     * 1. For arrow icon positioning.
-     */
-}
-.pager-item a {
-    position: relative;
-    /* 1 */
-    display: block;
-    padding: 15px 90px 30px;
-    padding: 0.83333rem 5rem 1.66667rem;
-    border-bottom: 0;
-    background: transparent;
-    /* Arrow icons */
-}
-.pager-item a:before {
-    position: absolute;
-    top: 50%;
-    display: block;
-    margin-top: -0.375em;
-    font-size: 40px;
-    font-size: 2.22222rem;
-    line-height: 0.75;
-    font-family: "cj-icons";
-}
-.pager-item a:hover,
-.pager-item a:focus {
-    background: #808e90;
-}
-.pager-item a:active {
-    background: #c5a184;
-}
-
-.pager-previous a:before {
-    content: "\e601"; 
-    left: 30px;
-    left: 1.66667rem;
-}
-
-.pager-next a {
-    text-align: right;
-}
-.pager-next a:before {
-    content: "\e61b"; 
-    right: 30px;
-    right: 1.66667rem;
-}
-
-.pager-item-title {
-    display: block;
-    padding: 0;
-    font-size: 21px;
-    font-size: 1.16667rem;
-    line-height: 1.42857;
-    background: transparent;
-    color: inherit;
-}
-
-/*
- * The summary of this pager entry.
- * 1. Only show 2 lines of summary maximum.
- */
-.pager-item-description {
-    display: block;
-    /* 1 */
-    overflow: hidden;
-    height: 2.83333em;
-    font-size: 16px;
-    font-size: 0.88889rem;
-    line-height: 1.40625;
-    /* 1 */
-    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
-}
-
-/**
  * Content area of articles, single pages, and portfolio and CV items.
  *
  * @version 1.0.0
@@ -2551,16 +2999,50 @@ article.illustrated footer .date-unit {
 /**
  * Basics
  */
+.content {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
+}
 .content:before,
 .content:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .content:after {
     clear: both;
 }
 
 .content-section {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     float: left;
     display: inline;
     width: 100%;
@@ -2576,7 +3058,9 @@ article.illustrated footer .date-unit {
 .content-section:before,
 .content-section:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .content-section:after {
     clear: both;
@@ -2698,6 +3182,7 @@ article.illustrated footer .date-unit {
     }
 }
 
+/* Components that override generic components. */
 /**
  * Layout styles for page masthead
  *
@@ -2709,6 +3194,21 @@ article.illustrated footer .date-unit {
  * 1. For date positioning.
  */
 .masthead {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     position: relative;
     /* 1 */
     background: #a17167;
@@ -2723,7 +3223,9 @@ article.illustrated footer .date-unit {
 .masthead:before,
 .masthead:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .masthead:after {
     clear: both;
@@ -2816,6 +3318,21 @@ article.illustrated footer .date-unit {
 /* White background for article contents. */
 .post,
 .page {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     background: #f5f5f5;
 }
 .post:before,
@@ -2823,7 +3340,9 @@ article.illustrated footer .date-unit {
 .page:before,
 .page:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .post:after,
 .page:after {
@@ -2971,6 +3490,21 @@ article.illustrated footer .date-unit {
  * 1. For article footer positioning.
  */
 .post-featured {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     position: relative;
     /* 1 */
     background-color: #222;
@@ -2978,7 +3512,9 @@ article.illustrated footer .date-unit {
 .post-featured:before,
 .post-featured:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .post-featured:after {
     clear: both;
@@ -3992,6 +4528,289 @@ article.illustrated footer .date-unit {
 }
 
 /**
+ * Sidebar styling (for listing pages, e.g. the blog index)
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/* All content columns are full width for mobile. */
+.sidebar {
+    float: left;
+    display: inline;
+    width: 100%;
+    padding: 0 15px;
+}
+
+/*
+ * Section boundaries.
+ * 1. These are all JS-based, so hide unless scripts are turned on.
+ */
+.sidebar-filter-section {
+    display: none;
+    margin-bottom: 15px;
+    margin-bottom: 0.83333rem;
+    padding: 37.5px 15px 15px;
+    padding: 2.08333rem 0.83333rem 0.83333rem;
+    /* 1 */
+    background: #e9e6df;
+}
+.js .sidebar-filter-section.open {
+    display: block;
+}
+
+/* Formats lists. */
+.sidebar-listing {
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+/*
+ * Formats and languages list items.
+ * 1. For icon positioning.
+ */
+.sidebar-listing-item {
+    position: relative;
+    /* 1 */
+    padding-left: 1.75em;
+    /* Icon colours and fonts.. */
+    /* Content and colours for format icons. */
+    /* Remove link left-right padding to fix second-line alignment. */
+}
+.sidebar-listing-item:before {
+    position: absolute;
+    left: 0;
+    font-size: 24px;
+    font-size: 1.33333rem;
+    line-height: 1.25;
+    font-family: "cj-icons";
+}
+.sidebar-listing-item.format-tutorial:before {
+    content: "\e637";
+    color: #7c4938;
+}
+.sidebar-listing-item.format-thoughts:before {
+    content: "\e61a";
+    color: #808e90;
+}
+.sidebar-listing-item.format-link:before {
+    content: "\e631";
+    color: #5e8c88;
+}
+.sidebar-listing-item.format-page:before {
+    content: "";
+    color: #a17167;
+}
+.sidebar-listing-item.format-quote:before {
+    content: "\201d";
+    color: #b1784f;
+}
+.sidebar-listing-item.format-tip:before {
+    content: "\e630";
+    color: #c5a184;
+}
+.sidebar-listing-item.format-off-topic:before {
+    content: "\e628";
+    color: #2b9759;
+}
+.sidebar-listing-item a {
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+/* Content and colours for language icons. */
+.language-wordpress:before {
+    content: "\e60b";
+    color: #21759b;
+}
+
+.language-jekyll:before {
+    content: "\e60d";
+    color: #cc0814;
+}
+
+.language-jquery:before {
+    content: "\e650";
+    color: #136aab;
+}
+
+.language-less:before {
+    content: "\e658";
+    color: #1e375c;
+}
+
+.language-sass:before {
+    content: "\e64b";
+    color: #cd669a;
+}
+
+.language-scss:before {
+    content: "\e64b";
+    color: #cd669a;
+}
+
+.language-javascript:before {
+    content: "\e64f";
+    color: #d8ba42;
+}
+
+.language-css:before {
+    content: "\e649";
+    color: #1173ba;
+}
+
+.language-html:before {
+    content: "\e636";
+    color: #e34f26;
+}
+
+.language-php:before {
+    content: "\e63d";
+    color: #505c91;
+}
+
+/* Language icons are smaller, so boost their size a little. */
+.languages-listing-item:before {
+    left: -0.1em; 
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 1.07143;
+}
+
+/*
+ * Tag cloud.
+ */
+.tagcloud {
+    margin: 0;
+}
+
+.tagcloud-item {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 14px;
+    font-size: 0.77778rem;
+    line-height: 3.21429;
+    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+    /* Tagcloud size increases. */
+}
+.tagcloud-item b {
+    padding: 0;
+    font-size: 16px;
+    font-size: 0.88889rem;
+    line-height: 2.8125;
+    background: none;
+    color: inherit;
+}
+.tagcloud-item b b {
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 2.5;
+}
+.tagcloud-item b b b {
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 2.14286;
+}
+.tagcloud-item b b b b {
+    font-size: 24px;
+    font-size: 1.33333rem;
+    line-height: 1.875;
+}
+
+/*
+ * Search area.
+ */
+.sidebar-search-form {
+    padding: 15px 0;
+    padding: 0.83333rem 0;
+    text-align: center;
+}
+
+/* Search field/button wrappers. */
+.search-form-field-wrap {
+    margin: 0;
+}
+.search-form-field-wrap + .search-form-field-wrap {
+    margin-top: 0.83333rem;
+}
+
+/* The search input. */
+.search-input {
+    width: 100%; 
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 1.42857;
+}
+
+/* Highlight the current sidebar filter. */
+.sidebar-filter-active,
+.sidebar-filter-active:hover,
+.sidebar-filter-active:focus,
+.sidebar-filter-active:active {
+    border: 0;
+    background: transparent;
+    color: #c5a184;
+    cursor: default;
+}
+
+/**
+ * Media query.
+ *
+ * Tablets and above.
+ */
+@media (min-width: 718px) {
+    /* Content is still single-column, but with bigger margins, on tablets. */
+    .sidebar {
+        float: left;
+        display: inline;
+        width: 83.33333%;
+        margin-right: 8.33333%; 
+        margin-left: 8.33333%;
+        padding: 0 15px;
+    }
+}
+
+/**
+ * Media query.
+ *
+ * Wide enough for two-column layout.
+ */
+@media (min-width: 940px) {
+    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+    .sidebar {
+        float: left;
+        display: inline;
+        width: 33.33333%;
+        margin-right: 0; 
+        margin-left: 0;
+        padding: 0 15px;
+    }
+}
+
+/**
+ * Media query.
+ *
+ * Greater white space between the main content and sidebar.
+ */
+@media (min-width: 1100px) {
+    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+    .sidebar {
+        float: left;
+        display: inline;
+        width: 25%;
+        margin-right: 0; 
+        margin-left: 0;
+        padding: 0 15px;
+    }
+    /* Reinstate gutters. */
+    .sidebar-listing {
+        margin-right: 15px; 
+        margin-left: 15px;
+    }
+}
+
+/**
  * Layout for the two footers: 'site footer' (the lower of the two footers) and
  * 'page footer' (the upper).
  *
@@ -4026,6 +4845,21 @@ article.illustrated footer .date-unit {
 .page-footer {
     position: relative;
     clear: both;
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     min-height: 105px;
     min-height: 5.83333rem;
     /* 1 */
@@ -4034,7 +4868,9 @@ article.illustrated footer .date-unit {
 .page-footer:before,
 .page-footer:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .page-footer:after {
     clear: both;
@@ -4090,6 +4926,21 @@ a:active .featured-website-title {
     position: relative;
     z-index: 3;
     clear: both;
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
     min-height: 120px;
     min-height: 6.66667rem;
     padding-bottom: 30px;
@@ -4101,7 +4952,9 @@ a:active .featured-website-title {
 .site-footer:before,
 .site-footer:after {
     content: " ";
+    /* 1 */
     display: table;
+    /* 2 */
 }
 .site-footer:after {
     clear: both;
@@ -4493,6 +5346,435 @@ a:active .featured-website-title {
 }
 
 /* Generic.Inserted & Diff Inserted */
+/**
+ * Import all individual layout SCSS
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Custom styling for the "I don't" page
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+.donts {
+    /* Rows of Dos/Don'ts. */
+    /**
+     * Dos/Don'ts figure elements.
+     */
+    /* Dos box and icon. */
+    /* Don'ts box and icon. */
+    /* Both Dos and Don'ts. Placed here so the padding overrides `column()`. */
+}
+.donts .donts-row {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
+}
+.donts .donts-row:before,
+.donts .donts-row:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+.donts .donts-row:after {
+    clear: both;
+}
+.donts figure.yes {
+    float: left;
+    display: inline;
+    width: 50%;
+    margin-left: 8.33333%;
+    padding: 0 15px;
+    /* Icon. */
+    /* The quote itself. Smaller text, as there's more of it. */
+}
+.donts figure.yes:before {
+    content: "\e65c";
+    background-color: #2b9759;
+}
+.donts figure.yes blockquote {
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 1.66667;
+    color: #2b9759;
+}
+.donts figure.yes blockquote p + p {
+    margin-top: 1.66667rem;
+}
+.donts figure.no {
+    float: left;
+    display: inline;
+    width: 33.33333%;
+    margin-left: 8.33333%;
+    padding: 0 15px;
+    /* Icon. */
+    /* The quote itself. */
+}
+.donts figure.no:before {
+    content: "\e65b";
+    background-color: #8f2823;
+}
+.donts figure.no blockquote {
+    font-style: italic;
+    color: #8f2823;
+}
+.donts figure.yes,
+.donts figure.no {
+    position: relative;
+    margin-top: 60px;
+    margin-top: 3.33333rem;
+    margin-bottom: 30px;
+    margin-bottom: 1.66667rem;
+    padding-top: 45px;
+    padding-top: 2.5rem;
+    padding-bottom: 45px;
+    padding-bottom: 2.5rem;
+    background-color: #f5f5f5;
+    /*
+         * 1. Match the background the figures sit on.
+         */
+}
+.donts figure.yes:before,
+.donts figure.no:before {
+    position: absolute;
+    top: -24.5px;
+    left: 50%;
+    display: block;
+    overflow: hidden;
+    width: 49px;
+    height: 49px;
+    margin-left: -24.5px;
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #f5f5f5;
+    color: #f5f5f5;
+}
+.donts figure.yes:before,
+.donts figure.no:before {
+    font-family: "cj-icons";
+    border-color: #e0d7cb;
+    /* 1 */
+}
+
+/**
+ * Custom styles for the My Expertise page
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/**
+ * Skills/technologies rows of icons.
+ */
+/* The skills list heading and subheadings. */
+.skills {
+    background: #e0d7cb;
+}
+.skills h2,
+.skills h3 {
+    text-align: center;
+    color: #a17167;
+}
+
+/*
+ * The icons containers.
+ * 1. Override default list padding.
+ */
+.skill-list {
+    /*
+     * Make this element self-clearing.
+     *
+     * For modern browsers.
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     *
+     * Dropped `*zoom: 1` used for IE 6–7 support, since I only support IE8+.
+     *
+     * See http://nicolasgallagher.com/micro-clearfix-hack/
+     */
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+    /* 1 */
+    list-style: none;
+    text-align: center;
+    /*
+     * Icon wrappers.
+     * 1. Use padding-top to leave space for the absolute-positioned icon.
+     * 2. For icon positioning.
+     */
+    /* Override link hover border colours, to preserve 1px gap between items. */
+    /**
+     * CSS sprite icons.
+     */
+}
+.skill-list:before,
+.skill-list:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+.skill-list:after {
+    clear: both;
+}
+.skill-list li {
+    display: inline-block;
+    margin: 0;
+}
+.skill-list a,
+.skill-list span {
+    /* 1 */
+    position: relative;
+    /* 2 */
+    float: left;
+    display: block;
+    width: 153px;
+    width: 8.5rem;
+    height: 153px;
+    height: 8.5rem;
+    padding: 108px 9px 9px;
+    padding: 6rem 0.5rem 0.5rem;
+    line-height: 1em;
+    border: 1px solid #e0d7cb;
+    background: #fff;
+    color: #222;
+    /*
+         * Vector icon positioning.
+         * 1. Overridden by the specific webfont icon.
+         * 2. Horizontal centring.
+         * 3. CSS sprite of non-webfont icons.
+         */
+}
+.skill-list a:before,
+.skill-list span:before {
+    content: "";
+    /* 1 */
+    position: absolute;
+    top: 22px;
+    top: 1.2rem;
+    left: 50%;
+    /* 2 */
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    font-size: 54px;
+    font-size: 3rem;
+    line-height: 3rem;
+    font-family: "cj-icons";
+    background: transparent url("/img/skill-images.png") left top no-repeat;
+    /* 3 */
+    background-size: auto 70px;
+    color: #a17167;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
+    .skill-list a:before,
+    .skill-list span:before {
+        background-image: url("/img/skill-images@2x.png");
+    }
+}
+.skill-list a:hover,
+.skill-list a:focus,
+.skill-list a:active {
+    border-color: #e0d7cb;
+}
+.skill-list .html5 a:before,
+.skill-list .html5 span:before {
+    background-position-x: 0;
+}
+.skill-list .css3 a:before,
+.skill-list .css3 span:before {
+    background-position-x: -70px;
+}
+.skill-list .javascript a:before,
+.skill-list .javascript span:before {
+    background-position-x: -140px;
+}
+.skill-list .jquery a:before,
+.skill-list .jquery span:before {
+    background-position-x: -210px;
+}
+.skill-list .sql a:before,
+.skill-list .sql span:before {
+    background-position-x: -280px;
+}
+.skill-list .php a:before,
+.skill-list .php span:before {
+    background-position-x: -350px;
+}
+.skill-list .gulp a:before,
+.skill-list .gulp span:before {
+    background-position-x: -420px;
+}
+.skill-list .less a:before,
+.skill-list .less span:before {
+    background-position-x: -490px;
+}
+.skill-list .sass a:before,
+.skill-list .sass span:before {
+    background-position-x: -560px;
+}
+.skill-list .bootstrap a:before,
+.skill-list .bootstrap span:before {
+    background-position-x: -630px;
+}
+.skill-list .jqueryui a:before,
+.skill-list .jqueryui span:before {
+    background-position-x: -700px;
+}
+.skill-list .wordpress a:before,
+.skill-list .wordpress span:before {
+    background-position-x: -770px;
+}
+.skill-list .blackboard a:before,
+.skill-list .blackboard span:before {
+    background-position-x: -840px;
+}
+.skill-list .t4 a:before,
+.skill-list .t4 span:before {
+    background-position-x: -910px;
+}
+.skill-list .netcommunity a:before,
+.skill-list .netcommunity span:before {
+    background-position-x: -980px;
+}
+.skill-list .commonspot a:before,
+.skill-list .commonspot span:before {
+    background-position-x: -1050px;
+}
+.skill-list .jekyll a:before,
+.skill-list .jekyll span:before {
+    background-position-x: -1120px;
+}
+.skill-list .git a:before,
+.skill-list .git span:before {
+    background-position-x: -1190px;
+}
+.skill-list .svn a:before,
+.skill-list .svn span:before {
+    background-position-x: -1260px;
+}
+
+/**
+ * Homepage-specific styles
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+/*
+ * Header area.
+ * 1. For 'your website goes here' arrow.
+ * 2. Almost (but not quite) full screen height. Can use `vh` with no fallback
+ *    because I'm also declaring both min- and max-heights, which act as a
+ *    de facto fallback.
+ * 3. Don't exceed the height of the image.
+ */
+.homepage-masthead {
+    position: relative;
+    /* 1 */
+    height: 99vh;
+    /* 2 */
+    min-height: 700px;
+    max-height: 870px;
+    /* 3 */
+}
+
+/* Homepage welcome message */
+.homepage-title {
+    padding-bottom: 30px;
+    padding-bottom: 1.66667rem;
+    text-align: center;
+}
+
+.homepage-title-main {
+    margin: 0 15px 75px;
+    margin: 0 0.83333rem 4.16667rem;
+    font-size: 32px;
+    font-size: 1.77778rem;
+    line-height: 1.40625;
+    color: #f5f5f5;
+    text-shadow: 0 0 10px #222;
+    /*
+     * The changing element in the welcome message.
+     * 1. Fixes the gradient height changing in each brag transition.
+     */
+}
+.homepage-title-main a:hover,
+.homepage-title-main a:focus,
+.homepage-title-main a:active {
+    text-shadow: none;
+}
+.homepage-title-main .brag {
+    overflow: hidden;
+    word-wrap: normal;
+    background: #5e8c88;
+    /* 1 */
+    /*
+         * Individual 'brags' - only one is displayed at once.
+         * 1. Hide unless `.current`.
+         */
+}
+.homepage-title-main .brag span {
+    display: inline-block;
+    max-width: 0;
+    color: #f5f5f5;
+    /* 1 */
+    opacity: 0;
+    /* 1 */
+    transition: all 0.5s ease-in-out;
+    /* The only visible 'brag'. */
+}
+.homepage-title-main .brag span.current {
+    max-width: 100em;
+    opacity: 1;
+}
+
+/* USPs row. */
+.homepage-content-section-illustrated {
+    /* Show bulleted list as a simple sequence of sentences. */
+}
+.homepage-content-section-illustrated ul {
+    margin: 0;
+    list-style: none; 
+    line-height: 2.14286;
+}
+
+/**
+ * Media query.
+ *
+ * Tablet or wider.
+ */
+@media (min-width: 718px) {
+    /* Brags. No need to wrap to 2 lines at this screen size. */
+    .homepage-title br {
+        display: none;
+    }
+}
+
 /**
  * Webfont for cJ logo and other icons.
  *

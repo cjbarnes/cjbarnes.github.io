@@ -1,11 +1,15 @@
 /**
- * Blog index sidebar styling
- *
- * Added via JavaScript (as are DOM elements styled by this CSS).
+ * Sidebar styling (for listing pages, e.g. the blog index)
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
  */
+
+
+/* All content columns are full width for mobile. */
+.sidebar {
+  @include column($columns);
+}
 
 /*
  * Section boundaries.
@@ -61,6 +65,14 @@
         padding-right: 0;
     }
 
+}
+
+/* Content and colours for language icons. */
+@each $language, $icon in $language-icons {
+    .language-#{$language}:before {
+        content: "#{$icon}";
+        color: map-get($language-colors, $language);
+    }
 }
 
 /* Language icons are smaller, so boost their size a little. */
@@ -151,9 +163,50 @@
 /**
  * Media query.
  *
+ * Tablets and above.
+ */
+@include media-width("normal-size") {
+
+    /* Content is still single-column, but with bigger margins, on tablets. */
+    .sidebar {
+        @include column(10);
+        @include push;
+        @include pull;
+    }
+
+} //include media-width(normal-size)
+
+
+/**
+ * Media query.
+ *
+ * Wide enough for two-column layout.
+ */
+@include media-width("two-columns") {
+
+    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+    .sidebar {
+        @include column(4);
+        @include push(0);
+        @include pull(0);
+    }
+
+} //include media-width(two-columns)
+
+
+/**
+ * Media query.
+ *
  * Greater white space between the main content and sidebar.
  */
 @include media-width("more-column-spacing") {
+
+    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+    .sidebar {
+        @include column(3);
+        @include push(0);
+        @include pull(0);
+    }
 
     /* Reinstate gutters. */
     .sidebar-listing {

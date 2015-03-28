@@ -43,6 +43,68 @@ li li li {
     @include font-size-leading("small");
 }
 
+
+/**
+ * Contact details lists.
+ */
+
+.contact-details-list {
+    @include clearfix;
+}
+
+/* Icon labels. */
+.contact-details-label {
+    @include circle;
+    @include rem("margin-top", $line);
+    @include font-size("huge");
+    clear: left;
+    float: left;
+    font-family: $font-family-icons;
+    font-style: normal;
+
+    &:before {
+        content: '';
+        display: block;
+    }
+
+    /* Colours. */
+    @each $field, $color in $circle-list-colors {
+        &.#{$field} {
+            color: $color;
+        }
+    }
+
+}
+
+/* All contact details text. */
+.contact-details-data {
+    @include font-size-leading("large", 1.5);
+    @include rem("margin-top", $line);
+    float: left;
+    padding-left: 0;
+    vertical-align: middle;
+
+    address {
+        @include font-size-leading("normal");
+        margin: 0;
+    }
+
+}
+
+/**
+ * Media queries.
+ *
+ * Wide enough for properly spaced side-by-side-addresses.
+ */
+@include media-width("address-two-columns") {
+
+    .contact-details-data address {
+        @include rem("margin-right", ($line * 2));
+    }
+
+}
+
+
 /**
  * Media queries.
  *

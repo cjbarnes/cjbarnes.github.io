@@ -12,6 +12,7 @@
 table {
     @include rem("margin", $line 0);
     width: 100%;
+    border-collapse: collapse;
 }
 
 caption {

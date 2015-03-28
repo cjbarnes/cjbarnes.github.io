@@ -1,7 +1,8 @@
 /// Convert a pixel size into a rem size.
 ///
-/// @require {Number} $font-size-px Text size applied to the body element in
-///                                 pixels.
+/// @author cJ barnes http://www.cjbarnes.co.uk/
+///
+/// @require $font-size-px - Text size applied to the body element in pixels.
 ///
 /// @param {Number} $px Size in pixels.
 /// @return {Number} Size in rems.

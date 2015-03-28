@@ -1,12 +1,12 @@
-//
-// Typography variables
-//
-// Font sizes, styles, weights, families, and leading. Defines the vertical
-// rhythm of the site.
-//
-// @version 1.0.0
-// @package cjbarnes.github.io
-//
+/**
+ * Typography variables
+ *
+ * Font sizes, styles, weights, families, and leading. Defines the vertical
+ * rhythm of the site.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
 
 // The basic text and leading pixel sizes (unitless for use in maths later).
 $base-font-size:  18;
@@ -21,8 +21,10 @@ $font-size-px: (1px * $base-font-size);
 $line-px:      (1px * $vertical-rhythm);
 $line: (1rem * $base-line);
 
-// Font size relationships. For use in the font-size, line-height and line maps.
-// Values convert 1:1 into pixel sizes.
+/*
+ * Font size relationships. For use in the font-size, line-height and line maps.
+ * Values convert 1:1 into pixel sizes.
+ */
 $font-size-multipliers: (
   smaller:   ( 14 / $base-font-size),
   small:     ( 16 / $base-font-size),
@@ -36,18 +38,20 @@ $font-size-multipliers: (
   leviathan: (144 / $base-font-size),
 );
 
-// Assemble font size and line height maps:
-// - $font-size   - Font size in `em`s relative to the default
-//                  (`$base-font-size`).
-// - $line-height - Unitless line height that works out to one line/unit of
-//                  vertical rhythm when the `font-size` is set to the
-//                  corresponding value in the `$font-size` map.
-//
-// Note that we have to use maps here because Sass (stupidly) intentionally
-// does not allow interpolation within variable names. Also note the `1em * x`
-// logic is used to append the `em` unit, since Sass (also stupidly) does not
-// allow swapping/assignment/deassignment of units, nor calculations involving
-// non-matching units. My kingdom for an equivalent to `unit()` in LESS...
+/*
+ * Assemble font size and line height maps:
+ * - $font-size   - Font size in `em`s relative to the default
+ *                  (`$base-font-size`).
+ * - $line-height - Unitless line height that works out to one line/unit of
+ *                  vertical rhythm when the `font-size` is set to the
+ *                  corresponding value in the `$font-size` map.
+ *
+ * Note that we have to use maps here because Sass (stupidly) intentionally
+ * does not allow interpolation within variable names. Also note the `1em * x`
+ * logic is used to append the `em` unit, since Sass (also stupidly) does not
+ * allow swapping/assignment/deassignment of units, nor calculations involving
+ * non-matching units. My kingdom for an equivalent to `unit()` in LESS...
+ */
 $font-sizes:   ();
 $line-heights: ();
 @each $size, $val in $font-size-multipliers {

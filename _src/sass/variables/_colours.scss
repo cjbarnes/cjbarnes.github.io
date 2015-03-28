@@ -1,11 +1,15 @@
-//
-// Colour palette and assignments
-//
-// All colours used throughout the site should be defined here.
-//
-// @version 1.0.0
-// @package cjbarnes.github.io
-//
+/**
+ * Colour palette and assignments
+ *
+ * All colours used throughout the site should be defined here.
+ *
+ * @version 1.0.0
+ * @package cjbarnes.github.io
+ */
+
+/**
+ * Colour palette.
+ */
 
 // Key colours.
 $white: #f5f5f5; // cj_white
@@ -27,17 +31,24 @@ $eucalyptus:   #2b9759; // cj11
 $burnt-umber:  #8f2823; // cj12
 
 
-// Brands.
+/**
+ * Brands
+ *
+ * Externally chosen colours, e.g. Twitter.
+ */
+
 $color-linkedin: #0976b4;
 $color-twitter:  #00acf2;
 $color-rss:      #d78637;
 
 
-// Functional colour assignments.
-//
-// Ideally, the 'named' colour palette variables above should never be used
-// outside of this file. Instead, a semantic name for the colour's function as
-// it is being used should be declared here.
+/**
+ * Functional colour assignments.
+ *
+ * Ideally, the 'named' colour palette variables above should never be used
+ * outside of this file. Instead, a semantic name for the colour's function as
+ * it is being used should be declared here.
+ */
 
 // Text.
 $text-color:                  $black;

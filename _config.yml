@@ -29,7 +29,7 @@ paginate_path: /blog/page:num
 include: ['_pages','*.scss','_src']
 
 # Don't process working copies of images, config files, or readmes.
-exclude: ['*.psd','*.ai','*.eps','*.codekit','*.lock','Gemfile','README.md','gulpfile.js','package.json','node_modules']
+exclude: ['*.psd','*.ai','*.eps','*.codekit','*.lock','Gemfile','README.md','gulpfile.js','package.json']
 
 # Don't process posts with future dates.
 future: false
