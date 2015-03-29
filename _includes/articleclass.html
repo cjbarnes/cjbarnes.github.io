@@ -14,9 +14,11 @@ Classes added:
 {% capture articleclass %}
 {% if include.page.date %}
   blog post post-{{ include.page.format }} post-{{ include.page.id | slugify }}
-  {% if include.page.illustration %} post-illustrated {% endif %}
+  {% if include.page.illustration %} post-illustrated{% endif %}
+  {% if include.page.length %} post-long{% endif %}
 {% else %}
   page page-{{ include.page.title | slugify }}
-  {% if include.page.illustration %} page-illustrated {% endif %}
+  {% if include.page.illustration %} page-illustrated{% endif %}
+  {% if include.page.length %} page-long{% endif %}
 {% endif %}
 {% endcapture %}

@@ -67,20 +67,16 @@
             {% else %}
               {{ post.content }}
             {% endif %}
-
-            {% if post.link_href %}
-              <figure class="link link-article-link">
-                <a href="{{ post.link_href }}">
-                  <em>link:</em> {{ post.title }}
-                </a>
-              </figure>
-            {% endif %}
           </div><!-- /.listing-content -->
         {% endunless %}
 
           <footer class="footer listing-footer index-listing-footer blog-listing-footer post-footer">
             {% include date.html date=post.date %}
-            {% include permalinks.html url=post.url %}
+            {% if post.link_href %}
+              <!-- Direct link -->
+              <a class="post-footer-link" href="{{ post.link_href }}" title="go to link: {{ post.title | xml_escape }}">go to website</a>
+            {% endif %}
+            {% include permalinks.html url=post.url title=post.title %}
           </footer><!-- /.listing-footer -->
 
         </article><!-- /.listing-item -->

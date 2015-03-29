@@ -2998,6 +2998,7 @@ article.illustrated footer .date-unit {
      * Adjust metadata colours and sizes to match the dark/full-width masthead.
      */
 }
+.post-footer.post-featured-footer .post-footer-link,
 .post-footer.post-featured-footer .post-footer-permalink {
     font-size: 21px;
     font-size: 1.16667rem;
@@ -3011,7 +3012,7 @@ article.illustrated footer .date-unit {
  * Tablets and wider.
  */
 @media (min-width: 718px) {
-    .post-footer-languages {
+    .post-footer-link {
         margin-left: 15px;
         margin-left: 0.83333rem;
     }
@@ -3033,10 +3034,10 @@ article.illustrated footer .date-unit {
          */
     }
     .listing-footer .post-footer-permalink,
-    .listing-footer .post-footer-languages,
+    .listing-footer .post-footer-link,
     .listing-footer .go-to-site,
     .post-featured-footer .post-footer-permalink,
-    .post-featured-footer .post-footer-languages,
+    .post-featured-footer .post-footer-link,
     .post-featured-footer .go-to-site {
         /* 1 */
         position: absolute;
@@ -3046,8 +3047,8 @@ article.illustrated footer .date-unit {
         padding-right: 0; 
         padding-left: 0;
     }
-    .listing-footer .post-footer-languages,
-    .post-featured-footer .post-footer-languages {
+    .listing-footer .post-footer-link,
+    .post-featured-footer .post-footer-link {
         left: 0; 
         margin-left: 8.33333%;
     }
@@ -3066,6 +3067,11 @@ article.illustrated footer .date-unit {
         margin-right: 16.66667%; 
         margin-left: 16.66667%;
         padding: 0 15px;
+    }
+    .post-featured-footer .post-footer-link {
+        left: 15px;
+        left: 0.83333rem;
+        margin-left: 0;
     }
     .post-featured-footer .post-footer-permalink {
         right: 15px;
@@ -3428,8 +3434,16 @@ article.illustrated footer .date-unit {
 .listing-item.post-illustrated .post-footer {
     background: #222;
 }
+.listing-item.post-illustrated .post-footer .post-footer-link,
 .listing-item.post-illustrated .post-footer .post-footer-permalink {
     color: #f5f5f5;
+}
+.listing-item.post-long {
+    /* Don't show footnotes in excerpts, only in full post content. */
+}
+.listing-item.post-long .footnote,
+.listing-item.post-long .footnotes {
+    display: none;
 }
 
 .read-more {

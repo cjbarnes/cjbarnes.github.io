@@ -132,6 +132,7 @@
     /*
      * Adjust metadata colours and sizes to match the dark/full-width masthead.
      */
+    .post-footer-link,
     .post-footer-permalink {
         @include font-size-leading("large");
         color: $text-color-reversed;
@@ -147,7 +148,7 @@
  */
 @include media-width("normal-size") {
 
-    .post-footer-languages {
+    .post-footer-link {
         @include rem("margin-left", $gutter);
     }
 
@@ -169,7 +170,7 @@
          *    the standard 0.2em padding applied to all links by default.
          */
         .post-footer-permalink,
-        .post-footer-languages,
+        .post-footer-link,
         .go-to-site {
             @include rem("top", ($line - 0.2rem)); /* 1 */
             position: absolute;
@@ -178,7 +179,7 @@
             padding-right: 0;
         }
 
-        .post-footer-languages {
+        .post-footer-link {
             @include push;
             left: 0;
         }
@@ -197,7 +198,10 @@
         @include push(2);
         @include pull(2);
 
-
+        .post-footer-link {
+            @include rem("left", $gutter);
+            margin-left: 0;
+        }
 
         .post-footer-permalink {
             @include rem("right", $gutter);

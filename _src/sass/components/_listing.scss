@@ -82,10 +82,21 @@
         /* Dark footer - unique to illustrated posts. */
         .post-footer {
 
+            .post-footer-link,
             .post-footer-permalink {
                 color: $text-color-reversed;
             }
 
+        }
+
+    }
+
+    &.post-long {
+
+        /* Don't show footnotes in excerpts, only in full post content. */
+        .footnote,
+        .footnotes {
+            display: none;
         }
 
     }
