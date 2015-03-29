@@ -689,7 +689,6 @@ figure.link a {
     font-size: 24px;
     font-size: 1.33333rem;
     line-height: 1.875;
-    text-align: center;
     color: #5e8c88;
 }
 figure.link a:hover,
@@ -1013,8 +1012,8 @@ figure.output + figure.code code:before {
  * Tablets or wider.
  */
 @media (min-width: 718px) {
-    /* Align footnotes area edges with subheading edges */
-    .footnotes {
+    /* Align footnotes area edges with subheading edges. */
+    .content-section .footnotes {
         margin-right: 15px;
         margin-right: 0.83333rem; 
         margin-left: 15px;

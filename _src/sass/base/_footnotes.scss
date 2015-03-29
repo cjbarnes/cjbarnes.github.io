@@ -84,8 +84,8 @@
  */
 @include media-width("normal-size") {
 
-    /* Align footnotes area edges with subheading edges */
-    .footnotes {
+    /* Align footnotes area edges with subheading edges. */
+    .content-section .footnotes {
         @include rem("margin-left",  $gutter);
         @include rem("margin-right", $gutter);
     }
