@@ -21,7 +21,7 @@ permalink: /blog/:title-:year-:month-:day/
 relative_permalinks: false
 
 # Pagination.
-paginate: 3
+paginate: 5
 paginate_path: /blog/page:num
 
 # Process _pages folder, and output the Sass and JS source for use in sourcemaps
