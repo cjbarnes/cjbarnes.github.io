@@ -16,24 +16,16 @@ a {
     transition: all $link-transition-duration ease-in-out;
     cursor: pointer; /* 1 */
 
+    &:visited {
+        color: $link-color-secondary;
+    }
+
     /* Internal links */
     &:hover,
     &:focus {
         border-color: $link-color-secondary;
         color: $text-color-reversed;
         background-color: $link-color-secondary;
-    }
-
-    &:visited {
-        color: $link-color-secondary;
-
-        &:hover,
-        &:focus {
-            border-color: $link-color-secondary;
-            color: $text-color-reversed;
-            background-color: $link-color-secondary;
-        }
-
     }
 
     /* External links */

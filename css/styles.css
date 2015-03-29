@@ -1119,17 +1119,11 @@ a {
      * 1. The [href] is to override external links' specificity.
      */
 }
-a:hover,
-a:focus {
-    border-color: #808e90;
-    background-color: #808e90; 
-    color: #f5f5f5;
-}
 a:visited {
     color: #808e90;
 }
-a:visited:hover,
-a:visited:focus {
+a:hover,
+a:focus {
     border-color: #808e90;
     background-color: #808e90; 
     color: #f5f5f5;
