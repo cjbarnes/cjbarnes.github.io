@@ -888,6 +888,26 @@ figure.code pre {
  * @version 1.0.0
  * @package cjbarnes.github.io
  */
+/* Animation: flash background colour (for highlighting current footnote). */
+@-webkit-keyframes temporary-background {
+    0% {
+        background-color: #e9e6df;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+@keyframes temporary-background {
+    0% {
+        background-color: #e9e6df;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
 /* Links: to-footnote and back-to-text. */
 .footnote,
 .reversefootnote {
@@ -940,7 +960,8 @@ figure.code pre {
     /* Reinstate sub-list styling. */
 }
 .footnotes li:target {
-    background: #e9e6df;
+    -webkit-animation: temporary-background 2s;
+            animation: temporary-background 2s;
 }
 .footnotes li ol {
     margin-right: 15px;

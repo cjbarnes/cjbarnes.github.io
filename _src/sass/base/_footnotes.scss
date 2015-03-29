@@ -7,6 +7,12 @@
  * @package cjbarnes.github.io
  */
 
+/* Animation: flash background colour (for highlighting current footnote). */
+@keyframes temporary-background {
+  0%   { background-color: $background-color-page-footer; }
+  100% { background-color: transparent; }
+}
+
 /* Links: to-footnote and back-to-text. */
 .footnote,
 .reversefootnote {
@@ -52,7 +58,7 @@
 
         /* The selected footnote. */
         &:target {
-            background: $background-color-page-footer;
+            animation: temporary-background 2s;
         }
 
         /* Reinstate sub-list margins. */
