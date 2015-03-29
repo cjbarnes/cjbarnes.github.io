@@ -2511,6 +2511,9 @@ article.illustrated footer .date-unit {
  * @package cjbarnes.github.io
  */
 .pager-list {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -2527,9 +2530,16 @@ article.illustrated footer .date-unit {
 .pager-item {
     float: left;
     display: inline;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
     width: 50%;
     margin: 0;
     padding: 0;
+
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     /*
      * 1. For arrow icon positioning.
      */
@@ -2542,6 +2552,10 @@ article.illustrated footer .date-unit {
     padding: 0.83333rem 5rem 1.66667rem;
     border-bottom: 0;
     background: transparent;
+
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     /* Arrow icons */
 }
 .pager-item a:before {
@@ -2589,17 +2603,12 @@ article.illustrated footer .date-unit {
 
 /*
  * The summary of this pager entry.
- * 1. Only show 2 lines of summary maximum.
  */
 .pager-item-description {
     display: block;
-    /* 1 */
-    overflow: hidden;
-    height: 2.83333em;
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 1.40625;
-    /* 1 */
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 
@@ -3715,8 +3724,8 @@ article.illustrated footer .date-unit {
 .page-footer {
     position: relative;
     clear: both;
-    min-height: 105px;
-    min-height: 5.83333rem;
+    min-height: 90px;
+    min-height: 5rem;
     /* 1 */
     background: #e9e6df;
 }
