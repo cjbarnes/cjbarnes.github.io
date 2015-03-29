@@ -90,7 +90,9 @@ var browserConfig = {
   // Watch for changes to the built site.
   files: '_site/**/*.*',
   logFileChanges: false,
-  open: false
+  open: false,
+  logPrefix: 'BrowserSync',
+  reloadDelay: 250
 };
 
 /**
