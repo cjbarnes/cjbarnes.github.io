@@ -39,7 +39,6 @@ figure.link {
         @include rem("padding", $line);
         @include font-size-leading("larger", 1.5);
         display: block;
-        text-align: center;
         color: $link-color;
 
         &:hover,
