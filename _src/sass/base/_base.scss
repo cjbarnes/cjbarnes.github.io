@@ -123,13 +123,18 @@ blockquote {
 
 }
 
-/* Code. */
+/*
+ * Code.
+ * 1. Use ems not rems for code, so it grows and shrinks proportionally when
+ *    used in subheadings and footnotes.
+ */
 code,
 var,
 kbd,
 samp {
-    @include font-size-leading("small", 0.5);
     padding: $link-padding;
+    font-size: (map-get($font-size-multipliers, "small") * 1em); /* 1 */
+    line-height: map-get($line-heights, "small"); /* 1 */
     font-family: $font-family-monospace;
     color: $text-color-inline-code;
     background-color: $background-color-inline-code;

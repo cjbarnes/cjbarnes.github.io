@@ -51,6 +51,7 @@
     }
 
     li {
+        @include rem("margin-bottom", $line);
         @include font-size-leading("small");
         list-style-position: inside;
         transition: background-color $link-transition-duration ease-in-out;
@@ -68,6 +69,7 @@
 
         /* Reinstate sub-list marker alignment. */
         li {
+            @include rem("margin-bottom", ($line / 2));
             @include rem("margin-left", ($line / 2));
             list-style-position: outside;
         }
