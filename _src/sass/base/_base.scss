@@ -167,16 +167,25 @@ hr {
     }
 
     /* Leave more margin around text. */
-    .content-section p,
-    .content-section blockquote {
-        @include push;
-        @include pull;
+    .content-section {
+
+        p,
+        blockquote {
+            @include push;
+            @include pull;
+        }
+
+        blockquote p,
+        ol p,
+        ul p,
+        dl p {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
     }
 
-    .content-section blockquote p {
-        margin-left: 0;
-        margin-right: 0;
-    }
+
 
 } //include media-width(normal-size)
 

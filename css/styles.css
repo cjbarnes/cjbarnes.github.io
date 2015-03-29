@@ -615,7 +615,10 @@ hr {
         margin-right: 8.33333%; 
         margin-left: 8.33333%;
     }
-    .content-section blockquote p {
+    .content-section blockquote p,
+    .content-section ol p,
+    .content-section ul p,
+    .content-section dl p {
         margin-right: 0; 
         margin-left: 0;
     }
@@ -911,32 +914,34 @@ figure.code pre {
      * 1. Override grid column styles.
      */
 }
-.footnotes hr {
-    margin-bottom: 30px;
-    margin-bottom: 1.66667rem;
-}
 .footnotes ol {
     margin: 0;
     /* 1 */
     padding-left: 0;
 }
 .footnotes li {
-    margin: 15px 0;
-    margin: 0.83333rem 0;
-    padding: 15px 0;
-    padding: 0.83333rem 0;
     list-style-position: inside;
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 1.875;
     transition: background-color 0.3s ease-in-out;
     /* The selected footnote. */
+    /* Reinstate sub-list margins. */
+    /* Reinstate sub-list styling. */
 }
 .footnotes li:target {
     background: #e9e6df;
 }
-.footnotes li p:first-child {
-    margin-top: 0;
+.footnotes li ol {
+    margin-right: 15px;
+    margin-right: 0.83333rem; 
+    margin-left: 15px;
+    margin-left: 0.83333rem;
+}
+.footnotes li li {
+    margin-left: 15px;
+    margin-left: 0.83333rem;
+    list-style-position: outside;
 }
 
 /**
@@ -1103,6 +1108,7 @@ dl {
     margin-right: 0.83333rem;
     margin-left: 15px;
     margin-left: 0.83333rem;
+    /* Remove margins and reduce space between for paragraphs within lists. */
     /* Nested list margins */
 }
 ol li,
@@ -1119,6 +1125,17 @@ dl dd {
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 1.875;
+}
+ol p,
+ul p,
+dl p {
+    margin: 15px 0 0;
+    margin: 0.83333rem 0 0;
+}
+ol p:first-child,
+ul p:first-child,
+dl p:first-child {
+    margin-top: 0;
 }
 ol ol,
 ul ul,

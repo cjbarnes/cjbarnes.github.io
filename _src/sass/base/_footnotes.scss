@@ -29,21 +29,17 @@
 /* Footnotes content area. */
 .footnotes {
 
-    hr {
-        @include rem("margin-bottom", $line);
-    }
-
     /*
      * 1. Override grid column styles.
      */
     ol {
         margin: 0; /* 1 */
         padding-left: 0;
+
     }
 
     li {
-        @include rem("margin", ($line / 2) 0);
-        @include rem("padding", ($line / 2) 0);
+        //@include rem("margin", ($line / 2) 0);
         @include font-size-leading("small");
         list-style-position: inside;
         transition: background-color $link-transition-duration ease-in-out;
@@ -53,8 +49,16 @@
             background: $background-color-page-footer;
         }
 
-        p:first-child {
-            margin-top: 0;
+        /* Reinstate sub-list margins. */
+        ol {
+            @include rem("margin-left",  $gutter);
+            @include rem("margin-right", $gutter);
+        }
+
+        /* Reinstate sub-list styling. */
+        li {
+            @include rem("margin-left", ($line / 2));
+            list-style-position: outside;
         }
 
     }

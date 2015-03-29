@@ -20,6 +20,16 @@ dl {
         @include font-size-leading("small");
     }
 
+    /* Remove margins and reduce space between for paragraphs within lists. */
+    p {
+        @include rem("margin", ($line / 2) 0 0);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+    }
+
     /* Nested list margins */
     & & {
         @include rem("margin-left", ($line / 2));
