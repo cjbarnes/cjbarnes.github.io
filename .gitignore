@@ -7,3 +7,10 @@ _site/
 node_modules/
 *-TEST*
 node_modules/
+_src/sass/test.scss
+
+css/test.css
+
+css/test.min.css
+
+css/test.min.css.map
