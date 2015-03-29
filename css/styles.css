@@ -3537,7 +3537,7 @@ article.illustrated footer .date-unit {
      * 1. To overlap the child link element.
      */
     /* Loop through icons themselves. */
-    /* Icon for illustrated articles in minilistings. */
+    /* Different background for illustrated articles in minilistings. */
     /*
      * The link.
      * 1. For the search results count alignment.
@@ -3591,7 +3591,6 @@ article.illustrated footer .date-unit {
     content: "\e628";
 }
 .minilisting-item.post-illustrated:before {
-    content: "\e62c";
     background: #222;
 }
 .minilisting-item a {

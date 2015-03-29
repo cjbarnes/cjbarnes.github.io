@@ -40,9 +40,8 @@
         }
     }
 
-    /* Icon for illustrated articles in minilistings. */
+    /* Different background for illustrated articles in minilistings. */
     &.post-illustrated:before {
-        content: "\e62c";
         background: $background-color-illustrated;
     }
 
