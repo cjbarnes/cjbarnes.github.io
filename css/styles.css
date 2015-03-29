@@ -609,6 +609,13 @@ hr {
     html {
         font-size: 112.5%;
     }
+    /* Align hr edges with subheading edges */
+    hr {
+        margin-right: 15px;
+        margin-right: 0.83333rem; 
+        margin-left: 15px;
+        margin-left: 0.83333rem;
+    }
     /* Leave more margin around text. */
     .content-section p,
     .content-section blockquote {
@@ -957,7 +964,7 @@ figure.code pre {
     transition: background-color 0.3s ease-in-out;
     /* The selected footnote. */
     /* Reinstate sub-list margins. */
-    /* Reinstate sub-list styling. */
+    /* Reinstate sub-list marker alignment. */
 }
 .footnotes li:target {
     -webkit-animation: temporary-background 2s;
@@ -973,6 +980,21 @@ figure.code pre {
     margin-left: 15px;
     margin-left: 0.83333rem;
     list-style-position: outside;
+}
+
+/**
+ * Media query.
+ *
+ * Tablets or wider.
+ */
+@media (min-width: 718px) {
+    /* Align footnotes area edges with subheading edges */
+    .footnotes {
+        margin-right: 15px;
+        margin-right: 0.83333rem; 
+        margin-left: 15px;
+        margin-left: 0.83333rem;
+    }
 }
 
 /**

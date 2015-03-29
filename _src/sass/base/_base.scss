@@ -166,6 +166,12 @@ hr {
         font-size: (100% * ($base-font-size / 16));
     }
 
+    /* Align hr edges with subheading edges */
+    hr {
+        @include rem("margin-left",  $gutter);
+        @include rem("margin-right", $gutter);
+    }
+
     /* Leave more margin around text. */
     .content-section {
 

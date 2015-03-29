@@ -51,7 +51,6 @@
     }
 
     li {
-        //@include rem("margin", ($line / 2) 0);
         @include font-size-leading("small");
         list-style-position: inside;
         transition: background-color $link-transition-duration ease-in-out;
@@ -67,7 +66,7 @@
             @include rem("margin-right", $gutter);
         }
 
-        /* Reinstate sub-list styling. */
+        /* Reinstate sub-list marker alignment. */
         li {
             @include rem("margin-left", ($line / 2));
             list-style-position: outside;
@@ -76,3 +75,20 @@
     }
 
 } //.footnotes
+
+
+/**
+ * Media query.
+ *
+ * Tablets or wider.
+ */
+@include media-width("normal-size") {
+
+    /* Align footnotes area edges with subheading edges */
+    .footnotes {
+        @include rem("margin-left",  $gutter);
+        @include rem("margin-right", $gutter);
+    }
+
+
+} //include media-width(normal-size)
