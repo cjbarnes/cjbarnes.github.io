@@ -908,8 +908,18 @@ figure.code pre {
     font-size: 0.88889rem;
 }
 
-/* Footnotes content area. */
+/*
+ * Footnotes content area.
+ * 1. Mimic an hr at the top of the footnotes area.
+ */
 .footnotes {
+    margin-top: 60px;
+    margin-top: 3.33333rem;
+    /* 1 */
+    padding-top: 15px;
+    padding-top: 0.83333rem;
+    border-top: 1px solid #d0bda9;
+    /* 1 */
     /*
      * 1. Override grid column styles.
      */

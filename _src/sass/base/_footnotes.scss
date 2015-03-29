@@ -26,8 +26,14 @@
     margin: -1em -0.25em 0;
 }
 
-/* Footnotes content area. */
+/*
+ * Footnotes content area.
+ * 1. Mimic an hr at the top of the footnotes area.
+ */
 .footnotes {
+    @include rem("margin-top", ($line * 2)); /* 1 */
+    @include rem("padding-top", ($line / 2));
+    border-top: 1px solid $color-hr; /* 1 */
 
     /*
      * 1. Override grid column styles.
