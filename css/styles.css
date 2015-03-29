@@ -746,6 +746,7 @@ figure.code {
      * Padding-top is applied to the code element, not the figure, so that the
      * language icon is positioned correctly.
      */
+    /* Hairline space between codeblocks. */
 }
 figure.code:before {
     display: none;
@@ -825,6 +826,30 @@ figure.code pre {
     font-size: 14px;
     font-size: 0.77778rem;
     line-height: 1.42857;
+}
+figure.code + figure.code {
+    margin-top: -30px;
+    margin-top: -1.66667rem;
+    border-top: 1px solid #f5f5f5;
+}
+
+/* Codeblock output areas. */
+figure.output {
+    background: #fff;
+    /* No spacing between code and output figures. */
+    /* Match icon color/border to background. */
+}
+figure.output > :first-child {
+    margin-top: 0;
+}
+figure.output + figure.code,
+figure.code + figure.output {
+    margin-top: -30px;
+    margin-top: -1.66667rem;
+}
+figure.output + figure.code code:before {
+    border-color: #fff;
+    color: #fff;
 }
 
 /* Figures on single-article pages. */

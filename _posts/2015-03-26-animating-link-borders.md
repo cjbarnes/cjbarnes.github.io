@@ -17,8 +17,9 @@ However, combining these three techniques on the same site causes problems if no
 
 ### issue 1: sudden appearance of underlining
 
+<figure class="output">
 [This link's underlining appears in its final colour immediately, but the link text's colour change is still going on.](#){:.example-1}
-
+</figure>
 <figure class="code">
 {% highlight css %}
 a {
@@ -37,8 +38,9 @@ a:focus {
 
 ### issue 2: delayed appearance of underlining
 
+<figure class="output">
 [This link's underlining doesn't appear at all until the colour change is complete, then it suddenly appears without animating.](#){:.example-2}
-
+</figure>
 <figure class="code">
 {% highlight css %}
 a {
@@ -57,8 +59,9 @@ a:focus {
 
 ### issue 3: line height shifts
 
+<figure class="output">
 [This link's underlining causes the link to increase in height slightly, moving all other text further down the page.](#){:.example-3}
-
+</figure>
 <figure class="code">
 {% highlight css %}
 a {
@@ -80,8 +83,9 @@ a:focus {
 
 To avoid these three issues, simply apply a transparent `border-bottom` to the link **in its initial, no-hover state**. The transparent border must be the same width and style as the non-transparent border will be on hover. The result:
 
+<figure class="output">
 [This link animates properly, hurrah!](#){:.example-4}
-
+</figure>
 <figure class="code">
 {% highlight css %}
 a {
@@ -163,7 +167,8 @@ a {
     transition: none;
 }
 /* Example styles */
-.example-1:link {
+.example-1:link,
+.example-1:visited {
     border-bottom: 0;
     color: blue;
     text-decoration: none;
@@ -174,7 +179,8 @@ a {
     border-bottom: 1px solid maroon;
     color: #639;
 }
-.example-2:link {
+.example-2:link,
+.example-2:visited {
     border-bottom: 0;
     color: blue;
     text-decoration: none;
@@ -185,7 +191,8 @@ a {
     border-bottom: 1px solid;
     color: #639;
 }
-.example-3:link {
+.example-3:link,
+.example-3:visited {
     display: inline-block;
     border-bottom: 0;
     color: blue;
@@ -197,7 +204,8 @@ a {
     border-bottom: 4px solid;
     color: #639;
 }
-.example-4:link {
+.example-4:link,
+.example-4:visited {
     border-bottom: 1px solid transparent;
     color: blue;
     text-decoration: none;

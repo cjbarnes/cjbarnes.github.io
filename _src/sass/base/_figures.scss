@@ -141,8 +141,35 @@ figure.code {
         overflow: visible;
     }
 
+    /* Hairline space between codeblocks. */
+    + figure.code {
+        @include rem("margin-top", ($line * -1));
+        border-top: 1px solid $background-color-content;
+    }
+
 }
 
+/* Codeblock output areas. */
+figure.output {
+    background: #fff;
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    /* No spacing between code and output figures. */
+    + figure.code,
+    figure.code + & {
+        @include rem("margin-top", ($line * -1));
+    }
+
+    /* Match icon color/border to background. */
+    + figure.code code:before {
+        border-color: #fff;
+        color: #fff;
+    }
+
+}
 
 /* Figures on single-article pages. */
 .content-section figure {
