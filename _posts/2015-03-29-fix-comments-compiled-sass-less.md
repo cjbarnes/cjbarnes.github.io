@@ -69,7 +69,7 @@ a:focus {
 {% endhighlight %}
 </figure>
 
-In this example, comments starting with `//` have been removed,[^2] but otherwise the comments are all where the author would expect them to be.
+In this example, comments starting with `//` have been removed, and the other comments are all where the author would expect them to be.
 
 However, the results are very different when we introduce **comments for nested selectors** and **inline comments**:
 
@@ -134,7 +134,7 @@ a:active {
 
 Not very helpful. The comments for `&:hover` and `&:active` are under the wrong selector; those comments are outputted in one long block, which is confusing and harder to read; and the inline comment `/* 1 */` looks like it relates to text-decoration rather than colour because it was moved to the next line. Worst of all, the numbered inline comments[^3] are in a different block to the 'Link active styling' comment that provides explanations to match the numbers!
 
-What we can see from this is that Sass does not understand that a comment on the line before a selector must relate to that selector rather than its containing block. Sass also cannot keep inline comments on the same lines as the code they relate to. Less shares these problems, producing identical output in this case.
+Sass does not understand that *comment lines normally explain the code immediately below them*, and when code and comments are together on one line, *the comment explains the code on the same line*. Both of these conventions are obvious, but when nesting is used, Sass separates the comments from the code so that you cannot tell which line of code the comment was before or next to. (And Less does the same thing.)
 
 In one edge case, Sass's approach to comments can even result in unnecessary blocks appearing in the compiled CSS: 
 
@@ -185,12 +185,6 @@ None of the example comments I've used that cause problems for Sass and Less are
 ## ways around this problem
 
 Let's cut to the last page: **Either we must abandon our near-universal CSS commenting style, or Sass and Less must get smarter with their comment handling.**
-
-<figure class="quote">
-> I can’t change the direction of the wind, but I can adjust my sails to always reach my destination.
-
-<cite>Jimmy Dean</cite>
-</figure>
 
 Until Sass and Less change (if they ever do), we need a way to get sensible comments output from our code using the tools that we have.
 
@@ -313,8 +307,6 @@ Whether we adopt this or another solution, I hope this post has shown that:
     For example, frameworks such as [Bootstrap](http://getbootstrap.com) or [the WordPress starter theme Underscores](http://underscores.me) are written in Sass or Less, but are still useful to developers that don't use these preprocessors. Those developers read and manually change the framework's compiled CSS instead of modifying the Sass/Less. Even if you don't work on this sort of project, the compiled CSS should still be a priority for you if you're a freelancer or a one-person development team. Your code may be handed on to someone else to develop or fix in the future (e.g. if you move on to another job), and if your successor doesn't use the same preprocessor as you, they are likely to start with your compiled CSS instead of your source files.
     
     Our unminified CSS output deserves attention. However, compiled CSS is much less useful if our code comments aren't included (or even worse, if the comments are outputted in the wrong places). This is why we need a workaround for Sass's and Less's comment problems.
-
-[^2]: The `//` prefix is a feature in both Sass and Less, used to differentiate comments that should and shouldn't be present in compiled CSS.
 
 [^3]: This type of inline comment is used by [Idiomatic CSS](https://github.com/necolas/idiomatic-css#5-practical-example)---arguably the most well-known CSS coding style standard---and in the extraordinarily popular [Normalize.css reset](https://github.com/necolas/normalize.css/blob/master/normalize.css) by the same author.
 
