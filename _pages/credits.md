@@ -48,6 +48,7 @@ First things first: all web design and writing on this website is by Chris Barne
 :  ['An iPhone 5S in a Car'](http://picjumbo.com/an-iphone-5s-in-a-car/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
    
 [blog](/blog/) photos:
+:  ['Magazine Article Layout'](https://www.flickr.com/photos/kylethale/8245070425) by Kyle Hale on [Flickr](https://www.flickr.com/photos/kylethale/)
    
 
 Apple, the Apple logo and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries.
