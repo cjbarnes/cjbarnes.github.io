@@ -65,6 +65,11 @@ figure.quote {
     blockquote {
         margin-top: 0;
         margin-bottom: 0;
+
+        .listing-content & {
+            margin: 0;
+        }
+
     }
 
     /*

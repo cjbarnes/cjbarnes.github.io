@@ -721,6 +721,9 @@ figure.quote blockquote {
     margin-top: 0;
     margin-bottom: 0;
 }
+.listing-content figure.quote blockquote {
+    margin: 0;
+}
 figure.quote cite {
     font-style: normal;
 }
