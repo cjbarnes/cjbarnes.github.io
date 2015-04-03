@@ -896,9 +896,11 @@ figure.output + figure.code code:before {
 }
 .content-section figure.link:before {
     content: "\e631";
+    background-color: #5e8c88;
 }
 .content-section figure.quote:before {
     content: "\201d";
+    background-color: #b1784f;
 }
 
 /**

@@ -125,8 +125,8 @@ $language-colors: (
 
 // Icon colours for figures within content.
 $figure-colors: (
-    "link":  map-get($format-colors, "link"),
-    "quote": map-get($format-colors, "quote")
+    "link":  $patina,
+    "quote": $santa-fe
 );
 
 // Contact detail colours.
