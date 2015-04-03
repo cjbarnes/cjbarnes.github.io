@@ -3386,7 +3386,7 @@ article.illustrated footer .date-unit {
     color: #e0d7cb;
 }
 .listing-item.post-project:before {
-    content: "\e626";
+    content: "\e621";
 }
 .listing-item.post-tutorial:before {
     content: "\e637";
@@ -3591,7 +3591,7 @@ article.illustrated footer .date-unit {
     color: #e9e6df;
 }
 .minilisting-item.post-project:before {
-    content: "\e626";
+    content: "\e621";
 }
 .minilisting-item.post-tutorial:before {
     content: "\e637";
