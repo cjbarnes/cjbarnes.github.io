@@ -16,7 +16,7 @@
       {% endif %}
 
       {% if page.title %}
-        {% include title.html title=page.title link_href=page.link_href format=page.format %}
+        {% include title.html title=page.title link=page.link format=page.format %}
       {% else %}
         <div class="title"></div>
       {% endif %}
@@ -33,9 +33,9 @@
 
       {{ content }}
 
-      {% if page.link_href %}
+      {% if page.link %}
         <figure class="link link-article-link">
-          <a href="{{ page.link_href }}">
+          <a href="{{ page.link }}">
             <em>link:</em> {{ page.title }}
           </a>
         </figure>

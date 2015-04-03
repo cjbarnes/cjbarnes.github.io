@@ -896,11 +896,9 @@ figure.output + figure.code code:before {
 }
 .content-section figure.link:before {
     content: "\e631";
-    background-color: #5e8c88;
 }
 .content-section figure.quote:before {
     content: "\201d";
-    background-color: #b1784f;
 }
 
 /**
@@ -1612,8 +1610,16 @@ img::selection {
     /* Post formats */
     /* Illustrated article/page. */
 }
+.masthead-project .nav-logo {
+    color: #b1784f;
+    box-shadow: none;
+}
 .masthead-tutorial .nav-logo {
     color: #7c4938;
+    box-shadow: none;
+}
+.masthead-tip .nav-logo {
+    color: #c5a184;
     box-shadow: none;
 }
 .masthead-thoughts .nav-logo {
@@ -1624,20 +1630,8 @@ img::selection {
     color: #2b9759;
     box-shadow: none;
 }
-.masthead-link .nav-logo {
-    color: #5e8c88;
-    box-shadow: none;
-}
 .masthead-page .nav-logo {
     color: #a17167;
-    box-shadow: none;
-}
-.masthead-quote .nav-logo {
-    color: #b1784f;
-    box-shadow: none;
-}
-.masthead-tip .nav-logo {
-    color: #c5a184;
     box-shadow: none;
 }
 .masthead-illustrated .nav-logo {
@@ -2290,11 +2284,23 @@ article.illustrated footer .date-unit {
         /* Light background image. */
         /* Illustrated article/page. */
     }
+    .masthead-project .nav:hover,
+    .masthead-project .nav:hover .nav-logo,
+    .masthead-project .nav:hover .nav-level-2 {
+        background: #6b482f;
+        background: rgba(107, 72, 47, 0.8);
+    }
     .masthead-tutorial .nav:hover,
     .masthead-tutorial .nav:hover .nav-logo,
     .masthead-tutorial .nav:hover .nav-level-2 {
         background: #362018;
         background: rgba(54, 32, 24, 0.8);
+    }
+    .masthead-tip .nav:hover,
+    .masthead-tip .nav:hover .nav-logo,
+    .masthead-tip .nav:hover .nav-level-2 {
+        background: #9a6d49;
+        background: rgba(154, 109, 73, 0.8);
     }
     .masthead-thoughts .nav:hover,
     .masthead-thoughts .nav:hover .nav-logo,
@@ -2308,29 +2314,11 @@ article.illustrated footer .date-unit {
         background: #14482a;
         background: rgba(20, 72, 42, 0.8);
     }
-    .masthead-link .nav:hover,
-    .masthead-link .nav:hover .nav-logo,
-    .masthead-link .nav:hover .nav-level-2 {
-        background: #354f4d;
-        background: rgba(53, 79, 77, 0.8);
-    }
     .masthead-page .nav:hover,
     .masthead-page .nav:hover .nav-logo,
     .masthead-page .nav:hover .nav-level-2 {
         background: #64443e;
         background: rgba(100, 68, 62, 0.8);
-    }
-    .masthead-quote .nav:hover,
-    .masthead-quote .nav:hover .nav-logo,
-    .masthead-quote .nav:hover .nav-level-2 {
-        background: #6b482f;
-        background: rgba(107, 72, 47, 0.8);
-    }
-    .masthead-tip .nav:hover,
-    .masthead-tip .nav:hover .nav-logo,
-    .masthead-tip .nav:hover .nav-level-2 {
-        background: #9a6d49;
-        background: rgba(154, 109, 73, 0.8);
     }
     .masthead-reversed .nav:hover,
     .masthead-reversed .nav:hover .nav-logo,
@@ -2856,12 +2844,28 @@ article.illustrated footer .date-unit {
  * Article header.
  */
 /* Output header colours for each post/item format. */
+.header-project,
+.masthead-project .date-unit,
+.listing .post-project:before,
+.minilisting .post-project,
+.minilisting .post-project:before {
+    background: #b1784f;
+}
+
 .header-tutorial,
 .masthead-tutorial .date-unit,
 .listing .post-tutorial:before,
 .minilisting .post-tutorial,
 .minilisting .post-tutorial:before {
     background: #7c4938;
+}
+
+.header-tip,
+.masthead-tip .date-unit,
+.listing .post-tip:before,
+.minilisting .post-tip,
+.minilisting .post-tip:before {
+    background: #c5a184;
 }
 
 .header-thoughts,
@@ -2880,36 +2884,12 @@ article.illustrated footer .date-unit {
     background: #2b9759;
 }
 
-.header-link,
-.masthead-link .date-unit,
-.listing .post-link:before,
-.minilisting .post-link,
-.minilisting .post-link:before {
-    background: #5e8c88;
-}
-
 .header-page,
 .masthead-page .date-unit,
 .listing .post-page:before,
 .minilisting .post-page,
 .minilisting .post-page:before {
     background: #a17167;
-}
-
-.header-quote,
-.masthead-quote .date-unit,
-.listing .post-quote:before,
-.minilisting .post-quote,
-.minilisting .post-quote:before {
-    background: #b1784f;
-}
-
-.header-tip,
-.masthead-tip .date-unit,
-.listing .post-tip:before,
-.minilisting .post-tip,
-.minilisting .post-tip:before {
-    background: #c5a184;
 }
 
 /* Illustrated post and blog index header colours. */
@@ -3380,7 +3360,6 @@ article.illustrated footer .date-unit {
     /* Icon colours and fonts.. */
     /* Loop through icons themselves. */
     /* No icon for illustrated articles in full-size listings. */
-    /* Quote post custom styling. */
     /* Link post custom styling. */
     /* Illustrated post custom styling. */
 }
@@ -3406,26 +3385,23 @@ article.illustrated footer .date-unit {
     font-family: "cj-icons";
     color: #e0d7cb;
 }
+.listing-item.post-project:before {
+    content: "\e626";
+}
 .listing-item.post-tutorial:before {
     content: "\e637";
-}
-.listing-item.post-thoughts:before {
-    content: "\e61a";
-}
-.listing-item.post-link:before {
-    content: "\e631";
-}
-.listing-item.post-page:before {
-    content: "";
-}
-.listing-item.post-quote:before {
-    content: "\201d";
 }
 .listing-item.post-tip:before {
     content: "\e630";
 }
+.listing-item.post-thoughts:before {
+    content: "\e61a";
+}
 .listing-item.post-off-topic:before {
     content: "\e628";
+}
+.listing-item.post-page:before {
+    content: "";
 }
 .listing-item.post-illustrated:before,
 .listing-item.page:before {
@@ -3433,11 +3409,6 @@ article.illustrated footer .date-unit {
 }
 .listing-item .content {
     background: #f5f5f5;
-}
-.listing-item.post-quote figure.quote {
-    margin-bottom: 0;
-    padding: 0;
-    background-color: transparent;
 }
 .listing-item.post-link {
     /* Make direct link box flush with footer top. */
@@ -3619,26 +3590,23 @@ article.illustrated footer .date-unit {
     font-family: "cj-icons";
     color: #e9e6df;
 }
+.minilisting-item.post-project:before {
+    content: "\e626";
+}
 .minilisting-item.post-tutorial:before {
     content: "\e637";
-}
-.minilisting-item.post-thoughts:before {
-    content: "\e61a";
-}
-.minilisting-item.post-link:before {
-    content: "\e631";
-}
-.minilisting-item.post-page:before {
-    content: "";
-}
-.minilisting-item.post-quote:before {
-    content: "\201d";
 }
 .minilisting-item.post-tip:before {
     content: "\e630";
 }
+.minilisting-item.post-thoughts:before {
+    content: "\e61a";
+}
 .minilisting-item.post-off-topic:before {
     content: "\e628";
+}
+.minilisting-item.post-page:before {
+    content: "";
 }
 .minilisting-item.post-illustrated:before {
     background: #222;

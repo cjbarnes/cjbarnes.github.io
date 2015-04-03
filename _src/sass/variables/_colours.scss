@@ -101,13 +101,12 @@ $color-tags: $oslo-grey;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
+    "project":   $santa-fe,
     "tutorial":  $ironstone,
+    "tip":       $indian-khaki,
     "thoughts":  $oslo-grey,
     "off-topic": $eucalyptus,
-    "link":      $patina,
-    "page":      $toast,
-    "quote":     $santa-fe,
-    "tip":       $indian-khaki
+    "page":      $toast
 );
 
 // Programming language brand colours.

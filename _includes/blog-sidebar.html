@@ -68,7 +68,7 @@
   <section class="sidebar-section sidebar-filter-section sidebar-formats js-formats-section open">
     <h3 class="sidebar-section-title screen-reader-only">types</h3>
     <ul class="sidebar-listing formats-listing">
-    {% assign formats = "thoughts|tutorial|tip|link|quote|off-topic" | split: "|" %}
+    {% assign formats = "project|tutorial|tip|thoughts|off-topic" | split: "|" %}
     {% for format in formats %}
       <li class="sidebar-listing-item formats-listing-item format-{{ format }}">
         <a data-format="{{ format }}">{{ format }} posts</a>
