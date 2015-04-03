@@ -1623,7 +1623,7 @@ img::selection {
     box-shadow: none;
 }
 .masthead-thoughts .nav-logo {
-    color: #808e90;
+    color: #5e8c88;
     box-shadow: none;
 }
 .masthead-off-topic .nav-logo {
@@ -2305,8 +2305,8 @@ article.illustrated footer .date-unit {
     .masthead-thoughts .nav:hover,
     .masthead-thoughts .nav:hover .nav-logo,
     .masthead-thoughts .nav:hover .nav-level-2 {
-        background: #4f595b;
-        background: rgba(79, 89, 91, 0.8);
+        background: #354f4d;
+        background: rgba(53, 79, 77, 0.8);
     }
     .masthead-off-topic .nav:hover,
     .masthead-off-topic .nav:hover .nav-logo,
@@ -2873,7 +2873,7 @@ article.illustrated footer .date-unit {
 .listing .post-thoughts:before,
 .minilisting .post-thoughts,
 .minilisting .post-thoughts:before {
-    background: #808e90;
+    background: #5e8c88;
 }
 
 .header-off-topic,

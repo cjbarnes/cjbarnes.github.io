@@ -103,7 +103,7 @@
 }
 .sidebar-listing-item.format-thoughts:before {
     content: "\e61a";
-    color: #808e90;
+    color: #5e8c88;
 }
 .sidebar-listing-item.format-off-topic:before {
     content: "\e628";
