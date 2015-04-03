@@ -2,30 +2,30 @@
 #
 # Used for filtering post lists.
 
-- name: wordpress
-  title: WordPress
-
-- name: php
-  title: PHP
-
-- name: jekyll
-  title: Jekyll
-
-- name: sass
-  title: Sass
-
-- name: less
-  title: Less
-
-- name: jquery
-  title: jQuery
-
-- name: javascript
-  title: JavaScript
-
 - name: css
   title: CSS
 
 - name: html
   title: HTML
+
+- name: javascript
+  title: JavaScript
+
+- name: jekyll
+  title: Jekyll
+
+- name: jquery
+  title: jQuery
+
+- name: less
+  title: Less
+
+- name: php
+  title: PHP
+
+- name: sass
+  title: Sass
+
+- name: wordpress
+  title: WordPress
 
