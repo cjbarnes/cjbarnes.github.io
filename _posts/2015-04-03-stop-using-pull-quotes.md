@@ -3,6 +3,8 @@ title: stop using pull quotes!
 format: thoughts
 tags:
 - design
+languages:
+- HTML
 illustration: pullquote
 masthead: light
 ---
