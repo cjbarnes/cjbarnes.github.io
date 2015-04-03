@@ -1,39 +1,39 @@
-/**
- * Basic link styling
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Basic link styling
 
-/*
- * 1. Declare cursor explicitly for JS-added links with no href.
- */
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
 a {
     padding: $link-padding;
     border-bottom: 1px solid;
     color: $link-color-secondary;
     text-decoration: none;
     transition: all $link-transition-duration ease-in-out;
-    cursor: pointer; /* 1 */
+    /* Declare cursor explicitly for JS-added links with no href. */
+    cursor: pointer;
 
     &:visited {
         color: $link-color-secondary;
     }
 
-    /* Internal links */
     &:hover,
     &:focus {
+    /*** Internal links.
+     ***/
         border-color: $link-color-secondary;
         color: $text-color-reversed;
         background-color: $link-color-secondary;
     }
 
-    /* External links */
     &[href^="http:"],
     &[href^="https:"],
     &[href^="mailto:"],
     &[href^="tel:"],
     &[href^="skype:"] {
+    /*** External links.
+     ***/
         color: $link-color;
 
         &:hover,
@@ -45,12 +45,11 @@ a {
 
     }
 
-    /*
-     * Clicked links.
-     * 1. The [href] is to override external links' specificity.
-     */
     &:active,
-    &[href]:active { /* 1 */
+    &[href]:active {
+    /*** Clicked links. (The [href] selector is to override external links'
+     *** specificity.)
+     ***/
         border-color: $link-color-active;
         color: $text-color-reversed;
         background-color: $link-color-active;
@@ -59,10 +58,9 @@ a {
 
 }
 
-/*
- * Tag links.
- * 1. Don't line-break within a tag (it's confusing).
- */
 .tag {
-    white-space: nowrap; /* 1 */
+/*** Tag links.
+ ***/
+    /* Don't line-break within a tag (it's confusing). */
+    white-space: nowrap;
 }

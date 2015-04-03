@@ -1,20 +1,21 @@
-/**
- * Layout for the two footers: 'site footer' (the lower of the two footers) and
- * 'page footer' (the upper).
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Layout for the two footers: 'site footer' (the lower of the two footers) and
+   'page footer' (the upper).
 
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/* Footer columns - contact details, smallprint, latest posts, etc. */
 .footer-section {
+/*** Footer columns - contact details, smallprint, latest posts, etc.
+ ***/
     @include rem("margin", ($line * 2) $gutter 0);
     list-style: none;
 }
 
-/* Remove excess header spacing. */
 .footer-section-title {
+/*** Remove excess header spacing.
+ ***/
     @include rem("margin", 0 0 $line);
     @include font-size-leading("large");
 
@@ -25,36 +26,28 @@
 }
 
 
-/**
- * Page footer.
- */
+/* Page footer.
+   ========================================================================== */
 
-/*
- * 1. For alignment of button toolbars and pagination links.
- */
 .page-footer {
-    @include clearfix;
     @include rem("min-height", ($line * 3));
     clear: both;
-    position: relative; /* 1 */
+    /* For alignment of button toolbars and pagination links. */
+    position: relative;
     background: $background-color-page-footer;
 }
 
 
-/**
- * Site footer.
- */
+/* Site footer.
+   ========================================================================== */
 
-/*
- * 1. For alignment of button toolbars and pagination links.
- */
 .site-footer {
-    @include clearfix;
     @include rem("min-height", ($line * 4));
     @include rem("padding-bottom", $line);
     clear: both;
     z-index: 3;
-    position: relative; /* 1 */
+    /* For alignment of button toolbars and pagination links. */
+    position: relative;
     background: $background-color-site-footer;
     color: $text-color-site-footer;
 }
@@ -70,58 +63,49 @@
 
 }
 
-/*
- * Contact details icons.
- * 1. Override i element styling.
- */
 .contact-label {
+/*** Contact details icons.
+ ***/
     font-family: $font-family-icons;
-    font-style: normal; /* 1 */
+    /* Override i element styling. */
+    font-style: normal;
     color: $text-color-site-footer; // @todo try deleting this
 }
 
-
-
-/* Utility links and terms of use section. */
 .smallprint {
+/*** Utility links and terms of use section.
+ ***/
     margin-top: 0;
     text-align: right;
 }
 
-
-/* Copyright. */
 .smallprint-item-copyright {
+/*** Copyright.
+ ***/
     @include font-size-leading("small");
     color: $text-color-site-footer; // @todo try deleting this
 }
 
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
-@include media-width("footer-two-columns") {
+/* Media queries.
+   ========================================================================== */
 
-    /*
-     * The two footer sections (columns).
-     *
-     * Half the footer width. Less vertical spacing, more horizontal
-     * spacing.
-     */
+@include media-width("footer-two-columns") {
+/*** Media query: Tablets and wider.
+ ***/
     .footer-section {
+    /*** The two footer sections (columns). Half the footer width, less vertical
+     *** spacing, more horizontal spacing. */
         @include column(($columns / 2));
         @include rem("margin", $line 0 0);
         @include rem("padding", 0 $line);
     }
 
-    /*
-     * Extra spacing for top-footer sections, to leave room for a button bar,
-     * and maximum column width to avoid layout oddities.
-     */
     .page-footer-section {
+    /*** Extra spacing for top-footer sections, to leave room for a button bar,
+     *** and maximum column width to avoid layout oddities. */
         @include rem("padding-bottom", ($line * 1.5));
         max-width: 575px;
     }
 
-} //include media-width(normal-size)
+}

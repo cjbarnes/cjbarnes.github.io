@@ -1,9 +1,9 @@
-/**
+/* ==========================================================================
  * Reusable component for the cJ logo, usually with the containing circle
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 
 .logo {
     @include circle($line-px * 2);
@@ -16,9 +16,8 @@
 }
 
 
-/**
- * Main site logo in navbar.
- */
+/* Main site logo in navbar.
+   ========================================================================== */
 
 .nav-logo {
     @include rem("margin", $logo-margin $logo-margin 0 0);
@@ -28,7 +27,7 @@
     color: $logo-color-dark;
     transition: all 0.5s ease-in-out;
 
-    /* Post formats */
+    // Post formats.
     @each $format, $color in $format-colors {
         .masthead-#{$format} & {
             color: $color;
@@ -36,8 +35,9 @@
         }
     }
 
-    /* Illustrated article/page. */
     .masthead-illustrated & {
+    /*** Illustrated article/page.
+     ***/
         color: $background-color-illustrated;
         box-shadow: 0 0 10px $black;
     }
@@ -49,63 +49,53 @@
 
 }
 
-/* Colour changes for navbar logo on light backgrounds. */
-.masthead-reversed {
-
-    /* Darker logo for more contrast with light pictures. */
-    .nav-logo {
-        @include alpha("background", $logo-color-dark, 0.6);
-        box-shadow: 0 0 10px $white;
-        color: $logo-color-light;
-    }
-
+.masthead-reversed .nav-logo {
+/*** Darker logo for more contrast with light pictures.
+ ***/
+    @include alpha("background", $logo-color-dark, 0.6);
+    box-shadow: 0 0 10px $white;
+    color: $logo-color-light;
 }
 
 
-/**
- * Footer logo - hidden for mobile.
- */
+/* Footer logo.
+   ========================================================================== */
 
 .footer-logo {
+    /* Hidden for mobile. */
     display: none;
 }
 
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
-@include media-width("normal-size") {
+/* Media queries.
+   ========================================================================== */
 
-    /*
-     * Ornamental cJ logo in lower footer.
-     * 1. Horizontal centring for abs-pos element.
-     * 2. Hidden for mobiles.
-     */
+@include media-width("normal-size") {
+/*** Media query: Tablets and wider.
+ ***/
     .footer-logo {
+    /*** Ornamental cJ logo in lower footer.
+     ***/
         @include rem("bottom", ($line * 2));
-        @include rem("margin", 0 0 0 ($line * -1)); /* 1 */
+        /* Horizontal centring. */
+        @include rem("margin", 0 0 0 ($line * -1));
         @include font-size-leading("gigantic", 2);
         position: absolute;
-        left: 50%; /* 1 */
-        display: block; /* 2 */
+        /* Horizontal centring. */
+        left: 50%;
+        /* Was hidden for mobiles. */
+        display: block;
         text-shadow: 0 0 5px lighten($background-color-site-footer, 15%);
         color: $background-color-site-footer;
     }
 
 }
 
-
-/**
- * Media query.
- *
- * Horizontal nav layout.
- */
 @include media-width("nav-horizontal") {
-
-    /* Bigger margins for logo. */
+/*** Media query: Horizontal nav layout.
+ ***/
     .nav-logo {
+        /* Bigger margins for logo. */
         @include rem("margin", ($line / 2) $line 0 0);
     }
 

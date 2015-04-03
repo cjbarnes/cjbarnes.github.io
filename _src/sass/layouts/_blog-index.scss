@@ -1,78 +1,61 @@
-/**
- * Blog index styling
- *
- * The sidebar's filter options are styled separately in CSS files loaded using
- * JavaScript, since the filter options are Ajax-loaded.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Blog index styling
+
+   The sidebar's filter options are styled separately in CSS files loaded using
+   JavaScript, since the filter options are Ajax-loaded.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
 
-/*
- * Blog content area.
- * 1. We space out the container instead of the interior content, since we're
- *    using a two-column layout and also not using `content-section` elements.
- * 2. Background colour to avoid beyond-max-width pattern showing through.
- */
 .blog-content {
     @include rem("padding-top",    ($line * 3));
     @include rem("padding-bottom", ($line * 2.5));
+    /* Background colour to avoid beyond-max-width pattern showing through. */
     background: $background-color;
 }
 
-/* All content columns are full width for mobile. */
 .sidebar {
-  @include column($columns);
+    /* All content columns are full width for mobile. */
+    @include column($columns);
 }
 
-
-/**
- * Media query.
- *
- * Tablets and above.
- */
 @include media-width("normal-size") {
-
-    /* Content is still single-column, but with bigger margins, on tablets. */
+/*** Media query: Tablets and above.
+ ***/
     .sidebar {
+    /*** Content is still single-column, but with bigger margins, on tablets.
+     ***/
         @include column(10);
         @include push;
         @include pull;
     }
 
-} //include media-width(normal-size)
+}
 
-
-/**
- * Media query.
- *
- * Wide enough for two-column layout.
- */
 @include media-width("two-columns") {
-
-    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+/*** Media query: Wide enough for two-column layout.
+ ***/
     .sidebar {
+    /*** Lay out sidebar as a sidebar (only happens for widest layouts).
+     ***/
         @include column(4);
         @include push(0);
         @include pull(0);
     }
 
-} //include media-width(two-columns)
+}
 
-
-/**
- * Media query.
- *
- * Greater white space between the main content and sidebar.
- */
 @include media-width("more-column-spacing") {
-
-    /* Lay out sidebar as a sidebar (only happens for widest layouts). */
+/*** Media query: Greater white space between the main content and sidebar.
+ ***/
     .sidebar {
+    /*** Lay out sidebar as a sidebar (only happens for widest layouts).
+     ***/
         @include column(3);
         @include push(0);
         @include pull(0);
     }
 
-} //include media-width(more-column-spacing)
+}

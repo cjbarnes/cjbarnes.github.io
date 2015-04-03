@@ -1,16 +1,14 @@
-/**
- * Contact details layout.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Contact details layout.
 
-.contact-details-list {
-    @include clearfix;
-}
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/* Icon labels. */
+
 .contact-details-label {
+/*** Icon labels.
+ ***/
     @include circle;
     @include rem("margin-top", $line);
     @include font-size("huge");
@@ -24,7 +22,7 @@
         display: block;
     }
 
-    /* Colours. */
+    // Colours.
     @each $field, $color in $circle-list-colors {
         &.#{$field} {
             color: $color;
@@ -33,8 +31,9 @@
 
 }
 
-/* All contact details text. */
 .contact-details-data {
+/*** All contact details text.
+ ***/
     @include font-size-leading("large", 1.5);
     @include rem("margin-top", $line);
     float: left;
@@ -48,13 +47,9 @@
 
 }
 
-/**
- * Media queries.
- *
- * Wide enough for properly spaced side-by-side-addresses.
- */
 @include media-width("address-two-columns") {
-
+/*** Media query: Wide enough for properly spaced side-by-side-addresses.
+ ***/
     .contact-details-data address {
         @include rem("margin-right", ($line * 2));
     }

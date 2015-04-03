@@ -1,9 +1,9 @@
-/**
+/* ==========================================================================
  * Bulleted and numbered lists, and definition lists
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 
 ol,
 ul,
@@ -20,8 +20,8 @@ dl {
         @include font-size-leading("small");
     }
 
-    /* Remove margins and reduce space between for paragraphs within lists. */
     p {
+        /* Remove margins and reduce space-between for paras. within lists. */
         @include rem("margin", ($line / 2) 0 0);
 
         &:first-child {
@@ -30,15 +30,16 @@ dl {
 
     }
 
-    /* Nested list margins */
     & & {
+        /* Nested list margins. */
         @include rem("margin-left", ($line / 2));
     }
 
 }
 
-/* Nested list styles */
 li ol {
+/*** Nested list styles.
+ ***/
     list-style-type: lower-alpha;
 
     li & {
@@ -47,25 +48,24 @@ li ol {
 
 }
 
-/* Double-nested list sizes and margins */
 li li li {
+/*** Double-nested list sizes and margins.
+ ***/
     @include rem("margin-left", ($line / 2));
     @include font-size-leading("small");
 }
 
-/**
- * Media queries.
- *
- * Tablets or wider.
- */
-@include media-width("normal-size") {
 
-    /* Leave more margin around text. */
+@include media-width("normal-size") {
+/*** Media query: Tablets or wider.
+ ***/
     ol,
     ul,
     dl {
+    /*** Leave more margin around lists' text.
+     ***/
         @include push;
         @include pull;
     }
 
-} //include media-width(normal-size)
+}

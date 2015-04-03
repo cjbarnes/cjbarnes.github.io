@@ -1,26 +1,24 @@
-/**
- * Article header/footer and container styles, used on both single posts/pages
- * and for post indexes. (See also `_content.scss` and `_title.scss`, among
- * others.)
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Article header/footer and container styles, used on both single posts/
+   pages and for post indexes
 
+   (See also `_content.scss` and `_title.scss`, among others.)
 
-/* White background for article contents. */
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
 .post,
 .page {
-    @include clearfix;
+    /* White background for article contents. */
     background: $background-color-content;
 }
 
 
-/**
- * Article header.
- */
+/* Article header.
+   ========================================================================== */
 
-/* Output header colours for each post/item format. */
+// Output header colours for each post/item format.
 @each $format, $color in $format-colors {
     .header-#{$format},
     .masthead-#{$format} .date-unit,
@@ -31,77 +29,35 @@
     }
 }
 
-/* Illustrated post and blog index header colours. */
 .header-illustrated,
 .masthead-illustrated .date-unit,
 .blog-page .masthead,
 .listing .post-illustrated:before,
 .minilisting .post-illustrated,
 .minilisting .post-illustrated:before {
+/*** Illustrated post and blog index header colours.
+ ***/
     background: $background-color-illustrated;
 }
 
-/*
- * Additional link styling for Link and Project items. Make links visible when
- * in the header area.
- */
-.header-link a,
-.header-project a {
-
-    &:hover,
-    &:focus {
-        border-color: $text-color-reversed;
-        background: $text-color-reversed;
-        color: $link-color;
-    }
-
-    &:active {
-        border-color: $link-color-active;
-        background: $link-color-active;
-        color: $text-color-reversed;
-    }
-
+.post-featured {
+/*** Featured articles.
+ ***/
+    /* For article footer positioning. */
+    position: relative;
+    background-color: $background-color-illustrated;
 }
 
 
-/**
- * My Approach timeline 'steps'.
- */
+/* Article footer (metadata section).
+   ========================================================================== */
 
-/* Standard steps. */
-.step:before,
-.step-header {
-    background: $color-step;
-}
-
-/* Launch step. */
-.step-launch {
-
-    &:before,
-    .step-header {
-        background: $color-step-launch;
-    }
-
-    /* 'what you get' subheading. */
-    .step-footer h3 {
-        color: $color-step-launch;
-    }
-
-}
-
-
-/**
- * Article footer (metadata section).
- */
-
-/*
- * 1. For metadata elements' positioning.
- */
 .listing-footer,
 .post-featured-footer {
     @include rem("min-height", ($line * 3));
     @include rem("padding-bottom", ($line * 0.5));
-    position: relative; /* 1 */
+    /* For metadata elements' positioning. */
+    position: relative;
     z-index: 3;
     text-align: center;
     background: $background-color-page-footer;
@@ -112,28 +68,18 @@
     font-family: $font-family-icons;
 }
 
-
-/*
- * Featured articles.
- * 1. For article footer positioning.
- */
-.post-featured {
-    @include clearfix;
-    position: relative; /* 1 */
-    background-color: $background-color-illustrated;
-}
-
-/* Metadata footer for featured articles. */
 .post-footer.post-featured-footer {
+/*** Metadata footer for featured articles.
+ ***/
     @include rem("height", $line);
     min-height: 0;
     background: transparent;
 
-    /*
-     * Adjust metadata colours and sizes to match the dark/full-width masthead.
-     */
     .post-footer-link,
     .post-footer-permalink {
+    /*** Adjust metadata colours and sizes to match the dark/full-width
+     *** masthead.
+     ***/
         @include font-size-leading("large");
         color: $text-color-reversed;
     }
@@ -141,13 +87,13 @@
 }
 
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
-@include media-width("normal-size") {
 
+/* Media queries.
+   ========================================================================== */
+
+@include media-width("normal-size") {
+/*** Media query: Tablets and wider.
+ ***/
     .post-footer-link {
         @include rem("margin-left", $gutter);
     }
@@ -157,22 +103,22 @@
         @include rem("margin-right", $gutter);
     }
 
-    /* Metadata alignment. */
     .listing-footer,
     .post-featured-footer {
+    /*** Metadata alignment.
+     ***/
         padding-bottom: 0;
 
-        /*
-         * Left- and right-aligned metadata fields.
-         * 1. Vertical centring in footer line. The footer min-height is 3
-         *    lines, and the field height is 1 line; so there should be 1 line
-         *    above and 1 line below the metadata field. 0.2rem compensates for
-         *    the standard 0.2em padding applied to all links by default.
-         */
         .post-footer-permalink,
         .post-footer-link,
         .go-to-site {
-            @include rem("top", ($line - 0.2rem)); /* 1 */
+        /*** Left- and right-aligned metadata fields.
+         ***/
+            /* Vertical centring in footer line. The footer min-height is 3
+             * lines, and the field height is 1 line; so there should be 1 line
+             * above and 1 line below the metadata field. 0.2rem compensates for
+             * the standard 0.2em padding applied to all links by default. */
+            @include rem("top", ($line - 0.2rem));
             position: absolute;
             display: block;
             padding-left: 0;
@@ -192,8 +138,9 @@
 
     }
 
-    /* Featured article footers. */
     .post-featured-footer {
+    /*** Featured article footers.
+     ***/
         @include column(8);
         @include push(2);
         @include pull(2);
@@ -210,4 +157,4 @@
 
     }
 
-} //include media-width(normal-size)
+}

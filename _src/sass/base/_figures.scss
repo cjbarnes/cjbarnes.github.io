@@ -1,41 +1,46 @@
-/**
- * Figure styles
- *
- * Includes special block-level tags e.g. blockquote, pre, address
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Figure styles
 
-/* Basic figure. */
+   Includes special block-level tags e.g. blockquote, pre, address.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
 figure {
+/*** Basic figure.
+ ***/
     @include rem("margin", $line 0);
     @include rem("padding", ($line / 2) 0);
     background: $background-color-figure;
 
-    /* Get rid of bottom spacing when this is the last element in the content */
     &:last-child {
+        /* Get rid of bottom spacing when this is the last element in the
+         * content. */
         margin-bottom: 0;
     }
 
 }
 
-/* Captions. */
 figcaption {
+/*** Captions.
+ ***/
     @include rem("margin", $line $gutter 0);
 }
 
-/**
- * Figure types.
- */
 
-/* Link figures. */
+/* Figure types.
+   ========================================================================== */
+
 figure.link {
+/*** Link figures.
+ ***/
     padding: 0 !important;
     background: $background-color-link;
 
-    /* The actual link inside the figure. */
     a {
+    /*** The actual link inside the figure.
+     ***/
         @include rem("padding", $line);
         @include font-size-leading("larger", 1.5);
         display: block;
@@ -56,10 +61,11 @@ figure.link {
 
     }
 
-} //figure.link
+}
 
-/* Quote figures. */
 figure.quote {
+/*** Quote figures.
+ ***/
     background: $background-color-quote;
 
     blockquote {
@@ -72,45 +78,39 @@ figure.quote {
 
     }
 
-    /*
-     * Make italicization of quote citations an explicit choice, so we can use
-     * italics for publications but not for people.
-     */
     cite {
+        /* Make italicization of quote citations an explicit choice, so we can
+         * use italics for publications but not for people. */
         font-style: normal;
     }
 
-    /* Citation marker. */
     figcaption:before,
     cite:before {
+    /*** Citation marker.
+     ***/
         content: "—";
     }
 
 }
 
-/*
- * Codeblocks.
- * 1. Same padding all around.
- */
 figure.code {
-    @include rem("padding-left", ($line / 2)); /* 1 */
-    @include rem("padding-right", ($line / 2)); /* 1 */
+/*** Codeblocks.
+ ***/
+    /* Same padding all around. */
+    @include rem("padding-left", ($line / 2));
+    @include rem("padding-right", ($line / 2));
     color: $text-color-reversed;
     background: $background-color-code;
 
-    /*
-     * The icon is applied to the code element, not the figure, so we can use
-     * the code's language class to style the icon.
-     */
     &:before {
+        /* The icon is applied to the code element, not the figure, so we can
+         * use the code's language class to style the icon. */
         display: none;
     }
 
-    /*
-     * Padding-top is applied to the code element, not the figure, so that the
-     * language icon is positioned correctly.
-     */
     .content-section & {
+        /* Padding-top is applied to the code element, not the figure, so that
+         * the language icon is positioned correctly. */
         padding-top: 0;
     }
 
@@ -121,15 +121,16 @@ figure.code {
         color: inherit;
         background: transparent;
 
-        /* Icon colours and fonts.. */
         &:before {
+        /*** Icon colours and fonts.
+         ***/
             @include font-size("huger");
             font-family: $font-family-icons;
             color: $text-color-reversed;
             background-color: $background-color-code;
         }
 
-        /* Icon colours. */
+        // Icon colours.
         @each $language, $color in $language-colors {
             &.language-#{$language}:before {
                 background-color: $color;
@@ -145,45 +146,50 @@ figure.code {
         overflow: visible;
     }
 
-    /* Hairline space between codeblocks. */
     + figure.code {
+    /*** Hairline space between codeblocks.
+     ***/
         @include rem("margin-top", ($line * -1));
         border-top: 1px solid $background-color-content;
     }
 
 }
 
-/* Codeblock output areas. */
 figure.output {
+/*** Codeblock output areas.
+ ***/
     background: #fff;
 
     > :first-child {
         margin-top: 0;
     }
 
-    /* No spacing between code and output figures. */
     + figure.code,
     figure.code + & {
+        /* No spacing between code and output figures. */
         @include rem("margin-top", ($line * -1));
     }
 
-    /* Match icon color/border to background. */
     + figure.code code:before {
+    /*** Match icon color/border to background.
+     ***/
         border-color: #fff;
         color: #fff;
     }
 
 }
 
-/* Figures on single-article pages. */
 .content-section figure {
+/*** Figures on single-article pages.
+ ***/
     @include rem("margin", ($line * 2) 0 $line);
     @include rem("padding-top",    ($line * 1.5));
     @include rem("padding-bottom", ($line * 1.5));
 
-    /* Icon layout. */
     &.link,
     &.quote {
+    /*** Icon layout.
+     ***/
         @include circle-box;
 
         &:before {
@@ -192,7 +198,7 @@ figure.output {
 
     }
 
-    /* Icon content and colours. */
+    // Icon content and colours.
     @each $figure, $color in $figure-colors {
         &.#{$figure}:before {
             content: map-get($figure-icons, $figure);
@@ -203,17 +209,16 @@ figure.output {
 }
 
 
-/**
- * Media queries.
- *
- * Tablets or wider.
- */
-@include media-width("normal-size") {
+/* Media queries.
+   ========================================================================== */
 
-    /* Leave more margin around text. */
+@include media-width("normal-size") {
+/*** Media query: Tablets or wider.
+ ***/
     figcaption {
+        /* Leave more margin around text. */
         @include push;
         @include pull;
     }
 
-} //include media-width(normal-size)
+}

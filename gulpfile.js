@@ -167,7 +167,7 @@ gulp.task('_compile-stylesheets', function () {
     .pipe(sass())
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(csscomb())
-    // Output non-minified version.
+    // Output non-minified version with original property order.
     .pipe(gulp.dest(paths.dest.sass))
     // Minify.
     .pipe(minifyCSS({

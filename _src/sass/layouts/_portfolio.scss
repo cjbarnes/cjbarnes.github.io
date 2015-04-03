@@ -1,20 +1,17 @@
-/**
- * Portfolio styling
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Portfolio styling
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
 
-/*
- * Portfolio entries.
- * 1. Prevent large-screenshot overlapping the right edge.
- */
 .portfolio-item {
-    overflow: hidden; /* 1 */
+    /* Prevent large-screenshot overlapping the right edge. */
+    overflow: hidden;
 
-    /* No icons. */
     &:before {
+        /* No icons. */
         display: none;
     }
 
@@ -22,22 +19,22 @@
         background: $background-color-portfolio-entry;
     }
 
-    /*
-     * Screenshot wrapper - shows a 'browser window' around the screenshot.
-     * 1. For horizontal centring.
-     */
     .screenshot {
-        position: relative; /* 1 */
+    /*** Screenshot wrapper - shows a 'browser window' around the screenshot.
+     ***/
+        position: relative;
+        /* For horizontal centring. */
         text-align: center;
         background: url("/img/browser-mobile.png") center top no-repeat;
 
-        /* Desktop screenshot. Not shown until there's room for it. */
         &.large {
+            /* Desktop screenshot not shown until there's room for it. */
             display: none;
         }
 
-        /* Mobile screenshot. */
         &.small {
+        /*** Mobile screenshot.
+         ***/
             @include rem("padding-top", ($line * 1.5));
             left: 50%;
             $width: 320px;
@@ -48,8 +45,9 @@
 
     }
 
-    /* Site title (in footer). */
     h3 {
+    /*** Site title (in listing item footer).
+     ***/
         @include rem("top", $line);
         position: absolute;
         width: 100%;
@@ -58,65 +56,55 @@
         color: $text-color;
     }
 
-} //.portfolio-listing
+}
 
-/*
- * Portfolio page item content.
- * 1. For screenshot positioning.
- */
 .portfolio .website .content {
+/** Portfolio page item content. */
     @include rem("padding", ($line * 2) 0 0);
-    position: relative; /* 1 */
+    /* For screenshot positioning. */
+    position: relative;
     width: 100%;
 }
 
-
-/**
- * Media query.
- *
- * Full portfolio layout.
- */
 @include media-width("portfolio-screenshots") {
-
-    /* The full-size screenshot wrapper. */
+/*** Media query: Full portfolio layout.
+ ***/
     .portfolio-listing .screenshot {
-
-        /*
-         * Desktop-scale screenshots.
-         * 1. Re-display this size of screenshot (hidden on thinner screens).
-         */
+    /*** The full-size screenshot wrapper.
+     ***/
         &.large {
+        /*** Desktop-scale screenshots.
+         ***/
             $width: 750px;
             @include rem("margin-left", $line);
             @include rem("padding-top", ($line * 1.5));
-            display: block; /* 1 */
+            /* Redisplay this size of screenshot (hidden on thinner screens). */
+            display: block;
             width: $width;
             height: 545px;
             background-image: url("/img/browser.png");
         }
 
-        /*
-         * Mobile screenshots.
-         * 1. Position mobile to the bottom-right, letting the desktop
-         *    screenshot take centre stage.
-         * 2. Cancel horizontal centring.
-         */
         &.small {
-            @include rem("right", $line); /* 1 */
-            position: absolute; /* 1 */
-            bottom: 0; /* 1 */
-            left: auto; /* 2 */
-            margin-left: 0; /* 2 */
+        /*** Mobile screenshots.
+         ***/
+            /* Position mobile to the bottom-right, letting the desktop
+             * screenshot take centre stage. */
+            @include rem("right", $line);
+            position: absolute;
+            bottom: 0;
+            /* Cancel horizontal centring. */
+            left: auto;
+            margin-left: 0;
         }
 
     }
 
-    /*
-     * Portfolio page item content area: reinsert extra spacing underneath the
-     * main screenshot.
-     */
     .portfolio-item-content {
+    /*** Portfolio page item content area: reinsert extra spacing underneath the
+     *** main screenshot.
+     ***/
         @include rem("padding-bottom", ($line * 2));
     }
 
-} //include media-width(portfolio-screenshots)
+}

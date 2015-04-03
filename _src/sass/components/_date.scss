@@ -1,23 +1,21 @@
-/**
- * Published date for articles, styled in three circles.
- *
- * @todo Some refactoring needed - duplication of components.less with
- *       articles.less.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Published date for articles, styled in three circles.
 
+   @todo Some refactoring needed - duplication of components.less with
+         articles.less.
 
-/*
- * Basic date styles. Very similar to `.button-bar`.
- * 1. Overlap the bottom of the post header.
- */
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
 .date {
+/*** Basic date styles. Very similar to `.button-bar`.
+ ***/
     @include font-size("huge");
     position: absolute;
     right: 0;
-    bottom: ((($circle-diameter / 2) * -1) - 1px); /* 1 */
+    /* Overlap the bottom of the post header. */
+    bottom: ((($circle-diameter / 2) * -1) - 1px);
     left: 0;
     display: block;
     margin: 0;
@@ -25,24 +23,24 @@
     text-align: center;
 }
 
-
-/* Individual date units. */
 .date-unit {
+/*** Individual date units.
+ ***/
     @include circle-2x;
     display: inline-block;
     background: $background-color-masthead;
     color: $text-color-reversed;
 }
 
-/* Separators (i.e. "/") – only there for screen readers etc. */
 .date-separator {
+    /* Separators (i.e. "/") – only there for screen readers etc. */
     display: none;
 }
 
 
-/*
- * Dates in article footer (used for listing pages).
- */
+/* Dates in article footer (used for listing pages).
+   ========================================================================== */
+
 .listing-footer {
 
     .date {
@@ -51,15 +49,17 @@
         position: static;
     }
 
-    /* Individual date parts. */
     .date-unit {
+    /*** Individual date parts.
+     ***/
         @include circle(($circle-diameter * 0.9));
         display: inline-block;
         background-color: transparent;
         color: $link-color-secondary;
 
-        /* White dates in footers of illustrated posts in blog index. */
         .post-illustrated & {
+        /*** White dates in footers of illustrated posts in blog index.
+         ***/
             color: $text-color-reversed;
         }
 
@@ -67,44 +67,39 @@
 
 }
 
-/* Dates in illustrated article footers. */
 article.illustrated footer .date-unit {
+/*** Dates in illustrated article footers.
+ ***/
     background: $background-color-illustrated;
     color: $text-color-reversed;
 }
 
-/* Bigger featured article dates. */
 .post-featured-footer {
 
     .date {
+    /*** Bigger featured article dates.
+     ***/
         @include font-size-leading("huge");
     }
 
-    /*
-     * 1. Redeclare inline-block (to re-override circle mixin's display:block).
-     */
     .date-unit {
         @include circle;
-        display: inline-block; /* 1 */
+        /* Redeclare inline-block (to re-override circle mixin's
+         * display:block). */
+        display: inline-block;
     }
 
 }
 
-
-/**
- * Media query.
- *
- * Tablet or wider.
- */
 @include media-width("normal-size") {
-
-    /*
-     * Dates in article footer.
-     * 1. Vertical centring in footer line. The footer min-height is 3 lines.
-     *    The date-circles height is $circle-diameter.
-     */
+/*** Media query: Tablets or wider.
+ ***/
     .post-footer .date {
-        @include rem("top", ((($line-px * 3) - $circle-diameter) / 2)); /* 1 */
+    /*** Dates in article footer.
+     ***/
+        /* Vertical centring in footer line. The footer min-height is 3 lines.
+         * The date-circles height is $circle-diameter. */
+        @include rem("top", ((($line-px * 3) - $circle-diameter) / 2));
         position: absolute;
         bottom: auto;
         padding: 0;

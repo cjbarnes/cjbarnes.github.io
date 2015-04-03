@@ -1,4 +1,4 @@
-/**
+/* ==========================================================================
  * Circle 'buttons' (really links) and button toolbars, and pagination
  *
  * Note: there is no specific class to create a single button. Instead, buttons
@@ -6,11 +6,11 @@
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 
-
-/* All button wrappers. */
 .button-bar {
+/*** All button wrappers.
+ ***/
     @include font-size("huge");
     position: absolute;
     left: 0;
@@ -26,34 +26,34 @@
         padding: 0;
     }
 
-    /* The buttons (both linked and unlinked/current). */
     a,
     b {
+    /*** The buttons (both linked and unlinked/current).
+     ***/
         @include circle-2x;
         display: inline-block;
         padding: 0;
     }
 
-    /* Linked buttons. */
     a {
+    /*** Linked buttons.
+     ***/
         color: $white;
     }
 
 }
 
 
-/**
- * Masthead button areas (i.e. blog pagination).
- */
+/* Masthead button areas (i.e. blog pagination).
+   ========================================================================== */
 
-/*
- * All masthead buttons.
- * 1. To fix the `.title` stacking overlap.
- * 2. Move down to half-overlap the main content area below the masthead.
- */
 .masthead-button-bar {
-    z-index: 3; /* 1 */
-    bottom: ((-1 * ($circle-diameter / 2)) - 2); /* 2 */
+/*** All masthead buttons.
+ ***/
+    /* To fix the `.title` stacking overlap. */
+    z-index: 3;
+    /* Move down to half-overlap the main content area below the masthead. */
+    bottom: ((-1 * ($circle-diameter / 2)) - 2);
 
     &.pagination a {
         background: $background-color-illustrated;
@@ -64,37 +64,34 @@
 }
 
 
-/**
- * Footer button areas.
- */
+/* Footer button areas.
+   ========================================================================== */
 
-/*
- * All footer buttons.
- * 1. Move up to half-overlap the main content area above the footer.
- */
 .footer-button-bar {
-    top: ((-1 * ($circle-diameter / 2)) - 2); /* 1 */
+/*** All footer buttons.
+ ***/
+    /* Move up to half-overlap the main content area above the footer. */
+    top: ((-1 * ($circle-diameter / 2)) - 2);
 }
 
 
-/**
- * Pagination.
- */
+/* Pagination.
+   ========================================================================== */
 
 .pagination {
 
-    /*
-     * Current page.
-     * 1. Styled to appear 'cut out' of the footer.
-     */
     b {
+    /*** Current page.
+     ***/
         border-color: $background-color;
-        background: $background-color; /* 1 */
+        /* Styled to appear 'cut out' of the footer. */
+        background: $background-color;
         color: $link-color-active;
     }
 
-    /* Other pages. */
     a {
+    /*** Other pages.
+     ***/
         border-color: $background-color;
         color: $link-color-secondary;
         background: $background-color-page-footer;
@@ -116,46 +113,42 @@
 
 }
 
-/* Fix layout bug where next/previous buttons were slightly above the line. */
 .pagination-item {
+    /* Fix layout bug where next/previous buttons were slightly above the
+     * line. */
     vertical-align: top;
 }
 
-/* Next/Previous links. */
 .pagination-item-adjacent {
+/*** Next/Previous links.
+ ***/
     font-family: $font-family-icons;
 
-    /*
-     * Make older/newer links that don't lead anywhere invisible, but
-     * don't display:none them (so the alignment of the other links
-     * doesn't change).
-     */
     b {
+    /*** Make older/newer links that don't lead anywhere invisible, but don't
+     *** display:none them (so the alignment of the other links doesn't change).
+     ***/
         border-color: transparent;
         background: transparent;
     }
 
 }
 
-/*
- * Post-page pager only - adjust for white background. All .pagination styles
- * apply.
- */
 .pagination-pager {
 
     a,
     a:hover,
     a:focus,
     a:active {
+        /* Adjust post-page pager for white background. */
         border-color: $background-color-content;
     }
 
 }
 
 
-/**
- * Subscribe icon buttons (e.g. Twitter, RSS).
- */
+/* Subscribe icon buttons (e.g. Twitter, RSS).
+   ========================================================================== */
 
 .subscribe-item a {
     font-family: $font-family-icons;
@@ -175,12 +168,14 @@
 
 }
 
-/* Twitter button. */
 .subscribe-twitter a {
+/*** Twitter button.
+ ***/
     background: $color-twitter;
 }
 
-/* RSS button. */
 .subscribe-feed a {
+/*** RSS button.
+ ***/
     background: $color-rss;
 }

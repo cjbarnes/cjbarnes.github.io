@@ -1,27 +1,28 @@
-/**
- * Parallax illustration styling
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Parallax illustration styling
 
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/* Shared styles for all gradient fades overlaying the illustrations. */
 .gradient {
+/*** Shared styles for all gradient fades overlaying the illustrations.
+ ***/
     z-index: 2;
     position: absolute;
     top: 0;
 }
 
-
-/* Shared styles for all illustrations, including in content rows. */
 .illustration {
+/*** Shared styles for all illustrations, including in content rows.
+ ***/
     position: absolute;
     overflow: hidden;
     width: 100%;
 
-    /* The image itself. */
     img {
+    /*** The image itself.
+     ***/
         position: absolute;
         left: 50%;
         display: block;
@@ -30,23 +31,29 @@
 
 }
 
-/* Illustrated articles (both in and out of the masthead). */
+
+/* Illustrated articles.
+   ========================================================================== */
+
 .header-illustrated {
 
-    /* Gradient fade between the illustration and the article footer. */
     .gradient {
+    /*** Gradient fade between the illustration and the article footer.
+     ***/
         width: 100%;
         height: $illustration-height;
         background-image: linear-gradient(to bottom, transparent 40%, $background-color-illustrated 100%);
     }
 
-    /* Parallax image wrapper. */
     .illustration {
+    /*** Parallax image wrapper.
+     ***/
         top: 0;
         height: $illustration-height;
 
-        /* The image itself. */
         img {
+        /*** The image itself.
+         ***/
             top: -120px;
             margin-left: ($illustration-width * -0.5);
         }
@@ -55,7 +62,6 @@
 
 }
 
-/* Illustrated articles - just in the blog/index listings. */
 .index-listing .header-illustrated {
 
     .title {
@@ -64,34 +70,37 @@
 
 }
 
-/* Illustrated mastheads. */
+
+/* Illustrated mastheads.
+   ========================================================================== */
+
 .masthead-illustrated {
 
-    /* Leave space above page title for the photo. */
     .title {
+        /* Leave space above page title for the photo. */
         @include rem("padding-top", ($line * 10));
     }
 
-    /* Gradient fade between the illustration and the masthead bottom. */
     .gradient {
+    /*** Gradient fade between the illustration and the masthead bottom.
+     ***/
         height: $illustration-height-masthead;
         background-image: linear-gradient(to bottom, transparent 55%, $background-color-illustrated 100%);
     }
 
-    /* Parallax image wrapper */
-    .illustration { /* @todo needs a fix for IE8? */
+    .illustration { // @todo needs a fix for IE8?
+    /*** Parallax image wrapper.
+     ***/
         height: $illustration-height-masthead;
 
-        /* The image itself. */
         img {
+        /*** The image itself.
+         ***/
             top: -100px;
             margin-left: ($illustration-width-masthead * -0.5);
-            /**
-             * Prevents 'skip' on page load caused by javascript. Y value is
-             * calculated from `top` / 4
-             *
-             * @todo Doesn't work yet - NEEDS MORE TESTING.
-             */
+            // Prevents 'skip' on page load caused by javascript. Y value is
+            // calculated from `top` / 4.
+            // @todo Doesn't work yet - NEEDS MORE TESTING.
             transform: translate3d(0, 0, 0);
         }
 
@@ -99,20 +108,20 @@
 
 }
 
-/*
- * Mini illustrated content sections (e.g. further down the homepage).
- * 1. Parallax images positioning.
- * 2. Default background colour for illustrated content sections.
- */
-// @todo fix all these #secondary uses.
+
+/* Mini illustrated content sections (e.g. further down the homepage).
+   ========================================================================== */
+
 .content-section-illustrated {
     @include font-size-leading("large");
-    position: relative; /* 1 */
+    /* Parallax images positioning. */
+    position: relative;
     width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: $patina; /* 2 */
+    /* Default background colour for illustrated content sections. */
+    background: $patina;
     color: $white;
 
     h2 {
@@ -143,46 +152,43 @@
         color: $text-color-reversed;
     }
 
-    /* Hide illustration and gradient overlay for mobile devices. */
     .illustration,
     .gradient {
+        /* Hide illustration and gradient overlay for mobile devices. */
         display: none;
     }
 
-} //.content-section-illustrated
+}
 
-/*
- * Content blocks within illustrated sections.
- * 1. Overlap the gradient (which itself has a z-index).
- */
 .content-section-illustrated-content {
+/*** Content blocks within illustrated sections.
+ ***/
     @include column($columns);
     @include rem("padding-bottom", $line);
-    z-index: 5; /* 1 */
-    position: relative; /* 1 */
+    /* Overlap the gradient (which itself has a z-index). */
+    z-index: 5;
+    position: relative;
 }
 
 
-/**
- * Media query.
- *
- * Tablets or wider.
- */
-@include media-width("normal-size") {
+/* Media queries.
+   ========================================================================== */
 
-    /*
-     * Mini illustrated content sections.
-     */
+@include media-width("normal-size") {
+/*** Media query: Tablets or wider.
+ ***/
     .content-section-illustrated {
 
-        /* The gradient overlay. (Hidden on mobile.) */
         .gradient {
+        /*** The gradient overlay. (Hidden on mobile.)
+         ***/
             display: block;
             width: 850px;
             height: 100%;
 
-            /* Gradient over right-aligned illustration image. */
             &.right {
+            /*** Gradient over right-aligned illustration image.
+             ***/
                 left: 50%;
                 margin-left: -10%;
                 background-image: linear-gradient(to left, transparent 40%, $patina 100%);
@@ -190,13 +196,15 @@
 
         }
 
-        /* The illustration wrapper. (Hidden on mobile.) */
         .illustration {
+        /*** The illustration wrapper. (Hidden on mobile.)
+         ***/
             display: block;
             height: 100%;
 
-            /* Right-aligned illustration image. */
             &.right img {
+            /*** Right-aligned illustration image.
+             ***/
                 margin-left: -10%;
             }
 
@@ -204,60 +212,59 @@
 
     }
 
-    /*
-     * Space out the content.
-     * 1. Don't overlap the illustration too far.
-     * 2. Specificity hack so we don't need to keep redeclaring the padding
-     *    every time we change the column width.
-     * 3. Reinstate the bottom spacing.
-     */
     .content-section-illustrated-content {
-        @include column(9); /* 1 */
+    /*** Space out the content.
+     ***/
+        /* Don't overlap the illustration too far. */
+        @include column(9);
 
-        &.content-section-illustrated-content { /* 2 */
-            @include rem("padding-bottom", $line); /* 3 */
+        &.content-section-illustrated-content {
+        /*** Specificity hack so we don't need to keep redeclaring the padding
+         *** every time we change the column width.
+         ***/
+            /* Reinstate the bottom spacing. */
+            @include rem("padding-bottom", $line);
         }
 
     }
 
-} //include media-width(normal-size)
-
-
-/**
- * Media queries.
- *
- * Space out the illustrated content sections a bit more.
- */
+}
 
 @include media-width("wide-illustrated-content") {
-
+/*** Media query: Space out the illustrated content sections a bit more.
+ ***/
     .content-section-illustrated-content {
         @include column(8);
     }
 
-} //include media-width(wide-illustrated-content)
+}
 
 @include media-width("wider-illustrated-content") {
-
+/*** Media query: Second level of illustrated content section spacing.
+ ***/
     .content-section-illustrated-content {
         @include column(7); /* 1 */
         @include push;
     }
 
-} //include media-width(wider-illustrated-content)
+}
 
 @include media-width("wider-2-illustrated-content") {
+/*** Media query: Third level of illustrated content section spacing.
+ ***/
     .content-section-illustrated-content {
         @include column(6);
         @include push;
     }
 
-} //include media-width(wider-2-illustrated-content)
+}
 
 @include media-width("wider-3-illustrated-content") {
+/*** Media query: Fourth level of illustrated content section spacing.
+ ***/
     .content-section-illustrated-content {
         @include column(5);
         @include push;
     }
 
-} //include media-width(wider-3-illustrated-content)
+}
