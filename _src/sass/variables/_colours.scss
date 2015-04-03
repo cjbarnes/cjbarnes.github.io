@@ -101,13 +101,12 @@ $color-tags: $oslo-grey;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
+    "project":   $santa-fe,
     "tutorial":  $ironstone,
-    "thoughts":  $oslo-grey,
+    "tip":       $indian-khaki,
+    "thoughts":  $patina,
     "off-topic": $eucalyptus,
-    "link":      $patina,
-    "page":      $toast,
-    "quote":     $santa-fe,
-    "tip":       $indian-khaki
+    "page":      $toast
 );
 
 // Programming language brand colours.
@@ -126,8 +125,8 @@ $language-colors: (
 
 // Icon colours for figures within content.
 $figure-colors: (
-    "link":  map-get($format-colors, "link"),
-    "quote": map-get($format-colors, "quote")
+    "link":  $patina,
+    "quote": $santa-fe
 );
 
 // Contact detail colours.

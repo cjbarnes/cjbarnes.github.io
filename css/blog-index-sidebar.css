@@ -89,33 +89,29 @@
     line-height: 1.25;
     font-family: "cj-icons";
 }
+.sidebar-listing-item.format-project:before {
+    content: "\e621";
+    color: #b1784f;
+}
 .sidebar-listing-item.format-tutorial:before {
     content: "\e637";
     color: #7c4938;
-}
-.sidebar-listing-item.format-thoughts:before {
-    content: "\e61a";
-    color: #808e90;
-}
-.sidebar-listing-item.format-link:before {
-    content: "\e631";
-    color: #5e8c88;
-}
-.sidebar-listing-item.format-page:before {
-    content: "";
-    color: #a17167;
-}
-.sidebar-listing-item.format-quote:before {
-    content: "\201d";
-    color: #b1784f;
 }
 .sidebar-listing-item.format-tip:before {
     content: "\e630";
     color: #c5a184;
 }
+.sidebar-listing-item.format-thoughts:before {
+    content: "\e61a";
+    color: #5e8c88;
+}
 .sidebar-listing-item.format-off-topic:before {
     content: "\e628";
     color: #2b9759;
+}
+.sidebar-listing-item.format-page:before {
+    content: "";
+    color: #a17167;
 }
 .sidebar-listing-item a {
     padding-right: 0; 

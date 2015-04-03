@@ -1,7 +1,7 @@
 ---
 title: Cameron gives us a tiny glimpse of normality and we shoot him down
-format: link
-link_href: http://www.theguardian.com/commentisfree/2015/mar/29/david-cameron-third-term-declaration-election
+format: off-topic
+link: http://www.theguardian.com/commentisfree/2015/mar/29/david-cameron-third-term-declaration-election
 tags:
 - politics
 - media

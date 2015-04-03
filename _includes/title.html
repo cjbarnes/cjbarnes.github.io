@@ -2,12 +2,12 @@
 <div class="title">
 
 {% if include.format %}
-  <i class="title-label title-label-{{ include.format }}">{% if include.featured %}featured {% endif %}{{ include.format }}:</i>
+  <i class="title-label title-label-{{ include.format }}">{% if include.featured %}featured {% endif %}{{ include.format }}{% if include.link %} link{% endif %}:</i>
 {% endif %}
 
   <h1 class="title-main">
-  {% if include.link_href %}
-    <a class="title-link" href="{{ include.link_href }}">{{ include.title }}</a>
+  {% if include.link %}
+    <a class="title-link" href="{{ include.link }}">{{ include.title }}</a>
   {% elsif include.url %}
     <a class="title-permalink" href="{{ include.url }}">{{ include.title }}</a>
   {% else %}
