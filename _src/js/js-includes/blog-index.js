@@ -156,33 +156,6 @@
 
       });
 
-      /* Handle tag clicks. */
-      var tagcloud = document.querySelector('.tagcloud');
-      /**
-       * Update which search/filter results are being displayed.
-       * @param {Event} e Event object.
-       */
-      tagcloud.addEventListener('click', function applyTagFilter(e) {
-
-        /* Find the a element that has our data attribute. */
-        var el = e.target;
-        while (('A' !== el.tagName) && ('BODY' !== el.tagName)) {
-          el = el.parentNode;
-        }
-
-        /* Use CSS to filter down the list of posts. Ignore non-link clicks. */
-        var tag = el.getAttribute('data-tag');
-        if (tag) {
-          style.innerHTML = '.filter-minilisting-item[data-tags*="|' + tag + '|"] { display: block; counter-increment: results; }';
-
-          /* Highlight the active filter only. */
-          var wasActive = elementsArray('.sidebar-filter-active');
-          wasActive.forEach(removeFilterActiveClass);
-          el.classList.add('sidebar-filter-active');
-        }
-
-      });
-
       /* Handle language link clicks. */
       var languagesList = document.querySelector('.languages-listing');
       /**
