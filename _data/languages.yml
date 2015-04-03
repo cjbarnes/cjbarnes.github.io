@@ -5,17 +5,20 @@
 - name: wordpress
   title: WordPress
 
+- name: php
+  title: PHP
+
 - name: jekyll
   title: Jekyll
 
-- name: jquery
-  title: jQuery
+- name: sass
+  title: Sass
 
 - name: less
   title: Less
 
-- name: sass
-  title: Sass
+- name: jquery
+  title: jQuery
 
 - name: javascript
   title: JavaScript
@@ -25,7 +28,4 @@
 
 - name: html
   title: HTML
-
-- name: php
-  title: PHP
 
