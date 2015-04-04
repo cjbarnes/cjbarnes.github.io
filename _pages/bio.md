@@ -9,13 +9,9 @@ sortorder: 3
 My name is Chris Barnes. I'm an independent web designer/developer based in Yorkshire and East Anglia, UK.
 {: .lead}
 
-I took on my first freelance project in 2012 and have been busy ever since.
-
-I have a particular interest in creating websites for young people. About half of my clients are young-person-oriented---some as education institutions, some training providers, some careers services, and some youth projects.
-
 I have specialist understanding of the online needs of schools, colleges, universities, and careers advisers. These specialisms have developed through years of experience working with careers services and every level of education provider from reception to postgraduate.
 
-**Find out more about my specialist areas and technical skills here: [my expertise](/whatido/expertise).**
+**Find out more about my expertise and technical skills here: [my expertise](/whatido/expertise).**
 
 ## work history
 
