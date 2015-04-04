@@ -6,7 +6,7 @@
 # The `href` is the address the link should point to.
 
 - name: home
-  href: /
+  href: /index.html
   description: Back to the homepage.
 
 - name: what I do

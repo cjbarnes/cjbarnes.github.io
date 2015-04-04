@@ -43,6 +43,16 @@
 
       </section>
 
+      <section class="content-section content-section-special content-section-wide">
+
+        <!-- Blog posts -->
+        {% include footer-latest-posts.html %}
+
+        <!-- Featured websites -->
+        {% include footer-featured-website.html %}
+
+      </section>
+
     </div><!-- /.homepage-content -->
 
   </article><!-- /.homepage -->
@@ -50,15 +60,7 @@
   <!-- Upper footer area -->
   <footer class="footer page-footer" id="page-footer">
 
-    {% if page.date %}
-      {% include pager.html %}
-    {% endif %}
-
-    <!-- Blog posts -->
-    {% include footer-latest-posts.html %}
-
-    <!-- Featured websites -->
-    {% include footer-featured-website.html %}
+    {% include page-pager.html %}
 
   </footer><!-- /.page-footer -->
 

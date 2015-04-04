@@ -3379,9 +3379,13 @@ article.illustrated footer .date-unit {
 }
 
 .minilisting-title-main {
+    padding: 0.2em 0;
     /*** The actual title (styled like a link).
  ***/
-    padding: 0.2em 0;
+    font-size: 16px;
+    font-size: 0.88889rem;
+    line-height: 1.875;
+    font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace; 
     border-bottom: 1px solid;
 }
 

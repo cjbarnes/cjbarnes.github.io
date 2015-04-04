@@ -26,6 +26,7 @@
   {% for i in (0..len) %}
     {% if page.url == site.data.nav-sequence[i].href %}
       {% comment %} Find the data items {% endcomment %}
+      {{ test }}
       {% assign prev_i = i | minus: 1 %}
       {% assign next_i = i | plus: 1 %}
       {% assign prev_nav_item = site.data.nav-sequence[prev_i] %}
@@ -44,14 +45,15 @@
   {% endfor %}
 
   {% comment %} Handle first and last page. {% endcomment %}
-  {% unless prev_name %}
-    {% assign prev_nav_item = site.data.nav-sequence[len] %}
+  {% unless prev_url %}
+    {% assign prev_i = len | minus: 1 %}
+    {% assign prev_nav_item = site.data.nav-sequence[prev_i] %}
     {% assign prev_name = prev_nav_item.name %}
     {% assign prev_description = prev_nav_item.description %}
     {% assign prev_url = prev_nav_item.href %}
     {% capture prev_title %}{{ prev_name }} | {{ prev_description }}{% endcapture %}
   {% endunless %}
-  {% unless next_name %}
+  {% unless next_url %}
     {% assign next_nav_item = site.data.nav-sequence[0] %}
     {% assign next_name = next_nav_item.name %}
     {% assign next_description = next_nav_item.description %}
@@ -60,7 +62,11 @@
   {% endunless %}
 {% endif %}
 
-{% if prev_url %}
+{% comment %} Get rid of `index.html` in homepage URL. {% endcomment %}
+{% if '/index.html' == next_url %}{% assign next_url = '/' %}{% endif %}
+{% if '/index.html' == prev_url %}{% assign prev_url = '/' %}{% endif %}
+
+{% if next_url %}
   <!-- Pager -->
   <nav class="pager">
     <ul class="pager-list">

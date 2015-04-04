@@ -59,8 +59,10 @@
 .minilisting-title-main {
 /*** The actual title (styled like a link).
  ***/
+    @include font-size-leading( "small" );
     padding: $link-padding 0;
     border-bottom: 1px solid;
+    font-family: $font-family-headings;
 }
 
 .filter-minilisting-item {
