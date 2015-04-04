@@ -23,9 +23,13 @@ $vanilla:      #d0bda9; // cj7
 $patina:       #5e8c88; // cj8
 $martini:      #b09c9c; // cj9
 $toast:        #a17167; // cj10
-$eucalyptus:   #2b9759; // cj11
-$burnt-umber:  #8f2823; // cj12
 
+// Extended palette.
+$eucalyptus:    #2b9759; // cj11 - yes
+$burnt-umber:   #8f2823; // cj12 - no
+$gothic:        #738fa0;
+$rum:           #706b85;
+$aqua-forest:   #5e9776;
 
 // Brands.
 $color-linkedin: #0976b4;
@@ -101,12 +105,12 @@ $color-tags: $oslo-grey;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
-    "project":   $santa-fe,
-    "tutorial":  $ironstone,
+    "project":   $rum,
+    "tutorial":  $toast,
     "tip":       $indian-khaki,
-    "thoughts":  $patina,
-    "off-topic": $eucalyptus,
-    "page":      $toast
+    "thoughts":  $gothic,
+    "off-topic": $aqua-forest,
+    "page":      $patina
 );
 
 // Programming language brand colours.

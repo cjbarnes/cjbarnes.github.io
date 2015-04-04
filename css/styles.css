@@ -1625,11 +1625,11 @@ img::selection {
     transition: all 0.5s ease-in-out;
 }
 .masthead-project .nav-logo {
-    color: #b1784f;
+    color: #706b85;
     box-shadow: none;
 }
 .masthead-tutorial .nav-logo {
-    color: #7c4938;
+    color: #a17167;
     box-shadow: none;
 }
 .masthead-tip .nav-logo {
@@ -1637,15 +1637,15 @@ img::selection {
     box-shadow: none;
 }
 .masthead-thoughts .nav-logo {
-    color: #5e8c88;
+    color: #738fa0;
     box-shadow: none;
 }
 .masthead-off-topic .nav-logo {
-    color: #2b9759;
+    color: #5e9776;
     box-shadow: none;
 }
 .masthead-page .nav-logo {
-    color: #a17167;
+    color: #5e8c88;
     box-shadow: none;
 }
 .masthead-illustrated .nav-logo {
@@ -2221,14 +2221,14 @@ article.illustrated footer .date-unit {
     .masthead-project .nav:hover,
     .masthead-project .nav:hover .nav-logo,
     .masthead-project .nav:hover .nav-level-2 {
-        background: #6b482f;
-        background: rgba(107, 72, 47, 0.8);
+        background: #403e4c;
+        background: rgba(64, 62, 76, 0.8);
     }
     .masthead-tutorial .nav:hover,
     .masthead-tutorial .nav:hover .nav-logo,
     .masthead-tutorial .nav:hover .nav-level-2 {
-        background: #362018;
-        background: rgba(54, 32, 24, 0.8);
+        background: #64443e;
+        background: rgba(100, 68, 62, 0.8);
     }
     .masthead-tip .nav:hover,
     .masthead-tip .nav:hover .nav-logo,
@@ -2239,27 +2239,27 @@ article.illustrated footer .date-unit {
     .masthead-thoughts .nav:hover,
     .masthead-thoughts .nav:hover .nav-logo,
     .masthead-thoughts .nav:hover .nav-level-2 {
-        background: #354f4d;
-        background: rgba(53, 79, 77, 0.8);
+        background: #465b67;
+        background: rgba(70, 91, 103, 0.8);
     }
     .masthead-off-topic .nav:hover,
     .masthead-off-topic .nav:hover .nav-logo,
     .masthead-off-topic .nav:hover .nav-level-2 {
-        background: #14482a;
-        background: rgba(20, 72, 42, 0.8);
+        background: #375845;
+        background: rgba(55, 88, 69, 0.8);
     }
     .masthead-page .nav:hover,
     .masthead-page .nav:hover .nav-logo,
     .masthead-page .nav:hover .nav-level-2 {
-        background: #64443e;
-        background: rgba(100, 68, 62, 0.8);
+        background: #354f4d;
+        background: rgba(53, 79, 77, 0.8);
     }
     .masthead-reversed .nav:hover,
     .masthead-reversed .nav:hover .nav-logo,
     .masthead-reversed .nav:hover .nav-level-2 {
         /* Nav colour for light background image. */
-        background: #64443e;
-        background: rgba(100, 68, 62, 0.8);
+        background: #354f4d;
+        background: rgba(53, 79, 77, 0.8);
     }
     .masthead-illustrated .nav:hover,
     .masthead-illustrated .nav:hover .nav-logo,
@@ -2697,7 +2697,7 @@ article.illustrated footer .date-unit {
 .listing .post-project:before,
 .minilisting .post-project,
 .minilisting .post-project:before {
-    background: #b1784f;
+    background: #706b85;
 }
 
 .header-tutorial,
@@ -2705,7 +2705,7 @@ article.illustrated footer .date-unit {
 .listing .post-tutorial:before,
 .minilisting .post-tutorial,
 .minilisting .post-tutorial:before {
-    background: #7c4938;
+    background: #a17167;
 }
 
 .header-tip,
@@ -2721,7 +2721,7 @@ article.illustrated footer .date-unit {
 .listing .post-thoughts:before,
 .minilisting .post-thoughts,
 .minilisting .post-thoughts:before {
-    background: #5e8c88;
+    background: #738fa0;
 }
 
 .header-off-topic,
@@ -2729,7 +2729,7 @@ article.illustrated footer .date-unit {
 .listing .post-off-topic:before,
 .minilisting .post-off-topic,
 .minilisting .post-off-topic:before {
-    background: #2b9759;
+    background: #5e9776;
 }
 
 .header-page,
@@ -2737,7 +2737,7 @@ article.illustrated footer .date-unit {
 .listing .post-page:before,
 .minilisting .post-page,
 .minilisting .post-page:before {
-    background: #a17167;
+    background: #5e8c88;
 }
 
 .header-illustrated,
