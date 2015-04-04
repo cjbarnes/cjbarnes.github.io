@@ -23,7 +23,7 @@
 {% else %}
   {% comment %} Find the current page in the list of pages {% endcomment %}
   {% assign len = site.data.nav-sequence | size %}
-  {% for i in (1..len) %}
+  {% for i in (0..len) %}
     {% if page.url == site.data.nav-sequence[i].href %}
       {% comment %} Find the data items {% endcomment %}
       {% assign prev_i = i | minus: 1 %}
@@ -42,6 +42,22 @@
       {% capture next_title %}{{ next_name }} | {{ next_description }}{% endcapture %}
     {% endif %}
   {% endfor %}
+
+  {% comment %} Handle first and last page. {% endcomment %}
+  {% unless prev_name %}
+    {% assign prev_nav_item = site.data.nav-sequence[len] %}
+    {% assign prev_name = prev_nav_item.name %}
+    {% assign prev_description = prev_nav_item.description %}
+    {% assign prev_url = prev_nav_item.href %}
+    {% capture prev_title %}{{ prev_name }} | {{ prev_description }}{% endcapture %}
+  {% endunless %}
+  {% unless next_name %}
+    {% assign next_nav_item = site.data.nav-sequence[0] %}
+    {% assign next_name = next_nav_item.name %}
+    {% assign next_description = next_nav_item.description %}
+    {% assign next_url = next_nav_item.href %}
+    {% capture next_title %}{{ next_name }} | {{ next_description }}{% endcapture %}
+  {% endunless %}
 {% endif %}
 
 {% if prev_url %}
