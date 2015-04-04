@@ -382,96 +382,70 @@ th {
     padding: 0;
 }
 
-/**
- * Basic site-wide styles - mostly typography
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/**
- * Universal styles.
- */
-/*
- * Set up the starting point.
- * 1. Box sizing part 1.
- * 2. = 15px, assuming the user's browser font setting is 16px (the default).
- * 3. Extend the site footer background colour to the bottom of the window when
- *    it is taller than the page body.
- */
+/* ==========================================================================
+   Basic site-wide styles - mostly typography
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+/* Universal styles.
+   ========================================================================== */
 html {
+    /*** Set up the starting point for all inheritance.
+ ***/
     box-sizing: border-box;
-    /* 1 */
+    /* = 15px, assuming the user's browser font setting is the default 16px. */
     font-size: 93.75%;
-    /* 2 */
+    /* Extend the site footer background colour to the bottom of the window when
+     * it is taller than the page body. */
     background: #222;
-    /* 3 */
 }
 
-/*
- * Every element and pseudoelement.
- * 1. Box sizing part 2.
- * 2. Bold versions of the site's webfonts are not loaded, so we disable bold
- *    font-weights throughout the site.
- */
 *,
 *:before,
 *:after {
+    /*** Every element and pseudo-element.
+ ***/
     box-sizing: inherit;
-    /* 1 */
+    /* Bold versions of the site's webfonts are not loaded, so we disable bold
+     * font-weights throughout the site. */
     font-weight: 300 !important;
-    /* 2 */
 }
 
-/*
- * 1. Set default font-size and line-height.
- * 2. Type aliasing settings.
- */
 body {
     font-size: 1em;
-    /* 1 */
     line-height: 1.66667;
-    /* 1 */
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
-    /* 2 */
     word-wrap: break-word;
     background: #e0d7cb;
     color: #222;
+    /* For better type aliasing in WebKit. */
     text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
 
     -webkit-font-smoothing: antialiased;
-    /* 2 */
     text-rendering: optimizeLegibility;
-    /* 2 */
 }
 
-/**
- * Main page wrappers.
- */
-/* Wrapper for everything above the footer. */
+/* Main page wrappers.
+   ========================================================================== */
 .above-footer {
+    /*** Wrapper for everything above the footer.
+ ***/
     max-width: 1400px;
     margin: 0 auto;
 }
-.above-footer:before,
-.above-footer:after {
-    content: " ";
-    display: table;
-}
-.above-footer:after {
-    clear: both;
-}
 
-/* Title container margins. */
 .title {
     margin-right: 15px;
     margin-right: 0.83333rem; 
+    /*** Title container margins.
+ ***/
     margin-left: 15px;
     margin-left: 0.83333rem;
 }
 
-/**
- * Standard paragraphs of text.
- */
+/* Standard paragraphs of text.
+   ========================================================================== */
 p,
 address {
     margin: 30px 15px 0;
@@ -482,25 +456,24 @@ address {
     font-style: normal;
 }
 
-/* Lead paragraphs. */
 .lead {
+    /*** Lead paragraphs.
+ ***/
     font-size: 21px;
     font-size: 1.16667rem;
     line-height: 1.42857;
 }
 
-/*
- * Emphasis.
- */
 b,
 strong,
 mark {
+    /*** Emphasis.
+ ***/
     padding: 0.2em;
     background-color: #e9e6df; 
     color: #a17167;
 }
 
-/* Blockquotes. */
 blockquote {
     margin: 30px;
     margin: 1.66667rem;
@@ -508,7 +481,6 @@ blockquote {
     font-size: 1.16667rem;
     line-height: 1.42857;
     color: #b1784f;
-    /* Short quotations (which are given larger text). */
 }
 blockquote p {
     margin: 0;
@@ -518,31 +490,29 @@ blockquote p + p {
     margin-top: 1.66667rem;
 }
 blockquote.short {
+    /*** Short quotations (which are given larger text).
+     ***/
     font-size: 24px;
     font-size: 1.33333rem;
     line-height: 1.875;
 }
 
-/*
- * Code.
- * 1. Use ems not rems for code, so it grows and shrinks proportionally when
- *    used in subheadings and footnotes.
- */
 code,
 var,
 kbd,
 samp {
+    /*** Code.
+ ***/
     padding: 0.2em;
+    /* Use ems not rems for code, so it grows and shrinks proportionally when
+     * used in subheadings and footnotes. */
     font-size: 0.88889em;
-    /* 1 */
     line-height: 1.875;
-    /* 1 */
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
-    background-color: #c4cbcb; 
+    background-color: #c4cbcb;
     color: #222;
 }
 
-/* Horizontal rules. */
 hr {
     margin: 60px 0;
     margin: 3.33333rem 0;
@@ -550,7 +520,6 @@ hr {
     border-top: 1px solid #d0bda9;
 }
 
-/* Content and colours for language icons. */
 .language-wordpress:before {
     content: "\e60b";
     color: #21759b;
@@ -582,7 +551,7 @@ hr {
 }
 
 .language-javascript:before {
-    content: "\e64f";
+    content: "\e64e";
     color: #d8ba42;
 }
 
@@ -601,30 +570,29 @@ hr {
     color: #505c91;
 }
 
-/**
- * Media query.
- *
- * Tablets or wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 718px) {
-    /*
- * Increase all sizing so base font size is 18px, assuming the browser font
- * setting is the default 16px.
- */
+    /*** Media query: Tablets or wider.
+ ***/
     html {
+        /* Increase all sizing so base font size is 18px, assuming the browser
+         * font setting is the default 16px. */
         font-size: 112.5%;
     }
-    /* Align hr edges with subheading edges */
     hr {
         margin-right: 15px;
         margin-right: 0.83333rem; 
+        /*** Align hr edges with subheading edges.
+     ***/
         margin-left: 15px;
         margin-left: 0.83333rem;
     }
-    /* Leave more margin around text. */
     .content-section p,
     .content-section blockquote {
         margin-right: 8.33333%; 
+        /*** Leave more margin around text.
+         ***/
         margin-left: 8.33333%;
     }
     .content-section blockquote p,
@@ -636,59 +604,58 @@ hr {
     }
 }
 
-/**
- * Media query.
- *
- * Wide enough that the background texture should be showing.
- */
 @media (min-width: 1400px) {
-    /*
-     * Only load the background pattern when the screen's wide enough for it to
-     * show.
-     */
+    /*** Media query: Wide enough that the background texture should be showing.
+ ***/
     body {
+        /* Only load the background pattern when the screen is wide enough for
+         * it to show. */
         background: #e0d7cb url("/img/halftone.png") center top;
     }
 }
 
-/**
- * Figure styles
- *
- * Includes special block-level tags e.g. blockquote, pre, address
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* Basic figure. */
+/* ==========================================================================
+   Figure styles
+
+   Includes special block-level tags e.g. blockquote, pre, address.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 figure {
+    /*** Basic figure.
+ ***/
     margin: 30px 0;
     margin: 1.66667rem 0;
     padding: 15px 0;
     padding: 0.83333rem 0;
     background: #e9e6df;
-    /* Get rid of bottom spacing when this is the last element in the content */
 }
 figure:last-child {
+    /* Get rid of bottom spacing when this is the last element in the
+         * content. */
     margin-bottom: 0;
 }
 
-/* Captions. */
 figcaption {
+    /*** Captions.
+ ***/
     margin: 30px 15px 0;
     margin: 1.66667rem 0.83333rem 0;
 }
 
-/**
- * Figure types.
- */
-/* Link figures. */
+/* Figure types.
+   ========================================================================== */
 figure.link {
+    /*** Link figures.
+ ***/
     padding: 0 !important;
     background: #d4e2e1;
-    /* The actual link inside the figure. */
 }
 figure.link a {
     display: block;
+    /*** The actual link inside the figure.
+     ***/
     padding: 30px;
     padding: 1.66667rem;
     font-size: 24px;
@@ -708,14 +675,10 @@ figure.link a:active {
     color: #f5f5f5;
 }
 
-/* Quote figures. */
 figure.quote {
+    /*** Quote figures.
+ ***/
     background: #e9e6df;
-    /*
-     * Make italicization of quote citations an explicit choice, so we can use
-     * italics for publications but not for people.
-     */
-    /* Citation marker. */
 }
 figure.quote blockquote {
     margin-top: 0;
@@ -725,40 +688,36 @@ figure.quote blockquote {
     margin: 0;
 }
 figure.quote cite {
+    /* Make italicization of quote citations an explicit choice, so we can
+         * use italics for publications but not for people. */
     font-style: normal;
 }
 figure.quote figcaption:before,
 figure.quote cite:before {
+    /*** Citation marker.
+     ***/
     content: "—";
 }
 
-/*
- * Codeblocks.
- * 1. Same padding all around.
- */
 figure.code {
-    /* 1 */
     padding-right: 15px;
     padding-right: 0.83333rem;
+    /*** Codeblocks.
+ ***/
+    /* Same padding all around. */
     padding-left: 15px;
     padding-left: 0.83333rem;
-    background: #222;
-    /* 1 */
+    background: #222; 
     color: #f5f5f5;
-    /*
-     * The icon is applied to the code element, not the figure, so we can use
-     * the code's language class to style the icon.
-     */
-    /*
-     * Padding-top is applied to the code element, not the figure, so that the
-     * language icon is positioned correctly.
-     */
-    /* Hairline space between codeblocks. */
 }
 figure.code:before {
+    /* The icon is applied to the code element, not the figure, so we can
+         * use the code's language class to style the icon. */
     display: none;
 }
 .content-section figure.code {
+    /* Padding-top is applied to the code element, not the figure, so that
+         * the language icon is positioned correctly. */
     padding-top: 0;
 }
 figure.code code {
@@ -766,10 +725,8 @@ figure.code code {
     display: block;
     padding-top: 45px;
     padding-top: 2.5rem;
-    background: transparent;
+    background: transparent; 
     color: inherit;
-    /* Icon colours and fonts.. */
-    /* Icon colours. */
 }
 figure.code code:before {
     position: absolute;
@@ -790,6 +747,8 @@ figure.code code:before {
     color: #f5f5f5;
 }
 figure.code code:before {
+    /*** Icon colours and fonts.
+         ***/
     font-size: 32px;
     font-size: 1.77778rem;
     font-family: "cj-icons";
@@ -835,43 +794,48 @@ figure.code pre {
     line-height: 1.42857;
 }
 figure.code + figure.code {
+    /*** Hairline space between codeblocks.
+     ***/
     margin-top: -30px;
     margin-top: -1.66667rem;
     border-top: 1px solid #f5f5f5;
 }
 
-/* Codeblock output areas. */
 figure.output {
+    /*** Codeblock output areas.
+ ***/
     background: #fff;
-    /* No spacing between code and output figures. */
-    /* Match icon color/border to background. */
 }
 figure.output > :first-child {
     margin-top: 0;
 }
 figure.output + figure.code,
 figure.code + figure.output {
+    /* No spacing between code and output figures. */
     margin-top: -30px;
     margin-top: -1.66667rem;
 }
 figure.output + figure.code code:before {
+    /*** Match icon color/border to background.
+     ***/
     border-color: #fff;
     color: #fff;
 }
 
-/* Figures on single-article pages. */
 .content-section figure {
+    /*** Figures on single-article pages.
+ ***/
     margin: 60px 0 30px;
     margin: 3.33333rem 0 1.66667rem;
     padding-top: 45px;
     padding-top: 2.5rem;
     padding-bottom: 45px;
     padding-bottom: 2.5rem;
-    /* Icon layout. */
-    /* Icon content and colours. */
 }
 .content-section figure.link,
 .content-section figure.quote {
+    /*** Icon layout.
+     ***/
     position: relative;
 }
 .content-section figure.link:before,
@@ -906,29 +870,30 @@ figure.output + figure.code code:before {
     background-color: #b1784f;
 }
 
-/**
- * Media queries.
- *
- * Tablets or wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 718px) {
-    /* Leave more margin around text. */
+    /*** Media query: Tablets or wider.
+ ***/
     figcaption {
         margin-right: 8.33333%; 
+        /* Leave more margin around text. */
         margin-left: 8.33333%;
     }
 }
 
-/**
- * Footnotes styling
- *
- * For the standard GitHub-Flavored Markdown footnotes HTML.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* Animation: flash background colour (for highlighting current footnote). */
+/* ==========================================================================
+   Footnotes styling
+
+   For the standard GitHub-Flavored Markdown footnotes HTML.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+/* Animations.
+   ========================================================================== */
 @-webkit-keyframes temporary-background {
+    /*** Animation: flash background colour (for highlighting current footnote). */
     0% {
         background-color: #e9e6df;
     }
@@ -938,6 +903,7 @@ figure.output + figure.code code:before {
     }
 }
 @keyframes temporary-background {
+    /*** Animation: flash background colour (for highlighting current footnote). */
     0% {
         background-color: #e9e6df;
     }
@@ -947,9 +913,12 @@ figure.output + figure.code code:before {
     }
 }
 
-/* Links: to-footnote and back-to-text. */
+/* Footnotes and footnote links.
+   ========================================================================== */
 .footnote,
 .reversefootnote {
+    /*** Links: to-footnote and back-to-text.
+ ***/
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
@@ -960,32 +929,27 @@ figure.output + figure.code code:before {
     border: 0;
 }
 
-/* In-text to-footnote links. */
 .footnote {
     margin: -1em -0.25em 0; 
+    /*** In-text to-footnote links.
+ ***/
     font-size: 16px;
     font-size: 0.88889rem;
 }
 
-/*
- * Footnotes content area.
- * 1. Mimic an hr at the top of the footnotes area.
- */
 .footnotes {
+    /*** Footnotes content area.
+ ***/
     margin-top: 60px;
     margin-top: 3.33333rem;
-    /* 1 */
     padding-top: 15px;
     padding-top: 0.83333rem;
+    /* Mimic an hr at the top of the footnotes area. */
     border-top: 1px solid #d0bda9;
-    /* 1 */
-    /*
-     * 1. Override grid column styles.
-     */
 }
 .footnotes ol {
+    /* Override grid column styles. */
     margin: 0;
-    /* 1 */
     padding-left: 0;
 }
 .footnotes li {
@@ -996,21 +960,24 @@ figure.output + figure.code code:before {
     font-size: 0.88889rem;
     line-height: 1.875;
     transition: background-color 0.3s ease-in-out;
-    /* The selected footnote. */
-    /* Reinstate sub-list margins. */
-    /* Reinstate sub-list marker alignment. */
 }
 .footnotes li:target {
+    /*** The selected footnote.
+         ***/
     -webkit-animation: temporary-background 2s;
             animation: temporary-background 2s;
 }
 .footnotes li ol {
     margin-right: 15px;
     margin-right: 0.83333rem; 
+    /*** Reinstate sub-list margins.
+         ***/
     margin-left: 15px;
     margin-left: 0.83333rem;
 }
 .footnotes li li {
+    /*** Reinstate sub-list marker alignment.
+         ***/
     margin-bottom: 15px;
     margin-bottom: 0.83333rem;
     margin-left: 15px;
@@ -1018,47 +985,45 @@ figure.output + figure.code code:before {
     list-style-position: outside;
 }
 
-/**
- * Media query.
- *
- * Tablets or wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 718px) {
-    /* Align footnotes area edges with subheading edges. */
+    /*** Media query: Tablets or wider.
+ ***/
     .content-section .footnotes {
         margin-right: 15px;
         margin-right: 0.83333rem; 
+        /*** Align footnotes area edges with subheading edges.
+     ***/
         margin-left: 15px;
         margin-left: 0.83333rem;
     }
 }
 
-/**
- * Heading styles.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/*
- * All headings.
- * 1. Default heading margins (overridden at the extremes).
- * 2. For hashlinks.
- */
+/* ==========================================================================
+   Heading styles.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 h1,
 h2,
 h3,
 h4 {
-    /* 1 */
+    /* For hashlinks. */
     position: relative;
+    /*** All headings.
+ ***/
+    /* Default heading margins (overridden at the extremes). */
     margin: 60px 0 30px;
     margin: 3.33333rem 0 1.66667rem;
-    /* 2 */
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
     color: #5e8c88;
 }
 
-/* Page title. */
 h1 {
+    /*** Page title.
+ ***/
     margin-bottom: 60px;
     margin-bottom: 3.33333rem;
     font-size: 40px;
@@ -1066,9 +1031,8 @@ h1 {
     line-height: 1.5;
 }
 
-/**
- * Subheadings.
- */
+/* Subheadings.
+   ========================================================================== */
 h2 {
     font-size: 28px;
     font-size: 1.55556rem;
@@ -1089,12 +1053,11 @@ h4 {
     line-height: 1.42857;
 }
 
-/**
- * Media queries.
- *
- * Tablets or wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 718px) {
+    /*** Media query: Tablets or wider.
+ ***/
     h1,
     h2,
     h3,
@@ -1106,35 +1069,28 @@ h4 {
     }
 }
 
-/**
- * Basic link styling
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/*
- * 1. Declare cursor explicitly for JS-added links with no href.
- */
+/* ==========================================================================
+   Basic link styling
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 a {
     padding: 0.2em;
     text-decoration: none;
     border-bottom: 1px solid;
     color: #808e90;
     transition: all 0.3s ease-in-out;
+    /* Declare cursor explicitly for JS-added links with no href. */
     cursor: pointer;
-    /* 1 */
-    /* Internal links */
-    /* External links */
-    /*
-     * Clicked links.
-     * 1. The [href] is to override external links' specificity.
-     */
 }
 a:visited {
     color: #808e90;
 }
 a:hover,
 a:focus {
+    /*** Internal links.
+     ***/
     border-color: #808e90;
     background-color: #808e90; 
     color: #f5f5f5;
@@ -1144,6 +1100,8 @@ a[href^="https:"],
 a[href^="mailto:"],
 a[href^="tel:"],
 a[href^="skype:"] {
+    /*** External links.
+     ***/
     color: #5e8c88;
 }
 a[href^="http:"]:hover,
@@ -1162,37 +1120,35 @@ a[href^="skype:"]:focus {
 }
 a:active,
 a[href]:active {
-    /* 1 */
+    /*** Clicked links. (The [href] selector is to override external links'
+     *** specificity.)
+     ***/
     border-color: #c5a184;
     background-color: #c5a184;
     color: #f5f5f5;
     transition: none;
 }
 
-/*
- * Tag links.
- * 1. Don't line-break within a tag (it's confusing).
- */
 .tag {
+    /*** Tag links.
+ ***/
+    /* Don't line-break within a tag (it's confusing). */
     white-space: nowrap;
-    /* 1 */
 }
 
-/**
+/* ==========================================================================
  * Bulleted and numbered lists, and definition lists
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 ol,
 ul,
 dl {
     margin-right: 15px;
-    margin-right: 0.83333rem;
+    margin-right: 0.83333rem; 
     margin-left: 15px;
     margin-left: 0.83333rem;
-    /* Remove margins and reduce space between for paragraphs within lists. */
-    /* Nested list margins */
 }
 ol li,
 ul li,
@@ -1212,6 +1168,7 @@ dl dd {
 ol p,
 ul p,
 dl p {
+    /* Remove margins and reduce space-between for paras. within lists. */
     margin: 15px 0 0;
     margin: 0.83333rem 0 0;
 }
@@ -1223,20 +1180,23 @@ dl p:first-child {
 ol ol,
 ul ul,
 dl dl {
+    /* Nested list margins. */
     margin-left: 15px;
     margin-left: 0.83333rem;
 }
 
-/* Nested list styles */
 li ol {
+    /*** Nested list styles.
+ ***/
     list-style-type: lower-alpha;
 }
 li li ol {
     list-style-type: lower-roman;
 }
 
-/* Double-nested list sizes and margins */
 li li li {
+    /*** Double-nested list sizes and margins.
+ ***/
     margin-left: 15px;
     margin-left: 0.83333rem;
     font-size: 16px;
@@ -1244,30 +1204,27 @@ li li li {
     line-height: 1.875;
 }
 
-/**
- * Media queries.
- *
- * Tablets or wider.
- */
 @media (min-width: 718px) {
-    /* Leave more margin around text. */
+    /*** Media query: Tablets or wider.
+ ***/
     ol,
     ul,
     dl {
         margin-right: 8.33333%; 
+        /*** Leave more margin around lists' text.
+     ***/
         margin-left: 8.33333%;
     }
 }
 
-/**
- * HTML tables
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/**
- * Basic table design.
- */
+/* ==========================================================================
+   HTML tables
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+/* Basic table design.
+   ========================================================================== */
 table {
     width: 100%; 
     margin: 30px 0;
@@ -1281,11 +1238,12 @@ caption {
     color: #7c4938;
 }
 
-/* Common styles - all cells. */
 td,
 th {
     text-align: left;
     vertical-align: top; 
+    /*** Common styles - all cells.
+ ***/
     border: 1px solid #f5f5f5;
     border-width: 1px 0;
 }
@@ -1415,8 +1373,9 @@ th address + address {
     margin-top: 0.83333rem;
 }
 
-/* Table contents. */
 tbody {
+    /*** Table contents.
+ ***/
     background: #e9e6df;
 }
 tbody td,
@@ -1428,10 +1387,10 @@ tbody th {
     line-height: 1.875;
 }
 
-/* Header. */
 thead {
+    /*** Header.
+ ***/
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
-    /* Background colour only appears for th cells in table header */
 }
 thead td,
 thead th {
@@ -1444,11 +1403,14 @@ thead th {
 }
 thead th {
     background: #7c4938; 
+    /*** Background colour only appears for th cells in table header.
+     ***/
     color: #f5f5f5;
 }
 
-/* Footer. */
 tfoot {
+    /*** Footer.
+ ***/
     color: #7c4938;
 }
 tfoot td,
@@ -1465,11 +1427,11 @@ tfoot th p + p {
     margin-top: 0.83333rem;
 }
 
-/**
- * Specific table styles.
- */
-/* Tables with hidden borders. */
+/* Specific table styles.
+   ========================================================================== */
 table.invisible {
+    /*** Tables with hidden borders.
+ ***/
     /* No backgrounds. */
     /* Dimensions. No borders, flush left. */
 }
@@ -1485,29 +1447,23 @@ table.invisible th {
     border: 0;
 }
 
-/**
- * Media query.
- *
- * Tablets and above.
- */
 @media (min-width: 718px) {
-    /* Table with icon-circle headings. */
+    /*** Media query: Tablets and above.
+ ***/
     table.circle-list {
         margin-right: 8.33333%; 
+        /*** Table with icon-circle headings.
+     ***/
         margin-left: 8.33333%;
     }
 }
 
-/**
- * Browser UI tweaks
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/**
- * Text selection.
- */
-/* Disable text selection of UI elements. */
+/* ==========================================================================
+   Browser UI tweaks
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .nav,
 .title-label,
 .date,
@@ -1521,36 +1477,38 @@ table.invisible th {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none; 
+    /*** Disable text selection of UI elements.
+ ***/
 
     -webkit-touch-callout: none;
 }
 
-/* Change cursor for non-selectable elements. */
 .logo,
 .title-label,
 .contact-label,
 .smallprint-item-copyright,
 .date {
+    /* Change cursor for non-selectable elements. */
     cursor: default;
 }
 
-/* Selection styling. */
 img::-moz-selection {
-    background: transparent;
-}
-img::selection {
+    /*** Selection styling. */
     background: transparent;
 }
 
-/**
- * Hover-only elements.
- */
-/* Subheading permalinks */
+img::selection {
+    /*** Selection styling. */
+    background: transparent;
+}
+
 .hashlink {
     position: absolute;
     top: 50%;
     right: 100%;
     display: block;
+    /*** Subheading permalinks.
+ ***/
     width: 30px;
     width: 1.66667rem;
     height: 30px;
@@ -1570,19 +1528,73 @@ img::selection {
     opacity: 1;
 }
 
-/**
- * Hide screen-reader-only elements.
- */
 .screen-reader-only {
+    /* Hide screen-reader-only elements. */
     display: none;
 }
 
-/**
+/* ==========================================================================
+   All self-clearing elements.
+
+   Combined into one selector to reduce repetition.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+.above-footer:before,
+.above-footer:after,
+.post:before,
+.post:after,
+.page:before,
+.page:after,
+.post-featured:before,
+.post-featured:after,
+.content:before,
+.content:after,
+.content-section:before,
+.content-section:after,
+.page-footer:before,
+.page-footer:after,
+.site-footer:before,
+.site-footer:after,
+.masthead:before,
+.masthead:after,
+.nav-level-1:before,
+.nav-level-1:after,
+.pager-list:before,
+.pager-list:after,
+.contact-details-list:before,
+.contact-details-list:after,
+.donts-row:before,
+.donts-row:after,
+.skill-list:before,
+.skill-list:after {
+    content: " ";
+    display: table;
+}
+.above-footer:after,
+.post:after,
+.page:after,
+.post-featured:after,
+.content:after,
+.content-section:after,
+.page-footer:after,
+.site-footer:after,
+.masthead:after,
+.nav-level-1:after,
+.pager-list:after,
+.contact-details-list:after,
+.donts-row:after,
+.skill-list:after {
+    clear: both;
+}
+
+/* ==========================================================================
  * Reusable component for the cJ logo, usually with the containing circle
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 .logo {
     display: block;
     overflow: hidden;
@@ -1600,9 +1612,8 @@ img::selection {
     border: 0;
 }
 
-/**
- * Main site logo in navbar.
- */
+/* Main site logo in navbar.
+   ========================================================================== */
 .nav-logo {
     float: right;
     margin: 5px 5px 0 0;
@@ -1612,8 +1623,6 @@ img::selection {
     color: #222;
     box-shadow: 0 0 10px #222;
     transition: all 0.5s ease-in-out;
-    /* Post formats */
-    /* Illustrated article/page. */
 }
 .masthead-project .nav-logo {
     color: #b1784f;
@@ -1640,6 +1649,8 @@ img::selection {
     box-shadow: none;
 }
 .masthead-illustrated .nav-logo {
+    /*** Illustrated article/page.
+     ***/
     color: #222;
     box-shadow: 0 0 10px #222;
 }
@@ -1648,68 +1659,59 @@ img::selection {
     box-shadow: 0 0 10px #f5f5f5;
 }
 
-/* Colour changes for navbar logo on light backgrounds. */
-.masthead-reversed {
-    /* Darker logo for more contrast with light pictures. */
-}
 .masthead-reversed .nav-logo {
+    /*** Darker logo for more contrast with light pictures.
+ ***/
     background: #222;
     background: rgba(34, 34, 34, 0.6);
     color: #f5f5f5; 
     box-shadow: 0 0 10px #f5f5f5;
 }
 
-/**
- * Footer logo - hidden for mobile.
- */
+/* Footer logo.
+   ========================================================================== */
 .footer-logo {
+    /* Hidden for mobile. */
     display: none;
 }
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 718px) {
-    /*
-     * Ornamental cJ logo in lower footer.
-     * 1. Horizontal centring for abs-pos element.
-     * 2. Hidden for mobiles.
-     */
+    /*** Media query: Tablets and wider.
+ ***/
     .footer-logo {
         position: absolute;
+        /*** Ornamental cJ logo in lower footer.
+     ***/
         bottom: 60px;
         bottom: 3.33333rem;
+        /* Horizontal centring. */
         left: 50%;
-        /* 1 */
+        /* Was hidden for mobiles. */
         display: block;
+        /* Horizontal centring. */
         margin: 0 0 0 -30px;
         margin: 0 0 0 -1.66667rem;
-        /* 1 */
         font-size: 54px;
         font-size: 3rem;
         line-height: 1.11111;
         color: #222; 
-        /* 2 */
         text-shadow: 0 0 5px #484848;
     }
 }
 
-/**
- * Media query.
- *
- * Horizontal nav layout.
- */
 @media (min-width: 800px) {
-    /* Bigger margins for logo. */
+    /*** Media query: Horizontal nav layout.
+ ***/
     .nav-logo {
+        /* Bigger margins for logo. */
         margin: 15px 30px 0 0;
         margin: 0.83333rem 1.66667rem 0 0;
     }
 }
 
-/**
+/* ==========================================================================
  * Circle 'buttons' (really links) and button toolbars, and pagination
  *
  * Note: there is no specific class to create a single button. Instead, buttons
@@ -1717,20 +1719,19 @@ img::selection {
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
-/* All button wrappers. */
+   ========================================================================== */
 .button-bar {
     position: absolute;
     right: 0;
     left: 0;
     margin: 0;
     padding: 0;
-    list-style: none;
+    list-style: none; 
+    /*** All button wrappers.
+ ***/
     font-size: 28px;
     font-size: 1.55556rem;
     text-align: center;
-    /* The buttons (both linked and unlinked/current). */
-    /* Linked buttons. */
 }
 .button-bar li {
     display: inline-block;
@@ -1739,6 +1740,8 @@ img::selection {
 }
 .button-bar a,
 .button-bar b {
+    /*** The buttons (both linked and unlinked/current).
+     ***/
     display: block;
     display: inline-block;
     overflow: hidden;
@@ -1751,22 +1754,20 @@ img::selection {
     border: 2px solid;
 }
 .button-bar a {
+    /*** Linked buttons.
+     ***/
     color: #f5f5f5;
 }
 
-/**
- * Masthead button areas (i.e. blog pagination).
- */
-/*
- * All masthead buttons.
- * 1. To fix the `.title` stacking overlap.
- * 2. Move down to half-overlap the main content area below the masthead.
- */
+/* Masthead button areas (i.e. blog pagination).
+   ========================================================================== */
 .masthead-button-bar {
+    /*** All masthead buttons.
+ ***/
+    /* To fix the `.title` stacking overlap. */
     z-index: 3;
-    /* 1 */
+    /* Move down to half-overlap the main content area below the masthead. */
     bottom: -24.5px;
-    /* 2 */
 }
 .masthead-button-bar.pagination a {
     background: #222;
@@ -1774,35 +1775,28 @@ img::selection {
     cursor: pointer;
 }
 
-/**
- * Footer button areas.
- */
-/*
- * All footer buttons.
- * 1. Move up to half-overlap the main content area above the footer.
- */
+/* Footer button areas.
+   ========================================================================== */
 .footer-button-bar {
+    /*** All footer buttons.
+ ***/
+    /* Move up to half-overlap the main content area above the footer. */
     top: -24.5px;
-    /* 1 */
 }
 
-/**
- * Pagination.
- */
-.pagination {
-    /*
-     * Current page.
-     * 1. Styled to appear 'cut out' of the footer.
-     */
-    /* Other pages. */
-}
+/* Pagination.
+   ========================================================================== */
 .pagination b {
+    /*** Current page.
+     ***/
     border-color: #e0d7cb;
+    /* Styled to appear 'cut out' of the footer. */
     background: #e0d7cb;
-    /* 1 */
     color: #c5a184;
 }
 .pagination a {
+    /*** Other pages.
+     ***/
     border-color: #e0d7cb;
     background: #e9e6df; 
     color: #808e90;
@@ -1819,39 +1813,35 @@ img::selection {
     color: #f5f5f5;
 }
 
-/* Fix layout bug where next/previous buttons were slightly above the line. */
 .pagination-item {
+    /* Fix layout bug where next/previous buttons were slightly above the
+     * line. */
     vertical-align: top;
 }
 
-/* Next/Previous links. */
 .pagination-item-adjacent {
+    /*** Next/Previous links.
+ ***/
     font-family: "cj-icons";
-    /*
-     * Make older/newer links that don't lead anywhere invisible, but
-     * don't display:none them (so the alignment of the other links
-     * doesn't change).
-     */
 }
 .pagination-item-adjacent b {
+    /*** Make older/newer links that don't lead anywhere invisible, but don't
+     *** display:none them (so the alignment of the other links doesn't change).
+     ***/
     border-color: transparent;
     background: transparent;
 }
 
-/*
- * Post-page pager only - adjust for white background. All .pagination styles
- * apply.
- */
 .pagination-pager a,
 .pagination-pager a:hover,
 .pagination-pager a:focus,
 .pagination-pager a:active {
+    /* Adjust post-page pager for white background. */
     border-color: #f5f5f5;
 }
 
-/**
- * Subscribe icon buttons (e.g. Twitter, RSS).
- */
+/* Subscribe icon buttons (e.g. Twitter, RSS).
+   ========================================================================== */
 .subscribe-item a {
     font-family: "cj-icons";
     border-color: #e9e6df;
@@ -1867,47 +1857,46 @@ img::selection {
     background: #c5a184;
 }
 
-/* Twitter button. */
 .subscribe-twitter a {
+    /*** Twitter button.
+ ***/
     background: #00acf2;
 }
 
-/* RSS button. */
 .subscribe-feed a {
+    /*** RSS button.
+ ***/
     background: #d78637;
 }
 
-/**
- * Article title areas, used on both single posts/pages and for post indexes.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/*
- * Page/post title wrapper.
- * 1. Stay on top of illustration and gradient.
- */
+/* ==========================================================================
+   Article title areas, used on both single posts/pages and for post indexes.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .title {
     position: relative;
-    /* 1 */
+    /* Stay on top of illustration and gradient. */
     z-index: 2;
 }
 
-/* Title. */
 .title-main {
     margin: 0;
     padding: 30px 0;
     padding: 1.66667rem 0;
     color: #f5f5f5;
-    /* Links in titles. */
 }
 .title-main a {
+    /*** Links in titles.
+     ***/
     padding: 0 0 0.1em;
     color: inherit;
 }
 
-/* Subtitle/excerpt. */
 .title-summary {
+    /*** Subtitle/excerpt.
+ ***/
     margin: 0 0 30px;
     margin: 0 0 1.66667rem;
     font-size: 18px;
@@ -1918,9 +1907,10 @@ img::selection {
     color: #f5f5f5;
 }
 
-/* 'Link' label. */
 .title-label {
     display: block;
+    /*** Format label.
+ ***/
     padding: 30px 0 0;
     padding: 1.66667rem 0 0;
     font-style: normal;
@@ -1928,20 +1918,16 @@ img::selection {
     font-size: 1.16667rem;
     line-height: 1.42857;
     color: #f5f5f5;
-    /* Reduce padding of succeeding title. */
 }
 .title-label + .title-main {
+    /* Reduce padding of succeeding title. */
     padding-top: 0;
 }
 
-/*
- * Text styles for illustrated page/post headers, including the homepage.
- */
-.header-illustrated {
-    /* Article title, and 'featured article' label. */
-}
 .header-illustrated .title-main,
 .header-illustrated .title-label {
+    /*** Illustrated article: title and format label.
+     ***/
     text-shadow: 0 0 10px #222;
 }
 .header-illustrated .title-main a:hover,
@@ -1950,48 +1936,43 @@ img::selection {
     text-shadow: none;
 }
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
 @media (min-width: 718px) {
-    /* Article alignment. */
+    /*** Media query: Tablets and wider.
+ ***/
     .title {
         margin-right: 8.33333%; 
         margin-left: 8.33333%;
     }
 }
 
-/**
- * Published date for articles, styled in three circles.
- *
- * @todo Some refactoring needed - duplication of components.less with
- *       articles.less.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/*
- * Basic date styles. Very similar to `.button-bar`.
- * 1. Overlap the bottom of the post header.
- */
+/* ==========================================================================
+   Published date for articles, styled in three circles.
+
+   @todo Some refactoring needed - duplication of components.less with
+         articles.less.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .date {
     position: absolute;
     right: 0;
+    /* Overlap the bottom of the post header. */
     bottom: -23.5px;
-    /* 1 */
     left: 0;
     display: block;
     margin: 0;
     padding: 0;
+    /*** Basic date styles. Very similar to `.button-bar`.
+ ***/
     font-size: 28px;
     font-size: 1.55556rem;
     text-align: center;
 }
 
-/* Individual date units. */
 .date-unit {
+    /*** Individual date units.
+ ***/
     display: block;
     display: inline-block;
     overflow: hidden;
@@ -2005,17 +1986,13 @@ img::selection {
     color: #f5f5f5;
 }
 
-/* Separators (i.e. "/") – only there for screen readers etc. */
 .date-separator {
+    /* Separators (i.e. "/") – only there for screen readers etc. */
     display: none;
 }
 
-/*
- * Dates in article footer (used for listing pages).
- */
-.listing-footer {
-    /* Individual date parts. */
-}
+/* Dates in article footer (used for listing pages).
+   ========================================================================== */
 .listing-footer .date {
     position: static; 
     padding: 15px 0;
@@ -2025,6 +2002,8 @@ img::selection {
     line-height: 1.25;
 }
 .listing-footer .date-unit {
+    /*** Individual date parts.
+     ***/
     display: block;
     display: inline-block;
     overflow: hidden;
@@ -2036,32 +2015,32 @@ img::selection {
     border: 1px solid;
     background-color: transparent;
     color: #808e90;
-    /* White dates in footers of illustrated posts in blog index. */
 }
 .post-illustrated .listing-footer .date-unit {
+    /*** White dates in footers of illustrated posts in blog index.
+         ***/
     color: #f5f5f5;
 }
 
-/* Dates in illustrated article footers. */
 article.illustrated footer .date-unit {
+    /*** Dates in illustrated article footers.
+ ***/
     background: #222;
     color: #f5f5f5;
 }
 
-/* Bigger featured article dates. */
-.post-featured-footer {
-    /*
-     * 1. Redeclare inline-block (to re-override circle mixin's display:block).
-     */
-}
 .post-featured-footer .date {
+    /*** Bigger featured article dates.
+     ***/
     font-size: 28px;
     font-size: 1.55556rem;
     line-height: 1.07143;
 }
 .post-featured-footer .date-unit {
     display: block;
-    display: inline-block;
+    /* Redeclare inline-block (to re-override circle mixin's
+         * display:block). */
+    display: inline-block; 
     overflow: hidden;
     width: 47px;
     height: 47px;
@@ -2069,23 +2048,17 @@ article.illustrated footer .date-unit {
     text-align: center;
     border-radius: 50%;
     border: 1px solid;
-    /* 1 */
 }
 
-/**
- * Media query.
- *
- * Tablet or wider.
- */
 @media (min-width: 718px) {
-    /*
-     * Dates in article footer.
-     * 1. Vertical centring in footer line. The footer min-height is 3 lines.
-     *    The date-circles height is $circle-diameter.
-     */
+    /*** Media query: Tablets or wider.
+ ***/
     .post-footer .date {
-        /* 1 */
         position: absolute;
+        /*** Dates in article footer.
+     ***/
+        /* Vertical centring in footer line. The footer min-height is 3 lines.
+         * The date-circles height is $circle-diameter. */
         top: 22.5px;
         top: 1.25rem;
         bottom: auto;
@@ -2093,7 +2066,7 @@ article.illustrated footer .date-unit {
     }
 }
 
-/**
+/* ==========================================================================
  * Main navigation styles
  *
  * Contains both the vertical, mobile-friendly 'menu' layout and the wider,
@@ -2101,33 +2074,28 @@ article.illustrated footer .date-unit {
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
-/**
- * Nav container.
- */
-/*
- * 1. Overflow:visible prevents menu overlapping header when closed. (RE-CHECK.)
- */
+   ========================================================================== */
+/* Nav container.
+   ========================================================================== */
 .nav {
     position: absolute;
     z-index: 10;
+    /* Overflow:visible prevents menu overlapping header when closed. */
     overflow: visible;
     width: 100%;
     max-height: 70px;
-    /* 1 */
     transition: background-color 0.5s ease-in-out;
-    /* Background color on 'open' (mobile only). */
 }
 .nav.open {
+    /* Background color on 'open' (mobile only). */
     background: #222;
     background: rgba(34, 34, 34, 0.8);
 }
 
-/**
- * The navigation menu.
- */
 .nav-level-1 {
     margin: 0;
+    /*** The navigation menu.
+ ***/
     padding: 0 0 15px;
     padding: 0 0 0.83333rem;
     font-size: 21px;
@@ -2136,44 +2104,35 @@ article.illustrated footer .date-unit {
     line-height: 1.42857;
     background: #222;
     background: rgba(34, 34, 34, 0.9);
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out; 
     transition-duration: 0.3s;
     transition-property: -webkit-transform opacity;
     transition-property:         transform opacity;
-    /* Animate out when button toggle clicked. */
-    /* Animate in when button toggle clicked. */
-}
-.nav-level-1:before,
-.nav-level-1:after {
-    content: " ";
-    display: table;
-}
-.nav-level-1:after {
-    clear: both;
 }
 .closed .nav-level-1 {
+    /*** Animate out when button toggle clicked.
+     ***/
     opacity: 0;
     -webkit-transform: translate3d(-100%, 0, 0);
             transform: translate3d(-100%, 0, 0);
 }
 .open .nav-level-1 {
+    /*** Animate in when button toggle clicked.
+     ***/
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
 }
 
-/*
- * Nav item wrappers.
- * 1. For submenu positioning.
- */
 .nav-item {
+    /* For submenu positioning. */
     position: relative;
-    /* 1 */
     margin: 0;
     list-style: none;
-    /* Nav item links and menu toggle button. */
 }
 .nav-item a {
+    /*** Nav item links and menu toggle button.
+     ***/
     display: block;
     border-radius: 0; 
     border: 0;
@@ -2183,49 +2142,43 @@ article.illustrated footer .date-unit {
     color: #f5f5f5;
 }
 
-/* Nav item links: top level. */
 .nav-item-level-1 > a {
     display: block; 
+    /*** Nav item links: top level.
+ ***/
     padding: 15px;
     padding: 0.83333rem;
 }
 
-/*
- * Submenus.
- * 1. Same background colour but with no transparency.
- */
 .nav-level-2 {
+    /*** Submenus.
+ ***/
     margin: 0 0 15px 15px;
     margin: 0 0 0.83333rem 0.83333rem;
     padding: 0;
+    /* Same background colour but with no transparency. */
     background: #222;
-    /* 1 */
 }
 
-/* Submenu item links. */
 .nav-item-level-2 a {
     padding: 8px;
     padding: 0.41667rem;
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 1.875;
-    /* Add a dash to separate subnav items from main nav. */
 }
 .nav-item-level-2 a:before {
+    /* Add a dash to separate subnav items from main nav. */
     content: "– ";
 }
 
-/**
- * Menu toggle button (mobile only).
- */
-/*
- * 1. Height to match the navbar logo: diameter + margin + 2px. @todo REVISIT.
- * 2. Increased width to increase the tap target area.
- */
+/* Menu toggle button (mobile only).
+   ========================================================================== */
 .nav-menu-toggle {
     display: block;
-    /* 1 */
+    /* Increased width to increase the tap target area. */
     min-width: 25%;
+    /* Height to match the navbar logo: diameter + margin + 2px. */
     height: 69px;
     padding: 20px 15px;
     padding: 1.11111rem 0.83333rem;
@@ -2233,61 +2186,37 @@ article.illustrated footer .date-unit {
     font-size: 1.33333rem;
     line-height: 1.25;
     border-radius: 0;
-    /* 2 */
     border: 0;
     background: #f5f5f5;
     background: rgba(245, 245, 245, 0.6);
     color: #222;
-    /* Colour changes for dark menu button on light mastheads. */
-    /* Menu open states. */
 }
 .masthead-reversed .nav-menu-toggle {
+    /* Colour changes for dark menu button on light mastheads. */
     color: #222;
 }
-.open .nav-menu-toggle {
-    /* Add colon to 'Menu' label when menu is open. */
-    /*
-         * Menu open: return to light toggle colour to match dark open-menu
-         * background.
-         */
-}
 .open .nav-menu-toggle:after {
+    /* Add colon to 'Menu' label when menu is open. */
     content: ":";
 }
 .light-masthead .open .nav-menu-toggle {
+    /* Menu open: return to light toggle colour to match dark open-menu
+             * background. */
     color: #f5f5f5;
 }
 
-/**
- * Media query.
- *
- * Horizontal nav layout.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 800px) {
-    /*
-     * Nav container.
-     * 1. Remove max-height set for menu overflowing on mobile layout.
-     */
+    /*** Media query: Horizontal nav layout.
+ ***/
     .nav {
+        /* Remove max-height set for menu overflowing on mobile layout. */
         max-height: 10000em;
-        /* 1 */
-        /* Remove open/closed styling difference (which is mobile only). */
     }
     .nav.open {
+        /* Remove open/closed styling difference (which is mobile only). */
         background: transparent;
-    }
-    /* On hover, darken the navbar background. */
-    .nav:hover {
-        /*
-         * Navbar, logo, and submenu backgrounds (to match post formats'
-         * masthead colours).
-         */
-    }
-    .nav:hover,
-    .nav:hover .nav-logo,
-    .nav:hover .nav-level-2 {
-        /* Light background image. */
-        /* Illustrated article/page. */
     }
     .masthead-project .nav:hover,
     .masthead-project .nav:hover .nav-logo,
@@ -2328,163 +2257,150 @@ article.illustrated footer .date-unit {
     .masthead-reversed .nav:hover,
     .masthead-reversed .nav:hover .nav-logo,
     .masthead-reversed .nav:hover .nav-level-2 {
+        /* Nav colour for light background image. */
         background: #64443e;
         background: rgba(100, 68, 62, 0.8);
     }
     .masthead-illustrated .nav:hover,
     .masthead-illustrated .nav:hover .nav-logo,
     .masthead-illustrated .nav:hover .nav-level-2 {
+        /* Nav colour for illustrated article/page. */
         background: #222;
         background: rgba(34, 34, 34, 0.6);
-    }
-    /* Nav menu styling for navbar/dropdown layout. */
-    .nav-level-1 {
-        /*
-         * Remove mobile menu sizes and animations.
-         * 1. Used for transitioning the menu in-out.
-         */
     }
     .open .nav-level-1,
     .closed .nav-level-1 {
         padding: 0;
+        /*** Remove mobile menu sizes and animations.
+         ***/
         font-size: 18px;
         font-size: 1rem;
         line-height: 1.66667;
         background: transparent;
         opacity: 1;
-        /* 1 */
         transition: none;
         -webkit-transform: none;
             -ms-transform: none;
                 transform: none;
-        /* 1 */
     }
-    /* Nav item wrapper positioning. */
     .nav-item {
+        /* Nav item wrapper positioning. */
         float: left;
-        /* Nav item link label centring. */
-        /* Current item. */
-        /* Reverse item colours on hover/active. */
-        /* Current item. */
     }
     .nav-item a {
+        /* Nav item link label centring. */
         text-align: center;
     }
     .nav-item.active > a,
     .nav-item.active > button {
+        /*** Current item.
+         ***/
         background: #f5f5f5;
         background: rgba(245, 245, 245, 0.6);
         color: #222;
     }
     .nav-item a:hover,
     .nav-item a:focus {
+        /*** Reverse item colours on hover/active.
+         ***/
         background: #f5f5f5;
         background: rgba(245, 245, 245, 0.8);
         color: #222;
     }
     .nav-item a:active {
+        /*** Current item.
+         ***/
         background: #f5f5f5;
         background: rgba(245, 245, 245, 0.6);
         color: #222;
     }
-    /**
-     * Top level menu.
-     */
-    /* Links. */
     .nav-item-level-1 > a {
+        /*** Top level menu links.
+     ***/
         padding: 30px 23px;
         padding: 1.66667rem 1.25rem;
-        /* Shadow for overlay of illustrations. */
     }
     .masthead-illustrated .nav-item-level-1 > a {
+        /* Shadow for overlay of illustrations. */
         text-shadow: 0 0 10px #222;
     }
     .masthead-reversed .nav-item-level-1 > a {
         color: #222;
         text-shadow: 0 0 10px #f5f5f5;
     }
-    /* Remove shadow for highlighted link. */
     .masthead-illustrated .active > a,
     .masthead-illustrated .nav:hover a {
+        /* Remove shadow for highlighted link. */
         text-shadow: none;
     }
-    /* Light backgrounds - hover. Override previous styles block. */
     .masthead-reversed .nav:hover .nav-item-level-1 > a {
+        /* Light backgrounds hover. */
         color: #f5f5f5;
     }
     .masthead-reversed .nav:hover .nav-item-level-1 > a:hover,
     .masthead-reversed .nav:hover .nav-item-level-1 > a:focus,
     .masthead-reversed .nav:hover .nav-item-level-1 > a:active,
     .masthead-reversed .nav:hover .nav-item-level-1.active > a {
+        /* Light backgrounds hover. */
         color: #222;
     }
-    /**
-     * Submenus.
-     */
-    /*
-     * The submenu container.
-     * 1. Leave room at top of submenu for the overlapping navbar (main
-     *    menu).
-     * 2. Submenus start offscreen, and fly in-out on navbar hover.
-     */
     .nav-level-2 {
         position: absolute;
-        /* 1 */
         z-index: -1;
         top: 0;
         right: 0;
         left: 0;
         margin: 0 2px;
+        /*** Submenus.
+     ***/
+        /* Leave room at top of submenu for the overlapping navbar (main
+         * menu). */
         padding-top: 90px;
         padding-top: 5rem;
         opacity: 0;
-        /* 2 */
         transition: all 0.5s ease-in-out;
+        /* Submenus start offscreen, and fly in-out on navbar hover. */
         -webkit-transform: translate3d(0, -105%, 0);
                 transform: translate3d(0, -105%, 0);
-        /* 2 */
-        /* Animate submenus in on navbar hover */
     }
     .nav:hover .nav-level-2 {
         opacity: 1;
+        /* Animate submenus in on navbar hover. */
         -webkit-transform: translate3d(0, 0, 0);
                 transform: translate3d(0, 0, 0);
     }
-    /*
-     * Nav link wrappers.
-     * 1. Lay out vertically, as mobile layout.
-     */
     .nav-item-level-2 {
+        /* Lay out vertically, as mobile layout. */
         float: none;
-        /* 1 */
         overflow: hidden;
-        /* Remove dashes from submenu items, added in on mobile. */
     }
     .nav-item-level-2 a:before {
+        /*** Remove dashes from submenu items, added in on mobile.
+         ***/
         content: "";
         display: none;
     }
     .nav-menu-toggle {
+        /* Hide mobile-only menu toggle button. */
         display: none;
     }
 }
 
-/**
- * Media query.
- *
- * Horizontal nav layout with bigger text.
- */
 @media (min-width: 900px) {
-    /* Top-level menu. */
+    /*** Media query: Horizontal nav layout with bigger text.
+ ***/
     .nav-item-level-1 > a {
+        /*** Top-level menu.
+     ***/
         padding: 30px 23px;
         padding: 1.66667rem 1.25rem;
         font-size: 21px;
         font-size: 1.16667rem;
         line-height: 1.42857;
     }
-    /* Submenus. */
     .nav-item-level-2 a {
+        /*** Submenus.
+     ***/
         padding: 15px;
         padding: 0.83333rem;
         font-size: 18px;
@@ -2493,25 +2409,22 @@ article.illustrated footer .date-unit {
     }
 }
 
-/**
- * Media query.
- *
- * Horizontal nav layout with bigger text and more spacing.
- */
 @media (min-width: 1000px) {
-    /* Space out top-level menu items more. */
+    /*** Media query: Horizontal nav layout with still bigger text and more spacing.
+ ***/
     .nav-item-level-1 > a {
+        /* Space out top-level menu items more. */
         padding: 30px;
         padding: 1.66667rem;
     }
 }
 
-/**
- * Pager (next/previous links) styles.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Pager (next/previous links) styles.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .pager-list {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2519,14 +2432,6 @@ article.illustrated footer .date-unit {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-.pager-list:before,
-.pager-list:after {
-    content: " ";
-    display: table;
-}
-.pager-list:after {
-    clear: both;
 }
 
 .pager-item {
@@ -2537,34 +2442,32 @@ article.illustrated footer .date-unit {
     display:         flex;
     width: 50%;
     margin: 0;
-    padding: 0;
+    padding: 0; 
 
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    /*
-     * 1. For arrow icon positioning.
-     */
 }
 .pager-item a {
+    /* For arrow icon positioning. */
     position: relative;
-    /* 1 */
     display: block;
     padding: 15px 90px 30px;
     padding: 0.83333rem 5rem 1.66667rem;
     border-bottom: 0;
-    background: transparent;
+    background: transparent; 
 
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    /* Arrow icons */
 }
 .pager-item a:before {
     position: absolute;
     top: 50%;
     display: block;
     margin-top: -0.375em;
+    /*** Arrow icons.
+         ***/
     font-size: 40px;
     font-size: 2.22222rem;
     line-height: 0.75;
@@ -2603,35 +2506,22 @@ article.illustrated footer .date-unit {
     color: inherit;
 }
 
-/*
- * The summary of this pager entry.
- */
 .pager-item-description {
     display: block;
+    /*** The summary of this pager entry.
+ ***/
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 1.40625;
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 
-/**
- * Content area of articles, single pages, and portfolio and CV items.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/**
- * Basics
- */
-.content:before,
-.content:after {
-    content: " ";
-    display: table;
-}
-.content:after {
-    clear: both;
-}
+/* ==========================================================================
+   Content area of articles, single pages, and portfolio and CV items.
 
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .content-section {
     float: left;
     display: inline;
@@ -2643,69 +2533,58 @@ article.illustrated footer .date-unit {
     padding-bottom: 4.16667rem;
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
     background: #f5f5f5;
-    /* Remove top margin for headings at top of content area. */
-}
-.content-section:before,
-.content-section:after {
-    content: " ";
-    display: table;
-}
-.content-section:after {
-    clear: both;
 }
 .content-section > h1:first-child,
 .content-section > h2:first-child,
 .content-section > h3:first-child {
+    /* Remove top margin for headings at top of content area. */
     margin-top: 0;
 }
 
-/* Don't apply grid layout to content for articles within a listing  */
-/* Complex content areas with darker backgrounds. */
 .content-section-special {
+    /* Complex content areas with darker backgrounds. */
     background: #e0d7cb;
 }
 
-/**
- * Media query.
- *
- * Tablets and above.
- */
 @media (min-width: 718px) {
-    /* Content is still single-column, but with bigger margins, on tablets. */
+    /*** Media query: Tablets and above.
+ ***/
     .content-section {
         padding-right: 8.33333%;
         padding-right: calc(8.33333% + 15px); 
+        /*** Content is still single-column, but with bigger margins, on tablets.
+     ***/
         padding-left: 8.33333%;
         padding-left: calc(8.33333% + 15px);
     }
-    /* Override for wider content sections, e.g. portfolio listing. */
     .content-section-wide {
+        /*** Override for wider content sections, e.g. portfolio listing.
+     ***/
         float: left;
         display: inline;
         width: 100%;
         padding: 0 15px;
     }
-    /* Centre-align item titles in full-width listings. */
     .content-section-special > h2 {
+        /* Centre-align item titles in full-width listings. */
         text-align: center;
     }
 }
 
-/**
- * Media query.
- *
- * Wide enough for two-column layout.
- */
 @media (min-width: 940px) {
-    /* Extra spacing for main content area. */
+    /*** Media query: Wide enough for two-column layout.
+ ***/
     .content-section {
         padding-right: 16.66667%;
         padding-right: calc(16.66667% + 15px); 
+        /*** Extra spacing for main content area.
+     ***/
         padding-left: 16.66667%;
         padding-left: calc(16.66667% + 15px);
     }
-    /* Override for wider content sections, e.g. portfolio listing. */
     .content-section-wide {
+        /*** Override for wider content sections, e.g. portfolio listing.
+     ***/
         float: left;
         display: inline;
         width: 100%;
@@ -2713,48 +2592,32 @@ article.illustrated footer .date-unit {
     }
 }
 
-/**
- * Layout styles for page masthead
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/*
- * The masthead.
- * 1. For date positioning.
- */
+/* ==========================================================================
+   Layout styles for page masthead
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .masthead {
+    /* For date positioning. */
     position: relative;
-    /* 1 */
     background: #a17167;
-    /*
-     * The title-and-teaser wrapper.
-     * 1. Stack title above the illustration and gradient.
-     */
-    /* Page/post title. */
-    /* Excerpt. */
-    /* 'Featured article' or 'link' label. */
-}
-.masthead:before,
-.masthead:after {
-    content: " ";
-    display: table;
-}
-.masthead:after {
-    clear: both;
 }
 .masthead .title {
+    /* Stack title above the illustration and gradient. */
     position: relative;
-    /* 1 */
-    z-index: 2;
+    z-index: 2; 
+    /*** The title-and-teaser wrapper.
+     ***/
     padding-top: 135px;
     padding-top: 7.5rem;
     padding-bottom: 75px;
     padding-bottom: 4.16667rem;
-    /* 1 */
 }
 .masthead .title-main {
     margin: 0;
+    /*** Page/post title.
+     ***/
     padding: 0;
     font-size: 54px;
     font-size: 3rem;
@@ -2763,6 +2626,8 @@ article.illustrated footer .date-unit {
 }
 .masthead .title-summary {
     margin: 0;
+    /*** Excerpt.
+     ***/
     padding-top: 45px;
     padding-top: 2.5rem;
     font-size: 24px;
@@ -2772,6 +2637,8 @@ article.illustrated footer .date-unit {
 }
 .masthead .title-label {
     display: block;
+    /*** Format/'featured'/'link' label.
+     ***/
     padding-bottom: 30px;
     padding-bottom: 1.66667rem;
     font-style: normal;
@@ -2781,74 +2648,50 @@ article.illustrated footer .date-unit {
     color: #f5f5f5;
 }
 
-/*
- * Illustrated mastheads.
- * 1. To make sure the full parallax image is contained within.
- */
 .masthead-illustrated {
+    /* To make sure the full parallax image is contained within. */
     min-height: 500px;
-    /* 1 */
     background: #222;
 }
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
 @media (min-width: 718px) {
-    /* The masthead. */
-    .masthead {
-        /**
-         * Spacing either side of the main page title, for normal screen widths.
-         * 1. Reinstate the vertical margins (for footer placement).
-         */
-    }
+    /*** Media query: Tablets and wider.
+ ***/
     .masthead .title {
+        /*** Add spacing either side of the main page title, for normal screen
+     *** widths.
+     ***/
         float: left;
         display: inline;
         width: 66.66667%;
         margin-right: 16.66667%;
         margin-left: 16.66667%;
         padding: 0 15px;
+        /* Reinstate the vertical margins (for footer placement). */
         padding-top: 135px;
         padding-top: 7.5rem;
-        /* 1 */
         padding-bottom: 75px;
         padding-bottom: 4.16667rem;
-        /* 1 */
     }
 }
 
-/**
- * Article header/footer and container styles, used on both single posts/pages
- * and for post indexes. (See also `_content.scss` and `_title.scss`, among
- * others.)
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* White background for article contents. */
+/* ==========================================================================
+   Article header/footer and container styles, used on both single posts/
+   pages and for post indexes
+
+   (See also `_content.scss` and `_title.scss`, among others.)
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .post,
 .page {
+    /* White background for article contents. */
     background: #f5f5f5;
 }
-.post:before,
-.post:after,
-.page:before,
-.page:after {
-    content: " ";
-    display: table;
-}
-.post:after,
-.page:after {
-    clear: both;
-}
 
-/**
- * Article header.
- */
-/* Output header colours for each post/item format. */
+/* Article header.
+   ========================================================================== */
 .header-project,
 .masthead-project .date-unit,
 .listing .post-project:before,
@@ -2897,66 +2740,31 @@ article.illustrated footer .date-unit {
     background: #a17167;
 }
 
-/* Illustrated post and blog index header colours. */
 .header-illustrated,
 .masthead-illustrated .date-unit,
 .blog-page .masthead,
 .listing .post-illustrated:before,
 .minilisting .post-illustrated,
 .minilisting .post-illustrated:before {
+    /*** Illustrated post and blog index header colours.
+ ***/
     background: #222;
 }
 
-/*
- * Additional link styling for Link and Project items. Make links visible when
- * in the header area.
- */
-.header-link a:hover,
-.header-link a:focus,
-.header-project a:hover,
-.header-project a:focus {
-    border-color: #f5f5f5;
-    background: #f5f5f5;
-    color: #5e8c88;
-}
-.header-link a:active,
-.header-project a:active {
-    border-color: #c5a184;
-    background: #c5a184;
-    color: #f5f5f5;
+.post-featured {
+    /*** Featured articles.
+ ***/
+    /* For article footer positioning. */
+    position: relative;
+    background-color: #222;
 }
 
-/**
- * My Approach timeline 'steps'.
- */
-/* Standard steps. */
-.step:before,
-.step-header {
-    background: #5e8c88;
-}
-
-/* Launch step. */
-.step-launch {
-    /* 'what you get' subheading. */
-}
-.step-launch:before,
-.step-launch .step-header {
-    background: #2b9759;
-}
-.step-launch .step-footer h3 {
-    color: #2b9759;
-}
-
-/**
- * Article footer (metadata section).
- */
-/*
- * 1. For metadata elements' positioning.
- */
+/* Article footer (metadata section).
+   ========================================================================== */
 .listing-footer,
 .post-featured-footer {
+    /* For metadata elements' positioning. */
     position: relative;
-    /* 1 */
     z-index: 3;
     min-height: 90px;
     min-height: 5rem;
@@ -2973,48 +2781,30 @@ article.illustrated footer .date-unit {
     font-family: "cj-icons";
 }
 
-/*
- * Featured articles.
- * 1. For article footer positioning.
- */
-.post-featured {
-    position: relative;
-    /* 1 */
-    background-color: #222;
-}
-.post-featured:before,
-.post-featured:after {
-    content: " ";
-    display: table;
-}
-.post-featured:after {
-    clear: both;
-}
-
-/* Metadata footer for featured articles. */
 .post-footer.post-featured-footer {
+    /*** Metadata footer for featured articles.
+ ***/
     height: 30px;
     height: 1.66667rem;
     min-height: 0;
     background: transparent;
-    /*
-     * Adjust metadata colours and sizes to match the dark/full-width masthead.
-     */
 }
 .post-footer.post-featured-footer .post-footer-link,
 .post-footer.post-featured-footer .post-footer-permalink {
+    /*** Adjust metadata colours and sizes to match the dark/full-width
+     *** masthead.
+     ***/
     font-size: 21px;
     font-size: 1.16667rem;
     line-height: 1.42857;
     color: #f5f5f5;
 }
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 718px) {
+    /*** Media query: Tablets and wider.
+ ***/
     .post-footer-link {
         margin-left: 15px;
         margin-left: 0.83333rem;
@@ -3024,17 +2814,11 @@ article.illustrated footer .date-unit {
         margin-right: 15px;
         margin-right: 0.83333rem;
     }
-    /* Metadata alignment. */
     .listing-footer,
     .post-featured-footer {
+        /*** Metadata alignment.
+     ***/
         padding-bottom: 0;
-        /*
-         * Left- and right-aligned metadata fields.
-         * 1. Vertical centring in footer line. The footer min-height is 3
-         *    lines, and the field height is 1 line; so there should be 1 line
-         *    above and 1 line below the metadata field. 0.2rem compensates for
-         *    the standard 0.2em padding applied to all links by default.
-         */
     }
     .listing-footer .post-footer-permalink,
     .listing-footer .post-footer-link,
@@ -3042,8 +2826,13 @@ article.illustrated footer .date-unit {
     .post-featured-footer .post-footer-permalink,
     .post-featured-footer .post-footer-link,
     .post-featured-footer .go-to-site {
-        /* 1 */
         position: absolute;
+        /*** Left- and right-aligned metadata fields.
+         ***/
+        /* Vertical centring in footer line. The footer min-height is 3
+             * lines, and the field height is 1 line; so there should be 1 line
+             * above and 1 line below the metadata field. 0.2rem compensates for
+             * the standard 0.2em padding applied to all links by default. */
         top: 26px;
         top: 1.46667rem;
         display: block;
@@ -3062,8 +2851,9 @@ article.illustrated footer .date-unit {
         right: 0; 
         margin-right: 8.33333%;
     }
-    /* Featured article footers. */
     .post-featured-footer {
+        /*** Featured article footers.
+     ***/
         float: left;
         display: inline;
         width: 66.66667%;
@@ -3083,27 +2873,30 @@ article.illustrated footer .date-unit {
     }
 }
 
-/**
- * Parallax illustration styling
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* Shared styles for all gradient fades overlaying the illustrations. */
+/* ==========================================================================
+   Parallax illustration styling
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .gradient {
     position: absolute;
+    /*** Shared styles for all gradient fades overlaying the illustrations.
+ ***/
     z-index: 2;
     top: 0;
 }
 
-/* Shared styles for all illustrations, including in content rows. */
 .illustration {
+    /*** Shared styles for all illustrations, including in content rows.
+ ***/
     position: absolute;
     overflow: hidden;
     width: 100%;
-    /* The image itself. */
 }
 .illustration img {
+    /*** The image itself.
+     ***/
     position: absolute;
     left: 50%;
     display: block;
@@ -3111,83 +2904,75 @@ article.illustrated footer .date-unit {
             transform: translate3d(0, 0, 0);
 }
 
-/* Illustrated articles (both in and out of the masthead). */
-.header-illustrated {
-    /* Gradient fade between the illustration and the article footer. */
-    /* Parallax image wrapper. */
-}
+/* Illustrated articles.
+   ========================================================================== */
 .header-illustrated .gradient {
+    /*** Gradient fade between the illustration and the article footer.
+     ***/
     width: 100%;
     height: 350px;
     background-image: linear-gradient(to bottom, transparent 40%, #222 100%);
 }
 .header-illustrated .illustration {
+    /*** Parallax image wrapper.
+     ***/
     top: 0;
     height: 350px;
-    /* The image itself. */
 }
 .header-illustrated .illustration img {
+    /*** The image itself.
+         ***/
     top: -120px;
     margin-left: -475px;
 }
 
-/* Illustrated articles - just in the blog/index listings. */
 .index-listing .header-illustrated .title {
     padding-top: 210px;
     padding-top: 11.66667rem;
 }
 
-/* Illustrated mastheads. */
-.masthead-illustrated {
-    /* Leave space above page title for the photo. */
-    /* Gradient fade between the illustration and the masthead bottom. */
-    /* Parallax image wrapper */
-}
+/* Illustrated mastheads.
+   ========================================================================== */
 .masthead-illustrated .title {
+    /* Leave space above page title for the photo. */
     padding-top: 300px;
     padding-top: 16.66667rem;
 }
 .masthead-illustrated .gradient {
+    /*** Gradient fade between the illustration and the masthead bottom.
+     ***/
     height: 500px;
     background-image: linear-gradient(to bottom, transparent 55%, #222 100%);
 }
 .masthead-illustrated .illustration {
-    /* @todo needs a fix for IE8? */
+    /*** Parallax image wrapper.
+     ***/
     height: 500px;
-    /* The image itself. */
 }
 .masthead-illustrated .illustration img {
+    /*** The image itself.
+         ***/
     top: -100px;
     margin-left: -700px;
-    /**
-             * Prevents 'skip' on page load caused by javascript. Y value is
-             * calculated from `top` / 4
-             *
-             * @todo Doesn't work yet - NEEDS MORE TESTING.
-             */
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
 }
 
-/*
- * Mini illustrated content sections (e.g. further down the homepage).
- * 1. Parallax images positioning.
- * 2. Default background colour for illustrated content sections.
- */
+/* Mini illustrated content sections (e.g. further down the homepage).
+   ========================================================================== */
 .content-section-illustrated {
+    /* Parallax images positioning. */
     position: relative;
     overflow: hidden;
-    /* 1 */
     width: 100%;
     margin: 0;
     padding: 0;
     font-size: 21px;
     font-size: 1.16667rem;
     line-height: 1.42857;
+    /* Default background colour for illustrated content sections. */
     background: #5e8c88;
-    /* 2 */
     color: #f5f5f5;
-    /* Hide illustration and gradient overlay for mobile devices. */
 }
 .content-section-illustrated h2 {
     margin: 30px 0;
@@ -3215,86 +3000,76 @@ article.illustrated footer .date-unit {
 }
 .content-section-illustrated .illustration,
 .content-section-illustrated .gradient {
+    /* Hide illustration and gradient overlay for mobile devices. */
     display: none;
 }
 
-/*
- * Content blocks within illustrated sections.
- * 1. Overlap the gradient (which itself has a z-index).
- */
 .content-section-illustrated-content {
-    /* 1 */
-    position: relative;
+    position: relative; 
+    /* Overlap the gradient (which itself has a z-index). */
     z-index: 5;
+    /*** Content blocks within illustrated sections.
+ ***/
     float: left;
     display: inline;
     width: 100%;
     padding: 0 15px;
     padding-bottom: 30px;
     padding-bottom: 1.66667rem;
-    /* 1 */
 }
 
-/**
- * Media query.
- *
- * Tablets or wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 718px) {
-    /*
-     * Mini illustrated content sections.
-     */
-    .content-section-illustrated {
-        /* The gradient overlay. (Hidden on mobile.) */
-        /* The illustration wrapper. (Hidden on mobile.) */
-    }
+    /*** Media query: Tablets or wider.
+ ***/
     .content-section-illustrated .gradient {
+        /*** The gradient overlay. (Hidden on mobile.)
+         ***/
         display: block;
         width: 850px;
         height: 100%;
-        /* Gradient over right-aligned illustration image. */
     }
     .content-section-illustrated .gradient.right {
+        /*** Gradient over right-aligned illustration image.
+             ***/
         left: 50%;
         margin-left: -10%;
         background-image: linear-gradient(to left, transparent 40%, #5e8c88 100%);
     }
     .content-section-illustrated .illustration {
+        /*** The illustration wrapper. (Hidden on mobile.)
+         ***/
         display: block;
         height: 100%;
-        /* Right-aligned illustration image. */
     }
     .content-section-illustrated .illustration.right img {
+        /*** Right-aligned illustration image.
+             ***/
         margin-left: -10%;
     }
-    /*
-     * Space out the content.
-     * 1. Don't overlap the illustration too far.
-     * 2. Specificity hack so we don't need to keep redeclaring the padding
-     *    every time we change the column width.
-     * 3. Reinstate the bottom spacing.
-     */
     .content-section-illustrated-content {
+        /*** Space out the content.
+     ***/
+        /* Don't overlap the illustration too far. */
         float: left;
         display: inline;
         width: 75%;
         padding: 0 15px;
-        /* 1 */
     }
     .content-section-illustrated-content.content-section-illustrated-content {
-        /* 2 */
+        /*** Specificity hack so we don't need to keep redeclaring the padding
+         *** every time we change the column width.
+         ***/
+        /* Reinstate the bottom spacing. */
         padding-bottom: 30px;
         padding-bottom: 1.66667rem;
-        /* 3 */
     }
 }
 
-/**
- * Media queries.
- *
- * Space out the illustrated content sections a bit more.
- */
 @media (min-width: 900px) {
+    /*** Media query: Space out the illustrated content sections a bit more.
+ ***/
     .content-section-illustrated-content {
         float: left;
         display: inline;
@@ -3304,6 +3079,8 @@ article.illustrated footer .date-unit {
 }
 
 @media (min-width: 1050px) {
+    /*** Media query: Second level of illustrated content section spacing.
+ ***/
     .content-section-illustrated-content {
         float: left;
         display: inline;
@@ -3315,6 +3092,8 @@ article.illustrated footer .date-unit {
 }
 
 @media (min-width: 1150px) {
+    /*** Media query: Third level of illustrated content section spacing.
+ ***/
     .content-section-illustrated-content {
         float: left;
         display: inline;
@@ -3325,6 +3104,8 @@ article.illustrated footer .date-unit {
 }
 
 @media (min-width: 1300px) {
+    /*** Media query: Fourth level of illustrated content section spacing.
+ ***/
     .content-section-illustrated-content {
         float: left;
         display: inline;
@@ -3334,39 +3115,32 @@ article.illustrated footer .date-unit {
     }
 }
 
-/**
- * Lists of articles and other data structures
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* All content columns are full width for mobile. */
+/* ==========================================================================
+   Lists of articles and other data structures
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .listing {
+    /* All content columns are full width for mobile. */
     margin: 0 0 30px;
     margin: 0 0 1.66667rem;
-    /* Listing title - used for My Approach page. */
 }
 .listing > h2 {
+    /*** Listing title - used for My Approach page.
+     ***/
     margin: 0 0 60px;
     margin: 0 0 3.33333rem;
     text-align: center;
     color: #a17167;
 }
 
-/*
- * Listing items.
- * 1. Icon placement and style.
- */
 .listing-item {
-    position: relative;
+    position: relative; 
+    /*** Icon placement and style.
+ ***/
     margin-bottom: 60px;
     margin-bottom: 3.33333rem;
-    /* 1 */
-    /* Icon colours and fonts.. */
-    /* Loop through icons themselves. */
-    /* No icon for illustrated articles in full-size listings. */
-    /* Link post custom styling. */
-    /* Illustrated post custom styling. */
 }
 .listing-item:before {
     position: absolute;
@@ -3387,6 +3161,8 @@ article.illustrated footer .date-unit {
     color: #f5f5f5;
 }
 .listing-item:before {
+    /*** Icon colours and fonts.
+     ***/
     font-family: "cj-icons";
     color: #e0d7cb;
 }
@@ -3410,33 +3186,29 @@ article.illustrated footer .date-unit {
 }
 .listing-item.post-illustrated:before,
 .listing-item.page:before {
+    /* No icon for illustrated articles in full-size listings. */
     display: none;
 }
 .listing-item .content {
     background: #f5f5f5;
 }
-.listing-item.post-link {
-    /* Make direct link box flush with footer top. */
-}
 .listing-item.post-link .content {
+    /* Make direct link box flush with footer top. */
     padding-bottom: 0;
-}
-.listing-item.post-illustrated {
-    /* Dark footer - unique to illustrated posts. */
 }
 .listing-item.post-illustrated,
 .listing-item.post-illustrated .post-footer {
+    /* Illustrated post dark background. */
     background: #222;
 }
 .listing-item.post-illustrated .post-footer .post-footer-link,
 .listing-item.post-illustrated .post-footer .post-footer-permalink {
+    /* Reversed text for dark footer of illustrated posts. */
     color: #f5f5f5;
-}
-.listing-item.post-long {
-    /* Don't show footnotes in excerpts, only in full post content. */
 }
 .listing-item.post-long .footnote,
 .listing-item.post-long .footnotes {
+    /* Don't show footnotes in excerpts, only in full post content. */
     display: none;
 }
 
@@ -3444,29 +3216,31 @@ article.illustrated footer .date-unit {
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
 }
 
-/*
- * Blog/index listing.
- */
-/* Bottom spacing for footer-less illustrated items. */
+/* Blog/index listing.
+   ========================================================================== */
 .page-illustrated .index-listing-header {
+    /* Bottom spacing for footer-less illustrated items. */
     padding-bottom: 1.66667rem;
 }
 .page-illustrated .index-listing-header .title-summary {
     margin-bottom: 0;
 }
 
-/* Title of the listing area. */
 .index-listing-heading {
+    /*** Title of the listing area.
+ ***/
     color: #a17167;
 }
 
-/* Content area. */
 .index-listing-content {
+    /*** Content area.
+ ***/
     padding-bottom: 30px;
     padding-bottom: 1.66667rem;
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 .index-listing-content:first-child {
+    /* More top spacing when there is no header area for this post. */
     padding-top: 30px;
     padding-top: 1.66667rem;
 }
@@ -3474,6 +3248,7 @@ article.illustrated footer .date-unit {
 .index-listing-content h2,
 .index-listing-content h3,
 .index-listing-content h4 {
+    /* Remove excess heading margins. */
     margin-top: 30px;
     margin-top: 1.66667rem;
 }
@@ -3482,14 +3257,14 @@ article.illustrated footer .date-unit {
     margin-bottom: 1.66667rem;
 }
 
-/**
- * Media query.
- *
- * Wide enough for two-column layout.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 940px) {
-    /* Leave room for the sidebar column next to the listing column. */
+    /*** Media query: Wide enough for two-column layout.
+ ***/
     .blog-listing {
+        /*** Leave room for the sidebar column next to the listing column.
+     ***/
         float: left;
         display: inline;
         width: 66.66667%;
@@ -3497,79 +3272,51 @@ article.illustrated footer .date-unit {
         margin-left: 0;
         padding: 0 15px;
     }
-    /**
-     * Post contents in blog and index listings. Space out and align with
-     * title/footer.
-     */
-    .index-listing-content {
-        /*
-         * Matching margins for the main blockquote of a quote post.
-         */
-    }
     .index-listing-content p,
     .index-listing-content h1,
     .index-listing-content h2,
     .index-listing-content h3,
     .index-listing-content h4 {
         margin-right: 8.33333%; 
+        /*** Post contents in blog and index listings.
+         ***/
+        /* Space out and align with title/footer. */
         margin-left: 8.33333%;
-    }
-    .post-quote .index-listing-content blockquote {
-        margin: 30px 0;
-        margin: 1.66667rem 0;
     }
 }
 
-/**
- * Media query.
- *
- * Greater white space between the main content and sidebar.
- */
 @media (min-width: 1100px) {
-    /* The sidebar is now one less column, so we leave an extra space. */
+    /*** Media query: Greater white space between the main content and sidebar.
+ ***/
     .blog-listing {
+        /* The sidebar is now one less column, so we leave an extra space. */
         margin-left: 8.33333%;
     }
 }
 
-/**
- * Small, bulleted-list-style listings of articles and other data structures
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* ul */
+/* ==========================================================================
+   Small, bulleted-list-style listings of articles and other data structures
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .minilisting {
     counter-reset: results; 
+    /*** ul element.
+ ***/
     margin: 0 0 0 15px;
     margin: 0 0 0 0.83333rem;
     padding: 0;
     list-style: none;
 }
 
-/*
- * The individual post.
- * 1. For icon positioning.
- * 2. Hide results until displayed by a filtering/searching item.
- */
 .minilisting-item {
+    /*** The individual post list item.
+ ***/
     position: relative;
-    position: relative;
-    /* 1 */
+    position: relative; 
     margin: 15px 0 15px 11.25px;
     margin: 0.83333rem 0 0.83333rem 0.625rem;
-    /*
-     * Icon colours and fonts..
-     * 1. To overlap the child link element.
-     */
-    /* Loop through icons themselves. */
-    /* Different background for illustrated articles in minilistings. */
-    /*
-     * The link.
-     * 1. For the search results count alignment.
-     * 2. Override the faux underlining (it will be reapplied to the child
-     *    element).
-     */
 }
 .minilisting-item:before {
     position: absolute;
@@ -3590,8 +3337,10 @@ article.illustrated footer .date-unit {
     color: #f5f5f5;
 }
 .minilisting-item:before {
+    /*** Icon.
+     ***/
+    /* Overlap the child link element. */
     z-index: 2;
-    /* 1 */
     font-family: "cj-icons";
     color: #e9e6df;
 }
@@ -3614,44 +3363,41 @@ article.illustrated footer .date-unit {
     content: "";
 }
 .minilisting-item.post-illustrated:before {
+    /* Different background for illustrated articles in minilistings. */
     background: #222;
 }
 .minilisting-item a {
+    /* For the search results count alignment. */
     position: relative;
-    /* 1 */
     display: block;
     padding: 8px 15px 8px 30px;
     padding: 0.41667rem 0.83333rem 0.41667rem 1.66667rem;
+    /* Override the faux underlining (it will be reapplied to the child
+         * element). */
     border-bottom: 0;
-    /* 2 */
     color: #f5f5f5;
 }
 
-/* The actual title (styled like a link). */
 .minilisting-title-main {
+    /*** The actual title (styled like a link).
+ ***/
     padding: 0.2em 0;
     border-bottom: 1px solid;
 }
 
-/* Hide filter/search results until displayed using javascript. */
 .filter-minilisting-item {
+    /* Hide filter/search results until displayed using javascript. */
     display: none;
-    /* 2 */
-    /* Change icon/border colour to match the blog index background. */
 }
 .filter-minilisting-item:before {
+    /* Change icon/border colour to match the blog index background. */
     color: #e0d7cb;
-}
-.filter-minilisting-item a {
-    /* Footer-mimicking right border 'stripe'. Contains search result no. */
-    /*
-         * Search result number.
-         * 1. As wide as the border-right (for easier alignment).
-         */
 }
 .filter-minilisting-item a,
 .filter-minilisting-item a:hover,
 .filter-minilisting-item a:focus {
+    /*** Footer-mimicking right border 'stripe'. Contains search result no.
+         ***/
     border-right-width: 30px;
     border-right-width: 1.66667rem;
     border-right-style: solid;
@@ -3662,31 +3408,35 @@ article.illustrated footer .date-unit {
     position: absolute;
     top: 50%;
     left: 100%;
+    /*** Search result number.
+         ***/
+    /* As wide as the border-right (for easier alignment). */
     width: 30px;
     width: 1.66667rem;
-    /* 1 */
     margin-top: -15px;
     margin-top: -0.83333rem;
     text-align: center;
     color: #808e90;
 }
 
-/**
- * Layout for the two footers: 'site footer' (the lower of the two footers) and
- * 'page footer' (the upper).
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-/* Footer columns - contact details, smallprint, latest posts, etc. */
+/* ==========================================================================
+   Layout for the two footers: 'site footer' (the lower of the two footers) and
+   'page footer' (the upper).
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .footer-section {
+    /*** Footer columns - contact details, smallprint, latest posts, etc.
+ ***/
     margin: 60px 15px 0;
     margin: 3.33333rem 0.83333rem 0;
     list-style: none;
 }
 
-/* Remove excess header spacing. */
 .footer-section-title {
+    /*** Remove excess header spacing.
+ ***/
     margin: 0 0 30px;
     margin: 0 0 1.66667rem;
     font-size: 21px;
@@ -3697,36 +3447,21 @@ article.illustrated footer .date-unit {
     border-bottom: 0;
 }
 
-/**
- * Page footer.
- */
-/*
- * 1. For alignment of button toolbars and pagination links.
- */
+/* Page footer.
+   ========================================================================== */
 .page-footer {
+    /* For alignment of button toolbars and pagination links. */
     position: relative;
     clear: both;
     min-height: 90px;
     min-height: 5rem;
-    /* 1 */
     background: #e9e6df;
 }
-.page-footer:before,
-.page-footer:after {
-    content: " ";
-    display: table;
-}
-.page-footer:after {
-    clear: both;
-}
 
-/**
- * Site footer.
- */
-/*
- * 1. For alignment of button toolbars and pagination links.
- */
+/* Site footer.
+   ========================================================================== */
 .site-footer {
+    /* For alignment of button toolbars and pagination links. */
     position: relative;
     z-index: 3;
     clear: both;
@@ -3734,17 +3469,8 @@ article.illustrated footer .date-unit {
     min-height: 6.66667rem;
     padding-bottom: 30px;
     padding-bottom: 1.66667rem;
-    /* 1 */
     background: #222;
     color: #d0bda9;
-}
-.site-footer:before,
-.site-footer:after {
-    content: " ";
-    display: table;
-}
-.site-footer:after {
-    clear: both;
 }
 
 .site-footer-item {
@@ -3758,44 +3484,39 @@ article.illustrated footer .date-unit {
     color: #f5f5f5;
 }
 
-/*
- * Contact details icons.
- * 1. Override i element styling.
- */
 .contact-label {
+    /* Override i element styling. */
     font-style: normal;
+    /*** Contact details icons.
+ ***/
     font-family: "cj-icons";
-    /* 1 */
     color: #d0bda9;
 }
 
-/* Utility links and terms of use section. */
 .smallprint {
+    /*** Utility links and terms of use section.
+ ***/
     margin-top: 0;
     text-align: right;
 }
 
-/* Copyright. */
 .smallprint-item-copyright {
+    /*** Copyright.
+ ***/
     font-size: 16px;
     font-size: 0.88889rem;
     line-height: 1.875;
     color: #d0bda9;
 }
 
-/**
- * Media query.
- *
- * Tablets and wider.
- */
+/* Media queries.
+   ========================================================================== */
 @media (min-width: 480px) {
-    /*
-     * The two footer sections (columns).
-     *
-     * Half the footer width. Less vertical spacing, more horizontal
-     * spacing.
-     */
+    /*** Media query: Tablets and wider.
+ ***/
     .footer-section {
+        /*** The two footer sections (columns). Half the footer width, less vertical
+     *** spacing, more horizontal spacing. */
         float: left;
         display: inline;
         width: 50%;
@@ -3805,25 +3526,23 @@ article.illustrated footer .date-unit {
         padding: 0 30px;
         padding: 0 1.66667rem;
     }
-    /*
-     * Extra spacing for top-footer sections, to leave room for a button bar,
-     * and maximum column width to avoid layout oddities.
-     */
     .page-footer-section {
         max-width: 575px; 
+        /*** Extra spacing for top-footer sections, to leave room for a button bar,
+     *** and maximum column width to avoid layout oddities. */
         padding-bottom: 45px;
         padding-bottom: 2.5rem;
     }
 }
 
-/**
- * Code highlighting styles for Pygments
- *
- * Adapted from Monokai styles from https://github.com/richleland/pygments-css
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Code highlighting styles for Pygments
+
+   Adapted from Monokai styles from https://github.com/richleland/pygments-css
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 .highlight .hll {
     background-color: #49483e;
 }
@@ -3832,307 +3551,247 @@ article.illustrated footer .date-unit {
     color: #75715e;
 }
 
-/* Comment */
 .highlight .err {
     background-color: #1e0010; 
     color: #960050;
 }
 
-/* Error */
 .highlight .k {
     color: #66d9ef;
 }
 
-/* Keyword */
 .highlight .l {
     color: #ae81ff;
 }
 
-/* Literal */
 .highlight .n {
     color: #f8f8f2;
 }
 
-/* Name */
 .highlight .o {
     color: #f92672;
 }
 
-/* Operator */
 .highlight .p {
     color: #f8f8f2;
 }
 
-/* Punctuation */
 .highlight .cm {
     color: #75715e;
 }
 
-/* Comment.Multiline */
 .highlight .cp {
     color: #75715e;
 }
 
-/* Comment.Preproc */
 .highlight .c1 {
     color: #75715e;
 }
 
-/* Comment.Single */
 .highlight .cs {
     color: #75715e;
 }
 
-/* Comment.Special */
 .highlight .kc {
     color: #66d9ef;
 }
 
-/* Keyword.Constant */
 .highlight .kd {
     color: #66d9ef;
 }
 
-/* Keyword.Declaration */
 .highlight .kn {
     color: #f92672;
 }
 
-/* Keyword.Namespace */
 .highlight .kp {
     color: #66d9ef;
 }
 
-/* Keyword.Pseudo */
 .highlight .kr {
     color: #66d9ef;
 }
 
-/* Keyword.Reserved */
 .highlight .kt {
     color: #66d9ef;
 }
 
-/* Keyword.Type */
 .highlight .ld {
     color: #e6db74;
 }
 
-/* Literal.Date */
 .highlight .m {
     color: #ae81ff;
 }
 
-/* Literal.Number */
 .highlight .s {
     color: #e6db74;
 }
 
-/* Literal.String */
 .highlight .na {
     color: #a6e22e;
 }
 
-/* Name.Attribute */
 .highlight .nb {
     color: #f8f8f2;
 }
 
-/* Name.Builtin */
 .highlight .nc {
     color: #a6e22e;
 }
 
-/* Name.Class */
 .highlight .no {
     color: #66d9ef;
 }
 
-/* Name.Constant */
 .highlight .nd {
     color: #a6e22e;
 }
 
-/* Name.Decorator */
 .highlight .ni {
     color: #f8f8f2;
 }
 
-/* Name.Entity */
 .highlight .ne {
     color: #a6e22e;
 }
 
-/* Name.Exception */
 .highlight .nf {
     color: #a6e22e;
 }
 
-/* Name.Function */
 .highlight .nl {
     color: #f8f8f2;
 }
 
-/* Name.Label */
 .highlight .nn {
     color: #f8f8f2;
 }
 
-/* Name.Namespace */
 .highlight .nx {
     color: #a6e22e;
 }
 
-/* Name.Other */
 .highlight .py {
     color: #f8f8f2;
 }
 
-/* Name.Property */
 .highlight .nt {
     color: #f92672;
 }
 
-/* Name.Tag */
 .highlight .nv {
     color: #f8f8f2;
 }
 
-/* Name.Variable */
 .highlight .ow {
     color: #f92672;
 }
 
-/* Operator.Word */
 .highlight .w {
     color: #f8f8f2;
 }
 
-/* Text.Whitespace */
 .highlight .mf {
     color: #ae81ff;
 }
 
-/* Literal.Number.Float */
 .highlight .mh {
     color: #ae81ff;
 }
 
-/* Literal.Number.Hex */
 .highlight .mi {
     color: #ae81ff;
 }
 
-/* Literal.Number.Integer */
 .highlight .mo {
     color: #ae81ff;
 }
 
-/* Literal.Number.Oct */
 .highlight .sb {
     color: #e6db74;
 }
 
-/* Literal.String.Backtick */
 .highlight .sc {
     color: #e6db74;
 }
 
-/* Literal.String.Char */
 .highlight .sd {
     color: #e6db74;
 }
 
-/* Literal.String.Doc */
 .highlight .s2 {
     color: #e6db74;
 }
 
-/* Literal.String.Double */
 .highlight .se {
     color: #ae81ff;
 }
 
-/* Literal.String.Escape */
 .highlight .sh {
     color: #e6db74;
 }
 
-/* Literal.String.Heredoc */
 .highlight .si {
     color: #e6db74;
 }
 
-/* Literal.String.Interpol */
 .highlight .sx {
     color: #e6db74;
 }
 
-/* Literal.String.Other */
 .highlight .sr {
     color: #e6db74;
 }
 
-/* Literal.String.Regex */
 .highlight .s1 {
     color: #e6db74;
 }
 
-/* Literal.String.Single */
 .highlight .ss {
     color: #e6db74;
 }
 
-/* Literal.String.Symbol */
 .highlight .bp {
     color: #f8f8f2;
 }
 
-/* Name.Builtin.Pseudo */
 .highlight .vc {
     color: #f8f8f2;
 }
 
-/* Name.Variable.Class */
 .highlight .vg {
     color: #f8f8f2;
 }
 
-/* Name.Variable.Global */
 .highlight .vi {
     color: #f8f8f2;
 }
 
-/* Name.Variable.Instance */
 .highlight .il {
     color: #ae81ff;
 }
 
-/* Literal.Number.Integer.Long */
-/* Generic Heading & Diff Header */
 .highlight .gu {
     color: #75715e;
 }
 
-/* Generic.Subheading & Diff Unified/Comment? */
 .highlight .gd {
     color: #f92672;
 }
 
-/* Generic.Deleted & Diff Deleted */
 .highlight .gi {
     color: #a6e22e;
 }
 
-/* Generic.Inserted & Diff Inserted */
-/**
- * Webfont for cJ logo and other icons.
- *
- * Kept separate from other webfonts, so it can be loaded in the head.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Webfont for cJ logo and other icons.
+
+   Kept separate from other webfonts, so it can be loaded in the head.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 @font-face {
     font-family: "cj-icons";
 
@@ -4147,7 +3806,7 @@ article.illustrated footer .date-unit {
     src: url(data:application/font-woff;charset=utf-8;base64,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) format("woff"), url("/font/cj-icons.ttf") format("truetype"), url("/font/cj-icons.svg#cj-icons") format("svg");
 }
 
-/**
+/* ==========================================================================
  * All temporary fixes
  *
  * Used for code that is needed to fix a problem but is not the 'correct' or
@@ -4156,4 +3815,4 @@ article.illustrated footer .date-unit {
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */

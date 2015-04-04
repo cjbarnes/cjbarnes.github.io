@@ -1,17 +1,17 @@
-/**
- * Lists of articles and other data structures
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Lists of articles and other data structures
 
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/* All content columns are full width for mobile. */
 .listing {
+    /* All content columns are full width for mobile. */
     @include rem("margin", 0 0 $line);
 
-    /* Listing title - used for My Approach page. */
     > h2 {
+    /*** Listing title - used for My Approach page.
+     ***/
         @include rem("margin", 0 0 ($line * 2));
         text-align: center;
         color: $text-color-listing-headings;
@@ -19,30 +19,29 @@
 
 }
 
-/*
- * Listing items.
- * 1. Icon placement and style.
- */
 .listing-item {
+/*** Icon placement and style.
+ ***/
     @include rem("margin-bottom", ($line * 2));
-    @include circle-box($background-color); /* 1 */
+    @include circle-box($background-color);
 
-    /* Icon colours and fonts.. */
     &:before {
+    /*** Icon colours and fonts.
+     ***/
         font-family: $font-family-icons;
         color: $background-color;
     }
 
-    /* Loop through icons themselves. */
+    // Loop through icons themselves.
     @each $format, $icon in $format-icons {
         &.post-#{$format}:before {
             content: "#{$icon}";
         }
     }
 
-    /* No icon for illustrated articles in full-size listings. */
     &.post-illustrated:before,
     &.page:before {
+        /* No icon for illustrated articles in full-size listings. */
         display: none;
     }
 
@@ -50,29 +49,25 @@
         background: $background-color-content;
     }
 
-    /* Link post custom styling. */
-    &.post-link {
-
+    &.post-link .content {
         /* Make direct link box flush with footer top. */
-        .content {
-            padding-bottom: 0;
-        }
-
+        padding-bottom: 0;
     }
 
-    /* Illustrated post custom styling. */
+
     &.post-illustrated {
 
         &,
         .post-footer {
+            /* Illustrated post dark background. */
             background: $background-color-illustrated;
         }
 
-        /* Dark footer - unique to illustrated posts. */
         .post-footer {
 
             .post-footer-link,
             .post-footer-permalink {
+                /* Reversed text for dark footer of illustrated posts. */
                 color: $text-color-reversed;
             }
 
@@ -82,26 +77,26 @@
 
     &.post-long {
 
-        /* Don't show footnotes in excerpts, only in full post content. */
         .footnote,
         .footnotes {
+            /* Don't show footnotes in excerpts, only in full post content. */
             display: none;
         }
 
     }
 
-} //.listing-item
+}
 
 .read-more {
     font-family: $font-family-brand;
 }
 
-/*
- * Blog/index listing.
- */
 
-/* Bottom spacing for footer-less illustrated items. */
+/* Blog/index listing.
+   ========================================================================== */
+
 .page-illustrated .index-listing-header {
+    /* Bottom spacing for footer-less illustrated items. */
     padding-bottom: $line;
 
     .title-summary {
@@ -110,26 +105,28 @@
 
 }
 
-/* Title of the listing area. */
 .index-listing-heading {
+/*** Title of the listing area.
+ ***/
     color: $text-color-listing-headings;
 }
 
-/* Content area. */
 .index-listing-content {
+/*** Content area.
+ ***/
     @include rem("padding-bottom", $line);
     font-family: $font-family-content;
 
-    // More top spacing when there is no header area for this post.
     &:first-child {
+        /* More top spacing when there is no header area for this post. */
         @include rem("padding-top", $line);
     }
 
-    // Remove excess heading margins.
     h1,
     h2,
     h3,
     h4 {
+        /* Remove excess heading margins. */
         @include rem("margin-top", $line);
     }
 
@@ -140,25 +137,21 @@
 }
 
 
-/**
- * Media query.
- *
- * Wide enough for two-column layout.
- */
-@include media-width("two-columns") {
+/* Media queries.
+   ========================================================================== */
 
-    /* Leave room for the sidebar column next to the listing column. */
+@include media-width("two-columns") {
+/*** Media query: Wide enough for two-column layout.
+ ***/
+
     .blog-listing {
+    /*** Leave room for the sidebar column next to the listing column.
+     ***/
         @include column(8);
         @include push(0);
         @include pull(0);
     }
 
-
-    /**
-     * Post contents in blog and index listings. Space out and align with
-     * title/footer.
-     */
     .index-listing-content {
 
         p,
@@ -166,32 +159,23 @@
         h2,
         h3,
         h4 {
+        /*** Post contents in blog and index listings.
+         ***/
+            /* Space out and align with title/footer. */
             @include push;
             @include pull;
         }
 
-        /*
-         * Matching margins for the main blockquote of a quote post.
-         */
-        .post-quote & blockquote {
-            @include rem("margin", $line 0);
-        }
-
     }
 
-} //include media-width(two-columns)
+}
 
-
-/**
- * Media query.
- *
- * Greater white space between the main content and sidebar.
- */
 @include media-width("more-column-spacing") {
-
-    /* The sidebar is now one less column, so we leave an extra space. */
+/*** Media query: Greater white space between the main content and sidebar.
+ ***/
     .blog-listing {
+        /* The sidebar is now one less column, so we leave an extra space. */
         @include push(1);
     }
 
-} //include media-width(more-column-spacing)
+}

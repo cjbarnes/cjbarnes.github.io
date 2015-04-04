@@ -1,49 +1,46 @@
-/**
- * Layout styles for page masthead
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Layout styles for page masthead
 
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/*
- * The masthead.
- * 1. For date positioning.
- */
 .masthead {
-    @include clearfix;
-    position: relative; /* 1 */
+    /* For date positioning. */
+    position: relative;
     background: $background-color-masthead;
 
-    /*
-     * The title-and-teaser wrapper.
-     * 1. Stack title above the illustration and gradient.
-     */
     .title {
+    /*** The title-and-teaser wrapper.
+     ***/
         @include rem("padding-top",    ($line * 4.5));
         @include rem("padding-bottom", ($line * 2.5));
-        position: relative; /* 1 */
-        z-index: 2; /* 1 */
+        /* Stack title above the illustration and gradient. */
+        position: relative;
+        z-index: 2;
     }
 
-    /* Page/post title. */
     .title-main {
+    /*** Page/post title.
+     ***/
         @include rem("padding", 0);
         @include font-size-leading("gigantic", 2.5);
         margin: 0;
         color: $text-color-reversed;
     }
 
-    /* Excerpt. */
     .title-summary {
+    /*** Excerpt.
+     ***/
         @include rem("padding-top", ($line * 1.5));
         @include font-size-leading("larger");
         margin: 0;
         color: $text-color-reversed;
     }
 
-    /* 'Featured article' or 'link' label. */
     .title-label {
+    /*** Format/'featured'/'link' label.
+     ***/
         @include rem("padding-bottom", $line);
         @include font-size-leading("larger");
         display: block;
@@ -51,41 +48,27 @@
         color: $text-color-reversed;
     }
 
-} //.masthead
+}
 
-
-/*
- * Illustrated mastheads.
- * 1. To make sure the full parallax image is contained within.
- */
 .masthead-illustrated {
-    min-height: 500px; /* 1 */
+    /* To make sure the full parallax image is contained within. */
+    min-height: 500px;
     background: $background-color-illustrated;
 }
 
-
-/**
- * Media query.
- *
- * Tablets and wider.
- */
 @include media-width("normal-size") {
-
-    /* The masthead. */
-    .masthead {
-
-        /**
-         * Spacing either side of the main page title, for normal screen widths.
-         * 1. Reinstate the vertical margins (for footer placement).
-         */
-        .title {
-            @include column(8);
-            @include push(2);
-            @include pull(2);
-            @include rem("padding-top",    ($line * 4.5)); /* 1 */
-            @include rem("padding-bottom", ($line * 2.5)); /* 1 */
-        }
-
+/*** Media query: Tablets and wider.
+ ***/
+    .masthead .title {
+    /*** Add spacing either side of the main page title, for normal screen
+     *** widths.
+     ***/
+        @include column(8);
+        @include push(2);
+        @include pull(2);
+        /* Reinstate the vertical margins (for footer placement). */
+        @include rem("padding-top",    ($line * 4.5));
+        @include rem("padding-bottom", ($line * 2.5));
     }
 
-} //include media-width(normal-size)
+}

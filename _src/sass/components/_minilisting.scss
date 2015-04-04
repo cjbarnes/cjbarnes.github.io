@@ -1,97 +1,94 @@
-/**
- * Small, bulleted-list-style listings of articles and other data structures
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Small, bulleted-list-style listings of articles and other data structures
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
 
-/* ul */.minilisting {
+.minilisting {
+/*** ul element.
+ ***/
     @include rem("margin", 0 0 0 $gutter);
     padding: 0;
     list-style: none;
     counter-reset: results;
 }
 
-/*
- * The individual post.
- * 1. For icon positioning.
- * 2. Hide results until displayed by a filtering/searching item.
- */
 .minilisting-item {
-    @include circle-box-mini($background-color); /* 1 */
+/*** The individual post list item.
+ ***/
+    @include circle-box-mini($background-color);
     @include rem("margin", ($line / 2) 0 ($line / 2) ($circle-diameter / 4));
     position: relative;
 
-    /*
-     * Icon colours and fonts..
-     * 1. To overlap the child link element.
-     */
     &:before {
-        z-index: 2; /* 1 */
+    /*** Icon.
+     ***/
+        /* Overlap the child link element. */
+        z-index: 2;
         font-family: $font-family-icons;
         color: $background-color-page-footer;
     }
 
-    /* Loop through icons themselves. */
+    // Loop through the icons themselves.
     @each $format, $icon in $format-icons {
         &.post-#{$format}:before {
             content: "#{$icon}";
         }
     }
 
-    /* Different background for illustrated articles in minilistings. */
     &.post-illustrated:before {
+        /* Different background for illustrated articles in minilistings. */
         background: $background-color-illustrated;
     }
 
-    /*
-     * The link.
-     * 1. For the search results count alignment.
-     * 2. Override the faux underlining (it will be reapplied to the child
-     *    element).
-     */
     a {
         @include rem("padding", ($line / 4) ($line / 2) ($line / 4) $line);
-        position: relative; /* 1 */
+        /* For the search results count alignment. */
+        position: relative;
         display: block;
-        border-bottom: 0; /* 2 */
+        /* Override the faux underlining (it will be reapplied to the child
+         * element). */
+        border-bottom: 0;
         color: $text-color-reversed;
     }
 
 }
 
-/* The actual title (styled like a link). */
 .minilisting-title-main {
+/*** The actual title (styled like a link).
+ ***/
     padding: $link-padding 0;
     border-bottom: 1px solid;
 }
 
-/* Hide filter/search results until displayed using javascript. */
 .filter-minilisting-item {
-    display: none; /* 2 */
+    /* Hide filter/search results until displayed using javascript. */
+    display: none;
 
-    /* Change icon/border colour to match the blog index background. */
     &:before {
+        /* Change icon/border colour to match the blog index background. */
         color: $background-color;
     }
 
     a {
-        /* Footer-mimicking right border 'stripe'. Contains search result no. */
+
         &,
         &:hover,
         &:focus {
+        /*** Footer-mimicking right border 'stripe'. Contains search result no.
+         ***/
             @include rem("border-right-width", $line);
             border-right-style: solid;
             border-right-color: $background-color-page-footer;
         }
 
-        /*
-         * Search result number.
-         * 1. As wide as the border-right (for easier alignment).
-         */
         &:after {
-            @include rem("width", $line); /* 1 */
+        /*** Search result number.
+         ***/
+            /* As wide as the border-right (for easier alignment). */
+            @include rem("width", $line);
             @include rem("margin-top", ($line * -0.5));
             content: counter(results);
             position: absolute;

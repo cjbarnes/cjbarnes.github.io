@@ -1,0 +1,25 @@
+/* ==========================================================================
+   All self-clearing elements.
+
+   Combined into one selector to reduce repetition.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+.above-footer,
+.post,
+.page,
+.post-featured,
+.content,
+.content-section,
+.page-footer,
+.site-footer,
+.masthead,
+.nav-level-1,
+.pager-list,
+.contact-details-list,
+.donts-row,
+.skill-list {
+    @include clearfix;
+}

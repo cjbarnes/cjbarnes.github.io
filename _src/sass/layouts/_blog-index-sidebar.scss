@@ -1,20 +1,20 @@
-/**
- * Blog index sidebar styling
- *
- * Added via JavaScript (as are DOM elements styled by this CSS).
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Blog index sidebar styling
 
-/*
- * Section boundaries.
- * 1. These are all JS-based, so hide unless scripts are turned on.
- */
+   Added via JavaScript (as are DOM elements styled by this CSS).
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+
 .sidebar-filter-section {
+/*** Section boundaries.
+ ***/
     @include rem("margin-bottom", ($line / 2));
     @include rem("padding", (($circle-diameter * 0.5) + ($line-px * 0.5)) $gutter ($line * 0.5));
-    display: none; /* 1 */
+    /* These are all JS-based, so hide unless scripts are turned on. */
+    display: none;
     background: $background-color-page-footer;
 
     .js &.open {
@@ -28,13 +28,9 @@
     position: relative;
 }
 
-/*
- * Blog sidebar button area.
- * 1. Override absolute positioning.
- */
 .sidebar-button-bar {
-    //@include rem("margin-bottom", ($line / 2));
-    //position: static; /* 1 */
+/*** Blog sidebar button area.
+ ***/
     font-family: $font-family-icons;
 
     a {
@@ -72,31 +68,32 @@
 
 }
 
-/* Formats lists. */
 .sidebar-listing {
+/*** Formats lists.
+ ***/
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
     list-style: none;
 }
 
-/*
- * Formats and languages list items.
- * 1. For icon positioning.
- */
 .sidebar-listing-item {
-    position: relative; /* 1 */
+/*** Formats and languages list items.
+ ***/
+    /* For icon positioning. */
+    position: relative;
     padding-left: 1.75em;
 
-    /* Icon colours and fonts.. */
     &:before {
+    /*** Icons.
+     ***/
         @include font-size-leading("larger");
         position: absolute;
         left: 0;
         font-family: $font-family-icons;
     }
 
-    /* Content and colours for format icons. */
+    // Content and colours for format icons.
     @each $format, $icon in $format-icons {
         &.format-#{$format}:before {
             content: "#{$icon}";
@@ -104,67 +101,28 @@
         }
     }
 
-    /* Remove link left-right padding to fix second-line alignment. */
     a {
+        /* Remove link left-right padding to fix second-line alignment. */
         padding-left: 0;
         padding-right: 0;
     }
 
 }
 
-/* Language icons are smaller, so boost their size a little. */
 .languages-listing-item:before {
+/*** Language icons are smaller, so boost their size a little.
+ ***/
     @include font-size-leading("huge");
     left: -0.1em;
 }
 
-/*
- * Tag cloud.
- */
-.tagcloud {
-    margin: 0;
-}
-
-.tagcloud-item {
-    @include font-size-leading("smaller", 1.5);
-    padding-left: 0;
-    padding-right: 0;
-    font-family: $font-family-content;
-
-    /* Tagcloud size increases. */
-    b {
-        @include font-size-leading("small", 1.5);
-        padding: 0;
-        background: none;
-        color: inherit;
-
-        b {
-            @include font-size-leading("normal", 1.5);
-
-            b {
-                @include font-size-leading("large", 1.5);
-
-                b {
-                    @include font-size-leading("larger", 1.5);
-                }
-
-            }
-
-        }
-
-    }
-
-}
-
-/*
- * Search area.
- */
 .sidebar-search-form {
+/*** Search area.
+ ***/
     @include rem("padding", ($line * 0.5) 0);
     text-align: center;
 }
 
-/* Search field/button wrappers. */
 .search-form-field-wrap {
     margin: 0;
 
@@ -174,20 +132,19 @@
 
 }
 
-/* The search input. */
 .search-input {
     @include font-size-leading("large");
     width: 100%;
 }
 
-
-/* Highlight the current sidebar filter. */
 .sidebar-filter-active {
 
     &,
     &:hover,
     &:focus,
     &:active {
+    /*** Highlight the current sidebar filter.
+     ***/
         border: 0;
         background: transparent;
         color: $link-color-active;
@@ -196,18 +153,14 @@
 
 }
 
-
-/**
- * Media query.
- *
- * Greater white space between the main content and sidebar.
- */
 @include media-width("more-column-spacing") {
-
-    /* Reinstate gutters. */
+/*** Media query: Greater white space between the main content and sidebar.
+ ***/
     .sidebar-listing {
+    /*** Reinstate gutters.
+     ***/
         margin-left: $gutter;
         margin-right: $gutter;
     }
 
-} //include media-width(more-column-spacing)
+}
