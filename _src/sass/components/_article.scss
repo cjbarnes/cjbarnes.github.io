@@ -98,8 +98,7 @@
         @include rem("margin-left", $gutter);
     }
 
-    .post-footer-permalink,
-    .go-to-site {
+    .post-footer-permalink {
         @include rem("margin-right", $gutter);
     }
 
@@ -110,8 +109,7 @@
         padding-bottom: 0;
 
         .post-footer-permalink,
-        .post-footer-link,
-        .go-to-site {
+        .post-footer-link {
         /*** Left- and right-aligned metadata fields.
          ***/
             /* Vertical centring in footer line. The footer min-height is 3
@@ -130,8 +128,7 @@
             left: 0;
         }
 
-        .post-footer-permalink,
-        .go-to-site {
+        .post-footer-permalink {
             @include pull;
             right: 0;
         }

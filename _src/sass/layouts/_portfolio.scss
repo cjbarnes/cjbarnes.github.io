@@ -15,9 +15,15 @@
         display: none;
     }
 
-    .content {
-        background: $background-color-portfolio-entry;
+    .go-to-site {
+        @include rem("margin-top", $line);
+        display: inline-block;
     }
+
+}
+
+.portfolio-item-screenshots {
+    background: $background-color-content;
 
     .screenshot {
     /*** Screenshot wrapper - shows a 'browser window' around the screenshot.
@@ -25,51 +31,59 @@
         position: relative;
         /* For horizontal centring. */
         text-align: center;
-        background: url("/img/browser-mobile.png") center top no-repeat;
 
         &.large {
-            /* Desktop screenshot not shown until there's room for it. */
-            display: none;
+            max-width: 100%;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
         }
 
         &.small {
         /*** Mobile screenshot.
          ***/
-            @include rem("padding-top", ($line * 1.5));
-            left: 50%;
-            $width: 320px;
-            margin-left: ($width * -0.5);
-            width: $width;
-            height: 446px;
+            /* Mobile screenshot not shown until there's room for it. */
+            display: none;
         }
 
     }
 
-    h3 {
-    /*** Site title (in listing item footer).
-     ***/
-        @include rem("top", $line);
-        position: absolute;
-        width: 100%;
-        margin: 0;
-        text-align: center;
-        color: $text-color;
-    }
-
 }
 
-.portfolio .website .content {
+.portfolio-item-content {
 /** Portfolio page item content. */
-    @include rem("padding", ($line * 2) 0 0);
+    @include rem("padding-bottom", $line);
     /* For screenshot positioning. */
     position: relative;
     width: 100%;
+    text-align: center;
+
+    h3 {
+        @include rem("margin", $line 0 ($line * 0.5));
+    }
+
+    p {
+        @include rem("margin-top", ($line * 0.5));
+    }
+
 }
 
 @include media-width("portfolio-screenshots") {
 /*** Media query: Full portfolio layout.
  ***/
-    .portfolio-listing .screenshot {
+    .portfolio-item-screenshots {
+    /*** Portfolio page item content area: reinsert extra spacing underneath the
+     *** main screenshot.
+     ***/
+        @include rem("padding", $line 0 0);
+        position: relative;
+        background: $background-color-portfolio-entry;
+    }
+
+    .portfolio-item-screenshots .screenshot {
     /*** The full-size screenshot wrapper.
      ***/
         &.large {
@@ -78,33 +92,46 @@
             $width: 750px;
             @include rem("margin-left", $line);
             @include rem("padding-top", ($line * 1.5));
-            /* Redisplay this size of screenshot (hidden on thinner screens). */
-            display: block;
             width: $width;
             height: 545px;
             background-image: url("/img/browser.png");
         }
+
+    }
+
+}
+
+
+@include media-width("portfolio-both-screenshots") {
+/*** Media query: Full portfolio layout.
+ ***/
+    .portfolio-item-screenshots-interior {
+        //@include rem("padding-bottom", $line);
+        position: relative;
+        max-width: 1110px;
+        margin: 0 auto;
+    }
+
+    .portfolio-item-screenshots .screenshot {
 
         &.small {
         /*** Mobile screenshots.
          ***/
             /* Position mobile to the bottom-right, letting the desktop
              * screenshot take centre stage. */
+            $width: 320px;
             @include rem("right", $line);
+            @include rem("padding-top", ($line * 1.5));
             position: absolute;
+            /* Redisplay this size of screenshot (hidden on thinner screens). */
+            display: block;
             bottom: 0;
-            /* Cancel horizontal centring. */
-            left: auto;
+            width: $width;
+            height: 446px;
             margin-left: 0;
+            background: url("/img/browser-mobile.png") center top no-repeat;
         }
 
-    }
-
-    .portfolio-item-content {
-    /*** Portfolio page item content area: reinsert extra spacing underneath the
-     *** main screenshot.
-     ***/
-        @include rem("padding-bottom", ($line * 2));
     }
 
 }

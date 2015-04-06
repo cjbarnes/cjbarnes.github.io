@@ -2809,8 +2809,7 @@ article.illustrated footer .date-unit {
         margin-left: 15px;
         margin-left: 0.83333rem;
     }
-    .post-footer-permalink,
-    .go-to-site {
+    .post-footer-permalink {
         margin-right: 15px;
         margin-right: 0.83333rem;
     }
@@ -2822,10 +2821,8 @@ article.illustrated footer .date-unit {
     }
     .listing-footer .post-footer-permalink,
     .listing-footer .post-footer-link,
-    .listing-footer .go-to-site,
     .post-featured-footer .post-footer-permalink,
-    .post-featured-footer .post-footer-link,
-    .post-featured-footer .go-to-site {
+    .post-featured-footer .post-footer-link {
         position: absolute;
         /*** Left- and right-aligned metadata fields.
          ***/
@@ -2845,9 +2842,7 @@ article.illustrated footer .date-unit {
         margin-left: 8.33333%;
     }
     .listing-footer .post-footer-permalink,
-    .listing-footer .go-to-site,
-    .post-featured-footer .post-footer-permalink,
-    .post-featured-footer .go-to-site {
+    .post-featured-footer .post-footer-permalink {
         right: 0; 
         margin-right: 8.33333%;
     }

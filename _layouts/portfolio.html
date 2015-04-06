@@ -37,19 +37,26 @@
           <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
 
             <!-- Screenshots -->
+            <div class="screenshots portfolio-item-screenshots">
+              <div class="portfolio-item-screenshots-interior">
+                <div class="screenshot large">
+                  <img src="/img/{{ item.slug }}.png" title="Desktop version">
+                </div>
+                <div class="screenshot small">
+                  <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
             <div class="content listing-content portfolio-item-content">
-              <div class="screenshot large">
-                <img src="/img/{{ item.slug }}.png" title="Desktop version">
-              </div>
-              <div class="screenshot small">
-                <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
-              </div>
+              <h3 class="portfolio-item-title">{{ item.name }}</h3>
+              {{ item.description | markdownify }}
             </div>
 
             <!-- Footer -->
             <footer class="footer listing-footer portfolio-item-footer">
-              <h3>{{ item.name }}</h3>
-              <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
+              <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to website</a>
             </footer>
 
           </article><!-- /.portfolio-item -->

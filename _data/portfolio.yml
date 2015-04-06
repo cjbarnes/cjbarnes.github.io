@@ -1,19 +1,23 @@
 # Portfolio entries
 
-- name:     YuCycle
-  slug:     yucycle
-  url :     http://www.yorkspace.net/yucycle
+- name:        YuCycle
+  slug:        yucycle
+  url:         http://www.yorkspace.net/yucycle
+  description: TODO this is some descriptive text.
 
-- name:     YorkSpace
-  slug:     yorkspace
-  url :     http://www.yorkspace.net
-  featured: yes
+- name:        YorkSpace
+  slug:        yorkspace
+  url:         http://www.yorkspace.net
+  featured:    yes
+  description: TODO this is some descriptive text.
 
-- name:     WEA Norwich
-  slug:     wea-norwich
-  url :     http://www.wea-norwich.org.uk
+- name:        WEA Norwich
+  slug:        wea-norwich
+  url:         http://www.wea-norwich.org.uk
+  description: TODO this is some descriptive text.
 
-- name:     Locke Studies
-  slug:     locke-studies
-  url :     http://www.lockestudies.org
+- name:        Locke Studies
+  slug:        locke-studies
+  url:         http://www.lockestudies.org
+  description: TODO this is some descriptive text.
 
