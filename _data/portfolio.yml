@@ -1,23 +1,33 @@
 # Portfolio entries
 
+- name:        yu magazine
+  slug:        yumagazine
+  url:         http://yumagazine.co.uk/
+  description: The online magazine for University of York alumni, written by York students, staff, and alumni. I created the website and acted as design editor for each issue.
+
+- name:        cJ barnes
+  slug:        cjbarnes
+  url:         /
+  description: This website! I created and wrote all pages on this site in-between client projects over the course of nearly a year. All of my code for the site and its many earlier drafts can be found on [GitHub](//github.com/cjbarnes/cjbarnes.github.io/ "GitHub project for the cJ barnes website").
+
 - name:        YuCycle
   slug:        yucycle
   url:         http://www.yorkspace.net/yucycle
-  description: TODO this is some descriptive text.
+  description: Mini-site for the University of York’s annual cycling challenge event, fundraising for York student bursaries and hardship funds. I created the website and edited its content.
 
 - name:        YorkSpace
   slug:        yorkspace
   url:         http://www.yorkspace.net
   featured:    yes
-  description: TODO this is some descriptive text.
+  description: The website for the University of York’s alumni association and philanthropy development. I created the website and either wrote or edited all of its content.
 
 - name:        WEA Norwich
   slug:        wea-norwich
   url:         http://www.wea-norwich.org.uk
-  description: TODO this is some descriptive text.
+  description: Courses website for the UK’s largest voluntary sector provider of adult learning. I created the public-facing website and a staff-only system for administrating course bookings and payments.
 
 - name:        Locke Studies
   slug:        locke-studies
   url:         http://www.lockestudies.org
-  description: TODO this is some descriptive text.
+  description: An international journal dedicated to the influential political philosopher John Locke. I created the website and provided on-site training.
 
