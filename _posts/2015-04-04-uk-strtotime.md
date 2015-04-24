@@ -64,7 +64,7 @@ function eu_strtotime($time, $now = null) {
     if (is_null($now)) {
         $now = time();
     }
-    $str = preg_replace('/\//', '-', $time);
+    $str = str_replace('/', '-', $time);
     return strtotime($time, $now);
 }
 {% endhighlight %}
