@@ -785,6 +785,12 @@ figure.code code.language-html:before {
 figure.code code.language-php:before {
     background-color: #505c91;
 }
+figure.code.jquery code:before {
+    /*** Override JavaScript icon with jQuery when figure has .jquery class.
+     ***/
+    content: "\e650";
+    background-color: #136aab;
+}
 figure.code code,
 figure.code pre {
     overflow: visible; 

@@ -139,6 +139,13 @@ figure.code {
 
     }
 
+    &.jquery code:before {
+    /*** Override JavaScript icon with jQuery when figure has .jquery class.
+     ***/
+        content: map-get($language-icons, "jquery");
+        background-color: map-get($language-colors, "jquery");
+    }
+
     code,
     pre {
         @include font-size-leading( "smaller", 0.666667 );
