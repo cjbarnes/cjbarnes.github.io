@@ -145,6 +145,10 @@
           /* Remove existing search/filter results. */
           style.innerHTML = '';
 
+          /* Remove active class from the previously active filter link. */
+          wasActive = elementsArray('.sidebar-filter-active');
+          wasActive.forEach(removeFilterActiveClass);
+
           /* Focus on the search box if we're switching to search. */
           if ('js-search-section' === sectionClass) {
             document.querySelector('#sidebar-search').focus();
