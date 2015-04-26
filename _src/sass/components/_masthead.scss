@@ -67,8 +67,7 @@
         @include push(2);
         @include pull(2);
         /* Reinstate the vertical margins (for footer placement). */
-        @include rem("padding-top",    ($line * 4.5));
-        @include rem("padding-bottom", ($line * 2.5));
+        @include rem("padding", ($line * 4.5) 0 ($line * 2.5));
     }
 
 }

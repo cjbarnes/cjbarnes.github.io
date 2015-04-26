@@ -2675,10 +2675,8 @@ article.illustrated footer .date-unit {
         margin-left: 16.66667%;
         padding: 0 15px;
         /* Reinstate the vertical margins (for footer placement). */
-        padding-top: 135px;
-        padding-top: 7.5rem;
-        padding-bottom: 75px;
-        padding-bottom: 4.16667rem;
+        padding: 135px 0 75px;
+        padding: 7.5rem 0 4.16667rem;
     }
 }
 
