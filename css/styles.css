@@ -973,7 +973,8 @@ figure.output + figure.code code:before {
     -webkit-animation: temporary-background 2s;
             animation: temporary-background 2s;
 }
-.footnotes li ol {
+.footnotes li ol,
+.footnotes li ul {
     margin-right: 15px;
     margin-right: 0.83333rem; 
     /*** Reinstate sub-list margins.

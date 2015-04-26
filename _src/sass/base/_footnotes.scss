@@ -67,7 +67,8 @@
             animation: temporary-background 2s;
         }
 
-        ol {
+        ol,
+        ul {
         /*** Reinstate sub-list margins.
          ***/
             @include rem("margin-left",  $gutter);
