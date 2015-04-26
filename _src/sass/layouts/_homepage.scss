@@ -1,28 +1,70 @@
-/**
+/* ==========================================================================
  * Homepage-specific styles
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 
 
-/*
- * Header area.
- * 1. For 'your website goes here' arrow.
- * 2. Almost (but not quite) full screen height. Can use `vh` with no fallback
- *    because I'm also declaring both min- and max-heights, which act as a
- *    de facto fallback.
- * 3. Don't exceed the height of the image.
- */
+/* Homepage masthead area.
+   ========================================================================== */
+
 .homepage-masthead {
-    position: relative; /* 1 */
-    height: 99vh; /* 2 */
+/*** Header area and parallax.
+ ***/
+    position: relative;
+    /* Almost (but not quite) full screen height. Can use `vh` with no fallback
+     * because I'm also declaring both min- and max-heights, which act as a de
+     * facto fallback. */
+    height: 99vh;
     min-height: 700px;
-    max-height: (840px + $line-px); /* 3 */
+    /* Don't exceed the height of the image. */
+    max-height: (840px + $line-px);
+
+    .title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        /* Prevent bottom-padding from causing height issues. */
+        padding-bottom: 0;
+        /* Border is a continuation of the gradient's solid-colour ending. */
+        border-bottom: cj-calculate-rem-fallback($line) solid $background-color-illustrated;
+        /* Manually output border width in both rem and px, since we're using
+         * the border-bottom shorthand (which breaks the `rem` mixin). */
+        border-bottom-width: $line;
+    }
+
+    .gradient {
+        height: 100%;
+        background-image: linear-gradient(to bottom, transparent 0, transparent 65%, $background-color-illustrated 95%);
+    }
+
+    .illustration {
+    /*** Parallax image wrapper.
+     ***/
+        height: 100%;
+
+        img {
+            left: 25%;
+            bottom: 0;
+            margin-left: ($illustration-width-masthead * -0.25);
+
+            @media (max-width: 700px) {
+            /*** Media query: Shift image for better framing on mobile devices.
+             ***/
+                margin-left: -550px;
+            }
+
+        }
+
+    }
+
 }
 
-/* Homepage welcome message */
 .homepage-title {
+/*** Homepage welcome message.
+ ***/
     @include rem("padding-bottom", $line);
     text-align: center;
 }
@@ -40,28 +82,27 @@
         text-shadow: none;
     }
 
-    /*
-     * The changing element in the welcome message.
-     * 1. Fixes the gradient height changing in each brag transition.
-     */
     .brag {
+    /*** The changing element in the welcome message.
+     ***/
         overflow: hidden;
         background: $patina;
-        word-wrap: normal; /* 1 */
+        /* Fixes the gradient height changing in each brag transition. */
+        word-wrap: normal;
 
-        /*
-         * Individual 'brags' - only one is displayed at once.
-         * 1. Hide unless `.current`.
-         */
         span {
+        /*** Individual 'brags' - only one is displayed at once.
+         ***/
             display: inline-block;
-            max-width: 0; /* 1 */
-            opacity: 0; /* 1 */
+            /* Hide unless `.current`. */
+            max-width: 0;
+            opacity: 0;
             transition: all 0.5s ease-in-out;
             color: $text-color-reversed;
 
-            /* The only visible 'brag'. */
             &.current {
+            /*** The currently visible 'brag'.
+             ***/
                 max-width: 100em;
                 opacity: 1;
             }
@@ -72,29 +113,121 @@
 
 }
 
-/* USPs row. */
-.homepage-content-section-illustrated {
 
-    /* Show bulleted list as a simple sequence of sentences. */
+/* Homepage content area.
+   ========================================================================== */
+
+.homepage-content-section-illustrated {
+/*** USPs row.
+ ***/
+    background-color: $toast;
+
     ul {
+    /*** Show bulleted list as a simple sequence of sentences.
+     ***/
         margin: 0;
         line-height: (map-get($line-heights, "large") * 1.5);
         list-style: none;
     }
 
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
+    }
+
 }
 
-/**
- * Media query.
- *
- * Tablet or wider.
- */
+/* Intro. */
+.homepage-content-section-first {
+    background: $background-color;
+}
+
+/* Featured testimonial. */
+.content-section-endorsement {
+
+    blockquote {
+        @include font-size-leading("larger", 1.5);
+    }
+
+}
+
+
+/* Homepage footer area.
+   ========================================================================== */
+
+.featured-website {
+    text-align: right;
+}
+
+.featured-website-screenshot {
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+    background: transparent;
+
+    .featured-website &:hover,
+    .featured-website &:focus,
+    .featured-website &:active {
+    /*** Don't highlight the image on hover. Note specificity hack.
+     ***/
+        background: transparent;
+    }
+
+    img {
+    /*** The actual screenshot.
+     ***/
+        width: 100%;
+    }
+
+}
+
+.featured-website-title {
+/*** Mimic normal link padding, colours, and animation for the website title.
+ ***/
+    display: inline-block;
+    padding: $link-padding;
+    color: $link-color;
+    transition: all $link-transition-duration ease-in-out;
+
+    a:hover &,
+    a:focus & {
+        background: $link-color;
+        color: $text-color-reversed;
+    }
+
+    a:active & {
+        background: $link-color-active;
+        color: $text-color-reversed;
+    }
+
+}
+
+
+/* Media queries.
+   ========================================================================== */
 
 @include media-width("normal-size") {
-
-    /* Brags. No need to wrap to 2 lines at this screen size. */
+/*** Media query: Tablets or wider.
+ ***/
     .homepage-title br {
+        /* Brags line-break: no need to wrap to 2 lines at this screen size. */
         display: none;
+    }
+
+    .homepage-content-section-illustrated .gradient.right {
+    /*** Mini illustrated content sections with different background colour.
+     ***/
+        background-image: linear-gradient(to left, transparent 40%, $toast 100%);
+    }
+
+}
+
+@include media-width("footer-two-columns") {
+/*** Media query: Two footer columns.
+ ***/
+    .featured-website {
+        /* Used to align properly to the edge when this hits the max-width. */
+        float: right;
     }
 
 }

@@ -1,15 +1,10 @@
-/**
- * Mixin to remove the visible structure of an HTML table
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-
-/**
- * Remove the visible structure of an HTML table.
- *
- * Should be applied to the table element or one of its parents.
- */
+/// Mixin to remove the visible structure of an HTML table.
+///
+/// Should be applied to the table element or one of its parents.
+///
+/// @author cJ barnes http://www.cjbarnes.co.uk/
+///
+/// @output Background- and border-removing styles for table cells and sections.
 @mixin invisible-table() {
 
     /* No backgrounds. */

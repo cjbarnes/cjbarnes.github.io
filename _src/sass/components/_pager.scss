@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Pager (next/previous links) styles.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+.pager-list {
+    display: flex; // flexbox version (@todo: consolidate)
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pager-item {
+    float: left;
+    display: inline;
+    display: flex; // flexbox version (@todo: consolidate)
+    flex: 1; // flexbox version (@todo: consolidate)
+    width: 50%;
+    margin: 0;
+    padding: 0;
+
+    a {
+        @include rem("padding", ($line / 2) ($line * 3) $line);
+        /* For arrow icon positioning. */
+        position: relative;
+        display: block;
+        flex: 1; // flexbox version (@todo: consolidate)
+        border-bottom: 0;
+        background: transparent;
+
+        &:before {
+        /*** Arrow icons.
+         ***/
+            @include font-size-leading("enormous");
+            position: absolute;
+            top: 50%;
+            display: block;
+            margin-top: (-0.5em * map_get($line-heights, "enormous"));
+            font-family: $font-family-icons;
+        }
+
+        &:hover,
+        &:focus {
+            background: $link-color-secondary;
+        }
+
+        &:active {
+            background: $link-color-active;
+        }
+
+    }
+
+}
+
+.pager-previous a:before {
+    @include rem("left", $line);
+    content: "\e601";
+}
+
+.pager-next a {
+    text-align: right;
+
+    &:before {
+        @include rem("right", $line);
+        content: "\e61b";
+    }
+
+}
+
+.pager-item-title {
+    @include font-size-leading("large");
+    display: block;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+}
+
+.pager-item-description {
+/*** The summary of this pager entry.
+ ***/
+    @include font-size-leading("small", 0.75);
+    display: block;
+    font-family: $font-family-content;
+}
+

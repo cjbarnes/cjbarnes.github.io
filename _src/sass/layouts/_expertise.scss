@@ -1,37 +1,63 @@
-/**
- * Custom styles for the My Expertise page
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Custom styles for the My Expertise page
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
 
-/**
- * Skills/technologies rows of icons.
- */
+/* Illustrated content sections.
+   ========================================================================== */
 
-/* The skills list heading and subheadings. */
+.content-section-university {
+/*** 'Expertise - university' content row.
+ ***/
+    background-color: $black;
+
+    strong {
+        background: $oslo-grey;
+        color: $text-color-reversed;
+    }
+
+}
+
+.content-section-small-business {
+/*** 'Expertise - small business' content row.
+ ***/
+    background-color: $santa-fe;
+
+    strong {
+        background: $ironstone;
+        color: $text-color-reversed;
+    }
+
+}
+
+
+/* Skills/technologies area of icons.
+   ========================================================================== */
+
 .skills {
     background: $background-color;
 
     h2,
     h3 {
+    /*** The skills list heading and subheadings.
+     ***/
         text-align: center;
         color: $text-color-listing-headings;
     }
 
 }
 
-/*
- * The icons containers.
- * 1. Override default list padding.
- */
 .skill-list {
-    @include clearfix;
+/*** The icons containers.
+ ***/
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 0; /* 1 */
+    /* Override default list padding. */
+    padding: 0;
     list-style: none;
     text-align: center;
 
@@ -40,17 +66,16 @@
         margin: 0;
     }
 
-    /*
-     * Icon wrappers.
-     * 1. Use padding-top to leave space for the absolute-positioned icon.
-     * 2. For icon positioning.
-     */
     a,
     span {
+    /*** Icon wrappers.
+     ***/
         @include rem("width", $skills-list-item-size);
         @include rem("height", $skills-list-item-size);
-        @include rem("padding", 6rem 0.5rem 0.5rem); /* 1 */
-        position: relative; /* 2 */
+        /* Use padding-top to leave space for the absolute-positioned icon. */
+        @include rem("padding", 6rem 0.5rem 0.5rem);
+        /* For icon positioning. */
+        position: relative;
         float: left;
         display: block;
         border: 1px solid $background-color;
@@ -58,25 +83,25 @@
         background: #fff;
         color: $text-color;
 
-        /*
-         * Vector icon positioning.
-         * 1. Overridden by the specific webfont icon.
-         * 2. Horizontal centring.
-         * 3. CSS sprite of non-webfont icons.
-         */
         &:before {
+        /*** Vector icon positioning.
+         ***/
             @include rem("top", 1.2rem);
             @include font-size("gigantic");
-            content: ''; /* 1 */
+            /* Overridden by the specific webfont icon. */
+            content: '';
             position: absolute;
-            left: 50%; /* 2 */
+            /* Horizontal centring. */
+            left: 50%;
             display: block;
             width: $skills-list-icon-size;
             height: $skills-list-icon-size;
+            /* Horizontal centring. */
             margin-left: (($skills-list-icon-size * -1) / 2);
             font-family: $font-family-icons;
             line-height: 3rem;
-            background: transparent url('/img/skill-images.png') left top no-repeat; /* 3 */
+            /* CSS sprite of non-webfont icons. */
+            background: transparent url('/img/skill-images.png') left top no-repeat;
             background-size: auto $skills-list-icon-size;
             color: $color-skills-list-icon;
 
@@ -88,18 +113,16 @@
 
     }
 
-    /* Override link hover border colours, to preserve 1px gap between items. */
     a:hover,
     a:focus,
     a:active {
+        /* Override link hover border colours, to preserve 1px gap between
+         * items. */
         border-color: $background-color;
     }
 
-    /**
-     * CSS sprite icons.
-     */
-
-     @each $skill in $skills-list-bitmaps {
+    // CSS sprite icons.
+    @each $skill in $skills-list-bitmaps {
         $i: (index($skills-list-bitmaps, $skill) - 1);
 
         // Output
@@ -111,6 +134,23 @@
             }
 
         }
-     }
+    }
+
+}
+
+
+/* Media queries.
+   ========================================================================== */
+
+@include media-width("normal-size") {
+/*** Media query: Tablets of wider.
+ ***/
+    .content-section-university .gradient.right {
+        background-image: linear-gradient(to left, transparent 40%, $black 100%);
+    }
+
+    .content-section-small-business .gradient.right {
+        background-image: linear-gradient(to left, transparent 40%, $santa-fe 100%);
+    }
 
 }

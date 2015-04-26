@@ -1,15 +1,10 @@
-/**
- * Browser UI tweaks
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Browser UI tweaks
 
-/**
- * Text selection.
- */
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/* Disable text selection of UI elements. */
 .nav,
 .title-label,
 .date,
@@ -19,40 +14,42 @@
 .smallprint,
 .contact-label,
 .logo {
+/*** Disable text selection of UI elements.
+ ***/
     -webkit-touch-callout: none;
     user-select: none;
 }
 
-/* Change cursor for non-selectable elements. */
 .logo,
 .title-label,
 .contact-label,
 .smallprint-item-copyright,
 .date {
+    /* Change cursor for non-selectable elements. */
     cursor: default;
 }
 
-/* Selection styling. */
-img::selection{
+img::selection {
+/*** Selection styling. */
     background: transparent;
 }
 
-
-/**
- * Hover-only elements.
- */
-
-/* Subheading permalinks */
 .hashlink {
-    @include rem("bottom", ($line / 4));
+/*** Subheading permalinks.
+ ***/
     @include rem("width", $line);
+    @include rem("margin", ($line * -0.5) ($line / 4) 0 0);
     @include rem("height", $line);
-    @include rem("line-height", $line); // @todo: Why is this here?
+    @include rem("line-height", $line);
     position: absolute;
     right: 100%;
+    top: 50%;
     display: block;
     padding: 0;
     opacity: 0;
+    border: 0;
+    border-radius: 50% 50%;
+    text-align: center;
 
     :hover > &,
     :focus > & {
@@ -61,10 +58,7 @@ img::selection{
 
 }
 
-
-/**
- * Hide screen-reader-only elements.
- */
 .screen-reader-only {
+    /* Hide screen-reader-only elements. */
     display: none;
 }

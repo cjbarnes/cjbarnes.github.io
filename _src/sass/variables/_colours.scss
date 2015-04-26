@@ -1,15 +1,11 @@
-/**
- * Colour palette and assignments
- *
- * All colours used throughout the site should be defined here.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
-
-/**
- * Colour palette.
- */
+//
+// Colour palette and assignments
+//
+// All colours used throughout the site should be defined here.
+//
+// @version 1.0.0
+// @package cjbarnes.github.io
+//
 
 // Key colours.
 $white: #f5f5f5; // cj_white
@@ -27,28 +23,25 @@ $vanilla:      #d0bda9; // cj7
 $patina:       #5e8c88; // cj8
 $martini:      #b09c9c; // cj9
 $toast:        #a17167; // cj10
-$eucalyptus:   #2b9759; // cj11
-$burnt-umber:  #8f2823; // cj12
 
+// Extended palette.
+$eucalyptus:    #2b9759; // cj11 - yes
+$burnt-umber:   #8f2823; // cj12 - no
+$gothic:        #738fa0;
+$rum:           #706b85;
+$aqua-forest:   #5e9776;
 
-/**
- * Brands
- *
- * Externally chosen colours, e.g. Twitter.
- */
-
+// Brands.
 $color-linkedin: #0976b4;
 $color-twitter:  #00acf2;
 $color-rss:      #d78637;
 
 
-/**
- * Functional colour assignments.
- *
- * Ideally, the 'named' colour palette variables above should never be used
- * outside of this file. Instead, a semantic name for the colour's function as
- * it is being used should be declared here.
- */
+// Functional colour assignments.
+//
+// Ideally, the 'named' colour palette variables above should never be used
+// outside of this file. Instead, a semantic name for the colour's function as
+// it is being used should be declared here.
 
 // Text.
 $text-color:                  $black;
@@ -59,6 +52,7 @@ $text-color-quote:            $santa-fe;
 $text-color-emphasis:         $toast;
 $text-color-site-footer:      $vanilla;
 $text-color-listing-headings: $toast;
+$text-color-inline-code:      $black;
 
 // Links.
 $link-color:           $patina;
@@ -75,6 +69,7 @@ $background-color-page-footer:   $cararra;
 $background-color-site-footer:   $black;
 $background-color-navbar-mobile: $black;
 $background-color-emphasis:      $cararra;
+$background-color-inline-code:   lighten($oslo-grey, 25%);
 
 // Navigation.
 $logo-color-light: $white;
@@ -104,17 +99,18 @@ $background-color-portfolio-entry: $black;
 $color-skills-list-icon:       $toast;
 $background-color-skills-list: $cararra;
 
+$color-hr: $vanilla;
+
 $color-tags: $oslo-grey;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
-    "tutorial":  $ironstone,
-    "thoughts":  $oslo-grey,
-    "off-topic": $eucalyptus,
-    "link":      $patina,
-    "page":      $toast,
-    "quote":     $santa-fe,
-    "tip":       $indian-khaki
+    "project":   $rum,
+    "tutorial":  $toast,
+    "tip":       $indian-khaki,
+    "thoughts":  $gothic,
+    "off-topic": $aqua-forest,
+    "page":      $patina
 );
 
 // Programming language brand colours.
@@ -124,6 +120,7 @@ $language-colors: (
    "jquery":     #136aab,
    "less":       #1e375c,
    "sass":       #cd669a,
+   "scss":       #cd669a,
    "javascript": #d8ba42,
    "css":        #1173ba,
    "html":       #e34f26,
@@ -132,9 +129,8 @@ $language-colors: (
 
 // Icon colours for figures within content.
 $figure-colors: (
-    "code":  $background-color-code,
-    "link":  map-get($format-colors, "link"),
-    "quote": map-get($format-colors, "quote")
+    "link":  $patina,
+    "quote": $santa-fe
 );
 
 // Contact detail colours.

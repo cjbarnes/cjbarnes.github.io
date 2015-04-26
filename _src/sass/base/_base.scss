@@ -1,78 +1,69 @@
-/**
- * Basic site-wide styles - mostly typography
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Basic site-wide styles - mostly typography
 
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/**
- * Universal styles.
- */
+/* Universal styles.
+   ========================================================================== */
 
-/*
- * Set up the starting point.
- * 1. Box sizing part 1.
- * 2. = 15px, assuming the user's browser font setting is 16px (the default).
- * 3. Extend the site footer background colour to the bottom of the window when
- *    it is taller than the page body.
- */
 html {
-    box-sizing: border-box; /* 1 */
-    font-size: (100% * ($base-font-size-small / 16)); /* 2 */
-    background: $background-color-site-footer; /* 3 */
+/*** Set up the starting point for all inheritance.
+ ***/
+    box-sizing: border-box;
+    /* = 15px, assuming the user's browser font setting is the default 16px. */
+    font-size: (100% * ($base-font-size-small / 16));
+    /* Extend the site footer background colour to the bottom of the window when
+     * it is taller than the page body. */
+    background: $background-color-site-footer;
 }
 
-/*
- * Every element and pseudoelement.
- * 1. Box sizing part 2.
- * 2. Bold versions of the site's webfonts are not loaded, so we disable bold
- *    font-weights throughout the site.
- */
 *,
 *:before,
 *:after {
-    box-sizing: inherit; /* 1 */
-    font-weight: $font-weight !important; /* 2 */
+/*** Every element and pseudo-element.
+ ***/
+    box-sizing: inherit;
+    /* Bold versions of the site's webfonts are not loaded, so we disable bold
+     * font-weights throughout the site. */
+    font-weight: $font-weight !important;
 }
 
-/*
- * 1. Set default font-size and line-height.
- * 2. Type aliasing settings.
- */
 body {
-    @include font-size-leading("normal"); /* 1 */
+    font-size: 1em;
+    line-height: $base-line;
     font-family: $font-family-brand;
-    text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01); /* 2 */
     word-wrap: break-word;
     background: $background-color;
     color: $text-color;
-    -webkit-font-smoothing: antialiased; /* 2 */
-    text-rendering: optimizeLegibility; /* 2 */
+    /* For better type aliasing in WebKit. */
+    text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
-/**
- * Main page wrappers.
- */
+/* Main page wrappers.
+   ========================================================================== */
 
-/* Wrapper for everything above the footer. */
 .above-footer {
-    @include clearfix;
+/*** Wrapper for everything above the footer.
+ ***/
     max-width: $body-width-maximum;
     margin: 0 auto;
 }
 
-/* Title container margins. */
 .title {
-  @include rem("margin-left",  $gutter);
-  @include rem("margin-right", $gutter);
+/*** Title container margins.
+ ***/
+    @include rem("margin-left",  $gutter);
+    @include rem("margin-right", $gutter);
 }
 
 
-/**
- * Standard paragraphs of text.
- */
+/* Standard paragraphs of text.
+   ========================================================================== */
 
 p,
 address {
@@ -83,25 +74,23 @@ address {
     font-style: normal;
 }
 
-/* Lead paragraphs. */
 .lead {
+/*** Lead paragraphs.
+ ***/
     @include font-size-leading("large");
 }
 
-
-/*
- * Emphasis.
- */
 b,
 strong,
 mark {
+/*** Emphasis.
+ ***/
     padding: $link-padding;
     color: $text-color-emphasis;
     background-color: $background-color-emphasis;
 }
 
 
-/* Blockquotes. */
 blockquote {
     @include rem("margin", $line);
     @include font-size-leading("large");
@@ -115,77 +104,92 @@ blockquote {
         @include rem("margin-top", $line);
     }
 
-    /* Short quotations (which are given larger text). */
     &.short {
+    /*** Short quotations (which are given larger text).
+     ***/
         @include font-size-leading("larger", 1.5);
     }
 
 }
 
-/* Code. */
 code,
 var,
-kbd {
-    @include font-size-leading("small", 0.5);
+kbd,
+samp {
+/*** Code.
+ ***/
+    padding: $link-padding;
+    /* Use ems not rems for code, so it grows and shrinks proportionally when
+     * used in subheadings and footnotes. */
+    font-size: (map-get($font-size-multipliers, "small") * 1em);
+    line-height: map-get($line-heights, "small");
     font-family: $font-family-monospace;
+    background-color: $background-color-inline-code;
+    color: $text-color-inline-code;
 }
 
-/* Horizontal rules. */
 hr {
     @include rem("margin", ($line * 2) 0);
     border: 0;
-    border-top: 1px solid $text-color-headings;
+    border-top: 1px solid $color-hr;
+}
+
+// Content and colours for language icons.
+@each $language, $icon in $language-icons {
+    .language-#{$language}:before {
+        content: "#{$icon}";
+        color: map-get($language-colors, $language);
+    }
 }
 
 
-/**
- * Media query.
- *
- * Tablets or wider.
- */
-@include media-width("normal-size") {
+/* Media queries.
+   ========================================================================== */
 
-/*
- * Increase all sizing so base font size is 18px, assuming the browser font
- * setting is the default 16px.
- */
+@include media-width("normal-size") {
+/*** Media query: Tablets or wider.
+ ***/
     html {
+        /* Increase all sizing so base font size is 18px, assuming the browser
+         * font setting is the default 16px. */
         font-size: (100% * ($base-font-size / 16));
     }
 
-    /* Leave more margin around text. */
-    .content-section p,
-    .content-section blockquote {
-        @include push;
-        @include pull;
+    hr {
+    /*** Align hr edges with subheading edges.
+     ***/
+        @include rem("margin-left",  $gutter);
+        @include rem("margin-right", $gutter);
     }
 
-    .content-section blockquote p {
-        margin-left: 0;
-        margin-right: 0;
+    .content-section {
+
+        p,
+        blockquote {
+        /*** Leave more margin around text.
+         ***/
+            @include push;
+            @include pull;
+        }
+
+        blockquote p,
+        ol p,
+        ul p,
+        dl p {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
     }
 
-    /* Align lead outside the normal text margins. */
-    .content-section .lead {
-        margin-left: 0;
-        margin-right: 0;
-    }
+}
 
-} //include media-width(normal-size)
-
-
-/**
- * Media query.
- *
- * Wide enough that the background texture should be showing.
- */
 @include media-width("beyond-max-width") {
-
-    /*
-     * Only load the background pattern when the screen's wide enough for it to
-     * show.
-     */
+/*** Media query: Wide enough that the background texture should be showing.
+ ***/
     body {
+        /* Only load the background pattern when the screen is wide enough for
+         * it to show. */
         background: $background-color url("/img/halftone.png") center top;
     }
 

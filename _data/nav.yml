@@ -30,10 +30,10 @@
     path: /whativedone/portfolio/
   - name: kind words
     path: /whativedone/kindwords/
-  - name: projects
-    path: /whativedone/projects/
   - name: bio
     path: /whativedone/bio/
+  - name: projects
+    path: /whativedone/projects/
 
 - name: blog
   path: /blog/

@@ -1,15 +1,29 @@
-/**
- * Footnotes styling
- *
- * For the standard GitHub-Flavored Markdown footnotes HTML.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Footnotes styling
 
-/* Links: to-footnote and back-to-text. */
+   For the standard GitHub-Flavored Markdown footnotes HTML.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+/* Animations.
+   ========================================================================== */
+
+@keyframes temporary-background {
+/*** Animation: flash background colour (for highlighting current footnote). */
+    0%   { background-color: $background-color-page-footer; }
+    100% { background-color: transparent; }
+}
+
+
+/* Footnotes and footnote links.
+   ========================================================================== */
+
 .footnote,
 .reversefootnote {
+/*** Links: to-footnote and back-to-text.
+ ***/
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
@@ -20,45 +34,70 @@
     text-align: center;
 }
 
-/* In-text to-footnote links. */
 .footnote {
+/*** In-text to-footnote links.
+ ***/
     @include rem("font-size", map-get($font-sizes, "small"));
-    position: relative;
-    top: -0.5em;
-    margin-top: -1em;
+    margin: -1em -0.25em 0;
 }
 
-/* Footnotes content area. */
 .footnotes {
+/*** Footnotes content area.
+ ***/
+    @include rem("margin-top", ($line * 2));
+    @include rem("padding-top", ($line / 2));
+    /* Mimic an hr at the top of the footnotes area. */
+    border-top: 1px solid $color-hr;
 
-    hr {
-        @include rem("margin-bottom", $line);
-    }
-
-    /*
-     * 1. Override grid column styles.
-     */
     ol {
-        margin: 0; /* 1 */
+        /* Override grid column styles. */
+        margin: 0;
         padding-left: 0;
     }
 
     li {
-        @include rem("margin", ($line / 2) 0);
-        @include rem("padding", ($line / 2) 0);
+        @include rem("margin-bottom", $line);
         @include font-size-leading("small");
         list-style-position: inside;
         transition: background-color $link-transition-duration ease-in-out;
 
-        /* The selected footnote. */
         &:target {
-            background: $background-color-page-footer;
+        /*** The selected footnote.
+         ***/
+            animation: temporary-background 2s;
         }
 
-        p:first-child {
-            margin-top: 0;
+        ol {
+        /*** Reinstate sub-list margins.
+         ***/
+            @include rem("margin-left",  $gutter);
+            @include rem("margin-right", $gutter);
+        }
+
+        li {
+        /*** Reinstate sub-list marker alignment.
+         ***/
+            @include rem("margin-bottom", ($line / 2));
+            @include rem("margin-left", ($line / 2));
+            list-style-position: outside;
         }
 
     }
 
-} //.footnotes
+}
+
+
+/* Media queries.
+   ========================================================================== */
+
+@include media-width("normal-size") {
+/*** Media query: Tablets or wider.
+ ***/
+    .content-section .footnotes {
+    /*** Align footnotes area edges with subheading edges.
+     ***/
+        @include rem("margin-left",  $gutter);
+        @include rem("margin-right", $gutter);
+    }
+
+}

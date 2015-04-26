@@ -2,8 +2,14 @@
 #
 # Used for filtering post lists.
 
-- name: wordpress
-  title: WordPress
+- name: css
+  title: CSS
+
+- name: html
+  title: HTML
+
+- name: javascript
+  title: JavaScript
 
 - name: jekyll
   title: Jekyll
@@ -14,18 +20,12 @@
 - name: less
   title: Less
 
+- name: php
+  title: PHP
+
 - name: sass
   title: Sass
 
-- name: javascript
-  title: JavaScript
-
-- name: css
-  title: CSS
-
-- name: html
-  title: HTML
-
-- name: php
-  title: PHP
+- name: wordpress
+  title: WordPress
 

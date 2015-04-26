@@ -1,16 +1,8 @@
-/**
- * Mixin to add a circle to the top of the content block
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
 
-/**
- * Add a circle to the top of the content block.
- *
- * @param color $background The page background that the circle will overlap.
- *                          Default $background-color-content.
- */
+/// Add a circle to the top of the content block.
+///
+/// @param {Color} $background The page background that the circle will overlap.
+///                            Default $background-color-content.
 @mixin circle-box($background: $background-color-content) {
   @if not mixin-exists(circle) {
     @error "Mixin circle-box requires mixin circle, which does not exist.";

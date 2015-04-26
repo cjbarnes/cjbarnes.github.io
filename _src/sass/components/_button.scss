@@ -1,16 +1,16 @@
-/**
- * Circle 'buttons' (really links) and button toolbars
+/* ==========================================================================
+ * Circle 'buttons' (really links) and button toolbars, and pagination
  *
  * Note: there is no specific class to create a single button. Instead, buttons
  * are link elements wrapped in a `.button-bar` toolbar element.
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 
-
-/* All button wrappers. */
 .button-bar {
+/*** All button wrappers.
+ ***/
     @include font-size("huge");
     position: absolute;
     left: 0;
@@ -26,84 +26,34 @@
         padding: 0;
     }
 
-    /* The buttons (both linked and unlinked/current). */
     a,
     b {
+    /*** The buttons (both linked and unlinked/current).
+     ***/
         @include circle-2x;
         display: inline-block;
         padding: 0;
     }
 
-    /* Linked buttons. */
     a {
+    /*** Linked buttons.
+     ***/
         color: $white;
     }
 
 }
 
 
-.sidebar-header {
-    @include rem("height", ($circle-diameter / 2));
-    position: relative;
-}
+/* Masthead button areas (i.e. blog pagination).
+   ========================================================================== */
 
-/*
- * Blog sidebar button area.
- * 1. Override absolute positioning.
- */
-.sidebar-button-bar {
-    //@include rem("margin-bottom", ($line / 2));
-    //position: static; /* 1 */
-    font-family: $font-family-icons;
-
-    a {
-        color: $background-color;
-    }
-
-}
-
-.filter-switcher-item {
-
-    a {
-        border-color: $background-color;
-        background: $background-color-page-footer;
-        color: $link-color-secondary;
-
-        &:hover,
-        &:focus {
-            background: $link-color-secondary;
-            color: $background-color-page-footer;
-        }
-
-        &:active {
-            background: $link-color-active;
-            color: $background-color-page-footer;
-        }
-
-    }
-
-    b {
-        background: $background-color;
-        border-color: $background-color;
-        color: $link-color-active;
-        cursor: default;
-    }
-
-}
-
-
-/**
- * Masthead button areas (i.e. blog pagination).
- */
-
-/*
- * All masthead buttons.
- * 1. To fix the `.title` stacking overlap.
- * 2. Move down to half-overlap the main content area below the masthead.
- */
 .masthead-button-bar {
-    z-index: 3; /* 1 */
-    bottom: ((-1 * ($circle-diameter / 2)) - 2); /* 2 */
+/*** All masthead buttons.
+ ***/
+    /* To fix the `.title` stacking overlap. */
+    z-index: 3;
+    /* Move down to half-overlap the main content area below the masthead. */
+    bottom: ((-1 * ($circle-diameter / 2)) - 2);
 
     &.pagination a {
         background: $background-color-illustrated;
@@ -114,37 +64,34 @@
 }
 
 
-/**
- * Footer button areas.
- */
+/* Footer button areas.
+   ========================================================================== */
 
-/*
- * All footer buttons.
- * 1. Move up to half-overlap the main content area above the footer.
- */
 .footer-button-bar {
-    top: ((-1 * ($circle-diameter / 2)) - 2); /* 1 */
+/*** All footer buttons.
+ ***/
+    /* Move up to half-overlap the main content area above the footer. */
+    top: ((-1 * ($circle-diameter / 2)) - 2);
 }
 
 
-/**
- * Pagination.
- */
+/* Pagination.
+   ========================================================================== */
 
 .pagination {
 
-    /*
-     * Current page.
-     * 1. Styled to appear 'cut out' of the footer.
-     */
     b {
+    /*** Current page.
+     ***/
         border-color: $background-color;
-        background: $background-color; /* 1 */
+        /* Styled to appear 'cut out' of the footer. */
+        background: $background-color;
         color: $link-color-active;
     }
 
-    /* Other pages. */
     a {
+    /*** Other pages.
+     ***/
         border-color: $background-color;
         color: $link-color-secondary;
         background: $background-color-page-footer;
@@ -166,41 +113,42 @@
 
 }
 
-/* Next/Previous links. */
+.pagination-item {
+    /* Fix layout bug where next/previous buttons were slightly above the
+     * line. */
+    vertical-align: top;
+}
+
 .pagination-item-adjacent {
+/*** Next/Previous links.
+ ***/
     font-family: $font-family-icons;
 
-    /*
-     * Make older/newer links that don't lead anywhere invisible, but
-     * don't display:none them (so the alignment of the other links
-     * doesn't change).
-     */
     b {
+    /*** Make older/newer links that don't lead anywhere invisible, but don't
+     *** display:none them (so the alignment of the other links doesn't change).
+     ***/
         border-color: transparent;
         background: transparent;
     }
 
 }
 
-/*
- * Post-page pager only - adjust for white background. All .pagination styles
- * apply.
- */
 .pagination-pager {
 
     a,
     a:hover,
     a:focus,
     a:active {
+        /* Adjust post-page pager for white background. */
         border-color: $background-color-content;
     }
 
 }
 
 
-/**
- * Subscribe icon buttons (e.g. Twitter, RSS).
- */
+/* Subscribe icon buttons (e.g. Twitter, RSS).
+   ========================================================================== */
 
 .subscribe-item a {
     font-family: $font-family-icons;
@@ -220,12 +168,14 @@
 
 }
 
-/* Twitter button. */
 .subscribe-twitter a {
+/*** Twitter button.
+ ***/
     background: $color-twitter;
 }
 
-/* RSS button. */
 .subscribe-feed a {
+/*** RSS button.
+ ***/
     background: $color-rss;
 }

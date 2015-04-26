@@ -1,17 +1,17 @@
-/**
- * Lists of articles and other data structures
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Lists of articles and other data structures
 
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
-/* All content columns are full width for mobile. */
 .listing {
+    /* All content columns are full width for mobile. */
     @include rem("margin", 0 0 $line);
 
-    /* Listing title - used for My Approach page. */
     > h2 {
+    /*** Listing title - used for My Approach page.
+     ***/
         @include rem("margin", 0 0 ($line * 2));
         text-align: center;
         color: $text-color-listing-headings;
@@ -19,30 +19,29 @@
 
 }
 
-/*
- * Listing items.
- * 1. Icon placement and style.
- */
 .listing-item {
+/*** Icon placement and style.
+ ***/
     @include rem("margin-bottom", ($line * 2));
-    @include circle-box($background-color); /* 1 */
+    @include circle-box($background-color);
 
-    /* Icon colours and fonts.. */
     &:before {
+    /*** Icon colours and fonts.
+     ***/
         font-family: $font-family-icons;
         color: $background-color;
     }
 
-    /* Loop through icons themselves. */
+    // Loop through icons themselves.
     @each $format, $icon in $format-icons {
         &.post-#{$format}:before {
             content: "#{$icon}";
         }
     }
 
-    /* No icon for illustrated articles in full-size listings. */
     &.post-illustrated:before,
     &.page:before {
+        /* No icon for illustrated articles in full-size listings. */
         display: none;
     }
 
@@ -50,39 +49,25 @@
         background: $background-color-content;
     }
 
-    /* Quote post custom styling. */
-    &.post-quote {
-
-        figure.quote {
-            margin-bottom: 0;
-            padding: 0;
-            background-color: transparent;
-        }
-
-    }
-
-    /* Link post custom styling. */
-    &.post-link {
-
+    &.post-link .content {
         /* Make direct link box flush with footer top. */
-        .content {
-            padding-bottom: 0;
-        }
-
+        padding-bottom: 0;
     }
 
-    /* Illustrated post custom styling. */
+
     &.post-illustrated {
 
         &,
         .post-footer {
+            /* Illustrated post dark background. */
             background: $background-color-illustrated;
         }
 
-        /* Dark footer - unique to illustrated posts. */
         .post-footer {
 
+            .post-footer-link,
             .post-footer-permalink {
+                /* Reversed text for dark footer of illustrated posts. */
                 color: $text-color-reversed;
             }
 
@@ -90,14 +75,28 @@
 
     }
 
-} //.listing-item
+    &.post-long {
 
-/*
- * Blog/index listing.
- */
+        .footnote,
+        .footnotes {
+            /* Don't show footnotes in excerpts, only in full post content. */
+            display: none;
+        }
 
-/* Bottom spacing for footer-less illustrated items. */
+    }
+
+}
+
+.read-more {
+    font-family: $font-family-brand;
+}
+
+
+/* Blog/index listing.
+   ========================================================================== */
+
 .page-illustrated .index-listing-header {
+    /* Bottom spacing for footer-less illustrated items. */
     padding-bottom: $line;
 
     .title-summary {
@@ -106,26 +105,28 @@
 
 }
 
-/* Title of the listing area. */
 .index-listing-heading {
+/*** Title of the listing area.
+ ***/
     color: $text-color-listing-headings;
 }
 
-/* Content area. */
 .index-listing-content {
+/*** Content area.
+ ***/
     @include rem("padding-bottom", $line);
     font-family: $font-family-content;
 
-    // More top spacing when there is no header area for this post.
     &:first-child {
+        /* More top spacing when there is no header area for this post. */
         @include rem("padding-top", $line);
     }
 
-    // Remove excess heading margins.
     h1,
     h2,
     h3,
     h4 {
+        /* Remove excess heading margins. */
         @include rem("margin-top", $line);
     }
 
@@ -135,230 +136,22 @@
 
 }
 
-/**
- * Portfolio listing
- */
 
-/*
- * Portfolio entries.
- * 1. Prevent large-screenshot overlapping the right edge.
- */
-.portfolio-item {
-    overflow: hidden; /* 1 */
+/* Media queries.
+   ========================================================================== */
 
-    /* No icons. */
-    &:before {
-        display: none;
-    }
-
-    .content {
-        background: $background-color-portfolio-entry;
-    }
-
-    /*
-     * Screenshot wrapper - shows a 'browser window' around the screenshot.
-     * 1. For horizontal centring.
-     */
-    .screenshot {
-        position: relative; /* 1 */
-        text-align: center;
-        background: url("/img/browser-mobile.png") center top no-repeat;
-
-        /* Desktop screenshot. Not shown until there's room for it. */
-        &.large {
-            display: none;
-        }
-
-        /* Mobile screenshot. */
-        &.small {
-            @include rem("padding-top", ($line * 1.5));
-            left: 50%;
-            $width: 320px;
-            margin-left: ($width * -0.5);
-            width: $width;
-            height: 446px;
-        }
-
-    }
-
-    /* Site title (in footer). */
-    h3 {
-        @include rem("top", $line);
-        position: absolute;
-        width: 100%;
-        margin: 0;
-        text-align: center;
-        color: $text-color;
-    }
-
-} //.portfolio-listing
-
-
-/*
- * My Approach listing (timeline of steps).
- * 1. Use CSS counter for numbering of the steps in the timeline.
- */
-.page-my-approach {
-    counter-reset: steps; /* 1 */
-
-    /* Item container. */
-    .step {
-        background: $background-color-content;
-        counter-increment: steps;
-
-        /* The number (displayed like an icon). */
-        &:before {
-            @include font-size("huger");
-            content: counter(steps);
-            font-family: $font-family-brand;
-            color: $background-color-content;
-        }
-
-    }
-
-    /* Header area - leave space for icon. */
-    .step-header {
-        min-height: (100px + $line-px);
-        padding-left: 100px;
-    }
-
-    /* Item graphics. */
-    .step-icon {
-        position: absolute;
-        top: $gutter;
-        left: $gutter;
-        float: left;
-        display: block;
-        width: 100px;
-        height: 100px;
-        line-height: 1;
-    }
-
-    /* Main text. */
-    .step-content {
-        @include rem("padding-bottom", ($line * 2));
-    }
-
-    /* 'What you get' footer. */
-    .step-footer {
-        @include rem("min-height", $line);
-        @include rem("padding-top", ($line / 2));
-        @include rem("padding-bottom", ($line / 2));
-        font-family: $font-family-content;
-        text-align: left;
-
-        /*
-         * Footer title.
-         * 1. Fallback for IE8 positioning (no `calc` support).
-         * 2. Get rid of standard heading margins.
-         */
-        h3 {
-            @include rem("left", 0);
-            @include push;
-            @include pull;
-            @include font-size-leading("large");
-            position: absolute;
-            bottom: 100%; /* 1 */
-            bottom: calc(100% + (#{$line} / 4)); /* 1 */
-            margin-top: 0; /* 2 */
-            margin-bottom: 0; /* 2 */
-        }
-
-        /* 'What you get' list. */
-        ul {
-            @include rem("margin", 0 ($line * 2));
-        }
-
-        /* 'What you get' list container. */
-        li {
-            @include rem("margin-top", ($line * 0.25));
-            @include font-size-leading("small");
-            margin-bottom: 0;
-            list-style: circle;
-
-            &:first-child {
-                margin-top: 0;
-            }
-
-        }
-
-    }
-
-
-    /**
-     * Arrows between steps.
-     */
-
-    /*
-     * Arrowhead.
-     * 1. Horizontal centring.
-     * 2. Arrowhead base starts here.
-     * 3. CSS arrowheads trick.
-     */
-    .step:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%; /* 1 */
-        display: block;
-        width: 0;
-        height: 0;
-        margin-top: $listing-arrow-shaft-length; /* 2 */
-        margin-left: ($listing-arrowhead-size * -1); /* 1 */
-        border-top: ($listing-arrowhead-size * 0.75) solid $color-step; /* 3 */
-        border-left:  $listing-arrowhead-size solid transparent; /* 3 */
-        border-right: $listing-arrowhead-size solid transparent; /* 3 */
-    }
-
-    /*
-     * Arrow shaft.
-     * 1. Horizontal centring.
-     */
-    .step-footer:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%; /* 1 */
-        display: block;
-        width: $listing-arrow-shaft-thickness;
-        height: $listing-arrow-shaft-length;
-        margin-left: (($listing-arrow-shaft-thickness / 2) * -1);
-        background: $color-step;
-    }
-
-    /* Hide arrow for last step, and don't leave space for it. */
-    .step-support {
-        margin-bottom: 0;
-
-        &:after,
-        .step-footer:after {
-            display: none;
-        }
-
-    }
-
-} //.page-my-approach
-
-
-/**
- * Media query.
- *
- * Wide enough for two-column layout.
- */
 @include media-width("two-columns") {
+/*** Media query: Wide enough for two-column layout.
+ ***/
 
-    /* Leave room for the sidebar column next to the listing column. */
     .blog-listing {
+    /*** Leave room for the sidebar column next to the listing column.
+     ***/
         @include column(8);
         @include push(0);
         @include pull(0);
     }
 
-
-    /**
-     * Post contents in blog and index listings. Space out and align with
-     * title/footer.
-     */
     .index-listing-content {
 
         p,
@@ -366,75 +159,23 @@
         h2,
         h3,
         h4 {
+        /*** Post contents in blog and index listings.
+         ***/
+            /* Space out and align with title/footer. */
             @include push;
             @include pull;
         }
 
-        /*
-         * Matching margins for the main blockquote of a quote post.
-         */
-        .post-quote & blockquote {
-            @include rem("margin", $line 0);
-        }
-
     }
 
-} //include media-width(two-columns)
+}
 
-
-/**
- * Media query.
- *
- * Full portfolio layout.
- */
-@include media-width("portfolio-screenshots") {
-
-    /* The full-size screenshot wrapper. */
-    .portfolio-listing .screenshot {
-
-        /*
-         * Desktop-scale screenshots.
-         * 1. Re-display this size of screenshot (hidden on thinner screens).
-         */
-        &.large {
-            $width: 750px;
-            @include rem("margin-left", $line);
-            @include rem("padding-top", ($line * 1.5));
-            display: block; /* 1 */
-            width: $width;
-            height: 545px;
-            background-image: url("/img/browser.png");
-        }
-
-        /*
-         * Mobile screenshots.
-         * 1. Position mobile to the bottom-right, letting the desktop
-         *    screenshot take centre stage.
-         * 2. Cancel horizontal centring.
-         */
-        &.small {
-            @include rem("right", $line); /* 1 */
-            position: absolute; /* 1 */
-            bottom: 0; /* 1 */
-            left: auto; /* 2 */
-            margin-left: 0; /* 2 */
-        }
-
-    }
-
-} //include media-width(portfolio-screenshots)
-
-
-/**
- * Media query.
- *
- * Greater white space between the main content and sidebar.
- */
 @include media-width("more-column-spacing") {
-
-    /* The sidebar is now one less column, so we leave an extra space. */
+/*** Media query: Greater white space between the main content and sidebar.
+ ***/
     .blog-listing {
+        /* The sidebar is now one less column, so we leave an extra space. */
         @include push(1);
     }
 
-} //include media-width(more-column-spacing)
+}

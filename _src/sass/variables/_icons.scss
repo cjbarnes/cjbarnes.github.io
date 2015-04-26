@@ -1,20 +1,19 @@
-/**
- * Maps of icon content and CSS sprites
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+//
+// Maps of icon content and CSS sprites
+//
+// @version 1.0.0
+// @package cjbarnes.github.io
+//
 
 
 // Post formats and CV/portfolio entry icons.
 $format-icons: (
+  "project":   "\e621",
   "tutorial":  "\e637",
-  "thoughts":  "\e61a",
-  "link":      "\e631",
-  "page":      "",
-  "quote":     "\201d",
   "tip":       "\e630",
-  "off-topic": "\e628"
+  "thoughts":  "\e61a",
+  "off-topic": "\e628",
+  "page":      ""
 );
 
 $language-icons: (
@@ -23,7 +22,8 @@ $language-icons: (
    "jquery":     "\e650",
    "less":       "\e658",
    "sass":       "\e64b",
-   "javascript": "\e64f",
+   "scss":       "\e64b",
+   "javascript": "\e64e",
    "css":        "\e649",
    "html":       "\e636",
    "php":        "\e63d"

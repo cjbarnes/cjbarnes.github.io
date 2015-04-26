@@ -1,4 +1,7 @@
 <script src="/js/scripts.min.js?{{ site.version }}"></script>
+{% if page.script %}<script>
+{% include js/{{ page.script | slugify }}.min.js %}
+</script>{% endif %}
 
 {% unless site.is_local %}
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.

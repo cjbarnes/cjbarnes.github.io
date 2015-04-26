@@ -1,149 +1,68 @@
-/**
- * Content area of articles, single pages, and portfolio and CV items.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Content area of articles, single pages, and portfolio and CV items.
 
-/**
- * Basics
- */
-
-.content {
-    @include clearfix;
-}
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
 
 .content-section {
-    @include clearfix;
     @include column($columns);
     @include rem("padding-top",    ($line * 1.5));
     @include rem("padding-bottom", ($line * 2.5));
     font-family: $font-family-content;
     background: $background-color-content;
 
-    /* Remove top margin for headings at top of content area. */
     > h1:first-child,
     > h2:first-child,
     > h3:first-child {
+        /* Remove top margin for headings at top of content area. */
         margin-top: 0;
     }
 
 }
 
-/* Don't apply grid layout to content for articles within a listing  */
-.listing-content-section {
-    // @todo
-}
-
-/* Complex content areas with darker backgrounds. */
 .content-section-special {
+    /* Complex content areas with darker backgrounds. */
     background: $background-color;
 }
 
-/*
- * Portfolio page item content.
- * 1. For screenshot positioning.
- */
-.portfolio .website .content {
-    @include rem("padding", ($line * 2) 0 0);
-    position: relative; /* 1 */
-    width: 100%;
-}
-
-
-/*
- * Blog content area.
- * 1. We space out the container instead of the interior content, since we're
- *    using a two-column layout and also not using `content-section` elements.
- * 2. Background colour to avoid beyond-max-width pattern showing through.
- */
-.blog-content {
-    @include rem("padding-top",    ($line * 3));
-    @include rem("padding-bottom", ($line * 2.5));
-    background: $background-color;
-}
-
-
-/**
- * Homepage content areas.
- */
-
-/* Intro. */
-.homepage-content-section-first {
-    background: $background-color;
-}
-
-/* Featured testimonial. */
-.content-section-endorsement {
-
-    blockquote {
-        @include font-size-leading("larger", 1.5);
-    }
-
-}
-
-
-/**
- * Media query.
- *
- * Tablets and above.
- */
 @include media-width("normal-size") {
-
-    /* Content is still single-column, but with bigger margins, on tablets. */
+/*** Media query: Tablets and above.
+ ***/
     .content-section {
+    /*** Content is still single-column, but with bigger margins, on tablets.
+     ***/
         @include push-interior(1, $columns, true);
         @include pull-interior(1, $columns, true);
     }
 
-    /* Override for wider content sections, e.g. portfolio listing. */
     .content-section-wide {
+    /*** Override for wider content sections, e.g. portfolio listing.
+     ***/
         @include column($columns);
     }
 
-    /* Centre-align item titles in full-width listings. */
     .content-section-special > h2 {
+        /* Centre-align item titles in full-width listings. */
         text-align: center;
     }
 
-} //include media-width(normal-size)
+}
 
-
-/**
- * Media query.
- *
- * Wide enough for two-column layout.
- */
 @include media-width("two-columns") {
-
-    /* Extra spacing for main content area. */
+/*** Media query: Wide enough for two-column layout.
+ ***/
     .content-section {
+    /*** Extra spacing for main content area.
+     ***/
         @include push-interior(2, $columns, true);
         @include pull-interior(2, $columns, true);
     }
 
-    /* Override for wider content sections, e.g. portfolio listing. */
     .content-section-wide {
+    /*** Override for wider content sections, e.g. portfolio listing.
+     ***/
         @include column($columns);
-    }
-
-
-} //include media-width(two-columns)
-
-
-/**
- * Media query.
- *
- * Full portfolio layout.
- */
-@include media-width("portfolio-screenshots") {
-
-    /*
-     * Portfolio page item content area: reinsert extra spacing underneath the
-     * main screenshot.
-     */
-    .portfolio-item-content {
-        @include rem("padding-bottom", ($line * 2));
     }
 
 }

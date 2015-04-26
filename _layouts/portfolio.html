@@ -37,19 +37,26 @@
           <article class="listing-item website portfolio-item portfolio-item-{{ item.slug }}">
 
             <!-- Screenshots -->
+            <div class="screenshots portfolio-item-screenshots">
+              <div class="portfolio-item-screenshots-interior">
+                <div class="screenshot large">
+                  <img src="/img/portfolio/{{ item.slug }}.jpg" srcset="/img/portfolio/{{ item.slug }}@2x.jpg 2x, /img/portfolio/{{ item.slug }}.jpg 1x" width="746" height="500" title="Desktop version">
+                </div>
+                <div class="screenshot small">
+                  <img src="/img/portfolio/mobile-{{ item.slug }}.jpg" srcset="/img/portfolio/mobile-{{ item.slug }}@2x.jpg 2x, /img/portfolio/mobile-{{ item.slug }}.jpg 1x" width="316"  height="401" title="Mobile version">
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
             <div class="content listing-content portfolio-item-content">
-              <div class="screenshot large">
-                <img src="/img/{{ item.slug }}.png" title="Desktop version">
-              </div>
-              <div class="screenshot small">
-                <img src="/img/{{ item.slug }}-small.png" title="Mobile version">
-              </div>
+              <h3 class="portfolio-item-title">{{ item.name }}</h3>
+              {{ item.description | markdownify }}
             </div>
 
             <!-- Footer -->
             <footer class="footer listing-footer portfolio-item-footer">
-              <h3>{{ item.name }}</h3>
-              <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to site</a>
+              <a class="go-to-site" href="{{ item.url }}" title="Go to {{ item.name }} website">go to website</a>
             </footer>
 
           </article><!-- /.portfolio-item -->
@@ -62,14 +69,10 @@
 
   </article><!-- /.portfolio -->
 
-  {% include page-pager.html %}
-
   <!-- Upper footer area -->
   <footer class="footer page-footer" id="page-footer">
 
-    <!-- Blog posts -->
-    {% include footer-latest-posts.html %}
-
+    {% include page-pager.html %}
 
   </footer><!-- /.page-footer -->
 

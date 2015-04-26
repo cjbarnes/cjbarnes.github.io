@@ -1,0 +1,174 @@
+/* ==========================================================================
+   My Approach page styling
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+
+.page-my-approach {
+/*** My Approach listing (timeline of steps).
+ ***/
+    /* Use CSS counter for numbering of the steps in the timeline. */
+    counter-reset: steps;
+
+    .step {
+    /*** Item container.
+     ***/
+        background: $background-color-content;
+        counter-increment: steps;
+
+        &:before {
+        /*** The number (displayed like an icon).
+         ***/
+            @include font-size("huger");
+            content: counter(steps);
+            font-family: $font-family-brand;
+            color: $background-color-content;
+        }
+
+    }
+
+    .step-header {
+    /*** Header area - leave space for icon.
+     ***/
+        min-height: (100px + $line-px);
+        padding-left: 100px;
+    }
+
+    .step:before,
+    .step-header {
+        background: $color-step;
+    }
+
+    .step-icon {
+    /*** Item graphics.
+     ***/
+        position: absolute;
+        top: $gutter;
+        left: $gutter;
+        float: left;
+        display: block;
+        width: 100px;
+        height: 100px;
+        line-height: 1;
+    }
+
+    .step-content {
+    /*** Main text of the step.
+     ***/
+        @include rem("padding-bottom", ($line * 2));
+    }
+
+    .step-footer {
+    /*** 'What you get' footer.
+     ***/
+        @include rem("min-height", $line);
+        @include rem("padding-top", ($line / 2));
+        @include rem("padding-bottom", ($line / 2));
+        font-family: $font-family-content;
+        text-align: left;
+
+        h3 {
+        /*** Footer title.
+         ***/
+            @include rem("left", 0);
+            @include push;
+            @include pull;
+            @include font-size-leading("large");
+            position: absolute;
+            /* Fallback for IE8 positioning (no `calc` support). */
+            bottom: 100%;
+            bottom: calc(100% + (#{$line} / 4));
+            /* Get rid of standard heading margins. */
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        ul {
+        /*** 'What you get' list.
+         ***/
+            @include rem("margin", 0 ($line * 2));
+        }
+
+        li {
+        /*** 'What you get' list item container.
+         ***/
+            @include rem("margin-top", ($line * 0.25));
+            @include font-size-leading("small");
+            margin-bottom: 0;
+            list-style: circle;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+        }
+
+    }
+
+    .step:after {
+    /*** Arrows between steps: arrowhead.
+     ***/
+        content: '';
+        position: absolute;
+        top: 100%;
+        /* Horizontal centring. */
+        left: 50%;
+        display: block;
+        width: 0;
+        height: 0;
+        /* Arrowhead base starts here. */
+        margin-top: $listing-arrow-shaft-length;
+        /* Horizontal centring. */
+        margin-left: ($listing-arrowhead-size * -1);
+        /* CSS arrowheads trick. */
+        border-top: ($listing-arrowhead-size * 0.75) solid $color-step;
+        border-left:  $listing-arrowhead-size solid transparent;
+        border-right: $listing-arrowhead-size solid transparent;
+    }
+
+    .step-footer:after {
+    /*** Arrows between steps: arrow shaft.
+     ***/
+        content: '';
+        position: absolute;
+        top: 100%;
+        /* Horizontal centring. */
+        left: 50%;
+        display: block;
+        width: $listing-arrow-shaft-thickness;
+        height: $listing-arrow-shaft-length;
+        /* Horizontal centring. */
+        margin-left: (($listing-arrow-shaft-thickness / 2) * -1);
+        background: $color-step;
+    }
+
+    .step-launch {
+
+        &:before,
+        .step-header {
+            /* Launch step colour. */
+            background: $color-step-launch;
+        }
+
+        .step-footer h3 {
+            /* Launch step: 'what you get' subheading. */
+            color: $color-step-launch;
+        }
+
+    }
+
+    .step-support {
+    /*** Hide arrow for last step, and don't leave space for it.
+     ***/
+        margin-bottom: 0;
+
+        &:after,
+        .step-footer:after {
+            display: none;
+        }
+
+    }
+
+}

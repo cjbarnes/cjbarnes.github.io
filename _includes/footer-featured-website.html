@@ -5,7 +5,7 @@
   {% for item in site.data.portfolio %}
     {% if item.featured %}
       <a class="screenshot featured-website-screenshot" href="{{ item.url }}" title="Go to {{ item.name }} website">
-        <img src="/img/{{ item.slug }}.png"><br>
+        <img src="/img/portfolio/{{ item.slug }}.jpg" srcset="/img/portfolio/{{ item.slug }}@2x.jpg 2x, /img/portfolio/{{ item.slug }}.jpg 1x"><br>
         <span class="featured-website-title">{{ item.name }}</span>
       </a>
     {% endif %}

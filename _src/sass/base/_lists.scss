@@ -1,9 +1,9 @@
-/**
+/* ==========================================================================
  * Bulleted and numbered lists, and definition lists
  *
  * @version 1.0.0
  * @package cjbarnes.github.io
- */
+   ========================================================================== */
 
 ol,
 ul,
@@ -20,15 +20,26 @@ dl {
         @include font-size-leading("small");
     }
 
-    /* Nested list margins */
+    p {
+        /* Remove margins and reduce space-between for paras. within lists. */
+        @include rem("margin", ($line / 2) 0 0);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+    }
+
     & & {
+        /* Nested list margins. */
         @include rem("margin-left", ($line / 2));
     }
 
 }
 
-/* Nested list styles */
 li ol {
+/*** Nested list styles.
+ ***/
     list-style-type: lower-alpha;
 
     li & {
@@ -37,87 +48,24 @@ li ol {
 
 }
 
-/* Double-nested list sizes and margins */
 li li li {
+/*** Double-nested list sizes and margins.
+ ***/
     @include rem("margin-left", ($line / 2));
     @include font-size-leading("small");
 }
 
 
-/**
- * Contact details lists.
- */
-
-.contact-details-list {
-    @include clearfix;
-}
-
-/* Icon labels. */
-.contact-details-label {
-    @include circle;
-    @include rem("margin-top", $line);
-    @include font-size("huge");
-    clear: left;
-    float: left;
-    font-family: $font-family-icons;
-    font-style: normal;
-
-    &:before {
-        content: '';
-        display: block;
-    }
-
-    /* Colours. */
-    @each $field, $color in $circle-list-colors {
-        &.#{$field} {
-            color: $color;
-        }
-    }
-
-}
-
-/* All contact details text. */
-.contact-details-data {
-    @include font-size-leading("large", 1.5);
-    @include rem("margin-top", $line);
-    float: left;
-    padding-left: 0;
-    vertical-align: middle;
-
-    address {
-        @include font-size-leading("normal");
-        margin: 0;
-    }
-
-}
-
-/**
- * Media queries.
- *
- * Wide enough for properly spaced side-by-side-addresses.
- */
-@include media-width("address-two-columns") {
-
-    .contact-details-data address {
-        @include rem("margin-right", ($line * 2));
-    }
-
-}
-
-
-/**
- * Media queries.
- *
- * Tablets or wider.
- */
 @include media-width("normal-size") {
-
-    /* Leave more margin around text. */
+/*** Media query: Tablets or wider.
+ ***/
     ol,
     ul,
     dl {
+    /*** Leave more margin around lists' text.
+     ***/
         @include push;
         @include pull;
     }
 
-} //include media-width(normal-size)
+}

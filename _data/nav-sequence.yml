@@ -6,7 +6,7 @@
 # The `href` is the address the link should point to.
 
 - name: home
-  href: /
+  href: /index.html
   description: Back to the homepage.
 
 - name: what I do
@@ -37,14 +37,14 @@
   href: /whativedone/kindwords/
   description: Read what my clients have to say about working with me.
 
-- name: projects
-  href: /whativedone/projects/
-  description: Information and links about the side projects I’ve been working on.
-
 - name: bio
   href: /whativedone/bio/
   description: About me, my experience, and how I became a web designer.
 
-- name: blog
-  href: /blog/
-  description: Read my tutorials, tips, and thoughts about web design and other things.
+- name: projects
+  href: /whativedone/projects/
+  description: Information and links about the side projects I’ve been working on.
+
+- name: contact me
+  href: /contact/
+  description: Get in touch today so we can start talking about your new website.

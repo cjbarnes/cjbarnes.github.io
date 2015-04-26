@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Contact details layout.
+
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+
+.contact-details-label {
+/*** Icon labels.
+ ***/
+    @include circle;
+    @include rem("margin-top", $line);
+    @include font-size("huge");
+    clear: left;
+    float: left;
+    font-family: $font-family-icons;
+    font-style: normal;
+
+    &:before {
+        content: '';
+        display: block;
+    }
+
+    // Colours.
+    @each $field, $color in $circle-list-colors {
+        &.#{$field} {
+            color: $color;
+        }
+    }
+
+}
+
+.contact-details-data {
+/*** All contact details text.
+ ***/
+    @include font-size-leading("large", 1.5);
+    @include rem("margin-top", $line);
+    float: left;
+    padding-left: 0;
+    vertical-align: middle;
+
+    address {
+        @include font-size-leading("normal");
+        margin: 0;
+    }
+
+}
+
+@include media-width("address-two-columns") {
+/*** Media query: Wide enough for properly spaced side-by-side-addresses.
+ ***/
+    .contact-details-data address {
+        @include rem("margin-right", ($line * 2));
+    }
+
+}

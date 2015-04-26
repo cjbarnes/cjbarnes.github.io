@@ -21,7 +21,7 @@ permalink: /blog/:title-:year-:month-:day/
 relative_permalinks: false
 
 # Pagination.
-paginate: 3
+paginate: 5
 paginate_path: /blog/page:num
 
 # Process _pages folder, and output the Sass and JS source for use in sourcemaps
@@ -29,16 +29,20 @@ paginate_path: /blog/page:num
 include: ['_pages','*.scss','_src']
 
 # Don't process working copies of images, config files, or readmes.
-exclude: ['*.psd','*.ai','*.eps','*.codekit','*.lock','Gemfile','README.md','gulpfile.js','package.json']
+exclude: ['*.psd','*.ai','*.eps','*.codekit','*.lock','Gemfile','README.md','gulpfile.js','package.json','node_modules']
 
 # Don't process posts with future dates.
 future: false
+
+# Mark the end of the automatically-generated excerpt.
+excerpt_separator: <!--more-->
 
 # Markdown parser and code highlighter.
 # highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM # support GitHub-Flavored Markdown.
+  parse_block_html: true
 # syntax_highlighter: rouge # see Jekyll #3371
 
 # Enabled plugins.

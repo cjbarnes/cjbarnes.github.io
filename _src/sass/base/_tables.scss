@@ -1,18 +1,17 @@
-/**
- * HTML tables
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   HTML tables
 
-/**
- * Basic table design.
- */
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+
+/* Basic table design.
+   ========================================================================== */
 
 table {
     @include rem("margin", $line 0);
     width: 100%;
-    border-collapse: collapse;
 }
 
 caption {
@@ -21,9 +20,10 @@ caption {
     color: $background-color-table-head;
 }
 
-/* Common styles - all cells. */
 td,
 th {
+/*** Common styles - all cells.
+ ***/
     border: 1px solid $background-color-content;
     border-width: 1px 0;
     text-align: left;
@@ -58,8 +58,9 @@ th {
 
 }
 
-/* Table contents. */
 tbody {
+/*** Table contents.
+ ***/
     background: $background-color-table;
 
     td,
@@ -70,8 +71,9 @@ tbody {
 
 }
 
-/* Header. */
 thead {
+/*** Header.
+ ***/
     font-family: $font-family-headings;
 
     td,
@@ -81,16 +83,18 @@ thead {
         vertical-align: bottom;
     }
 
-    /* Background colour only appears for th cells in table header */
     th {
+    /*** Background colour only appears for th cells in table header.
+     ***/
         color: $text-color-reversed;
         background: $background-color-table-head;
     }
 
 }
 
-/* Footer. */
 tfoot {
+/*** Footer.
+ ***/
     color: $background-color-table-head;
 
     td,
@@ -107,28 +111,24 @@ tfoot {
 }
 
 
-/**
- * Specific table styles.
- */
+/* Specific table styles.
+   ========================================================================== */
 
-/* Tables with hidden borders. */
 table.invisible {
+/*** Tables with hidden borders.
+ ***/
     @include invisible-table;
 }
 
-
-/**
- * Media query.
- *
- * Tablets and above.
- */
 @include media-width("normal-size") {
+/*** Media query: Tablets and above.
+ ***/
 
-    /* Table with icon-circle headings. */
     table.circle-list {
+    /*** Table with icon-circle headings.
+     ***/
         @include push;
         @include pull;
     }
 
-
-} //include media-width(normal-size)
+}

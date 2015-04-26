@@ -14,7 +14,15 @@
       {% endcomment %}
       {% include nav.html blog='yes' %}
 
-      <div class="title"></div>
+      {% if page.illustration %}
+        {% include illustration.html image=page.illustration %}
+      {% endif %}
+
+      {% if page.title %}
+        {% include title.html title=page.title link=page.link %}
+      {% else %}
+        <div class="title"></div>
+      {% endif %}
 
       {% include pagination.html position="masthead" %}
 
@@ -43,7 +51,7 @@
               {% include illustration.html image=illustration %}
             {% endif %}
 
-            {% include title.html title=post.title link_href=post.link_href url=post.url summary=post.summary %}
+            {% include title.html title=post.title link=post.link url=post.url summary=post.summary format=post.format %}
 
           </header><!-- /.listing-header -->
         {% endif %}
@@ -51,21 +59,24 @@
         {% unless post.illustration %}
           <div class="content listing-content index-listing-content blog-listing-content post-content">
 
-            {{ post.content }}
-
-            {% if post.link_href %}
-              <figure class="link link-article-link">
-                <a href="{{ post.link_href }}">
-                  <em>link:</em> {{ post.title }}
-                </a>
-              </figure>
+            {% if post.length %}
+              {{ post.excerpt }}
+              <p><a class="read-more" href="{{ post.url }}" title="Permalink">
+                read more...
+              </a></p>
+            {% else %}
+              {{ post.content }}
             {% endif %}
           </div><!-- /.listing-content -->
         {% endunless %}
 
           <footer class="footer listing-footer index-listing-footer blog-listing-footer post-footer">
             {% include date.html date=post.date %}
-            {% include permalinks.html url=post.url %}
+            {% if post.link %}
+              <!-- Direct link -->
+              <a class="post-footer-link" href="{{ post.link }}" title="go to link: {{ post.title | xml_escape }}">go to website</a>
+            {% endif %}
+            {% include permalinks.html url=post.url title=post.title %}
           </footer><!-- /.listing-footer -->
 
         </article><!-- /.listing-item -->
@@ -79,10 +90,6 @@
     <footer class="footer page-footer" id="page-footer">
 
       {% include pagination.html %}
-
-      <!-- Featured websites -->
-      {% include footer-featured-website.html %}
-
 
     </footer><!-- /.page-footer -->
 

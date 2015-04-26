@@ -1,35 +1,34 @@
-/**
- * Heading styles.
- *
- * @version 1.0.0
- * @package cjbarnes.github.io
- */
+/* ==========================================================================
+   Heading styles.
 
-/*
- * All headings.
- * 1. Default heading margins (overridden at the extremes).
- * 2. For hashlinks.
- */
+   @version 1.0.0
+   @package cjbarnes.github.io
+   ========================================================================== */
+
 h1,
 h2,
 h3,
 h4 {
-    @include rem("margin", ($line * 2) 0 $line); /* 1 */
-    position: relative; /* 2 */
+/*** All headings.
+ ***/
+    /* Default heading margins (overridden at the extremes). */
+    @include rem("margin", ($line * 2) 0 $line);
+    /* For hashlinks. */
+    position: relative;
     font-family: $font-family-headings;
     color: $text-color-headings;
 }
 
-/* Page title. */
 h1 {
+/*** Page title.
+ ***/
     @include rem("margin-bottom", ($line * 2));
     @include font-size-leading("enormous", 2);
 }
 
 
-/**
- * Subheadings.
- */
+/* Subheadings.
+   ========================================================================== */
 
 h2 {
     @include font-size-leading("huge", 1.5);
@@ -40,18 +39,17 @@ h3 {
 }
 
 h4 {
-    @include rem("margin", ($line * 1.5) 0 ($line / 2));
+    @include rem("margin", ($line * 1.5) 0 ($line * 0.5));
     @include font-size-leading("large");
 }
 
 
-/**
- * Media queries.
- *
- * Tablets or wider.
- */
-@include media-width("normal-size") {
+/* Media queries.
+   ========================================================================== */
 
+@include media-width("normal-size") {
+/*** Media query: Tablets or wider.
+ ***/
     h1,
     h2,
     h3,
@@ -60,4 +58,4 @@ h4 {
         @include rem("margin-right", $gutter);
     }
 
-} //include media-width(normal-size)
+}
