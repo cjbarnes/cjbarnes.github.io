@@ -44,7 +44,7 @@
 .footnotes {
 /*** Footnotes content area.
  ***/
-    @include rem("margin-top", ($line * 2));
+    @include rem("margin", ($line * 2) $gutter 0);
     @include rem("padding-top", ($line / 2));
     /* Mimic an hr at the top of the footnotes area. */
     border-top: 1px solid $color-hr;
@@ -99,6 +99,14 @@
      ***/
         @include rem("margin-left",  $gutter);
         @include rem("margin-right", $gutter);
+    }
+
+    .index-listing .footnotes p {
+    /*** Align footnotes in blog index outside of the main content margins, just
+     *** as they are on single-post pages.
+     ***/
+        margin-left: 0;
+        margin-right: 0;
     }
 
 }

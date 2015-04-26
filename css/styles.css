@@ -946,8 +946,8 @@ figure.output + figure.code code:before {
 .footnotes {
     /*** Footnotes content area.
  ***/
-    margin-top: 60px;
-    margin-top: 3.33333rem;
+    margin: 60px 15px 0;
+    margin: 3.33333rem 0.83333rem 0;
     padding-top: 15px;
     padding-top: 0.83333rem;
     /* Mimic an hr at the top of the footnotes area. */
@@ -1004,6 +1004,13 @@ figure.output + figure.code code:before {
      ***/
         margin-left: 15px;
         margin-left: 0.83333rem;
+    }
+    .index-listing .footnotes p {
+        margin-right: 0; 
+        /*** Align footnotes in blog index outside of the main content margins, just
+     *** as they are on single-post pages.
+     ***/
+        margin-left: 0;
     }
 }
 
