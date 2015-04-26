@@ -3035,7 +3035,7 @@ article.illustrated footer .date-unit {
         /*** Gradient over right-aligned illustration image.
              ***/
         left: 50%;
-        margin-left: -10%;
+        margin-left: -10.5%;
         background-image: linear-gradient(to left, transparent 40%, #5e8c88 100%);
     }
     .content-section-illustrated .illustration {
