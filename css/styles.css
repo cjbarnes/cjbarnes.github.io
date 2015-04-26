@@ -3257,43 +3257,6 @@ article.illustrated footer .date-unit {
     margin-bottom: 1.66667rem;
 }
 
-/* Media queries.
-   ========================================================================== */
-@media (min-width: 940px) {
-    /*** Media query: Wide enough for two-column layout.
- ***/
-    .blog-listing {
-        /*** Leave room for the sidebar column next to the listing column.
-     ***/
-        float: left;
-        display: inline;
-        width: 66.66667%;
-        margin-right: 0; 
-        margin-left: 0;
-        padding: 0 15px;
-    }
-    .index-listing-content p,
-    .index-listing-content h1,
-    .index-listing-content h2,
-    .index-listing-content h3,
-    .index-listing-content h4 {
-        margin-right: 8.33333%; 
-        /*** Post contents in blog and index listings.
-         ***/
-        /* Space out and align with title/footer. */
-        margin-left: 8.33333%;
-    }
-}
-
-@media (min-width: 1100px) {
-    /*** Media query: Greater white space between the main content and sidebar.
- ***/
-    .blog-listing {
-        /* The sidebar is now one less column, so we leave an extra space. */
-        margin-left: 8.33333%;
-    }
-}
-
 /* ==========================================================================
    Small, bulleted-list-style listings of articles and other data structures
 

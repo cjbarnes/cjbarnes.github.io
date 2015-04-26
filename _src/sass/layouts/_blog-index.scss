@@ -37,12 +37,47 @@
 @include media-width("two-columns") {
 /*** Media query: Wide enough for two-column layout.
  ***/
+    .blog-listing {
+    /*** Leave room for the sidebar column next to the listing column.
+     ***/
+        @include column(8);
+        @include push(0);
+        @include pull(0);
+        /* Reverse column order using flexbox. */
+        order: 2;
+    }
+
+    .index-listing-content {
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4 {
+        /*** Post contents in blog and index listings.
+         ***/
+            /* Space out and align with title/footer. */
+            @include push;
+            @include pull;
+        }
+
+    }
+
     .sidebar {
     /*** Lay out sidebar as a sidebar (only happens for widest layouts).
      ***/
         @include column(4);
         @include push(0);
         @include pull(0);
+        /* Reverse column order using flexbox. */
+        order: 1;
+    }
+
+    .blog-content {
+    /*** Use flexbox to swap the 2 blog columns around.
+     ***/
+        display: flex;
+        align-items: flex-start;
     }
 
 }
@@ -54,8 +89,7 @@
     /*** Lay out sidebar as a sidebar (only happens for widest layouts).
      ***/
         @include column(3);
-        @include push(0);
-        @include pull(0);
+        @include pull(1);
     }
 
 }
