@@ -3,6 +3,7 @@
 - name:        yu magazine
   slug:        yumagazine
   url:         http://yumagazine.co.uk/
+  featured:    yes
   description: The online magazine for University of York alumni, written by York students, staff, and alumni. I created the website and trained the editorial team.
 
 - name:        cJ barnes
@@ -18,7 +19,6 @@
 - name:        YorkSpace
   slug:        yorkspace
   url:         http://www.yorkspace.net
-  featured:    yes
   description: The website for the University of York’s alumni association and philanthropy development. I created the website and either wrote or edited all of its content.
 
 - name:        WEA Norwich
