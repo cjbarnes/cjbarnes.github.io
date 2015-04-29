@@ -42,7 +42,7 @@ TODO: what about at 2x? the artifacts are still there, but they're mostly too sm
 
 TODO: so we get the small file size of 1x but with sufficient image resolution to look *decent* on 2x. Still no substitute for 2x at a higher quality, but *much much* better than 1x scaled up to 2x, and *much much* smaller than 2x.
 
-TODO: I've tested this on a 2014 MacBook Pro, which has an unbelievably gorgeous screen. It works. 
+TODO: I've tested this on a 2014 MacBook Pro, which has an unbelievably gorgeous screen. It works, and is vastly superior to 1x. 
 
 ## what about PNGs and GIFs?
 
