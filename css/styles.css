@@ -588,6 +588,11 @@ hr {
         margin-left: 15px;
         margin-left: 0.83333rem;
     }
+}
+
+@media (min-width: 1000px) {
+    /*** Media query: Wide enough for more spacing around normal content.
+ ***/
     .content-section p,
     .content-section blockquote {
         margin-right: 8.33333%; 
@@ -2585,7 +2590,7 @@ article.illustrated footer .date-unit {
     }
 }
 
-@media (min-width: 940px) {
+@media (min-width: 1000px) {
     /*** Media query: Wide enough for two-column layout.
  ***/
     .content-section {
@@ -2669,6 +2674,25 @@ article.illustrated footer .date-unit {
 }
 
 @media (min-width: 718px) {
+    /*** Media query: Tablets and wider.
+ ***/
+    .masthead .title {
+        /*** Add spacing either side of the main page title, for normal screen
+     *** widths.
+     ***/
+        float: left;
+        display: inline;
+        width: 83.33333%;
+        margin-right: 8.33333%;
+        margin-left: 8.33333%;
+        padding: 0 15px;
+        /* Reinstate the vertical margins (for footer placement). */
+        padding: 135px 0 75px;
+        padding: 7.5rem 0 4.16667rem;
+    }
+}
+
+@media (min-width: 1000px) {
     /*** Media query: Tablets and wider.
  ***/
     .masthead .title {

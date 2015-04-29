@@ -162,6 +162,11 @@ hr {
         @include rem("margin-right", $gutter);
     }
 
+}
+
+@include media-width("full-width-content") {
+/*** Media query: Wide enough for more spacing around normal content.
+ ***/
     .content-section {
 
         p,

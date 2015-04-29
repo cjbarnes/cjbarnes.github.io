@@ -32,21 +32,6 @@
         @include pull;
     }
 
-}
-
-@include media-width("two-columns") {
-/*** Media query: Wide enough for two-column layout.
- ***/
-    .blog-listing {
-    /*** Leave room for the sidebar column next to the listing column.
-     ***/
-        @include column(8);
-        @include push(0);
-        @include pull(0);
-        /* Reverse column order using flexbox. */
-        order: 2;
-    }
-
     .index-listing-content {
 
         p,
@@ -61,6 +46,21 @@
             @include pull;
         }
 
+    }
+
+}
+
+@include media-width("two-columns") {
+/*** Media query: Wide enough for two-column layout.
+ ***/
+    .blog-listing {
+    /*** Leave room for the sidebar column next to the listing column.
+     ***/
+        @include column(8);
+        @include push(0);
+        @include pull(0);
+        /* Reverse column order using flexbox. */
+        order: 2;
     }
 
     .sidebar {
