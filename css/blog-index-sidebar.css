@@ -6,6 +6,12 @@
    @version 1.0.0
    @package cjbarnes.github.io
    ========================================================================== */
+.blog-sidebar {
+    /* Bottom spacing to avoid clashing with pagination. in one-col layout. */
+    margin-bottom: 45px;
+    margin-bottom: 2.5rem;
+}
+
 .sidebar-filter-section {
     /* These are all JS-based, so hide unless scripts are turned on. */
     display: none;
