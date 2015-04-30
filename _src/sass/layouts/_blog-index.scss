@@ -21,6 +21,18 @@
     @include column($columns);
 }
 
+.no-js {
+
+    .sidebar-header,
+    .sidebar-filter-section,
+    .sidebar-results {
+        /* Hide filter options if there isn't JavaScript (since the filtering
+         * won't work). */
+        display: none;
+    }
+
+}
+
 @include media-width("normal-size") {
 /*** Media query: Tablets and above.
  ***/
