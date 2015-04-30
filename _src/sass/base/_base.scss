@@ -92,12 +92,12 @@ mark {
 
 
 blockquote {
-    @include rem("margin", $line);
+    @include rem("margin", $line $gutter);
     @include font-size-leading("large");
     color: $text-color-quote;
 
     p {
-        margin-top: 0
+        margin: 0;
     }
 
     p + p {

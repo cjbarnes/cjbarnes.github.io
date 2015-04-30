@@ -109,6 +109,11 @@
 
         }
 
+        .no-js & {
+            /* Hide 'brags' when they're static because JavaScript is off. */
+            display: none;
+        }
+
     }
 
 }
