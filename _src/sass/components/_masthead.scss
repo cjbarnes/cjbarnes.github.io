@@ -63,12 +63,27 @@
     /*** Add spacing either side of the main page title, for normal screen
      *** widths.
      ***/
+        @include column(10);
+        @include push;
+        @include pull;
+        /* Reinstate the vertical margins (for footer placement). */
+        @include rem("padding", ($line * 4.5) 0 ($line * 2.5));
+    }
+
+}
+
+@include media-width("full-width-content") {
+/*** Media query: Tablets and wider.
+ ***/
+    .masthead .title {
+    /*** Add spacing either side of the main page title, for normal screen
+     *** widths.
+     ***/
         @include column(8);
         @include push(2);
         @include pull(2);
         /* Reinstate the vertical margins (for footer placement). */
-        @include rem("padding-top",    ($line * 4.5));
-        @include rem("padding-bottom", ($line * 2.5));
+        @include rem("padding", ($line * 4.5) 0 ($line * 2.5));
     }
 
 }

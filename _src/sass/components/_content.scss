@@ -49,7 +49,7 @@
 
 }
 
-@include media-width("two-columns") {
+@include media-width("full-width-content") {
 /*** Media query: Wide enough for two-column layout.
  ***/
     .content-section {

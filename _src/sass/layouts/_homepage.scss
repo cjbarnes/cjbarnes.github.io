@@ -109,6 +109,11 @@
 
         }
 
+        .no-js & {
+            /* Hide 'brags' when they're static because JavaScript is off. */
+            display: none;
+        }
+
     }
 
 }
@@ -155,28 +160,85 @@
 /* Homepage footer area.
    ========================================================================== */
 
+.homepage-signposting-row {
+/*** Horizontal flexbox (used to stretch the two columns to equal heights).
+ ***/
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.page-footer-section.featured-website,
+.page-footer-section.latest-posts {
+/*** Vertical flexbox-within-flexbox (to make the latest posts list and
+ *** featured website screenshot the same height).
+ ***/
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+        /* Don't flex-grow the column headings. */
+        flex: none;
+    }
+}
+
+.footer-minilisting,
+.featured-website-screenshot {
+    /* Do flex-grow the column contents. */
+    flex: 1 1 auto;
+}
+
+
+.footer-minilisting {
+/*** Vertical 3rd-level flexbox to space out the list items to fill the height.
+ ***/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-section .minilisting-item {
+    @include rem( "margin", $link-padding 0 );
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:nth-child(n+4) {
+        /* Hide the lower-down list items until there's more space for them. */
+        display: none;
+    }
+
+}
+
 .featured-website {
     text-align: right;
 }
 
 .featured-website-screenshot {
-    padding-left: 0;
-    padding-right: 0;
+    /* To equalize the bottom margin with the posts listing bottom margin. */
+    @include rem("margin-bottom", $link-padding);
+    padding: 0;
     border: 0;
-    background: transparent;
-
-    .featured-website &:hover,
-    .featured-website &:focus,
-    .featured-website &:active {
-    /*** Don't highlight the image on hover. Note specificity hack.
-     ***/
-        background: transparent;
-    }
+    background: $background-color-page-footer;
+    text-align: center;
 
     img {
     /*** The actual screenshot.
      ***/
         width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+        background: $link-color;
+        color: $text-color-reversed;
+    }
+
+    &:active {
+        background: $link-color-active;
+        color: $text-color-reversed;
     }
 
 }
@@ -185,26 +247,24 @@
 /*** Mimic normal link padding, colours, and animation for the website title.
  ***/
     display: inline-block;
-    padding: $link-padding;
-    color: $link-color;
-    transition: all $link-transition-duration ease-in-out;
-
-    a:hover &,
-    a:focus & {
-        background: $link-color;
-        color: $text-color-reversed;
-    }
-
-    a:active & {
-        background: $link-color-active;
-        color: $text-color-reversed;
-    }
-
+    width: 100%;
+    padding: $link-padding $link-padding ($link-padding * 2);
+    color: inherit;
 }
 
 
 /* Media queries.
    ========================================================================== */
+
+@include media-width("footer-two-columns") {
+/*** Media query: Two footer columns.
+ ***/
+    .featured-website {
+        /* Used to align properly to the edge when this hits the max-width. */
+        float: right;
+    }
+
+}
 
 @include media-width("normal-size") {
 /*** Media query: Tablets or wider.
@@ -220,14 +280,52 @@
         background-image: linear-gradient(to left, transparent 40%, $toast 100%);
     }
 
+    .footer-section .minilisting-item {
+    /*** Progressively show more posts as the footer height increases (due to
+     *** increased screenshot size).
+     ***/
+        &:nth-child(n+4) {
+            display: block;
+        }
+
+        &:nth-child(n+5) {
+            display: none;
+        }
+
+    }
+
 }
 
-@include media-width("footer-two-columns") {
-/*** Media query: Two footer columns.
+@include media-width("two-columns") {
+/*** Media query: A bit wider.
  ***/
-    .featured-website {
-        /* Used to align properly to the edge when this hits the max-width. */
-        float: right;
+    .footer-section .minilisting-item {
+    /*** Progressively show more posts as the footer height increases (due to
+     *** increased screenshot size).
+     ***/
+        &:nth-child(n+5) {
+            display: block;
+        }
+
+        &:nth-child(n+6) {
+            display: none;
+        }
+
+    }
+
+}
+
+@include media-width("more-column-spacing") {
+/*** Media query: Wider still
+ ***/
+    .footer-section .minilisting-item {
+    /*** Progressively show more posts as the footer height increases (due to
+     *** increased screenshot size).
+     ***/
+        &:nth-child(n+6) {
+            display: block;
+        }
+
     }
 
 }

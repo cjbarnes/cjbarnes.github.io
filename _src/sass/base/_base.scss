@@ -92,12 +92,12 @@ mark {
 
 
 blockquote {
-    @include rem("margin", $line);
+    @include rem("margin", $line $gutter);
     @include font-size-leading("large");
     color: $text-color-quote;
 
     p {
-        margin: 0
+        margin: 0;
     }
 
     p + p {
@@ -162,6 +162,11 @@ hr {
         @include rem("margin-right", $gutter);
     }
 
+}
+
+@include media-width("full-width-content") {
+/*** Media query: Wide enough for more spacing around normal content.
+ ***/
     .content-section {
 
         p,

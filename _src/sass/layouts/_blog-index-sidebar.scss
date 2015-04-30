@@ -7,6 +7,10 @@
    @package cjbarnes.github.io
    ========================================================================== */
 
+.blog-sidebar {
+    /* Bottom spacing to avoid clashing with pagination. in one-col layout. */
+    @include rem("margin-bottom", $circle-diameter);
+}
 
 .sidebar-filter-section {
 /*** Section boundaries.

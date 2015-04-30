@@ -72,10 +72,6 @@ figure.quote {
         margin-top: 0;
         margin-bottom: 0;
 
-        .listing-content & {
-            margin: 0;
-        }
-
     }
 
     cite {
@@ -222,10 +218,17 @@ figure.output {
 @include media-width("normal-size") {
 /*** Media query: Tablets or wider.
  ***/
-    figcaption {
+    figcaption,
+    blockquote {
         /* Leave more margin around text. */
         @include push;
         @include pull;
+
+        .listing-content & {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
     }
 
 }

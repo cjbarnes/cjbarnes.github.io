@@ -6,33 +6,90 @@
    ========================================================================== */
 
 
-.donts {
-/*** Dos/Don'ts figure elements.
+.donts figure.yes {
+/*** Dos box and icon.
  ***/
+    @include rem("margin-bottom", $line);
+    margin-top: 0;
+    /* Hairline space between Dos and Don'ts. */
+    border-top: 2px solid $background-color;
 
+    &:before {
+    /*** Icon.
+     ***/
+        content: "\e65c";
+        background-color: $color-yes;
+    }
+
+    blockquote {
+    /*** The quote itself. Smaller text, as there's more of it.
+     ***/
+        @include font-size-leading("normal");
+        color: $color-yes;
+
+        p + p {
+            margin-top: $line;
+        }
+
+    }
+
+}
+
+.donts figure.no {
+/*** Don'ts box and icon.
+ ***/
+    @include rem("margin-top", ($line * 2));
+    margin-bottom: 0;
+
+    &:before {
+    /*** Icon.
+     ***/
+        content: "\e65b";
+        background-color: $color-no;
+    }
+
+    blockquote {
+    /*** The quote itself.
+     ***/
+        font-style: italic;
+        color: $color-no;
+    }
+
+}
+
+.donts figure.yes,
+.donts figure.no {
+/*** Both Dos and Don'ts. Extra specificity so the padding overrides
+ *** `column()`.
+ ***/
+    @include circle-box;
+    @include rem("padding-top",    ($line * 1.5));
+    @include rem("padding-bottom", ($line * 1.5));
+    background-color: $background-color-content;
+
+    &:before {
+        font-family: $font-family-icons;
+        /* Match the background the figures sit on. */
+        border-color: $background-color;
+    }
+
+}
+
+@include media-width("normal-size") {
+/*** Media query: Tablets and above. Switch to two-column layout.
+ ***/
     figure.yes {
     /*** Dos box and icon.
      ***/
-        @include column(6);
-        @include push;
+        @include column(7);
 
-        &:before {
-        /*** Icon.
-         ***/
-            content: "\e65c";
-            background-color: $color-yes;
-        }
-
-        blockquote {
-        /*** The quote itself. Smaller text, as there's more of it.
-         ***/
-            @include font-size-leading("normal");
-            color: $color-yes;
-
-            p + p {
-                margin-top: $line;
-            }
-
+        .donts & {
+            /* Now the Dos and Don'ts aren't stacked, they should have the same
+             * margin. */
+            @include rem("margin-top", ($line * 2));
+            border-top: 0;
+            /* Hairline space between Dos and Don'ts. */
+            border-left: 2px solid $background-color;
         }
 
     }
@@ -40,42 +97,39 @@
     figure.no {
     /*** Don'ts box and icon.
      ***/
-        @include column(4);
-        @include push;
+        @include column(5);
 
-        &:before {
-        /*** Icon.
-         ***/
-            content: "\e65b";
-            background-color: $color-no;
-        }
-
-        blockquote {
-        /*** The quote itself.
-         ***/
-            font-style: italic;
-            color: $color-no;
+        .donts & {
+            /* Now the Dos and Don'ts aren't stacked, they should have the same
+             * margin. */
+            @include rem("margin-bottom", $line);
         }
 
     }
 
-    figure.yes,
-    figure.no {
-    /*** Both Dos and Don'ts. Placed here so the padding overrides `column()`.
-     ***/
-        @include circle-box;
-        @include rem("margin-top", ($line * 2));
-        @include rem("margin-bottom", $line);
-        @include rem("padding-top",    ($line * 1.5));
-        @include rem("padding-bottom", ($line * 1.5));
-        background-color: $background-color-content;
+}
 
-        &:before {
-            font-family: $font-family-icons;
-            /* Match the background the figures sit on. */
-            border-color: $background-color;
+@include media-width("two-columns") {
+/*** Media query: Tablets and above.
+ ***/
+    figure.yes {
+    /*** Dos box and icon. Leave some margin between Dos and Don'ts.
+     ***/
+        @include column(6);
+        @include push;
+
+        .donts & {
+            /* Now there's a margin, we can remove the hairline space again. */
+            border-left: 0;
         }
 
+    }
+
+    figure.no {
+    /*** Don'ts box and icon. Thinner and moved to left.
+     ***/
+        @include column(4);
+        @include push;
     }
 
 }
