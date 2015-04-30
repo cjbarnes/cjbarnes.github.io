@@ -353,3 +353,45 @@
     }
 
 }
+
+@media (max-width: map-get($breakpoints, "nav-horizontal")) {
+/*** Media query: Not wide enough for horizontal menu.
+ ***/
+    .no-js {
+    /*** Tiny-horizontal nav layout for mobile devices with JS off, since we
+     *** can't use the toggle-button approach with JS off (without major
+     *** drawbacks anyway).
+     ***/
+        .nav {
+            position: static;
+            height: auto;
+            max-height: 100%;
+        }
+
+        .nav-item {
+            display: inline-block;
+        }
+
+        .nav-logo {
+            /* Show the logo above the nav background. */
+            z-index: 5;
+            color: $logo-color-dark;
+        }
+
+        .nav-level-2 {
+            /* No submenus in tiny-horizontal layout */
+            display: none;
+        }
+
+    }
+
+    @media (max-height: $breakpoint-short-mobile-nav) {
+    /*** Media query: mobile menu with screen that isn't tall enough to show 2
+     *** levels on one screen-height.
+     ***/
+        .nav-level-2 {
+            display: none;
+        }
+    }
+
+}

@@ -27,3 +27,6 @@ $breakpoints: (
     "wider-3-illustrated-content": 1300px,
     "beyond-max-width"           : $body-width-maximum
 );
+
+// Min-height for two-level mobile nav.
+$breakpoint-short-mobile-nav: 625px;
