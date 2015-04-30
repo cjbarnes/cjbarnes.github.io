@@ -70,16 +70,16 @@
   <!-- Pager -->
   <nav class="pager">
     <ul class="pager-list">
-      <li class="pager-item pager-previous">
-        <a href="{{ prev_url }}" title="{{ prev_title | xml_encode }}">
-          <strong class="pager-item-title">{{ prev_name }}</strong>
-          <span class="pager-item-description">{{ prev_description }}</span>
-        </a>
-      </li>
       <li class="pager-item pager-next">
         <a href="{{ next_url }}" title="{{ next_title | xml_encode }}">
           <strong class="pager-item-title">{{ next_name }}</strong>
           <span class="pager-item-description">{{ next_description }}</span>
+        </a>
+      </li>
+      <li class="pager-item pager-previous">
+        <a href="{{ prev_url }}" title="{{ prev_title | xml_encode }}">
+          <strong class="pager-item-title">{{ prev_name }}</strong>
+          <span class="pager-item-description">{{ prev_description }}</span>
         </a>
       </li>
     </ul>
