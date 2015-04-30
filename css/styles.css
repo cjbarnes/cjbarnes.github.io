@@ -3510,6 +3510,11 @@ article.illustrated footer .date-unit {
     color: #d0bda9;
 }
 
+.site-footer-section {
+    /* Remove default ul padding. */
+    padding-left: 0;
+}
+
 .site-footer-item {
     margin: 0;
 }
@@ -3533,8 +3538,9 @@ article.illustrated footer .date-unit {
 .smallprint {
     /*** Utility links and terms of use section.
  ***/
-    margin-top: 0;
-    text-align: right;
+    margin-top: 30px;
+    margin-top: 1.66667rem;
+    text-align: center;
 }
 
 .smallprint-item-copyright {
@@ -3569,6 +3575,10 @@ article.illustrated footer .date-unit {
      *** and maximum column width to avoid layout oddities. */
         padding-bottom: 45px;
         padding-bottom: 2.5rem;
+    }
+    .smallprint {
+        /* Two-column footer layout now, so align column 2 to the right. */
+        text-align: right;
     }
 }
 
