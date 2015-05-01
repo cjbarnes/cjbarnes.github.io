@@ -1037,8 +1037,8 @@ h4 {
     /*** All headings.
  ***/
     /* Default heading margins (overridden at the extremes). */
-    margin: 60px 0 30px;
-    margin: 3.33333rem 0 1.66667rem;
+    margin: 60px 15px 30px;
+    margin: 3.33333rem 0.83333rem 1.66667rem;
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
     color: #5e8c88;
 }
@@ -1068,27 +1068,11 @@ h3 {
 }
 
 h4 {
-    margin: 45px 0 15px;
-    margin: 2.5rem 0 0.83333rem;
+    margin: 45px 15px 15px;
+    margin: 2.5rem 0.83333rem 0.83333rem;
     font-size: 21px;
     font-size: 1.16667rem;
     line-height: 1.42857;
-}
-
-/* Media queries.
-   ========================================================================== */
-@media (min-width: 718px) {
-    /*** Media query: Tablets or wider.
- ***/
-    h1,
-    h2,
-    h3,
-    h4 {
-        margin-right: 15px;
-        margin-right: 0.83333rem; 
-        margin-left: 15px;
-        margin-left: 0.83333rem;
-    }
 }
 
 /* ==========================================================================
@@ -1614,6 +1598,8 @@ img::selection {
 /* ==========================================================================
  * Reusable component for the cJ logo, usually with the containing circle
  *
+ * Logo colours are handled alongside the navbar colours in _nav.scss.
+ *
  * @version 1.0.0
  * @package cjbarnes.github.io
    ========================================================================== */
@@ -1640,54 +1626,8 @@ img::selection {
     float: right;
     margin: 5px 5px 0 0;
     margin: 0.27778rem 0.27778rem 0 0;
-    background: #f5f5f5;
-    background: rgba(245, 245, 245, 0.6);
-    color: #222;
-    box-shadow: 0 0 10px #222;
+    box-shadow: 0 0 10px #f5f5f5;
     transition: all 0.5s ease-in-out;
-}
-.masthead-project .nav-logo {
-    color: #706b85;
-    box-shadow: none;
-}
-.masthead-tutorial .nav-logo {
-    color: #a17167;
-    box-shadow: none;
-}
-.masthead-tip .nav-logo {
-    color: #c5a184;
-    box-shadow: none;
-}
-.masthead-thoughts .nav-logo {
-    color: #738fa0;
-    box-shadow: none;
-}
-.masthead-off-topic .nav-logo {
-    color: #5e9776;
-    box-shadow: none;
-}
-.masthead-page .nav-logo {
-    color: #5e8c88;
-    box-shadow: none;
-}
-.masthead-illustrated .nav-logo {
-    /*** Illustrated article/page.
-     ***/
-    color: #222;
-    box-shadow: 0 0 10px #222;
-}
-.nav:hover .nav-logo {
-    color: #f5f5f5; 
-    box-shadow: 0 0 10px #f5f5f5;
-}
-
-.masthead-reversed .nav-logo {
-    /*** Darker logo for more contrast with light pictures.
- ***/
-    background: #222;
-    background: rgba(34, 34, 34, 0.6);
-    color: #f5f5f5; 
-    box-shadow: 0 0 10px #f5f5f5;
 }
 
 /* Footer logo.
@@ -2108,11 +2048,6 @@ article.illustrated footer .date-unit {
     max-height: 70px;
     transition: background-color 0.5s ease-in-out;
 }
-.nav.open {
-    /* Background color on 'open' (mobile only). */
-    background: #222;
-    background: rgba(34, 34, 34, 0.8);
-}
 
 .nav-level-1 {
     margin: 0;
@@ -2124,8 +2059,6 @@ article.illustrated footer .date-unit {
     font-size: 1.16667rem;
     font-size: 1.2em;
     line-height: 1.42857;
-    background: #222;
-    background: rgba(34, 34, 34, 0.9);
     transition-timing-function: ease-in-out; 
     transition-duration: 0.3s;
     transition-property: -webkit-transform opacity;
@@ -2178,8 +2111,6 @@ article.illustrated footer .date-unit {
     margin: 0 0 15px 15px;
     margin: 0 0 0.83333rem 0.83333rem;
     padding: 0;
-    /* Same background colour but with no transparency. */
-    background: #222;
 }
 
 .nav-item-level-2 a {
@@ -2199,7 +2130,7 @@ article.illustrated footer .date-unit {
 .nav-menu-toggle {
     display: block;
     /* Increased width to increase the tap target area. */
-    min-width: 25%;
+    width: 50%;
     /* Height to match the navbar logo: diameter + margin + 2px. */
     height: 69px;
     padding: 20px 15px;
@@ -2207,23 +2138,143 @@ article.illustrated footer .date-unit {
     font-size: 24px;
     font-size: 1.33333rem;
     line-height: 1.25;
+    text-align: left;
     border-radius: 0;
     border: 0;
-    background: #f5f5f5;
-    background: rgba(245, 245, 245, 0.6);
-    color: #222;
+    background: transparent;
 }
-.masthead-reversed .nav-menu-toggle {
-    /* Colour changes for dark menu button on light mastheads. */
-    color: #222;
+.masthead-illustrated .nav-menu-toggle {
+    /* Shadow for overlay of illustrations. */
+    text-shadow: 0 0 5px #222;
 }
 .open .nav-menu-toggle:after {
     /* Add colon to 'Menu' label when menu is open. */
     content: ":";
 }
-.light-masthead .open .nav-menu-toggle {
-    /* Menu open: return to light toggle colour to match dark open-menu
-             * background. */
+
+/* Navbar colours.
+   ========================================================================== */
+.masthead-project .nav {
+    background: #494653;
+    background: rgba(73, 70, 83, 0.2);
+}
+.masthead-tutorial .nav {
+    background: #614944;
+    background: rgba(97, 73, 68, 0.2);
+}
+.masthead-tip .nav {
+    background: #736153;
+    background: rgba(115, 97, 83, 0.2);
+}
+.masthead-thoughts .nav {
+    background: #4a5861;
+    background: rgba(74, 88, 97, 0.2);
+}
+.masthead-off-topic .nav {
+    background: #405c4c;
+    background: rgba(64, 92, 76, 0.2);
+}
+.masthead-page .nav {
+    background: #405755;
+    background: rgba(64, 87, 85, 0.2);
+}
+.nav,
+.masthead-illustrated .nav {
+    background: #222;
+    background: rgba(34, 34, 34, 0.2);
+    color: #f5f5f5;
+}
+
+.masthead-project .nav-logo {
+    background: #494653;
+    background: rgba(73, 70, 83, 0.6);
+}
+.masthead-tutorial .nav-logo {
+    background: #614944;
+    background: rgba(97, 73, 68, 0.6);
+}
+.masthead-tip .nav-logo {
+    background: #736153;
+    background: rgba(115, 97, 83, 0.6);
+}
+.masthead-thoughts .nav-logo {
+    background: #4a5861;
+    background: rgba(74, 88, 97, 0.6);
+}
+.masthead-off-topic .nav-logo {
+    background: #405c4c;
+    background: rgba(64, 92, 76, 0.6);
+}
+.masthead-page .nav-logo {
+    background: #405755;
+    background: rgba(64, 87, 85, 0.6);
+}
+.nav-logo,
+.masthead-illustrated .nav-logo {
+    background: #222;
+    background: rgba(34, 34, 34, 0.6);
+    color: #f5f5f5;
+}
+
+.masthead-project .nav-level-1,
+.masthead-project .nav.open {
+    background: #494653;
+    background: rgba(73, 70, 83, 0.9);
+}
+.masthead-tutorial .nav-level-1,
+.masthead-tutorial .nav.open {
+    background: #614944;
+    background: rgba(97, 73, 68, 0.9);
+}
+.masthead-tip .nav-level-1,
+.masthead-tip .nav.open {
+    background: #736153;
+    background: rgba(115, 97, 83, 0.9);
+}
+.masthead-thoughts .nav-level-1,
+.masthead-thoughts .nav.open {
+    background: #4a5861;
+    background: rgba(74, 88, 97, 0.9);
+}
+.masthead-off-topic .nav-level-1,
+.masthead-off-topic .nav.open {
+    background: #405c4c;
+    background: rgba(64, 92, 76, 0.9);
+}
+.masthead-page .nav-level-1,
+.masthead-page .nav.open {
+    background: #405755;
+    background: rgba(64, 87, 85, 0.9);
+}
+.nav-level-1,
+.masthead-illustrated .nav-level-1,
+.nav.open,
+.masthead-illustrated .nav.open {
+    background: #222;
+    background: rgba(34, 34, 34, 0.9);
+}
+
+.masthead-project .nav-level-2 {
+    background: #494653;
+}
+.masthead-tutorial .nav-level-2 {
+    background: #614944;
+}
+.masthead-tip .nav-level-2 {
+    background: #736153;
+}
+.masthead-thoughts .nav-level-2 {
+    background: #4a5861;
+}
+.masthead-off-topic .nav-level-2 {
+    background: #405c4c;
+}
+.masthead-page .nav-level-2 {
+    background: #405755;
+}
+.nav-level-2,
+.masthead-illustrated .nav-level-2 {
+    background: #222;
     color: #f5f5f5;
 }
 
@@ -2240,55 +2291,67 @@ article.illustrated footer .date-unit {
         /* Remove open/closed styling difference (which is mobile only). */
         background: transparent;
     }
-    .masthead-project .nav:hover,
-    .masthead-project .nav:hover .nav-logo,
-    .masthead-project .nav:hover .nav-level-2 {
-        background: #403e4c;
-        background: rgba(64, 62, 76, 0.8);
+    .nav:hover {
+        /*** Use mobile 'open' colour for hover as well.
+     ***/
     }
-    .masthead-tutorial .nav:hover,
-    .masthead-tutorial .nav:hover .nav-logo,
-    .masthead-tutorial .nav:hover .nav-level-2 {
-        background: #64443e;
-        background: rgba(100, 68, 62, 0.8);
+    .masthead-project .nav:hover {
+        background: #494653;
+        background: rgba(73, 70, 83, 0.6);
     }
-    .masthead-tip .nav:hover,
-    .masthead-tip .nav:hover .nav-logo,
-    .masthead-tip .nav:hover .nav-level-2 {
-        background: #9a6d49;
-        background: rgba(154, 109, 73, 0.8);
+    .masthead-tutorial .nav:hover {
+        background: #614944;
+        background: rgba(97, 73, 68, 0.6);
     }
-    .masthead-thoughts .nav:hover,
-    .masthead-thoughts .nav:hover .nav-logo,
-    .masthead-thoughts .nav:hover .nav-level-2 {
-        background: #465b67;
-        background: rgba(70, 91, 103, 0.8);
+    .masthead-tip .nav:hover {
+        background: #736153;
+        background: rgba(115, 97, 83, 0.6);
     }
-    .masthead-off-topic .nav:hover,
-    .masthead-off-topic .nav:hover .nav-logo,
-    .masthead-off-topic .nav:hover .nav-level-2 {
-        background: #375845;
-        background: rgba(55, 88, 69, 0.8);
+    .masthead-thoughts .nav:hover {
+        background: #4a5861;
+        background: rgba(74, 88, 97, 0.6);
     }
-    .masthead-page .nav:hover,
-    .masthead-page .nav:hover .nav-logo,
-    .masthead-page .nav:hover .nav-level-2 {
-        background: #354f4d;
-        background: rgba(53, 79, 77, 0.8);
+    .masthead-off-topic .nav:hover {
+        background: #405c4c;
+        background: rgba(64, 92, 76, 0.6);
     }
-    .masthead-reversed .nav:hover,
-    .masthead-reversed .nav:hover .nav-logo,
-    .masthead-reversed .nav:hover .nav-level-2 {
-        /* Nav colour for light background image. */
-        background: #354f4d;
-        background: rgba(53, 79, 77, 0.8);
+    .masthead-page .nav:hover {
+        background: #405755;
+        background: rgba(64, 87, 85, 0.6);
     }
-    .masthead-illustrated .nav:hover,
-    .masthead-illustrated .nav:hover .nav-logo,
-    .masthead-illustrated .nav:hover .nav-level-2 {
-        /* Nav colour for illustrated article/page. */
+    .nav:hover,
+    .masthead-illustrated .nav:hover {
         background: #222;
         background: rgba(34, 34, 34, 0.6);
+    }
+    .masthead-project .nav:hover .nav-level-2 {
+        background: #494653;
+        background: rgba(73, 70, 83, 0.9);
+    }
+    .masthead-tutorial .nav:hover .nav-level-2 {
+        background: #614944;
+        background: rgba(97, 73, 68, 0.9);
+    }
+    .masthead-tip .nav:hover .nav-level-2 {
+        background: #736153;
+        background: rgba(115, 97, 83, 0.9);
+    }
+    .masthead-thoughts .nav:hover .nav-level-2 {
+        background: #4a5861;
+        background: rgba(74, 88, 97, 0.9);
+    }
+    .masthead-off-topic .nav:hover .nav-level-2 {
+        background: #405c4c;
+        background: rgba(64, 92, 76, 0.9);
+    }
+    .masthead-page .nav:hover .nav-level-2 {
+        background: #405755;
+        background: rgba(64, 87, 85, 0.9);
+    }
+    .nav:hover .nav-level-2,
+    .masthead-illustrated .nav:hover .nav-level-2 {
+        background: #222;
+        background: rgba(34, 34, 34, 0.9);
     }
     .open .nav-level-1,
     .closed .nav-level-1 {
@@ -2344,27 +2407,12 @@ article.illustrated footer .date-unit {
     }
     .masthead-illustrated .nav-item-level-1 > a {
         /* Shadow for overlay of illustrations. */
-        text-shadow: 0 0 10px #222;
-    }
-    .masthead-reversed .nav-item-level-1 > a {
-        color: #222;
-        text-shadow: 0 0 10px #f5f5f5;
+        text-shadow: 0 0 5px #222;
     }
     .masthead-illustrated .active > a,
     .masthead-illustrated .nav:hover a {
         /* Remove shadow for highlighted link. */
         text-shadow: none;
-    }
-    .masthead-reversed .nav:hover .nav-item-level-1 > a {
-        /* Light backgrounds hover. */
-        color: #f5f5f5;
-    }
-    .masthead-reversed .nav:hover .nav-item-level-1 > a:hover,
-    .masthead-reversed .nav:hover .nav-item-level-1 > a:focus,
-    .masthead-reversed .nav:hover .nav-item-level-1 > a:active,
-    .masthead-reversed .nav:hover .nav-item-level-1.active > a {
-        /* Light backgrounds hover. */
-        color: #222;
     }
     .nav-level-2 {
         position: absolute;
@@ -2484,27 +2532,18 @@ article.illustrated footer .date-unit {
    @package cjbarnes.github.io
    ========================================================================== */
 .pager-list {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
     margin: 0;
-    padding: 0;
+    padding: 0 0 30px;
+    padding: 0 0 1.66667rem;
     list-style: none;
 }
 
 .pager-item {
-    float: left;
+    float: right;
     display: inline;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
-    width: 50%;
+    width: 100%;
     margin: 0;
-    padding: 0; 
-
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    padding: 0;
 }
 .pager-item a {
     /* For arrow icon positioning. */
@@ -2513,11 +2552,7 @@ article.illustrated footer .date-unit {
     padding: 15px 90px 30px;
     padding: 0.83333rem 5rem 1.66667rem;
     border-bottom: 0;
-    background: transparent; 
-
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    background: transparent;
 }
 .pager-item a:before {
     position: absolute;
@@ -2574,6 +2609,45 @@ article.illustrated footer .date-unit {
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 
+@media (min-width: 718px) {
+    /*** Media query: Tablets and above.
+ ***/
+    .pager-list {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+        padding-bottom: 0;
+    }
+    .pager-item {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+        /* 2-column pager. */
+        width: 50%; 
+
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+    }
+    .pager-item a {
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+    }
+    .pager-next {
+        /* Swap the Next and Previous sides. */
+        -webkit-order: 2;
+        -ms-flex-order: 2;
+                order: 2;
+    }
+    .pager-previous {
+        /* Swap the Next and Previous sides. */
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+                order: 1;
+    }
+}
+
 /* ==========================================================================
    Content area of articles, single pages, and portfolio and CV items.
 
@@ -2581,14 +2655,10 @@ article.illustrated footer .date-unit {
    @package cjbarnes.github.io
    ========================================================================== */
 .content-section {
-    float: left;
-    display: inline;
-    width: 100%;
-    padding: 0 15px;
-    padding-top: 45px;
-    padding-top: 2.5rem;
-    padding-bottom: 75px;
-    padding-bottom: 4.16667rem;
+    padding-top: 30px;
+    padding-top: 1.66667rem;
+    padding-bottom: 30px;
+    padding-bottom: 1.66667rem;
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
     background: #f5f5f5;
 }
@@ -2604,14 +2674,27 @@ article.illustrated footer .date-unit {
     background: #e0d7cb;
 }
 
+/* Homepage content areas - special left-right alignment. */
+.homepage-content-section-first,
+.content-section-endorsement {
+    padding-right: 15px; 
+    padding-bottom: 60px;
+    padding-bottom: 3.33333rem;
+    padding-left: 15px;
+}
+
 @media (min-width: 718px) {
     /*** Media query: Tablets and above.
  ***/
     .content-section {
-        padding-right: 8.33333%;
-        padding-right: calc(8.33333% + 15px); 
         /*** Content is still single-column, but with bigger margins, on tablets.
      ***/
+        padding-top: 45px;
+        padding-top: 2.5rem;
+        padding-right: 8.33333%;
+        padding-right: calc(8.33333% + 15px); 
+        padding-bottom: 75px;
+        padding-bottom: 4.16667rem;
         padding-left: 8.33333%;
         padding-left: calc(8.33333% + 15px);
     }
@@ -2677,10 +2760,13 @@ article.illustrated footer .date-unit {
     /*** Page/post title.
      ***/
     padding: 0;
+    color: #f5f5f5;
+}
+.page .masthead .title-main,
+.blog-page .masthead .title-main {
     font-size: 54px;
     font-size: 3rem;
     line-height: 1.38889;
-    color: #f5f5f5;
 }
 .masthead .title-summary {
     margin: 0;
@@ -2728,6 +2814,12 @@ article.illustrated footer .date-unit {
         /* Reinstate the vertical margins (for footer placement). */
         padding: 135px 0 75px;
         padding: 7.5rem 0 4.16667rem;
+    }
+    .masthead .title-main {
+        /* Bring posts' title size into line with pages'. */
+        font-size: 54px;
+        font-size: 3rem;
+        line-height: 1.38889;
     }
 }
 
@@ -3254,6 +3346,11 @@ article.illustrated footer .date-unit {
 .listing-item.post-page:before {
     content: "";
 }
+.listing-item.post-illustrated,
+.listing-item.page {
+    /* Fix gradient overflow when the item is illustrated. */
+    overflow: hidden;
+}
 .listing-item.post-illustrated:before,
 .listing-item.page:before {
     /* No icon for illustrated articles in full-size listings. */
@@ -3296,6 +3393,11 @@ article.illustrated footer .date-unit {
     margin-bottom: 0;
 }
 
+.page .index-listing-item {
+    /* For index pages, don't space listing items out for mobile. */
+    margin-bottom: 0;
+}
+
 .index-listing-heading {
     /*** Title of the listing area.
  ***/
@@ -3327,6 +3429,16 @@ article.illustrated footer .date-unit {
     margin-bottom: 1.66667rem;
 }
 
+@media (min-width: 718px) {
+    /*** Media query: Tablets and above.
+ ***/
+    .page .index-listing-item {
+        /* Reinstate spacing between listing items. */
+        margin-bottom: 60px;
+        margin-bottom: 3.33333rem;
+    }
+}
+
 /* ==========================================================================
    Small, bulleted-list-style listings of articles and other data structures
 
@@ -3354,6 +3466,7 @@ article.illustrated footer .date-unit {
 .minilisting-item:before {
     position: absolute;
     top: 4.625px;
+    top: 0.25694rem;
     left: -9.4375px;
     display: block;
     overflow: hidden;
@@ -3510,6 +3623,11 @@ article.illustrated footer .date-unit {
     color: #d0bda9;
 }
 
+.site-footer-section {
+    /* Remove default ul padding. */
+    padding-left: 0;
+}
+
 .site-footer-item {
     margin: 0;
 }
@@ -3533,8 +3651,9 @@ article.illustrated footer .date-unit {
 .smallprint {
     /*** Utility links and terms of use section.
  ***/
-    margin-top: 0;
-    text-align: right;
+    margin-top: 30px;
+    margin-top: 1.66667rem;
+    text-align: center;
 }
 
 .smallprint-item-copyright {
@@ -3569,6 +3688,10 @@ article.illustrated footer .date-unit {
      *** and maximum column width to avoid layout oddities. */
         padding-bottom: 45px;
         padding-bottom: 2.5rem;
+    }
+    .smallprint {
+        /* Two-column footer layout now, so align column 2 to the right. */
+        text-align: right;
     }
 }
 

@@ -52,6 +52,11 @@
     color: $text-color-site-footer;
 }
 
+.site-footer-section {
+    /* Remove default ul padding. */
+    padding-left: 0;
+}
+
 .site-footer-item {
     margin: 0;
 
@@ -75,8 +80,8 @@
 .smallprint {
 /*** Utility links and terms of use section.
  ***/
-    margin-top: 0;
-    text-align: right;
+    @include rem("margin-top", $line);
+    text-align: center;
 }
 
 .smallprint-item-copyright {
@@ -106,6 +111,11 @@
      *** and maximum column width to avoid layout oddities. */
         @include rem("padding-bottom", ($line * 1.5));
         max-width: 575px;
+    }
+
+    .smallprint {
+        /* Two-column footer layout now, so align column 2 to the right. */
+        text-align: right;
     }
 
 }

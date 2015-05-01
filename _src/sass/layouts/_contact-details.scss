@@ -45,13 +45,33 @@
         margin: 0;
     }
 
+    + .contact-details-data {
+    /*** When there are 2 sets of details for one label icon (e.g. addresses),
+     *** move the 2nd set to the right so it lines up with the 1st set on
+     *** mobile.
+     ***/
+        position: relative;
+        left: ($circle-diameter + (1px * 2));
+        /* Prevent bug in iOS Safari where the 2 address go side-by-side, even
+         * thought that overflows the screen width! */
+        clear: left;
+    }
+
 }
 
 @include media-width("address-two-columns") {
 /*** Media query: Wide enough for properly spaced side-by-side-addresses.
  ***/
-    .contact-details-data address {
-        @include rem("margin-right", ($line * 2));
+    .contact-details-data {
+
+        address {
+            @include rem("margin-right", ($line * 2));
+        }
+
+        + .contact-details-data {
+            clear: none;
+        }
+
     }
 
 }

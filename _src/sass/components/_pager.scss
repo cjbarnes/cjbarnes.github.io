@@ -6,18 +6,15 @@
    ========================================================================== */
 
 .pager-list {
-    display: flex; // flexbox version (@todo: consolidate)
+    @include rem("padding", 0 0 $line);
     margin: 0;
-    padding: 0;
     list-style: none;
 }
 
 .pager-item {
-    float: left;
+    float: right;
     display: inline;
-    display: flex; // flexbox version (@todo: consolidate)
-    flex: 1; // flexbox version (@todo: consolidate)
-    width: 50%;
+    width: 100%;
     margin: 0;
     padding: 0;
 
@@ -26,7 +23,6 @@
         /* For arrow icon positioning. */
         position: relative;
         display: block;
-        flex: 1; // flexbox version (@todo: consolidate)
         border-bottom: 0;
         background: transparent;
 
@@ -85,3 +81,34 @@
     font-family: $font-family-content;
 }
 
+@include media-width("normal-size") {
+/*** Media query: Tablets and above.
+ ***/
+    .pager-list {
+        display: flex;
+        padding-bottom: 0;
+    }
+
+    .pager-item {
+        display: flex;
+        flex: 1;
+        /* 2-column pager. */
+        width: 50%;
+
+        a {
+            flex: 1;
+        }
+
+    }
+
+    .pager-next {
+        /* Swap the Next and Previous sides. */
+        order: 2;
+    }
+
+    .pager-previous {
+        /* Swap the Next and Previous sides. */
+        order: 1;
+    }
+
+}

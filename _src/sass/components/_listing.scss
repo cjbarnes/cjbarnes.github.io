@@ -39,6 +39,12 @@
         }
     }
 
+    &.post-illustrated,
+    &.page {
+        /* Fix gradient overflow when the item is illustrated. */
+        overflow: hidden;
+    }
+
     &.post-illustrated:before,
     &.page:before {
         /* No icon for illustrated articles in full-size listings. */
@@ -105,6 +111,11 @@
 
 }
 
+.page .index-listing-item {
+    /* For index pages, don't space listing items out for mobile. */
+    margin-bottom: 0;
+}
+
 .index-listing-heading {
 /*** Title of the listing area.
  ***/
@@ -132,6 +143,17 @@
 
     h1 {
         @include rem("margin-bottom", $line);
+    }
+
+}
+
+
+@include media-width("normal-size") {
+/*** Media query: Tablets and above.
+ ***/
+    .page .index-listing-item {
+        /* Reinstate spacing between listing items. */
+        @include rem("margin-bottom", ($line * 2));
     }
 
 }

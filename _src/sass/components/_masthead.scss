@@ -24,9 +24,14 @@
     /*** Page/post title.
      ***/
         @include rem("padding", 0);
-        @include font-size-leading("gigantic", 2.5);
         margin: 0;
         color: $text-color-reversed;
+
+        .page &,
+        .blog-page & {
+            @include font-size-leading("gigantic", 2.5);
+        }
+
     }
 
     .title-summary {
@@ -68,6 +73,11 @@
         @include pull;
         /* Reinstate the vertical margins (for footer placement). */
         @include rem("padding", ($line * 4.5) 0 ($line * 2.5));
+    }
+
+    .masthead .title-main {
+        /* Bring posts' title size into line with pages'. */
+        @include font-size-leading("gigantic", 2.5);
     }
 
 }

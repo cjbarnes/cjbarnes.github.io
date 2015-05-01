@@ -32,8 +32,20 @@
     .step-header {
     /*** Header area - leave space for icon.
      ***/
-        min-height: (100px + $line-px);
+        min-height: (100px + $line-px - 10px);
         padding-left: 100px;
+    }
+
+    .step-title {
+
+        h1 {
+            @include font-size-leading("enormous", 1.25);
+            /* Set vertical positioning of title in px not rems, since the
+             * icon it's positioned against doesn't change size even when the
+             * body text size does. */
+            padding: ($line-px * 1.5) 0 $line-px;
+        }
+
     }
 
     .step:before,
@@ -46,7 +58,7 @@
      ***/
         position: absolute;
         top: $gutter;
-        left: $gutter;
+        left: 0;
         float: left;
         display: block;
         width: 100px;
@@ -72,9 +84,7 @@
         h3 {
         /*** Footer title.
          ***/
-            @include rem("left", 0);
-            @include push;
-            @include pull;
+            @include rem("left", $gutter);
             @include font-size-leading("large");
             position: absolute;
             /* Fallback for IE8 positioning (no `calc` support). */
@@ -83,12 +93,6 @@
             /* Get rid of standard heading margins. */
             margin-top: 0;
             margin-bottom: 0;
-        }
-
-        ul {
-        /*** 'What you get' list.
-         ***/
-            @include rem("margin", 0 ($line * 2));
         }
 
         li {
@@ -167,6 +171,38 @@
         &:after,
         .step-footer:after {
             display: none;
+        }
+
+    }
+
+}
+
+@include media-width("normal-size") {
+/*** Media query: Tablets and above.
+ ***/
+    .page-my-approach {
+
+        .step-icon {
+            /* Space the headers out a bit more. */
+            left: $gutter;
+        }
+
+        .step-footer {
+
+            h3 {
+            /*** 'What you get' title positioning.
+             ***/
+                @include rem("left", 0);
+                @include push;
+                @include pull;
+            }
+
+            ul {
+            /*** 'What you get' list.
+             ***/
+                @include rem("margin", 0 ($line * 2));
+            }
+
         }
 
     }

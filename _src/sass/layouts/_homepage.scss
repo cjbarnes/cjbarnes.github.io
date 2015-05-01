@@ -25,6 +25,7 @@
         position: absolute;
         bottom: 0;
         width: 100%;
+        overflow-x: hidden;
         margin: 0;
         /* Prevent bottom-padding from causing height issues. */
         padding-bottom: 0;
@@ -161,41 +162,24 @@
    ========================================================================== */
 
 .homepage-signposting-row {
-/*** Horizontal flexbox (used to stretch the two columns to equal heights).
- ***/
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+
+    .footer-section-title {
+        text-align: center;
+    }
+
 }
 
 .page-footer-section.featured-website,
 .page-footer-section.latest-posts {
-/*** Vertical flexbox-within-flexbox (to make the latest posts list and
- *** featured website screenshot the same height).
- ***/
-    display: flex;
-    flex-direction: column;
-
-    h3 {
-        /* Don't flex-grow the column headings. */
-        flex: none;
-    }
+    width: 100%;
+    margin: 0;
+    padding-left: $gutter;
+    padding-right: $gutter;
 }
 
-.footer-minilisting,
-.featured-website-screenshot {
-    /* Do flex-grow the column contents. */
-    flex: 1 1 auto;
-}
-
-
-.footer-minilisting {
-/*** Vertical 3rd-level flexbox to space out the list items to fill the height.
- ***/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.page-footer-section.featured-website {
+    /* Spacing in-between on mobile layout. */
+    @include rem("margin-top", $line);
 }
 
 .footer-section .minilisting-item {
@@ -205,20 +189,17 @@
         margin-top: 0;
     }
 
-    &:nth-child(n+4) {
+    &:nth-child(n+5) {
         /* Hide the lower-down list items until there's more space for them. */
         display: none;
     }
 
 }
 
-.featured-website {
-    text-align: right;
-}
-
 .featured-website-screenshot {
     /* To equalize the bottom margin with the posts listing bottom margin. */
     @include rem("margin-bottom", $link-padding);
+    display: block;
     padding: 0;
     border: 0;
     background: $background-color-page-footer;
@@ -256,12 +237,63 @@
 /* Media queries.
    ========================================================================== */
 
-@include media-width("footer-two-columns") {
+@include media-width("homepage-footer-two-columns") {
 /*** Media query: Two footer columns.
  ***/
+    .homepage-signposting-row {
+    /*** Horizontal flexbox (used to stretch the two columns to equal heights).
+     ***/
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    .page-footer-section.featured-website,
+    .page-footer-section.latest-posts {
+    /*** Vertical flexbox-within-flexbox (to make the latest posts list and
+     *** featured website screenshot the same height).
+     ***/
+        @include rem("margin", $line 0 0);
+        @include rem("padding", 0 $gutter ($line * 1.5));
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+        h3 {
+            /* Don't flex-grow the column headings. */
+            flex: none;
+        }
+    }
+
+    .footer-minilisting,
+    .featured-website-screenshot {
+        /* Do flex-grow the column contents. */
+        flex: 1 1 auto;
+    }
+
+
+    .footer-minilisting {
+    /*** Vertical 3rd-level flexbox to space out the list items to fill the
+     *** height.
+     ***/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     .featured-website {
         /* Used to align properly to the edge when this hits the max-width. */
         float: right;
+
+        .footer-section-title {
+            text-align: right;
+        }
+
+    }
+
+    .latest-posts .footer-section-title {
+        text-align: left;
     }
 
 }
@@ -278,20 +310,6 @@
     /*** Mini illustrated content sections with different background colour.
      ***/
         background-image: linear-gradient(to left, transparent 40%, $toast 100%);
-    }
-
-    .footer-section .minilisting-item {
-    /*** Progressively show more posts as the footer height increases (due to
-     *** increased screenshot size).
-     ***/
-        &:nth-child(n+4) {
-            display: block;
-        }
-
-        &:nth-child(n+5) {
-            display: none;
-        }
-
     }
 
 }
