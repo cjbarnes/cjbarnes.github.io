@@ -45,6 +45,15 @@
         margin: 0;
     }
 
+    + .contact-details-data {
+    /*** When there are 2 sets of details for one label icon (e.g. addresses),
+     *** move the 2nd set to the right so it lines up with the 1st set on
+     *** mobile.
+     ***/
+        position: relative;
+        left: ($circle-diameter + (1px * 2));
+    }
+
 }
 
 @include media-width("address-two-columns") {
