@@ -6,7 +6,6 @@
    ========================================================================== */
 
 .content-section {
-    @include column($columns);
     @include rem("padding-top",    ($line * 1.5));
     @include rem("padding-bottom", ($line * 2.5));
     font-family: $font-family-content;
@@ -24,6 +23,13 @@
 .content-section-special {
     /* Complex content areas with darker backgrounds. */
     background: $background-color;
+}
+
+/* Homepage content areas - special left-right alignment. */
+.homepage-content-section-first,
+.content-section-endorsement {
+    padding-left: $gutter;
+    padding-right: $gutter;
 }
 
 @include media-width("normal-size") {

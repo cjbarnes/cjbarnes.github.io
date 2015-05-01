@@ -1037,8 +1037,8 @@ h4 {
     /*** All headings.
  ***/
     /* Default heading margins (overridden at the extremes). */
-    margin: 60px 0 30px;
-    margin: 3.33333rem 0 1.66667rem;
+    margin: 60px 15px 30px;
+    margin: 3.33333rem 0.83333rem 1.66667rem;
     font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
     color: #5e8c88;
 }
@@ -1068,27 +1068,11 @@ h3 {
 }
 
 h4 {
-    margin: 45px 0 15px;
-    margin: 2.5rem 0 0.83333rem;
+    margin: 45px 15px 15px;
+    margin: 2.5rem 0.83333rem 0.83333rem;
     font-size: 21px;
     font-size: 1.16667rem;
     line-height: 1.42857;
-}
-
-/* Media queries.
-   ========================================================================== */
-@media (min-width: 718px) {
-    /*** Media query: Tablets or wider.
- ***/
-    h1,
-    h2,
-    h3,
-    h4 {
-        margin-right: 15px;
-        margin-right: 0.83333rem; 
-        margin-left: 15px;
-        margin-left: 0.83333rem;
-    }
 }
 
 /* ==========================================================================
@@ -2671,10 +2655,6 @@ article.illustrated footer .date-unit {
    @package cjbarnes.github.io
    ========================================================================== */
 .content-section {
-    float: left;
-    display: inline;
-    width: 100%;
-    padding: 0 15px;
     padding-top: 45px;
     padding-top: 2.5rem;
     padding-bottom: 75px;
@@ -2692,6 +2672,13 @@ article.illustrated footer .date-unit {
 .content-section-special {
     /* Complex content areas with darker backgrounds. */
     background: #e0d7cb;
+}
+
+/* Homepage content areas - special left-right alignment. */
+.homepage-content-section-first,
+.content-section-endorsement {
+    padding-right: 15px; 
+    padding-left: 15px;
 }
 
 @media (min-width: 718px) {
@@ -3453,6 +3440,7 @@ article.illustrated footer .date-unit {
 .minilisting-item:before {
     position: absolute;
     top: 4.625px;
+    top: 0.25694rem;
     left: -9.4375px;
     display: block;
     overflow: hidden;
