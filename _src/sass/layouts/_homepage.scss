@@ -25,6 +25,7 @@
         position: absolute;
         bottom: 0;
         width: 100%;
+        overflow-x: hidden;
         margin: 0;
         /* Prevent bottom-padding from causing height issues. */
         padding-bottom: 0;
