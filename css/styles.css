@@ -3298,12 +3298,11 @@ article.illustrated footer .date-unit {
 }
 
 .listing-item {
-    position: relative;
+    position: relative; 
     /*** Icon placement and style.
  ***/
     margin-bottom: 60px;
     margin-bottom: 3.33333rem;
-    /* Fix gradient overflow when the item is illustrated. */
 }
 .listing-item:before {
     position: absolute;
@@ -3349,6 +3348,7 @@ article.illustrated footer .date-unit {
 }
 .listing-item.post-illustrated,
 .listing-item.page {
+    /* Fix gradient overflow when the item is illustrated. */
     overflow: hidden;
 }
 .listing-item.post-illustrated:before,

@@ -24,7 +24,6 @@
  ***/
     @include rem("margin-bottom", ($line * 2));
     @include circle-box($background-color);
-    /* Fix gradient overflow when the item is illustrated. */
 
     &:before {
     /*** Icon colours and fonts.
@@ -42,6 +41,7 @@
 
     &.post-illustrated,
     &.page {
+        /* Fix gradient overflow when the item is illustrated. */
         overflow: hidden;
     }
 
