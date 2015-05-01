@@ -2655,10 +2655,10 @@ article.illustrated footer .date-unit {
    @package cjbarnes.github.io
    ========================================================================== */
 .content-section {
-    padding-top: 45px;
-    padding-top: 2.5rem;
-    padding-bottom: 75px;
-    padding-bottom: 4.16667rem;
+    padding-top: 30px;
+    padding-top: 1.66667rem;
+    padding-bottom: 30px;
+    padding-bottom: 1.66667rem;
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
     background: #f5f5f5;
 }
@@ -2678,6 +2678,8 @@ article.illustrated footer .date-unit {
 .homepage-content-section-first,
 .content-section-endorsement {
     padding-right: 15px; 
+    padding-bottom: 60px;
+    padding-bottom: 3.33333rem;
     padding-left: 15px;
 }
 
@@ -2685,10 +2687,14 @@ article.illustrated footer .date-unit {
     /*** Media query: Tablets and above.
  ***/
     .content-section {
-        padding-right: 8.33333%;
-        padding-right: calc(8.33333% + 15px); 
         /*** Content is still single-column, but with bigger margins, on tablets.
      ***/
+        padding-top: 45px;
+        padding-top: 2.5rem;
+        padding-right: 8.33333%;
+        padding-right: calc(8.33333% + 15px); 
+        padding-bottom: 75px;
+        padding-bottom: 4.16667rem;
         padding-left: 8.33333%;
         padding-left: calc(8.33333% + 15px);
     }
@@ -3382,6 +3388,11 @@ article.illustrated footer .date-unit {
     margin-bottom: 0;
 }
 
+.page .index-listing-item {
+    /* For index pages, don't space listing items out for mobile. */
+    margin-bottom: 0;
+}
+
 .index-listing-heading {
     /*** Title of the listing area.
  ***/
@@ -3411,6 +3422,16 @@ article.illustrated footer .date-unit {
 .index-listing-content h1 {
     margin-bottom: 30px;
     margin-bottom: 1.66667rem;
+}
+
+@media (min-width: 718px) {
+    /*** Media query: Tablets and above.
+ ***/
+    .page .index-listing-item {
+        /* Reinstate spacing between listing items. */
+        margin-bottom: 60px;
+        margin-bottom: 3.33333rem;
+    }
 }
 
 /* ==========================================================================

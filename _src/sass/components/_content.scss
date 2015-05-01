@@ -6,8 +6,8 @@
    ========================================================================== */
 
 .content-section {
-    @include rem("padding-top",    ($line * 1.5));
-    @include rem("padding-bottom", ($line * 2.5));
+    @include rem("padding-top", $line);
+    @include rem("padding-bottom", $line);
     font-family: $font-family-content;
     background: $background-color-content;
 
@@ -28,6 +28,7 @@
 /* Homepage content areas - special left-right alignment. */
 .homepage-content-section-first,
 .content-section-endorsement {
+    @include rem("padding-bottom", ($line * 2));
     padding-left: $gutter;
     padding-right: $gutter;
 }
@@ -38,6 +39,8 @@
     .content-section {
     /*** Content is still single-column, but with bigger margins, on tablets.
      ***/
+        @include rem("padding-top",    ($line * 1.5));
+        @include rem("padding-bottom", ($line * 2.5));
         @include push-interior(1, $columns, true);
         @include pull-interior(1, $columns, true);
     }
