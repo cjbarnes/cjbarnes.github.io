@@ -79,6 +79,8 @@
 {% endif %}
 {% if page.illustration %}
 <meta property="og:image" content="{{ site.url }}/img/{{ include.image }}.jpg">
+{% else %}
+<meta property="og:image" content="{{ site.url }}/apple-touch-icon.png">
 {% endif %}
 
 <!-- Twitter card metadata -->
