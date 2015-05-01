@@ -112,6 +112,12 @@
     border: 0;
     border-radius: 0;
     text-align: left;
+    background: transparent;
+
+    .masthead-illustrated & {
+        /* Shadow for overlay of illustrations. */
+        text-shadow: 0 0 5px $black;
+    }
 
     .open & {
 

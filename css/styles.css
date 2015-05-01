@@ -2154,9 +2154,14 @@ article.illustrated footer .date-unit {
     font-size: 24px;
     font-size: 1.33333rem;
     line-height: 1.25;
-    text-align: left; 
+    text-align: left;
     border-radius: 0;
     border: 0;
+    background: transparent;
+}
+.masthead-illustrated .nav-menu-toggle {
+    /* Shadow for overlay of illustrations. */
+    text-shadow: 0 0 5px #222;
 }
 .open .nav-menu-toggle:after {
     /* Add colon to 'Menu' label when menu is open. */
