@@ -2298,12 +2298,6 @@ article.illustrated footer .date-unit {
         /* Remove max-height set for menu overflowing on mobile layout. */
         max-height: 10000em;
     }
-    .masthead-reversed .nav {
-        /*** Slightly higher contrast version for over light images.
-         ***/
-        background: #222;
-        background: rgba(34, 34, 34, 0.4);
-    }
     .nav.open {
         /* Remove open/closed styling difference (which is mobile only). */
         background: transparent;
@@ -2424,7 +2418,7 @@ article.illustrated footer .date-unit {
     }
     .masthead-illustrated .nav-item-level-1 > a {
         /* Shadow for overlay of illustrations. */
-        text-shadow: 0 0 10px #222;
+        text-shadow: 0 0 5px #222;
     }
     .masthead-illustrated .active > a,
     .masthead-illustrated .nav:hover a {

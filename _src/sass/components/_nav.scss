@@ -211,12 +211,6 @@
         /* Remove max-height set for menu overflowing on mobile layout. */
         max-height: 10000em;
 
-        .masthead-reversed & {
-        /*** Slightly higher contrast version for over light images.
-         ***/
-            @include alpha("background", $logo-color-dark, 0.4);
-        }
-
         &.open {
             /* Remove open/closed styling difference (which is mobile only). */
             background: transparent;
@@ -316,7 +310,7 @@
 
         .masthead-illustrated & {
             /* Shadow for overlay of illustrations. */
-            text-shadow: 0 0 10px $black;
+            text-shadow: 0 0 5px $black;
         }
 
     }
