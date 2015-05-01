@@ -2767,10 +2767,13 @@ article.illustrated footer .date-unit {
     /*** Page/post title.
      ***/
     padding: 0;
+    color: #f5f5f5;
+}
+.page .masthead .title-main,
+.blog-page .masthead .title-main {
     font-size: 54px;
     font-size: 3rem;
     line-height: 1.38889;
-    color: #f5f5f5;
 }
 .masthead .title-summary {
     margin: 0;
@@ -2818,6 +2821,12 @@ article.illustrated footer .date-unit {
         /* Reinstate the vertical margins (for footer placement). */
         padding: 135px 0 75px;
         padding: 7.5rem 0 4.16667rem;
+    }
+    .masthead .title-main {
+        /* Bring posts' title size into line with pages'. */
+        font-size: 54px;
+        font-size: 3rem;
+        line-height: 1.38889;
     }
 }
 
