@@ -2146,7 +2146,7 @@ article.illustrated footer .date-unit {
 .nav-menu-toggle {
     display: block;
     /* Increased width to increase the tap target area. */
-    min-width: 25%;
+    width: 50%;
     /* Height to match the navbar logo: diameter + margin + 2px. */
     height: 69px;
     padding: 20px 15px;
@@ -2154,10 +2154,9 @@ article.illustrated footer .date-unit {
     font-size: 24px;
     font-size: 1.33333rem;
     line-height: 1.25;
-    border-radius: 0; 
+    text-align: left; 
+    border-radius: 0;
     border: 0;
-    background: #f5f5f5;
-    background: rgba(245, 245, 245, 0.6);
 }
 .open .nav-menu-toggle:after {
     /* Add colon to 'Menu' label when menu is open. */
@@ -2166,40 +2165,63 @@ article.illustrated footer .date-unit {
 
 /* Navbar colours.
    ========================================================================== */
-.masthead-project .nav-logo,
-.masthead-project .nav-menu-toggle {
+.masthead-project .nav {
+    background: #494653;
+    background: rgba(73, 70, 83, 0.2);
+}
+.masthead-tutorial .nav {
+    background: #614944;
+    background: rgba(97, 73, 68, 0.2);
+}
+.masthead-tip .nav {
+    background: #736153;
+    background: rgba(115, 97, 83, 0.2);
+}
+.masthead-thoughts .nav {
+    background: #4a5861;
+    background: rgba(74, 88, 97, 0.2);
+}
+.masthead-off-topic .nav {
+    background: #405c4c;
+    background: rgba(64, 92, 76, 0.2);
+}
+.masthead-page .nav {
+    background: #405755;
+    background: rgba(64, 87, 85, 0.2);
+}
+.nav,
+.masthead-illustrated .nav {
+    background: #222;
+    background: rgba(34, 34, 34, 0.2);
+    color: #f5f5f5;
+}
+
+.masthead-project .nav-logo {
     background: #494653;
     background: rgba(73, 70, 83, 0.6);
 }
-.masthead-tutorial .nav-logo,
-.masthead-tutorial .nav-menu-toggle {
+.masthead-tutorial .nav-logo {
     background: #614944;
     background: rgba(97, 73, 68, 0.6);
 }
-.masthead-tip .nav-logo,
-.masthead-tip .nav-menu-toggle {
+.masthead-tip .nav-logo {
     background: #736153;
     background: rgba(115, 97, 83, 0.6);
 }
-.masthead-thoughts .nav-logo,
-.masthead-thoughts .nav-menu-toggle {
+.masthead-thoughts .nav-logo {
     background: #4a5861;
     background: rgba(74, 88, 97, 0.6);
 }
-.masthead-off-topic .nav-logo,
-.masthead-off-topic .nav-menu-toggle {
+.masthead-off-topic .nav-logo {
     background: #405c4c;
     background: rgba(64, 92, 76, 0.6);
 }
-.masthead-page .nav-logo,
-.masthead-page .nav-menu-toggle {
+.masthead-page .nav-logo {
     background: #405755;
     background: rgba(64, 87, 85, 0.6);
 }
 .nav-logo,
-.masthead-illustrated .nav-logo,
-.nav-menu-toggle,
-.masthead-illustrated .nav-menu-toggle {
+.masthead-illustrated .nav-logo {
     background: #222;
     background: rgba(34, 34, 34, 0.6);
     color: #f5f5f5;
@@ -2241,7 +2263,6 @@ article.illustrated footer .date-unit {
 .masthead-illustrated .nav.open {
     background: #222;
     background: rgba(34, 34, 34, 0.9);
-    color: #f5f5f5;
 }
 
 .masthead-project .nav-level-2 {
@@ -2276,6 +2297,12 @@ article.illustrated footer .date-unit {
     .nav {
         /* Remove max-height set for menu overflowing on mobile layout. */
         max-height: 10000em;
+    }
+    .masthead-reversed .nav {
+        /*** Slightly higher contrast version for over light images.
+         ***/
+        background: #222;
+        background: rgba(34, 34, 34, 0.4);
     }
     .nav.open {
         /* Remove open/closed styling difference (which is mobile only). */
@@ -2399,25 +2426,10 @@ article.illustrated footer .date-unit {
         /* Shadow for overlay of illustrations. */
         text-shadow: 0 0 10px #222;
     }
-    .masthead-reversed .nav-item-level-1 > a {
-        color: #222;
-        text-shadow: 0 0 10px #f5f5f5;
-    }
     .masthead-illustrated .active > a,
     .masthead-illustrated .nav:hover a {
         /* Remove shadow for highlighted link. */
         text-shadow: none;
-    }
-    .masthead-reversed .nav:hover .nav-item-level-1 > a {
-        /* Light backgrounds hover. */
-        color: #f5f5f5;
-    }
-    .masthead-reversed .nav:hover .nav-item-level-1 > a:hover,
-    .masthead-reversed .nav:hover .nav-item-level-1 > a:focus,
-    .masthead-reversed .nav:hover .nav-item-level-1 > a:active,
-    .masthead-reversed .nav:hover .nav-item-level-1.active > a {
-        /* Light backgrounds hover. */
-        color: #222;
     }
     .nav-level-2 {
         position: absolute;
