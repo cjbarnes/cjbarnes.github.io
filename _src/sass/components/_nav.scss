@@ -21,11 +21,6 @@
     overflow: visible; // @todo RE-CHECK.
     transition: background-color 0.5s ease-in-out;
 
-    &.open {
-        /* Background color on 'open' (mobile only). */
-        @include alpha("background", $background-color-navbar-mobile, 0.8);
-    }
-
 }
 
 .nav-level-1 {
@@ -33,7 +28,6 @@
  ***/
     @include rem("padding", 0 0 ($line / 2));
     @include font-size-leading("large");
-    @include alpha("background", $background-color-illustrated, 0.9);
     margin: 0;
     font-size: 1.2em;
     transition-property: transform opacity;
@@ -90,8 +84,6 @@
  ***/
     @include rem("margin", 0 0 ($line / 2) ($line / 2));
     padding: 0;
-    /* Same background colour but with no transparency. */
-    background: $background-color-navbar-mobile;
 }
 
 .nav-item-level-2 a {
@@ -120,12 +112,6 @@
     min-width: 25%;
     border: 0;
     border-radius: 0;
-    color: $text-color;
-
-    .masthead-reversed & {
-        /* Colour changes for dark menu button on light mastheads. */
-        color: $logo-color-dark;
-    }
 
     .open & {
 
@@ -134,12 +120,66 @@
             content: ":";
         }
 
-        .light-masthead & {
-            /* Menu open: return to light toggle colour to match dark open-menu
-             * background. */
-            color: $text-color-reversed;
-        }
+    }
 
+}
+
+
+/* Navbar colours.
+   ========================================================================== */
+
+.nav-logo,
+.nav-menu-toggle {
+
+    // Post formats.
+    @each $format, $color in $format-colors {
+        $bg_color: mix($color, $logo-color-dark, 50%);
+        .masthead-#{$format} & {
+            @include alpha("background", $bg_color, 0.6);
+        }
+    }
+
+    &,
+    .masthead-illustrated & {
+        @include alpha("background", $logo-color-dark, 0.6);
+        color: $logo-color-light;
+    }
+
+}
+
+.nav-level-1,
+.nav.open {
+
+    // Post formats.
+    @each $format, $color in $format-colors {
+        $bg_color: mix($color, $logo-color-dark, 50%);
+        .masthead-#{$format} & {
+            @include alpha("background", $bg_color, 0.9);
+        }
+    }
+
+    &,
+    .masthead-illustrated & {
+        @include alpha("background", $logo-color-dark, 0.9);
+        color: $logo-color-light;
+    }
+
+}
+
+.nav-level-2 {
+
+    // Post formats.
+    @each $format, $color in $format-colors {
+        $bg_color: mix($color, $logo-color-dark, 50%);
+        .masthead-#{$format} & {
+            background: $bg_color;
+        }
+    }
+
+    &,
+    .masthead-illustrated & {
+        background: $logo-color-dark;
+        color: $logo-color-light;
     }
 
 }
@@ -163,26 +203,34 @@
     }
 
     .nav:hover {
+    /*** Use mobile 'open' colour for hover as well.
+     ***/
+        // Post formats.
+        @each $format, $color in $format-colors {
+            $bg_color: mix($color, $logo-color-dark, 50%);
+            .masthead-#{$format} & {
+                @include alpha("background", $bg_color, 0.6);
+            }
+        }
 
         &,
-        .nav-logo,
+        .masthead-illustrated & {
+            @include alpha("background", $logo-color-dark, 0.6);
+        }
+
         .nav-level-2 {
 
-            // Nav colours for specific post formats.
+            // Post formats.
             @each $format, $color in $format-colors {
+                $bg_color: mix($color, $logo-color-dark, 50%);
                 .masthead-#{$format} & {
-                    @include alpha("background", cj-get-format-dark-color($format), 0.8);
+                    @include alpha("background", $bg_color, 0.9);
                 }
             }
 
-            .masthead-reversed & {
-                /* Nav colour for light background image. */
-                @include alpha("background", cj-get-format-dark-color("page"),    0.8);
-            }
-
+            &,
             .masthead-illustrated & {
-                /* Nav colour for illustrated article/page. */
-                @include alpha("background", $background-color-illustrated,        0.6);
+                @include alpha("background", $logo-color-dark, 0.9);
             }
 
         }
