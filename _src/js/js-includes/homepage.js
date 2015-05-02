@@ -6,16 +6,26 @@
    */
   function doHomepageBrags() {
 
+    var setBragTimeout;
     var brags = document.querySelectorAll('.homepage .js-brag');
+    var choice = brags.length;
+    var first = 0;
 
     /* End if this isn't the homepage or there aren't multiple brags to switch
        between. */
-    if (brags.length < 2) {
+    if (2 > choice) {
       return;
     }
 
-    var setBragTimeout = setTimeout.bind(null, nextBrag, 5000);
-    setBragTimeout(0);
+    /* Choose a random starting point for circling through the brags. */
+    first = Math.floor(Math.random() * (choice - 1));
+
+    /* Reusable function to change brags in 4 seconds. */
+    setBragTimeout = setTimeout.bind(null, nextBrag, 4000);
+
+    /* Show the first brag and start looping. */
+    brags[first].classList.add('current');
+    setBragTimeout(first);
 
     /**
      * Self-calling function that animates between brags.
@@ -23,10 +33,10 @@
      */
     function nextBrag(current) {
 
-      /* Animate out the previous brag */
+      /* Animate out the previous brag. */
       brags[current++].classList.remove('current');
 
-      /* Work out which brag is next */
+      /* Work out which brag is next. */
       if (brags.length <= current) {
         current = 0;
       }
