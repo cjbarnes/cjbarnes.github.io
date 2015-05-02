@@ -94,7 +94,9 @@
 
 /* Intro. */
 .homepage-content-section-first {
-    background: $background-color;
+    @include rem("padding", 0 0 ($line * 1.5));
+    background: $background-color-illustrated;
+    color: $white;
 }
 
 /* Featured testimonial. */
@@ -260,6 +262,12 @@
     /*** Mini illustrated content sections with different background colour.
      ***/
         background-image: linear-gradient(to left, transparent 40%, $toast 100%);
+    }
+
+    .homepage-content-section-inner {
+        @include column(10);
+        @include push;
+        @include pull;
     }
 
 }
