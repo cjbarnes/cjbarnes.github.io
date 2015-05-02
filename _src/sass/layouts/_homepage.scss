@@ -249,15 +249,20 @@
         @include font-size-leading("enormous", 2);
     }
 
-    .homepage-title-extra-line {
-        /* Don't put 'web design' on different line to brags at this width. */
-        display: none;
-    }
-
     .homepage-content-section-illustrated .gradient.right {
     /*** Mini illustrated content sections with different background colour.
      ***/
         background-image: linear-gradient(to left, transparent 40%, $toast 100%);
+    }
+
+}
+
+@include media-width("nav-horizontal") {
+/*** Media query: Wide enough for brags to fit into 2 lines.
+ ***/
+    .homepage-title-extra-line {
+        /* Don't put 'web design' on different line to brags at this width. */
+        display: none;
     }
 
 }
