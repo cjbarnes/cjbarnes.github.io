@@ -3,7 +3,6 @@ title: what I’ve done
 permalink: whativedone/
 layout: index
 illustration: macbook-bed
-masthead: light
 ---
 
 These pages are all about my previous work.
