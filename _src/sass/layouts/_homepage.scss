@@ -10,10 +10,15 @@
    ========================================================================== */
 
 .homepage-title-main {
-    @include font-size-leading("huger", 1.5);
     color: $text-color-reversed;
     /* Align edge of brags' background box outside the margin. */
     text-indent: ($link-padding * -1);
+
+    .masthead .homepage-title & {
+    /*** Specificity hack to override normal title sizes.
+     ***/
+        @include font-size-leading("huger", 1.5);
+    }
 
     a:hover,
     a:focus,
@@ -245,7 +250,9 @@
 @include media-width("normal-size") {
 /*** Media query: Tablets or wider.
  ***/
-    .homepage-title-main {
+    .masthead .homepage-title .homepage-title-main {
+    /*** Specificity hack to override normal title sizes.
+     ***/
         @include font-size-leading("enormous", 2);
     }
 
