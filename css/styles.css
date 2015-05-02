@@ -1918,6 +1918,7 @@ img::selection {
    ========================================================================== */
 .date {
     position: absolute;
+    z-index: 3; 
     right: 0;
     /* Overlap the bottom of the post header. */
     bottom: -23.5px;
