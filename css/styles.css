@@ -2509,7 +2509,6 @@ article.illustrated footer .date-unit {
     .no-js .nav-logo {
         /* Show the logo above the nav background. */
         z-index: 5;
-        color: #222;
     }
     .no-js .nav-level-2 {
         /* No submenus in tiny-horizontal layout */
