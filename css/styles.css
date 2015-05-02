@@ -2742,20 +2742,21 @@ article.illustrated footer .date-unit {
 .masthead {
     /* For date positioning. */
     position: relative;
+    overflow-x: hidden;
+    overflow-y: visible; 
     background: #a17167;
 }
 .masthead .title {
     /* Stack title above the illustration and gradient. */
     position: relative;
     z-index: 2;
-    /* Prevent horizontal scrolling on mobile, e.g. on homepage. */
-    overflow-x: hidden; 
     /*** The title-and-teaser wrapper.
      ***/
     padding-top: 135px;
     padding-top: 7.5rem;
     padding-bottom: 75px;
     padding-bottom: 4.16667rem;
+    /* Prevent horizontal scrolling on mobile, e.g. on homepage. */
 }
 .masthead .title-main {
     margin: 0;

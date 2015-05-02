@@ -9,6 +9,33 @@
 /* Homepage masthead area.
    ========================================================================== */
 
+.masthead {
+/*** Changes to masthead height and illustration position.
+ ***/
+    height: $homepage-illustration-height-masthead;
+    max-height: 100vh;
+
+    .homepage-title {
+        @include rem("padding-bottom", ($line * 3));
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .gradient,
+    .illustration {
+        height: $homepage-illustration-height-masthead;
+        max-height: 100vh;
+    }
+
+    .illustration img {
+        top: auto;
+        bottom: 0;
+        width: 1400px;
+    }
+
+}
+
 .homepage-title-main {
     color: $text-color-reversed;
     /* Align edge of brags' background box outside the margin. */
@@ -30,7 +57,7 @@
     /*** The changing element in the welcome message.
      ***/
         overflow: hidden;
-        background: $rum;
+        background: $toast;
         /* Fixes the gradient height changing in each brag transition. */
         word-wrap: normal;
         text-indent: 0;
@@ -304,6 +331,28 @@
             display: block;
         }
 
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .masthead-illustrated .illustration img {
+        width: 700px;
+        margin-left: (700px * -0.5);
+    }
+
+    .masthead {
+        height: 350px;
+    }
+
+    .masthead .gradient,
+    .masthead .illustration {
+        height: 400px;
+    }
+
+    .masthead .homepage-title {
+        @include rem("padding-bottom", ($line * 2));
     }
 
 }

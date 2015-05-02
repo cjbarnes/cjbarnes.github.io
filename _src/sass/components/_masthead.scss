@@ -9,6 +9,8 @@
     /* For date positioning. */
     position: relative;
     background: $background-color-masthead;
+    overflow-x: hidden;
+    overflow-y: visible;
 
     .title {
     /*** The title-and-teaser wrapper.
@@ -19,7 +21,6 @@
         position: relative;
         z-index: 2;
         /* Prevent horizontal scrolling on mobile, e.g. on homepage. */
-        overflow-x: hidden;
     }
 
     .title-main {
