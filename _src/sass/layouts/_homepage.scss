@@ -10,7 +10,9 @@
    ========================================================================== */
 
 .homepage-title-main {
+    @include font-size-leading("huger", 1.5);
     color: $text-color-reversed;
+    /* Align edge of brags' background box outside the margin. */
     text-indent: ($link-padding * -1);
 
     a:hover,
@@ -47,7 +49,12 @@
 
         }
 
-        .no-js & {
+    }
+
+    .no-js & {
+        text-indent: 0;
+
+        .brag {
             /* Hide 'brags' when they're static because JavaScript is off. */
             display: none;
         }
@@ -238,6 +245,15 @@
 @include media-width("normal-size") {
 /*** Media query: Tablets or wider.
  ***/
+    .homepage-title-main {
+        @include font-size-leading("enormous", 2);
+    }
+
+    .homepage-title-extra-line {
+        /* Don't put 'web design' on different line to brags at this width. */
+        display: none;
+    }
+
     .homepage-content-section-illustrated .gradient.right {
     /*** Mini illustrated content sections with different background colour.
      ***/
