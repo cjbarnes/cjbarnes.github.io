@@ -9,73 +9,11 @@
 /* Homepage masthead area.
    ========================================================================== */
 
-.homepage-masthead {
-/*** Header area and parallax.
- ***/
-    position: relative;
-    /* Almost (but not quite) full screen height. Can use `vh` with no fallback
-     * because I'm also declaring both min- and max-heights, which act as a de
-     * facto fallback. */
-    height: 99vh;
-    min-height: 700px;
-    /* Don't exceed the height of the image. */
-    max-height: (840px + $line-px);
-
-    .title {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        /* Prevent bottom-padding from causing height issues. */
-        padding-bottom: 0;
-        /* Border is a continuation of the gradient's solid-colour ending. */
-        border-bottom: cj-calculate-rem-fallback($line) solid $background-color-illustrated;
-        /* Manually output border width in both rem and px, since we're using
-         * the border-bottom shorthand (which breaks the `rem` mixin). */
-        border-bottom-width: $line;
-    }
-
-    .gradient {
-        height: 100%;
-        background-image: linear-gradient(to bottom, transparent 0, transparent 65%, $background-color-illustrated 95%);
-    }
-
-    .illustration {
-    /*** Parallax image wrapper.
-     ***/
-        height: 100%;
-
-        img {
-            left: 25%;
-            bottom: 0;
-            margin-left: ($illustration-width-masthead * -0.25);
-
-            @media (max-width: 700px) {
-            /*** Media query: Shift image for better framing on mobile devices.
-             ***/
-                margin-left: -550px;
-            }
-
-        }
-
-    }
-
-}
-
-.homepage-title {
-/*** Homepage welcome message.
- ***/
-    @include rem("padding-bottom", $line);
-    text-align: center;
-}
-
-
 .homepage-title-main {
-    @include rem("margin", 0 $gutter ($line * 2.5));
     @include font-size-leading("huger", 1.5);
-    text-shadow: 0 0 10px $black;
     color: $text-color-reversed;
+    /* Align edge of brags' background box outside the margin. */
+    text-indent: ($link-padding * -1);
 
     a:hover,
     a:focus,
@@ -87,9 +25,10 @@
     /*** The changing element in the welcome message.
      ***/
         overflow: hidden;
-        background: $patina;
+        background: $rum;
         /* Fixes the gradient height changing in each brag transition. */
         word-wrap: normal;
+        text-indent: 0;
 
         span {
         /*** Individual 'brags' - only one is displayed at once.
@@ -110,7 +49,12 @@
 
         }
 
-        .no-js & {
+    }
+
+    .no-js & {
+        text-indent: 0;
+
+        .brag {
             /* Hide 'brags' when they're static because JavaScript is off. */
             display: none;
         }
@@ -301,15 +245,24 @@
 @include media-width("normal-size") {
 /*** Media query: Tablets or wider.
  ***/
-    .homepage-title br {
-        /* Brags line-break: no need to wrap to 2 lines at this screen size. */
-        display: none;
+    .homepage-title-main {
+        @include font-size-leading("enormous", 2);
     }
 
     .homepage-content-section-illustrated .gradient.right {
     /*** Mini illustrated content sections with different background colour.
      ***/
         background-image: linear-gradient(to left, transparent 40%, $toast 100%);
+    }
+
+}
+
+@include media-width("nav-horizontal") {
+/*** Media query: Wide enough for brags to fit into 2 lines.
+ ***/
+    .homepage-title-extra-line {
+        /* Don't put 'web design' on different line to brags at this width. */
+        display: none;
     }
 
 }
