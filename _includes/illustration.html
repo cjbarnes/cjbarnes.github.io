@@ -1,6 +1,7 @@
 <!-- Feature image -->
-<div class="illustration">
-  <img class="img" src="/img/{{ include.image }}.jpg">
+<div class="illustration {% if include.masthead %}illustration-responsive{% else %}illustration-unresponsive{% endif %}">
+  {% assign img = "/img/" | append: include.image %}
+  <img class="img" src="{{ img }}.jpg" {% if include.masthead %}srcset="{{ img }}-414@2x.jpg 828w, {{ img }}-375@2x.jpg 750w, {{ img }}-320@2x.jpg 640w, {{ img }}-414.jpg 414w, {{ img }}-375.jpg 375w, {{ img }}-320.jpg 320w, {{ img }}.jpg" sizes="(max-width: 320px) 320px, (max-width: 375px) 375px, (max-width: 414px) 414px, 1400px"{% endif %}>
 </div>
 <!--
   A dirty, lazy, horrid presentational element. There was no other

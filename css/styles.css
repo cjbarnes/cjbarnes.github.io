@@ -3282,6 +3282,28 @@ article.illustrated footer .date-unit {
     }
 }
 
+/* Illustration widths on mobiles. */
+@media (max-width: 414px) {
+    .masthead-illustrated .illustration-responsive .img {
+        width: 414px;
+        margin-left: -207px;
+    }
+}
+
+@media (max-width: 375px) {
+    .masthead-illustrated .illustration-responsive .img {
+        width: 375px;
+        margin-left: -187.5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .masthead-illustrated .illustration-responsive .img {
+        width: 320px;
+        margin-left: -160px;
+    }
+}
+
 /* ==========================================================================
    Lists of articles and other data structures
 

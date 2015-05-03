@@ -268,3 +268,18 @@
     }
 
 }
+
+/* Illustration widths on mobiles. */
+
+$illustration-widths: 414px, 375px, 320px;
+@each $size in $illustration-widths {
+    @media (max-width: $size) {
+
+        .masthead-illustrated .illustration-responsive .img {
+            width: $size;
+            margin-left: ($size * -0.5);
+        }
+
+    }
+
+}

@@ -30,26 +30,64 @@ First things first: all web design and writing on this website is by Chris Barne
 
 ## image credits
 
-[homepage](/) photos:
-:  ['Workspace'](https://www.flickr.com/photos/needoptic/13888268326/in/set-72157643518962765) by Aurimas Adomavicius on Flickr
-:	['Detail of Girl’s Hands typing on MacBook'](http://picjumbo.com/detail-of-girls-hands-typing-on-macbook/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
+**photos by [Viktor Hanáček at Picjumbo.com](http://picjumbo.com):**
+
+[homepage](/):
+:	'Detail of Girl’s Hands typing on MacBook'
+
+[my expertise](/whatido/expertise/) photos:
+:  'Fashion Glasses on MacBook Pro'
+
+[kind words](/whativedone/kindwords/):
+:   *Unknown Title* (heart chair)
+
+[contact us](/contact/):
+:   *Unknown Title* (using phone on bridge)
+
+[colophon](/colophon/):
+:   *Unknown Title* (tools)
+
+[blog](/blog/):
+:   *Unknown Title* (MacBook Pro on table)
+
+**photos from [Unsplash](http://unsplash.com):**
+
+[my approach](/whatido/approach/):
+:   *Unknown Title* (colouring pencils)
+
+[I don't](/whatido/idont/):
+:   *Unknown Title* (watch)
+
+[kind words](/whativedone/kindwords/):
+:   *Unknown Title* (bouquet)
+
+[bio](/whativedone/bio/):
+:   *Unknown Title* (shoes in field)
+
+[privacy policy](/privacy-policy/):
+:   *Unknown Title* (icy padlock)
+
+**other photos:**
+
+[homepage](/):
+:   'iPadMini3' by [ZedProMedia](http://bit.ly/MkCKcY)
+
+[what I do](/whatido/):
+:   'macbook' by *Unknown*
+
+[my expertise](/whatido/expertise/):
+:   ['Programmeren'](https://www.flickr.com/photos/waagsociety/8536919558/) by [Waag Society on Flickr](https://www.flickr.com/photos/waagsociety/)
+:   ['NYC #3'](https://www.flickr.com/photos/thomasleuthard/8587724648/) by [Thomas Leuthard on Flickr](https://www.flickr.com/photos/thomasleuthard/)
+:   'Photographer' by *Unknown* on [Pixabay](http://pixabay.com)
+
+[what I've done](/whativedone/):
+:   '7' by [Patrik - madeinsweden](https://creativemarket.com/madeinsweden)
+
+[portfolio](/whatido/portfolio/):
+:   'Two' by *Unknown*
    
-[my  approach](/whatido/approach/) photo:
-:  ['Internet Tea Time'](http://picjumbo.com/internet-tea-time/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
-   
-[expertise](/whatido/expertise/) photos:
-:  ['Fashion Glasses on MacBook Pro'](http://picjumbo.com/fashion-glasses-on-macbook-pro/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
-:  ['Programmeren'](https://www.flickr.com/photos/waagsociety/8536919558/) by Waag Society on [Flickr](https://www.flickr.com/photos/waagsociety/)
-   
-[i don’t](/whatido/idont) photo:
-:  photo by Vee-O at [Unsplash](http://unsplash.com)
-   
-[contact me](/contact/) photo:
-:  ['An iPhone 5S in a Car'](http://picjumbo.com/an-iphone-5s-in-a-car/) by Viktor Hanáček at [Picjumbo.com](http://picjumbo.com)
-   
-[blog](/blog/) photos:
-:  ['Magazine Article Layout'](https://www.flickr.com/photos/kylethale/8245070425) by Kyle Hale on [Flickr](https://www.flickr.com/photos/kylethale/)
-   
+[blog](/blog/):
+:  ['Magazine Article Layout'](https://www.flickr.com/photos/kylethale/8245070425) by [Kyle Hale on Flickr](https://www.flickr.com/photos/kylethale/)
 
 Apple, the Apple logo and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries.
 
