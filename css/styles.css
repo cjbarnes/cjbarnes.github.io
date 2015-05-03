@@ -590,7 +590,7 @@ hr {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
     /*** Media query: Wide enough for more spacing around normal content.
  ***/
     .content-section p,
@@ -2712,7 +2712,7 @@ article.illustrated footer .date-unit {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
     /*** Media query: Wide enough for two-column layout.
  ***/
     .content-section {
@@ -2824,7 +2824,7 @@ article.illustrated footer .date-unit {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
     /*** Media query: Tablets and wider.
  ***/
     .masthead .title {
