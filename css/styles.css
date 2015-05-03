@@ -2742,8 +2742,6 @@ article.illustrated footer .date-unit {
 .masthead {
     /* For date positioning. */
     position: relative;
-    overflow-x: hidden;
-    overflow-y: visible; 
     background: #a17167;
 }
 .masthead .title {
