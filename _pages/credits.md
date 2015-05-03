@@ -64,6 +64,9 @@ First things first: all web design and writing on this website is by Chris Barne
 [bio](/whativedone/bio/):
 :   *Unknown Title* (shoes in field)
 
+[projects](/whativedone/projects/):
+:   *Unknown Title* (iMac with iPad)
+
 [privacy policy](/privacy-policy/):
 :   *Unknown Title* (icy padlock)
 
