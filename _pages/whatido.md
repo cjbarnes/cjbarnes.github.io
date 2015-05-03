@@ -2,7 +2,7 @@
 title: what I do
 permalink: whatido/
 layout: index
-illustration: thunderbolt-display-angled
+illustration: coding
 ---
 
 These pages are about what it's like to work with me.
