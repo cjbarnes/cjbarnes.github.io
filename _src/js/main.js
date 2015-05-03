@@ -66,7 +66,7 @@
     }
 
     /* Find parallax illustrations */
-    illustrations = document.querySelectorAll('.illustration img');
+    illustrations = document.querySelectorAll('.illustration .img');
     numberOfIllustrations = illustrations.length;
 
     if (!numberOfIllustrations) {

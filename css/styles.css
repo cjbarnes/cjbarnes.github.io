@@ -3059,7 +3059,7 @@ article.illustrated footer .date-unit {
     overflow: hidden;
     width: 100%;
 }
-.illustration img {
+.illustration .img {
     /*** The image itself.
      ***/
     position: absolute;
@@ -3084,7 +3084,7 @@ article.illustrated footer .date-unit {
     top: 0;
     height: 350px;
 }
-.header-illustrated .illustration img {
+.header-illustrated .illustration .img {
     /*** The image itself.
          ***/
     top: -120px;
@@ -3114,7 +3114,7 @@ article.illustrated footer .date-unit {
      ***/
     height: 500px;
 }
-.masthead-illustrated .illustration img {
+.masthead-illustrated .illustration .img {
     /*** The image itself.
          ***/
     top: -100px;
@@ -3208,7 +3208,7 @@ article.illustrated footer .date-unit {
         display: block;
         height: 100%;
     }
-    .content-section-illustrated .illustration.right img {
+    .content-section-illustrated .illustration.right .img {
         /*** Right-aligned illustration image.
              ***/
         margin-left: -10%;

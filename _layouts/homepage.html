@@ -12,7 +12,16 @@
       {% include nav.html %}
 
       {% if page.illustration %}
-        {% include illustration.html image=page.illustration ishome="yes" %}
+        {% assign imgurl = "/img/" | append: page.illustration %}
+        <!-- Feature image -->
+        <div class="illustration">
+          <div class="img"></div>
+        </div>
+        <!--
+          A dirty, lazy, horrid presentational element. There was no other
+          way. I'm very sorry...I don't know how I'll live with myself...
+        -->
+        <div class="gradient"></div>
       {% endif %}
 
       <!-- Title and teaser -->

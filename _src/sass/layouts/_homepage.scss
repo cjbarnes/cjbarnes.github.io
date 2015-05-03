@@ -5,6 +5,12 @@
  * @package cjbarnes.github.io
    ========================================================================== */
 
+.above-footer {
+/*** Fix horizontal-overflow bug that only affects homepage.
+ ***/
+    overflow-x: hidden;
+}
+
 
 /* Homepage masthead area.
    ========================================================================== */
@@ -28,10 +34,18 @@
         max-height: 100vh;
     }
 
-    .illustration img {
+    .illustration .img {
         top: auto;
         bottom: 0;
         width: 1400px;
+        height: 894px;
+        background: transparent url("/img/inception.jpg") center center no-repeat;
+        background-size: cover;
+
+        @include media-retina {
+            background-image: url("/img/inception@2x.jpg");
+        }
+
     }
 
 }
@@ -181,7 +195,7 @@
     background: $background-color-page-footer;
     text-align: center;
 
-    img {
+    .img {
     /*** The actual screenshot.
      ***/
         width: 100%;
@@ -335,24 +349,47 @@
 
 }
 
-@media (max-width: 700px) {
+/* Homepage illustration sizes/framing on mobiles. */
 
-    .masthead-illustrated .illustration img {
-        width: 700px;
-        margin-left: (700px * -0.5);
-    }
-
-    .masthead {
-        height: 350px;
-    }
-
-    .masthead .gradient,
-    .masthead .illustration {
-        height: 400px;
-    }
+@media (max-width: 850px) and (max-height: 850px) {
 
     .masthead .homepage-title {
         @include rem("padding-bottom", ($line * 2));
+    }
+
+}
+
+$homepage-sizes: 900px, 736px, 667px, 568px;
+@each $size in $homepage-sizes {
+    $media-size: ($size - 50px);
+    @media (max-width: $media-size) and (max-height: $media-size) {
+
+        .masthead-illustrated .illustration .img {
+            width: $size;
+            height: $size;
+            /* Reframes the 'iPad' in the middle in landscape phone mode. */
+            max-height: 110vh;
+            margin-left: ($size * -0.5);
+            background-image: url("/img/inception-#{$size / 1px}.jpg");
+
+            @include media-retina {
+                background-image: url("/img/inception-#{$size / 1px}@2x.jpg");
+            }
+
+        }
+
+        .masthead {
+            height: $size;
+            height: 95vh;
+
+            .gradient,
+            .illustration {
+                height: $size;
+                height: 95vh;
+            }
+
+        }
+
     }
 
 }
