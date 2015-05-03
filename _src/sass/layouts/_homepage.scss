@@ -141,8 +141,13 @@
 /* Featured testimonial. */
 .content-section-endorsement {
 
+    figure.quote:before {
+        background-color: $rum;
+    }
+
     blockquote {
         @include font-size-leading("larger", 1.5);
+        color: $rum;
     }
 
 }
