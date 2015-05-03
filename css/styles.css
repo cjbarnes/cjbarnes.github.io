@@ -2674,13 +2674,17 @@ article.illustrated footer .date-unit {
     background: #e0d7cb;
 }
 
-/* Homepage content areas - special left-right alignment. */
 .homepage-content-section-first,
 .content-section-endorsement {
-    padding-right: 15px; 
     padding-bottom: 60px;
     padding-bottom: 3.33333rem;
-    padding-left: 15px;
+}
+
+.content-section-endorsement {
+    padding-right: 7.5px; 
+    /*** Homepage quote area - hairline left/right margin around quote box.
+ ***/
+    padding-left: 7.5px;
 }
 
 @media (min-width: 718px) {
