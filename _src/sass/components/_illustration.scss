@@ -20,7 +20,7 @@
     overflow: hidden;
     width: 100%;
 
-    img {
+    .img {
     /*** The image itself.
      ***/
         position: absolute;
@@ -51,7 +51,7 @@
         top: 0;
         height: $illustration-height;
 
-        img {
+        .img {
         /*** The image itself.
          ***/
             top: -120px;
@@ -93,7 +93,7 @@
      ***/
         height: $illustration-height-masthead;
 
-        img {
+        .img {
         /*** The image itself.
          ***/
             top: -100px;
@@ -202,7 +202,7 @@
             display: block;
             height: 100%;
 
-            &.right img {
+            &.right .img {
             /*** Right-aligned illustration image.
              ***/
                 margin-left: -10%;
@@ -265,6 +265,21 @@
     .content-section-illustrated-content {
         @include column(5);
         @include push;
+    }
+
+}
+
+/* Illustration widths on mobiles. */
+
+$illustration-widths: 414px, 375px, 320px;
+@each $size in $illustration-widths {
+    @media (max-width: $size) {
+
+        .masthead-illustrated .illustration-responsive .img {
+            width: $size;
+            margin-left: ($size * -0.5);
+        }
+
     }
 
 }

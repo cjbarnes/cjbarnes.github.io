@@ -2,8 +2,7 @@
 title: what I’ve done
 permalink: whativedone/
 layout: index
-illustration: macbook-yorkspace
-masthead: light
+illustration: macbook-bed
 ---
 
 These pages are all about my previous work.

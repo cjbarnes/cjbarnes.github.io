@@ -11,6 +11,7 @@ languages:
 - Sass
 - WordPress
 format: project
+illustration: macbook-bed
 length: long
 ---
 

@@ -5,15 +5,61 @@
  * @package cjbarnes.github.io
    ========================================================================== */
 
+.above-footer {
+/*** Fix horizontal-overflow bug that only affects homepage.
+ ***/
+    overflow-x: hidden;
+}
+
 
 /* Homepage masthead area.
    ========================================================================== */
 
+.masthead {
+/*** Changes to masthead height and illustration position.
+ ***/
+    height: $homepage-illustration-height-masthead;
+    max-height: 100vh;
+
+    .homepage-title {
+        @include rem("padding-bottom", ($line * 3));
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .gradient,
+    .illustration {
+        height: $homepage-illustration-height-masthead;
+        max-height: 100vh;
+    }
+
+    .illustration .img {
+        top: auto;
+        bottom: 0;
+        width: 1400px;
+        height: 894px;
+        background: transparent url("/img/inception.jpg") center center no-repeat;
+        background-size: cover;
+
+        @include media-retina {
+            background-image: url("/img/inception@2x.jpg");
+        }
+
+    }
+
+}
+
 .homepage-title-main {
-    @include font-size-leading("huger", 1.5);
     color: $text-color-reversed;
     /* Align edge of brags' background box outside the margin. */
     text-indent: ($link-padding * -1);
+
+    .masthead .homepage-title & {
+    /*** Specificity hack to override normal title sizes.
+     ***/
+        @include font-size-leading("huger", 1.5);
+    }
 
     a:hover,
     a:focus,
@@ -25,7 +71,7 @@
     /*** The changing element in the welcome message.
      ***/
         overflow: hidden;
-        background: $rum;
+        background: $toast;
         /* Fixes the gradient height changing in each brag transition. */
         word-wrap: normal;
         text-indent: 0;
@@ -95,8 +141,13 @@
 /* Featured testimonial. */
 .content-section-endorsement {
 
+    figure.quote:before {
+        background-color: $rum;
+    }
+
     blockquote {
         @include font-size-leading("larger", 1.5);
+        color: $rum;
     }
 
 }
@@ -245,7 +296,9 @@
 @include media-width("normal-size") {
 /*** Media query: Tablets or wider.
  ***/
-    .homepage-title-main {
+    .masthead .homepage-title .homepage-title-main {
+    /*** Specificity hack to override normal title sizes.
+     ***/
         @include font-size-leading("enormous", 2);
     }
 
@@ -295,6 +348,51 @@
      ***/
         &:nth-child(n+6) {
             display: block;
+        }
+
+    }
+
+}
+
+/* Homepage illustration sizes/framing on mobiles. */
+
+@media (max-width: 850px) and (max-height: 850px) {
+
+    .masthead .homepage-title {
+        @include rem("padding-bottom", ($line * 2));
+    }
+
+}
+
+$homepage-sizes: 900px, 736px, 667px, 568px;
+@each $size in $homepage-sizes {
+    $media-size: ($size - 50px);
+    @media (max-width: $media-size) and (max-height: $media-size) {
+
+        .masthead-illustrated .illustration .img {
+            width: $size;
+            height: $size;
+            /* Reframes the 'iPad' in the middle in landscape phone mode. */
+            max-height: 110vh;
+            margin-left: ($size * -0.5);
+            background-image: url("/img/inception-#{$size / 1px}.jpg");
+
+            @include media-retina {
+                background-image: url("/img/inception-#{$size / 1px}@2x.jpg");
+            }
+
+        }
+
+        .masthead {
+            height: $size;
+            height: 95vh;
+
+            .gradient,
+            .illustration {
+                height: $size;
+                height: 95vh;
+            }
+
         }
 
     }

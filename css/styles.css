@@ -570,6 +570,29 @@ hr {
     color: #505c91;
 }
 
+/* Details element polyfill (CSS part).
+   ========================================================================== */
+.no-details details > * {
+    position: absolute;
+    visibility: hidden;
+}
+.no-details details > summary,
+.no-details details[open] > * {
+    position: static;
+    visibility: visible;
+}
+.no-details details > summary {
+    display: block;
+}
+.no-details details > summary:before {
+    content: "►";
+    padding-right: 5px;
+    font-size: 11px;
+}
+.no-details details[open] > summary:before {
+    content: "▼";
+}
+
 /* Media queries.
    ========================================================================== */
 @media (min-width: 718px) {
@@ -590,7 +613,7 @@ hr {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
     /*** Media query: Wide enough for more spacing around normal content.
  ***/
     .content-section p,
@@ -876,6 +899,54 @@ figure.output + figure.code code:before {
 .content-section figure.quote:before {
     content: "\201d";
     background-color: #b1784f;
+}
+
+/* Details element.
+   ========================================================================== */
+details,
+.no-details details {
+    margin: 30px 0;
+    margin: 1.66667rem 0;
+}
+details > summary,
+.no-details details > summary {
+    margin: 60px 15px 30px;
+    margin: 3.33333rem 0.83333rem 1.66667rem;
+    font-size: 24px;
+    font-size: 1.33333rem;
+    line-height: 1.875;
+    font-family: "Source Code Pro", Monaco, "Lucida Console", Inconsolata, Courier, monospace;
+    color: #5e8c88;
+    cursor: pointer;
+}
+details > summary:before,
+details > summary::-webkit-details-marker,
+.no-details details > summary:before,
+.no-details details > summary::-webkit-details-marker {
+    font-size: 24px;
+    font-size: 1.33333rem;
+    line-height: 1.875;
+}
+details > summary:after,
+.no-details details > summary:after {
+    content: "(click for more info)";
+    display: inline-block;
+    padding-left: 1em;
+    font-size: 16px;
+    font-size: 0.88889rem;
+    line-height: 2.8125;
+    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+    color: #808e90;
+}
+details[open] > summary,
+.no-details details[open] > summary {
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 1.60714;
+}
+details[open] > summary:after,
+.no-details details[open] > summary:after {
+    display: none;
 }
 
 /* Media queries.
@@ -1918,6 +1989,7 @@ img::selection {
    ========================================================================== */
 .date {
     position: absolute;
+    z-index: 3; 
     right: 0;
     /* Overlap the bottom of the post header. */
     bottom: -23.5px;
@@ -2673,13 +2745,17 @@ article.illustrated footer .date-unit {
     background: #e0d7cb;
 }
 
-/* Homepage content areas - special left-right alignment. */
 .homepage-content-section-first,
 .content-section-endorsement {
-    padding-right: 15px; 
     padding-bottom: 60px;
     padding-bottom: 3.33333rem;
-    padding-left: 15px;
+}
+
+.content-section-endorsement {
+    padding-right: 7.5px; 
+    /*** Homepage quote area - hairline left/right margin around quote box.
+ ***/
+    padding-left: 7.5px;
 }
 
 @media (min-width: 718px) {
@@ -2711,7 +2787,7 @@ article.illustrated footer .date-unit {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
     /*** Media query: Wide enough for two-column layout.
  ***/
     .content-section {
@@ -2747,14 +2823,13 @@ article.illustrated footer .date-unit {
     /* Stack title above the illustration and gradient. */
     position: relative;
     z-index: 2;
-    /* Prevent horizontal scrolling on mobile, e.g. on homepage. */
-    overflow-x: hidden; 
     /*** The title-and-teaser wrapper.
      ***/
     padding-top: 135px;
     padding-top: 7.5rem;
     padding-bottom: 75px;
     padding-bottom: 4.16667rem;
+    /* Prevent horizontal scrolling on mobile, e.g. on homepage. */
 }
 .masthead .title-main {
     margin: 0;
@@ -2824,7 +2899,7 @@ article.illustrated footer .date-unit {
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
     /*** Media query: Tablets and wider.
  ***/
     .masthead .title {
@@ -3057,7 +3132,7 @@ article.illustrated footer .date-unit {
     overflow: hidden;
     width: 100%;
 }
-.illustration img {
+.illustration .img {
     /*** The image itself.
      ***/
     position: absolute;
@@ -3082,7 +3157,7 @@ article.illustrated footer .date-unit {
     top: 0;
     height: 350px;
 }
-.header-illustrated .illustration img {
+.header-illustrated .illustration .img {
     /*** The image itself.
          ***/
     top: -120px;
@@ -3112,7 +3187,7 @@ article.illustrated footer .date-unit {
      ***/
     height: 500px;
 }
-.masthead-illustrated .illustration img {
+.masthead-illustrated .illustration .img {
     /*** The image itself.
          ***/
     top: -100px;
@@ -3206,7 +3281,7 @@ article.illustrated footer .date-unit {
         display: block;
         height: 100%;
     }
-    .content-section-illustrated .illustration.right img {
+    .content-section-illustrated .illustration.right .img {
         /*** Right-aligned illustration image.
              ***/
         margin-left: -10%;
@@ -3275,6 +3350,28 @@ article.illustrated footer .date-unit {
         width: 41.66667%;
         margin-left: 8.33333%; 
         padding: 0 15px;
+    }
+}
+
+/* Illustration widths on mobiles. */
+@media (max-width: 414px) {
+    .masthead-illustrated .illustration-responsive .img {
+        width: 414px;
+        margin-left: -207px;
+    }
+}
+
+@media (max-width: 375px) {
+    .masthead-illustrated .illustration-responsive .img {
+        width: 375px;
+        margin-left: -187.5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .masthead-illustrated .illustration-responsive .img {
+        width: 320px;
+        margin-left: -160px;
     }
 }
 

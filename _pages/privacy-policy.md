@@ -1,8 +1,7 @@
 ---
 title: privacy policy
 permalink: privacy-policy/
-illustration: two-screens-blown-out
-masthead: light
+illustration: padlock
 ---
 
 This website uses [cookies](https://ico.org.uk/for-the-public/online/cookies.aspx "Information Commissioner's Office guidance for the public on cookies") to assemble statistics on how it is being used and to save your settings. The cookies don't store personally identifiable information.
