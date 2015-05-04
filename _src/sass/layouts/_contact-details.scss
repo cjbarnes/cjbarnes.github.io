@@ -16,6 +16,7 @@
     float: left;
     font-family: $font-family-icons;
     font-style: normal;
+    color: $text-color-reversed;
 
     &:before {
         content: '';
@@ -25,7 +26,7 @@
     // Colours.
     @each $field, $color in $circle-list-colors {
         &.#{$field} {
-            color: $color;
+            background: $color;
         }
     }
 
