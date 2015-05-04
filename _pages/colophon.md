@@ -4,6 +4,18 @@ permalink: colophon/
 illustration: tools
 ---
 
+{::nomarkdown}
+<details>
+<summary>what’s a colophon?</summary>
+<figure class="quote">
+<blockquote>
+<p>a <strong>colophon</strong> is a description of the tools, systems and resources used to create the Web site and keep it operational.</p>
+</blockquote>
+<figcaption><a href="http://www.webopedia.com/TERM/C/colophon.html" title="full definition"><i>Webopedia Computer Dictionary</i></a></figcaption>
+</figure>
+</details>
+{:/}
+
 ## languages
 
 * [Markdown](http://daringfireball.net/projects/markdown/) (the [Kramdown](http://kramdown.gettalong.org) version)
