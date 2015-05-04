@@ -163,7 +163,6 @@ gulp.task('_compile-stylesheets', function () {
       message: 'Styles Error: <%= error.message %>',
       sound: errorSound
     })))
-    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(csscomb())
@@ -177,7 +176,6 @@ gulp.task('_compile-stylesheets', function () {
     .pipe(rename({
       extname: '.min.css'
     }))
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dest.sass));
 });
 
