@@ -4,12 +4,6 @@ permalink: colophon/
 illustration: tools
 ---
 
-<figure class="quote">
-> a <strong>colophon</strong> is a description of the tools, systems and resources used to create the Web site and keep it operational.
-
-<cite>[*Webopedia Computer Dictionary*](http://www.webopedia.com/TERM/C/colophon.html "full definition")</cite>
-</figure>
-
 ## languages
 
 * [Markdown](http://daringfireball.net/projects/markdown/) (the [Kramdown](http://kramdown.gettalong.org) version)
