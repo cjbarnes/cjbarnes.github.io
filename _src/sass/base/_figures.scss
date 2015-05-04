@@ -212,6 +212,52 @@ figure.output {
 }
 
 
+/* Details element.
+   ========================================================================== */
+
+details,
+.no-details details {
+    @include rem("margin", $line 0);
+
+    > summary {
+        @include rem("margin", ($line * 2) $gutter $line);
+        @include font-size-leading("larger", 1.5);
+        font-family: $font-family-headings;
+        color: $text-color-headings;
+        cursor: pointer;
+
+        &:before,
+        &::-webkit-details-marker {
+            @include font-size-leading("larger", 1.5);
+        }
+
+        &:after {
+            @include font-size-leading("small", 1.5);
+            content: "(click for more info)";
+            display: inline-block;
+            padding-left: 1em;
+            font-family: $font-family-content;
+            color: $oslo-grey;
+        }
+
+    }
+
+    &[open] {
+
+        > summary {
+            @include font-size-leading("huge", 1.5);
+
+            &:after {
+                display: none;
+            }
+
+        }
+
+    }
+
+}
+
+
 /* Media queries.
    ========================================================================== */
 

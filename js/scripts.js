@@ -883,6 +883,38 @@ function debounce(fn, delay) {
 }
 
 
+/**
+ * Details element feature test
+ *
+ * See https://mathiasbynens.be/notes/html5-details-jquery
+ */
+var isDetailsSupported = (function(doc) {
+  var el = doc.createElement('details'),
+      fake,
+      root,
+      diff;
+  if (!('open' in el)) {
+    return false;
+  }
+  root = doc.body || (function() {
+    var de = doc.documentElement;
+    fake = true;
+    return de.insertBefore(doc.createElement('body'), de.firstElementChild || de.firstChild);
+  }());
+  el.innerHTML = '<summary>a</summary>b';
+  el.style.display = 'block';
+  root.appendChild(el);
+  diff = el.offsetHeight;
+  el.open = true;
+  diff = diff != el.offsetHeight;
+  root.removeChild(el);
+  if (fake) {
+    root.parentNode.removeChild(root);
+  }
+  return diff;
+}(document));
+
+
 /*
  * classList.js: Cross-browser full element.classList implementation.
  * 2015-03-12
@@ -1120,7 +1152,6 @@ if (objCtr.defineProperty) {
 }
 
 }
-
 
 
 /*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license */
@@ -2004,6 +2035,36 @@ window.matchMedia || (window.matchMedia = function() {
   }
 
   /**
+   * Initialize the details element if it isn't supported by this browser.
+   */
+  function polyfillDetails() {
+
+    if (!isDetailsSupported) {
+
+      /* Add class marker to show that details has to be polyfilled */
+      var html = document.getElementsByTagName('html')[0];
+      html.classList.add('no-details');
+
+      /* Polyfill the details behaviour */
+      document.addEventListener('click', function (e) {
+        if ('summary' === e.target.tagName) {
+          var summary = e.target;
+          var details = summary.parentName;
+          var a = 'open';
+
+          if (details.getAttribute(a)) {
+            details.removeAttribute(a);
+          } else {
+            details.setAttribute(a, a);
+          }
+        }
+      });
+
+    }
+
+  }
+
+  /**
    * Adds ids to content subheadings, so they can be linked to.
    */
   function linkifySubheadings() {
@@ -2057,6 +2118,7 @@ window.matchMedia || (window.matchMedia = function() {
 
     doMobileNav();
     doParallax();
+    polyfillDetails();
     linkifySubheadings();
 
   }

@@ -143,6 +143,36 @@
   }
 
   /**
+   * Initialize the details element if it isn't supported by this browser.
+   */
+  function polyfillDetails() {
+
+    if (!isDetailsSupported) {
+
+      /* Add class marker to show that details has to be polyfilled */
+      var html = document.getElementsByTagName('html')[0];
+      html.classList.add('no-details');
+
+      /* Polyfill the details behaviour */
+      document.addEventListener('click', function (e) {
+        if ('summary' === e.target.tagName) {
+          var summary = e.target;
+          var details = summary.parentName;
+          var a = 'open';
+
+          if (details.getAttribute(a)) {
+            details.removeAttribute(a);
+          } else {
+            details.setAttribute(a, a);
+          }
+        }
+      });
+
+    }
+
+  }
+
+  /**
    * Adds ids to content subheadings, so they can be linked to.
    */
   function linkifySubheadings() {
@@ -196,6 +226,7 @@
 
     doMobileNav();
     doParallax();
+    polyfillDetails();
     linkifySubheadings();
 
   }
