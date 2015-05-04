@@ -13,8 +13,10 @@ First things first: all web design and writing on this website is by Chris Barne
 
 * [classList.js](https://github.com/eligrey/classList.js/) by Eli Grey *(a polyfill for the ClassList API)*
 * [debounce function](http://remysharp.com/2010/07/21/throttling-function-calls/ "blog post: 'Throttling function calls'") by Remy Sharp
+* [matchMedia.js](https://github.com/paulirish/matchMedia.js/) by Scott Jehl, Paul Irish, and Nicholas Zakas *(a polyfill for JavaScript media query tests)*
 * [Normalize.css](http://necolas.github.io/normalize.css/) by Nicholas Gallagher and Jonathan Neal *(a common foundation of basic CSS styles)*
 * [Picturefill](http://scottjehl.github.io/picturefill) by Scott Jehl *(a polyfill for HTML5 responsive images)*
+* [Quantity queries](http://www.sitepoint.com/using-sass-quantity-queries/) by James Steinbach *(a Sass mixin for targeting specific numbers of siblings)*
 * [Respond.js](https://github.com/scottjehl/Respond) by Scott Jehl *(a polyfill for CSS3 media queries)*
 * [Responsable](http://responsablecss.com) by Abban Dunne and James Wilson *(a Less-based grid system)*
 * [Smashing Magazine webfont script](https://gist.github.com/hdragomir/8f00ce2581795fd7b1b7) by Horia Dragomir
@@ -24,9 +26,10 @@ First things first: all web design and writing on this website is by Chris Barne
 
 ## font credits
 
-* [Source Code Pro](https://github.com/adobe/source-code-pro){:style="font-family: 'Source Code Pro'"} by Adobe
 * [Aleo](http://fontfabric.com/aleo-free-font/){:style="font-family: 'Aleo'"} by Alessio Laiso
+* [Source Code Pro](https://github.com/adobe/source-code-pro){:style="font-family: 'Source Code Pro'"} by Adobe
 * [Entypo](http://www.entypo.com) pictograms by Daniel Bruce
+* [Devicons](http://vorillaz.github.io/devicons/) by Theodore Vorillas
 
 ## image credits
 
