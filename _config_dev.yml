@@ -11,7 +11,6 @@ is_local: true
 # GitHub defaults.
 safe: true
 lsi: false # better indexing for related posts
-highlighter: pygments
 # Also see https://help.github.com/articles/repository-metadata-on-github-pages/
 
 # Process posts with future dates on the local site.

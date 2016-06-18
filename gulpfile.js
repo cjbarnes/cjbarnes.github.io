@@ -26,7 +26,7 @@ var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 var runSequence  = require('run-sequence');
-var spawn        = require('child_process').spawn;
+var exec        = require('child_process').exec;
 
 // Don't output success notifications to stdout. Just make them notifications.
 notify.logLevel(1);
@@ -211,7 +211,6 @@ gulp.task('_compile-style-elements', function () {
  */
 gulp.task('build', function (cb) {
   var args = [
-    'exec',
     'jekyll',
     'build',
     '-q',
@@ -219,7 +218,7 @@ gulp.task('build', function (cb) {
     '_config.yml,_config_dev.yml'
   ];
 
-  spawn('bundle', args, { stdio: 'inherit' })
+  exec('bundle', args, { stdio: 'inherit' })
     .on('error', notify.onError({
       title: 'Error building site',
       message: 'Build Error: <%= error.message %>',
