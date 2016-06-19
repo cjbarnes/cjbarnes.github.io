@@ -13,7 +13,7 @@
 /* jshint node: true  */
 'use strict';
 
-var browserSync  = require('browser-sync');
+var bs           = require('browser-sync').create();
 var gulp         = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var concat       = require('gulp-concat');
@@ -86,13 +86,7 @@ var errorSound = 'Pop';
 var browserConfig = {
   server: {
     baseDir: '_site/'
-  },
-  // Watch for changes to the built site.
-  files: '_site/**/*.*',
-  logFileChanges: false,
-  open: false,
-  logPrefix: 'BrowserSync',
-  reloadDelay: 250
+  }
 };
 
 /**
@@ -240,7 +234,7 @@ gulp.task('build', function (cb) {
 gulp.task('styles', function () {
   runSequence(
     ['_compile-stylesheets', '_compile-style-elements'],
-    'build'
+    'reload'
   );
 });
 
@@ -250,7 +244,7 @@ gulp.task('styles', function () {
 gulp.task('script-files', function () {
   runSequence(
     '_compile-scripts',
-    'build'
+    'reload'
   );
 });
 
@@ -260,17 +254,22 @@ gulp.task('script-files', function () {
 gulp.task('script-elements', function () {
   runSequence(
     '_compile-script-elements',
-    'build'
+    'reload'
   );
 });
 
 /**
  * Initialize the BrowserSync server and file watching.
  */
-gulp.task('start-browser-sync', function () {
-  if (!browserSync.active) {
-    browserSync(browserConfig);
-  }
+gulp.task('serve', function () {
+  bs.init(browserConfig);
+});
+
+/**
+ * Manually trigger a BrowserSync refresh after completed build process.
+ */
+gulp.task('reload', ['build'], function () {
+  bs.reload();
 });
 
 /**
@@ -285,7 +284,7 @@ gulp.task('all', function () {
       '_compile-script-elements'
     ],
     'build',
-    'start-browser-sync'
+    'serve'
   );
 });
 
@@ -298,6 +297,6 @@ gulp.task('default', ['all'], function () {
   gulp.watch(paths.src.js, ['script-files']);
   gulp.watch(paths.src.jsIncludes, ['script-elements']);
   gulp.watch(paths.src.sassAll, ['styles']);
-  gulp.watch(paths.src.jekyll, ['build']);
+  gulp.watch(paths.src.jekyll, ['reload']);
 
 });
