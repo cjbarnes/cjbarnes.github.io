@@ -15,7 +15,7 @@ I have specialist understanding of the online needs of schools, colleges, univer
 
 ## work history
 
-As well as my freelance work, I have nine years' experience working on education-related websites, including:
+As well as my freelance work, I have ten years' experience working on education-related websites, including:
 
 - **project manager for Norfolk Education**, responsible for [Help You Choose](http://www.helpyouchoose.org), Norfolk's highly regarded 14–19 Prospectus and online admissions website used by all local sixth forms, colleges and training providers
 - **web designer at the [University of York](http://www.yorkspace.net "YorkSpace, the University of York's alumni and giving website")**, responsible for websites for the alumni and fundraising teams
