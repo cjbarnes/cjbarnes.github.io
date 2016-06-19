@@ -89,7 +89,7 @@ figure.quote {
 
 }
 
-figure.code {
+figure.highlight {
 /*** Codeblocks.
  ***/
     /* Same padding all around. */
@@ -135,7 +135,7 @@ figure.code {
 
     }
 
-    &.jquery code:before {
+    .jquery-highlight & code:before {
     /*** Override JavaScript icon with jQuery when figure has .jquery class.
      ***/
         content: map-get($language-icons, "jquery");
@@ -149,7 +149,9 @@ figure.code {
         overflow: visible;
     }
 
-    + figure.code {
+    + figure.highlight,
+    .jquery-highlight + &,
+    & + .jquery-highlight {
     /*** Hairline space between codeblocks.
      ***/
         @include rem("margin-top", ($line * -1));
@@ -167,13 +169,13 @@ figure.output {
         margin-top: 0;
     }
 
-    + figure.code,
-    figure.code + & {
+    + figure.highlight,
+    figure.highlight + & {
         /* No spacing between code and output figures. */
         @include rem("margin-top", ($line * -1));
     }
 
-    + figure.code code:before {
+    + figure.highlight code:before {
     /*** Match icon color/border to background.
      ***/
         border-color: #fff;
