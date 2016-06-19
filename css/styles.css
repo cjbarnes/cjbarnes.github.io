@@ -521,52 +521,52 @@ hr {
 }
 
 .language-wordpress:before {
-    content: "\e60b";
+    content: "";
     color: #21759b;
 }
 
 .language-jekyll:before {
-    content: "\e60d";
+    content: "";
     color: #cc0814;
 }
 
 .language-jquery:before {
-    content: "\e650";
+    content: "";
     color: #136aab;
 }
 
 .language-less:before {
-    content: "\e658";
+    content: "";
     color: #1e375c;
 }
 
 .language-sass:before {
-    content: "\e64b";
+    content: "";
     color: #cd669a;
 }
 
 .language-scss:before {
-    content: "\e64b";
+    content: "";
     color: #cd669a;
 }
 
 .language-javascript:before {
-    content: "\e64e";
+    content: "";
     color: #d8ba42;
 }
 
 .language-css:before {
-    content: "\e649";
+    content: "";
     color: #1173ba;
 }
 
 .language-html:before {
-    content: "\e636";
+    content: "";
     color: #e34f26;
 }
 
 .language-php:before {
-    content: "\e63d";
+    content: "";
     color: #505c91;
 }
 
@@ -576,11 +576,13 @@ hr {
     position: absolute;
     visibility: hidden;
 }
+
 .no-details details > summary,
 .no-details details[open] > * {
     position: static;
     visibility: visible;
 }
+
 .no-details details > summary {
     display: block;
 }
@@ -589,6 +591,7 @@ hr {
     padding-right: 5px;
     font-size: 11px;
 }
+
 .no-details details[open] > summary:before {
     content: "▼";
 }
@@ -813,7 +816,7 @@ figure.code code.language-php:before {
 figure.code.jquery code:before {
     /*** Override JavaScript icon with jQuery when figure has .jquery class.
      ***/
-    content: "\e650";
+    content: "";
     background-color: #136aab;
 }
 figure.code code,
@@ -893,11 +896,11 @@ figure.output + figure.code code:before {
     font-family: "cj-icons";
 }
 .content-section figure.link:before {
-    content: "\e631";
+    content: "";
     background-color: #5e8c88;
 }
 .content-section figure.quote:before {
-    content: "\201d";
+    content: "”";
     background-color: #b1784f;
 }
 
@@ -961,7 +964,8 @@ details[open] > summary:after,
         margin-left: 8.33333%;
     }
     .listing-content figcaption,
-    .listing-content blockquote {
+    .listing-content
+    blockquote {
         margin-right: 0; 
         margin-left: 0;
     }
@@ -977,22 +981,11 @@ details[open] > summary:after,
    ========================================================================== */
 /* Animations.
    ========================================================================== */
-@-webkit-keyframes temporary-background {
-    /*** Animation: flash background colour (for highlighting current footnote). */
-    0% {
-        background-color: #e9e6df;
-    }
-
-    100% {
-        background-color: transparent;
-    }
-}
 @keyframes temporary-background {
     /*** Animation: flash background colour (for highlighting current footnote). */
     0% {
         background-color: #e9e6df;
     }
-
     100% {
         background-color: transparent;
     }
@@ -1049,8 +1042,7 @@ details[open] > summary:after,
 .footnotes li:target {
     /*** The selected footnote.
          ***/
-    -webkit-animation: temporary-background 2s;
-            animation: temporary-background 2s;
+    animation: temporary-background 2s;
 }
 .footnotes li ol,
 .footnotes li ul {
@@ -1255,8 +1247,20 @@ dl p:first-child {
     margin-top: 0;
 }
 ol ol,
-ul ul,
-dl dl {
+ul ol,
+dl ol,
+ol
+  ul,
+ul
+  ul,
+dl
+  ul,
+ol
+  dl,
+ul
+  dl,
+dl
+  dl {
     /* Nested list margins. */
     margin-left: 15px;
     margin-left: 0.83333rem;
@@ -1649,6 +1653,7 @@ img::selection {
     content: " ";
     display: table;
 }
+
 .above-footer:after,
 .post:after,
 .page:after,
@@ -1827,6 +1832,7 @@ img::selection {
     background: #e0d7cb;
     color: #c5a184;
 }
+
 .pagination a {
     /*** Other pages.
      ***/
@@ -1963,6 +1969,7 @@ img::selection {
      ***/
     text-shadow: 0 0 10px #222;
 }
+
 .header-illustrated .title-main a:hover,
 .header-illustrated .title-main a:focus,
 .header-illustrated .title-main a:active {
@@ -2035,6 +2042,7 @@ img::selection {
     font-size: 1.33333rem;
     line-height: 1.25;
 }
+
 .listing-footer .date-unit {
     /*** Individual date parts.
      ***/
@@ -2070,6 +2078,7 @@ article.illustrated footer .date-unit {
     font-size: 1.55556rem;
     line-height: 1.07143;
 }
+
 .post-featured-footer .date-unit {
     display: block;
     /* Redeclare inline-block (to re-override circle mixin's
@@ -2133,22 +2142,19 @@ article.illustrated footer .date-unit {
     line-height: 1.42857;
     transition-timing-function: ease-in-out; 
     transition-duration: 0.3s;
-    transition-property: -webkit-transform opacity;
-    transition-property:         transform opacity;
+    transition-property: transform opacity;
 }
 .closed .nav-level-1 {
     /*** Animate out when button toggle clicked.
      ***/
     opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
 }
 .open .nav-level-1 {
     /*** Animate in when button toggle clicked.
      ***/
     opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .nav-item {
@@ -2227,29 +2233,35 @@ article.illustrated footer .date-unit {
 /* Navbar colours.
    ========================================================================== */
 .masthead-project .nav {
-    background: #494653;
-    background: rgba(73, 70, 83, 0.2);
+    background: #494754;
+    background: rgba(73, 71, 84, 0.2);
 }
+
 .masthead-tutorial .nav {
-    background: #614944;
-    background: rgba(97, 73, 68, 0.2);
+    background: #624a45;
+    background: rgba(98, 74, 69, 0.2);
 }
+
 .masthead-tip .nav {
-    background: #736153;
-    background: rgba(115, 97, 83, 0.2);
+    background: #746253;
+    background: rgba(116, 98, 83, 0.2);
 }
+
 .masthead-thoughts .nav {
-    background: #4a5861;
-    background: rgba(74, 88, 97, 0.2);
+    background: #4b5961;
+    background: rgba(75, 89, 97, 0.2);
 }
+
 .masthead-off-topic .nav {
-    background: #405c4c;
-    background: rgba(64, 92, 76, 0.2);
+    background: #405d4c;
+    background: rgba(64, 93, 76, 0.2);
 }
+
 .masthead-page .nav {
     background: #405755;
     background: rgba(64, 87, 85, 0.2);
 }
+
 .nav,
 .masthead-illustrated .nav {
     background: #222;
@@ -2258,29 +2270,35 @@ article.illustrated footer .date-unit {
 }
 
 .masthead-project .nav-logo {
-    background: #494653;
-    background: rgba(73, 70, 83, 0.6);
+    background: #494754;
+    background: rgba(73, 71, 84, 0.6);
 }
+
 .masthead-tutorial .nav-logo {
-    background: #614944;
-    background: rgba(97, 73, 68, 0.6);
+    background: #624a45;
+    background: rgba(98, 74, 69, 0.6);
 }
+
 .masthead-tip .nav-logo {
-    background: #736153;
-    background: rgba(115, 97, 83, 0.6);
+    background: #746253;
+    background: rgba(116, 98, 83, 0.6);
 }
+
 .masthead-thoughts .nav-logo {
-    background: #4a5861;
-    background: rgba(74, 88, 97, 0.6);
+    background: #4b5961;
+    background: rgba(75, 89, 97, 0.6);
 }
+
 .masthead-off-topic .nav-logo {
-    background: #405c4c;
-    background: rgba(64, 92, 76, 0.6);
+    background: #405d4c;
+    background: rgba(64, 93, 76, 0.6);
 }
+
 .masthead-page .nav-logo {
     background: #405755;
     background: rgba(64, 87, 85, 0.6);
 }
+
 .nav-logo,
 .masthead-illustrated .nav-logo {
     background: #222;
@@ -2289,61 +2307,80 @@ article.illustrated footer .date-unit {
 }
 
 .masthead-project .nav-level-1,
-.masthead-project .nav.open {
-    background: #494653;
-    background: rgba(73, 70, 83, 0.9);
+.masthead-project
+.nav.open {
+    background: #494754;
+    background: rgba(73, 71, 84, 0.9);
 }
+
 .masthead-tutorial .nav-level-1,
-.masthead-tutorial .nav.open {
-    background: #614944;
-    background: rgba(97, 73, 68, 0.9);
+.masthead-tutorial
+.nav.open {
+    background: #624a45;
+    background: rgba(98, 74, 69, 0.9);
 }
+
 .masthead-tip .nav-level-1,
-.masthead-tip .nav.open {
-    background: #736153;
-    background: rgba(115, 97, 83, 0.9);
+.masthead-tip
+.nav.open {
+    background: #746253;
+    background: rgba(116, 98, 83, 0.9);
 }
+
 .masthead-thoughts .nav-level-1,
-.masthead-thoughts .nav.open {
-    background: #4a5861;
-    background: rgba(74, 88, 97, 0.9);
+.masthead-thoughts
+.nav.open {
+    background: #4b5961;
+    background: rgba(75, 89, 97, 0.9);
 }
+
 .masthead-off-topic .nav-level-1,
-.masthead-off-topic .nav.open {
-    background: #405c4c;
-    background: rgba(64, 92, 76, 0.9);
+.masthead-off-topic
+.nav.open {
+    background: #405d4c;
+    background: rgba(64, 93, 76, 0.9);
 }
+
 .masthead-page .nav-level-1,
-.masthead-page .nav.open {
+.masthead-page
+.nav.open {
     background: #405755;
     background: rgba(64, 87, 85, 0.9);
 }
+
 .nav-level-1,
 .masthead-illustrated .nav-level-1,
 .nav.open,
-.masthead-illustrated .nav.open {
+.masthead-illustrated
+.nav.open {
     background: #222;
     background: rgba(34, 34, 34, 0.9);
 }
 
 .masthead-project .nav-level-2 {
-    background: #494653;
+    background: #494754;
 }
+
 .masthead-tutorial .nav-level-2 {
-    background: #614944;
+    background: #624a45;
 }
+
 .masthead-tip .nav-level-2 {
-    background: #736153;
+    background: #746253;
 }
+
 .masthead-thoughts .nav-level-2 {
-    background: #4a5861;
+    background: #4b5961;
 }
+
 .masthead-off-topic .nav-level-2 {
-    background: #405c4c;
+    background: #405d4c;
 }
+
 .masthead-page .nav-level-2 {
     background: #405755;
 }
+
 .nav-level-2,
 .masthead-illustrated .nav-level-2 {
     background: #222;
@@ -2368,24 +2405,24 @@ article.illustrated footer .date-unit {
      ***/
     }
     .masthead-project .nav:hover {
-        background: #494653;
-        background: rgba(73, 70, 83, 0.6);
+        background: #494754;
+        background: rgba(73, 71, 84, 0.6);
     }
     .masthead-tutorial .nav:hover {
-        background: #614944;
-        background: rgba(97, 73, 68, 0.6);
+        background: #624a45;
+        background: rgba(98, 74, 69, 0.6);
     }
     .masthead-tip .nav:hover {
-        background: #736153;
-        background: rgba(115, 97, 83, 0.6);
+        background: #746253;
+        background: rgba(116, 98, 83, 0.6);
     }
     .masthead-thoughts .nav:hover {
-        background: #4a5861;
-        background: rgba(74, 88, 97, 0.6);
+        background: #4b5961;
+        background: rgba(75, 89, 97, 0.6);
     }
     .masthead-off-topic .nav:hover {
-        background: #405c4c;
-        background: rgba(64, 92, 76, 0.6);
+        background: #405d4c;
+        background: rgba(64, 93, 76, 0.6);
     }
     .masthead-page .nav:hover {
         background: #405755;
@@ -2397,24 +2434,24 @@ article.illustrated footer .date-unit {
         background: rgba(34, 34, 34, 0.6);
     }
     .masthead-project .nav:hover .nav-level-2 {
-        background: #494653;
-        background: rgba(73, 70, 83, 0.9);
+        background: #494754;
+        background: rgba(73, 71, 84, 0.9);
     }
     .masthead-tutorial .nav:hover .nav-level-2 {
-        background: #614944;
-        background: rgba(97, 73, 68, 0.9);
+        background: #624a45;
+        background: rgba(98, 74, 69, 0.9);
     }
     .masthead-tip .nav:hover .nav-level-2 {
-        background: #736153;
-        background: rgba(115, 97, 83, 0.9);
+        background: #746253;
+        background: rgba(116, 98, 83, 0.9);
     }
     .masthead-thoughts .nav:hover .nav-level-2 {
-        background: #4a5861;
-        background: rgba(74, 88, 97, 0.9);
+        background: #4b5961;
+        background: rgba(75, 89, 97, 0.9);
     }
     .masthead-off-topic .nav:hover .nav-level-2 {
-        background: #405c4c;
-        background: rgba(64, 92, 76, 0.9);
+        background: #405d4c;
+        background: rgba(64, 93, 76, 0.9);
     }
     .masthead-page .nav:hover .nav-level-2 {
         background: #405755;
@@ -2436,9 +2473,8 @@ article.illustrated footer .date-unit {
         background: transparent;
         opacity: 1;
         transition: none;
-        -webkit-transform: none;
-            -ms-transform: none;
-                transform: none;
+        -ms-transform: none;
+            transform: none;
     }
     .nav-item {
         /* Nav item wrapper positioning. */
@@ -2502,14 +2538,12 @@ article.illustrated footer .date-unit {
         opacity: 0;
         transition: all 0.5s ease-in-out;
         /* Submenus start offscreen, and fly in-out on navbar hover. */
-        -webkit-transform: translate3d(0, -105%, 0);
-                transform: translate3d(0, -105%, 0);
+        transform: translate3d(0, -105%, 0);
     }
     .nav:hover .nav-level-2 {
         opacity: 1;
         /* Animate submenus in on navbar hover. */
-        -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
     .nav-item-level-2 {
         /* Lay out vertically, as mobile layout. */
@@ -2586,13 +2620,14 @@ article.illustrated footer .date-unit {
         /* No submenus in tiny-horizontal layout */
         display: none;
     }
-    @media (max-height: 625px) {
-        /*** Media query: mobile menu with screen that isn't tall enough to show 2
+}
+
+@media (max-width: 800px) and (max-height: 625px) {
+    /*** Media query: mobile menu with screen that isn't tall enough to show 2
      *** levels on one screen-height.
      ***/
-        .nav-level-2 {
-            display: none;
-        }
+    .nav-level-2 {
+        display: none;
     }
 }
 
@@ -2684,38 +2719,32 @@ article.illustrated footer .date-unit {
     /*** Media query: Tablets and above.
  ***/
     .pager-list {
-        display: -webkit-flex;
         display: -ms-flexbox;
-        display:         flex;
+        display: flex;
         padding-bottom: 0;
     }
     .pager-item {
-        display: -webkit-flex;
         display: -ms-flexbox;
-        display:         flex;
+        display: flex;
         /* 2-column pager. */
         width: 50%; 
 
-        -webkit-flex: 1;
-            -ms-flex: 1;
-                flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     }
     .pager-item a {
-        -webkit-flex: 1;
-            -ms-flex: 1;
-                flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     }
     .pager-next {
         /* Swap the Next and Previous sides. */
-        -webkit-order: 2;
         -ms-flex-order: 2;
-                order: 2;
+        order: 2;
     }
     .pager-previous {
         /* Swap the Next and Previous sides. */
-        -webkit-order: 1;
         -ms-flex-order: 1;
-                order: 1;
+        order: 1;
     }
 }
 
@@ -3138,8 +3167,7 @@ article.illustrated footer .date-unit {
     position: absolute;
     left: 50%;
     display: block;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 /* Illustrated articles.
@@ -3151,6 +3179,7 @@ article.illustrated footer .date-unit {
     height: 350px;
     background-image: linear-gradient(to bottom, transparent 40%, #222 100%);
 }
+
 .header-illustrated .illustration {
     /*** Parallax image wrapper.
      ***/
@@ -3176,12 +3205,14 @@ article.illustrated footer .date-unit {
     padding-top: 300px;
     padding-top: 16.66667rem;
 }
+
 .masthead-illustrated .gradient {
     /*** Gradient fade between the illustration and the masthead bottom.
      ***/
     height: 500px;
     background-image: linear-gradient(to bottom, transparent 55%, #222 100%);
 }
+
 .masthead-illustrated .illustration {
     /*** Parallax image wrapper.
      ***/
@@ -3192,8 +3223,7 @@ article.illustrated footer .date-unit {
          ***/
     top: -100px;
     margin-left: -700px;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 /* Mini illustrated content sections (e.g. further down the homepage).
@@ -3427,19 +3457,19 @@ article.illustrated footer .date-unit {
     color: #e0d7cb;
 }
 .listing-item.post-project:before {
-    content: "\e621";
+    content: "";
 }
 .listing-item.post-tutorial:before {
-    content: "\e637";
+    content: "";
 }
 .listing-item.post-tip:before {
-    content: "\e630";
+    content: "";
 }
 .listing-item.post-thoughts:before {
-    content: "\e61a";
+    content: "";
 }
 .listing-item.post-off-topic:before {
-    content: "\e628";
+    content: "";
 }
 .listing-item.post-page:before {
     content: "";
@@ -3589,19 +3619,19 @@ article.illustrated footer .date-unit {
     color: #e9e6df;
 }
 .minilisting-item.post-project:before {
-    content: "\e621";
+    content: "";
 }
 .minilisting-item.post-tutorial:before {
-    content: "\e637";
+    content: "";
 }
 .minilisting-item.post-tip:before {
-    content: "\e630";
+    content: "";
 }
 .minilisting-item.post-thoughts:before {
-    content: "\e61a";
+    content: "";
 }
 .minilisting-item.post-off-topic:before {
-    content: "\e628";
+    content: "";
 }
 .minilisting-item.post-page:before {
     content: "";

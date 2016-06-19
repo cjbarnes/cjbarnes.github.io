@@ -51,6 +51,10 @@ gems:
   - jemoji
   - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-feed
 
 # Frontmatter defaults for posts and pages.
 defaults:
