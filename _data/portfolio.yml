@@ -1,33 +1,43 @@
 # Portfolio entries
 
-- name:        yu magazine
-  slug:        yumagazine
-  url:         http://yumagazine.co.uk/
+- name:        York Profiles &amp; Mentors
+  slug:        ypm
+  url:         http://www.york.ac.uk/careers/profiles/
   featured:    yes
-  description: The online magazine for University of York alumni, written by York students, staff, and alumni. I created the website and trained the editorial team.
+  description: A searchable careers profiles and mentoring platform for University of York students, with guidance materials and integrations with the University CRM and other IT systems. I project managed the development, created the website, wrote all guidance content, and promoted the final site to various stakeholder groups.
+
+- name:        Changing Lives Online
+  slug:        changinglives
+  url:         http://changinglivesmag.co.uk/
+  description: The online blog and magazine for donors to the University of York, used to promote charitable giving and provide updates and thanks to existing givers. I created the website and trained the editorial team.
 
 - name:        cJ barnes
   slug:        cjbarnes
   url:         /
-  description: This website! I created and wrote all pages on this site in-between client projects over the course of nearly a year. All of my code for the site and its many earlier drafts can be found on [GitHub](//github.com/cjbarnes/cjbarnes.github.io/ "GitHub project for the cJ barnes website").
-
-- name:        YuCycle
-  slug:        yucycle
-  url:         http://www.yorkspace.net/yucycle
-  description: Mini-site for the University of York’s annual cycling challenge event, fundraising for York student bursaries and hardship funds. I created the website and edited its content.
+  description: This website! I created and wrote all pages on this site in-between client projects. All of my code for the site and its many earlier drafts can be found on [GitHub](//github.com/cjbarnes/cjbarnes.github.io/ "GitHub project for the cJ barnes website").
 
 - name:        YorkSpace
   slug:        yorkspace
   url:         http://www.yorkspace.net
   description: The website for the University of York’s alumni association and philanthropy development. I created the website and either wrote or edited all of its content.
 
-- name:        WEA Norwich
-  slug:        wea-norwich
-  url:         http://www.wea-norwich.org.uk
-  description: Courses website for the UK’s largest voluntary sector provider of adult learning. I created the public-facing website and a staff-only system for administrating course bookings and payments.
+- name:        Heriot-Watt Alumni
+  slug:        heriotwatt
+  url:         http://www.alumni.hw.ac.uk
+  description: The website for Heriot-Watt University’s alumni community and development office. I created the website and assisted with editorial.
+
+- name:        yu magazine
+  slug:        yumagazine
+  url:         http://yumagazine.co.uk/
+  description: The online magazine for University of York alumni, written by York students, staff, and alumni. I created the website and trained the editorial team.
 
 - name:        Locke Studies
   slug:        locke-studies
   url:         http://www.lockestudies.org
   description: An international journal dedicated to the influential political philosopher John Locke. I created the website and provided on-site training.
+
+- name:        YuCycle
+  slug:        yucycle
+  url:         http://www.yorkspace.net/yucycle
+  description: Mini-site for the University of York’s annual cycling challenge event, fundraising for York student bursaries and hardship funds. I created the website and edited its content.
 
