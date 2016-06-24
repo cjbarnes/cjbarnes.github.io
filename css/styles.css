@@ -727,7 +727,7 @@ figure.quote cite:before {
     content: "—";
 }
 
-figure.code {
+figure.highlight {
     padding-right: 15px;
     padding-right: 0.83333rem;
     /*** Codeblocks.
@@ -738,17 +738,17 @@ figure.code {
     background: #222; 
     color: #f5f5f5;
 }
-figure.code:before {
+figure.highlight:before {
     /* The icon is applied to the code element, not the figure, so we can
          * use the code's language class to style the icon. */
     display: none;
 }
-.content-section figure.code {
+.content-section figure.highlight {
     /* Padding-top is applied to the code element, not the figure, so that
          * the language icon is positioned correctly. */
     padding-top: 0;
 }
-figure.code code {
+figure.highlight code {
     position: relative;
     display: block;
     padding-top: 45px;
@@ -756,7 +756,7 @@ figure.code code {
     background: transparent; 
     color: inherit;
 }
-figure.code code:before {
+figure.highlight code:before {
     position: absolute;
     top: -24.5px;
     left: 50%;
@@ -774,7 +774,7 @@ figure.code code:before {
     border-color: #f5f5f5;
     color: #f5f5f5;
 }
-figure.code code:before {
+figure.highlight code:before {
     /*** Icon colours and fonts.
          ***/
     font-size: 32px;
@@ -783,51 +783,53 @@ figure.code code:before {
     background-color: #222; 
     color: #f5f5f5;
 }
-figure.code code.language-wordpress:before {
+figure.highlight code.language-wordpress:before {
     background-color: #21759b;
 }
-figure.code code.language-jekyll:before {
+figure.highlight code.language-jekyll:before {
     background-color: #cc0814;
 }
-figure.code code.language-jquery:before {
+figure.highlight code.language-jquery:before {
     background-color: #136aab;
 }
-figure.code code.language-less:before {
+figure.highlight code.language-less:before {
     background-color: #1e375c;
 }
-figure.code code.language-sass:before {
+figure.highlight code.language-sass:before {
     background-color: #cd669a;
 }
-figure.code code.language-scss:before {
+figure.highlight code.language-scss:before {
     background-color: #cd669a;
 }
-figure.code code.language-javascript:before {
+figure.highlight code.language-javascript:before {
     background-color: #d8ba42;
 }
-figure.code code.language-css:before {
+figure.highlight code.language-css:before {
     background-color: #1173ba;
 }
-figure.code code.language-html:before {
+figure.highlight code.language-html:before {
     background-color: #e34f26;
 }
-figure.code code.language-php:before {
+figure.highlight code.language-php:before {
     background-color: #505c91;
 }
-figure.code.jquery code:before {
+.jquery-highlight figure.highlight code:before {
     /*** Override JavaScript icon with jQuery when figure has .jquery class.
      ***/
     content: "";
     background-color: #136aab;
 }
-figure.code code,
-figure.code pre {
+figure.highlight code,
+figure.highlight pre {
     overflow: visible; 
     margin: 0;
     font-size: 14px;
     font-size: 0.77778rem;
     line-height: 1.42857;
 }
-figure.code + figure.code {
+figure.highlight + figure.highlight,
+.jquery-highlight + figure.highlight,
+figure.highlight + .jquery-highlight {
     /*** Hairline space between codeblocks.
      ***/
     margin-top: -30px;
@@ -843,13 +845,13 @@ figure.output {
 figure.output > :first-child {
     margin-top: 0;
 }
-figure.output + figure.code,
-figure.code + figure.output {
+figure.output + figure.highlight,
+figure.highlight + figure.output {
     /* No spacing between code and output figures. */
     margin-top: -30px;
     margin-top: -1.66667rem;
 }
-figure.output + figure.code code:before {
+figure.output + figure.highlight code:before {
     /*** Match icon color/border to background.
      ***/
     border-color: #fff;

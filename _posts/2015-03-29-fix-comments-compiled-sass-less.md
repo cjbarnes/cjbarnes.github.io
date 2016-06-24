@@ -23,7 +23,6 @@ In the original format, you have direct control of how and where your code comme
 
 For simple top-level comments, there are no surprises in Sass's and Less's output:
 
-<figure class="code">
 {% highlight scss %}
 // ORIGINAL SCSS
 
@@ -47,8 +46,6 @@ a:focus {
     text-decoration: underline;
 }
 {% endhighlight %}
-</figure>
-<figure class="code">
 {% highlight css %}
 /* COMPILED CSS */
 
@@ -67,13 +64,11 @@ a:focus {
     text-decoration: underline;
 }
 {% endhighlight %}
-</figure>
 
 In this example, comments starting with `//` have been removed, and the other comments are all where the author would expect them to be.
 
 However, the results are very different when we introduce **comments for nested selectors** and **inline comments**:
 
-<figure class="code">
 {% highlight scss %}
 // ORIGINAL SCSS
 
@@ -101,8 +96,6 @@ a {
     }
 }
 {% endhighlight %}
-</figure>
-<figure class="code">
 {% highlight css %}
 /* COMPILED CSS */
 
@@ -130,7 +123,6 @@ a:active {
     /* 2 */
 }
 {% endhighlight %}
-</figure>
 
 Not very helpful. The comments for `&:hover` and `&:active` are under the wrong selector; those comments are outputted in one long block, which is confusing and harder to read; and the inline comment `/* 1 */` looks like it relates to text-decoration rather than colour because it was moved to the next line. Worst of all, the numbered inline comments[^3] are in a different block to the 'Link active styling' comment that provides explanations to match the numbers!
 
@@ -138,7 +130,6 @@ Sass does not understand that *comment lines normally explain the code immediate
 
 In one edge case, Sass's approach to comments can even result in unnecessary blocks appearing in the compiled CSS: 
 
-<figure class="code">
 {% highlight scss %}
 // ORIGINAL SCSS
 
@@ -154,8 +145,6 @@ h6 {
     }
 }
 {% endhighlight %}
-</figure>
-<figure class="code">
 {% highlight css %}
 /* COMPILED CSS */
 
@@ -176,7 +165,6 @@ h6 small {
     color: gray;
 }
 {% endhighlight %}
-</figure>
 
 This looks odd and wastes space (screen space in your favourite text editor if nothing else).
 
@@ -196,7 +184,6 @@ I don't have a perfect solution, but I do have a partial suggestion that satisfi
 
 Therefore I suggest that we place block-level comments in our CSS *just below* the selector and opening brace `{`. I also suggest we place inline comments just before the lines they relate to, in the same block but *on a separate line*.
 
-<figure class="code">
 {% highlight scss %}
 // ORIGINAL SCSS
 
@@ -225,8 +212,6 @@ a {
     }
 }
 {% endhighlight %}
-</figure>
-<figure class="code">
 {% highlight css %}
 /* COMPILED CSS */
 
@@ -249,13 +234,11 @@ a:active {
     text-decoration: none;
 }
 {% endhighlight %}
-</figure>
 
 This commenting style definitely has its own problems. It is very different to the standards currently adopted by the web design community. In fact, abandoning the comments-before-blocks approach means moving CSS away from the commenting style of *every other language we use*, including JavaScript, PHP, and even HTML.
 
 There is also a new edge case introduced by this style: the 'is it a block comment or inline comment?' problem:
 
-<figure class="code">
 {% highlight css %}
 h1 {
     /* This BLOCK comment relates to the whole H1 block. */
@@ -276,11 +259,9 @@ h3 {
     font-weight: bold;
 }
 {% endhighlight %}
-</figure>
 
 As you can see, a comment that applies to the whole block looks identical to a comment that applies to just the first line of that block. The best way I can think of to get around this problem is using `/**` for block comments:
 
-<figure class="code">
 {% highlight css %}
 h3 {
     /** This BLOCK comment relates to the whole H1 block. */
@@ -289,7 +270,6 @@ h3 {
     font-weight: bold;
 }
 {% endhighlight %}
-</figure>
 
 I think this is the best solution, but it does mean reusing the `/**` prefix, which is well-established as a marker for special code comments in JavaDoc, phpDoc, JSDoc, and similar automated documentation generators. However, at least this should be safe from a technical point of view because of the lack of traction for [CSSDOC](https://groups.google.com/forum/#!forum/cssdoc), CSS's version of these generators.[^5]
 

@@ -45,8 +45,8 @@ Remember, `strtotime` looks for the slash character as a marker for whether the 
 
 The easiest way to do this is to include this helper function---called `eu_strtotime`---in your PHP project, and then remember to use it everywhere you would normally use `strtotime`:
 
-<figure class="code">
-{% highlight php startinline %}
+{% highlight php %}
+<?php
 /**
  * Version of strtotime() that doesn't use American dates.
  *
@@ -68,7 +68,6 @@ function eu_strtotime($time, $now = null) {
     return strtotime($time, $now);
 }
 {% endhighlight %}
-</figure>
 
 The `eu_strtotime` function will catch dates in *day/month/year* format and convert them to *day-month-year*, before passing them on to the standard PHP `strtotime`.
 
