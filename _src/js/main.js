@@ -122,7 +122,8 @@
       for (i = 0, l = numberOfIllustrations; i < l; i++) {
 
         illus = illustrations[i];
-        rectTop = illus.getBoundingClientRect().top;
+        // 120 = -1 * the top property of the .img (in px; set in CSS)
+        rectTop = illus.getBoundingClientRect().top + 120;
 
         /* Ignore if this element is obviously offscreen. */
         if ((rectTop > -1000) && (rectTop < 1600)) {
