@@ -39,11 +39,11 @@
         bottom: 0;
         width: 1400px;
         height: 894px;
-        background: transparent url("/img/inception.jpg") center center no-repeat;
+        background: transparent url("/img/orange.jpg") center center no-repeat;
         background-size: cover;
 
         @include media-retina {
-            background-image: url("/img/inception@2x.jpg");
+            background-image: url("/img/orange@2x.jpg");
         }
 
     }
@@ -58,7 +58,7 @@
     .masthead .homepage-title & {
     /*** Specificity hack to override normal title sizes.
      ***/
-        @include font-size-leading("huger", 1.5);
+        @include font-size-leading("enormous", 2);
     }
 
     a:hover,
@@ -375,10 +375,10 @@ $homepage-sizes: 900px, 736px, 667px, 568px;
             /* Reframes the 'iPad' in the middle in landscape phone mode. */
             max-height: 110vh;
             margin-left: ($size * -0.5);
-            background-image: url("/img/inception-#{$size / 1px}.jpg");
+            background-image: url("/img/orange-#{$size / 1px}.jpg");
 
             @include media-retina {
-                background-image: url("/img/inception-#{$size / 1px}@2x.jpg");
+                background-image: url("/img/orange-#{$size / 1px}@2x.jpg");
             }
 
         }
