@@ -55,11 +55,23 @@
         background: $background-color-content;
     }
 
+    .post-footer {
+
+        .post-footer-link,
+        .post-footer-permalink {
+            /*
+             * Prevent post publication date from overlaying the footer links
+             * (which prevents clicking on the links).
+             */
+            z-index: 4;
+        }
+
+    }
+
     &.post-link .content {
         /* Make direct link box flush with footer top. */
         padding-bottom: 0;
     }
-
 
     &.post-illustrated {
 
