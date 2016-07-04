@@ -140,12 +140,12 @@
 .content-section-endorsement {
 
     figure.quote:before {
-        background-color: $gothic;
+        background-color: $patina;
     }
 
     blockquote {
         @include font-size-leading("larger", 1.5);
-        color: $gothic;
+        color: $patina;
     }
 
 }
