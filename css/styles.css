@@ -3489,10 +3489,8 @@ article.illustrated footer .date-unit {
 }
 .listing-item .post-footer .post-footer-link,
 .listing-item .post-footer .post-footer-permalink {
-    /*
-             * Prevent post publication date from overlaying the footer links
-             * (which prevents clicking on the links).
-             */
+    /* Prevent post publication date from overlaying the footer links
+             * (which prevents clicking on the links). */
     z-index: 4;
 }
 .listing-item.post-link .content {
