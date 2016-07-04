@@ -46,11 +46,11 @@
 .filter-switcher-item a {
     border-color: #e0d7cb;
     background: #e9e6df;
-    color: #808e90;
+    color: #738fa0;
 }
 .filter-switcher-item a:hover,
 .filter-switcher-item a:focus {
-    background: #808e90;
+    background: #738fa0;
     color: #e9e6df;
 }
 .filter-switcher-item a:active {

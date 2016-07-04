@@ -1150,20 +1150,20 @@ a {
     padding: 0.2em;
     text-decoration: none;
     border-bottom: 1px solid;
-    color: #808e90;
+    color: #738fa0;
     transition: all 0.3s ease-in-out;
     /* Declare cursor explicitly for JS-added links with no href. */
     cursor: pointer;
 }
 a:visited {
-    color: #808e90;
+    color: #738fa0;
 }
 a:hover,
 a:focus {
     /*** Internal links.
      ***/
-    border-color: #808e90;
-    background-color: #808e90; 
+    border-color: #738fa0;
+    background-color: #738fa0; 
     color: #f5f5f5;
 }
 a[href^="http:"],
@@ -1840,12 +1840,12 @@ img::selection {
      ***/
     border-color: #e0d7cb;
     background: #e9e6df; 
-    color: #808e90;
+    color: #738fa0;
 }
 .pagination a:hover,
 .pagination a:focus {
     border-color: #e0d7cb;
-    background: #808e90; 
+    background: #738fa0; 
     color: #f5f5f5;
 }
 .pagination a:active {
@@ -2058,7 +2058,7 @@ img::selection {
     border-radius: 50%;
     border: 1px solid;
     background-color: transparent;
-    color: #808e90;
+    color: #738fa0;
 }
 .post-illustrated .listing-footer .date-unit {
     /*** White dates in footers of illustrated posts in blog index.
@@ -2676,7 +2676,7 @@ article.illustrated footer .date-unit {
 }
 .pager-item a:hover,
 .pager-item a:focus {
-    background: #808e90;
+    background: #738fa0;
 }
 .pager-item a:active {
     background: #c5a184;
@@ -3696,7 +3696,7 @@ article.illustrated footer .date-unit {
     margin-top: -15px;
     margin-top: -0.83333rem;
     text-align: center;
-    color: #808e90;
+    color: #738fa0;
 }
 
 /* ==========================================================================
