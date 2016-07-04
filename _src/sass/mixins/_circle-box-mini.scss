@@ -6,9 +6,6 @@
   @if not mixin-exists(circle) {
     @error "Mixin circle-box-mini requires mixin circle, which does not exist.";
   }
-  @if not mixin-exists(circle-2x) {
-    @error "Mixin circle-box-mini requires mixin circle-2x, which does not exist.";
-  }
   @if not "color" == type-of($background) {
     @error "$color must be a color, was #{$color}.";
   }
