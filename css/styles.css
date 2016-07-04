@@ -2235,18 +2235,18 @@ article.illustrated footer .date-unit {
 /* Navbar colours.
    ========================================================================== */
 .masthead-project .nav {
-    background: #494754;
-    background: rgba(73, 71, 84, 0.2);
+    background: #222;
+    background: rgba(34, 34, 34, 0.2);
 }
 
 .masthead-tutorial .nav {
-    background: #624a45;
-    background: rgba(98, 74, 69, 0.2);
+    background: #405d4c;
+    background: rgba(64, 93, 76, 0.2);
 }
 
 .masthead-tip .nav {
-    background: #746253;
-    background: rgba(116, 98, 83, 0.2);
+    background: #405755;
+    background: rgba(64, 87, 85, 0.2);
 }
 
 .masthead-thoughts .nav {
@@ -2255,8 +2255,8 @@ article.illustrated footer .date-unit {
 }
 
 .masthead-off-topic .nav {
-    background: #405d4c;
-    background: rgba(64, 93, 76, 0.2);
+    background: #494754;
+    background: rgba(73, 71, 84, 0.2);
 }
 
 .masthead-page .nav {
@@ -2272,18 +2272,18 @@ article.illustrated footer .date-unit {
 }
 
 .masthead-project .nav-logo {
-    background: #494754;
-    background: rgba(73, 71, 84, 0.6);
+    background: #222;
+    background: rgba(34, 34, 34, 0.6);
 }
 
 .masthead-tutorial .nav-logo {
-    background: #624a45;
-    background: rgba(98, 74, 69, 0.6);
+    background: #405d4c;
+    background: rgba(64, 93, 76, 0.6);
 }
 
 .masthead-tip .nav-logo {
-    background: #746253;
-    background: rgba(116, 98, 83, 0.6);
+    background: #405755;
+    background: rgba(64, 87, 85, 0.6);
 }
 
 .masthead-thoughts .nav-logo {
@@ -2292,8 +2292,8 @@ article.illustrated footer .date-unit {
 }
 
 .masthead-off-topic .nav-logo {
-    background: #405d4c;
-    background: rgba(64, 93, 76, 0.6);
+    background: #494754;
+    background: rgba(73, 71, 84, 0.6);
 }
 
 .masthead-page .nav-logo {
@@ -2311,22 +2311,22 @@ article.illustrated footer .date-unit {
 .masthead-project .nav-level-1,
 .masthead-project
 .nav.open {
-    background: #494754;
-    background: rgba(73, 71, 84, 0.9);
+    background: #222;
+    background: rgba(34, 34, 34, 0.9);
 }
 
 .masthead-tutorial .nav-level-1,
 .masthead-tutorial
 .nav.open {
-    background: #624a45;
-    background: rgba(98, 74, 69, 0.9);
+    background: #405d4c;
+    background: rgba(64, 93, 76, 0.9);
 }
 
 .masthead-tip .nav-level-1,
 .masthead-tip
 .nav.open {
-    background: #746253;
-    background: rgba(116, 98, 83, 0.9);
+    background: #405755;
+    background: rgba(64, 87, 85, 0.9);
 }
 
 .masthead-thoughts .nav-level-1,
@@ -2339,8 +2339,8 @@ article.illustrated footer .date-unit {
 .masthead-off-topic .nav-level-1,
 .masthead-off-topic
 .nav.open {
-    background: #405d4c;
-    background: rgba(64, 93, 76, 0.9);
+    background: #494754;
+    background: rgba(73, 71, 84, 0.9);
 }
 
 .masthead-page .nav-level-1,
@@ -2360,15 +2360,15 @@ article.illustrated footer .date-unit {
 }
 
 .masthead-project .nav-level-2 {
-    background: #494754;
+    background: #222;
 }
 
 .masthead-tutorial .nav-level-2 {
-    background: #624a45;
+    background: #405d4c;
 }
 
 .masthead-tip .nav-level-2 {
-    background: #746253;
+    background: #405755;
 }
 
 .masthead-thoughts .nav-level-2 {
@@ -2376,7 +2376,7 @@ article.illustrated footer .date-unit {
 }
 
 .masthead-off-topic .nav-level-2 {
-    background: #405d4c;
+    background: #494754;
 }
 
 .masthead-page .nav-level-2 {
@@ -2407,24 +2407,24 @@ article.illustrated footer .date-unit {
      ***/
     }
     .masthead-project .nav:hover {
-        background: #494754;
-        background: rgba(73, 71, 84, 0.6);
+        background: #222;
+        background: rgba(34, 34, 34, 0.6);
     }
     .masthead-tutorial .nav:hover {
-        background: #624a45;
-        background: rgba(98, 74, 69, 0.6);
+        background: #405d4c;
+        background: rgba(64, 93, 76, 0.6);
     }
     .masthead-tip .nav:hover {
-        background: #746253;
-        background: rgba(116, 98, 83, 0.6);
+        background: #405755;
+        background: rgba(64, 87, 85, 0.6);
     }
     .masthead-thoughts .nav:hover {
         background: #4b5961;
         background: rgba(75, 89, 97, 0.6);
     }
     .masthead-off-topic .nav:hover {
-        background: #405d4c;
-        background: rgba(64, 93, 76, 0.6);
+        background: #494754;
+        background: rgba(73, 71, 84, 0.6);
     }
     .masthead-page .nav:hover {
         background: #405755;
@@ -2436,24 +2436,24 @@ article.illustrated footer .date-unit {
         background: rgba(34, 34, 34, 0.6);
     }
     .masthead-project .nav:hover .nav-level-2 {
-        background: #494754;
-        background: rgba(73, 71, 84, 0.9);
+        background: #222;
+        background: rgba(34, 34, 34, 0.9);
     }
     .masthead-tutorial .nav:hover .nav-level-2 {
-        background: #624a45;
-        background: rgba(98, 74, 69, 0.9);
+        background: #405d4c;
+        background: rgba(64, 93, 76, 0.9);
     }
     .masthead-tip .nav:hover .nav-level-2 {
-        background: #746253;
-        background: rgba(116, 98, 83, 0.9);
+        background: #405755;
+        background: rgba(64, 87, 85, 0.9);
     }
     .masthead-thoughts .nav:hover .nav-level-2 {
         background: #4b5961;
         background: rgba(75, 89, 97, 0.9);
     }
     .masthead-off-topic .nav:hover .nav-level-2 {
-        background: #405d4c;
-        background: rgba(64, 93, 76, 0.9);
+        background: #494754;
+        background: rgba(73, 71, 84, 0.9);
     }
     .masthead-page .nav:hover .nav-level-2 {
         background: #405755;
@@ -2971,7 +2971,7 @@ article.illustrated footer .date-unit {
 .listing .post-project:before,
 .minilisting .post-project,
 .minilisting .post-project:before {
-    background: #706b85;
+    background: #222;
 }
 
 .header-tutorial,
@@ -2979,7 +2979,7 @@ article.illustrated footer .date-unit {
 .listing .post-tutorial:before,
 .minilisting .post-tutorial,
 .minilisting .post-tutorial:before {
-    background: #a17167;
+    background: #5e9776;
 }
 
 .header-tip,
@@ -2987,7 +2987,7 @@ article.illustrated footer .date-unit {
 .listing .post-tip:before,
 .minilisting .post-tip,
 .minilisting .post-tip:before {
-    background: #c5a184;
+    background: #5e8c88;
 }
 
 .header-thoughts,
@@ -3003,7 +3003,7 @@ article.illustrated footer .date-unit {
 .listing .post-off-topic:before,
 .minilisting .post-off-topic,
 .minilisting .post-off-topic:before {
-    background: #5e9776;
+    background: #706b85;
 }
 
 .header-page,
@@ -3017,9 +3017,7 @@ article.illustrated footer .date-unit {
 .header-illustrated,
 .masthead-illustrated .date-unit,
 .blog-page .masthead,
-.listing .post-illustrated:before,
-.minilisting .post-illustrated,
-.minilisting .post-illustrated:before {
+.listing .post-illustrated:before {
     /*** Illustrated post and blog index header colours.
  ***/
     background: #222;
@@ -3637,10 +3635,6 @@ article.illustrated footer .date-unit {
 }
 .minilisting-item.post-page:before {
     content: "";
-}
-.minilisting-item.post-illustrated:before {
-    /* Different background for illustrated articles in minilistings. */
-    background: #222;
 }
 .minilisting-item a {
     /* For the search results count alignment. */
