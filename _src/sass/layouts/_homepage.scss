@@ -125,7 +125,7 @@
     }
 
     strong {
-        background: $rum;
+        background: $black; // faux black this time, to contrast with #000 bg.
         color: $text-color-reversed;
     }
 
@@ -140,12 +140,12 @@
 .content-section-endorsement {
 
     figure.quote:before {
-        background-color: $patina;
+        background-color: $rum;
     }
 
     blockquote {
         @include font-size-leading("larger", 1.5);
-        color: $patina;
+        color: $rum;
     }
 
 }
