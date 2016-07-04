@@ -27,6 +27,14 @@ As well as my freelance work, I have ten years' experience working on education-
 <a href="http://uk.linkedin.com/in/cjbarnesuk/" title="Find me on LinkedIn">my LinkedIn profile</a>
 </figure>
 
+## education history
+
+In 2014, I completed a **BA (Hons) Politics at the [University of York](http://www.york.ac.uk/ "University of York website")** as a mature student, graduating with a First Class Honours with Distinction.
+
+This recent experience of life as a student has made a big difference to how I approach education-related websites---I'm more aware of the needs and wants of students as well as the priorities and challenges facing universities.
+
+Before studying at York, I completed a **Certificate of Business Studies at [Open University](http://www.open.ac.uk/ "Open University website")**. Online and distance learning is becoming increasingly important to universities and colleges, so I'm grateful that I've had the opportunity to experience it for myself.
+
 ## side projects
 
 When I'm not working, you can often find me in front of a computer anyway, fiddling with new technologies or personal projects (such as this website).
@@ -36,3 +44,5 @@ If you're technically minded, you can have a peek at some of my code in [my GitH
 <figure class="link internal" markdown="span">
 <a href="/whativedone/projects/" title="my projects">more about my projects</a>
 </figure>
+
+*[BA (Hons)]: Bachelor of Arts honours degree
