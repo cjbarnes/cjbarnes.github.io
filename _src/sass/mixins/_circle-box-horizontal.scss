@@ -1,0 +1,31 @@
+/// Add a circle to the left of the content block.
+///
+/// @param {Color} $background The page background that the circle will overlap.
+///                            Default $background-color-content.
+@mixin circle-box-horizontal($background: $background-color-content) {
+  @if not mixin-exists(circle) {
+    @error "Mixin circle-box-horizontal requires mixin circle, which does not exist.";
+  }
+  @if not mixin-exists(circle-2x) {
+    @error "Mixin circle-box-horizontal requires mixin circle-2x, which does not exist.";
+  }
+  @if not "color" == type-of($background) {
+    @error "$color must be a color, was #{$color}.";
+  }
+
+  // Output.
+  position: relative; // for icon placement
+
+  // Icon.
+  &:before {
+    @include circle-2x;
+    @include font-size("huge");
+    position: absolute;
+    top: 50%;
+    left: ((($circle-diameter / 2) * -1) - 2px);
+    margin-top: ((($circle-diameter / 2) * -1) - 2px);
+    border-color: $background;
+    color: $text-color-reversed;
+  }
+
+}

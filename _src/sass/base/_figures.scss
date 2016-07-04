@@ -35,14 +35,14 @@ figcaption {
 figure.link {
 /*** Link figures.
  ***/
-    padding: 0 !important;
+    padding: 0;
     background: $background-color-link;
 
     a {
     /*** The actual link inside the figure.
      ***/
-        @include rem("padding", $line);
-        @include font-size-leading("larger", 1.5);
+        @include rem("padding", ($line / 2) $gutter);
+        @include font-size-leading("large");
         display: block;
         color: $link-color;
 
@@ -53,12 +53,36 @@ figure.link {
             border-color: $link-color;
         }
 
+    }
+
+    &.internal {
+    /*** Different colour for links to other pages of this site.
+     ***/
+        background: $background-color-link-secondary;
+
+        a {
+            color: $link-color-secondary;
+
+            &:hover,
+            &:focus {
+                color: $text-color-reversed;
+                background: $link-color-secondary;
+                border-color: $link-color-secondary;
+            }
+
+        }
+
+    }
+
+    a,
+    &.internal {
         &:active {
+        /*** Shared active styling for both types of link.
+         ***/
             color: $text-color-reversed;
             background: $link-color-active;
             border-color: $link-color-active;
         }
-
     }
 
 }
@@ -193,12 +217,45 @@ figure.output {
 
     &.link,
     &.quote {
-    /*** Icon layout.
-     ***/
-        @include circle-box;
-
         &:before {
             font-family: $font-family-icons;
+        }
+    }
+
+    &.quote {
+    /*** Standard icon box layout.
+     ***/
+        @include circle-box;
+    }
+
+    &.link {
+    /*** Horizontal icon-box layout.
+     ***/
+        @include circle-box-horizontal;
+        /* Space for the circle next to a link box on a single-article page. */
+        @include rem("margin-right", $gutter);
+        @include rem("margin-left",  ($gutter + ($circle-diameter / 2)));
+        @include rem("margin-top", $line);
+        padding: 0; // Because the earlier zero padding is overridden
+
+        a {
+            /* Space for the circle's overlap of the link box itself. */
+            @include rem("padding-left", ($gutter + ($circle-diameter / 2)));
+            @include rem("padding-right", (($line-px * 2) + $gutter));
+
+            &:after {
+            /*** Arrow icon.
+             ***/
+                @include font-size-leading("enormous");
+                @include rem("right", $gutter);
+                content: "\e61b";
+                position: absolute;
+                top: 50%;
+                display: block;
+                margin-top: (-0.5em * map_get($line-heights, "enormous"));
+                font-family: $font-family-icons;
+            }
+
         }
 
     }
@@ -277,6 +334,31 @@ details,
             margin-right: 0;
         }
 
+    }
+
+    figure.link a {
+        /* Increased margins */
+        @include rem("padding-left", $line);
+        @include rem("padding-right", $line);
+    }
+
+    .content-section figure.link {
+        /* Correct margin at normal layout width (no longer need to leave extra
+         * space for the icon at this width */
+        @include rem("margin-left", $gutter);
+    }
+
+}
+
+@include media-width("full-width-content") {
+/*** Media query: Laptops or wider.
+ ***/
+
+    .content-section figure.link {
+    /*** Line up link boxes with normal paragraphs.
+     ***/
+        @include push;
+        @include pull;
     }
 
 }

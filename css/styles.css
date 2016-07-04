@@ -680,18 +680,18 @@ figcaption {
 figure.link {
     /*** Link figures.
  ***/
-    padding: 0 !important;
+    padding: 0;
     background: #d4e2e1;
 }
 figure.link a {
     display: block;
     /*** The actual link inside the figure.
      ***/
-    padding: 30px;
-    padding: 1.66667rem;
-    font-size: 24px;
-    font-size: 1.33333rem;
-    line-height: 1.875;
+    padding: 15px 15px;
+    padding: 0.83333rem 0.83333rem;
+    font-size: 21px;
+    font-size: 1.16667rem;
+    line-height: 1.42857;
     color: #5e8c88;
 }
 figure.link a:hover,
@@ -700,9 +700,26 @@ figure.link a:focus {
     background: #5e8c88;
     color: #f5f5f5;
 }
-figure.link a:active {
+figure.link.internal {
+    /*** Different colour for links to other pages of this site.
+     ***/
+    background: #dde4e8;
+}
+figure.link.internal a {
+    color: #738fa0;
+}
+figure.link.internal a:hover,
+figure.link.internal a:focus {
+    border-color: #738fa0; 
+    background: #738fa0;
+    color: #f5f5f5;
+}
+figure.link a:active,
+figure.link.internal:active {
     border-color: #c5a184; 
     background: #c5a184;
+    /*** Shared active styling for both types of link.
+         ***/
     color: #f5f5f5;
 }
 
@@ -868,13 +885,15 @@ figure.output + figure.highlight code:before {
     padding-bottom: 45px;
     padding-bottom: 2.5rem;
 }
-.content-section figure.link,
+.content-section figure.link:before,
+.content-section figure.quote:before {
+    font-family: "cj-icons";
+}
 .content-section figure.quote {
-    /*** Icon layout.
+    /*** Standard icon box layout.
      ***/
     position: relative;
 }
-.content-section figure.link:before,
 .content-section figure.quote:before {
     position: absolute;
     top: -24.5px;
@@ -893,8 +912,57 @@ figure.output + figure.highlight code:before {
     border-color: #f5f5f5;
     color: #f5f5f5;
 }
-.content-section figure.link:before,
-.content-section figure.quote:before {
+.content-section figure.link {
+    /*** Horizontal icon-box layout.
+     ***/
+    position: relative;
+    margin-top: 30px;
+    margin-top: 1.66667rem;
+    /* Space for the circle next to a link box on a single-article page. */
+    margin-right: 15px;
+    margin-right: 0.83333rem;
+    margin-left: 37.5px;
+    margin-left: 2.08333rem;
+    padding: 0;
+}
+.content-section figure.link:before {
+    position: absolute;
+    top: 50%;
+    left: -24.5px;
+    display: block;
+    overflow: hidden;
+    width: 49px;
+    height: 49px;
+    margin-top: -24.5px;
+    font-size: 28px;
+    font-size: 1.55556rem;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #f5f5f5;
+    color: #f5f5f5;
+}
+.content-section figure.link a {
+    padding-right: 75px;
+    padding-right: 4.16667rem; 
+    /* Space for the circle's overlap of the link box itself. */
+    padding-left: 37.5px;
+    padding-left: 2.08333rem;
+}
+.content-section figure.link a:after {
+    content: "\e61b";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    right: 0.83333rem;
+    display: block;
+    margin-top: -0.375em;
+    /*** Arrow icon.
+             ***/
+    font-size: 40px;
+    font-size: 2.22222rem;
+    line-height: 0.75;
     font-family: "cj-icons";
 }
 .content-section figure.link:before {
@@ -904,6 +972,9 @@ figure.output + figure.highlight code:before {
 .content-section figure.quote:before {
     content: "”";
     background-color: #b1784f;
+}
+.content-section figure.internal:before {
+    background-color: #738fa0;
 }
 
 /* Details element.
@@ -970,6 +1041,30 @@ details[open] > summary:after,
     blockquote {
         margin-right: 0; 
         margin-left: 0;
+    }
+    figure.link a {
+        padding-right: 30px;
+        padding-right: 1.66667rem; 
+        /* Increased margins */
+        padding-left: 30px;
+        padding-left: 1.66667rem;
+    }
+    .content-section figure.link {
+        /* Correct margin at normal layout width (no longer need to leave extra
+         * space for the icon at this width */
+        margin-left: 15px;
+        margin-left: 0.83333rem;
+    }
+}
+
+@media (min-width: 1050px) {
+    /*** Media query: Laptops or wider.
+ ***/
+    .content-section figure.link {
+        margin-right: 8.33333%; 
+        /*** Line up link boxes with normal paragraphs.
+     ***/
+        margin-left: 8.33333%;
     }
 }
 

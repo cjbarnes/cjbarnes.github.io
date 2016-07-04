@@ -89,6 +89,7 @@ $color-step-launch: $eucalyptus;
 $color-yes:         $eucalyptus;
 $color-no:          $burnt-umber;
 $background-color-link: lighten($link-color, 40%);
+$background-color-link-secondary: lighten($link-color-secondary, 35%);
 $background-color-figure:          $cararra;
 $background-color-code:            $black;
 $background-color-quote:           $background-color-figure;
@@ -129,8 +130,9 @@ $language-colors: (
 
 // Icon colours for figures within content.
 $figure-colors: (
-    "link":  $patina,
-    "quote": $santa-fe
+    "link":     $link-color,
+    "quote":    $santa-fe,
+    "internal": $link-color-secondary
 );
 
 // Contact detail colours.
