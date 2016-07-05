@@ -1,4 +1,4 @@
-/* globals isIOS, has3dSupport */
+/* globals isIOS, has3dSupport, isDetailsSupported */
 
 (function () {
   'use strict';

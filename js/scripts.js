@@ -1890,7 +1890,7 @@ window.matchMedia || (window.matchMedia = function() {
 } )( window, window.document, new window.Image() );
 
 
-/* globals isIOS, has3dSupport */
+/* globals isIOS, has3dSupport, isDetailsSupported */
 
 (function () {
   'use strict';
