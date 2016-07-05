@@ -2038,6 +2038,12 @@ window.matchMedia || (window.matchMedia = function() {
           /* Recalculate the `top` position, in case the window has resized */
           illus.style.top = '' + ((boxHeight - illusHeight) / 2) + 'px';
 
+          /* If the image is way bigger than its container, this makes the
+           * animation less speedy/jarring */
+          if ((illusHeight * 0.65) > boxHeight) {
+            boxHeight = boxHeight * 1.3;
+          }
+
           /* Calculate the correct translation */
           illusTranslate = ((boxHeight - illusHeight) * ((boxTop * 2) + boxHeight - windowHeight)) / ((boxHeight + windowHeight) * 2);
 
