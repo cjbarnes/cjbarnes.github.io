@@ -146,9 +146,9 @@
           /* Recalculate the `top` position, in case the window has resized */
           illus.style.top = '' + ((boxHeight - illusHeight) / 2) + 'px';
 
-          /* If the image is way bigger than its container, this makes the
-           * animation less speedy/jarring */
-          if ((illusHeight * 0.65) > boxHeight) {
+          /* If the image is way bigger than its container (and isn't in the
+           * masthead), make the animation less speedy/jarring */
+          if (((illusHeight * 0.65) > boxHeight) && (0 < i)) {
             boxHeight = boxHeight * 1.3;
           }
 
