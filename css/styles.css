@@ -3267,9 +3267,10 @@ article.illustrated footer .date-unit {
     /*** The image itself.
      ***/
     position: absolute;
+    top: 0;
     left: 50%;
     display: block;
-    transition: transform 300ms linear; 
+    transition: transform 300ms linear, top 300ms linear; 
     transform: translate3d(0, 0, 0);
 }
 .parallax-loaded .illustration .img {
@@ -3295,7 +3296,6 @@ article.illustrated footer .date-unit {
 .header-illustrated .illustration .img {
     /*** The image itself.
          ***/
-    top: -120px;
     margin-left: -475px;
 }
 
@@ -3327,7 +3327,6 @@ article.illustrated footer .date-unit {
 .masthead-illustrated .illustration .img {
     /*** The image itself.
          ***/
-    top: -70px;
     margin-left: -700px;
 }
 

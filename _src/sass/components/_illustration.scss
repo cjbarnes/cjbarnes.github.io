@@ -24,11 +24,12 @@
     /*** The image itself.
      ***/
         position: absolute;
+        top: 0; // starting position before parallax is initialized.
         left: 50%;
         display: block;
         // Set this now to allow a smooth transition to parallaxing on load.
         transform: translate3d(0, 0, 0);
-        transition: transform 300ms linear;
+        transition: transform 300ms linear, top 300ms linear;
 
         .parallax-loaded & {
             transition: none;
@@ -61,7 +62,6 @@
         .img {
         /*** The image itself.
          ***/
-            top: -120px;
             margin-left: ($illustration-width * -0.5);
         }
 
@@ -103,7 +103,6 @@
         .img {
         /*** The image itself.
          ***/
-            top: -70px;
             margin-left: ($illustration-width-masthead * -0.5);
         }
 
