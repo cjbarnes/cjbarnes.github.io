@@ -60,6 +60,14 @@
     /* To make sure the full parallax image is contained within. */
     min-height: 500px;
     background: $background-color-illustrated;
+
+    .title-label {
+    /*** Format label don't need extra padding in illustrated mastheads.
+     ***/
+        @include rem("margin-top", ($line * -1));
+        @include rem("padding-top", 0);
+    }
+
 }
 
 @include media-width("normal-size") {

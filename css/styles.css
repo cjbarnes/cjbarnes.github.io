@@ -2999,6 +2999,13 @@ article.illustrated footer .date-unit {
     min-height: 500px;
     background: #222;
 }
+.masthead-illustrated .title-label {
+    /*** Format label don't need extra padding in illustrated mastheads.
+     ***/
+    margin-top: -30px;
+    margin-top: -1.66667rem;
+    padding-top: 0;
+}
 
 @media (min-width: 718px) {
     /*** Media query: Tablets and wider.
