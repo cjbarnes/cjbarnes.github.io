@@ -26,7 +26,14 @@
         position: absolute;
         left: 50%;
         display: block;
+        // Set this now to allow a smooth transition to parallaxing on load.
         transform: translate3d(0, 0, 0);
+        transition: transform 300ms linear;
+
+        .parallax-loaded & {
+            transition: none;
+        }
+
     }
 
 }
@@ -96,12 +103,8 @@
         .img {
         /*** The image itself.
          ***/
-            top: -100px;
+            top: -70px;
             margin-left: ($illustration-width-masthead * -0.5);
-            // Prevents 'skip' on page load caused by javascript. Y value is
-            // calculated from `top` / 4.
-            // @todo Doesn't work yet - NEEDS MORE TESTING.
-            transform: translate3d(0, 0, 0);
         }
 
     }

@@ -3269,7 +3269,11 @@ article.illustrated footer .date-unit {
     position: absolute;
     left: 50%;
     display: block;
+    transition: transform 300ms linear; 
     transform: translate3d(0, 0, 0);
+}
+.parallax-loaded .illustration .img {
+    transition: none;
 }
 
 /* Illustrated articles.
@@ -3323,9 +3327,8 @@ article.illustrated footer .date-unit {
 .masthead-illustrated .illustration .img {
     /*** The image itself.
          ***/
-    top: -100px;
+    top: -70px;
     margin-left: -700px;
-    transform: translate3d(0, 0, 0);
 }
 
 /* Mini illustrated content sections (e.g. further down the homepage).
