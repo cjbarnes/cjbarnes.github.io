@@ -1,7 +1,7 @@
 ---
 title: colophon
 permalink: colophon/
-illustration: tools
+image: /img/tools.jpg
 ---
 
 {::nomarkdown}

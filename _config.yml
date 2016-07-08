@@ -3,17 +3,29 @@
 #
 
 # Version (for cache busting).
-version: 0.0.2
+version: 0.1.0
 
 # Development or production?.
 is_local: false
 
-# Site url (for use in pages).
+# Atom feed and SEO metadata.
+title: web design by cJ barnes
+description: Education and small business web developer based in Yorkshire and East Anglia, UK.
 url: http://www.cjbarnes.co.uk
+logo: /favicon-194x194.png
+social:
+    name: Chris Barnes
+    links: ['https://twitter.com/cJbarnesUK','https://www.linkedin.com/in/cjbarnesuk']
+author:
+  twitter: cJbarnesUK
+twitter:
+  username: cJbarnesUK
+facebook:
+  app_id: 1560564457582577
+  admins: 1086926316
+google_site_verification:
 
-# Atom feed metadata.
-name: cJ barnes
-description: Blogging about stuff
+# Number of articles to show in RSS feed
 feed_limit: 20
 
 # Permalinks.
@@ -38,12 +50,10 @@ future: false
 excerpt_separator: <!--more-->
 
 # Markdown parser and code highlighter.
-# highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM # support GitHub-Flavored Markdown.
   parse_block_html: true
-# syntax_highlighter: rouge # see Jekyll #3371
 
 # Enabled plugins.
 gems:

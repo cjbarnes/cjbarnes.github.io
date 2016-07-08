@@ -17,11 +17,11 @@ Classes added:
 {% capture headerclass %}
 header
 {% if include.page.format %} header-{{ include.page.format }} {% endif %}
-{% if include.page.illustration %} header-illustrated {% endif %}
+{% if include.page.image %} header-illustrated {% endif %}
 {% comment %} Masthead header element only. {% endcomment %}
 {% if include.masthead %}
   masthead
   {% if include.page.format %} masthead-{{ include.page.format }} {% endif %}
-  {% if include.page.illustration %} masthead-illustrated {% endif %}
+  {% if include.page.image %} masthead-illustrated {% endif %}
 {% endif %}
 {% endcapture %}

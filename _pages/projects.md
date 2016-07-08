@@ -1,8 +1,8 @@
 ---
 title: projects
-summary: Information and links about the side projects I’ve been working on.
+description: Information and links about the side projects I’ve been working on.
 permalink: whativedone/projects/
-illustration: imac-ipad
+image: /img/imac-ipad.jpg
 sortorder: 4
 ---
 

@@ -2,7 +2,7 @@
 title: what I’ve done
 permalink: whativedone/
 layout: index
-illustration: macbook-bed
+image: /img/macbook-bed.jpg
 ---
 
 These pages are all about my previous work.

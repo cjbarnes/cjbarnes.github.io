@@ -2,7 +2,7 @@
 title: what I do
 permalink: whatido/
 layout: index
-illustration: coding
+image: /img/coding.jpg
 ---
 
 These pages are about what it's like to work with me.
