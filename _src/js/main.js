@@ -1,4 +1,4 @@
-/* globals isIOS, has3dSupport, isDetailsSupported */
+/* globals has3dSupport, isDetailsSupported */
 
 (function () {
   'use strict';
@@ -61,7 +61,7 @@
      */
 
     /* 3D translates (don't bother with fallback). */
-    if (isIOS() || ! has3dSupport()) {
+    if (!has3dSupport()) {
       return;
     }
 

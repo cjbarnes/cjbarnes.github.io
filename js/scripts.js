@@ -856,17 +856,6 @@ function has3dSupport() {
 
 
 /**
- * Detect iOS
- *
- * Usually needed to turn off scrolling-listening effects, since script
- * execution pauses during momentum scrolling.
- */
-function isIOS() {
-  return /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
-}
-
-
-/**
  * Throttle repeated function calls
  *
  * @author remy http://remysharp.com/2010/07/21/throttling-function-calls/
@@ -1890,7 +1879,7 @@ window.matchMedia || (window.matchMedia = function() {
 } )( window, window.document, new window.Image() );
 
 
-/* globals isIOS, has3dSupport, isDetailsSupported */
+/* globals has3dSupport, isDetailsSupported */
 
 (function () {
   'use strict';
@@ -1953,7 +1942,7 @@ window.matchMedia || (window.matchMedia = function() {
      */
 
     /* 3D translates (don't bother with fallback). */
-    if (isIOS() || ! has3dSupport()) {
+    if (!has3dSupport()) {
       return;
     }
 
