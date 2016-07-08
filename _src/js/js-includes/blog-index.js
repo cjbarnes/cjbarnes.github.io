@@ -134,7 +134,7 @@
 
       /* Ajax-get the HTML for the list of posts. */
       var request = new XMLHttpRequest();
-      request.open('GET', '/posts-data.html', true);
+      request.open('GET', '/posts-data/', true);
       /**
        * Insert the Ajax-loaded search results listing into the DOM.
        * @this {XMLHttpRequest} The Ajax request object.

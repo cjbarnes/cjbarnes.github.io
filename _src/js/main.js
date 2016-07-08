@@ -1,4 +1,4 @@
-/* globals isIOS, has3dSupport */
+/* globals has3dSupport, isDetailsSupported */
 
 (function () {
   'use strict';
@@ -61,7 +61,7 @@
      */
 
     /* 3D translates (don't bother with fallback). */
-    if (isIOS() || ! has3dSupport()) {
+    if (!has3dSupport()) {
       return;
     }
 
@@ -104,10 +104,16 @@
     /* Listen for frame draws after scrolling or window sizing. */
     var parallaxOnRedraw = requestAnimationFrame.bind(null, parallax);
     window.addEventListener('scroll', parallaxOnRedraw);
+    window.addEventListener('resize', parallaxOnRedraw);
 
     /* Call `parallax()` on load, to prevent a small jump on first scroll. */
-    document.addEventListener('DOMContentLoaded', parallax);
-    window.addEventListener('onload', parallax);
+    window.addEventListener('load', function smoothlyStartParallaxing() {
+      parallax();
+      // Turn off the smooth animation, it's not needed from this point.
+      window.setTimeout(function stopSmoothParallaxing() {
+        document.body.classList.add('parallax-loaded');
+      }, 300); // 300ms = the length of the CSS transition
+    });
 
     /**
      * Recalculate the parallax positions for each illustration.
@@ -116,26 +122,44 @@
 
       var i, l;
       var illus;
-      var rectTop;
-      var speed = 4; // Increased after 'featured' article
+      var illusHeight;
+      var illusTranslate;
+      var boxRect;
+      var boxTop;
+      var boxHeight;
+      var windowHeight = window.innerHeight;
 
       for (i = 0, l = numberOfIllustrations; i < l; i++) {
 
+        // First get all the data we need to check whether this is onscreen.
         illus = illustrations[i];
-        // 120 = -1 * the top property of the .img (in px; set in CSS)
-        rectTop = illus.getBoundingClientRect().top + 120;
+        boxRect = illus.parentNode.getBoundingClientRect();
+        boxTop = boxRect.top;
+        boxHeight = boxRect.height;
 
-        /* Ignore if this element is obviously offscreen. */
-        if ((rectTop > -1000) && (rectTop < 1600)) {
+        /* Ignore if this element is offscreen. */
+        if ((boxTop > (boxHeight * -1)) && (boxTop < (windowHeight))) {
+
+          // Last bit of data we need.
+          illusHeight = illus.getBoundingClientRect().height;
+
+          /* Recalculate the `top` position, in case the window has resized */
+          illus.style.top = '' + ((boxHeight - illusHeight) / 2) + 'px';
+
+          /* If the image is way bigger than its container (and isn't in the
+           * masthead), make the animation less speedy/jarring */
+          if (((illusHeight * 0.65) > boxHeight) && (0 < i)) {
+            boxHeight = boxHeight * 1.3;
+          }
+
+          /* Calculate the correct translation */
+          illusTranslate = ((boxHeight - illusHeight) * ((boxTop * 2) + boxHeight - windowHeight)) / ((boxHeight + windowHeight) * 2);
 
           /* Apply the transform. */
-          var style = 'translate3d(0,' + Math.round((-1 * rectTop) / speed) + 'px,0)';
+          var style = 'translate3d(0,' + Math.round(illusTranslate) + 'px,0)';
           illus.style[transformProperty] = style;
 
         }
-
-        /* Sets stronger parallax effect for the remaining illustrations. */
-        speed = 8;
 
       }
 

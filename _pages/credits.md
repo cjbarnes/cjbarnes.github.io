@@ -4,7 +4,7 @@ permalink: credits/
 illustration: flowers
 ---
 
-This website would not be possible without the awesome projects, images, and fonts made freely available by the lovely people mentioned on this page. If your name’s on the list, **thank you!** If it isn’t and should be, my apologies—please [contact me](mailto:mail@cjbarnes.co.uk) so I can correct my mistake.
+This website would not be possible without the awesome projects, images, and fonts made freely available by the lovely people mentioned on this page. If your name’s on the list, **thank you!** If it isn’t and should be, my apologies—please [contact me](mailto:chris@cjbarnes.co.uk) so I can correct my mistake.
 {: .lead}
 
 First things first: all web design and writing on this website is by Chris Barnes (that’s me), unless otherwise stated.
@@ -34,9 +34,6 @@ First things first: all web design and writing on this website is by Chris Barne
 ## image credits
 
 **photos by [Viktor Hanáček at Picjumbo.com](http://picjumbo.com):**
-
-[homepage](/):
-:	'Detail of Girl’s Hands typing on MacBook'
 
 [my expertise](/whatido/expertise/) photos:
 :  'Fashion Glasses on MacBook Pro'
@@ -76,10 +73,11 @@ First things first: all web design and writing on this website is by Chris Barne
 **other photos:**
 
 [homepage](/):
-:   'iPadMini3' by [ZedProMedia](http://bit.ly/MkCKcY)
+:   'iPad Mockup 2 Horizontal' by [Animist](http://www.animist.tv/)
+:   *Unknown Title* (lined-up Apple devices) by [Firmbee](http://www.firmbee.com/)
 
 [what I do](/whatido/):
-:   'macbook' by *Unknown*
+:   'Macbook' by *Unknown*
 
 [my expertise](/whatido/expertise/):
 :   ['Programmeren'](https://www.flickr.com/photos/waagsociety/8536919558/) by [Waag Society on Flickr](https://www.flickr.com/photos/waagsociety/)

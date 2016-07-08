@@ -35,8 +35,8 @@
 
       {% if page.link %}
         <figure class="link link-article-link">
-          <a href="{{ page.link }}">
-            <em>link:</em> {{ page.title }}
+          <a href="{{ page.link }}" title="link: {{ page.title | xml_escape }}">
+            visit link
           </a>
         </figure>
       {% endif %}

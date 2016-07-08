@@ -71,7 +71,7 @@
             {% include date.html date=post.date %}
             {% if post.link %}
               <!-- Direct link -->
-              <a class="post-footer-link" href="{{ post.link }}" title="go to link: {{ post.title | xml_escape }}">go to website</a>
+              <a class="post-footer-link" href="{{ post.link }}" title="link: {{ post.title | xml_escape }}">visit link</a>
             {% endif %}
             {% include permalinks.html url=post.url title=post.title %}
           </footer><!-- /.listing-footer -->

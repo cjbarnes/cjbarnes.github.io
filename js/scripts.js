@@ -176,6 +176,222 @@ if (objCtr.defineProperty) {
 }
 
 
+/*!--------------------------------------------------------------------
+JAVASCRIPT "Outdated Browser"
+Version:    1.1.2 - 2015
+author:     Burocratik
+website:    http://www.burocratik.com
+* @preserve
+-----------------------------------------------------------------------*/
+var outdatedBrowser = function(options) {
+
+    //Variable definition (before ajax)
+    var outdated = document.getElementById("outdated");
+
+    // Default settings
+    this.defaultOpts = {
+        bgColor: '#f25648',
+        color: '#ffffff',
+        lowerThan: 'transform',
+        languagePath: '../outdatedbrowser/lang/en.html'
+    }
+
+    if (options) {
+        //assign css3 property to IE browser version
+        if (options.lowerThan == 'IE8' || options.lowerThan == 'borderSpacing') {
+            options.lowerThan = 'borderSpacing';
+        } else if (options.lowerThan == 'IE9' || options.lowerThan == 'boxShadow') {
+            options.lowerThan = 'boxShadow';
+        } else if (options.lowerThan == 'IE10' || options.lowerThan == 'transform' || options.lowerThan == '' || typeof options.lowerThan === "undefined") {
+            options.lowerThan = 'transform';
+        } else if (options.lowerThan == 'IE11' || options.lowerThan == 'borderImage') {
+            options.lowerThan = 'borderImage';
+        }
+        //all properties
+        this.defaultOpts.bgColor = options.bgColor;
+        this.defaultOpts.color = options.color;
+        this.defaultOpts.lowerThan = options.lowerThan;
+        this.defaultOpts.languagePath = options.languagePath;
+
+        bkgColor = this.defaultOpts.bgColor;
+        txtColor = this.defaultOpts.color;
+        cssProp = this.defaultOpts.lowerThan;
+        languagePath = this.defaultOpts.languagePath;
+    } else {
+        bkgColor = this.defaultOpts.bgColor;
+        txtColor = this.defaultOpts.color;
+        cssProp = this.defaultOpts.lowerThan;
+        languagePath = this.defaultOpts.languagePath;
+    } //end if options
+
+
+    //Define opacity and fadeIn/fadeOut functions
+    var done = true;
+
+    function function_opacity(opacity_value) {
+        outdated.style.opacity = opacity_value / 100;
+        outdated.style.filter = 'alpha(opacity=' + opacity_value + ')';
+    }
+
+    // function function_fade_out(opacity_value) {
+    //     function_opacity(opacity_value);
+    //     if (opacity_value == 1) {
+    //         outdated.style.display = 'none';
+    //         done = true;
+    //     }
+    // }
+
+    function function_fade_in(opacity_value) {
+        function_opacity(opacity_value);
+        if (opacity_value == 1) {
+            outdated.style.display = 'block';
+        }
+        if (opacity_value == 100) {
+            done = true;
+        }
+    }
+
+    //check if element has a particular class
+    // function hasClass(element, cls) {
+    //     return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+    // }
+
+    var supports = ( function() {
+        var div = document.createElement('div');
+        var vendors = 'Khtml Ms O Moz Webkit'.split(' ');
+        var len = vendors.length;
+
+        return function(prop) {
+            if (prop in div.style) return true;
+
+            prop = prop.replace(/^[a-z]/, function(val) {
+                return val.toUpperCase();
+            });
+
+            while (len--) {
+                if (vendors[len] + prop in div.style) {
+                    return true;
+                }
+            }
+            return false;
+        };
+    } )();
+
+    //if browser does not supports css3 property (transform=default), if does > exit all this
+    if (!supports('' + cssProp + '')) {
+        if (done && outdated.style.opacity !== '1') {
+            done = false;
+            for (var i = 1; i <= 100; i++) {
+                setTimeout(( function(x) {
+                    return function() {
+                        function_fade_in(x);
+                    };
+                } )(i), i * 8);
+            }
+        }
+    } else {
+        return;
+    } //end if
+
+    //Check AJAX Options: if languagePath == '' > use no Ajax way, html is needed inside <div id="outdated">
+    if (languagePath === ' ' || languagePath.length == 0) {
+        startStylesAndEvents();
+    } else {
+        grabFile(languagePath);
+    }
+
+    //events and colors
+    function startStylesAndEvents() {
+        var btnClose = document.getElementById("btnCloseUpdateBrowser");
+        var btnUpdate = document.getElementById("btnUpdateBrowser");
+
+        //check settings attributes
+        outdated.style.backgroundColor = bkgColor;
+        //way too hard to put !important on IE6
+        outdated.style.color = txtColor;
+        outdated.children[0].style.color = txtColor;
+        outdated.children[1].style.color = txtColor;
+
+        //check settings attributes
+        btnUpdate.style.color = txtColor;
+        // btnUpdate.style.borderColor = txtColor;
+        if (btnUpdate.style.borderColor) {
+            btnUpdate.style.borderColor = txtColor;
+        }
+        btnClose.style.color = txtColor;
+
+        //close button
+        btnClose.onmousedown = function() {
+            outdated.style.display = 'none';
+            return false;
+        };
+
+        //Override the update button color to match the background color
+        btnUpdate.onmouseover = function() {
+            this.style.color = bkgColor;
+            this.style.backgroundColor = txtColor;
+        };
+        btnUpdate.onmouseout = function() {
+            this.style.color = txtColor;
+            this.style.backgroundColor = bkgColor;
+        };
+    } //end styles and events
+
+
+    // IF AJAX with request ERROR > insert english default
+    var ajaxEnglishDefault = '<h6>Your browser is out-of-date!</h6>'
+        + '<p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>'
+        + '<p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>';
+
+
+    //** AJAX FUNCTIONS - Bulletproof Ajax by Jeremy Keith **
+    function getHTTPObject() {
+        var xhr = false;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch ( e ) {
+                try {
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch ( e ) {
+                    xhr = false;
+                }
+            }
+        }
+        return xhr;
+    }//end function
+
+    function grabFile(file) {
+        var request = getHTTPObject();
+        if (request) {
+            request.onreadystatechange = function() {
+                displayResponse(request);
+            };
+            request.open("GET", file, true);
+            request.send(null);
+        }
+        return false;
+    } //end grabFile
+
+    function displayResponse(request) {
+        var insertContentHere = document.getElementById("outdated");
+        if (request.readyState == 4) {
+            if (request.status == 200 || request.status == 304) {
+                insertContentHere.innerHTML = request.responseText;
+            } else {
+                insertContentHere.innerHTML = ajaxEnglishDefault;
+            }
+            startStylesAndEvents();
+        }
+        return false;
+    }//end displayResponse
+
+////////END of outdatedBrowser function
+};
+
+
 /*! Picturefill - v2.0.0-beta - 2014-05-02
 * http://scottjehl.github.io/picturefill
 * Copyright (c) 2014 https://github.com/scottjehl/picturefill/blob/master/Authors.txt; Licensed MIT */
@@ -852,17 +1068,6 @@ function has3dSupport() {
     var bHasSupport = (asSupport !== null && asSupport.length == 1);
 
     return bHasSupport;
-}
-
-
-/**
- * Detect iOS
- *
- * Usually needed to turn off scrolling-listening effects, since script
- * execution pauses during momentum scrolling.
- */
-function isIOS() {
-  return /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
 }
 
 
@@ -1890,7 +2095,7 @@ window.matchMedia || (window.matchMedia = function() {
 } )( window, window.document, new window.Image() );
 
 
-/* globals isIOS, has3dSupport */
+/* globals has3dSupport, isDetailsSupported */
 
 (function () {
   'use strict';
@@ -1953,7 +2158,7 @@ window.matchMedia || (window.matchMedia = function() {
      */
 
     /* 3D translates (don't bother with fallback). */
-    if (isIOS() || ! has3dSupport()) {
+    if (!has3dSupport()) {
       return;
     }
 
@@ -1996,10 +2201,16 @@ window.matchMedia || (window.matchMedia = function() {
     /* Listen for frame draws after scrolling or window sizing. */
     var parallaxOnRedraw = requestAnimationFrame.bind(null, parallax);
     window.addEventListener('scroll', parallaxOnRedraw);
+    window.addEventListener('resize', parallaxOnRedraw);
 
     /* Call `parallax()` on load, to prevent a small jump on first scroll. */
-    document.addEventListener('DOMContentLoaded', parallax);
-    window.addEventListener('onload', parallax);
+    window.addEventListener('load', function smoothlyStartParallaxing() {
+      parallax();
+      // Turn off the smooth animation, it's not needed from this point.
+      window.setTimeout(function stopSmoothParallaxing() {
+        document.body.classList.add('parallax-loaded');
+      }, 300); // 300ms = the length of the CSS transition
+    });
 
     /**
      * Recalculate the parallax positions for each illustration.
@@ -2008,26 +2219,44 @@ window.matchMedia || (window.matchMedia = function() {
 
       var i, l;
       var illus;
-      var rectTop;
-      var speed = 4; // Increased after 'featured' article
+      var illusHeight;
+      var illusTranslate;
+      var boxRect;
+      var boxTop;
+      var boxHeight;
+      var windowHeight = window.innerHeight;
 
       for (i = 0, l = numberOfIllustrations; i < l; i++) {
 
+        // First get all the data we need to check whether this is onscreen.
         illus = illustrations[i];
-        // 120 = -1 * the top property of the .img (in px; set in CSS)
-        rectTop = illus.getBoundingClientRect().top + 120;
+        boxRect = illus.parentNode.getBoundingClientRect();
+        boxTop = boxRect.top;
+        boxHeight = boxRect.height;
 
-        /* Ignore if this element is obviously offscreen. */
-        if ((rectTop > -1000) && (rectTop < 1600)) {
+        /* Ignore if this element is offscreen. */
+        if ((boxTop > (boxHeight * -1)) && (boxTop < (windowHeight))) {
+
+          // Last bit of data we need.
+          illusHeight = illus.getBoundingClientRect().height;
+
+          /* Recalculate the `top` position, in case the window has resized */
+          illus.style.top = '' + ((boxHeight - illusHeight) / 2) + 'px';
+
+          /* If the image is way bigger than its container (and isn't in the
+           * masthead), make the animation less speedy/jarring */
+          if (((illusHeight * 0.65) > boxHeight) && (0 < i)) {
+            boxHeight = boxHeight * 1.3;
+          }
+
+          /* Calculate the correct translation */
+          illusTranslate = ((boxHeight - illusHeight) * ((boxTop * 2) + boxHeight - windowHeight)) / ((boxHeight + windowHeight) * 2);
 
           /* Apply the transform. */
-          var style = 'translate3d(0,' + Math.round((-1 * rectTop) / speed) + 'px,0)';
+          var style = 'translate3d(0,' + Math.round(illusTranslate) + 'px,0)';
           illus.style[transformProperty] = style;
 
         }
-
-        /* Sets stronger parallax effect for the remaining illustrations. */
-        speed = 8;
 
       }
 

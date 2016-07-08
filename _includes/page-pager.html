@@ -21,12 +21,16 @@
     {% assign prev_url = "/blog/" %}
   {% endif %}
 {% else %}
+  {% comment %} Check for homepage url and clean it up so it matches the entry in nav-sequence {% endcomment %}
+  {% assign page_url = page.url %}
+  {% if '/index.html' == page_url %}
+    {% assign page_url = '/' %}
+  {% endif %}
   {% comment %} Find the current page in the list of pages {% endcomment %}
   {% assign len = site.data.nav-sequence | size %}
   {% for i in (0..len) %}
-    {% if page.url == site.data.nav-sequence[i].href %}
+    {% if page_url == site.data.nav-sequence[i].href %}
       {% comment %} Find the data items {% endcomment %}
-      {{ test }}
       {% assign prev_i = i | minus: 1 %}
       {% assign next_i = i | plus: 1 %}
       {% assign prev_nav_item = site.data.nav-sequence[prev_i] %}
@@ -61,10 +65,6 @@
     {% capture next_title %}{{ next_name }} | {{ next_description }}{% endcapture %}
   {% endunless %}
 {% endif %}
-
-{% comment %} Get rid of `index.html` in homepage URL. {% endcomment %}
-{% if '/index.html' == next_url %}{% assign next_url = '/' %}{% endif %}
-{% if '/index.html' == prev_url %}{% assign prev_url = '/' %}{% endif %}
 
 {% if next_url %}
   <!-- Pager -->

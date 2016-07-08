@@ -38,11 +38,6 @@
         }
     }
 
-    &.post-illustrated:before {
-        /* Different background for illustrated articles in minilistings. */
-        background: $background-color-illustrated;
-    }
-
     a {
         @include rem("padding", ($line / 4) ($line / 2) ($line / 4) $line);
         /* For the search results count alignment. */

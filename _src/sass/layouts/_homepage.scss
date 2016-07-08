@@ -114,7 +114,7 @@
 .homepage-content-section-illustrated {
 /*** USPs row.
  ***/
-    background-color: $toast;
+    background-color: #000; // true black not faux black, to match the image bg.
 
     ul {
     /*** Show bulleted list as a simple sequence of sentences.
@@ -125,7 +125,7 @@
     }
 
     strong {
-        background: $ironstone;
+        background: $black; // faux black this time, to contrast with #000 bg.
         color: $text-color-reversed;
     }
 
@@ -303,7 +303,7 @@
     .homepage-content-section-illustrated .gradient.right {
     /*** Mini illustrated content sections with different background colour.
      ***/
-        background-image: linear-gradient(to left, transparent 40%, $toast 100%);
+        background-image: linear-gradient(to left, transparent 40%, #000 100%);
     }
 
 }

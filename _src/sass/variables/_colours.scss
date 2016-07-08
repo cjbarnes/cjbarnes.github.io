@@ -56,7 +56,7 @@ $text-color-inline-code:      $black;
 
 // Links.
 $link-color:           $patina;
-$link-color-secondary: $oslo-grey;
+$link-color-secondary: $gothic;
 $link-color-visited:   $link-color-secondary;
 $link-color-active:    $indian-khaki;
 
@@ -89,6 +89,7 @@ $color-step-launch: $eucalyptus;
 $color-yes:         $eucalyptus;
 $color-no:          $burnt-umber;
 $background-color-link: lighten($link-color, 40%);
+$background-color-link-secondary: lighten($link-color-secondary, 35%);
 $background-color-figure:          $cararra;
 $background-color-code:            $black;
 $background-color-quote:           $background-color-figure;
@@ -105,11 +106,11 @@ $color-tags: $oslo-grey;
 
 // Post formats and CV/portfolio entry formats.
 $format-colors: (
-    "project":   $rum,
-    "tutorial":  $toast,
-    "tip":       $indian-khaki,
+    "project":   $black,
+    "tutorial":  $aqua-forest,
+    "tip":       $patina,
     "thoughts":  $gothic,
-    "off-topic": $aqua-forest,
+    "off-topic": $rum,
     "page":      $patina
 );
 
@@ -129,8 +130,9 @@ $language-colors: (
 
 // Icon colours for figures within content.
 $figure-colors: (
-    "link":  $patina,
-    "quote": $santa-fe
+    "link":     $link-color,
+    "quote":    $santa-fe,
+    "internal": $link-color-secondary
 );
 
 // Contact detail colours.

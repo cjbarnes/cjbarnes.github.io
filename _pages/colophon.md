@@ -35,7 +35,6 @@ illustration: tools
 * [IcoMoon](http://www.fontsquirrel.com) for webfont packaging of all icons
 * [Color Thief](http://lokeshdhakar.com/projects/color-thief/) by Lokesh Dhakar helped me choose a colour palette
 * [Name that Color](http://chir.ag/projects/name-that-color/) by Chirag Mehta, for better Sass colour names
-* [Google Analytics](http://www.google.com/analytics/) for stats tracking and reporting
 
 ## software
 
@@ -50,15 +49,6 @@ illustration: tools
 * [Frank DeLoupe](http://www.jumpzero.com/frank/) colour picker app
 * [kramdown](http://kramdown.gettalong.org) Markdown parser
 * [Pygments](http://pygments.org) for syntax highlighting in blog posts
-
-## hardware
-
-* 13" MacBook Pro with Retina Display
-* 21.5" iMac
-* Logitech Easy-Switch Keyboard K811
-* Logitech Wireless Rechargeable Trackpad T651
-* Apple Magic Mouse
-* iPad Air
 
 
 *[CDN]: content delivery network

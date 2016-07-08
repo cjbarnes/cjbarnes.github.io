@@ -12,10 +12,10 @@
 .content-section-university {
 /*** 'Expertise - university' content row.
  ***/
-    background-color: $black;
+    background-color: #000;
 
     strong {
-        background: $oslo-grey;
+        background: $black;
         color: $text-color-reversed;
     }
 
@@ -145,8 +145,9 @@
 @include media-width("normal-size") {
 /*** Media query: Tablets of wider.
  ***/
+
     .content-section-university .gradient.right {
-        background-image: linear-gradient(to left, transparent 40%, $black 100%);
+        background-image: linear-gradient(to left, transparent 40%, #000 100%);
     }
 
     .content-section-small-business .gradient.right {

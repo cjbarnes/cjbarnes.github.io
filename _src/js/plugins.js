@@ -46,17 +46,6 @@ function has3dSupport() {
 
 
 /**
- * Detect iOS
- *
- * Usually needed to turn off scrolling-listening effects, since script
- * execution pauses during momentum scrolling.
- */
-function isIOS() {
-  return /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
-}
-
-
-/**
  * Throttle repeated function calls
  *
  * @author remy http://remysharp.com/2010/07/21/throttling-function-calls/

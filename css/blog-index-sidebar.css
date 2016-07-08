@@ -46,11 +46,11 @@
 .filter-switcher-item a {
     border-color: #e0d7cb;
     background: #e9e6df;
-    color: #808e90;
+    color: #738fa0;
 }
 .filter-switcher-item a:hover,
 .filter-switcher-item a:focus {
-    background: #808e90;
+    background: #738fa0;
     color: #e9e6df;
 }
 .filter-switcher-item a:active {
@@ -93,15 +93,15 @@
 }
 .sidebar-listing-item.format-project:before {
     content: "";
-    color: #706b85;
+    color: #222;
 }
 .sidebar-listing-item.format-tutorial:before {
     content: "";
-    color: #a17167;
+    color: #5e9776;
 }
 .sidebar-listing-item.format-tip:before {
     content: "";
-    color: #c5a184;
+    color: #5e8c88;
 }
 .sidebar-listing-item.format-thoughts:before {
     content: "";
@@ -109,7 +109,7 @@
 }
 .sidebar-listing-item.format-off-topic:before {
     content: "";
-    color: #5e9776;
+    color: #706b85;
 }
 .sidebar-listing-item.format-page:before {
     content: "";
