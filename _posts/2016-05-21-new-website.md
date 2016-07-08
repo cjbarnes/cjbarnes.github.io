@@ -1,5 +1,6 @@
 ---
 title: welcome to my new website
+date: 2016-07-08 9:00:00 +0100
 languages:
 - CSS
 - HTML
@@ -19,25 +20,45 @@ Five years of being a freelance web designer without a website have finally come
 {:.lead}
 <!--more-->
 
-However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.
+It's customary for a developer launching her new (or improved) website to write a helpful/self-congratulatory blog post describing the site's most interesting features. This is not one of those posts.[^1] I think what it's been like to make a website for myself is a more interesting topic than the end result is.
+
+Although I've made dozens of websites over the last decade, this is the first site I've built entirely for myself. Being my own client has caused unique problems that I didn't anticipate when I started.
+
+## no constraints
 
 <figure class="quote">
-> For what do we live, but to make sport for our neighbours, and laugh at them in our turn?
+> Design depends largely on constraints. [...] Here is one of the few effective keys to the Design problem: the ability of the Designer to recognize as many of the constraints as possible; his willingness and enthusiasm for working within these constraints.
 
-<cite>Mr Bennet</cite>
-</figure> 
+<cite>[Charles and Ray Eames](http://www.eamesoffice.com/the-work/design-q-a-text/ "Eames Office – Design Q&A text")</cite>
+</figure>
 
-"My dear Mr. Bennet," said his lady to him one day, "have you heard that Netherfield Park is let at last?"
+TODO: Like all designers, I'm used to working within constraints (eg chess?). Brand, font, colours, tone of voice, taste of client. Even just a logo makes a huge difference to a site's appearance, layout, and tone.
 
-Mr. Bennet replied that he had not.
+## no one to please but myself
 
-"But it is," returned she; "for Mrs. Long has just been here, and she told me all about it."
+TODO (problem is, I'm never pleased with my own work!)
 
-Mr. Bennet made no answer.
+TODO (value of second opinions, and of client's gut reactions. Hard to evaluate your own design fairly when you've been staring at it for so long)
 
-"Do you not want to know who has taken it?" cried his wife impatiently.
+## no deadlines
 
-"You want to tell me, and I have no objection to hearing it."
+TODO
 
-This was invitation enough.
+## what's the point?
 
+TODO (web developers really ought to have websites! not just for marketing; as a playground for trying new things. eg Sass; Jekyll; client-side search)
+
+TODO (somewhere to point people to, either to get examples of my work (*cough* [my portfolio](/whativedone/portfolio/) *cough*), info on how I work, or to answer questions I keep getting asked)
+
+TODO (nice to have somewhere to write this stuff)
+
+## why now?
+
+TODO
+
+## what I'm writing about
+
+TODO (post formats)
+
+
+[^1]: No promises that I'll stay away from such posts in future though...
