@@ -11,6 +11,9 @@
 // Vendor: normalize.
 @import "vendor/normalize";
 
+// Vendor: Outdated Browser.
+@import "vendor/outdated-browser";
+
 // Variables, mixins, functions.
 @import "variables/all";
 @import "functions/all";
