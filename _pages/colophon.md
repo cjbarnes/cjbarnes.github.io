@@ -35,7 +35,6 @@ illustration: tools
 * [IcoMoon](http://www.fontsquirrel.com) for webfont packaging of all icons
 * [Color Thief](http://lokeshdhakar.com/projects/color-thief/) by Lokesh Dhakar helped me choose a colour palette
 * [Name that Color](http://chir.ag/projects/name-that-color/) by Chirag Mehta, for better Sass colour names
-* [Google Analytics](http://www.google.com/analytics/) for stats tracking and reporting
 
 ## software
 
