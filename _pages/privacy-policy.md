@@ -1,7 +1,7 @@
 ---
 title: privacy policy
 permalink: privacy-policy/
-illustration: padlock
+image: /img/padlock.jpg
 ---
 
 This website doesn’t use [cookies](https://ico.org.uk/for-the-public/online/cookies.aspx "Information Commissioner's Office guidance for the public on cookies"). Nothing to see here.

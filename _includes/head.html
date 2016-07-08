@@ -27,7 +27,6 @@
 
 <!-- Metadata -->
 <title>{{ the_title | strip_newlines }}</title>
-<meta name="description" content="{{ page.excerpt | strip_html }}">
 
 <!-- High-priority webfonts -->
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Code+Pro:300">
@@ -63,36 +62,13 @@
 <!-- RSS feed -->
 <link rel="alternate" type="application/rss+xml" title="cJ barnes: blog feed" href="{{ site.url}}/feed.xml">
 
-<!-- Open Graph metadata -->
-<meta property="og:title" content="{{ the_title | strip_newlines }}">
-<meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines }}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:locale" content="en_GB">
-<meta property="og:site_name" content="web design by cJ barnes">
-{% if page.date %}
-<meta property="og:type" content="article">
-<meta property="og:article:published_time" content="{{ page.date | date_to_xmlschema }}">
-<meta property="og:article:author" content="{{ page.author }}">
-{% for tag in page.tags %}
-<meta property="og:article:tag" content="{{ tag }}">
-{% endfor %}
-{% endif %}
-{% if page.illustration %}
-<meta property="og:image" content="{{ site.url }}/img/{{ include.image }}.jpg">
-{% else %}
-<meta property="og:image" content="{{ site.url }}/apple-touch-icon.png">
-{% endif %}
-
-<!-- Twitter card metadata -->
-<meta property="twitter:card" content="summary">
-<meta property="twitter:site" content="@cJbarnesUK">
-<meta property="twitter:creator" content="@cJbarnesUK">
-<meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
-
 <!-- Respond.js polyfill for media queries in IE.old -->
 <!--[if lt IE 9]>
     <script src="/js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
 <![endif]-->
+
+{% comment %} Jekyll SEO Tag plugin output {% endcomment %}
+{% seo title=false %}
 </head>
 
 {% comment %} Work out the body's classlist for this page/post. {% endcomment %}

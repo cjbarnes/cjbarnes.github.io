@@ -1,8 +1,8 @@
 ---
 title: bio
-summary: About me, my experience, and how I became a web designer.
+description: About me, my experience, and how I became a web designer.
 permalink: whativedone/bio/
-illustration: feet
+image: /img/feet.jpg
 sortorder: 3
 ---
 

@@ -3,11 +3,12 @@ content-section content-section-illustrated
 {% if include.homepage %} homepage-content-section homepage-content-section-illustrated{% endif %}
 {% if include.slug %} content-section-{{ include.slug | slugify }}{% endif %}
 {% endcapture %}
+{% assign img = include.image %}
 <section class="{{ classes | strip_newlines }}">
 
   <!-- featured image -->
   <div class="illustration right">
-    <img class="img" src="/img/{{ include.illustration }}.jpg">
+    <img class="img" src="{{ img }}">
   </div>
   <!--
     A dirty, lazy, horrid presentational element. There was no other

@@ -7,7 +7,7 @@ Simple, descending-order list of posts used for searching and filtering.
 |{{ post.tags | join: '|' }}
 |{{ post.languages | join: '|' }}
 |{{ post.title }}
-|{{ post.summary }}
+|{{ post.description }}
 |{{ post.content }}
 {% endcapture %}
   {% include articleclass.html page=post %}

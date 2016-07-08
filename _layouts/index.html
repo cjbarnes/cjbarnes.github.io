@@ -10,8 +10,8 @@
 
       {% include nav.html %}
 
-      {% if page.illustration %}
-        {% include illustration.html image=page.illustration masthead=true %}
+      {% if page.image %}
+        {% include illustration.html image=page.image masthead=true %}
       {% endif %}
 
       {% include title.html title=page.title %}
@@ -46,12 +46,12 @@
             {% include headerclass.html page=subpage %}
             <header class="listing-header index-listing-header {{ headerclass | strip_newlines }}">
 
-              {% if subpage.illustration %}
-                {% assign illustration = subpage.illustration | append: '_listing' %}
+              {% if subpage.image %}
+                {% assign illustration = subpage.image | append: '@@' | remove_first: '.jpg@@' | append: '_listing.jpg' %}
                 {% include illustration.html image=illustration %}
               {% endif %}
 
-              {% include title.html title=subpage.title link_href=subpage.link_href url=subpage.url summary=subpage.summary %}
+              {% include title.html title=subpage.title link_href=subpage.link_href url=subpage.url summary=subpage.description %}
 
             </header><!-- /.listing-header -->
           {% endif %}

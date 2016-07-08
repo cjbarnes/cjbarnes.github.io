@@ -12,7 +12,7 @@ languages:
 - Sass
 - WordPress
 format: project
-illustration: macbook-bed
+image: /img/macbook-bed.jpg
 length: long
 ---
 
