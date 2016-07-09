@@ -4258,12 +4258,6 @@ article.illustrated footer .date-unit {
    @package cjbarnes.github.io
    ========================================================================== */
 @font-face {
-    font-family: "cj-icons";
-
-    src: url("/font/cj-icons.eot");
-}
-
-@font-face {
     font-style: normal; 
     font-weight: normal;
     font-family: "cj-icons";
