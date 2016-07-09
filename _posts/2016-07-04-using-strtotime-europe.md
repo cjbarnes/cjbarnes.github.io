@@ -1,5 +1,6 @@
 ---
 title: using strtotime in Europe
+date: 2016-07-04 12:01:00 +0100
 tags:
 - utilities
 format: tip

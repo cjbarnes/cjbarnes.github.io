@@ -1,5 +1,6 @@
 ---
 title: animating link borders in CSS
+date: 2016-06-30 23:12:00 +0100
 format: tip
 languages:
 - CSS

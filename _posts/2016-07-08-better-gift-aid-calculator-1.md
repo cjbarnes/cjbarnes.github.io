@@ -1,5 +1,6 @@
 ---
 title: better Gift Aid calculator, part 1
+date: 2016-07-08 10:36:00 +0100
 languages:
 - JavaScript
 - jQuery
