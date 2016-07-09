@@ -4309,4 +4309,19 @@ article.illustrated footer .date-unit {
      ***/
         display: block !important;
     }
+    .index-listing .header-illustrated .illustration img {
+        /*** Better placement of listing images in IE9-11, since parallax is broken.
+     ***/
+        top: -150px;
+    }
+}
+
+.lt-ie10 {
+    /*** IE9 hacks
+ ***/
+}
+.lt-ie10 .index-listing .header-illustrated .illustration img {
+    /*** Better placement of listing images in IE9-11, since parallax is broken.
+     ***/
+    top: -150px;
 }
