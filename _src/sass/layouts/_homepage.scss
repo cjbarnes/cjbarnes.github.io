@@ -303,6 +303,7 @@
     .homepage-content-section-illustrated .gradient.right {
     /*** Mini illustrated content sections with different background colour.
      ***/
+        @include linear-gradient(left, transparent, 40%, #000, 100%);
         background-image: linear-gradient(to left, transparent 40%, #000 100%);
     }
 

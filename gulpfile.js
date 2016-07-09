@@ -75,7 +75,7 @@ var autoprefixerOptions = {
     'last 2 versions',
     'Firefox ESR',
     'Opera 12.1',
-    'ie >= 8'
+    'ie >= 9'
   ]
 };
 

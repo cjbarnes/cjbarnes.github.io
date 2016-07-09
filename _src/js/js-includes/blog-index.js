@@ -32,7 +32,7 @@
      * @param {Element} current Current element being processed in the array.
      */
     function outputMiniListingHtml(current) {
-      current.innerHTML = this.response;
+      current.innerHTML = this.response || this.responseText;
     }
 
     /**
@@ -142,6 +142,7 @@
       request.onreadystatechange = function gotMiniListingHtml() {
         if (4 === this.readyState) {
           if ((200 <= this.status) && (400 > this.status)) {
+            console.dir(this);
             /* Output the loaded HTML to the DOM. */
             minilistingWrappers.forEach(outputMiniListingHtml, this);
           }

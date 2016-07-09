@@ -3,7 +3,8 @@
   "description": "cJ barnes’ public website and blog",
   "version": "1.0.0",
   "private": true,
-  "author": "chris barnes <mail@cjbarnes.co.uk>",
+  "license": "CC-BY-4.0",
+  "author": "chris barnes <chris@cjbarnes.co.uk>",
   "homepage": "http://www.cjbarnes.co.uk/",
   "devDependencies": {
     "browser-sync": "^2.4.0",
