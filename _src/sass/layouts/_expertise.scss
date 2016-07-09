@@ -130,7 +130,7 @@
 
             a:before,
             span:before {
-                background-position-x: (-70px * $i);
+                background-position: (-70px * $i) 0;
             }
 
         }
