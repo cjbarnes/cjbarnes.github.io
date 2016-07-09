@@ -4299,3 +4299,14 @@ article.illustrated footer .date-unit {
  * @version 1.0.0
  * @package cjbarnes.github.io
    ========================================================================== */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /*** IE 10 and 11 hacks
+ ***/
+    .page-footer-section.latest-posts,
+    .page-footer-section.featured-website {
+        /*** Turn off buggy vertical-flexboxing of homepage latest-posts-and-
+     *** featured-site row.
+     ***/
+        display: block !important;
+    }
+}
