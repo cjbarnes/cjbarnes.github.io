@@ -20,8 +20,10 @@
     display: block;
     margin: 0;
     padding: 0;
-    text-align: center;
     z-index: 3;
+    text-align: center;
+    /* Fix misalignment in non-Safari browsers caused by inline-block */
+    line-height: 0;
 }
 
 .date-unit {

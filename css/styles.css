@@ -1932,11 +1932,13 @@ img::selection {
     left: 0;
     margin: 0;
     padding: 0;
-    list-style: none; 
+    list-style: none;
     /*** All button wrappers.
  ***/
     font-size: 28px;
     font-size: 1.55556rem;
+    /* Fix misalignment in non-Safari browsers caused by inline-block */
+    line-height: 0; 
     text-align: center;
 }
 .button-bar li {
@@ -2164,7 +2166,7 @@ img::selection {
    ========================================================================== */
 .date {
     position: absolute;
-    z-index: 3; 
+    z-index: 3;
     right: 0;
     /* Overlap the bottom of the post header. */
     bottom: -23.5px;
@@ -2176,6 +2178,8 @@ img::selection {
  ***/
     font-size: 28px;
     font-size: 1.55556rem;
+    /* Fix misalignment in non-Safari browsers caused by inline-block */
+    line-height: 0; 
     text-align: center;
 }
 
