@@ -48,9 +48,9 @@
     .gradient {
     /*** Gradient fade between the illustration and the article footer.
      ***/
+        @include linear-gradient(bottom, transparent, 40%, $background-color-illustrated, 100%);
         width: 100%;
         height: $illustration-height;
-        background-image: linear-gradient(to bottom, transparent 40%, $background-color-illustrated 100%);
     }
 
     .illustration {
@@ -91,8 +91,8 @@
     .gradient {
     /*** Gradient fade between the illustration and the masthead bottom.
      ***/
+        @include linear-gradient(bottom, transparent, 55%, $background-color-illustrated, 100%);
         height: $illustration-height-masthead;
-        background-image: linear-gradient(to bottom, transparent 55%, $background-color-illustrated 100%);
     }
 
     .illustration { // @todo needs a fix for IE8?
@@ -191,9 +191,9 @@
             &.right {
             /*** Gradient over right-aligned illustration image.
              ***/
+                @include linear-gradient(left, transparent, 40%, $patina, 100%);
                 left: 50%;
                 margin-left: -10.5%;
-                background-image: linear-gradient(to left, transparent 40%, $patina 100%);
             }
 
         }

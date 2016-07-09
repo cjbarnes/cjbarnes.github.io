@@ -147,11 +147,11 @@
  ***/
 
     .content-section-university .gradient.right {
-        background-image: linear-gradient(to left, transparent 40%, #000 100%);
+        @include linear-gradient(left, transparent, 40%, #000, 100%);
     }
 
     .content-section-small-business .gradient.right {
-        background-image: linear-gradient(to left, transparent 40%, $santa-fe 100%);
+        @include linear-gradient(left, transparent, 40%, $santa-fe, 100%);
     }
 
 }

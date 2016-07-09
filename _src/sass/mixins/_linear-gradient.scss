@@ -1,0 +1,44 @@
+/// Output a CSS gradient with fallback for IE9.
+///
+/// @author cJ barnes http://www.cjbarnes.co.uk/
+///
+/// @param {String} $direction The gradient direction. Can be top, right, bottom
+///                            or left.
+/// @param {Color}  @color1    The starting colour.
+/// @param {Number} @stop1     The starting position.
+/// @param {Color}  @color2    The ending colour.
+/// @param {Number} @stop2     The ending position.
+@mixin linear-gradient($direction, $color1, $stop1, $color2, $stop2) {
+    @if not "color" == type-of($color1) {
+        @error "$color1 must be a color, was #{$color1}";
+    }
+    @if not "color" == type-of($color2) {
+        @error "$color1 must be a color, was #{$color2}";
+    }
+    @if not "number" == type-of($stop1) {
+        @error "$stop1 must be a number, was #{$stop1}";
+    }
+    @if not "number" == type-of($stop2) {
+        @error "$stop2 must be a number, was #{$stop2}";
+    }
+
+    $ie-gradient-type: 0;
+    @if "top" == $direction or "bottom" == $direction {
+        $ie-gradient-type: 0;
+    } @else if "right" == $direction or "left" == $direction {
+        $ie-gradient-type: 1;
+    } @else {
+        @error "$direction must be one of top, right, bottom or left, was #{$direction}";
+    }
+
+    $ie-color1: $color1;
+    $ie-color2: $color2;
+    @if "top" == $direction or "left" == $direction {
+        $ie-color1: $color2;
+        $ie-color2: $color1;
+    }
+
+    // Output.
+    background-image: linear-gradient(to $direction, $color1 $stop1, $color2 $stop2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($ie-color1)}', endColorstr='#{ie-hex-str($ie-color2)}', gradientType='#{$ie-gradient-type}');
+}

@@ -5,7 +5,7 @@ tags:
 - design
 languages:
 - HTML
-illustration: pullquote
+image: /img/pullquote.jpg
 masthead: light
 ---
 
