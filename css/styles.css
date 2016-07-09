@@ -1102,14 +1102,17 @@ details[open] > summary:after,
     /*** Media query: Tablets or wider.
  ***/
     figcaption,
-    blockquote {
+    blockquote,
+    figure.quote cite {
         margin-right: 8.33333%; 
         /* Leave more margin around text. */
         margin-left: 8.33333%;
     }
     .listing-content figcaption,
     .listing-content
-    blockquote {
+    blockquote,
+    .listing-content
+    figure.quote cite {
         margin-right: 0; 
         margin-left: 0;
     }
@@ -1136,6 +1139,11 @@ details[open] > summary:after,
         /*** Line up link boxes with normal paragraphs.
      ***/
         margin-left: 8.33333%;
+    }
+    figure.quote p cite {
+        margin-right: 0; 
+        /* Remove extra margin, which is now duplicated by the containing p. */
+        margin-left: 0;
     }
 }
 
