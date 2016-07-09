@@ -40,6 +40,8 @@ TODO (problem is, I'm never pleased with my own work!)
 
 TODO (value of second opinions, and of client's gut reactions. Hard to evaluate your own design fairly when you've been staring at it for so long)
 
+TODO (style - ise or ize? Oxford comma? tone of voice?)
+
 ## no deadlines
 
 TODO
