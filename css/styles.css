@@ -771,22 +771,37 @@ figure.link a:focus {
     background: #5e8c88;
     color: #f5f5f5;
 }
-figure.link.internal {
-    /*** Different colour for links to other pages of this site.
+figure.link.internal,
+figure.link.anchor {
+    /*** Different colour for links to pages of this site.
      ***/
     background: #dde4e8;
 }
-figure.link.internal a {
+figure.link.internal a,
+figure.link.anchor a {
     color: #738fa0;
 }
 figure.link.internal a:hover,
-figure.link.internal a:focus {
+figure.link.internal a:focus,
+figure.link.anchor a:hover,
+figure.link.anchor a:focus {
     border-color: #738fa0; 
     background: #738fa0;
     color: #f5f5f5;
 }
+.content-section figure.link.anchor:before {
+    /*** Different icon for links to same page.
+         ***/
+    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+}
+.content-section figure.link.anchor a:after {
+    /*** No outwards-facing arrow for this link.
+         ***/
+    display: none;
+}
 figure.link a:active,
-figure.link.internal:active {
+figure.link.internal a:active,
+figure.link.anchor a:active {
     border-color: #c5a184; 
     background: #c5a184;
     /*** Shared active styling for both types of link.
@@ -1045,6 +1060,11 @@ figure.output + figure.highlight code:before {
     background-color: #b1784f;
 }
 .content-section figure.internal:before {
+    content: "";
+    background-color: #738fa0;
+}
+.content-section figure.anchor:before {
+    content: "#";
     background-color: #738fa0;
 }
 
@@ -3014,6 +3034,44 @@ article.illustrated footer .date-unit {
         display: inline;
         width: 100%;
         padding: 0 15px;
+    }
+}
+
+/* ==========================================================================
+   Embed styles
+
+   e.g. Twitter tweets, YouTube videos. Mostly about margins and padding.
+
+   @version 1.0.1
+   @package cjbarnes.github.io
+   ========================================================================== */
+.twitter-tweet {
+    /*** Embedded tweet iframe.
+ ***/
+    margin: 15px;
+    /* Use important to override Twitter's inline styling of embeds */
+    margin-top: 30px !important;
+    margin-top: 1.66667rem !important;
+    margin-bottom: 30px !important;
+    margin-bottom: 1.66667rem !important;
+}
+
+/* Media queries.
+   ========================================================================== */
+@media (min-width: 718px) {
+    /*** Media query: Tablets or wider.
+ ***/
+}
+
+@media (min-width: 1050px) {
+    /*** Media query: Laptops or wider.
+ ***/
+    .twitter-tweet {
+        margin-right: 8.33333%; 
+        /*** Embedded tweet iframe. Remember, the !important for margins-top and
+     *** -bottom will override those properties here.
+     ***/
+        margin-left: 8.33333%;
     }
 }
 
