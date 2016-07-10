@@ -12,16 +12,17 @@ languages:
 PHP's strtotime function makes working with user-inputted dates wonderfully simple...as long as you're American. For the rest of us, here's a simple way to make it correctly interpret dates in *day/month/year* order.
 {:.lead}
 
-<details>
-<summary markdown="0"> background: why strtotime is useful</summary>
+<figure class="link internal" markdown="span">
+[just skip to the code...](#a-solution)
+</figure>
+
+##  why strtotime is useful
 
 In case you're not familiar with it, [`strtotime` is a PHP function](http://php.net/manual/en/function.strtotime.php "PHP documentation on strtotime") that acts as a natural-language parser for dates and times written in English.
 
 The power of `strtotime` is its flexibility. As well as interpreting absolute dates in almost any English format, it also works with relative dates like '+3 days 2 hours', 'now', or even 'next Wednesday'.
 
 This flexibility makes `strtotime` brilliant for handling user input in particular. Why give complicated instructions to your users on how to type in dates, when you can let them type using the format that makes sense to them and interpret the results with just one line of PHP code?
-
-</details>
 
 ## the problem with strtotime (outside the US)
 
