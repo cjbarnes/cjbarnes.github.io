@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Embed styles
+
+   e.g. Twitter tweets, YouTube videos. Mostly about margins and padding.
+
+   @version 1.0.1
+   @package cjbarnes.github.io
+   ========================================================================== */
+
+.twitter-tweet {
+/*** Embedded tweet iframe.
+ ***/
+    margin: $gutter;
+    /* Use important to override Twitter's inline styling of embeds */
+    margin-top: cj-calculate-rem-fallback($line) !important;
+    margin-top: $line !important;
+    margin-bottom: cj-calculate-rem-fallback($line) !important;
+    margin-bottom: $line !important;
+}
+
+
+/* Media queries.
+   ========================================================================== */
+
+@include media-width("normal-size") {
+/*** Media query: Tablets or wider.
+ ***/
+
+}
+
+@include media-width("full-width-content") {
+/*** Media query: Laptops or wider.
+ ***/
+    .twitter-tweet {
+    /*** Embedded tweet iframe. Remember, the !important for margins-top and
+     *** -bottom will override those properties here.
+     ***/
+        @include push;
+        @include pull;
+    }
+
+}
