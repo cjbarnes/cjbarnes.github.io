@@ -3018,6 +3018,44 @@ article.illustrated footer .date-unit {
 }
 
 /* ==========================================================================
+   Embed styles
+
+   e.g. Twitter tweets, YouTube videos. Mostly about margins and padding.
+
+   @version 1.0.1
+   @package cjbarnes.github.io
+   ========================================================================== */
+.twitter-tweet {
+    /*** Embedded tweet iframe.
+ ***/
+    margin: 15px;
+    /* Use important to override Twitter's inline styling of embeds */
+    margin-top: 30px !important;
+    margin-top: 1.66667rem !important;
+    margin-bottom: 30px !important;
+    margin-bottom: 1.66667rem !important;
+}
+
+/* Media queries.
+   ========================================================================== */
+@media (min-width: 718px) {
+    /*** Media query: Tablets or wider.
+ ***/
+}
+
+@media (min-width: 1050px) {
+    /*** Media query: Laptops or wider.
+ ***/
+    .twitter-tweet {
+        margin-right: 8.33333%; 
+        /*** Embedded tweet iframe. Remember, the !important for margins-top and
+     *** -bottom will override those properties here.
+     ***/
+        margin-left: 8.33333%;
+    }
+}
+
+/* ==========================================================================
    Layout styles for page masthead
 
    @version 1.0.0

@@ -1,7 +1,7 @@
 //
 // Import all styling for individual components/partials.
 //
-// @version 1.0.0
+// @version 1.0.1
 // @package cjbarnes.github.io
 //
 
@@ -15,6 +15,7 @@
 @import "nav";
 @import "pager";
 @import "content";
+@import "embeds";
 
 // Components that override generic components.
 @import "masthead";
