@@ -3,7 +3,7 @@
 #
 
 # Version (for cache busting).
-version: 0.1.0
+version: 1.0.0
 
 # Development or production?.
 is_local: false
