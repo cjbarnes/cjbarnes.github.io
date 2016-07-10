@@ -75,10 +75,21 @@ figure.link {
 
     }
 
-    .content-section &.anchor:before {
-    /*** Different icon for links to same page.
-     ***/
-        font-family: $font-family-content;
+    .content-section &.anchor {
+
+        &:before {
+        /*** Different icon for links to same page.
+         ***/
+            font-family: $font-family-content;
+        }
+
+        a:after {
+        /*** No outwards-facing arrow for this link.
+         ***/
+            display: none;
+        }
+
+
     }
 
     a,

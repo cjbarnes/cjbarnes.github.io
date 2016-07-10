@@ -791,8 +791,13 @@ figure.link.anchor a:focus {
 }
 .content-section figure.link.anchor:before {
     /*** Different icon for links to same page.
-     ***/
+         ***/
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+}
+.content-section figure.link.anchor a:after {
+    /*** No outwards-facing arrow for this link.
+         ***/
+    display: none;
 }
 figure.link a:active,
 figure.link.internal a:active,
