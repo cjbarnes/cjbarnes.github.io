@@ -1,6 +1,6 @@
 ---
 title: animating link borders in CSS
-date: 2016-06-30 23:12:00 +0100
+date: 2016-07-10 17:00:00 +0100
 format: tip
 languages:
 - CSS
@@ -8,13 +8,13 @@ languages:
 length: long
 ---
 
-Three trends in webpage link styling seem to have proliferated over recent years:
+Three trends in webpage link styling have proliferated over recent years:
 
 - applying a CSS `border-bottom` instead of the usual `text-decoration: underline` to underline links
 - only underlining links when the mouse is hovered over them
-- using CSS `transition` to animate any colour or other styling changes on hover
+- using CSS transitions to animate in link hover styling
 
-However, combining these three techniques on the same site causes problems if not done carefully.<!--more--> Try hovering over the links below for examples[^1] of what can go wrong with animated border-bottom links. Underneath each example is the CSS that created it.
+Combining these three techniques on the same site causes problems if not done carefully.<!--more--> Try hovering over the links below for examples[^1] of what can go wrong with animated border-bottom links. Underneath each example is the CSS that created it.
 
 ### issue 1: sudden appearance of underlining
 
@@ -133,9 +133,11 @@ a {
 }
 {% endhighlight %}
 
+<figure class="link" markdown="span">
+[get the code](https://gist.github.com/cjbarnes/781d189062e0ad268fa82a4eae74bfb3 "_cj-hover-border.scss gist")
+</figure>
 
 [^1]: These are exaggerated examples so that you can easily see the precise sequence of the animations. Hopefully you wouldn't have seconds-long transitions for links on your own website!
-
 
 <style>
 /* Reset */
