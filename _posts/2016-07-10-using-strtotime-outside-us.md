@@ -26,7 +26,7 @@ This flexibility makes `strtotime` brilliant for handling user input in particul
 
 ## the problem with strtotime (outside the US)
 
-Consider a common English abbreviated date:
+Consider a common abbreviated date:
 
 > **1/12/2015**
 
@@ -48,7 +48,7 @@ This 'solution' robs non-American users of the function's most powerful feature-
 
 ## a solution
 
-There is a solution to the limitations of `strtotime`, if you want it to assume a non-American date order at all times, even when the date contains slashes.
+There is a real solution to the limitations of `strtotime`, if you want it to assume a non-American date order at all times, even when the date contains slashes.
 
 Remember, `strtotime` looks for the slash character as a marker for whether the date is American or not. So all we have to do is replace all slashes in the date string with an alternative character.
 
