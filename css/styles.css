@@ -789,15 +789,14 @@ figure.link.anchor a:focus {
     background: #738fa0;
     color: #f5f5f5;
 }
-figure.link.anchor:before {
+.content-section figure.link.anchor:before {
     /*** Different icon for links to same page.
      ***/
-    content: "#";
     font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
 }
 figure.link a:active,
-figure.link.internal:active,
-figure.link.anchor:active {
+figure.link.internal a:active,
+figure.link.anchor a:active {
     border-color: #c5a184; 
     background: #c5a184;
     /*** Shared active styling for both types of link.
@@ -1056,6 +1055,11 @@ figure.output + figure.highlight code:before {
     background-color: #b1784f;
 }
 .content-section figure.internal:before {
+    content: "";
+    background-color: #738fa0;
+}
+.content-section figure.anchor:before {
+    content: "#";
     background-color: #738fa0;
 }
 

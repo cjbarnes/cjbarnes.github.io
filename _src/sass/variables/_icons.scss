@@ -31,9 +31,11 @@ $language-icons: (
 
 // Icon for figures within content.
 $figure-icons: (
-    "code":  "\e626",
-    "link":  "\e631",
-    "quote": "\201d"
+    "code":     "\e626",
+    "link":     "\e631",
+    "quote":    "\201d",
+    "internal": "\e631",
+    "anchor":   "#"
 );
 
 // CSS Sprite entries for skills (in sequence).

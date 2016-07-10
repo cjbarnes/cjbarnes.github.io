@@ -75,16 +75,15 @@ figure.link {
 
     }
 
-    &.anchor:before {
+    .content-section &.anchor:before {
     /*** Different icon for links to same page.
      ***/
-        content: "#";
         font-family: $font-family-content;
     }
 
     a,
-    &.internal,
-    &.anchor {
+    &.internal a,
+    &.anchor a {
         &:active {
         /*** Shared active styling for both types of link.
          ***/
