@@ -13,7 +13,7 @@ PHP's strtotime function makes working with user-inputted dates wonderfully simp
 {:.lead}
 
 <figure class="link internal" markdown="span">
-[just skip to the code...](#a-solution)
+[just skip to the solution...](#a-solution)
 </figure>
 
 ##  why strtotime is useful
@@ -62,7 +62,7 @@ The easiest way to do this is to include this helper function---called `world_st
  * `strtotime()` interprets a date with slashes as American - i.e. m/d/y. So we
  * replace all slashes with dashes, to stop it from doing this.
  *
- * @author cJ barnes <mail@cjbarnes.co.uk>
+ * @author cJ barnes <chris@cjbarnes.co.uk>
  * 
  * @param string $time A date/time string.
  * @param int    $now  Optional. The timestamp which is used as a base for the
@@ -81,3 +81,7 @@ function world_strtotime($time, $now = null) {
 The `world_strtotime` function will catch dates in *day/month/year* format and convert them to *day-month-year*, before passing them on to the standard PHP `strtotime`. It accepts all the same arguments as `strtotime` and uses them in the same way.
 
 With this approach, you get access to the full power of `strtotime` without having to make exceptions for dates with slashes in them.
+
+<figure class="link" markdown="span">
+[get the code](https://gist.github.com/cjbarnes/f2b9ee54ef93ff41c0c1b8116b289ec8 "Gist: world-strtotime.php")
+</figure>
