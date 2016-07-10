@@ -771,22 +771,33 @@ figure.link a:focus {
     background: #5e8c88;
     color: #f5f5f5;
 }
-figure.link.internal {
-    /*** Different colour for links to other pages of this site.
+figure.link.internal,
+figure.link.anchor {
+    /*** Different colour for links to pages of this site.
      ***/
     background: #dde4e8;
 }
-figure.link.internal a {
+figure.link.internal a,
+figure.link.anchor a {
     color: #738fa0;
 }
 figure.link.internal a:hover,
-figure.link.internal a:focus {
+figure.link.internal a:focus,
+figure.link.anchor a:hover,
+figure.link.anchor a:focus {
     border-color: #738fa0; 
     background: #738fa0;
     color: #f5f5f5;
 }
+figure.link.anchor:before {
+    /*** Different icon for links to same page.
+     ***/
+    content: "#";
+    font-family: Aleo, Lato, "Open Sans", "Source Sans Pro", "Helvetica Neue", sans-serif;
+}
 figure.link a:active,
-figure.link.internal:active {
+figure.link.internal:active,
+figure.link.anchor:active {
     border-color: #c5a184; 
     background: #c5a184;
     /*** Shared active styling for both types of link.

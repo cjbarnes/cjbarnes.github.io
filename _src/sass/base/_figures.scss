@@ -55,8 +55,9 @@ figure.link {
 
     }
 
-    &.internal {
-    /*** Different colour for links to other pages of this site.
+    &.internal,
+    &.anchor {
+    /*** Different colour for links to pages of this site.
      ***/
         background: $background-color-link-secondary;
 
@@ -74,8 +75,16 @@ figure.link {
 
     }
 
+    &.anchor:before {
+    /*** Different icon for links to same page.
+     ***/
+        content: "#";
+        font-family: $font-family-content;
+    }
+
     a,
-    &.internal {
+    &.internal,
+    &.anchor {
         &:active {
         /*** Shared active styling for both types of link.
          ***/
