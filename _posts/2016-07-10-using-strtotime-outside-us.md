@@ -12,6 +12,8 @@ languages:
 PHP's strtotime function makes working with user-inputted dates wonderfully simple...as long as you're American. For the rest of us, here's a simple way to make it correctly interpret dates in *day/month/year* order.
 {:.lead}
 
+<!--more-->
+
 <figure class="link anchor" markdown="span">
 [just skip to the solution...](#a-solution)
 </figure>
