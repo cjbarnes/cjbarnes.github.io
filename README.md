@@ -65,32 +65,69 @@ Technically GitHub could do Step 1 for me as well, since Jekyll is capable of co
 
 ## Project structure
 
-If you're familiar with Jekyll (see the excellent [Jekyll Docs](https://jekyllrb.com/docs/home/) if you don't), you already know about Includes, Layouts, Templates, Posts, and Pages, and you know where they live. You know that the build process compiles to a folder called `_site/`. You know about Jekyll Plugins, and you know [which plugins are allowed on GitHub Pages](https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/). So I'll focus on the things that are non-standard or less obvious.
+If you're familiar with Jekyll (see the excellent [Jekyll Docs](https://jekyllrb.com/docs/home/) if you're not), you already know about Includes, Layouts, Posts, and Pages, and you know where they live. You know that the build process compiles to a folder called `_site/`. You know about Jekyll Plugins, and you know [which plugins are allowed on GitHub Pages](https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/). So I'll focus on the things that are non-standard or less obvious.
 
-### Two `config.yml` files
+### Two `_config.yml` files
 
-TODO (and mention the revised Jekyll command!)
+As with all Jekyll sites, there is a settings file called [`_config.yml`](_config.yml) that directs Jekyll on how to run the build process---both the local and GitHub Pages versions. However, there is also [`_config_dev.yml`](_config_dev.yml), which contains additional settings for the local build process only. These force Jekyll to emulate GitHub's constraints and default build settings. The only other difference between the two configurations is that posts on the local version are built even if they are scheduled for publication later.
+
+`_config_dev.yml` should never be used on its own---it should always be used as an override for `_config.yml`. So to manually trigger a build process (assuming you don't want to just let gulp handle it), the command is:
+
+> `jekyll build -q --config _config_dev.yml,_config.yml`
 
 ### `_pages` folder
 
-TODO: all in one place, with permalink, rather than separate index.htmls. Tidier, ensures parity with posts. The two exceptions are / and /blog/---explaining why.
+Maybe I'm being obsessively tidy, but I like the fact that all Jekyll blog posts are kept in [one folder](_posts/ "The posts folder"). So I've used the same approach with the other pages on the site. Instead of arranging the pages in a folder structure that matches the pages' web addresses, I have [a single `_pages` folder](_pages/) that contains all pages on the site. Then I use the `permalink` property in each page's YAML front matter to determine the page's web address.
+
+There are two main exceptions to this:
+
+- [the homepage](index.html)
+- [the blog index page](blog/index.html)---because [setting a permalink on a blog page breaks pagination](https://jekyllrb.com/docs/pagination/ "Jekyll Docs -- Pagination")
 
 ### Styles and scripts
 
-TODO: `_src`
+All of the precompiled website files---i.e. the Sass and JavaScript---live in the [`_src` folder](_src/).
 
-TODO: plugins.js and vendor/
+The Sass file structure is diffuse but not terribly interesting---like the Sass on most projects, the naming and sequence of component files and folders are somewhat arbitrary. The key things worth knowing about before looking:
 
-TODO: `_shame.scss`
+- The 'master' file that loads everything else is [`styles.scss`](_src/sass/styles.scss).
+- Two other separate CSS files are compiled, which are then added to the page via JavaScript: [aleo-font.scss](_src/sass/aleo-font.scss) (which loads the Aleo webfont, used for the site's body text) and [blog-index-sidebar.scss](_src/sass/blog-index-sidebar.scss) (which styles the Ajax-loaded search column on the blog index page).
+- Blocks of CSS to be compiled and included in individual pages as inline styles live in the [`sass-includes` folder](_src/sass/sass-includes/).
+- All Sass mixins and functions live, unsurprisingly, in the [`mixins` folder](_src/sass/mixins/) and [`functions` folder](_src/sass/functions/).
+- All browser hacks and other awkward workarounds go in [`_shame.scss`](_src/sass/_shame.scss)---hopefully not for long!
 
-TODO: inline scripts and styles
+By comparison, the site's JavaScript is both lighter and a simpler structure. Every large script written by someone else has its own `.js` file under the [`_vendor` folder](_src/js/vendor/). The build process concatenates these with [`plugins.js`](_src/js/plugins.js) (which contains smaller snippets from other developers, e.g. light polyfills) and then finally [`main.js`](_src/js/main.js), which contains all my bespoke site-wide JavaScript.
 
-TODO: some uses of Ajax
+As with the Sass, there is a [`js-includes` folder](_src/js/js-includes/) containing blocks of JavaScript to be included as inline scripts in individual pages.
 
 ### Data
 
-TODO
+As well as the standard pages and posts, there is additional structured content stored as YAML in the [`_data` folder](_data/). These sets of data are used to construct the main navigation, my portfolio page, and the programming language filters in the blog.
+
+Each data set lives in its own `.yml` file and has an explanatory comment; have a look to see what each is for.
 
 ### YAML front matter
 
-TODO
+As well as the standard Jekyll front matter---title, date, layout, permalink, and so on---there are additional options used on this site for page design and search purposes.
+
+Here are the most important front matter additions:
+
+- **`image`:** the name and path of the large masthead image for the page
+- **`format` and `languages`:** taxonomies used to filter posts on the blog index page, using the options in the left-hand column.
+- **`stylesheet`:** if this page or post has custom CSS, it will be loaded from the [`_includes/css/` folder](_includes/css/) into a `<style>` element. This value is the filename of the include to be loaded.
+- **`script`:** as `stylesheet`, but with custom JavaScript instead of CSS (and, predictably, the [`_includes/js/` folder](_includes/js/)).
+- **`sortorder`:** for pages that appear on a section index (e.g. [what I do](http://www.cjbarnes.co.uk/whatido/)), this determines which order the pages should appear in.
+
+## Browser support
+
+The website has been tested on Internet Explorer 9–11, and the latest versions of Edge, Chrome, Safari, and Firefox. Everything should work on those browsers, with some minor layout issues or changes (the biggest being that the main content and search columns on the blog index page are reversed in IE9, because flexbox).
+
+I've also tested on iOS Safari (latest version)---both iPhone and iPad sizes.
+
+[Outdated Browser](http://outdatedbrowser.com/en) is used to exclude IE8- and other ancient browsers that can't cope with the site.
+
+## Accessibility
+
+The site's accessibility isn't where I want it to be yet. I plan to do a deep dive into current accessibility best practice for a blog post or three, and use my own site's upgrading as a case study for that. (In particular, I want to get the site's ARIA support as close to perfect as I can.)
+
+Hopefully I will have a lot more to say in this section soon!
