@@ -73,7 +73,6 @@ defaults:
       path: ""
     values:
       layout: "standard"
-      author: chris barnes
   -
     scope:
       path: ""
