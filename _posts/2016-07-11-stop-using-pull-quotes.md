@@ -29,9 +29,9 @@ If you haven't heard the term before, pull quotes are short excerpts of text fro
 
 Let's look at a typical example of a web-based pull quote, taken from a [Macworld article by the excellent Dan Moren](http://www.macworld.com/article/3090532/ios/its-the-ecosystem-stupid-why-apples-latest-oss-complete-each-other.html "article containing an example of a pull quote") of the equally excellent [Six Colours website](http://sixcolours.com/):
 
-<figure>
-![Screenshot of the Macworld article. The pull quote is directly below the paragraph it is drawn from. As a result, the screen only has room to show about three paragraphs at once instead of four.](/images/blog/macworld-pull-quote-wide.jpg)
-<figcaption>A pull quote in a [Macworld article](http://www.macworld.com/article/3090532/ios/its-the-ecosystem-stupid-why-apples-latest-oss-complete-each-other.html "article containing an example of a pull quote"), on a normal-sized screen</figcaption>
+<figure markdown="0">
+<img src="/img/blog/macworld-pull-quote-wide.jpg" srcset="/img/blog/macworld-pull-quote-wide@2x.jpg 2x, /img/blog/macworld-pull-quote-wide.jpg" width="944" height="670" alt="Screenshot of the Macworld article. The pull quote is directly below the paragraph it is drawn from. As a result, the screen only has room to show about three paragraphs at once instead of four.">
+<figcaption>A pull quote in a <a href="http://www.macworld.com/article/3090532/ios/its-the-ecosystem-stupid-why-apples-latest-oss-complete-each-other.html" title="article containing an example of a pull quote">Macworld article</a>, on a normal-sized screen</figcaption>
 </figure>
 
 Notice the ways in which this pull quote fails to meet the ideals we listed earlier:
@@ -48,18 +48,17 @@ Online pull quotes don't just fail to do their jobs; they actively get in the wa
 
 Consider how our example looks on a mobile phone:
 
-<figure>
-![Screenshot of the Macworld article on a mobile phone. Now the pull quote takes up a third of the visible page.](/images/blog/macworld-pull-quote-mobile.jpg)
+<figure markdown="0">
+<img src="/img/blog/macworld-pull-quote-mobile.jpg" srcset="/img/blog/macworld-pull-quote-mobile@2x.jpg 2x, /img/blog/macworld-pull-quote-mobile.jpg" width="250" height="410" alt="Screenshot of the Macworld article on a mobile phone. Now the pull quote takes up a third of the visible page.">
 <figcaption>The same pull quote on an iPhone 6</figcaption>
 </figure>
 
 Now the pull quote takes up so much space, it's graduated from 'irrelevant' to 'in the way'. Between the pull quote itself and the sentence it repeats verbatim, it uses up a full 50% of the screen. At best this is unhelpful.
 
-But even the mobile web browsing case is better than many alternatives. Consider situations where you are reading just the text of an article, without even seeing its design[^2
-]. Here's that same page viewed in [Reeder](http://reederapp.com/ios/), my favourite RSS reader app:
+But even the mobile web browsing case is better than many alternatives. Consider situations where you are reading just the text of an article, without even seeing its design[^2]. Here's that same page viewed in [Reeder](http://reederapp.com/ios/), my favourite RSS reader app:
 
-<figure>
-![Screenshot of the Macworld article in the Reeder app. Now the pull quote takes up a third of the visible page.](/images/blog/macworld-pull-quote-reeder.jpg)
+<figure markdown="0">
+<img src="/img/blog/macworld-pull-quote-reeder.jpg" srcset="/img/blog/macworld-pull-quote-reeder@2x.jpg 2x, /img/blog/macworld-pull-quote-reeder.jpg" width="400" height="711" alt="Screenshot of the Macworld article in the Reeder app. Now the pull quote takes up a third of the visible page.">
 <figcaption>The same pull quote in Reeder</figcaption>
 </figure>
 
@@ -68,9 +67,8 @@ Because all the text is the same size and colour, **there's no obvious way to te
 Surely that's the worst case scenario for pull quotes spoiling webpages. Except no, it isn't. The actual worst case scenario is this:
 
 <figure markdown="0">
-<audio src="/media/macworld-pull-quote-screenreader.m4a">
+<audio src="/media/macworld-pull-quote-screenreader.m4a" controls></audio>
 <figcaption>The same pull quote and surrounding text, read aloud by a screen reader</figcaption>
-</audio>
 </figure>
 
 This is what a blind or visually impaired user will hear as they 'read' (really 'listen to') the page. Here the repeated sentence is even more jarring, and it's impossible to distinguish between the original text and its pull quote version. In fact, since the two are identical, **a blind user actually cannot tell where this sentence was actually supposed to be**. In this case, that's not going to affect the article's meaning. But it's not hard to imagine a much worse result.
@@ -93,15 +91,15 @@ Hopefully you're now convinced of the harm caused by pull quotes on the web, as 
 
 <style>
 .content-section .pullquote {
-	float: right;
-	width: 33%;
-	min-width: 10em;
-	margin: 0;
-	padding: 15px;
-	padding: 0.83333rem;
-	font-size: 2em;
-	line-height: 1.3;
-	color: #b1784f;
-	background: transparent;
+    float: right;
+    width: 33%;
+    min-width: 10em;
+    margin: 0;
+    padding: 15px;
+    padding: 0.83333rem;
+    font-size: 2em;
+    line-height: 1.3;
+    color: #b1784f;
+    background: transparent;
 }
 </style>
