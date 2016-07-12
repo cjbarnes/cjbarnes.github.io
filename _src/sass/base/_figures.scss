@@ -141,6 +141,7 @@ figure.media {
     img,
     audio {
         display: block;
+        height: auto; // for responsive max-width images while preserving aspect ratio.
         max-width: 100%;
         margin: 0 auto;
     }
