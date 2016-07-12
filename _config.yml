@@ -25,6 +25,9 @@ facebook:
   admins: 1086926316
 google_site_verification:
 
+# What timezone to use when calculating dates (important for post publish dates)
+timezone: Europe/London
+
 # Number of articles to show in RSS feed
 feed_limit: 20
 
