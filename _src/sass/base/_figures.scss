@@ -3,7 +3,7 @@
 
    Includes special block-level tags e.g. blockquote, pre, address.
 
-   @version 1.0.0
+   @version 1.0.2
    @package cjbarnes.github.io
    ========================================================================== */
 
@@ -128,6 +128,30 @@ figure.quote {
     /*** Citation marker.
      ***/
         content: "—";
+    }
+
+}
+
+figure.image,
+figure.media {
+/*** Image, audio, and video figures.
+ ***/
+    padding-top: 0;
+
+    img,
+    audio {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    figcaption,
+    cite {
+        text-align: center;
     }
 
 }
@@ -277,6 +301,12 @@ figure.output {
 
         }
 
+    }
+
+    &.image,
+    &.media {
+        @include rem("padding-bottom", $line);
+        padding-top: 0;
     }
 
     // Icon content and colours.
