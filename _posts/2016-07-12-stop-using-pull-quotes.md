@@ -1,6 +1,6 @@
 ---
 title: stop using pull quotes!
-date: 2016-07-11 23:03:00 +0100
+date: 2016-07-12 18:16:00 +0100
 format: thoughts
 tags:
 - design
