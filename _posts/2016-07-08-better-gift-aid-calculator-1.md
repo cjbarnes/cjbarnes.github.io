@@ -15,6 +15,10 @@ The second part of this tutorial will cover the thing that makes my Gift Aid cal
 
 *(NB: this Gift Aid calculator script support all modern browsers as well as Internet Explorer 8 and above.)*
 
+<figure class="link" markdown="span">
+[just get the code...](https://github.com/cjbarnes/gift-aid-calculator "Gift Aid calculator project on GitHub")
+</figure>
+
 ## the basic structure
 
 Our script will need three main functions:
@@ -599,6 +603,10 @@ The most unexpected thing about our `initGiftAidCalculator()` implementation is 
 * * *
 
 Now we have a complete, working Gift Aid calculator script! It's available in both [vanilla JavaScript](https://github.com/cjbarnes/gift-aid-calculator/blob/master/src/gift-aid-calculator.js "the finished script file on GitHub - no dependencies") and [jQuery-dependent](https://github.com/cjbarnes/gift-aid-calculator/blob/master/src/jquery-gift-aid-calculator.js "the finished script file on GitHub - jQuery version") versions on [GitHub](https://github.com/cjbarnes/gift-aid-calculator "Gift Aid calculator project on GitHub"), along with minified versions and example HTML.
+
+<figure class="link" markdown="span">
+[get the code](https://github.com/cjbarnes/gift-aid-calculator "Gift Aid calculator project on GitHub")
+</figure>
 
 **All that's left to do is our Gift Aid calculator design---coming soon in part two of this tutorial...**
 
