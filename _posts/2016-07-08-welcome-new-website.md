@@ -27,7 +27,7 @@ This post will give a brief overview of how the website is set up, why it's stru
 
 This is a [Jekyll](https://jekyllrb.com) website hosted on [GitHub Pages](https://pages.github.com/). I've used several different [CMSs](https://en.wikipedia.org/wiki/Content_management_system "Wikipedia: content management system") over the years, but this is my first site using a static CMS[^1]. I've enjoyed the different approach. Of course, Jekyll itself is a big part of what I've appreciated: I've found it to be both powerful and simple, with [superb documentation](https://jekyllrb.com/docs/home/ "Jekyll's documentation").
 
-Most of the site's content is written in [Markdown](https://daringfireball.net/projects/markdown/). I like writing in Markdown---it's simpler, easier to read, and much quicker than HTML, and it's much less erratic and constraining than any [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG "Wikipedia: WYSIWYG") web editor. The fact that it works well with so many different writing apps---including [Byword](https://bywordapp.com), my personal favourite and the app I'm typing into right now---is the icing on the cake.
+Most of the site's content is written in [Markdown](https://daringfireball.net/projects/markdown/). I like writing in Markdown---it's concise, easy to read, quick to write, and much less erratic and constraining than any [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG "Wikipedia: WYSIWYG") web editor. The fact that it works well with so many different writing apps---including [Byword](https://bywordapp.com), my personal favourite and the app I'm typing into right now---is the icing on the cake.
 
 I'll leave the rest of the nerdy details for a footnote (this one[^2]).
 
@@ -44,7 +44,7 @@ None of this means that I'll neglect the [blog](/blog/) part of the site; I have
 
 ## my code
 
-All of the code that goes into this website can be found [on GitHub](../ "GitHub repo for this website"). I recommend starting with the [readme](../README.md "README.md") for specifics on how I've structured the code and where to look first.
+All of the code that goes into this website can be found <a href="{{ site.github.repository_url }}" title="GitHub repo for this website">on GitHub</a>. I recommend starting with the <a href="{{ site.github.repository_url }}/tree/master/README.md" title="README.md">readme</a> for specifics on how I've structured the code and where to look first.
 
 Everything on the site that was written by me has been released under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). So please do 'borrow' anything you find here that's useful, and make full use of the code examples in my blog posts. Just remember to link back to where you found it. And if you want to use a photo from this site, please check the [credits and thank-yous](/credits/) page first to make sure you don't unwittingly steal something that has a more restrictive license.
 
