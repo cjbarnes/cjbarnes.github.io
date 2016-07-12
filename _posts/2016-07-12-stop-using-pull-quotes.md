@@ -23,7 +23,7 @@ Unfortunately, **none of these useful functions are filled by pull quotes on web
 "Pull quotes are short excerpts of text from an article, repeated in a large and stylistically different block of text"
 </figure>
 
-If you haven't heard the term before, pull quotes are short excerpts of text from an article, repeated in a large and stylistically different block of text[^1]. Part of the previous sentence is repeated nearby in large pink text; that is an example of a pull quote.
+If you haven't heard the term before, pull quotes are short excerpts of text from an article, repeated in a large and stylistically different block of text[^1]. Part of the previous sentence is repeated nearby in large brown text; that is an example of a pull quote.
 
 ## the failure of pull quotes
 
