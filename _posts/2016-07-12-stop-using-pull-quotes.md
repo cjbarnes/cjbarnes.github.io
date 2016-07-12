@@ -71,7 +71,7 @@ Surely that's the worst case scenario for pull quotes spoiling webpages. Except 
 <figcaption>The same pull quote and surrounding text, read aloud by a screen reader</figcaption>
 </figure>
 
-This is what a blind or visually impaired user will hear as they 'read' (really 'listen to') the page. Here the repeated sentence is even more jarring, and it's impossible to distinguish between the original text and its pull quote version. In fact, since the two are identical, **a blind user actually cannot tell where this sentence was actually supposed to be**. In this case, that's not going to affect the article's meaning. But it's not hard to imagine a much worse result.
+This is what a blind or visually impaired user will hear as they 'read' (really 'listen to') the page. Here the repeated sentence is even more jarring, and it's impossible to distinguish between the original text and its pull quote version. In fact, since the two are identical, **a blind user cannot tell where this sentence was actually supposed to be**. In this case, that's not going to affect the article's meaning. But it's not hard to imagine a much worse result.
 
 One very plausible outcome: imagine a political news article where part of a speech by the Prime Minister is used as a pull quote. The PM's words are now taken out of the flow of the main text and, from a blind user's perspective, could appear anywhere. Imagine if they end up inserted into the middle of a comment by the PM's political opponent! That would drastically affect the meaning of the article, and could leave the 'reader' utterly misinformed about an important issue that affects them.
 
