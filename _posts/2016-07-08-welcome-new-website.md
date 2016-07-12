@@ -56,25 +56,25 @@ Outside the blog, I intend to progressively add and improve features of the site
 
 [^1]: If you've followed this footnote, you probably need me to go a bit slower with the technical jargon! Here goes:
 
-A CMS (content management system) assembles your website for you from its different parts. Consider this webpage as an example: the large white section in the middle of the page (including the text you're reading now) is unique to this webpage; you can't find it anywhere else. We call this unique part of a webpage the 'content'.
+    A CMS (content management system) assembles your website for you from its different parts. Consider this webpage as an example: the large white section in the middle of the page (including the text you're reading now) is unique to this webpage; you can't find it anywhere else. We call this unique part of a webpage the 'content'.
 
-However, above and below the content are areas that are the same on every page of the website; from the links and logo in the header to my contact details in the footer. (If you use PowerPoint or InDesign, these areas are like the 'master' in  those programs.) Areas that are shared by many pages are called different things depending on the CMS, but for now let's call them the 'template'.
+    However, above and below the content are areas that are the same on every page of the website; from the links and logo in the header to my contact details in the footer. (If you use PowerPoint or InDesign, these areas are like the 'master' in  those programs.) Areas that are shared by many pages are called different things depending on the CMS, but for now let's call them the 'template'.
 
-So every webpage is a mixture of two components---content and template. The CMS's job is to assemble each webpage from its components and send it to the user when you click it in Google or type in its web address.
+    So every webpage is a mixture of two components---content and template. The CMS's job is to assemble each webpage from its components and send it to the user when you click it in Google or type in its web address.
 
-The CMS can assemble webpages in one of two ways:
+    The CMS can assemble webpages in one of two ways:
 
-- it can wait until you ask for a webpage, then assemble it and send it to you straight away (this is what a **dynamic CMS** such as [WordPress](https://wordpress.org/) does)
-- it can pre-assemble all the webpages on a site every time a piece of content or template changes, then store them until needed (this is what a **static CMS** like [Jekyll](https://jekyllrb.org/) does)
+    - it can wait until you ask for a webpage, then assemble it and send it to you straight away (this is what a **dynamic CMS** such as [WordPress](https://wordpress.org/) does)
+    - it can pre-assemble all the webpages on a site every time a piece of content or template changes, then store them until needed (this is what a **static CMS** like [Jekyll](https://jekyllrb.org/) does)
 
-There are many advantages to static CMSs, but the big disadvantage is **they can't react to the user** (usually anyway). Most websites show different content to different users---for example, Google shows different search results depending on what you type in, Dropbox shows a different list of files depending on who you are logged in as, and Amazon shows a different shopping basket to each user no matter what part of the site they are on. None of this is possible with a static CMS.
+    There are many advantages to static CMSs, but the big disadvantage is **they can't react to the user** (usually anyway). Most websites show different content to different users---for example, Google shows different search results depending on what you type in, Dropbox shows a different list of files depending on who you are logged in as, and Amazon shows a different shopping basket to each user no matter what part of the site they are on. None of this is possible with a static CMS.
 
-So static CMSs aren't a realistic option for most website owners, including all of my clients to date. But for a very limited type of website (such as this one), a website that uses a static CMS can be faster, safer, less expensive to run, and easier to work with.
+    So static CMSs aren't a realistic option for most website owners, including all of my clients to date. But for a very limited type of website (such as this one), a website that uses a static CMS can be faster, safer, less expensive to run, and easier to work with.
 
 [^2]: The site's CSS is compiled from [Sass](http://sass-lang.com). I prefer [Less](http://lesscss.org) for many reasons (blog post to come, eventually), not least its truly awesome documentation. But when I started this project I needed more Sass experience, so Sass it is. I don't use a Sass framework, and I don't include browser prefixes in my Sass---I let the [Autoprefixer](https://github.com/postcss/autoprefixer) post-processor handle that.
 
-The site's JavaScript also doesn't use a framework---[no jQuery](http://youmightnotneedjquery.com "You Might Not Need jQuery reference resource"), no nothing. I usually find jQuery to be overkill for one-developer projects, especially given the vastly better JavaScript standards support of Internet Explorer/Edge in the last few years. The various script files that are used by the site are concatenated into one file and minified, and that's it.
+    The site's JavaScript also doesn't use a framework---[no jQuery](http://youmightnotneedjquery.com "You Might Not Need jQuery reference resource"), no nothing. I usually find jQuery to be overkill for one-developer projects, especially given the vastly better JavaScript standards support of Internet Explorer/Edge in the last few years. The various script files that are used by the site are concatenated into one file and minified, and that's it.
 
 [^3]: [One of my first posts](/blog/using-strtotime-outside-us-2016-07-10/ "using strtotime outside the US") outlines a tip that wouldn't appear on the average web blog because it deals with a problem that only affects developers outside the US. [Another early post](/blog/better-gift-aid-calculator-1-2016-07-08/ "better Gift Aid calculator, part 1") is a tutorial about dealing with [Gift Aid](https://www.gov.uk/donating-to-charity/gift-aid), which you're only likely to look at in-depth if you work for a charity (or an accountant) in the UK.
 
-Hopefully these two examples of doing something different will be joined by many more in the coming months.
+    Hopefully these two examples of doing something different will be joined by many more in the coming months.
