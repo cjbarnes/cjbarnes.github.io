@@ -830,6 +830,31 @@ figure.quote cite:before {
     content: "—";
 }
 
+figure.image,
+figure.media {
+    /*** Image, audio, and video figures.
+ ***/
+    padding-top: 0;
+}
+figure.image img,
+figure.image audio,
+figure.media img,
+figure.media audio {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+figure.image audio,
+figure.media audio {
+    width: 100%;
+}
+figure.image figcaption,
+figure.image cite,
+figure.media figcaption,
+figure.media cite {
+    text-align: center;
+}
+
 figure.highlight {
     padding-right: 15px;
     padding-right: 0.83333rem;
@@ -1050,6 +1075,12 @@ figure.output + figure.highlight code:before {
     font-size: 2.22222rem;
     line-height: 0.75;
     font-family: "cj-icons";
+}
+.content-section figure.image,
+.content-section figure.media {
+    padding-top: 0; 
+    padding-bottom: 30px;
+    padding-bottom: 1.66667rem;
 }
 .content-section figure.link:before {
     content: "";

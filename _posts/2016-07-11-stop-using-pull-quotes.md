@@ -29,7 +29,7 @@ If you haven't heard the term before, pull quotes are short excerpts of text fro
 
 Let's look at a typical example of a web-based pull quote, taken from a [Macworld article by the excellent Dan Moren](http://www.macworld.com/article/3090532/ios/its-the-ecosystem-stupid-why-apples-latest-oss-complete-each-other.html "article containing an example of a pull quote") of the equally excellent [Six Colours website](http://sixcolours.com/):
 
-<figure markdown="0">
+<figure class="image" markdown="0">
 <img src="/img/blog/macworld-pull-quote-wide.jpg" srcset="/img/blog/macworld-pull-quote-wide@2x.jpg 2x, /img/blog/macworld-pull-quote-wide.jpg" width="944" height="670" alt="Screenshot of the Macworld article. The pull quote is directly below the paragraph it is drawn from. As a result, the screen only has room to show about three paragraphs at once instead of four.">
 <figcaption>A pull quote in a <a href="http://www.macworld.com/article/3090532/ios/its-the-ecosystem-stupid-why-apples-latest-oss-complete-each-other.html" title="article containing an example of a pull quote">Macworld article</a>, on a normal-sized screen</figcaption>
 </figure>
@@ -48,7 +48,7 @@ Online pull quotes don't just fail to do their jobs; they actively get in the wa
 
 Consider how our example looks on a mobile phone:
 
-<figure markdown="0">
+<figure class="image" markdown="0">
 <img src="/img/blog/macworld-pull-quote-mobile.jpg" srcset="/img/blog/macworld-pull-quote-mobile@2x.jpg 2x, /img/blog/macworld-pull-quote-mobile.jpg" width="250" height="410" alt="Screenshot of the Macworld article on a mobile phone. Now the pull quote takes up a third of the visible page.">
 <figcaption>The same pull quote on an iPhone 6</figcaption>
 </figure>
@@ -57,7 +57,7 @@ Now the pull quote takes up so much space, it's graduated from 'irrelevant' to '
 
 But even the mobile web browsing case is better than many alternatives. Consider situations where you are reading just the text of an article, without even seeing its design[^2]. Here's that same page viewed in [Reeder](http://reederapp.com/ios/), my favourite RSS reader app:
 
-<figure markdown="0">
+<figure class="image" markdown="0">
 <img src="/img/blog/macworld-pull-quote-reeder.jpg" srcset="/img/blog/macworld-pull-quote-reeder@2x.jpg 2x, /img/blog/macworld-pull-quote-reeder.jpg" width="400" height="711" alt="Screenshot of the Macworld article in the Reeder app. Now the pull quote takes up a third of the visible page.">
 <figcaption>The same pull quote in Reeder</figcaption>
 </figure>
@@ -66,7 +66,7 @@ Because all the text is the same size and colour, **there's no obvious way to te
 
 Surely that's the worst case scenario for pull quotes spoiling webpages. Except no, it isn't. The actual worst case scenario is this:
 
-<figure markdown="0">
+<figure class="media" markdown="0">
 <audio src="/media/macworld-pull-quote-screenreader.m4a" controls></audio>
 <figcaption>The same pull quote and surrounding text, read aloud by a screen reader</figcaption>
 </figure>

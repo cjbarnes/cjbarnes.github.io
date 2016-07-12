@@ -132,6 +132,30 @@ figure.quote {
 
 }
 
+figure.image,
+figure.media {
+/*** Image, audio, and video figures.
+ ***/
+    padding-top: 0;
+
+    img,
+    audio {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    figcaption,
+    cite {
+        text-align: center;
+    }
+
+}
+
 figure.highlight {
 /*** Codeblocks.
  ***/
@@ -277,6 +301,12 @@ figure.output {
 
         }
 
+    }
+
+    &.image,
+    &.media {
+        @include rem("padding-bottom", $line);
+        padding-top: 0;
     }
 
     // Icon content and colours.
