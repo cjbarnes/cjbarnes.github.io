@@ -52,7 +52,7 @@ Everything on the site that was written by me has been released under a [Creativ
 
 This is a web designer's website, so of course the blog will heavily feature tips, tutorials, and thoughts related to working on the web. But I'm under no illusions about the world needing *yet another* generic blog about web development. I think I have different things to write about than the average developer, and that's what I intend to do[^3]. 
 
-Outside the blog, I intend to progressively add and improve features of the site over the years. I planned this site to make it easy for me to experiment with new ideas, techniques, and technologies. A developer's website isn't just a blog or a brochure, it's also a playground and learning space for new ideas, techniques, and technologies. Now that the long journey towards finishing my site is over, I can't wait to start 'playing'...
+Outside the blog, I intend to progressively add and improve features of the site over the years. I planned this site to make it easy for me to experiment. A developer's website isn't just a blog or a brochure, it's also a playground and learning space for new ideas, techniques, and technologies. Now that the long journey towards finishing my site is over, I can't wait to start 'playing'...
 
 [^1]: If you've followed this footnote, you probably need me to go a bit slower with the technical jargon! Here goes:
 
