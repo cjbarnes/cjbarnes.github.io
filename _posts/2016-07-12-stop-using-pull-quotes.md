@@ -81,7 +81,7 @@ Hopefully you're now convinced of the harm caused by pull quotes on the web, as 
 
 [^1]: I started drafting this post over a year ago. (I would've finished it earlier but I didn't have a website to put it on!) In that initial spell of writing, I believe I pulled this definition verbatim from a webpage. However I can't find the original source in my notes or on Google. In the absence of a citation, please just assume someone cleverer and better informed than me wrote it...
 
-[^2]: Common examples of this use case include RSS readers, apps like Flipboard, browser tools like Safari Reader, and Apple News and similar services. Not to mention copy-and-pasting a webpage's text into an email or document, or printing it. In all these cases, the user will see you text but won't see all or part of the design it normally sits within.
+[^2]: Common examples of this use case include RSS readers, apps like Flipboard, browser tools like Safari Reader, and Apple News and similar services. Not to mention copy-and-pasting a webpage's text into an email or document, or printing it. In all these cases, the user will see your text but won't see all or part of the design it normally sits within.
 
 [^3]: Throughout this article, I've ignored a secondary purpose of pull quotes: *aesthetics*. Put simply, pull quotes look nice, and that helps to establish a more attractive and stylish-looking website.
 
