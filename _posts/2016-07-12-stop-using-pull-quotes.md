@@ -37,7 +37,7 @@ Let's look at a typical example of a web-based pull quote, taken from a [Macworl
 Notice the ways in which this pull quote fails to meet the ideals we listed earlier:
 
 - **Can't be seen when you're deciding whether to read or not.** The pull quote only appears when you've clicked to go to this webpage---i.e. when you've already made a positive choice to start reading it. The online equivalent of flicking through a magazine is scanning the homepage or a Google results page; for the pull quote to affect your decision, it needs to be there, not on the article page itself.
-- **Too late to be tease you.** It's too far down the page to act as a teaser of the content. By the time you've scrolled down this far, you're already deep into reading the article.
+- **Too late to tease you.** It's too far down the page to act as a teaser of the content. By the time you've scrolled down this far, you're already deep into reading the article.
 - **Too early to remind you.** Conversely, it's too far *up* the page to remind you of a key point after you've finished reading. By the time you've scrolled to the end, the pull quote is already off screen.
 
 This pull quote has failed to attract more readers, failed to introduce them to what they're starting to read, and failed to remind them of its key point at the end. On every level, this typical pull quote is not fit for purpose.
