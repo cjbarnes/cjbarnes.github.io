@@ -32,9 +32,10 @@ $rum:           #706b85;
 $aqua-forest:   #5e9776;
 
 // Brands.
-$color-linkedin: #0976b4;
-$color-twitter:  #00acf2;
-$color-rss:      #d78637;
+$color-linkedin:  #0976b4;
+$color-twitter:   #00acf2;
+$color-rss:       #d78637;
+$color-instagram: #c13584;
 
 
 // Functional colour assignments.
@@ -138,10 +139,11 @@ $figure-colors: (
 
 // Contact detail colours.
 $circle-list-colors: (
-    "email":    $color-email,
-    "phone":    $color-phone,
-    "linkedin": $color-linkedin,
-    "twitter":  $color-twitter,
-    "address":  $color-address,
-    "feed":     $color-rss,
+    "email":     $color-email,
+    "phone":     $color-phone,
+    "linkedin":  $color-linkedin,
+    "twitter":   $color-twitter,
+    "instagram": $color-instagram,
+    "address":   $color-address,
+    "feed":      $color-rss
 );
