@@ -10,7 +10,7 @@ Screenshots of websites for the portfolio go in [./portfolio](portfolio/), and f
 Every masthead image must be outputted in multiple different sizes/crops for different device sizes and pixel densities:
 
 | Filename (`SLUG` = the image name) | Width  | Height | Used for (e.g.)      |
-|====================================|=======:|=======:|======================|
+|------------------------------------|-------:|-------:|----------------------|
 | SLUG_listing.jpg                   |  950px |  650px | Blog index and menu pages |
 | SLUG-320.jpg                       |  320px |  600px | 4" phone (iPhone 4 size) |
 | SLUG-320@2x.jpg                    |  640px | 1200px | 4" phone with retina display |

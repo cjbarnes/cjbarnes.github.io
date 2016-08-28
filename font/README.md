@@ -9,7 +9,7 @@ Webfonts on cjbarnes.co.uk
 ## Fonts used on this site
 
 | Font            | Weights        | Served from  | Notes  |
-|=================|================|==============|========|
+|-----------------|----------------|--------------|--------|
 | Aleo            | Light/*Italic* | GitHub Pages | Used for body text |
 | Source Code Pro | 300            | Google Fonts | Used for headings, links, metadata |
 | cj icons        | n/a            | GitHub Pages | Contains all icons used on the site, including the cJ logo. Mostly a subset of [Entypo](http://www.entypo.com) with [Devicons](http://vorillaz.github.io/devicons/#/main) additions
