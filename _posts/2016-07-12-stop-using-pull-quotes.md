@@ -37,7 +37,7 @@ Let's look at a typical example of a web-based pull quote, taken from a [Macworl
 Notice the ways in which this pull quote fails to meet the ideals we listed earlier:
 
 - **Can't be seen when you're deciding whether to read or not.** The pull quote only appears when you've clicked to go to this webpage---i.e. when you've already made a positive choice to start reading it. The online equivalent of flicking through a magazine is scanning the homepage or a Google results page; for the pull quote to affect your decision, it needs to be there, not on the article page itself.
-- **Too late to be tease you.** It's too far down the page to act as a teaser of the content. By the time you've scrolled down this far, you're already deep into reading the article.
+- **Too late to tease you.** It's too far down the page to act as a teaser of the content. By the time you've scrolled down this far, you're already deep into reading the article.
 - **Too early to remind you.** Conversely, it's too far *up* the page to remind you of a key point after you've finished reading. By the time you've scrolled to the end, the pull quote is already off screen.
 
 This pull quote has failed to attract more readers, failed to introduce them to what they're starting to read, and failed to remind them of its key point at the end. On every level, this typical pull quote is not fit for purpose.
@@ -71,17 +71,17 @@ Surely that's the worst case scenario for pull quotes spoiling webpages. Except 
 <figcaption>The same pull quote and surrounding text, read aloud by a screen reader</figcaption>
 </figure>
 
-This is what a blind or visually impaired user will hear as they 'read' (really 'listen to') the page. Here the repeated sentence is even more jarring, and it's impossible to distinguish between the original text and its pull quote version. In fact, since the two are identical, **a blind user actually cannot tell where this sentence was actually supposed to be**. In this case, that's not going to affect the article's meaning. But it's not hard to imagine a much worse result.
+This is what a blind or visually impaired user will hear as they 'read' (really 'listen to') the page. Here the repeated sentence is even more jarring, and it's impossible to distinguish between the original text and its pull quote version. In fact, since the two are identical, **a blind user cannot tell where this sentence was actually supposed to be**.
 
-One very plausible outcome: imagine a political news article where part of a speech by the Prime Minister is used as a pull quote. The PM's words are now taken out of the flow of the main text and, from a blind user's perspective, could appear anywhere. Imagine if they end up inserted into the middle of a comment by the PM's political opponent! That would drastically affect the meaning of the article, and could leave the 'reader' utterly misinformed about an important issue that affects them.
+In this case, the misplaced sentence is not going to affect the article's meaning. But it's not hard to imagine a much worse result; for example, a news story where a comment from a politician is used as the pull quote. Taken from its context, the quoted text may appear to be the words of the journalist writer rather than a politician, leading to a serious misunderstanding about the validity of what the comment claims. The quote may even show up in the middle of a comment from the politician's opponents!
 
 * * *
 
-Hopefully you're now convinced of the harm caused by pull quotes on the web, as well as their inability to encourage you to read an article or to help you digest and retain it.[^3] There is no justification for pull quotes' continued use on webpages. The sooner we abandon them, the better the experience for everyone---blind and visually impaired users, mobile-phone readers, RSS users, emailers, compulsive webpage printers, and everyday users who just want your site's design to *get out of the way* so they can focus on reading and enjoying your content.
+In this article I've outlined the harm caused by pull quotes on the web, as well as their inability to encourage you to read an article or to help you digest and retain it.[^3] I believe there is no justification for pull quotes' continued use on webpages. The sooner we abandon them, the better the experience for everyone---blind and visually impaired users, mobile-phone readers, RSS users, emailers, compulsive webpage printers, and everyday users who just want your site's design to *get out of the way* so they can focus on reading and enjoying your content.
 
 [^1]: I started drafting this post over a year ago. (I would've finished it earlier but I didn't have a website to put it on!) In that initial spell of writing, I believe I pulled this definition verbatim from a webpage. However I can't find the original source in my notes or on Google. In the absence of a citation, please just assume someone cleverer and better informed than me wrote it...
 
-[^2]: Common examples of this use case include RSS readers, apps like Flipboard, browser tools like Safari Reader, and Apple News and similar services. Not to mention copy-and-pasting a webpage's text into an email or document, or printing it. In all these cases, the user will see you text but won't see all or part of the design it normally sits within.
+[^2]: Common examples of this use case include RSS readers, apps like Flipboard, browser tools like Safari Reader, and Apple News and similar services. Not to mention copy-and-pasting a webpage's text into an email or document, or printing it. In all these cases, the user will see your text but won't see all or part of the design it normally sits within.
 
 [^3]: Throughout this article, I've ignored a secondary purpose of pull quotes: *aesthetics*. Put simply, pull quotes look nice, and that helps to establish a more attractive and stylish-looking website.
 
