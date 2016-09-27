@@ -1,7 +1,7 @@
 {
   "name": "cjbarnes-jekyll-website",
   "description": "cJ barnes’ public website and blog",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "license": "CC-BY-4.0",
   "author": "chris barnes <chris@cjbarnes.co.uk>",
