@@ -3,6 +3,8 @@ title: we won an award!
 date: 2016-09-27 19:50:00 +0100
 format: project
 length: long
+image: /img/ypm.jpg
+masthead: light
 ---
 
 [York Profiles & Mentors](https://www.york.ac.uk/careers/profiles/), the mentoring and career profiles platform I created for the University of York, won a careers guidance award this month!
