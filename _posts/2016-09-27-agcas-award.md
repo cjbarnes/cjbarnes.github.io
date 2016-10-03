@@ -1,5 +1,5 @@
 ---
-title: I won an award!
+title: we won an award!
 date: 2016-09-27 19:50:00 +0100
 format: project
 length: long
