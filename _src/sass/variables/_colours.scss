@@ -32,9 +32,10 @@ $rum:           #706b85;
 $aqua-forest:   #5e9776;
 
 // Brands.
-$color-linkedin: #0976b4;
-$color-twitter:  #00acf2;
-$color-rss:      #d78637;
+$color-linkedin:  #0976b4;
+$color-twitter:   #00acf2;
+$color-rss:       #d78637;
+$color-instagram: #c13584;
 
 
 // Functional colour assignments.
@@ -52,7 +53,7 @@ $text-color-quote:            $santa-fe;
 $text-color-emphasis:         $toast;
 $text-color-site-footer:      $vanilla;
 $text-color-listing-headings: $toast;
-$text-color-inline-code:      $black;
+$text-color-inline-code:      $rum;
 
 // Links.
 $link-color:           $patina;
@@ -69,7 +70,7 @@ $background-color-page-footer:   $cararra;
 $background-color-site-footer:   $black;
 $background-color-navbar-mobile: $black;
 $background-color-emphasis:      $cararra;
-$background-color-inline-code:   lighten($oslo-grey, 25%);
+$background-color-inline-code:   lighten($rum, 45%);
 
 // Navigation.
 $logo-color-light: $white;
@@ -138,10 +139,11 @@ $figure-colors: (
 
 // Contact detail colours.
 $circle-list-colors: (
-    "email":    $color-email,
-    "phone":    $color-phone,
-    "linkedin": $color-linkedin,
-    "twitter":  $color-twitter,
-    "address":  $color-address,
-    "feed":     $color-rss,
+    "email":     $color-email,
+    "phone":     $color-phone,
+    "linkedin":  $color-linkedin,
+    "twitter":   $color-twitter,
+    "instagram": $color-instagram,
+    "address":   $color-address,
+    "feed":      $color-rss
 );
