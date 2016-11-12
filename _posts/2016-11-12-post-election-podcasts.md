@@ -1,6 +1,6 @@
 ---
 title: two great post-Trump podcasts
-date: 2016-11-12 19:00:00 +0100
+date: 2016-11-12 21:00:00 +0000
 format: off-topic
 tags:
 - politics
@@ -41,3 +41,18 @@ If you're politically engaged, you might find that this episode touches a nerve 
 
 * * *
 
+## [The Talk Show with John Gruber—Ep. 172: 'Holiday Party', with Special Guest Merlin Mann](https://overcast.fm/+BtuxMygVg) 
+
+Two ordinary Americans who voted Hillary, working through the hangover (in every sense of that word) from election night. It's very low key and personal, and they make a genuine effort to be inclusive and light-hearted despite feeling anything but those things. It's sweet, funny, scary, and reflective, and they're not afraid to divert onto whimsy and trivialities to keep the conversation light.
+
+<figure class="quote">
+> I think the difference here is, it's not that my team didn't win, it's that maybe I just don't understand baseball anymore.
+
+<figcaption>Merlin Mann ([16:04 in](https://overcast.fm/+BtuxMygVg/16:04 "The Talk Show: timestamp for quote by Merlin Mann"))</figcaption>
+</figure>
+
+This was a wonderful respite from the cheerless fatalism affecting so many people I know and like at the moment. 
+
+<figure class="link" markdown="span">
+[The Talk Show with John Gruber—Ep. 172: 'Holiday Party', with Special Guest Merlin Mann](https://overcast.fm/+BtuxMygVg)
+</figure>
